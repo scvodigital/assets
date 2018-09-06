@@ -28,7 +28,14 @@
   },
   "homepage": "https://github.com/scvodigital/assets#readme",
   "devDependencies": {
+    "css-loader": "^1.0.0",
+    "extract-loader": "^3.0.0",
+    "file-loader": "^2.0.0",
     "gts": "^0.8.0",
-    "typescript": "~2.8.0"
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0",
+    "typescript": "~2.8.0",
+    "webpack": "3",
+    "webpack-dev-server": "2"
   }
 }

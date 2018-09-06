@@ -51,7 +51,12 @@ function getConfig(site) {
       ],
     },
     plugins: [
-      new UglifyJsPlugin(),
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          ecma: 5,
+          sourceMap: true
+        }
+      }),
       new CompressionPlugin(),
     ],
   };

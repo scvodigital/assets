@@ -151,6 +151,7 @@ export class Goodmoves {
     currentPage.hide();
     nextPage.show();
   }
+
   handleLocationBoxes() {
     $('[data-location-options]').each(function(i, o) {
       var options = $(o).data('location-options');

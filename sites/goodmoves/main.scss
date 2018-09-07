@@ -382,6 +382,9 @@ footer h3,
     padding: $unit 0 0;
   }
 }
+.mdc-drawer--modal {
+  top: 0;
+}
 .mdc-drawer--occasional-ie11 {
   box-sizing: border-box;
   position: relative;
@@ -3253,6 +3256,9 @@ background-color: #42842A;
   .hide-sm {
     display: none !important;
   }
+  .mdc-drawer--occasional {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $mobile-landscape-breakpoint + 1) {
@@ -3268,13 +3274,16 @@ background-color: #42842A;
   .mdc-toolbar-fixed-adjust {
     padding-top: $header-upper-height;
   }
+  .mdc-drawer--occasional {
+    display: none;
+  }
 }
 
 @media screen and (min-width: $mobile-landscape-breakpoint + 1) {
   .hide-lg {
     display: none !important;
   }
-  .mdc-drawer--occasional {
+  /*.mdc-drawer--occasional {
     align-items: flex-start;
     z-index: 1;
     width: 320px;
@@ -3301,7 +3310,7 @@ background-color: #42842A;
       width: 320px;
       pointer-events: all;
     }
-  }
+  }*/
   #perm-salary-collapse {
     .mdc-text-field--box {
       margin: 0 0 $unit;

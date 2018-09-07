@@ -3,14 +3,16 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = [
-  getConfig('goodmoves'),
+  getConfig('goodmoves', 'Goodmoves'),
 ]
 
-function getConfig(site) {
+function getConfig(site, library) {
   return {
     entry: ['./sites/' + site + '/main.scss', './sites/' + site + '/main.js'],
     output: {
       filename: 'build/' + site + '/main.js',
+      library: library,
+      libraryTarget: 'var'
     },
     module: {
       rules: [{
@@ -42,6 +44,19 @@ function getConfig(site) {
           ],
         },
         {
+          test: require.resolve('jquery'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'jQuery'
+            },
+            {
+              loader: 'expose-loader',
+              options: '$'
+            }
+          ]
+        },
+        {
           test: /\.js$/,
           loader: 'babel-loader',
           query: {
@@ -50,6 +65,7 @@ function getConfig(site) {
         }
       ],
     },
+/*
     plugins: [
       new UglifyJsPlugin({
         uglifyOptions: {
@@ -59,5 +75,6 @@ function getConfig(site) {
       }),
       new CompressionPlugin(),
     ],
+*/
   };
 }

@@ -10038,11 +10038,9 @@ footer.mdc-layout__footer {
     zoom: 0.7; } }
 
 /*=====Tab Bar=====*/
-.mdc-tab-bar__left {
-  margin-left: 0; }
-
-.mdc-tab-bar__right {
-  margin-right: 0; }
+.mdc-tab-bar__auto-width {
+  margin-left: 0;
+  width: auto; }
 
 .mdc-tab-bar__compact {
   height: 2em; }

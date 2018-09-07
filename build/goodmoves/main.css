@@ -7572,7 +7572,7 @@ body {
 
 .mdc-top-app-bar {
   background-color: white;
-  z-index: 5 !important; }
+  z-index: 7 !important; }
 
 h1,
 h2,
@@ -7867,7 +7867,8 @@ footer h3,
     padding: 1rem 0 0; }
 
 .mdc-drawer--modal {
-  top: 0; }
+  top: 0;
+  z-index: 8; }
 
 .mdc-drawer--occasional-ie11 {
   box-sizing: border-box;

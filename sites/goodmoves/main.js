@@ -1,7 +1,7 @@
-const Headroom = require('headroom.js');
-const firebase = require('firebase/app');
-require('firebase/auth');
-
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import "@babel/polyfill";
+import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { MDCInitialiser } from '../../lib/mdc-initialiser';
 

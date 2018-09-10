@@ -16499,71 +16499,7 @@ var Goodmoves = function () {
     }
   }, {
     key: 'handleLocationBoxes',
-    value: function handleLocationBoxes() {
-      $('[data-location-options]').each(function (i, o) {
-        var options = $(o).data('location-options');
-        var latSelector = $(o).data('location-lat');
-        var lngSelector = $(o).data('location-lng');
-        var lsSelector = $(o).data('location-services');
-
-        var autocomplete = new google.maps.places.Autocomplete(o, options);
-        autocomplete.addListener('place_changed', function (evt) {
-          var place = this.getPlace();
-          if (place.geometry.location) {
-            $(o).val(place.formatted_address);
-            $(latSelector).val(place.geometry.location.lat());
-            $(lngSelector).val(place.geometry.location.lng());
-          }
-        });
-
-        $(o).on('focus', function (evt) {
-          if ($(latSelector).val() !== '') {
-            $(o).val('');
-            $(latSelector).val('');
-            $(lngSelector).val('');
-          }
-        }).on('blur', function (evt) {
-          if ($(latSelector).val() === '') {
-            $(o).val('');
-          }
-        });
-
-        $(lsSelector).on('click', function (evt) {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-              var lat = position.coords.latitude;
-              var lng = position.coords.longitude;
-
-              $(latSelector).val(lat);
-              $(lngSelector).val(lng);
-
-              var base = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
-              var coords = lat + ',' + lng;
-              var key = 'AIzaSyCT7vZkJdto5JoAUDx3asuHu7mHcl8UanQ';
-              var url = base + coords + '&key=' + key + '&result_type=locality';
-              $.getJSON(url, function (place) {
-                if (place.results && place.results.length > 0) {
-                  var locality = place.results[0].address_components[0].short_name;
-                }
-                if (locality) {
-                  $(o).val(locality);
-                } else {
-                  $(o).val(lat + ', ' + lng);
-                  goodmoves.snackbarShow({
-                    message: 'Could not find a name for your location'
-                  });
-                }
-              });
-            });
-          }
-        });
-      }).on('keypress', function (evt) {
-        if (evt.which === 13) {
-          evt.preventDefault();
-          return false;
-        }
-      });
-    }
+    value: function handleLocationBoxes() {}
   }]);
 
   return Goodmoves;
@@ -76958,6 +76894,73 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
       $('[data-typeahead]').each(function (i, o) {
         var typeahead = new _typeaheadController.TypeaheadController(o);
         _this.typeaheads.push(typeahead);
+      });
+    }
+  }, {
+    key: 'initialiseGMapsDependents',
+    value: function initialiseGMapsDependents() {
+      $('[data-location-search]').each(function (i, o) {
+        var $o = $(o);
+        var options = $o.data('location-search');
+        var $lat = $(options.latSelector);
+        var $lng = $(options.lngSelector);
+        var $ls = $(options.locationServicesSelector);
+
+        var autocomplete = new google.maps.places.Autocomplete(o, options);
+        autocomplete.addListener('place_changed', function (evt) {
+          var place = this.getPlace();
+          if (place.geometry.location) {
+            $o.val(place.formatted_address);
+            $lat.val(place.geometry.location.lat());
+            $lng.val(place.geometry.location.lng());
+          }
+        });
+
+        $o.on('focus', function (evt) {
+          if ($lat.val() !== '') {
+            $(o).val('');
+            $lat.val('');
+            $lng.val('');
+          }
+        }).on('blur', function (evt) {
+          if ($lat.val() === '') {
+            $o.val('');
+          }
+        });
+
+        $ls.on('click', function (evt) {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+              var lat = position.coords.latitude;
+              var lng = position.coords.longitude;
+
+              $lat.val(lat);
+              $lng.val(lng);
+
+              console.log(google);
+
+              var base = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
+              var coords = lat + ',' + lng;
+              var key = 'AIzaSyCT7vZkJdto5JoAUDx3asuHu7mHcl8UanQ';
+              var url = base + coords + '&key=' + key + '&result_type=locality';
+              $.getJSON(url, function (place) {
+                if (place.results && place.results.length > 0) {
+                  var locality = place.results[0].address_components[0].short_name;
+                }
+                if (locality) {
+                  $o.val(locality);
+                } else {
+                  $o.val(lat + ', ' + lng);
+                }
+              });
+            });
+          }
+        });
+      }).on('keypress', function (evt) {
+        if (evt.which === 13) {
+          evt.preventDefault();
+          return false;
+        }
       });
     }
   }, {

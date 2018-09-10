@@ -57,6 +57,15 @@ function getConfig(site, library) {
           ]
         },
         {
+          test: require.resolve('string'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'S'
+            }
+          ]
+        },
+        {
           test: /\.js$/,
           loader: 'babel-loader',
           query: {
@@ -65,6 +74,7 @@ function getConfig(site, library) {
         }
       ],
     },
+    /*
     plugins: [
       new UglifyJsPlugin({
         uglifyOptions: {
@@ -74,5 +84,6 @@ function getConfig(site, library) {
       }),
       new CompressionPlugin(),
     ],
+    */
   };
 }

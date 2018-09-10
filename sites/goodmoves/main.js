@@ -5,7 +5,7 @@ import 'leaflet';
 import 'mapbox.js';
 import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
-import { MDCInitialiser } from '../../lib/mdc-initialiser';
+import { ComponentsInitialiser } from '../../lib/components-initialiser';
 
 export class Goodmoves {
   constructor(firebaseConfig) {
@@ -35,8 +35,8 @@ export class Goodmoves {
     });
     this.windowResized();
 
-    this.mdcInitialiser = new MDCInitialiser();
-    this.mdcInitialiser.initialise();
+    this.componentsInitialiser = new ComponentsInitialiser();
+    this.componentsInitialiser.initialise();
 
     // Headroom
     var header = document.querySelector("header.top-bar-stuck");

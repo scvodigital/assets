@@ -76898,7 +76898,7 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
     }
   }, {
     key: 'initialiseGMapsDependents',
-    value: function initialiseGMapsDependents() {
+    value: function initialiseGMapsDependents(apiKey) {
       $('[data-location-search]').each(function (i, o) {
         var $o = $(o);
         var options = $o.data('location-search');
@@ -76906,7 +76906,7 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
         var $lng = $(options.lngSelector);
         var $ls = $(options.locationServicesSelector);
 
-        var autocomplete = new google.maps.places.Autocomplete(o, options);
+        var autocomplete = new google.maps.places.Autocomplete(o, options.googleMapsOptions);
         autocomplete.addListener('place_changed', function (evt) {
           var place = this.getPlace();
           if (place.geometry.location) {
@@ -76915,6 +76915,8 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
             $lng.val(place.geometry.location.lng());
           }
         });
+
+        console.log(autocomplete);
 
         $o.on('focus', function (evt) {
           if ($lat.val() !== '') {
@@ -76941,8 +76943,7 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
 
               var base = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
               var coords = lat + ',' + lng;
-              var key = 'AIzaSyCT7vZkJdto5JoAUDx3asuHu7mHcl8UanQ';
-              var url = base + coords + '&key=' + key + '&result_type=locality';
+              var url = base + coords + '&key=' + apiKey + '&result_type=locality';
               $.getJSON(url, function (place) {
                 if (place.results && place.results.length > 0) {
                   var locality = place.results[0].address_components[0].short_name;

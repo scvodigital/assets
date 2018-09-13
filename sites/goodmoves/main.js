@@ -7,6 +7,8 @@ import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
 
+window.firebase = firebase;
+
 export class Goodmoves {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
@@ -150,8 +152,5 @@ export class Goodmoves {
     }
     currentPage.hide();
     nextPage.show();
-  }
-
-  handleLocationBoxes() {
   }
 }

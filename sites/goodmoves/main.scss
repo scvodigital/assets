@@ -2384,11 +2384,6 @@ footer,
   -ms-overflow-style: -ms-autohiding-scrollbar;
   padding: $unit*(3/4) 0 $unit;
   margin: 0;
-  .mdc-layout-grid__cell.shortlist-jobs,
-  .mdc-layout-grid__cell.latest-jobs,
-  .mdc-layout-grid__cell.top-jobs {
-    margin: 0 $unit/2;
-  }
   // .mdc-layout-grid__cell.shortlist-jobs:first-child,
   // .mdc-layout-grid__cell.latest-jobs:first-child,
   // .mdc-layout-grid__cell.top-jobs:first-child {
@@ -2401,6 +2396,7 @@ footer,
   }
   .mdc-layout-grid__cell {
     flex: 0 0 auto;
+    margin: 0 $unit/2;
     @media screen and (min-width: $desktop-landscape-breakpoint + 1) {
       .mdc-card {
         width: 30vw;

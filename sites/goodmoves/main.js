@@ -7,6 +7,8 @@ import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
 
+import * as cookieInfoScript from '../../lib/cookie-info-script';
+
 window.firebase = firebase;
 
 export class Goodmoves {
@@ -47,6 +49,20 @@ export class Goodmoves {
       "tolerance": 5
     });
     headroom.init();
+
+    const ci = new cookieinfo();
+    ci.options.message = "We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.";
+    ci.options.fontFamily = "'Open Sans',Helvetica,Arial,sans-serif";
+    ci.options.bg = "#fff";
+    ci.options.link = "#42842A";
+    ci.options.divlink = "#fff";
+    ci.options.divlinkbg = "#42842A";
+    ci.options.position = "bottom";
+    ci.options.acceptOnScroll = "true";
+    ci.options.moreinfo = "/cookies";
+    ci.options.cookie = "CookieInfoScript";
+    ci.options.textAlign = "left";
+    ci.run();
   }
 
   windowResized() {

@@ -76540,7 +76540,9 @@ var _materialComponentsWeb = __webpack_require__(157);
 
 var mdc = _interopRequireWildcard(_materialComponentsWeb);
 
-var _typeaheadController = __webpack_require__(473);
+var _typeahead = __webpack_require__(473);
+
+var _horizontalScroller = __webpack_require__(485);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -76896,8 +76898,14 @@ var ComponentsInitialiser = exports.ComponentsInitialiser = function () {
 
       this.typeaheads = [];
       $('[data-typeahead]').each(function (i, o) {
-        var typeahead = new _typeaheadController.TypeaheadController(o);
+        var typeahead = new _typeahead.TypeaheadComponent(o);
         _this.typeaheads.push(typeahead);
+      });
+
+      this.horizontalScrollers = [];
+      $('.scrolling-grid').each(function (i, o) {
+        var horizontalScroller = new _horizontalScroller.HorizontalScrollerComponent(o);
+        _this.horizontalScrollers.push(horizontalScroller);
       });
     }
   }, {
@@ -77009,11 +77017,11 @@ var Bloodhound = __webpack_require__(477);
 var S = __webpack_require__(478);
 var flatten = __webpack_require__(483);
 
-var TypeaheadController = exports.TypeaheadController = function () {
-  function TypeaheadController(textbox) {
+var TypeaheadComponent = exports.TypeaheadComponent = function () {
+  function TypeaheadComponent(textbox) {
     var _this = this;
 
-    _classCallCheck(this, TypeaheadController);
+    _classCallCheck(this, TypeaheadComponent);
 
     this.textbox = $(textbox);
     this.config = this.textbox.data('typeahead');
@@ -77103,7 +77111,7 @@ var TypeaheadController = exports.TypeaheadController = function () {
     });
   }
 
-  _createClass(TypeaheadController, [{
+  _createClass(TypeaheadComponent, [{
     key: 'typeaheadSelect',
     value: function typeaheadSelect(ev, suggestion) {
       var _this2 = this;
@@ -77176,7 +77184,7 @@ var TypeaheadController = exports.TypeaheadController = function () {
     value: function output_prop(options, item, dataset) {}
   }]);
 
-  return TypeaheadController;
+  return TypeaheadComponent;
 }();
 
 /***/ }),
@@ -89399,6 +89407,84 @@ function unflatten(target, opts) {
 module.exports = function isBuffer(obj) {
   return obj != null && obj.constructor != null && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj);
 };
+
+/***/ }),
+/* 485 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var HorizontalScrollerComponent = exports.HorizontalScrollerComponent = function () {
+  function HorizontalScrollerComponent(scroller) {
+    var _this = this;
+
+    _classCallCheck(this, HorizontalScrollerComponent);
+
+    this.$scroller = $(scroller);
+    this.scroller = this.$scroller[0];
+    this.$scrollLeft = this.$scroller.parent().find('.scroll-left');
+    this.$scrollRight = this.$scroller.parent().find('.scroll-right');
+
+    this.$scrollLeft.on('click', function () {
+      var currentLeft = _this.$scroller.scrollLeft();
+      var third = _this.$scroller.width() * (3 / 5);
+      var by = currentLeft - third;
+      if (_this.scroller.scroll) {
+        _this.scroller.scroll({ left: by, top: 0, behavior: 'smooth' });
+      } else {
+        _this.$scroller.scrollLeft(by);
+      }
+    });
+    this.$scrollRight.on('click', function () {
+      var currentLeft = _this.$scroller.scrollLeft();
+      var third = _this.$scroller.width() * (3 / 5);
+      var by = currentLeft + third;
+      if (_this.scroller.scroll) {
+        _this.scroller.scroll({ left: by, top: 0, behavior: 'smooth' });
+      } else {
+        _this.$scroller.scrollLeft(by);
+      }
+    });
+
+    this.showHideScrollButtons();
+    this.$scroller.on('scroll', function () {
+      _this.showHideScrollButtons();
+    });
+  }
+
+  _createClass(HorizontalScrollerComponent, [{
+    key: 'showHideScrollButtons',
+    value: function showHideScrollButtons() {
+      var currentLeft = this.$scroller.scrollLeft();
+      var maxLeft = this.scroller.scrollWidth - this.$scroller.width() - 1;
+
+      if (currentLeft <= 0) {
+        this.$scrollLeft.hide();
+      } else {
+        this.$scrollLeft.show();
+        this.$scrollLeft.css('display', 'flex');
+      }
+
+      if (currentLeft >= maxLeft) {
+        this.$scrollRight.hide();
+      } else {
+        this.$scrollRight.show();
+        this.$scrollRight.css('display', 'flex');
+      }
+    }
+  }]);
+
+  return HorizontalScrollerComponent;
+}();
 
 /***/ })
 /******/ ]);

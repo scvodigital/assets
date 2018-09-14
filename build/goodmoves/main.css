@@ -8710,9 +8710,7 @@ a {
     background: white !important; }
 
 .mdc-card.full #vacancy-tab-bar {
-  width: 100%;
   background-color: #ecf2e9;
-  display: flex;
   border-radius: 2px 2px 0 0; }
   .mdc-card.full #vacancy-tab-bar .mdc-tab {
     color: #346921;

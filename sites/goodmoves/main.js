@@ -23,7 +23,6 @@ export class Goodmoves {
       { name: 'desktop', min: 960, max: 20000 }
     ];
 
-    this.snackbar = null;
     this.maps = {};
 
     this.ie = navigator.appName.indexOf('Microsoft') > -1 || navigator.userAgent.indexOf('Trident') > -1;
@@ -134,18 +133,7 @@ export class Goodmoves {
   }
 
   snackbarShow(options) {
-    var $snackbar = $('#app-snackbar');
-    $snackbar.css($snackbar.data('defaultCss'));
-
-    if (options.backgroundColor) {
-      $snackbar.css('background-color', options.backgroundColor);
-      delete options.backgroundColor;
-    }
-    if (options.color) {
-      $snackbar.css('color', options.color);
-      delete options.color;
-    }
-    this.snackbar.show(options);
+    console.log('DEPRECATED SNACKBARSHOW CALLED:', arguments);
   }
 
   popupPagerPage(pager, direction) {

@@ -7677,11 +7677,11 @@ header .container-fluid {
     border-bottom-color: rgba(255, 255, 255, 0.9); }
   header .container-fluid .mdc-top-app-bar__navigation-icon {
     color: #42842A; }
-  header .container-fluid .mdc-top-app-bar__main .mdc-menu-anchor,
-  header .container-fluid .mdc-top-app-bar__user .mdc-menu-anchor {
+  header .container-fluid .mdc-top-app-bar__main .mdc-menu-surface--anchor,
+  header .container-fluid .mdc-top-app-bar__user .mdc-menu-surface--anchor {
     padding: 0 0.25rem 0 0.5rem; }
-    header .container-fluid .mdc-top-app-bar__main .mdc-menu-anchor .mdc-button,
-    header .container-fluid .mdc-top-app-bar__user .mdc-menu-anchor .mdc-button {
+    header .container-fluid .mdc-top-app-bar__main .mdc-menu-surface--anchor .mdc-button,
+    header .container-fluid .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
       border-radius: 0;
       border-top: 2px solid transparent;
       border-bottom: 2px solid transparent;
@@ -7689,16 +7689,16 @@ header .container-fluid {
       height: 38px;
       padding: 0;
       text-transform: none; }
-      header .container-fluid .mdc-top-app-bar__main .mdc-menu-anchor .mdc-button .fa-fw,
-      header .container-fluid .mdc-top-app-bar__user .mdc-menu-anchor .mdc-button .fa-fw {
+      header .container-fluid .mdc-top-app-bar__main .mdc-menu-surface--anchor .mdc-button .fa-fw,
+      header .container-fluid .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button .fa-fw {
         margin-right: 0.5rem;
         vertical-align: inherit; }
-      header .container-fluid .mdc-top-app-bar__main .mdc-menu-anchor .mdc-button .fa-fw:last-child,
-      header .container-fluid .mdc-top-app-bar__user .mdc-menu-anchor .mdc-button .fa-fw:last-child {
+      header .container-fluid .mdc-top-app-bar__main .mdc-menu-surface--anchor .mdc-button .fa-fw:last-child,
+      header .container-fluid .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button .fa-fw:last-child {
         padding-left: 0.25rem;
         margin-right: 0; }
-    header .container-fluid .mdc-top-app-bar__main .mdc-menu-anchor .mdc-button:hover,
-    header .container-fluid .mdc-top-app-bar__user .mdc-menu-anchor .mdc-button:hover {
+    header .container-fluid .mdc-top-app-bar__main .mdc-menu-surface--anchor .mdc-button:hover,
+    header .container-fluid .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button:hover {
       background-color: transparent;
       border-bottom-color: rgba(255, 255, 255, 0.6); }
   header .container-fluid .mdc-top-app-bar__section {

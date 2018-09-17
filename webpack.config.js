@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = [
   getConfig('goodmoves', 'Goodmoves'),
+  getConfig('getinvolved', 'GetInvolved'),
 ]
 
 function getConfig(site, library) {

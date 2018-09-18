@@ -75,7 +75,6 @@ function getConfig(site, library) {
         }
       ],
     },
-    /*
     plugins: [
       new UglifyJsPlugin({
         uglifyOptions: {
@@ -85,6 +84,5 @@ function getConfig(site, library) {
       }),
       new CompressionPlugin(),
     ],
-    */
   };
 }

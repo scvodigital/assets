@@ -1439,6 +1439,9 @@ hr {
 .page-content {
   padding: $unit 0 $unit*2;
 }
+.mdc-drawer {
+  height: auto !important;
+}
 .mdc-drawer__content {
   padding: 0 $unit/2 $unit;
   #search-tab-bar {
@@ -2287,6 +2290,7 @@ footer,
   border-bottom: $unit/5 solid $mdc-theme-primary-light;
   .home-jobs {
     background-color: transparent;
+    padding: 0 $unit;
   }
   .mdc-drawer__content-heading {
     padding: 0 $unit;
@@ -2495,7 +2499,7 @@ footer.mdc-layout__footer {
   background-color: $mdc-theme-footer;
   box-shadow: $toolbar-shadow-reverse;
   position: relative;
-  z-index: 1;
+  z-index: 6;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;

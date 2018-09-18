@@ -7,6 +7,9 @@ brancehs:
 cache:
   yarn: true
   directories: "$HOME/google-cloud-sdk"
+install:
+  - yarn
+  - npm run compile
 deploy:
   provider: gcs
   access_key_id: GOOGC5HZMFRY5JLHHJLZ75HO

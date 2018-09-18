@@ -1,3 +1,4 @@
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -19,20 +20,29 @@ function main() {
   }
   toCompile = toCompile.length > 0 ? toCompile : sites;
 
-  const noCompress = typeof process.env.NO_COMPRESS !== 'undefined' ? Boolean(process.env.NO_COMPRESS) : false;
 
   console.log('Packing sites:', toCompile);
-  console.log('Not Compressing:', noCompress);
+
+  const plugins = [
+    new HardSourceWebpackPlugin(),
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 5,
+        sourceMap: true
+      }
+    }),
+    new CompressionPlugin()
+  ];
 
   const modules = toCompile.map(site => {
-    const config = getConfig(site.site, site.library, noCompress);
+    const config = getConfig(site.site, site.library, plugins);
     return config;
   });
 
   return modules;
 }
 
-function getConfig(site, library, noCompress) {
+function getConfig(site, library, plugins) {
   const config = {
     entry: ['./sites/' + site + '/main.scss', './sites/' + site + '/main.js'],
     output: {
@@ -99,20 +109,9 @@ function getConfig(site, library, noCompress) {
           },
         }
       ],
-    }
+    },
+    plugins: plugins
   };
-
-  if (!noCompress) {
-    config.plugins = [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          ecma: 5,
-          sourceMap: true
-        }
-      }),
-      new CompressionPlugin(),
-    ];
-  }
 
   return config;
 }

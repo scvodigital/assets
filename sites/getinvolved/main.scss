@@ -278,6 +278,10 @@ header {
     padding: 0 $unit/2;
   }
 }
+.mdc-tab__icon {
+  height: auto;
+  width: auto;
+}
 
 .container-content,
 #search-tab-bar,

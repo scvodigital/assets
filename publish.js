@@ -42,10 +42,10 @@ async function uploadFile(path, newPath, contentType) {
     await storage.bucket('scvo-assets').upload(path, {
       destination: newPath,
       public: true,
-      gzip: true,
       metadata: {
         cacheControl: 'public, max-age=31536000',
-        contentType: contentType
+        'Content-Type': contentType,
+        'Content-Encoding': 'gzip'
       }
     });
     console.log('Uploaded', path, 'to scvo-assets ->', newPath);

@@ -7,7 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 0",
     "compile": "./node_modules/webpack/bin/webpack.js",
     "dev": "NO_COMPRESS=true ./node_modules/webpack/bin/webpack.js",
-    "start": "./node_modules/webpack/bin/webpack.js"
+    "start": "./node_modules/webpack/bin/webpack.js",
+    "publish": "export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "if [[ $(git rev-parse --abbrev-ref HEAD) = 'dev' ]]; then npm version patch; fi"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,6 +30,7 @@
   },
   "homepage": "https://github.com/scvodigital/assets#readme",
   "devDependencies": {
+    "@google-cloud/storage": "^2.0.3",
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "7",
@@ -33,8 +40,11 @@
     "expose-loader": "^0.7.5",
     "extract-loader": "^3.0.0",
     "file-loader": "^2.0.0",
+    "globby": "^8.0.1",
     "hard-source-webpack-plugin": "https://github.com/mzgoddard/hard-source-webpack-plugin#fix-missing-hash",
+    "husky": "^0.14.3",
     "imports-loader": "^0.8.0",
+    "mime-types": "^2.1.20",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
@@ -45,6 +55,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "firebase": "^5.4.2",
+    "firebase-admin": "^6.0.0",
     "flat": "^4.1.0",
     "headroom.js": "^0.9.4",
     "jquery": "^3.3.1",

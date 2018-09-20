@@ -918,6 +918,7 @@ a {
   height: calc(100vh - 138px);
   width: 100%;
   z-index: 1;
+  margin-left: $unit/2;
 }
 #map-full.shown {
   opacity: 1;
@@ -1468,7 +1469,7 @@ hr {
   padding: $unit 0 $unit*2;
 }
 .mdc-drawer {
-  height: 100% !important;
+  height: auto !important;
   z-index: 3;
   width: 320px;
   max-width: 320px;
@@ -3090,9 +3091,20 @@ footer.mdc-layout__footer {
     }
   }
 }
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 360px) {
   .mdc-top-app-bar__title svg {
     zoom: 0.7;
+  }
+  body:not(.home) header .container-fluid .mdc-top-app-bar__title .header-text {
+    margin-top: $unit/2;
+    margin-left: $unit/4;
+    .header-text-banner {
+      font-size: 2.3rem;
+      letter-spacing: -0.15rem;
+      .normal {
+        letter-spacing: -0.15rem;
+      }
+    }
   }
 }
 

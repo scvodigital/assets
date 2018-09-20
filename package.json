@@ -12,7 +12,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "if [[ $(git rev-parse --abbrev-ref HEAD) = 'dev' ]]; then echo \"Bumping version number\"; npm version patch; git commit -m \"Version number bump\"; else echo \"Not in dev so not bumping version number\" fi"
+      "pre-commit": "if [[ $(git rev-parse --abbrev-ref HEAD) = 'dev' ]]; then echo \"Bumping version number\"; npm --no-git-tag-version version patch; else echo \"Not in dev so not bumping version number\" fi"
     }
   },
   "repository": {

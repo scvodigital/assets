@@ -7,16 +7,16 @@ branches:
 cache:
   yarn: true
   directories: "$HOME/google-cloud-sdk"
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_a7e9b599f877_key -iv $encrypted_a7e9b599f877_iv -in secrets.tar.enc -out secrets.tar -d
+  - tar xvf secrets.tar
+
 install:
   - yarn
   - npm run compile
+
 deploy:
-  provider: gcs
-  access_key_id: GOOGC5HZMFRY5JLHHJLZ75HO
-  secret_access_key:
-    secure: qCZRTqq4EeARoUq3OunYfoX5FlD+u8M6/Q4HbzC6IzdBWbwxe+Xrhx/ENVpW1OnjFGVtipjfqAwQ4OjqYud3CWqQUvCspVxs7Jb19uYkWDAJO433ILabI0D+wpBytTjhhW7dbc/E4x0n6m55R+7mlmKmw0cy4ukwSKglc1hQiMF9LpCrm0rSwJgL6kPyeEqC9Zn3os3gnwgICkqQVBycCzAGykVB3Kws61N9oMpZ/RMpErKzka4gwj3/6xz5nRbFW4ETFdA3hG9wZxsnh34XBt0SdTekMKKfr1DOa5TBllitMY1vZ1ldNw2D6g5ud31GECGDSOX3/Kc8r0CujR8CvIjT1vni3JXWkCLz7sKsFL0k/3mURlJ68guKi85ZpLIGN/8aNYayrf0MnKajlTqi0gdcHqTeVUZXzi7Spf/iAc59FOaJcBrOoLUOq+2PMn7YYxr0zYKxQ3YArb0W85ofN4qQBAUPIJKMgMtkUMsZA8xNSmJHQ/w5M+Vj06R7+Wyt3fI+cwRPbc0vRQvIdIaD1S24pRWF8rptzeBgmJZnkrWBIpJFtFH81JnIqpI4wFgURv5IYfhM7MA3rP+fbtEHMfVjqpbDFJwzmolT1L9fkUiyL7vpJbj4cegD6DGOFJ9qE/UJmqmVeSo/y+KxShYvRlEQ7rhCkL5WekM5YzMfFyk=
-  bucket: scvo-assets
-  skip_cleanup: true
-  acl: public-read
-  local-dir: build
+  provider: script
+  script: npm run publish
   on: release

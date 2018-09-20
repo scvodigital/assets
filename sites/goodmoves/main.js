@@ -10,6 +10,7 @@ import * as cookieInfoScript from '../../lib/cookie-info-script';
 
 window.firebase = firebase;
 
+
 export class Goodmoves {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;

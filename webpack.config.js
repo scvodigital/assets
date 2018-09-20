@@ -19,20 +19,24 @@ function main() {
     });
   }
   toCompile = toCompile.length > 0 ? toCompile : sites;
-
+  const noCompression = !!process.env.NO_COMPRESS;
 
   console.log('Packing sites:', toCompile);
 
   const plugins = [
-    new HardSourceWebpackPlugin(),
-    new UglifyJsPlugin({
+    new HardSourceWebpackPlugin()
+  ];
+
+  console.log('No Compresison:', noCompression);
+  if (!noCompression) {
+    plugins.push(new UglifyJsPlugin({
       uglifyOptions: {
         ecma: 5,
         sourceMap: true
       }
-    }),
-    new CompressionPlugin()
-  ];
+    }));
+    plugins.push(new CompressionPlugin());
+  }
 
   const modules = toCompile.map(site => {
     const config = getConfig(site.site, site.library, plugins);

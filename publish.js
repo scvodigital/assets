@@ -44,8 +44,8 @@ async function uploadFile(path, newPath, contentType) {
       public: true,
       metadata: {
         cacheControl: 'public, max-age=31536000',
-        'Content-Type': contentType,
-        'Content-Encoding': 'gzip'
+        contentType: contentType,
+        contentEncoding: 'gzip'
       }
     });
     console.log('Uploaded', path, 'to scvo-assets ->', newPath);

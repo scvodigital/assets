@@ -42,10 +42,36 @@ $desktop-landscape-breakpoint: 1280px;
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Montserrat:500,600,700|Open+Sans:400,500,600');
 
+html {
+  overflow-y: scroll;
+  height: 100%;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
 body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
   background-color: $mdc-theme-footer-dark;
   word-break: break-word;
   -webkit-tap-highlight-color: transparent;
+}
+::-moz-selection {
+  color: white;
+  background: $mdc-theme-primary-dark;
+}
+::selection {
+  color: white;
+  background: $mdc-theme-primary-dark;
+}
+.container-fluid {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.cookieinfo {
+  box-shadow: $toolbar-shadow-reverse;
 }
 .mdc-theme--background {
   background-color: $mdc-theme-secondary-light !important;
@@ -270,7 +296,6 @@ header {
     }
   }
 }
-
 .mdc-tab-bar {
   height: $header-lower-height;
   .mdc-tab {
@@ -282,7 +307,6 @@ header {
     padding: 0 $unit/2;
   }
 }
-
 .mdc-tab__icon {
   height: auto;
   width: auto;
@@ -290,7 +314,6 @@ header {
 
 p,
 li,
-.mdc-tab,
 .mdc-tab,
 footer h3,
 .mdc-chip,
@@ -1713,46 +1736,8 @@ body.shortlist {
     }
   }
 }
-
-/*=====End Maps=====*/
-/*=====Top Bar=====*/
-// #top-bar {
-//   z-index: 5000 !important;
-// }
 .top-bar-stuck {
   position: fixed;
-  // top: 0;
-}
-
-/*=====End Top Bar=====*/
-
-html {
-  overflow-y: scroll;
-  height: 100%;
-  font-size: 1.02rem;
-  line-height: 1.45;
-}
-body {
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
-}
-::-moz-selection {
-  color: white;
-  background: $mdc-theme-primary-dark;
-}
-::selection {
-  color: white;
-  background: $mdc-theme-primary-dark;
-}
-.container-fluid {
-  max-width: 100%;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-.cookieinfo {
-  box-shadow: $toolbar-shadow-reverse;
 }
 
 .mdc-card {
@@ -3107,8 +3092,6 @@ footer.mdc-layout__footer {
   }
 }
 
-/*=====Tab Bar=====*/
-
 .mdc-tab-bar__auto-width {
   margin-left: 0;
   width: auto;
@@ -3244,11 +3227,6 @@ form.inline-form {
     background: linear-gradient(rgba(236, 242, 233, 0), rgba(236, 242, 233, 1));
   }
 }
-// .top-job .search-result-article__notes .faded-overflow {
-//   &:before {
-//     background: linear-gradient(rgba(198, 218, 191, 0), rgba(198, 218, 191, 1));
-//   }
-// }
 
 .after-textfield-action {
   float: right;
@@ -3273,37 +3251,6 @@ form.inline-form {
   opacity: 0.5;
   filter: grayscale(100%);
 }
-
-/*
-body.map {
-header#top-bar, footer.mdc-layout__footer {
-display: none;
-}
-
-.mdc-toolbar-fixed-adjust {
-padding-top: 0 !important;
-}
-
-#map-full {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-}
-
-.mdc-drawer.mdc-drawer--occasional {
-height: 100vh !important;
-}
-
-.map-search-head {
-width: 100%;
-text-align: center;
-padding: $unit 0;
-background-color: #42842A;
-}
-}
-*/
 
 @media screen and (max-width: $mobile-breakpoint) {
   .mdc-toolbar-fixed-adjust {
@@ -3339,45 +3286,11 @@ background-color: #42842A;
   .hide-lg {
     display: none !important;
   }
-  /*.mdc-drawer--occasional {
-    align-items: flex-start;
-    z-index: 1;
-    width: 320px;
-    min-height: 655px;
-    margin-right: $unit/2;
-    margin-bottom: 0;
-    padding-bottom: $unit;
-    border-right: none;
-    background-color: white !important;
-    color: rgba(0, 0, 0, 0.87);
-    border-left: 0;
-    left: 0;
-    right: initial;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: static !important;
-    height: auto !important;
-    pointer-events: all;
-    .mdc-drawer__drawer {
-      transform: none;
-      width: 320px;
-      pointer-events: all;
-    }
-  }*/
   #perm-salary-collapse {
     .mdc-text-field--box {
       margin: 0 0 $unit;
     }
   }
-
-  /*
-  body.map #map-full {
-  left: 320px;
-}
-*/
 }
 
 @media screen and (min-width: $desktop-landscape-breakpoint + 1) {
@@ -3392,9 +3305,3 @@ background-color: #42842A;
     padding: 0;
   }
 }
-
-/*=====End Utility Classes=====*/
-/*=====Colour Classes=====*/
-
-
-/*=====End Colour Classes=====*/

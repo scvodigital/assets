@@ -38,7 +38,31 @@ export class Goodmoves {
     });
     this.windowResized();
 
-    this.componentsInitialiser = new ComponentsInitialiser();
+    this.componentsInitialiser = new ComponentsInitialiser({
+      themes: {
+        primary: {
+          background: '#42842A',
+          text: '#ffffff'
+        },
+        secondary: {
+          background: '#e0e0e0',
+          text: '#000000'
+        },
+        success: {
+          background: '#679c54',
+          text: '#000000'
+        },
+        warning: {
+          background: '#A95E1E',
+          text: '#ffffff'
+        },
+        error: {
+          background: '#A9201E',
+          text: '#ffffff'
+        }
+      },
+      displayModes: displayModes
+    });
     this.componentsInitialiser.initialise();
 
     // Headroom

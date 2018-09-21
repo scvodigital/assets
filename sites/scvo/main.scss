@@ -1,4 +1,4 @@
-@import url('//unpkg.com/material-components-web@0.37.1/material-components-web.scss');
+@import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,600,700');
 
@@ -1792,6 +1792,7 @@ form#settled_status {
           height: $nav-height;
           font-weight: 600;
           padding: 0 $unit/2;
+          display: inline-block;
           .mdc-tab--label {
             text-transform: none;
             line-height: $nav-height - 4px;
@@ -1827,6 +1828,8 @@ form#settled_status {
       }
       #upper-tab-bar {
         margin-right: $unit;
+        margin-top: $unit*1.9;
+        text-align: right;
         .mdc-tab {
           min-width: auto;
           font-weight: 600;

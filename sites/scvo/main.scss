@@ -544,7 +544,9 @@ primary-dark: #263238
   }
   .jobs.community-jobs-scotland .leaflet-container a,
   .leaflet-popup-content .map-content-cjs-vacancy a,
+  .vacancy_icon .marker-icon,
   .vacancy_icon .marker-icon-cjs-vacancy,
+  .vacancy_icon .map-marker-overlay,
   .vacancy_icon .map-marker-overlay-cjs-vacancy {
     color: map-get($themeCJS, 'primary') !important;
   }
@@ -1674,7 +1676,7 @@ form#settled_status {
   .mdc-toolbar__row.toolbar-nav {
     height: $nav-height;
   }
-  .mdc-menu-anchor {
+  .mdc-menu-surface--anchor {
     .mdc-button {
       text-transform: none;
       padding: 0;
@@ -1696,7 +1698,7 @@ form#settled_status {
     .fa-fw {
       vertical-align: inherit;
     }
-    #user-menu {
+    .mdc-menu-surface {
       top: $nav-height !important;
     }
   }

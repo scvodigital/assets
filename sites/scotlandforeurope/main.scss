@@ -68,6 +68,9 @@ main {
 .cookieinfo {
   box-shadow: $toolbar-shadow-reverse;
 }
+.mdc-drawer--modal.mdc-drawer--open {
+  top: 0;
+}
 
 .mdc-tab,
 .mdc-button,

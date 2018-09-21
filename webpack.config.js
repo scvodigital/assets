@@ -4,13 +4,13 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const sites = [
-  { site: 'digitalparticipation' },
-  { site: 'fundingscotland' },
+  { site: 'digitalparticipation', library: 'DigitalParticipation' },
+  { site: 'fundingscotland', library: 'FundingScotland' },
   { site: 'getinvolved', library: 'GetInvolved' },
   { site: 'goodmoves', library: 'Goodmoves' },
-  { site: 'humanrightsdeclaration' },
-  { site: 'scotlandforeurope' },
-  { site: 'scvo' }
+  { site: 'humanrightsdeclaration', library: 'HumanRightsDeclaration' },
+  { site: 'scotlandforeurope', library: 'ScotlandForEurope' },
+  { site: 'scvo', library: 'SCVO' }
 ]
 
 function main() {

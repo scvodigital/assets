@@ -964,7 +964,7 @@ a {
       margin-top: 0;
     }
     .scroll-button {
-      width: $unit*4;
+      width: $unit*4 !important;
       height: 80%;
       top: 10%;
     }
@@ -1716,6 +1716,7 @@ body.shortlist {
   margin-right: 0;
   padding-right: 0;
   z-index: 0;
+  padding: 0 !important;
 }
 .map-content {
   h3 {

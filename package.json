@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.5",
+  "version": "0.0.16",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "compile": "./node_modules/webpack/bin/webpack.js",
     "dev": "NO_COMPRESS=true ./node_modules/webpack/bin/webpack.js",
     "start": "./node_modules/webpack/bin/webpack.js",
-    "publish": "export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js"
+    "publish": "export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
+    "clear": "rm -rf node_modules/.cache/hard-source"
   },
   "husky": {
     "hooks": {
@@ -40,7 +41,7 @@
     "extract-loader": "^3.0.0",
     "file-loader": "^2.0.0",
     "hard-source-webpack-plugin": "https://github.com/mzgoddard/hard-source-webpack-plugin#fix-missing-hash",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0-rc.14",
     "imports-loader": "^0.8.0",
     "mime-types": "^2.1.20",
     "node-sass": "^4.9.3",

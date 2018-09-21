@@ -82,7 +82,7 @@ body {
 }
 .mdc-top-app-bar {
   background-color: white;
-  z-index: 5 !important;
+  z-index: 5;
 }
 h1,
 h2,
@@ -483,6 +483,9 @@ footer h3,
   padding-bottom: $unit;
   border-right: none;
   background-color: white !important;
+}
+.mdc-dialog {
+  z-index: 2;
 }
 .mdc-dialog__backdrop {
   z-index: 10;
@@ -961,13 +964,13 @@ a {
       margin-top: 0;
     }
     .scroll-button {
-      width: $unit*4;
+      width: $unit*4 !important;
       height: 80%;
       top: 10%;
     }
   }
 }
-.vacancy_icon {
+.leaflet-marker-icon {
   text-align: center;
   font-size: 2.5rem;
   line-height: 1;
@@ -1697,7 +1700,7 @@ body.shortlist {
   position: relative;
   max-width: 1200px;
   align-items: flex-end;
-  z-index: 1;
+  z-index: 4;
   .mdc-tab-bar {
     width: 100%;
   }
@@ -1713,6 +1716,7 @@ body.shortlist {
   margin-right: 0;
   padding-right: 0;
   z-index: 0;
+  padding: 0 !important;
 }
 .map-content {
   h3 {
@@ -2515,7 +2519,7 @@ footer.mdc-layout__footer {
   background-color: $mdc-theme-footer;
   box-shadow: $toolbar-shadow-reverse;
   position: relative;
-  z-index: 4;
+  z-index: 3;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
@@ -2795,6 +2799,10 @@ footer.mdc-layout__footer {
   }
 }
 @media screen and (max-width: $mobile-breakpoint) {
+  .mdc-drawer {
+    height: 100% !important;
+  }
+
   .mdc-typography--headline3 {
     font-size: 1.5rem;
     line-height: 1.6rem;
@@ -3059,6 +3067,9 @@ footer.mdc-layout__footer {
     width: 256px;
     max-width: 256px;
   }
+  .home-banner .header-text {
+    display: none;
+  }
   .gist .thumbnail img {
     height: 64px;
     width: 64px;
@@ -3253,6 +3264,10 @@ form.inline-form {
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
+  .mdc-drawer {
+    height: 100% !important;
+  }
+
   .mdc-toolbar-fixed-adjust {
     padding-top: $header-upper-height;
   }
@@ -3268,6 +3283,10 @@ form.inline-form {
 }
 
 @media screen and (min-width: $mobile-breakpoint + 1) and (max-width: $mobile-landscape-breakpoint) {
+  .mdc-drawer {
+    height: 100% !important;
+  }
+
   .hide-md {
     display: none !important;
   }

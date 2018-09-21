@@ -10,12 +10,11 @@ import * as cookieInfoScript from '../../lib/cookie-info-script';
 
 window.firebase = firebase;
 
-
 export class Goodmoves {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
     this.app = firebase.initializeApp(this.firebaseConfig);
-    
+
     this.displayMode = null;
     this.displayModes = [
       { name: 'mobile', min: 0, max: 599 },
@@ -32,13 +31,37 @@ export class Goodmoves {
         mdc: null
       };
     });
-    
+
     $(window).on('resize', () => {
       this.windowResized();
     });
     this.windowResized();
 
-    this.componentsInitialiser = new ComponentsInitialiser();
+    this.componentsInitialiser = new ComponentsInitialiser({
+      themes: {
+        primary: {
+          background: '#42842A',
+          text: '#ffffff'
+        },
+        secondary: {
+          background: '#e0e0e0',
+          text: '#000000'
+        },
+        success: {
+          background: '#679c54',
+          text: '#000000'
+        },
+        warning: {
+          background: '#A95E1E',
+          text: '#ffffff'
+        },
+        error: {
+          background: '#A9201E',
+          text: '#ffffff'
+        }
+      },
+      displayModes: this.displayModes
+    });
     this.componentsInitialiser.initialise();
 
     // Headroom
@@ -81,7 +104,7 @@ export class Goodmoves {
 
   displayModeChanged() {
     // console.log('Display Mode:', this.displayMode);
-    
+
     this.occasionalDrawers.forEach(od => {
       var menuButton = $(od.element).data('menu-button');
       if (this.displayMode === 'desktop') {
@@ -122,7 +145,7 @@ export class Goodmoves {
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
   }
-  
+
   disable(elements, disable) {
     disable = typeof disable === 'undefined' ? true : disable;
     for (var e = 0; e < elements.length; ++e) {

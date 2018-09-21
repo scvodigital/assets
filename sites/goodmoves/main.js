@@ -60,7 +60,7 @@ export class Goodmoves {
           text: '#ffffff'
         }
       },
-      displayModes: displayModes
+      displayModes: this.displayModes
     });
     this.componentsInitialiser.initialise();
 

@@ -560,7 +560,8 @@ primary-dark: #263238
   .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: map-get($themeServices, 'primary') !important;
   }
-  .the-gathering .full {
+  .the-gathering .full,
+  .the-gathering-2019 .full {
     .mdc-button {
       color: white;
       border-color: map-get($themeGathering, 'primary') !important;

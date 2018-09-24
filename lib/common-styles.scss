@@ -517,7 +517,7 @@ footer h3,
 .content-primary {
   margin-bottom: $unit*2.2;
 }
-.content-related-primary-content {
+.content-related-content-primary {
   margin-bottom: $unit*1.5;
 }
 .content-primary-search {
@@ -1286,7 +1286,7 @@ a {
 }
 
 .pagination-mobile,
-.top-primary-content .mdc-card__info--content-primary-title .top-content,
+.top-content-primary .mdc-card__info--content-primary-title .top-content,
 .content-secondary .mdc-card.list .mdc-card__info--content-primary-secondary {
   display: none !important;
 }
@@ -2030,7 +2030,7 @@ footer,
     margin: $unit 0 $unit/2;
   }
 }
-.home-primary-content {
+.home-content-primary {
   padding: 0 $unit !important;
   margin-bottom: $unit;
   position: relative;
@@ -2050,7 +2050,7 @@ footer,
   }
 }
 .home-browse {
-  .home-primary-content {
+  .home-content-primary {
     background-color: transparent;
     padding: 0 $unit;
   }
@@ -2126,9 +2126,9 @@ footer,
   -ms-overflow-style: -ms-autohiding-scrollbar;
   padding: $unit*(3/4) 0 $unit;
   margin: 0;
-  // .mdc-layout-grid__cell.shortlist-primary-content:first-child,
-  // .mdc-layout-grid__cell.latest-primary-content:first-child,
-  // .mdc-layout-grid__cell.top-primary-content:first-child {
+  // .mdc-layout-grid__cell.shortlist-content-primary:first-child,
+  // .mdc-layout-grid__cell.latest-content-primary:first-child,
+  // .mdc-layout-grid__cell.top-content-primary:first-child {
   //   margin-left: $unit*3;
   // }
   .mdc-card.align-centre {
@@ -2573,10 +2573,10 @@ footer.mdc-layout__footer {
     }
   }
   .home-browse .mdc-drawer__content-heading,
-  .home-primary-content {
+  .home-content-primary {
     padding: 0 !important;
   }
-  .home-primary-content {
+  .home-content-primary {
     .mdc-layout-grid {
       padding: 0 $unit/2;
     }
@@ -2596,9 +2596,9 @@ footer.mdc-layout__footer {
   .scrolling-grid {
     margin: $unit/3 0 $unit/2;
     padding: $unit/2 0 $unit*(2/3);
-    .mdc-layout-grid__cell.shortlist-primary-content,
-    .mdc-layout-grid__cell.latest-primary-content,
-    .mdc-layout-grid__cell.top-primary-content {
+    .mdc-layout-grid__cell.shortlist-content-primary,
+    .mdc-layout-grid__cell.latest-content-primary,
+    .mdc-layout-grid__cell.top-content-primary {
       margin: 0 $unit 0 $unit/5;
     }
   }

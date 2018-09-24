@@ -357,10 +357,11 @@ a {
   }
   #content-primary-tab-bar {
     background-color: $mdc-theme-complimentary-light;
-    .mdc-tab {
+    .mdc-tab__icon,
+    .mdc-tab__text-label {
       color: $mdc-theme-primary-dark;
     }
-    .mdc-tab-bar__indicator {
+    .mdc-tab-indicator__content {
       background-color: $mdc-theme-primary-dark;
     }
   }
@@ -598,7 +599,7 @@ footer,
 .home-content {
   background-color: $mdc-theme-secondary-light;
 }
-.home-primary-content {
+.home-content-primary {
   background-color: $mdc-theme-secondary-light;
 }
 .home-browse {

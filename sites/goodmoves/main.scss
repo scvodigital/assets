@@ -1,5 +1,3 @@
-@import "./lib/common-styles.scss";
-
 $mdc-theme-primary: #42842A;
 $mdc-theme-primary-light: #679c54;
 $mdc-theme-primary-dark: #346921;
@@ -21,6 +19,9 @@ $mdc-theme-error: #A9201E;
 $mdc-theme-tfn: #3b9db1;
 
 $unit: 1rem;
+
+@import "./node_modules/material-components-web/material-components-web.scss";
+@import "./lib/common-styles.scss";
 
 body {
   background-color: $mdc-theme-footer-dark;
@@ -506,10 +507,11 @@ a.mdc-drawer__content-heading {
 .container-content,
 #search-tab-bar,
 #home-tab-bar {
-  .mdc-tab {
+  .mdc-tab__icon,
+  .mdc-tab__text-label {
     color: $mdc-theme-secondary-dark;
   }
-  .mdc-tab-bar__indicator {
+  .mdc-tab-indicator__content {
     background-color: $mdc-theme-secondary-dark;
   }
 }

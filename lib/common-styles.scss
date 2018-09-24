@@ -396,6 +396,12 @@ footer h3,
 .mdc-drawer--modal {
   top: 0;
   z-index: 8 !important;
+  .mdc-drawer__content {
+    // padding: 0;
+    .mdc-list-item {
+      margin: 0;
+    }
+  }
 }
 .mdc-drawer--occasional-ie11 {
   box-sizing: border-box;
@@ -413,6 +419,12 @@ footer h3,
 .mdc-tab .mdc-tab__text-label,
 .mdc-button {
   transition: 0.1s;
+}
+.mdc-tab__content {
+  .mdc-tab__icon,
+  .mdc-tab__text-label {
+    opacity: 0.7;
+  }
 }
 .mdc-button {
   height: auto;

@@ -5007,7 +5007,11 @@ button.swiper-pagination-bullet {
   }
 }
 
+.wp-block-image {
+  clear: both;
+}
 .text-left { text-align: left; }
+.alignright,
 .text-right { text-align: right; }
 .text-centre { text-align: center; }
 .text-justify { text-align: justify; }

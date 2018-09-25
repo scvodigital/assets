@@ -2379,6 +2379,13 @@ footer.mdc-layout__footer {
       padding: 0 $unit/2 $unit/2;
     }
   }
+  .mdc-card.full .mdc-card__info--content-secondary-row {
+    padding: $unit/2;
+    .mdc-card__media--content-secondary {
+      margin-top: 0;
+      margin-right: 0;
+    }
+  }
   .mdc-card .mdc-card__actions .mdc-card__action-buttons,
   .panel-heading,
   .mdc-typography--body1 {
@@ -2730,6 +2737,11 @@ footer.mdc-layout__footer {
     img {
       margin: 0 auto;
       display: block;
+    }
+  }
+  .mdc-tab-scroller {
+    .mdc-tab__text-label {
+      display: none;
     }
   }
 }

@@ -530,6 +530,9 @@ footer h3,
 }
 .content-related-content-primary {
   margin-bottom: $unit*1.5;
+  .mdc-card.list {
+    margin-bottom: 0;
+  }
 }
 .content-primary-search {
   .head {

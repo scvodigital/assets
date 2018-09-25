@@ -34,14 +34,14 @@ function main() {
 
   console.log('No Compresison:', noCompression);
   if (!noCompression) {
-    /*
+
     plugins.push(new UglifyJsPlugin({
       uglifyOptions: {
         ecma: 5,
         sourceMap: true
       }
     }));
-    */
+
     plugins.push(new CompressionPlugin());
   }
 

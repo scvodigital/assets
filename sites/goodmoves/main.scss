@@ -743,6 +743,7 @@ footer.mdc-layout__footer {
   box-shadow: $toolbar-shadow-reverse;
   h3 {
     color: #fff;
+    border-bottom: $unit/5 solid $mdc-theme-footer-light;
   }
   .about a,
   a {

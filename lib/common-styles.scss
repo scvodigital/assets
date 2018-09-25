@@ -1541,6 +1541,7 @@ body.shortlist {
   }
   .mdc-card__info--content-primary-row {
     padding: $unit/2;
+    flex: 0 0 auto;
   }
   .mdc-card__info--content-secondary,
   .mdc-card__info--content-primary {

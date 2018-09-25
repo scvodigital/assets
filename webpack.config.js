@@ -32,17 +32,18 @@ function main() {
     new HardSourceWebpackPlugin()
   ];
 
-  console.log('No Compresison:', noCompression);
+  console.log('No Compression:', noCompression);
   if (!noCompression) {
-    /*
+
     plugins.push(new UglifyJsPlugin({
       uglifyOptions: {
         ecma: 5,
         sourceMap: true
       }
     }));
-    */
+
     plugins.push(new CompressionPlugin());
+    console.log('Added compression plugins ',plugins);
   }
 
   const modules = toCompile.map(site => {

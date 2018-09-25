@@ -1269,7 +1269,6 @@ a {
   box-shadow: none;
 }
 
-
 // Grid Cards ==================================================================
 
 .mdc-layout-grid.equal-height .mdc-layout-grid__cell {
@@ -1366,13 +1365,9 @@ a.mdc-drawer__content-heading:hover {
 .drawer-container {
   display:flex;
   flex-direction: row;
-
   aside {
     z-index: 1;
   }
-}
-
-@media (min-width: $mobile-breakpoint + 1) {
 }
 
 .mdc-card {
@@ -1730,8 +1725,6 @@ body.shortlist {
     font-weight: 600;
   }
 }
-
-/* End Search results card */
 
 // Pagination ==================================================================
 

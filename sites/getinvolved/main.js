@@ -80,8 +80,7 @@ export class GetInvolved {
   }
 
   displayModeChanged() {
-    // console.log('Display Mode:', this.displayMode);
-
+    console.log('Display Mode!xs:', this.displayMode);
     this.occasionalDrawers.forEach(od => {
       var menuButton = $(od.element).data('menu-button');
       if (this.displayMode === 'desktop') {

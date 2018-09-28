@@ -437,7 +437,7 @@ footer h3,
   background-color: white !important;
 }
 .mdc-dialog {
-  z-index: 2;
+  z-index: 5;
 }
 .mdc-dialog__backdrop {
   z-index: 10;
@@ -1209,7 +1209,7 @@ a {
     border-top: none;
     h4 {
       margin: 0 0 $unit;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: $heading-medium-font-weight;
     }
     .key-info-extra {

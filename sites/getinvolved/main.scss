@@ -44,7 +44,7 @@ body {
 header {
   .container-fluid {
     .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
-      background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 340px, $mdc-theme-primary 101px, $mdc-theme-primary);
+      background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 250px, $mdc-theme-primary 251px, $mdc-theme-primary); 
     }
     .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-end {
       background-color: $mdc-theme-primary;
@@ -111,9 +111,14 @@ header {
 }
 
 .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
-.mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+.mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:disabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:disabled:indeterminate ~ .mdc-checkbox__background {
   border-color: $mdc-theme-primary;
   background-color: $mdc-theme-primary;
+  .mdc-checkbox__checkmark__path {
+    stroke-width: 3px;
+  }
 }
 
 .sign-in-form,

@@ -3988,7 +3988,7 @@ footer {
   }
   body.the-gathering-2019 #gathering-menu {
     .mdc-button {
-      display: table-header-group;
+      display: inline-block;
     }
   }
   .splash-image h1.header-text .photo-wee,
@@ -4248,6 +4248,12 @@ footer {
 @media screen and (max-width: 570px) {
   .events .related .photo-wee {
     max-width: 110px;
+  }
+  body.the-gathering-2019 #gathering-menu {
+    margin-bottom: $unit/2;
+    .mdc-button {
+      display: block;
+    }
   }
 }
 

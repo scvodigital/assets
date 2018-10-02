@@ -1,10 +1,11 @@
 $blue: #009ddc;
 $turquoice: #00a0af;
 $yellow: #ffde00;
+$green: #7bc143;
 $black: #404041;
 $grey: #f0f0f0;
 
-$mdc-theme-primary: #009ddc;
+$mdc-theme-primary: #7bc143;
 $mdc-theme-primary-light: #ffde00;
 $mdc-theme-primary-dark: #009ddc;
 
@@ -16,9 +17,9 @@ $mdc-theme-secondary: #404041; // Gray 300
 $mdc-theme-secondary-light: #f0f0f0; // Gray 100
 $mdc-theme-secondary-dark: #404041; // Gray 900
 
-$mdc-theme-footer: #404041; // Blue Gray 800
+$mdc-theme-footer: #f0f0f0; // Blue Gray 800
 $mdc-theme-footer-light: #f0f0f0; // Blue Gray 700
-$mdc-theme-footer-dark: #404041; // Blue Gray 900
+$mdc-theme-footer-dark: #f0f0f0; // Blue Gray 900
 
 $mdc-theme-error: #A9201E;
 
@@ -127,7 +128,7 @@ header {
       }
       .header-text {
         margin-left: $unit*(3/4);
-        margin-top: $unit/5;
+        margin-top: $unit*(3/4);
         margin-right: $unit;
         .header-text-banner {
           font-weight: $heading-font-weight !important;
@@ -158,7 +159,7 @@ header {
         font-size: 1rem;
         min-height: $header-lower-height;
         height: $header-lower-height;
-        font-weight: 600;
+        font-weight: 400;
         padding: 0 $unit/2;
         .mdc-tab__text-label {
           line-height: $header-lower-height - 4px;
@@ -179,7 +180,7 @@ header {
     #upper-tab-bar {
       .mdc-tab {
         min-width: auto;
-        font-weight: 600;
+        font-weight: 400;
       }
       .mdc-tab-indicator {
         display: none;
@@ -264,7 +265,7 @@ header {
       .mdc-top-app-bar__navigation-icon,
       .mdc-button,
       .mdc-tab {
-        font-weight: 600;
+        font-weight: 400;
       }
     }
   }
@@ -368,28 +369,28 @@ footer h3,
   }
 }
 .mdc-typography--body1 {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .mdc-typography--headline3 {
-  font-size: 2.1rem;
-  line-height: 2.3rem;
+  font-size: 2.3rem;
+  line-height: 2.5rem;
   margin-top: $unit*1.5 !important;
 }
 .mdc-typography--headline4 {
-  font-size: 1.75rem;
-  line-height: 1.85rem;
+  font-size: 1.95rem;
+  line-height: 1.95rem;
 }
 .mdc-typography--headline5 {
+  font-size: 1.7rem;
+  line-height: 1.8rem;
+}
+.mdc-typography--headline6 {
   font-size: 1.5rem;
   line-height: 1.6rem;
 }
-.mdc-typography--headline6 {
-  font-size: 1.3rem;
-  line-height: 1.4rem;
-}
 .mdc-typography--headline7 {
-  font-size: 1.15rem;
-  line-height: 1.2rem;
+  font-size: 1.35rem;
+  line-height: 1.4rem;
 }
 .mdc-card__title,
 .mdc-textfield__label,
@@ -484,7 +485,7 @@ footer h3,
 .reset-password-form {
   padding: $unit*1.5 0;
   .mdc-card {
-    min-height: 40vh;
+    min-height: 15vh;
     max-width: 500px;
     margin: 0 auto;
     position: relative;
@@ -605,7 +606,7 @@ footer h3,
     position: relative;
     display: inline;
     margin-right: $unit/2;
-    font-weight: 600;
+    font-weight: 400;
   }
 }
 .content-settings {
@@ -696,7 +697,7 @@ a:hover {
 }
 .mdc-chip {
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
   .mdc-chip__icon.mdc-chip__icon--leading {
     display: inline-block;
   }
@@ -760,7 +761,7 @@ a:hover {
 }
 
 a {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .mdc-button a:hover,
@@ -803,7 +804,7 @@ a {
 }
 .mdc-button,
 .mdc-tab {
-  font-weight: 600;
+  font-weight: 400;
   text-transform: none;
 }
 .mdc-button--raised .mdc-list-item__graphic {
@@ -827,7 +828,7 @@ a {
 }
 
 #map-content-primary {
-  height: 40vh;
+  height: 15vh;
   width: 100%;
 }
 #map-full {
@@ -875,7 +876,7 @@ a {
     position: absolute;
     top: 2px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     left: 2px;
     background-color: white;
     border-radius: 50%;
@@ -956,7 +957,7 @@ a {
     border-radius: 0 0 2px 2px;
     min-height: auto;
     .mdc-card__action {
-      font-weight: 600;
+      font-weight: 400;
       margin-right: $unit;
     }
     ul.mdc-card__action {
@@ -1007,7 +1008,7 @@ a {
       margin-top: $unit*(3/4);
     }
     .mdc-typography--body2 {
-      font-weight: 600;
+      font-weight: 400;
     }
     h1 {
       font-size: 1.4rem;
@@ -1158,7 +1159,7 @@ a {
   margin: -$unit/3 0 0;
   padding: $unit*(2/3) $unit;
   color: white;
-  font-weight: 600;
+  font-weight: 400;
   border-radius: 2px 2px 0 0;
 }
 .mdc-card.mini {
@@ -1255,7 +1256,7 @@ a {
         margin-bottom: $unit/4;
         padding: $unit/5 $unit/2;
         vertical-align: top;
-        font-weight: 600;
+        font-weight: 400;
       }
       .mdc-chip:hover {
         text-decoration: none;
@@ -1286,7 +1287,7 @@ a {
     }
     .location-info {
       .container-map {
-        height: 40vh;
+        height: 15vh;
         padding: 0;
         margin: 0;
       }
@@ -1503,11 +1504,11 @@ body.shortlist {
     }
   }
   .mdc-chip .mdc-chip__text {
-    font-weight: 600;
+    font-weight: 400;
   }
   .mdc-chip:hover {
     .mdc-chip__icon {
-      font-weight: 600;
+      font-weight: 400;
     }
   }
 }
@@ -1751,7 +1752,7 @@ body.shortlist {
     transform: translateY(-50%) scale(0.75);
   }
   .geo-lookup:hover {
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
   }
   .geo-lookup:focus {
@@ -1760,7 +1761,7 @@ body.shortlist {
   .search-distance {
     font-variant: all-small-caps;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
   }
 }
 
@@ -1785,7 +1786,7 @@ body.shortlist {
       width: $unit*2.5;
       padding: 0;
       margin: 0;
-      font-weight: 600;
+      font-weight: 400;
       display: block;
     }
     a.pagination-arrow {
@@ -1905,9 +1906,9 @@ footer,
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    min-height: 40vh;
+    min-height: 15vh;
     .page-content {
-      min-height: 40vh;
+      min-height: 15vh;
       .search-form {
         background-color: rgba(255, 255, 255, 0.75);
         width: 100%;
@@ -1927,7 +1928,7 @@ footer,
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      min-height: 40vh;
+      min-height: 15vh;
       background-color: transparent;
       padding: 0 0 $unit*2;
       .mdc-card__actions {
@@ -1974,7 +1975,7 @@ footer,
           font-size: 0.88rem;
           color: #777;
           a {
-            font-weight: 600;
+            font-weight: 400;
             color: #555;
           }
         }
@@ -1986,7 +1987,7 @@ footer,
         padding: $unit*2.5 $unit $unit*2 3%;
         .header-extra,
         .header-text {
-          font-weight: 600;
+          font-weight: 400;
           color: white;
           font-size: 1.4rem;
           padding: $unit/2 0;
@@ -2007,7 +2008,7 @@ footer,
           }
         }
         .header-extra {
-          max-width: 34%;
+          max-width: 33%;
         }
       }
     }
@@ -2031,9 +2032,6 @@ footer,
   }
   .mdc-list-item {
     height: auto !important;
-  }
-  .browse-title-regions {
-    margin-top: 24px;
   }
 }
 .home-browse {
@@ -2232,17 +2230,16 @@ footer,
 // Footer ======================================================================
 
 footer.mdc-layout__footer {
-  box-shadow: $toolbar-shadow-reverse;
   position: relative;
-  z-index: 3;
+  z-index: 2;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   h3, a, strong {
     font-family: $footer-font-family;
-    font-weight: 600;
+    font-weight: 400;
   }
   .footer-main,
   .footer-copyright {
@@ -2269,7 +2266,7 @@ footer.mdc-layout__footer {
     .mdc-list-item {
       padding: 0;
       a {
-        font-weight: 600;
+        font-weight: 400;
         font-size: 1rem;
       }
       a:hover {
@@ -2278,12 +2275,19 @@ footer.mdc-layout__footer {
     }
   }
   .brand-logo {
-    display: block;
-    text-align: right;
+    // display: block;
+    float: right;
     img {
       margin-bottom: 0;
       width: 125px;
     }
+  }
+  .brand-logo.scvo {
+    filter: invert(100%);
+    margin-right: $unit;
+  }
+  .brand-logo.vs {
+    filter: grayscale(100%);
   }
   .mdc-layout-grid {
     padding: 0;
@@ -3031,18 +3035,18 @@ header {
     }
     .mdc-tab-bar {
       .mdc-tab {
-        color: $mdc-theme-primary;
+        color: $mdc-theme-primary-dark;
         .mdc-tab__text-label {
-          color: $mdc-theme-primary;
+          color: $mdc-theme-primary-dark;
         }
       }
     }
     #upper-tab-bar {
       .mdc-tab:hover .mdc-tab__text-label {
-        border-bottom-color: $mdc-theme-primary;
+        border-bottom-color: $mdc-theme-primary-dark;
       }
       .mdc-tab.mdc-tab--active .mdc-tab__text-label {
-        border-bottom-color: $mdc-theme-primary;
+        border-bottom-color: $mdc-theme-primary-dark;
       }
     }
     .mdc-top-app-bar__main .mdc-tab-bar,
@@ -3058,7 +3062,7 @@ header {
       }
     }
     .mdc-top-app-bar__navigation-icon {
-      color: $mdc-theme-primary;
+      color: $mdc-theme-primary-dark;
     }
     .mdc-top-app-bar__main,
     .mdc-top-app-bar__user {
@@ -3077,7 +3081,7 @@ header {
 }
 .mdc-tab-bar {
   .mdc-tab {
-    color: $mdc-theme-secondary;
+    color: $mdc-theme-primary-dark;
   }
 }
 
@@ -3174,14 +3178,11 @@ header {
 }
 
 a {
-  color: $mdc-theme-primary;
-}
-.tfn a {
-  color: $mdc-theme-tfn;
+  color: $mdc-theme-primary-dark;
 }
 
 .mdc-chip {
-  background-color: $mdc-theme-secondary;
+  background-color: white;
   color: $mdc-theme-secondary-dark;
   .mdc-chip__icon.mdc-chip__icon--leading {
     color: $mdc-theme-secondary-dark;
@@ -3210,6 +3211,7 @@ a {
   color: #fff;
 }
 
+.mdc-button--raised,
 .mdc-button--raised .mdc-list-item__graphic {
   color: #fff;
 }
@@ -3509,6 +3511,9 @@ a.mdc-drawer__content-heading {
   }
   li.current-page {
     background-color: $mdc-theme-complimentary-dark;
+    a {
+      color: white;
+    }
   }
   li:hover,
   li.current-page:hover {
@@ -3589,18 +3594,6 @@ footer,
 .home-content-primary {
   background-color: $mdc-theme-secondary-light;
 }
-.home-browse {
-  background-color: $mdc-theme-complimentary-light;
-  border-bottom: $unit/5 solid $mdc-theme-primary-light;
-}
-
-.tfn-latest {
-  .gist {
-    .mdc-card__subtitle {
-      color: $mdc-theme-secondary-dark;
-    }
-  }
-}
 
 .scroll-button {
   .scroll-icon {
@@ -3629,35 +3622,38 @@ footer,
 // Footer ======================================================================
 
 footer.mdc-layout__footer {
-  border-top: $unit solid $mdc-theme-primary;
+  border-top: none;
   background-color: $mdc-theme-footer;
-  box-shadow: $toolbar-shadow-reverse;
+  box-shadow: none;
   h3 {
-    color: #fff;
+    color: #555;
     border-bottom: $unit/5 solid $mdc-theme-footer-light;
   }
-  .about a,
-  a {
-    color: #fff;
-  }
-  .about a:hover,
+  a,
   a:hover {
-    color: #fff;
+    color: #555;
+  }
+  .footer-copyright a,
+  .footer-copyright a:hover,
+  .about a,
+  .about a:hover {
+    color: $mdc-theme-primary-dark;
+    font-weight: $heading-font-weight;
   }
   .mdc-layout-grid {
     p {
-      color: #fff;
+      color: #555;
     }
   }
   .fa-ul {
     .fa-li {
       .fas, .fal, .far, .fab {
-        color: #fff;
+        color: #555;
       }
     }
   }
   .footer-copyright {
-    background-color: $mdc-theme-footer-dark;
+    background-color: $mdc-theme-footer-light;
   }
 }
 

@@ -7,6 +7,7 @@ const sites = [
   { site: 'digitalparticipation', library: 'DigitalParticipation' },
   { site: 'fundingscotland', library: 'FundingScotland' },
   { site: 'getinvolved', library: 'GetInvolved' },
+  { site: 'volunteerscotland-search', library: 'VolunteerScotlandSearch' },
   { site: 'goodmoves', library: 'Goodmoves' },
   { site: 'humanrightsdeclaration', library: 'HumanRightsDeclaration' },
   { site: 'scotlandforeurope', library: 'ScotlandForEurope' },

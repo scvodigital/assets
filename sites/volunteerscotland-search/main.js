@@ -1,14 +1,17 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import "@babel/polyfill";
+import 'leaflet';
+import 'mapbox.js';
 import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
+
 import * as cookieInfoScript from '../../lib/cookie-info-script';
 
 window.firebase = firebase;
 
-export class Goodmoves {
+export class VolunteerScotlandSearch {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
     this.app = firebase.initializeApp(this.firebaseConfig);
@@ -35,31 +38,7 @@ export class Goodmoves {
     });
     this.windowResized();
 
-    this.componentsInitialiser = new ComponentsInitialiser({
-      themes: {
-        primary: {
-          background: '#42842A',
-          text: '#ffffff'
-        },
-        secondary: {
-          background: '#e0e0e0',
-          text: '#000000'
-        },
-        success: {
-          background: '#679c54',
-          text: '#000000'
-        },
-        warning: {
-          background: '#A95E1E',
-          text: '#ffffff'
-        },
-        error: {
-          background: '#A9201E',
-          text: '#ffffff'
-        }
-      },
-      displayModes: this.displayModes
-    });
+    this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
 
     // Headroom
@@ -74,9 +53,9 @@ export class Goodmoves {
     ci.options.message = "We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.";
     ci.options.fontFamily = "'Open Sans',Helvetica,Arial,sans-serif";
     ci.options.bg = "#fff";
-    ci.options.link = "#42842A";
+    ci.options.link = "#c2185b";
     ci.options.divlink = "#fff";
-    ci.options.divlinkbg = "#42842A";
+    ci.options.divlinkbg = "#c2185b";
     ci.options.position = "bottom";
     ci.options.acceptOnScroll = "true";
     ci.options.moreinfo = "/cookies";
@@ -101,8 +80,7 @@ export class Goodmoves {
   }
 
   displayModeChanged() {
-    // console.log('Display Mode:', this.displayMode);
-
+    console.log('Display Mode!xs:', this.displayMode);
     this.occasionalDrawers.forEach(od => {
       var menuButton = $(od.element).data('menu-button');
       if (this.displayMode === 'desktop') {

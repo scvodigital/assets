@@ -272,6 +272,7 @@ footer h3,
 .mdc-floating-label,
 .mdc-card__subtitle,
 .mdc-snackbar__text,
+.mdc-drawer__subtitle,
 .mdc-textfield__input,
 .mdc-typography--body1,
 .mdc-typography--body2,
@@ -542,6 +543,12 @@ footer h3,
     .pagination {
       margin-top: $unit*1.25;
     }
+  }
+}
+.content-secondary-search {
+  padding-bottom: $unit*1.5 !important;
+  .mdc-card__info--content-secondary-row .mdc-card__media--content-secondary {
+    margin-right: $unit/2;
   }
 }
 
@@ -1807,6 +1814,7 @@ body.shortlist {
 
 footer,
 .browse main,
+.browse-areas,
 .home-browse {
   .mdc-list {
     .mdc-list-item--0 .mdc-typography--headline7 {
@@ -1839,6 +1847,14 @@ footer,
     .mdc-list-item__graphic {
       margin-right: $unit;
     }
+  }
+}
+.browse-areas {
+  .mdc-layout-grid__inner {
+    grid-gap: 0 24px;
+  }
+  .mdc-layout-grid__cell {
+    padding: 0;
   }
 }
 .mdc-tab-bar .mdc-list-item__graphic {
@@ -1978,12 +1994,13 @@ footer,
   text-decoration: none;
 }
 .home-browse,
+.browse-areas,
 .browse main {
   .browse-title {
     margin: $unit/2 0 $unit/2;
   }
   .mdc-list-item {
-    height: auto;
+    height: auto !important;
   }
   .browse-title-regions {
     margin-top: 24px;

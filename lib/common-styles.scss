@@ -917,7 +917,7 @@ a {
     padding: 0 $unit $unit/2;
   }
   p {
-    margin: 0 0 $unit/2;
+    margin: 0 0 $unit;
   }
   p:last-child {
     margin: 0;
@@ -2731,6 +2731,12 @@ footer.mdc-layout__footer {
   .gist .thumbnail img {
     height: 64px;
     width: 64px;
+  }
+  .mdc-card p {
+    margin-bottom: $unit/2;
+  }
+  .mdc-card p:last-child {
+    margin-bottom: 0;
   }
   .mdc-card.full .mdc-card__info--content-primary-row .mdc-card__media,
   .mdc-card .mdc-card__info--content-primary-row .mdc-card__media,

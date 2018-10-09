@@ -914,9 +914,9 @@ a {
 }
 
 .search-info {
-  margin: $unit*1.5 0 $unit*(3/4);
+  margin: 0;
   background-color: white;
-  padding: $unit/3 $unit/2;
+  padding: 0;
   box-sizing: border-box;
   border-radius: 2px;
   a .mdc-list-item__graphic {
@@ -1716,16 +1716,16 @@ body.shortlist {
   li {
     display: inline-block;
     padding: 0 !important;
-    height: $unit*2.5;
-    width: $unit*2.5;
+    height: $unit*1.5;
+    width: $unit*1.5;
     border-radius: 50%;
     margin: 0 $unit/5;
     vertical-align: bottom;
     a {
       font-size: 1.2rem;
-      line-height: $unit*2.5;
-      height: $unit*2.5;
-      width: $unit*2.5;
+      line-height: $unit*1.5;
+      height: $unit*1.5;
+      width: $unit*1.5;
       padding: 0;
       margin: 0;
       font-weight: 400;
@@ -2958,9 +2958,9 @@ body {
   color: #fff;
   background: $mdc-theme-primary-dark;
 }
-.mdc-theme--background {
-  background-color: $mdc-theme-secondary-light !important;
-}
+// .mdc-theme--background {
+//   background-color: $mdc-theme-secondary-light !important;
+// }
 .mdc-top-app-bar {
   background-color: #fff;
 }

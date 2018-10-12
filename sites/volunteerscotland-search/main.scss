@@ -28,6 +28,9 @@ $mdc-theme-tfn: #3b9db1;
 $unit: 1rem;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
+@import "./node_modules/leaflet.markercluster/dist/MarkerCluster";
+@import "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default";
+
 
 $base-font-family:                  "Rambla", Helvetica, Arial, sans-serif;
 $base-font-weight:                  400;
@@ -51,6 +54,8 @@ $desktop-landscape-breakpoint: 1280px;
 
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Rambla:400,700');
+
+
 
 html {
   overflow-y: scroll;

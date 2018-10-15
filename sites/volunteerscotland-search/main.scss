@@ -28,6 +28,9 @@ $mdc-theme-tfn: #3b9db1;
 $unit: 1rem;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
+@import "./node_modules/leaflet.markercluster/dist/MarkerCluster";
+@import "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default";
+
 
 $base-font-family:                  "Rambla", Helvetica, Arial, sans-serif;
 $base-font-weight:                  400;
@@ -51,6 +54,8 @@ $desktop-landscape-breakpoint: 1280px;
 
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Rambla:400,700');
+
+
 
 html {
   overflow-y: scroll;
@@ -353,7 +358,6 @@ footer h3,
   font-weight: $heading-font-weight;
   letter-spacing: -0.03rem;
 }
-.mdc-drawer__content-heading,
 .mdc-typography--headline,
 .mdc-typography--headline1,
 .mdc-typography--headline2,
@@ -572,7 +576,7 @@ footer h3,
       cursor: default;
     }
     .pagination {
-      margin-top: $unit*1.25;
+      margin-top: 0;
     }
   }
 }
@@ -665,9 +669,9 @@ footer h3,
 .mdc-textfield__label {
   display: block;
 }
-.mdc-text-field--fullwidth:not(.mdc-text-field--textarea) {
-  border-bottom: none !important;
-}
+// .mdc-text-field--fullwidth:not(.mdc-text-field--textarea) {
+//   border-bottom: none !important;
+// }
 
 a {
   text-decoration: none;
@@ -895,6 +899,10 @@ a {
     width: 22px;
     line-height: 24px;
   }
+  .map-marker-overlay.large {
+    width: 44px;
+  }
+
 }
 
 .popup-pager .map-content:not(:first-child) {
@@ -983,7 +991,7 @@ a {
   position: relative;
   z-index: 1;
   width: 100%;
-  background-color: #fff;
+  background-color: $mdc-theme-secondary-light;
   margin-bottom: $unit*1.5;
   box-shadow: none;
   .mdc-card__info--content-primary-row {
@@ -1302,10 +1310,10 @@ hr {
   font-size: 1.2rem;
   display: block;
   margin: 0;
-  padding: $unit*1.5 0 0 $unit/2;
+  padding: $unit/2 0 $unit/2 $unit/2;
   font-weight: $heading-medium-font-weight;
   .mdc-icon-toggle {
-    margin-top: -$unit*(3/4);
+    margin-top: -$unit*.4;
   }
   .far.pull-right {
     line-height: $unit*1.7;
@@ -2862,7 +2870,7 @@ form.inline-form {
     content: "";
     position: absolute;
     top: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    background: linear-gradient(rgba(240,240,240, 0), rgba(240,240,240, 1));
   }
 }
 .search-result-article__notes .faded-overflow {
@@ -3062,12 +3070,42 @@ header {
 
 .content-primary-search {
   .head {
+    border-bottom: 2px solid $mdc-theme-primary-dark;
+    .mdc-tab-scroller__scroll-area {
+      margin-bottom: 0;
+      height: 56px;
+      .mdc-tab {
+        height: 56px;
+      }
+      .mdc-tab,
+      .mdc-tab__icon,
+      .mdc-tab__text-label {
+        color: $mdc-theme-primary-dark !important;
+      }
+      .mdc-tab--active {
+        background: $mdc-theme-primary-dark;
+        .mdc-tab__icon,
+        .mdc-tab__text-label {
+          color: white !important;
+        }
+      }
+      .mdc-tab-indicator--active {
+        display: none;
+      }
+    }
     .mdc-button.saved-search {
       color: $mdc-theme-secondary-dark;
       label {
         .far {
           color: $mdc-theme-primary-light;
         }
+      }
+    }
+    .mdc-select--box {
+      margin: 0;
+      border: none;
+      .mdc-select__native-control {
+        border-bottom: none;
       }
     }
   }
@@ -3213,7 +3251,6 @@ a {
 .mdc-card.mini,
 .mdc-card.gist,
 .mdc-card.search-result {
-  background-color: #fff;
   .search-result-article__notes {
     // background-color: $mdc-theme-complimentary-light;
   }
@@ -3310,6 +3347,13 @@ a.mdc-drawer__content-heading {
   }
 }
 
+.mdc-select--box:not(.mdc-select--disabled),
+.mdc-text-field:not(.mdc-text-field--disabled) {
+  border-radius: 0;
+  border: 1px solid #999;
+  background-color: #fff;
+}
+
 .mdc-card {
   .mdc-card__actions {
     .mdc-card__action--shortlist {
@@ -3400,6 +3444,7 @@ a.mdc-drawer__content-heading {
 }
 
 .search-form {
+  background: $mdc-theme-secondary-light;
   .geo-lookup {
     color: $mdc-theme-primary !important;
   }

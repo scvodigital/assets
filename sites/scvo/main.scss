@@ -4272,6 +4272,10 @@ footer {
 @media screen and (max-width: 479px) {
   .mdc-button {
     width: 100%;
+    text-align: center;
+  }
+  .book-now .mdc-button {
+    margin-left: 0;
   }
   .home .featured-content {
     .featured-background-image img.header-text {

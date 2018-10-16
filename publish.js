@@ -1,4 +1,5 @@
 const globby = require('globby');
+const fs = require('fs');
 const mime = require('mime-types');
 const {Storage} = require('@google-cloud/storage');
 const admin = require('firebase-admin');
@@ -17,6 +18,7 @@ const app = admin.initializeApp({
 });
 
 const versionNo = package.version;
+
 const sites = ['digitalparticipation', 'emailer', 'fundingscotland', 'volunteerscotland-search', 'getinvolved', 'getinvolved-legacy', 'goodmoves', 'humanrightsdeclaration', 'scotlandforeurope', 'scvo'];
 
 async function main() {
@@ -37,7 +39,7 @@ function getNewPath(path) {
   return newName;
 }
 
-async function uploadFile(path, newPath, contentType) {
+async function uploadFile(path, newPath, contentType, contentEncoding = 'gzip') {
   try {
     await storage.bucket('scvo-assets').upload(path, {
       destination: newPath,

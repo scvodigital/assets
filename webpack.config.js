@@ -2,15 +2,18 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const JsonIncWebpackPlugin = require('./json-inc-webpack-plugin');
+
+const package = require('./package.json');
 
 const sites = [
-  { site: 'digitalparticipation', library: 'DigitalParticipation' },
-  { site: 'fundingscotland', library: 'FundingScotland' },
-  { site: 'getinvolved', library: 'GetInvolved' },
-  { site: 'volunteerscotland-search', library: 'VolunteerScotlandSearch' },
-  { site: 'goodmoves', library: 'Goodmoves' },
-  { site: 'humanrightsdeclaration', library: 'HumanRightsDeclaration' },
-  { site: 'scotlandforeurope', library: 'ScotlandForEurope' },
+//  { site: 'digitalparticipation', library: 'DigitalParticipation' },
+//  { site: 'fundingscotland', library: 'FundingScotland' },
+//  { site: 'getinvolved', library: 'GetInvolved' },
+//  { site: 'volunteerscotland-search', library: 'VolunteerScotlandSearch' },
+//  { site: 'goodmoves', library: 'Goodmoves' },
+//  { site: 'humanrightsdeclaration', library: 'HumanRightsDeclaration' },
+//  { site: 'scotlandforeurope', library: 'ScotlandForEurope' },
   { site: 'scvo', library: 'SCVO' }
 ]
 
@@ -30,12 +33,11 @@ function main() {
   console.log('Packing sites:', toCompile);
 
   const plugins = [
+    new JsonIncWebpackPlugin(),
     new HardSourceWebpackPlugin()
   ];
 
-  console.log('No Compression:', noCompression);
   if (!noCompression) {
-
     plugins.push(new UglifyJsPlugin({
       uglifyOptions: {
         ecma: 5,
@@ -44,7 +46,6 @@ function main() {
     }));
 
     plugins.push(new CompressionPlugin());
-    console.log('Added compression plugins ',plugins);
   }
 
   const modules = toCompile.map(site => {
@@ -57,19 +58,24 @@ function main() {
 
 function getConfig(site, library, plugins) {
   const config = {
-    entry: ['./sites/' + site + '/main.scss', './sites/' + site + '/main.js'],
+    entry: [
+      './sites/' + site + '/main.scss', 
+      './sites/' + site + '/main.js', 
+      './sites/' + site + '/configuration/site.inc.json'
+    ],
     output: {
-      filename: 'build/' + site + '/main.js',
+      filename: 'build/' + site + '/main-' + package.version + '.js',
       library: library,
       libraryTarget: 'var'
     },
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.scss$/,
           use: [{
               loader: 'file-loader',
               options: {
-                name: 'build/' + site + '/main.css',
+                name: 'build/' + site + '/main-' + package.version + '.css',
               },
             },
             {
@@ -120,7 +126,7 @@ function getConfig(site, library, plugins) {
           query: {
             presets: ['es2015'],
           },
-        }
+        },
       ],
     },
     plugins: plugins

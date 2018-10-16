@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
-    "start": "rm -rf build/**; ./node_modules/.bin/parallel-webpack",
+    "start": "npm run clear-build; npm run build",
+    "dev": "npm run clear-build; npm run watch",
     "publish": "export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
-    "clear": "rm -rf node_modules/.cache/hard-source"
+    "build": "./node_modules/.bin/parallel-webpack",
+    "watch": "./node_modules/.bin/parallel-webpack --watch --verbose",
+    "clear-build": "rm -rf build/**",
+    "clear-cache": "rm -rf node_modules/.cache/hard-source"
   },
   "husky": {
     "hooks": {

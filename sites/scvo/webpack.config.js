@@ -1,3 +1,5 @@
+const path = require('path');
+
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -36,9 +38,12 @@ function getConfig(site, library) {
       }
     }));
   }
-  
 
   const config = {
+    watchOptions: {
+      ignored: ['node_modules', 'build'],
+      aggregateTimeout: 300
+    },
     entry: [
       './sites/' + site + '/main.scss', 
       './sites/' + site + '/main.js', 

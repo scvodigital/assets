@@ -1,0 +1,44 @@
+{
+  "size": 2000,
+  "_source": [
+    "Id",
+    "title",
+    "organisation_name",
+    "geo_coords",
+    "slug"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_opportunity_common_filters request.params.query}},
+        {{>queries_opportunity_search_filters request.params.query}}
+      ],
+      "must": [
+        {{>queries_opportunity_search_must request.params.query}}
+      ]
+    }
+  },
+  "aggs" : {
+    "admin_district": {
+      "terms": {
+        "field": "geo.admin_district",
+        "size": 1000
+      }
+    },
+    "parliamentary_constituency": {
+      "terms": {
+        "field": "geo.parliamentary_constituency",
+        "size": 1000
+      }
+    },
+    "nuts": {
+      "terms": {
+        "field": "geo.nuts",
+        "size": 1000
+      }
+    }
+  },
+  "sort": {
+    "closing_date": "asc"
+  }
+}

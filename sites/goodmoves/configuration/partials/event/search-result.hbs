@@ -1,0 +1,33 @@
+<div class="mdc-card search-result" data-event-id="{{Id}}">
+  <div class="mdc-card__info--event-row">
+    <div class="mdc-card__info--event">
+      <div class="mdc-card__info--event-title mdc-typography--headline6">
+        <a href="https://scvo.org/events/{{slug}}">
+          {{trim title}}
+        </a>
+      </div>
+      <div class="post-info">
+        {{{rendered.post_info_booked}}}
+        {{{rendered.post_info_date}}}
+        {{{rendered.post_info_city}}}
+      </div>
+    </div>
+  </div>
+  <hr class="mdc-list-divider" />
+  <div class="search-result-article__snippet mdc-typography--body1">
+    <div style="max-height: 4rem;" class="faded-overflow">
+      {{#if description ~}}
+      {{{description}}}
+      {{else}}
+      {{#if course_overview ~}}
+      {{{course_overview}}}
+      {{/if ~}}
+      {{/if ~}}
+    </div>
+  </div>
+  <div class="mdc-card__actions">
+    <div class="mdc-card__action-buttons demo-card__action-buttons--text-only mdc-card__actions--full-bleed">
+      <a href="https://scvo.org/events/{{slug}}" class="mdc-card__action">Find out more</a>
+    </div>
+  </div>
+</div>

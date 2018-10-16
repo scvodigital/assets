@@ -1,0 +1,16 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script>
+var terms = {
+  activities: [
+    {{#each data.supplimentaryResponses.types.aggregations.activities.buckets ~}}
+    { field: 'activities', term: {{{stringify key}}} },
+    {{/each ~}}
+  ],
+  beneficiaries: [
+    {{#each data.supplimentaryResponses.types.aggregations.beneficiaries.buckets ~}}
+    { field: 'beneficiaries', term: {{{stringify key}}} },
+    {{/each ~}}
+  ]
+};
+</script>
+<script src="/assets/js/fundingscotland/home.js" async defer></script>

@@ -1,0 +1,79 @@
+{
+  "size": 100,
+  "_source": [
+    "Id",
+    "slug",
+    "top_job",
+    "description",
+    "title",
+    "geo_vacancy_coords",
+    "location",
+    "salary",
+    "role_status_list",
+    "active",
+    "closing_date",
+    "start_at",
+    "end_at",
+    "organisation.slug",
+    "organisation.name",
+    "organisation.has_logo",
+    "organisation.logo_url"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_vacancy_common_filters_open request.params.query}}
+      ],
+      "must": [
+        {{>queries_terms field="Id" terms=(getKeys data.notes)}}
+      ]
+    }
+  },
+  "sort": [
+    {{#if @root.request.params.query.sort ~}}
+    {{#compare @root.request.params.query.sort "===" "salary_low" ~}}
+    {
+      "salary_min": "asc"
+    },
+    {
+      "salary_max": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "salary_high" ~}}
+    {
+      "salary_min": "desc"
+    },
+    {
+      "salary_max": "desc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "newest" ~}}
+    {
+      "start_at": "desc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "oldest" ~}}
+    {
+      "start_at": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "closing_soon" ~}}
+    {
+      "closing_date": "asc"
+    }
+    {{else}}
+    {
+      "closing_date": "asc"
+    }
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{else}}
+    {
+      "closing_date": "asc"
+    }
+    {{/if ~}}
+  ]
+}

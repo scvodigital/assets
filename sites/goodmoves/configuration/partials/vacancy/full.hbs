@@ -1,0 +1,158 @@
+<div class="mdc-card content-primary full{{if top_job " top-content"}}" data-vacancy-id="{{Id}}">
+  {{> vacancy_key_info view="full"}}
+  <hr class="mdc-list-divider" />
+  <div class="content-primary-info-container">
+    {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="tab"}}
+      {{>components_tab iconClasses="far fa-list-ul fa-fw" label="Information" active=true tabName="panel-1"}}
+      {{>components_tab iconClasses="far fa-map-marker-alt fa-fw" label="Location" active=false tabName="panel-2"}}
+      {{>components_tab iconClasses="far fa-edit fa-fw" label="Notes" active=false tabName="notes"}}
+    {{/components_tab_bar}}
+    <hr class="mdc-list-divider" />
+    <div class="panels" for="content-primary-tab-bar">
+      <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="panel-1">
+        <div class="key-info-extra">
+          <ul class="fa-ul">
+            {{#if start_at ~}}
+            <li class="mdc-card__info--content-primary-from mdc-typography--body1">
+              <span class="fa-li"><span class="far fa-calendar-plus fa-fw" title="Start date"></span></span>
+              Advertised from {{momentFormat (moment start_at "x") "Do MMMM YYYY"}}
+            </li>
+            {{/if ~}}
+            {{#if salary_info ~}}
+            <li class="mdc-card__info--content-primary-location mdc-typography--body1">
+              <span class="fa-li"><span class="far fa-info-circle fa-fw" title="Salary information"></span></span>
+              {{salary_info}}
+            </li>
+            {{/if ~}}
+            {{#if benefits ~}}
+            <li class="mdc-card__info--content-primary-salary mdc-typography--body1">
+              <span class="fa-li"><span class="far fa-smile fa-fw" title="Benefits"></span></span>
+              {{{benefits}}}
+            </li>
+            {{/if ~}}
+            {{#if reference_number ~}}
+            <li class="mdc-card__info--content-primary-reference mdc-typography--body1">
+              <span class="fa-li"><span class="far fa-hashtag fa-fw" title="Reference"></span></span>
+              {{reference_number}}
+            </li>
+            {{/if ~}}
+          </ul>
+        </div>
+        <div class="detailed-info">
+          {{#if description ~}}
+          <h4 class="mdc-typography--headline6">Role</h4>
+          <div class="mdc-typography--body1">
+            {{{description}}}
+          </div>
+          {{/if ~}}
+
+          {{#if application_notes ~}}
+          <h4 class="mdc-typography--headline6">Application notes</h4>
+          <div class="mdc-typography--body1">
+            {{{application_notes}}}
+          </div>
+          {{/if ~}}
+
+          {{{rendered.goodmoves_downloads}}}
+
+          {{{rendered.goodmoves_sponsor_logos}}}
+        </div>
+      </div>
+      <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="panel-2">
+        <div class="location-info">
+          {{#compare (length geo_vacancy_coords) ">" 0 ~}}
+            {{#ifAny home_based various_locations ~}}
+              <div class="container-content v-margin-full">
+                <p class="mdc-typography--body1">
+                  {{{location}}}
+                </p>
+              </div>
+            {{else}}
+              <div class="container-content container-map">
+                <div id="map-content-primary" data-map-name="vacancyMap" data-map-options='{
+                    }'>
+                  {{#each (arrayify geo_vacancy_coords) ~}}
+                    <marker style="display:none;" data-map="vacancyMap" data-lat="{{lat}}" data-lng="{{lon}}" data-title="{{../organisation.name}} - {{../title}}">
+                      <h3 class="mdc-typography--headline7">{{../organisation.name}}</h3>
+                      <p class="mdc-typography--body2">{{../title}}</p>
+                    </marker>
+                  {{/each ~}}
+                </div>
+              </div>
+            {{/ifAny ~}}
+          {{else}}
+            <div class="container-content v-margin-full">
+              <p class="mdc-typography--body1">
+                Area: {{{location}}} - a specific job location has not been provided.
+              </p>
+            </div>
+          {{/compare ~}}
+        </div>
+      </div>
+      <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+        <div class="text-field-container user-notes">
+          {{#if @root.data.auth ~}}
+            <form action="/save-notes" method="POST" data-ajax-form='{
+                  "successMessage": "Notes saved",
+                  "failureMessage": "Failed to save notes",
+                  "successCallback": "notesSaved",
+                  "id": "{{Id}}"
+                }'>
+              <div>
+                <textarea class="mdc-text-field__input" data-simple-mde='{
+                      "forceSync": true,
+                      "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
+                    }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.notes Id}}</textarea>
+                <input type="hidden" name="id" value="{{Id}}">
+              </div>
+              <div class="save-button-block">
+                <button type="submit" class="mdc-button mdc-button--raised">
+                  <span class="far fa-save mdc-list-item__graphic" aria-hidden="true"></span>
+                  Save notes
+                </button>
+                <button type="button" class="mdc-button mdc-button--raised mdc-button--warning" id="delete-notes-{{Id}}" data-id="{{Id}}"
+                    data-ajax-button='{
+                      "url": "/delete-notes",
+                      "method": "POST",
+                      "successMessage": "Notes deleted",
+                      "failureMessage": "Failed to delete notes",
+                      "successCallback": "clearNotes",
+                      "postBody": { "id": "{{Id}}" }
+                      }' {{#unless (getProperty @root.data.notes Id)}}disabled{{/unless}}>
+                  <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
+                  Delete notes
+                </button>
+                <div class="mdc-typography--caption">
+                  Any notes you write here are private on your account and are not shared with {{organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
+                </div>
+              </div>
+            </form>
+          {{else}}
+            <div class="detailed-info">
+              <p class="mdc-typography--body1">
+                If you <a href="/sign-up">sign up</a> you'll be able to save notes on active jobs.
+              </p>
+            </div>
+          {{/if ~}}
+        </div>
+      </div>
+    </div>
+    {{> vacancy_actions slug=slug Id=Id action="organisation"}}
+  </div>
+</div>
+{{#if @root.request.params.query.email ~}}
+  {{> ga documentType="goodmoves-vacancy" documentId=Id hitType="full-from-email"}}
+{{else}}
+  {{> ga documentType="goodmoves-vacancy" documentId=Id hitType="full"}}
+{{/if ~}}
+<script>
+  function clearNotes(data) {
+    $('#notes-' + this.request.data.id)[0].mde.value('');
+    this.$button.prop('disabled', true);
+  }
+  function notesSaved(evt, data) {
+    console.log('notesSaved Arguments:', arguments);
+    $('#delete-notes-' + data.id).prop('disabled', false);
+  }
+  window.vacancyId = '{{Id}}';
+</script>

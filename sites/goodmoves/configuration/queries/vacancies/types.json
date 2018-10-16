@@ -1,0 +1,119 @@
+{
+  "size": 0,
+  "_source": false,
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_vacancy_common_filters_open request.params.query}}
+      ]
+    }
+  },
+  "aggs": {
+    "sectors": {
+      "terms": {
+        "field": "sectors",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "sectors_slugs": {
+      "terms": {
+        "field": "sectors_slugs",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "roles": {
+      "terms": {
+        "field": "roles",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "roles_slugs": {
+      "terms": {
+        "field": "roles_slugs",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "working_patterns": {
+      "terms": {
+        "field": "role_status",
+        "size": 10000
+      }
+    },
+    "working_patterns_slugs": {
+      "terms": {
+        "field": "role_status_slug",
+        "size": 10000
+      }
+    },
+    "regions": {
+      "terms": {
+        "field": "region_group",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "regions_slugs": {
+      "terms": {
+        "field": "region_group_slug",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    },
+    "home_based": {
+      "terms": {
+        "field": "home_based",
+        "size": 10000
+      }
+    },
+    "various_locations": {
+      "terms": {
+        "field": "various_locations",
+        "size": 10000
+      }
+    },
+    "districts": {
+      "nested": {
+        "path": "districts"
+      },
+      "aggs": {
+        "district_names": {
+          "terms": {
+            "field": "districts.name",
+            "size": 1000
+          },
+          "aggs": {
+            "wards": {
+              "nested": {
+                "path": "districts.wards"
+              },
+              "aggs": {
+                "ward_names": {
+                  "terms": {
+                    "field": "districts.wards.name",
+                    "size": 1000
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

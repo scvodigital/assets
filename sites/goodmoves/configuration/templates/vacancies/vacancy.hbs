@@ -1,0 +1,34 @@
+<div class="container-content">
+  {{#compare @root.data.primaryResponse.hits.total ">" 0}}
+
+  {{> dialog_shortlist}}
+
+  <div class="content-primary">
+    {{#each @root.data.primaryResponse.hits.hits ~}}
+      {{~> vacancy_full _source~}}
+    {{/each ~}}
+  </div>
+
+  <div class="content-related">
+    <div class="mdc-typography--headline5 v-margin-full">
+      Similar jobs
+    </div>
+    <div class="mdc-layout-grid equal-height">
+      <div class="mdc-layout-grid__inner">
+        {{#each @root.data.supplimentaryResponses.related.hits.hits ~}}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+          {{> vacancy_list _source hitContext="related-job" parentDocument=_source.Id}}
+        </div>
+        {{/each ~}}
+      </div>
+    </div>
+  </div>
+
+  {{> tfn_latest}}
+
+  {{else}}
+  <div class="search-info mdc-elevation--z3">
+    We could not find the vacancy you were looking for. It may have been removed or expired.
+  </div>
+  {{/compare}}
+</div>

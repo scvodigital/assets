@@ -1,0 +1,80 @@
+{
+  {{#each (split "working_patterns,regions,roles,sectors" ",")}}
+    "{{this}}": {
+      "slugsMap": {
+        {{#each (getProperty @root.data.supplimentaryResponses.types.aggregations (concat this ".buckets")) ~}}
+          {{#if key ~}}
+          "{{slugify key}}": {
+            "term": {{{stringify key}}},
+            "count": {{doc_count}}
+          }{{#unless @last}},{{/unless}}
+          {{/if ~}}
+        {{/each}}
+      },
+      "termsMap": {
+        {{#each (getProperty @root.data.supplimentaryResponses.types.aggregations (concat this ".buckets")) ~}}
+          {{#if key ~}}
+          {{{stringify key}}}: {
+            "slug": "{{slugify key}}",
+            "count": {{doc_count}}
+          }{{#unless @last}},{{/unless}}
+          {{/if ~}}
+        {{/each}}
+      },
+      "all": [
+        {{#each (getProperty @root.data.supplimentaryResponses.types.aggregations (concat this ".buckets")) ~}}
+          {{#if key ~}}
+          {
+            "term": {{{stringify key}}},
+            "slug": "{{slugify key}}",
+            "count": {{doc_count}}
+          }{{#unless @last}},{{/unless}}
+          {{/if ~}}
+        {{/each}}
+      ]
+    }{{#unless @last}},{{/unless}}
+  {{/each}},
+  "districts": {
+    "slugsMap": {
+      {{#each @root.data.supplimentaryResponses.types.aggregations.districts.district_names.buckets}}
+        {{#if key ~}}
+        "{{slugify key}}": {
+          "term": {{{stringify key}}},
+          "count": {{doc_count}},
+          "wards": {
+            {{#each wards.ward_names.buckets ~}}
+              {{~#if key}}
+                "{{slugify key}}" : {
+                  "term": {{{stringify key}}},
+                  "count": {{doc_count}}
+                }{{#unless @last}},{{/unless}}
+              {{/if ~}}
+            {{/each}}
+          }
+        }{{#unless @last}},{{/unless}}
+        {{/if ~}}
+      {{/each}}
+    },
+    "termsMap": {
+      {{#each @root.data.supplimentaryResponses.types.aggregations.districts.district_names.buckets ~}}
+        {{#if key ~}}
+        {{{stringify key}}}: {
+          "slug": "{{slugify key}}",
+          "count": {{doc_count}},
+          "wards": {
+            {{#each wards.ward_names.buckets ~}}
+              {{#if key ~}}
+              {{{stringify key}}}: {
+                "term": {{{stringify key}}},
+                "slug": "{{slugify key}}",
+                "count": {{doc_count}}
+              }{{#unless @last}},{{/unless}}
+              {{/if ~}}
+            {{/each}}
+          }
+        }{{#unless @last}},{{/unless}}
+        {{/if ~}}
+      {{/each}}
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "size": 1,
+  "_source": [
+    "Id",
+    "slug",
+    "top_job",
+    "sectors",
+    "sectors_slugs",
+    "roles",
+    "roles_slugs",
+    "role_status_list",
+    "description",
+    "title",
+    "start_at",
+    "geo_vacancy_coords",
+    "geo_vacancy_info",
+    "location",
+    "salary",
+    "salary_info",
+    "salary_min",
+    "remuneration_type",
+    "benefits",
+    "reference_number",
+    "application_notes",
+    "active",
+    "closing_date",
+    "start_at",
+    "end_at",
+    "home_based",
+    "various_locations",
+    "organisation.slug",
+    "organisation.name",
+    "organisation.street_address",
+    "organisation.postcode",
+    "organisation.has_logo",
+    "organisation.logo_url",
+    "organisation.profile",
+    "organisation_website",
+    "organisation_website_url",
+    "organisation_twitter",
+    "organisation_twitter_url",
+    "organisation_facebook",
+    "organisation_facebook_url",
+    "organisation_linkedin",
+    "organisation_linkedin_url",
+    "rendered.goodmoves_sponsor_logos",
+    "rendered.goodmoves_downloads",
+    "rendered.goodmoves_rss"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_vacancy_common_filters request.params.query}}
+      ],
+      "must": [
+        {
+          "term": {
+            {{#if (includes request.params.slug "-") ~}}
+            "slug": "{{request.params.slug}}"
+            {{else}}
+            "Id": "{{request.params.slug}}"
+            {{/if ~}}
+          }
+        }
+      ]
+    }
+  }
+}

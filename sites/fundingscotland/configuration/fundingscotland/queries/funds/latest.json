@@ -1,0 +1,24 @@
+{
+  "size": 5,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "description",
+    "geographical_areas_funded",
+    "fund_status",
+    "fund_status_slug",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url"
+  ],
+  "query": {
+    "match_all": {}
+  },
+  "sort": {
+    "date_last_important_activity": "desc"
+  }
+}

@@ -1,0 +1,48 @@
+{{#if @root.data.auth ~}}
+<div class="container-content fundingscotland-organisation">
+  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+  {{#with @root.data.primaryResponse.hits.hits.[0]._source as |funder| ~}}
+
+  {{> funder_full funder}}
+
+  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 0 ~}}
+  <hr />
+  <div class="mdc-typography--headline5">
+    Current funds
+  </div>
+  {{#each @root.data.supplimentaryResponses.funds_open.hits.hits ~}}
+  {{> fund_list _source}}
+  {{/each ~}}
+  {{/compare ~}}
+
+  {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 0 ~}}
+  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
+  <hr />
+  {{/compare}}
+  <div class="mdc-typography--headline5">
+    Closed funds
+  </div>
+  {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
+  {{> fund_list _source}}
+  {{/each ~}}
+  {{/compare ~}}
+
+  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
+  {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total "===" 0 ~}}
+  <hr />
+  <div class="mdc-typography--headline6">
+    There are no current or recently closed funds available
+  </div>
+  {{/compare ~}}
+  {{/compare ~}}
+
+  {{/with ~}}
+  {{else}}
+  <p>
+    <strong>Error:</strong> the requested funder could not be found.
+  </p>
+  {{/compare ~}}
+</div>
+{{else}}
+ {{> account_not_signed_in}}
+{{/if ~}}

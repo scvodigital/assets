@@ -1,0 +1,29 @@
+{
+  "size": 12,
+  "_source": [
+    "Id",
+    "title",
+    "slug",
+    "logo_url"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "filter": [
+            {{>queries_organisation_common_filters request.params.query}}
+          ],
+          "must": [
+            {
+              "term": {
+                "has_logo": true
+              }
+            }
+          ]
+        }
+      },
+      "random_score": {},
+      "score_mode": "sum"
+    }
+  }
+}

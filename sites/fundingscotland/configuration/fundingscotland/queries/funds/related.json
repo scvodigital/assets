@@ -1,0 +1,61 @@
+{
+  "size": 4,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "description",
+    "geographical_areas_funded",
+    "fund_status",
+    "fund_status_slug",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "should": [
+            {
+              "match": {
+                "title" : {
+                  "query" : "{{data.primaryResponse.hits.hits.[0]._source.title}}",
+                  "operator" : "and",
+                  "zero_terms_query": "all"
+                }
+              }
+            },
+            {
+              "terms": {
+                "activities_slugs": {{{stringify (arrayify data.primaryResponse.hits.hits.[0]._source.activities_slugs)}}}
+              }
+            },
+            {
+              "terms": {
+                "beneficiaries_slugs": {{{stringify (arrayify data.primaryResponse.hits.hits.[0]._source.beneficiaries_slugs)}}}
+              }
+            }
+          ],
+          "must": [
+            {
+              "term": {
+                "fund_status_slug": "open"
+              }
+            }
+          ],
+          "must_not": [
+            {
+              "term": {
+                "Id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

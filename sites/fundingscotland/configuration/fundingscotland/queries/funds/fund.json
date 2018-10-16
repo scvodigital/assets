@@ -1,0 +1,51 @@
+{
+  "size": 1,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "text_bag_boost",
+    "fund_status",
+    "fund_status_slug",
+    "for_charities_only",
+    "activities",
+    "activities_slugs",
+    "beneficiaries",
+    "beneficiaries_slugs",
+    "geographical_areas_funded",
+    "geographical_areas_funded_slugs",
+    "description",
+    "when_to_apply",
+    "who_can_apply",
+    "source_of_fund",
+    "exclusions",
+    "website",
+    "email",
+    "phone",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url",
+    "funder_organisation.profile",
+    "funder_organisation_website",
+    "funder_organisation_website_url",
+    "funder_organisation_twitter",
+    "funder_organisation_twitter_url",
+    "funder_organisation_facebook",
+    "funder_organisation_facebook_url",
+    "funder_organisation_linkedin",
+    "funder_organisation_linkedin_url",
+    "rendered.json_ld"
+  ],
+  "query": {
+    "term": {
+      {{#if (includes request.params.slug "-") ~}}
+      "slug": "{{request.params.slug}}"
+      {{else}}
+      "Id": "{{request.params.slug}}"
+      {{/if ~}}
+    }
+  }
+}

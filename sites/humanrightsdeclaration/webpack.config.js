@@ -120,4 +120,4 @@ function getConfig(site, library) {
   return config;
 }
 
-module.exports = getConfig('scvo', 'SCVO');
+module.exports = getConfig('humanrightsdeclaration', 'HumanRightsDeclaration');

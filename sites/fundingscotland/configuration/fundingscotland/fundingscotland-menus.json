@@ -1,0 +1,104 @@
+{
+  "main": [
+    {
+      "label": "Search",
+      "icon": "search",
+      "path": "/search",
+      "route": "^/search"
+    },
+    {
+      "label": "Browse",
+      "icon": "list-alt",
+      "path": "/browse",
+      "route": "^/browse"
+    }
+  ],
+  "upper": [
+    {
+      "label": "About",
+      "icon": "question-circle",
+      "path": "/contact",
+      "route": "^/contact"
+    },
+    {
+      "label": "FAQs",
+      "icon": "info-circle",
+      "path": "/faq",
+      "route": "^/faq"
+    },
+    {
+      "label": "Premium",
+      "icon": "award",
+      "path": "/premium",
+      "route": "^/premium"
+    }
+  ],
+  "user-signed-in": [
+    {
+      "label": "Home",
+      "icon": "home",
+      "path": "/",
+      "route": "^/$"
+    },
+    {
+      "label": "Notes",
+      "icon": "edit",
+      "path": "/notes",
+      "route": "^/notes"
+    },
+    {
+      "label": "Settings",
+      "icon": "cog",
+      "path": "/settings",
+      "route": "^/settings"
+    },
+    {
+      "label": "Sign out",
+      "icon": "sign-out-alt",
+      "path": "/sign-out",
+      "route": "^/sign-out"
+    }
+  ],
+  "user-not-signed-in": [
+    {
+      "label": "Sign in",
+      "icon": "sign-in-alt",
+      "path": "/sign-in",
+      "route": "^/sign-in"
+    },
+    {
+      "label": "Sign up",
+      "icon": "list-alt",
+      "path": "/sign-up",
+      "route": "^/sign-up"
+    }
+  ],
+  "footer-info": [
+    {
+      "label": "Privacy",
+      "icon": "lock-alt",
+      "path": "/privacy",
+      "route": "^/privacy"
+    },
+    {
+      "label": "Cookies",
+      "icon": "cookie",
+      "path": "/cookies",
+      "route": "^/cookies"
+    },
+    {
+      "label": "Terms &amp; conditions",
+      "icon": "book",
+      "path": "/terms",
+      "route": "^/terms"
+    }
+  ],
+  "footer-help": [
+    {
+      "label": "Contact",
+      "icon": "at",
+      "path": "/contact",
+      "route": "^/contact"
+    }
+  ]
+}

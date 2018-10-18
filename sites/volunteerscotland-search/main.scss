@@ -1515,6 +1515,11 @@ body.shortlist {
     }
   }
 }
+
+.mdc-top-app-bar {
+  position: relative !important;
+}
+
 .top-bar-stuck {
   position: fixed;
 }

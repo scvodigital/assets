@@ -17,7 +17,7 @@ const app = admin.initializeApp({
 });
 
 const versionNo = package.version;
-const sites = ['digitalparticipation', 'emailer', 'fundingscotland', 'getinvolved', 'getinvolved-legacy', 'goodmoves', 'humanrightsdeclaration', 'scotlandforeurope', 'scvo'];
+const sites = ['digitalparticipation', 'emailer', 'fundingscotland', 'volunteerscotland-search', 'getinvolved', 'getinvolved-legacy', 'goodmoves', 'humanrightsdeclaration', 'scotlandforeurope', 'scvo'];
 
 async function main() {
   const paths = await globby('build/**/*.gz');
@@ -58,7 +58,7 @@ async function updateSitesMetadata() {
   for (const site of sites) {
     const path = '/contexts/' + site + '/metaData/assetsVersion/'
     try {
-      await app.database().ref(path).set(versionNo); 
+      await app.database().ref(path).set(versionNo);
       console.log('Updated site metadata for', site, 'at path', path);
     } catch(err) {
       console.error('Failed to update site metadata for', site, 'at path', path);

@@ -643,8 +643,8 @@ primary-dark: #263238
   }
   .policy-research .callout-image {
     background-image: linear-gradient(
-    map-get($themeDefault, 'primary-overlay-start'),
-    map-get($themeDefault, 'primary-overlay-start')
+    map-get($themePosts, 'primary-overlay-start'),
+    map-get($themePosts, 'primary-overlay-start')
     ),
     url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
     color: white;
@@ -657,6 +657,14 @@ primary-dark: #263238
       border-color: map-get($themePosts, 'primary-dark') !important;
       color: map-get($themePosts, 'primary') !important;
     }
+  }
+  .projects-campaigns.i-love-charity .callout-image {
+    background-image: linear-gradient(
+    map-get($themeLoveCharity, 'primary-overlay-start'),
+    map-get($themeLoveCharity, 'primary-overlay-start')
+    ),
+    url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
+    color: white;
   }
   .footer-image {
     a {
@@ -1372,6 +1380,7 @@ section.search {
     }
   }
 }
+.projects-campaigns.i-love-charity,
 .policy-research {
   .latest-content {
     padding: 0;
@@ -1399,6 +1408,9 @@ section.search {
       text-align: center;
     }
   }
+}
+.projects-campaigns.i-love-charity .policy-stats {
+  margin-bottom: 0;
 }
 .home {
   .latest-content {
@@ -4260,6 +4272,10 @@ footer {
 @media screen and (max-width: 479px) {
   .mdc-button {
     width: 100%;
+    text-align: center;
+  }
+  .book-now .mdc-button {
+    margin-left: 0;
   }
   .home .featured-content {
     .featured-background-image img.header-text {

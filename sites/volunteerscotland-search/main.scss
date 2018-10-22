@@ -842,7 +842,7 @@ a {
   -ms-transition: opacity .1s ease-in-out;
   -o-transition: opacity .1s ease-in-out;
   transition: opacity .1s ease-in-out;
-  height: calc(100vh - 138px);
+  height: calc(100vh - 214px);
   width: 100%;
   z-index: 1;
 }
@@ -1515,6 +1515,11 @@ body.shortlist {
     }
   }
 }
+
+.mdc-top-app-bar {
+  position: relative !important;
+}
+
 .top-bar-stuck {
   position: fixed;
 }

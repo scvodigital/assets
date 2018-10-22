@@ -11,6 +11,7 @@ import * as cookieInfoScript from '../../lib/cookie-info-script';
 
 window.firebase = firebase;
 
+
 export class VolunteerScotlandSearch {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;

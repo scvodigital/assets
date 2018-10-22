@@ -1,0 +1,34 @@
+{
+  "name": "logout",
+  "pattern": "/logout",
+  "metaData": {
+    "title": "Logout"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": "",
+              "body": ">context.metaData.handlebars.templates.logout",
+              "foot": ">context.metaData.handlebars.templates.logout-foot"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

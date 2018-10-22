@@ -6,6 +6,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const JsonIncWebpackPlugin = require('../../json-inc-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FileWatcherWebpackPlugin = require('filewatcher-webpack-plugin');
 
 const package = require('../../package.json');
 
@@ -22,7 +23,7 @@ function getConfig(site, library) {
       pattern: './sites/' + site + '/**/*.inc.json',
       output: './build/' + site
     }),
-    new HardSourceWebpackPlugin()
+    new HardSourceWebpackPlugin(),
   ];
 
   if (process.env.TRAVIS) {
@@ -37,7 +38,13 @@ function getConfig(site, library) {
         return path.replace(/\.gz$/, ''); 
       }
     }));
-  }
+  } else {
+    plugins.push(new FileWatcherWebpackPlugin({
+      watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/' + site + '/assets/**/*'],
+			onAddDirCallback: (path) => { },
+			onReadyCallback: () => { }
+    }));
+	}
 
   const config = {
     watchOptions: {

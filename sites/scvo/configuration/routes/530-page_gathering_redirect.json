@@ -7,7 +7,7 @@
       "taskModule": "redirect",
       "config": {
         "location": "/the-gathering-2019",
-        "statusCode": 302
+        "statusCode": 301
       }
     }
   ]

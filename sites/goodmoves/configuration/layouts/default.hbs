@@ -18,25 +18,25 @@
 
   -->
 
-  <link rel="shortcut icon" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/favicon.ico">
-  <link rel="apple-touch-icon" sizes="57x57" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/favicon-16x16.png">
-  <link rel="manifest" href="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/manifest.json">
+	<link rel="shortcut icon" href="{{~>asset_url url='images/icons/favicon.ico'~}}">
+  <link rel="apple-touch-icon" sizes="57x57" href="{{~>asset_url url='images/icons/apple-icon-57x57.png'~}}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{~>asset_url url='images/icons/apple-icon-60x60.png'~}}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{~>asset_url url='images/icons/apple-icon-72x72.png'~}}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{~>asset_url url='images/icons/apple-icon-76x76.png'~}}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{~>asset_url url='images/icons/apple-icon-114x114.png'~}}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{~>asset_url url='images/icons/apple-icon-120x120.png'~}}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{~>asset_url url='images/icons/apple-icon-144x144.png'~}}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{~>asset_url url='images/icons/apple-icon-152x152.png'~}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{~>asset_url url='images/icons/apple-icon-180x180.png'~}}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{~>asset_url url='images/icons/android-icon-192x192.png'~}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{~>asset_url url='images/icons/favicon-32x32.png'~}}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{~>asset_url url='images/icons/favicon-96x96.png'~}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{~>asset_url url='images/icons/favicon-16x16.png'~}}">
+  <link rel="manifest" href="{{~>asset_url url='images/icons/manifest.json'~}}">
   <meta name="msapplication-TileColor" content="#3c7524">
-  <meta name="msapplication-TileImage" content="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/goodmoves/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="{{~>asset_url url='images/icons/ms-icon-144x144.png'~}}">
   <meta name="theme-color" content="#3c7524">
-  <link rel="search" type="application/opensearchdescription+xml" title="Goodmoves" href="/assets/opensearch.xml" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Goodmoves" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <link rel="canonical" href="https://goodmoves.com{{request.params.uri.pathname}}" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-6"></script>
@@ -53,6 +53,7 @@
       'dimension2': 'parent_document'
     }
   });
+
   {{#ifAny request.params.query.debug (compare request.url.hostname "goodmoves.local") ~}}
   console.log('#### DEBUG MODE ON ####');
   console.log('Request:', {{{regexReplace (regexReplace (stringify request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
@@ -64,19 +65,13 @@
   {{/if}}
   {{/ifAny ~}}
   </script>
-  
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin=""/>
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
-
-  {{#compare @root.request.url.hostname "goodmoves.local" ~}}
-    <link type="text/css" rel="stylesheet" href="/assets/goodmoves/main.css">
-  {{else}}
-    <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/scvo-assets/goodmoves/main-{{@root.context.metaData.assetsVersion}}.css">
-  {{/compare ~}}
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main-VERSION.css'}}">
 </head>
 <body class="mdc-theme--site-bg {{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
   <goodmoves-site>
@@ -347,7 +342,7 @@
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
                   <a href="https://scvo.org" class="brand-logo" title="Scottish Council for Voluntary Organisations">
-                    <img src="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/logos/scvo.png" alt="Scottish Council for Voluntary Organisations" />
+										<img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
                   </a>
                 </div>
               </div>
@@ -393,11 +388,7 @@
   catch(e){window.attachEvent("onload", $buo_f)}
   </script>
 
-  {{#compare request.url.hostname "goodmoves.local"}}
-    <script type="text/javascript" src="/assets/goodmoves/main.js"></script>
-  {{else}}
-    <script type="text/javascript" src="https://storage.googleapis.com/scvo-assets/goodmoves/main-{{@root.context.metaData.assetsVersion}}.js"></script>
-  {{/compare}}
+	<script type="text/javascript" src="{{~>asset_url url='main-VERSION.js'~}}"></script>
 
   <script>
     var goodmoves = null; readyListeners = [];

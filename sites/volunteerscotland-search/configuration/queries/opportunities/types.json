@@ -49,21 +49,35 @@
       "terms": {
         "field": "volunteersearch_age_group",
         "order": {
-          "_term": "asc"
+          "age": "asc"
         },
         "size": 10000
+      },
+      "aggs": {
+         "age": {
+            "max": {
+               "field": "minimum_age"
+            }
+         }
       }
     },
     "age_groups_slugs": {
       "terms": {
         "field": "volunteersearch_age_group_slugs",
         "order": {
-          "_term": "asc"
+          "age": "asc"
         },
         "size": 10000
+      },
+      "aggs": {
+         "age": {
+            "max": {
+               "field": "minimum_age"
+            }
+         }
       }
     },
-    "support_options": {
+    "services": {
       "terms": {
         "field": "volunteersearch_support_option",
         "order": {
@@ -72,7 +86,7 @@
         "size": 10000
       }
     },
-    "support_options_slugs": {
+    "services_slugs": {
       "terms": {
         "field": "volunteersearch_support_option_slugs",
         "order": {

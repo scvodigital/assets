@@ -1,0 +1,31 @@
+{
+  "domains": [
+    "localhost",
+    "scotlandforeurope.local",
+    "127.0.0.1",
+    "test.scotlandforeurope.scot",
+    "scotlandforeurope.scot",
+    "www.scotlandforeurope.scot"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
+    "menus": "{:./scotlandforeurope-menus.json}",
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

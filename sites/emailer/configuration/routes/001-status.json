@@ -1,0 +1,45 @@
+{
+  "name": "status",
+  "pattern": "/status",
+  "metaData": {
+    "title": "Status"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "queueSize",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": "CALL _getQueueSize();"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": "",
+              "body": ">context.metaData.handlebars.templates.status",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -13,13 +13,15 @@ function JsonIncWebpackPlugin(options = {}) {
       try {
         const cwd = path.dirname(file);
         const filename = path.basename(file).replace('.inc.json', '.json');
-        const contents = fs.readFileSync(file).toString();
-        const json = await jsonInc.transpile(contents, cwd);
-        const outputPath = path.join(output, filename);
 
         compiler.plugin('emit', async (compilation, callback) => {
+					const contents = fs.readFileSync(file).toString();
+					console.log('Transpiling:', file);
+					const json = await jsonInc.transpile(contents, cwd);
+					const outputPath = path.join(output, filename);
           compilation.assets[outputPath] = {
             source: function() {
+							console.log('Emitting source:', outputPath, json.length);
               return Buffer.from(json);
             },
             size: function() {

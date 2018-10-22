@@ -1,0 +1,42 @@
+{
+  "domains": [
+    "localhost",
+    "getinvolved-legacy.local",
+    "127.0.0.1",
+    "getinvolved.scot",
+    "www.getinvolved.scot",
+    "getinvolved.org.uk",
+    "www.getinvolved.org.uk"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "menus": "{:./getinvolved-legacy-menus.json}",
+    "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "termTypeLabels": {
+      "activities": {
+        "singular": "Activity",
+        "plural": "Activities"
+      },
+      "client_groups": {
+        "singular": "Client group",
+        "plural": "Client groups"
+      }
+    },
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

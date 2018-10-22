@@ -1,0 +1,61 @@
+{
+  "size": 1000,
+  "_source": [
+    "Id",
+    "slug",
+    "top_job",
+    "description",
+    "title",
+    "home_based",
+    "location",
+    "salary",
+    "salary_currency",
+    "role_status_list",
+    "active",
+    "closing_date",
+    "start_at",
+    "end_at",
+    "organisation.slug",
+    "organisation.name"
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_vacancy_common_filters_open this}},
+        {
+          "range": {
+            "start_at": {
+              {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+              "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+              {{else}}
+              "gte": "now-1w/d"
+              {{/ifAny}}
+            }
+          }
+        }
+      ],
+      "should": [
+        {{#eachJoin (split templateMetaData.querystrings "&&") ","}}
+          {{#with (querystring this)}}
+            {
+              "bool": {
+                "filter": [
+                  {{>queries_vacancy_search_filters this}}
+                ],
+                "must": [
+                  {{>queries_vacancy_search_must this}}
+                ]
+              }
+            }
+          {{/with}}
+        {{/eachJoin}}
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "sort": [
+    {
+      "start_at": "asc"
+    }
+  ]
+}

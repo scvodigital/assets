@@ -10,6 +10,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/scvo/",
     "favouritesCampaignName": "vs-favourites",
     "menus": "{:./volunteerscotland-search-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
@@ -104,6 +105,16 @@
         "renderer": "handlebars",
         "config": {
           "template": ">context.metaData.handlebars.templates.opportunities_transform-times",
+          "output": "data",
+          "parseJson": true
+        }
+      },
+      "transformTimesQuery": {
+        "name": "transformTimesQuery",
+        "taskModule": "render",
+        "renderer": "handlebars",
+        "config": {
+          "template": ">context.metaData.handlebars.templates.opportunities_transform-times-query",
           "output": "data",
           "parseJson": true
         }

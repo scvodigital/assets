@@ -43,11 +43,7 @@
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
 
-  {{#compare @root.request.url.hostname "digitalparticipation.local" ~}}
-    <link type="text/css" rel="stylesheet" href="/assets/digitalparticipation/main.css">
-  {{else}}
-    <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/scvo-assets/digitalparticipation/main-{{@root.context.metaData.assetsVersion}}.css">
-  {{/compare ~}}
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main-VERSION.css'}}">
 </head>
 <body class="{{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
   <charter-site>
@@ -160,10 +156,10 @@
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-desktop">
                   <a href="http://gov.scot/Topics/Economy/digital">
-                    <img src="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/logos/digital-scotland.png" alt="Digital Scotland" class="logo digital-scotland" />
+                    <img src="{{~>asset_url url='images/logos/digital-scotland.png'~}}" alt="Digital Scotland" class="logo digital-scotland" />
                   </a>
                   <a href="https://scvo.org" title="Scottish Council for Voluntary Organisations">
-                    <img src="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/logos/scvo.png" alt="Scottish Council for Voluntary Organisations" class="logo scvo" />
+                    <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" class="logo scvo" />
                   </a>
                 </div>
               </div>
@@ -189,14 +185,10 @@
   try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
   catch(e){window.attachEvent("onload", $buo_f)}
   </script>
-  <script type="text/javascript" id="cookieinfo" src="/assets/js/cookieinfo.min.js" data-message="We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies." data-font-family="'Open Sans',Helvetica,Arial,sans-serif" data-bg="#fff" data-link="#022347" data-divlink="#fff" data-divlinkbg="#022347" data-position="bottom" data-accept-on-scroll="true" data-moreinfo="/cookies" data-cookie="CookieInfoScript" data-text-align="left"></script>
-  <script type="text/javascript" src="/assets/js/digitalparticipation/root.js"></script>
+  <script type="text/javascript" id="cookieinfo" src="{{~>asset_url url='cookieinfo.min.js'~}}" data-message="We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies." data-font-family="'Open Sans',Helvetica,Arial,sans-serif" data-bg="#fff" data-link="#022347" data-divlink="#fff" data-divlinkbg="#022347" data-position="bottom" data-accept-on-scroll="true" data-moreinfo="/cookies" data-cookie="CookieInfoScript" data-text-align="left"></script>
+  <script type="text/javascript" src="{{~>asset_url url='root.js'~}}"></script>
 
-  {{#compare request.url.hostname "digitalparticipation.local" ~}}
-    <script type="text/javascript" src="/assets/digitalparticipation/main.js"></script>
-  {{else}}
-    <script type="text/javascript" src="https://storage.googleapis.com/scvo-assets/digitalparticipation/main-{{@root.context.metaData.assetsVersion}}.js"></script>
-  {{/compare ~}}
+  <script type="text/javascript" src="{{~>asset_url url='main-VERSION.js'~}}"></script>
 
   {{{layoutParts.foot}}}
 </body>

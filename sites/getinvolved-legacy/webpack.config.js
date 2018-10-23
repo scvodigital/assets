@@ -23,9 +23,22 @@ function getConfig(site, library) {
       pattern: './sites/' + site + '/**/*.inc.json',
       output: './build/' + site
     }),
+    new HardSourceWebpackPlugin(),
   ];
 
-	if (!process.env.TRAVIS) {
+  if (process.env.TRAVIS) {
+    plugins.push(new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 5,
+        sourceMap: true
+      }
+    }));
+    plugins.push(new CompressionPlugin({
+      filename(path) {
+        return path.replace(/\.gz$/, ''); 
+      }
+    }));
+  } else {
     plugins.push(new FileWatcherWebpackPlugin({
       watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/' + site + '/assets/**/*'],
 			onAddDirCallback: (path) => { },
@@ -39,15 +52,74 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
+      './sites/' + site + '/main.scss', 
       './sites/' + site + '/main.js', 
     ],
     output: {
       filename: 'build/' + site + '/main-' + package.version + '.js',
       library: library,
       libraryTarget: 'var'
-		},
+    },
     module: {
-      rules: [ ],
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                name: 'build/' + site + '/main-' + package.version + '.css',
+              },
+            },
+            {
+              loader: 'extract-loader'
+            },
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()],
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                includePaths: ['./node_modules'],
+              },
+            }
+          ],
+        },
+        {
+          test: require.resolve('jquery'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'jQuery'
+            },
+            {
+              loader: 'expose-loader',
+              options: '$'
+            }
+          ]
+        },
+        {
+          test: require.resolve('string'),
+          use: [
+            {
+              loader: 'expose-loader',
+              options: 'S'
+            }
+          ]
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015'],
+          },
+        },
+      ],
     },
     plugins: plugins
   };
@@ -55,4 +127,4 @@ function getConfig(site, library) {
   return config;
 }
 
-module.exports = getConfig('getinvolved', 'GetInvolved');
+module.exports = getConfig('getinvolved-legacy', 'GetinvolvedLegacy');

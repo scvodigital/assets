@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
-    "start": "npm run clear-build; npm run build",
-    "dev": "npm run clear-build; npm run watch",
-    "publish": "export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
-    "build": "./node_modules/.bin/webpack",
-    "watch": "./node_modules/.bin/webpack --watch",
+    "start": "npm run clear-build && ./node_modules/.bin/webpack",
+    "dev": "npm run clear-build && ./node_modules/.bin/webpack --watch",
+    "publish": "npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "clear-build": "rm -rf build/**",
     "clear-cache": "rm -rf node_modules/.cache/hard-source"
   },

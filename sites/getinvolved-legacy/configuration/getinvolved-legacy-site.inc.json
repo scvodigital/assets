@@ -12,6 +12,7 @@
     "{:./routes/*.json}"
   ],
   "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
     "menus": "{:./getinvolved-legacy-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "termTypeLabels": {

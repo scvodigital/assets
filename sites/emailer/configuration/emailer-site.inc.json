@@ -6,6 +6,8 @@
     "{:./routes/*.json}"
   ],
   "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/emailer/",
     "title": "SCVO Emailer",
     "menus": {},
     "campaignConfig": "{:./emailer-campaigns.json}",

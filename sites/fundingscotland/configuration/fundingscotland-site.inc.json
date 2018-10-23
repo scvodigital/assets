@@ -9,6 +9,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/fundingscotland/",
     "title": "Funding Scotland",
     "menus": "{:./fundingscotland-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",

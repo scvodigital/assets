@@ -9,6 +9,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/getinvolved-legacy/",
     "favouritesCampaignName": "getinvolved-favourites",
     "menus": "{:./getinvolved-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",

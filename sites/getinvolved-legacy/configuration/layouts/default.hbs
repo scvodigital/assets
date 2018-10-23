@@ -25,7 +25,7 @@
   <link rel="search" type="application/opensearchdescription+xml" title="SCVO" href="https://storage.googleapis.com/scvo-assets/assets/opensearch.xml" />
   <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/material-components-web@0.37.1/dist/material-components-web.min.css"> -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-TXfwrfuHVznxCssTxWoPZjhcss/hp38gEOH8UPZG/JcXonvBQ6SlsIF49wUzsGno" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="{{~asset_url url='getinvolved-legacy-styles.css'~}}">
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url='getinvolved-legacy-styles.css'~}}">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-4"></script>
   <script>
   window.dataLayer = window.dataLayer || [];
@@ -163,7 +163,7 @@
     </div>
   </scvo-site>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{{~asset_url url='headroom.min.js'~}}"></script>
+  <script type="text/javascript" src="{{~>asset_url url='headroom.min.js'~}}"></script>
   {{#if (contains request.url.host '.local')}}
   <script type="text/javascript" src="https://unpkg.com/material-components-web@0.37.1/dist/material-components-web.js"></script>
   {{else}}
@@ -185,8 +185,8 @@
   try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
   catch(e){window.attachEvent("onload", $buo_f)}
   </script>
-  <script type="text/javascript" id="cookieinfo" src="{{~asset_url url='cookieinfo.min.js'~}}" data-message="We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies." data-font-family="'Open Sans',Helvetica,Arial,sans-serif" data-bg="#fff" data-link="#c2185b" data-divlink="#fff" data-divlinkbg="#c2185b" data-position="bottom" data-accept-on-scroll="true" data-moreinfo="/cookies" data-cookie="CookieInfoScript" data-text-align="left"></script>
-  <script type="text/javascript" src="{{~asset_url url='root.js'~}}"></script>
+  <script type="text/javascript" id="cookieinfo" src="{{~>asset_url url='cookieinfo.min.js'~}}" data-message="We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies." data-font-family="'Open Sans',Helvetica,Arial,sans-serif" data-bg="#fff" data-link="#c2185b" data-divlink="#fff" data-divlinkbg="#c2185b" data-position="bottom" data-accept-on-scroll="true" data-moreinfo="/cookies" data-cookie="CookieInfoScript" data-text-align="left"></script>
+  <script type="text/javascript" src="{{~>asset_url url='root.js'~}}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJdxcQpVKQ6HdrjnPXycUoZqsmp-Ep3l0&libraries=places&region=uk&callback=initMap" async defer></script>
 
   {{{layoutParts.foot}}}

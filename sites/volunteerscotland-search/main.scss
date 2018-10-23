@@ -3052,6 +3052,22 @@ header {
   }
 }
 
+.checkbox-toggle-display-all {
+  .mdc-form-field {
+    display:inline-flex;
+  }
+}
+
+.checkbox-toggle-display-checked {
+  .mdc-form-field{
+    display: none;
+  }
+  .mdc-form-field.checked {
+    display:inline-flex;
+  }
+}
+
+
 .sign-in-form,
 .reset-password-form {
   .middle-line-text {

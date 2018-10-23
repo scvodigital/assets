@@ -37,7 +37,6 @@ export class SCVO {
       ]
     });
     this.componentsInitialiser.initialise();
-
     // Headroom
     var header = document.querySelector("header.mdc-toolbar");
     var headroom  = new Headroom(header, {

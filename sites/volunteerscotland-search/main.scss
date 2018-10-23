@@ -3053,6 +3053,22 @@ header {
   }
 }
 
+.checkbox-toggle-display-all {
+  input[type=checkbox] {
+    display:block;
+  }
+}
+
+.checkbox-toggle-display-checked {
+  input[type=checkbox]{
+    display:none;
+  }
+  input[type=checkbox]:checked {
+    display: block;
+  }
+}
+
+
 .sign-in-form,
 .reset-password-form {
   .middle-line-text {

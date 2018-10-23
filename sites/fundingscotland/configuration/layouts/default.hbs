@@ -36,7 +36,7 @@
   <meta name="msapplication-TileColor" content="#3c7524">
   <meta name="msapplication-TileImage" content="https://storage.googleapis.com/scvo-assets/scvo-frontend/assets/images/icons/fundingscotland/ms-icon-144x144.png">
   <meta name="theme-color" content="#3c7524"> -->
-  <link rel="search" type="application/opensearchdescription+xml" title="Funding Scotland" href="/assets/opensearch.xml" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Funding Scotland" href="{{~asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://fundingscotland.com{{request.params.uri.pathname}}" /> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-12"></script>
@@ -68,11 +68,7 @@
 
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
 
-  {{#compare @root.request.url.hostname "fundingscotland.local" ~}}
-    <link type="text/css" rel="stylesheet" href="/assets/fundingscotland/main.css">
-  {{else}}
-    <link type="text/css" rel="stylesheet" href="https://storage.googleapis.com/scvo-assets/fundingscotland/main-{{@root.context.metaData.assetsVersion}}.css">
-  {{/compare ~}}
+  <link type="text/css" rel="stylesheet" href="{{~asset_url url='main-VERSION.css'~}}">
 </head>
 <body class="mdc-theme--site-bg {{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
   <fundingscotland-site>
@@ -374,11 +370,7 @@
   catch(e){window.attachEvent("onload", $buo_f)}
   </script>
 
-  {{#compare request.url.hostname "fundingscotland.local"}}
-    <script type="text/javascript" src="/assets/fundingscotland/main.js"></script>
-  {{else}}
-    <script type="text/javascript" src="https://storage.googleapis.com/scvo-assets/fundingscotland/main-{{@root.context.metaData.assetsVersion}}.js"></script>
-  {{/compare}}
+  <script type="text/javascript" src="{{~asset_url url='main-VERSION.js'~}}"></script>
 
   <script>
     var fundingscotland = null; readyListeners = [];

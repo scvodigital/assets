@@ -10,7 +10,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/scvo/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/volunteerscotland-search/",
     "favouritesCampaignName": "vs-favourites",
     "menus": "{:./volunteerscotland-search-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",

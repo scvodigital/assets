@@ -3054,17 +3054,17 @@ header {
 }
 
 .checkbox-toggle-display-all {
-  input[type=checkbox] {
-    display:block;
+  .mdc-form-field {
+    display:inline-flex;
   }
 }
 
 .checkbox-toggle-display-checked {
-  input[type=checkbox]{
-    display:none;
+  .mdc-form-field{
+    display: none;
   }
-  input[type=checkbox]:checked {
-    display: block;
+  .mdc-form-field.checked {
+    display:inline-flex;
   }
 }
 

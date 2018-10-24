@@ -36,7 +36,8 @@ function getConfig(site, library) {
     plugins.push(new CompressionPlugin({
       filename(path) {
         return path.replace(/\.gz$/, ''); 
-      }
+      },
+      exclude: /-site\.json$/
     }));
   } else {
     plugins.push(new FileWatcherWebpackPlugin({

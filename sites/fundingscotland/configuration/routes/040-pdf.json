@@ -1,0 +1,55 @@
+{
+  "name": "pdf",
+  "pattern": "/pdf",
+  "debug": true,
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [{
+    "name": "destination",
+    "taskModule": "generatePdf",
+    "renderer": "jsone",
+    "config": {
+      "definitionTemplate": {
+        "pageSize": "A4",
+        "pageMargins": [30, 120, 30, 200],
+        "styles": {
+          "title": {
+            "fontSize": 20,
+            "bold": true
+          },
+          "subtitle": {
+            "fontSize": 16
+          },
+          "h1": {
+            "fontSize": 18,
+            "bold": true,
+            "margin": [0, 10, 0, 5]
+          },
+          "h2": {
+            "fontSize": 16,
+            "bold": true,
+            "margin": [0, 10, 0, 5]
+          },
+          "h3": {
+            "fontSize": 14,
+            "bold": true
+          }
+        },
+        "content": [{
+          "columns": [{
+              "width": "*",
+              "text": "Column 1",
+              "fontSize": 28
+            },
+            {
+              "width": "*",
+              "text": "Column 2",
+              "fontSize": 28
+            }
+          ]
+        }]
+      }
+    }
+  }]
+}

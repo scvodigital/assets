@@ -3316,6 +3316,12 @@ body.post.author {
       position: relative;
       top: 0em;
     }
+    li.mdc-grid-tile:before {
+      content: none;
+      margin-left: 0;
+      padding-right: unset;
+      top: auto;
+    }
   }
   ul.fa-ul {
     li {

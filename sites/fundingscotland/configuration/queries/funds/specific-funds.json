@@ -1,0 +1,9 @@
+{
+  "size": 100,
+  "query": {
+    "ids": {
+      "type": "fundingscotland-fund",
+      "values": {{{stringify (split @root.request.params.query.ids ",")}}}
+    }
+  } 
+}

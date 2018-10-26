@@ -27,8 +27,8 @@
     "taskModule": "generatePdf",
     "renderer": "jsone",
     "config": {
-      "images": {
-        "logo": "http://fundingscotland.blob.core.windows.net/www/logo"
+      "imagesTemplate": {
+        "logo": "http://fundingscotland.blob.core.windows.net/${request.params.query.subdomain}/logo"
       },
       "definitionTemplate": "{:../templates/funds/pdf-definition.json}",
       "headerTemplate": "{:../templates/funds/pdf-header.json}",

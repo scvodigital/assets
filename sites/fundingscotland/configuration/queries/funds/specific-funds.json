@@ -1,4 +1,26 @@
 {
+  "_source": {
+    "includes": [
+      "name",
+      "description",
+      "fund_status",
+      "type_of_funding",
+      "source_of_fund",
+      "when_to_apply",
+      "next_deadline",
+      "charities_only",
+      "url",
+      "fund_email_address",
+      "fund_telephone",
+      "how_to_apply",
+      "fund_exclusion",
+      "minimum_award_size",
+      "maximum_award_size",
+      "average_award_size",
+      "annual_total",
+      "notes_on_award_amounts"
+    ]
+  }, 
   "size": 100,
   "query": {
     "ids": {

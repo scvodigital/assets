@@ -150,7 +150,7 @@
                   "text": {
                     "$if": "x._source['next_deadline']",
                     "then": {
-                      "$eval": "x._source['next_deadline']"
+                      "$eval": "jsone.dateFormat('Do MMMM YYYY', x._source['next_deadline'])"
                     },
                     "else": "No deadline date"
                   }
@@ -329,7 +329,7 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['notesOnAwardAmounts']",
+                    "$if": "x._source['notes_on_award_amounts']",
                     "then": {
                       "$eval": "x._source['notes_on_award_amounts']"
                     },

@@ -1,10 +1,6 @@
 {
   "name": "pdf",
   "pattern": "/pdf",
-  "debug": true,
-  "defaultParams": {
-    "context": "detail"
-  },
   "tasks": [
     {
       "name": "search_data",

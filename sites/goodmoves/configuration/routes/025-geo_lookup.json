@@ -1,6 +1,7 @@
 {
   "name": "geo-lookup",
   "pattern": "/geo-lookup",
+  "debug": true,
   "tasks": [
     {
       "name": "search_data",
@@ -12,8 +13,8 @@
         },
         "queryTemplates": {
           "name": "detailed_results",
-          "index": "geo",
-          "type": "postcode,local-authority-district,electoral-ward",
+          "index": "geo_lookup",
+          "type": "postcode,place",
           "template": ">context.metaData.handlebars.queries.geo-lookup"
         }
       },

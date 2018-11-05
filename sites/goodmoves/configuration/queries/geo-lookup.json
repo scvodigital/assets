@@ -1,34 +1,16 @@
 {
   "size": 6,
-  "_source": ["place", "textbag", "point", "district", "ward"],
+  "_source": ["place", "textbag", "point", "district", "ward", "display", "constituency", "nuts_3"],
   "query": {
-    "bool": {
-      "filter": {
-        "terms": {
-          "_type": [
-            {{#if (regexMatch @root.request.params.query.q "^([A-Z]{1,2})(([0-9][A-Z])|([0-9]{1,2}))" "ig")}}
-              "postcode"      
-            {{else}}
-              "electoral-ward", "local-authority-district"
-            {{/if}}
-          ]
-        }
-      },
-      "should": [
-        {
-          "match": {
-            "textbag": {
-              "query": {{{stringify (lowercase @root.request.params.query.q)}}}
-            }
-          }
-        },
-        {
-          "query_string": {
-            "query": {{{stringify (lowercase @root.request.params.query.q)}}}
-          }
-        }
-      ],
-      "minimum_should_match": 1
+    "query_string": {
+      "default_field": "autocomplete",
+      "analyzer": "autocomplete",
+      "query": 
+        {{#if (regexMatch @root.request.params.query.q "^([A-Z]{1,2})(([0-9][A-Z])|([0-9]{1,2}))" "ig")}}
+          {{{stringify (replace @root.request.params.query.q " " "")}}}
+        {{else}}
+          {{{stringify @root.request.params.query.q}}}
+        {{/if}}
     }
   }
 }

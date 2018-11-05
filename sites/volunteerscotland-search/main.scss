@@ -832,7 +832,7 @@ a {
 }
 
 #map-content-primary {
-  height: 15vh;
+  height: 40vh;
   width: 100%;
 }
 #map-full {
@@ -1239,7 +1239,7 @@ a {
     }
     .location-info {
       .container-map {
-        height: 15vh;
+        height: 40vh;
         padding: 0;
         margin: 0;
       }
@@ -3053,13 +3053,19 @@ header {
 }
 
 .checkbox-toggle-display-all {
-  .mdc-form-field {
+  .mdc-form-field{
+    display:inline-flex;
+  }
+  .checkbox-collapse-element {
     display:inline-flex;
   }
 }
 
 .checkbox-toggle-display-checked {
   .mdc-form-field{
+    display: none;
+  }
+  .checkbox-collapse-element {
     display: none;
   }
   .mdc-form-field.checked {

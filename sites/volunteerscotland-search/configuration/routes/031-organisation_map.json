@@ -29,7 +29,7 @@
           {
             "name": "map_results",
             "index": "web-content-production",
-            "type": "milo-organisation",
+            "type": "milo-volunteering-organisation",
             "template": ">context.metaData.handlebars.queries.organisations_search-map"
           }
         ]

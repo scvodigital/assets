@@ -22,7 +22,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/scvo/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo/",
     "title": "SCVO",
     "menus": "{:./scvo-menus.json}",
     "commonTasks": {

@@ -12,7 +12,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/scotlandforeurope/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scotlandforeurope/",
     "menus": "{:./scotlandforeurope-menus.json}",
     "handlebars": {
       "partials": {

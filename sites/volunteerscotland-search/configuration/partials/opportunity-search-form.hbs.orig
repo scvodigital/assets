@@ -24,27 +24,8 @@
               {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../../instance_id value=(lookup ../this.regions.buckets @index)}}
             {{/if ~}}
           {{/each ~}}
-        {{else}}
-          <div class="mdc-typography--headline7 checkbox-collapse-element">Other</div>
-          {{#each this.regions_slugs.buckets ~}}
-            {{#if key ~}}
-              {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../../instance_id value=(lookup ../this.regions.buckets @index)}}
-            {{/if ~}}
-          {{/each ~}}
         {{/compare ~}}
-
       {{/each ~}}
-      {{#ifAny (length @root.data.opportunitySupplimentary.types.aggregations.home_based.buckets) (length @root.data.opportunitySupplimentary.types.aggregations.various_locations.buckets) ~}}
-        {{!-- #compare (length @root.data.opportunitySupplimentary.types.aggregations.countries.buckets) ">=" 1 ~}}
-          <h3 class="mdc-typography--headline7">Other</h3>
-        {{/compare ~ --}}
-        {{#compare (length @root.data.opportunitySupplimentary.types.aggregations.home_based.buckets) ">=" 1 ~}}
-          {{> term_checkbox slug="true" field="home_based" selected=@root.request.params.query.home_based instance_id=../instance_id value="Home-based"}}
-        {{/compare ~}}
-        {{#compare (length @root.data.opportunitySupplimentary.types.aggregations.various_locations.buckets) ">=" 1 ~}}
-          {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../instance_id value="Various locations"}}
-        {{/compare ~}}
-      {{/ifAny ~}}
     {{/if ~}}
   {{else}}
     {{#each (getProperty @root.data.opportunitySupplimentary.types.aggregations (concat type "_slugs.buckets")) ~}}
@@ -136,6 +117,7 @@
     <input type="hidden" name="lat" value="{{@root.request.params.query.lat}}">
     <input type="hidden" name="lng" value="{{@root.request.params.query.lng}}">
 
+    {{> availability_filter instance_id=instance_id ~}}
 
 
     {{> term_filter type="regions" instance_id=instance_id ~}}
@@ -158,8 +140,6 @@
     {{#each (split "work_types,client_groups,services,age_groups" ",") ~}}
       {{> term_filter type=this instance_id=instance_id ~}}
     {{/each ~}}
-
-    {{> availability_filter instance_id=instance_id ~}}
 
     <div class="v-margin-full">
       {{> term_checkbox slug="true" field="recently_updated" selected=@root.request.params.query.recently_updated instance_id=instance_id value="Only show opportunities updated in the last year" ~}}

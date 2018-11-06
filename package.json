@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "if [ $(git rev-parse --abbrev-ref HEAD) == \"dev\" ]; then npm --no-git-tag-version version patch; git add .; git commit -m \"Bumping version number\"; fi"
+      "pre-push": "if [ $(git rev-parse --abbrev-ref HEAD) == \"config-migration\" ]; then npm --no-git-tag-version version patch; git add .; git commit -m \"Bumping version number\"; fi"
     }
   },
   "repository": {

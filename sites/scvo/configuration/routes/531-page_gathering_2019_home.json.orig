@@ -1,6 +1,7 @@
 {
   "name": "page_gathering_2019_home",
   "pattern": "/the-gathering-2019",
+  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

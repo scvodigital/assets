@@ -88,7 +88,6 @@
               </section>
               <section class="mdc-card__actions">
                 <ul>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://scvo.org.uk/digital/participation/">Why digital matters</a></li>
                   <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://digitalparticipation.scot/skill-up">Understand the skills</a></li>
                   <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://digitalparticipation.scot/resources/reports">Read the research</a></li>
                 </ul>
@@ -166,8 +165,7 @@
               </section>
               <section class="mdc-card__actions">
                 <ul>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/creating-a-digitally-confident-third-sector-in-scotland-what-next">Read the Call to Action</a></li>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution">Get involved</a></li>
+                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://storage.googleapis.com/scvo-cms/scvo-cms/wp-content/uploads/2016/10/scvo_digital_senior_leaders_call_to_action_final.pdf">Read the Call to Action</a></li>
                 </ul>
               </section>
             </div>
@@ -185,10 +183,10 @@
               </section>
               <section class="mdc-card__actions">
                 <ul>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/check-up">Digital Check-up</a></li>
+                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/check-up">Digital Check-Up</a></li>
                   <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/cyber-resilience">Cyber Resilience</a></li>
                   <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/senior-leaders">Leaders Programme</a></li>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://charitycatalogue.com">Find digital tools</a></li>
+                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="https://charitycatalogue.com">Find Digital Tools</a></li>
                 </ul>
               </section>
             </div>
@@ -200,12 +198,12 @@
               </section>
               <section class="mdc-card__supporting-text">
                 <p>
-                  Read practical examples of how organisations are adapting and evolving in our digital world.
+                  From Facebook campaigns to Google Analytics, iConnect North East tell us what digital has to offer.
                 </p>
               </section>
               <section class="mdc-card__actions">
                 <ul>
-                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/digital-pioneers">Read case studies</a></li>
+                  <li><a class="mdc-card__action mdc-button mdc-button--raised" href="/digital/evolution/digital-pioneers">More case studies</a></li>
                 </ul>
               </section>
             </div>

@@ -1,9 +1,6 @@
 {
-  "name": "page_running_funding_cats",
-  "pattern": {
-    "index": "/running-your-organisation/funding/carers-act-transformation-support-fund",
-    "section": "/running-your-organisation/funding/carers-act-transformation-support-fund/:path"
-  },
+  "name": "grant_cats_data",
+  "pattern": "/running-your-organisation/funding/carers-act-transformation-support-fund/projects/data.json",
   "tasks": [
     {
       "name": "primaryResponse",
@@ -15,8 +12,8 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "scvo-cms-page",
-          "template": ">context.metaData.handlebars.queries.pages_page",
+          "type": "scvo-grant-cats",
+          "template": ">context.metaData.handlebars.queries.grants_grant-data",
           "noResultsRoute": "four_oh_four"
         }
       },
@@ -32,16 +29,10 @@
         },
         "queryTemplates": [
           {
-            "name": "related_posts",
+            "name": "types",
             "index": "web-content-production",
-            "type": "scvo-cms-post",
-            "template": ">context.metaData.handlebars.queries.pages_page-posts-related-random"
-          },
-          {
-            "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.pages_splash"
+            "type": "scvo-grant-cats",
+            "template": ">context.metaData.handlebars.queries.grants_grant-cats-aggs"
           }
         ]
       },
@@ -54,19 +45,17 @@
       "config": {
         "logic": {
           "if": [
-            "default"
+            "data"
           ]
         },
         "output": "body",
         "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
+          "data": {
+            "layout": ">context.metaData.handlebars.layouts.json",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page-running-funding-cats",
-              "foot": ""
+              "content": ">context.metaData.handlebars.templates.grants_grant-data"
             },
-            "contentType": "text/html"
+            "contentType": "application/json"
           }
         }
       }

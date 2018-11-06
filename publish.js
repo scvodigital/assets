@@ -34,6 +34,7 @@ const app = admin.initializeApp({
   console.log('Publishing the following sites:', sites.join(', '));
   await uploadAssets(sites);
   await uploadConfigs(sites);
+  process.exit();
 })();
 
 async function uploadAssets(sites) {

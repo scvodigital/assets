@@ -19,4 +19,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script: npm run publish
-  on: release
+  on: production

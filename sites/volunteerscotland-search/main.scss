@@ -1,3 +1,6 @@
+@import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+@import url('https://fonts.googleapis.com/css?family=Rambla');
+
 $blue: #009ddc;
 $turquoice: #00a0af;
 $yellow: #ffde00;
@@ -50,10 +53,6 @@ $header-lower-height: 38px;
 $mobile-breakpoint: 599px;
 $mobile-landscape-breakpoint: 959px;
 $desktop-landscape-breakpoint: 1280px;
-
-@import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
-@import url('//fonts.googleapis.com/css?family=Rambla:400,700');
-
 
 
 html {
@@ -3098,6 +3097,9 @@ header {
 .content-primary-search {
   .head {
     border-bottom: 2px solid $mdc-theme-primary-dark;
+    .mdc-tab-bar {
+      height: 56px;
+    }
     .mdc-tab-scroller__scroll-area {
       margin-bottom: 0;
       height: 56px;

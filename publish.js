@@ -106,7 +106,8 @@ function getUploadOptions(sites) {
         }
 
         if (gzipped) {
-          options.metaData.contentEncoding = 'gzip';
+          options.gzip = 'auto'; 
+          //options.metaData.contentEncoding = 'gzip';
         }
 
         uploadOptions.push({ path: asset, versioned, gzipped, options });

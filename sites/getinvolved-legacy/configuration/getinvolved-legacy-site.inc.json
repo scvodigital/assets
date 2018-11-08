@@ -13,6 +13,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/getinvolved-legacy/",
     "menus": "{:./getinvolved-legacy-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "termTypeLabels": {

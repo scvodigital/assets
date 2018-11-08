@@ -32,7 +32,7 @@
         <div class="mdc-select mdc-select--box pull-right" data-mdc-auto-init="MDCSelect">
           <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
             <option value="relevance"{{#compare @root.request.params.query.sort "===" "relevance"}} selected{{/compare}}>Relevance</option>
-            <option value="distance"{{#compare @root.request.params.query.sort "===" "distance"}} selected{{/compare}}{{#if @root.request.params.query.location}}{{#compare @root.request.params.query.location "===" ""}} disabled{{/compare}}{{else}} disabled{{/if}}>Distance</option>
+            {{#if @root.request.params.query.location}}<option value="distance"{{#compare @root.request.params.query.sort "===" "distance"}} selected{{/compare}}{{#compare @root.request.params.query.location "===" ""}}{{/compare}}>Distance</option>{{/if}}
           </select>
           <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
             Sort

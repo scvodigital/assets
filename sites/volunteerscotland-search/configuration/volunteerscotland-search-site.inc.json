@@ -69,7 +69,7 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": "volunteerscotland",
+          "appName": "volunteerscotland-search",
           "noTokenRoute": "",
           "notAuthenticatedRoute": ""
         }
@@ -84,7 +84,7 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": "volunteerscotland",
+          "appName": "volunteerscotland-search",
           "noTokenRoute": "sign_in",
           "notAuthenticatedRoute": "sign_in"
         }
@@ -181,16 +181,16 @@
       }
     },
     "firebaseDefaultDomain": {
-      "name": "volunteerscotland",
+      "name": "volunteerscotland-search",
       "label": "Volunteer Scotland",
       "logoUrl": "",
-      "config": {
-        "apiKey": "AIzaSyDCHiGp3FllVnjPcn0_LjcZrUe_5nC7LAc",
-        "authDomain": "auth.getinvolved.scot",
-        "databaseURL": "https://scvo-getinvolved.firebaseio.com",
-        "projectId": "scvo-getinvolved",
-        "storageBucket": "scvo-getinvolved.appspot.com",
-        "messagingSenderId": "815398681377"
+      "config" : {
+        "apiKey": "AIzaSyAwCMOrTj2eq8tVAdgD3vrgRqz9oIluiYk",
+        "authDomain": "scvo-volunteerscotland-search.firebaseapp.com",
+        "databaseURL": "https://scvo-volunteerscotland-search.firebaseio.com",
+        "projectId": "scvo-volunteerscotland-search",
+        "storageBucket": "scvo-volunteerscotland-search.appspot.com",
+        "messagingSenderId": "7952458796"
       }
     }
   }

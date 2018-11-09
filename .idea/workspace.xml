@@ -3,30 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3fc8529-2e9e-4708-af51-669d579d51a7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/digitalparticipation/configuration/routes/041-signatory.json" afterPath="$PROJECT_DIR$/sites/digitalparticipation/configuration/routes/041-signatory.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/000-home.json" afterPath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/000-home.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/024-jobs-in.json" afterPath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/024-jobs-in.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/025-geo_lookup.json" afterPath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/025-geo_lookup.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/800-sitemap.json" afterPath="$PROJECT_DIR$/sites/goodmoves/configuration/routes/800-sitemap.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/scvo/configuration/routes/229-page_digital_evolution_senior_leaders.json" afterPath="$PROJECT_DIR$/sites/scvo/configuration/routes/229-page_digital_evolution_senior_leaders.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/scvo/configuration/routes/230-page_digital_evolution_checkup_results.json" afterPath="$PROJECT_DIR$/sites/scvo/configuration/routes/230-page_digital_evolution_checkup_results.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/scvo/configuration/scvo-site.inc.json" afterPath="$PROJECT_DIR$/sites/scvo/configuration/scvo-site.inc.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/000-home.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/000-home.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/010-sign-in.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/010-sign-in.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/012-sign-up.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/012-sign-up.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/020-opportunity_search.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/020-opportunity_search.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/021-opportunity_map.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/021-opportunity_map.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/022-opportunity.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/022-opportunity.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/023-browse.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/023-browse.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/025-geo_lookup.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/025-geo_lookup.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/030-organisation_search.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/030-organisation_search.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/031-organisation_map.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/031-organisation_map.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/032-organisation.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/032-organisation.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/053-favourites.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/053-favourites.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/221-opportunity_map_data.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/221-opportunity_map_data.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/600-add-to-favourites.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/600-add-to-favourites.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/volunteerscotland-search-site.inc.json" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/volunteerscotland-search-site.inc.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/opportunity-foot.hbs" afterPath="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/opportunity-foot.hbs" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,28 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="022-opportunity.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/022-opportunity.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-              <folding>
-                <marker date="1541765879279" expanded="true" signature="0:65" ph="{&quot;name&quot;: &quot;opportunity&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/scvo/main.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="213" column="18" lean-forward="false" selection-start-line="213" selection-start-column="16" selection-end-line="213" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/goodmoves/main.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,11 +48,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="opportunity-foot.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/opportunity-foot.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vacancy-foot.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/goodmoves/configuration/templates/vacancies/vacancy-foot.hbs">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="full.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/goodmoves/configuration/partials/vacancy/full.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="158" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="full.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/getinvolved/configuration/partials/opportunity/full.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="241" column="0" lean-forward="true" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="full.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="263" column="0" lean-forward="false" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -114,40 +120,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="012-sign-up.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/012-sign-up.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1541765879279" expanded="true" signature="0:51" ph="{&quot;name&quot;: &quot;sign_up&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="021-opportunity_map.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/021-opportunity_map.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1541765879279" expanded="true" signature="0:55" ph="{&quot;name&quot;: &quot;opportunity_map&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="013-delete-user.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/routes/013-delete-user.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -160,11 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>No jobs</find>
-      <find>{{com</find>
-      <find>locationbox</find>
-      <find>geo</find>
-      <find>geo-lookup</find>
       <find>authNo</find>
       <find>Returning CONTINUE command</find>
       <find>volunteersc</find>
@@ -190,6 +157,11 @@
       <find>twitter</find>
       <find>tt-</find>
       <find>relevance</find>
+      <find>goodmoves.getCookie</find>
+      <find>goodmoves</find>
+      <find>opportunityId</find>
+      <find>recent</find>
+      <find>vacancyId</find>
     </findStrings>
     <replaceStrings>
       <replace>lng</replace>
@@ -214,7 +186,6 @@
         <option value="$PROJECT_DIR$/sites/getinvolved/main.js" />
         <option value="$PROJECT_DIR$/sites/getinvolved/main.scss" />
         <option value="$PROJECT_DIR$/lib/components-initialiser.js" />
-        <option value="$PROJECT_DIR$/sites/getinvolved/configuration/partials/opportunity/full.hbs" />
         <option value="$PROJECT_DIR$/lib/components/map-clustered-old.js" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/queries/opportunities/search-map.json" />
         <option value="$PROJECT_DIR$/sites/getinvolved/configuration/routes/021-opportunity_map.json" />
@@ -228,7 +199,6 @@
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/organisations/search.hbs" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/organisation-search-results.hbs" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/organisation-search-form.hbs" />
-        <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity-search-results.hbs" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity-search-form.hbs" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/volunteerscotland-search-site.inc.json" />
@@ -244,6 +214,9 @@
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/main.scss" />
         <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/queries/opportunities/search-list.json" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/opportunity-foot.hbs" />
+        <option value="$PROJECT_DIR$/sites/getinvolved/configuration/partials/opportunity/full.hbs" />
+        <option value="$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs" />
       </list>
     </option>
   </component>
@@ -496,12 +469,12 @@
       <workItem from="1540476751020" duration="215000" />
       <workItem from="1541513831617" duration="3992000" />
       <workItem from="1541666856087" duration="17363000" />
-      <workItem from="1541751454056" duration="8664000" />
+      <workItem from="1541751454056" duration="10150000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163860000" />
+    <option name="totallyTimeSpent" value="165346000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
@@ -544,39 +517,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/emailer/configuration/layouts/default.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="88" lean-forward="true" selection-start-line="18" selection-start-column="88" selection-end-line="18" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/components/map-clustered.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="68" column="66" lean-forward="true" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#17#0" expanded="false" />
-            <marker date="1541674101575" expanded="true" signature="1004:1010" ph="©" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/getinvolved/configuration/templates/organisations/map.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/map.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/organisations/map.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -595,6 +535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="69" lean-forward="true" selection-start-line="0" selection-start-column="69" selection-end-line="0" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -609,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="41" lean-forward="false" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -955,8 +889,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/templates/opportunities/opportunity-foot.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/goodmoves/configuration/templates/vacancies/vacancy-foot.hbs">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/goodmoves/configuration/partials/vacancy/full.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="158" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/getinvolved/configuration/partials/opportunity/full.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="241" column="0" lean-forward="true" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/volunteerscotland-search/configuration/partials/opportunity/full.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="263" column="0" lean-forward="false" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -251,3 +251,15 @@
 {{else}}
   {{> ga documentType="milo-volunteering-opportunity" documentId=Id hitType="full"}}
 {{/if ~}}
+<script>
+  function clearNotes(data) {
+    $('#notes-' + this.request.data.id)[0].mde.value('');
+    this.$button.prop('disabled', true);
+  }
+  function notesSaved(evt, data) {
+    console.log('notesSaved Arguments:', arguments);
+    $('#delete-notes-' + data.id).prop('disabled', false);
+  }
+  window.opportunityId = '{{Id}}';
+
+</script>

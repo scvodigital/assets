@@ -65,6 +65,9 @@ async function uploadAssets(sites) {
       await storage.bucket(BUCKET).upload(uploadOption.path, uploadOption.options);
       successful++;
       message = 'SUCCESS -> ' + uploadOption.options.destination;
+      if (uploadOption.gzipped) {
+        const response = await storage.bucket(BUCKET).file(uploadOption.options.destination).setMetadata(uploadOption.options.metaData);
+      }
     } catch(err) {
       failed++;
       message = 'FAILED -> ' + uploadOption.options.destination + ':\n' + stringify(err, null, 2);
@@ -106,8 +109,8 @@ function getUploadOptions(sites) {
         }
 
         if (gzipped) {
-          options.gzip = 'auto'; 
-          //options.metaData.contentEncoding = 'gzip';
+          //options.gzip = 'auto'; 
+          options.metaData.contentEncoding = 'gzip';
         }
 
         uploadOptions.push({ path: asset, versioned, gzipped, options });

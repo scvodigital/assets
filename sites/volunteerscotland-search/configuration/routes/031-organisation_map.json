@@ -1,7 +1,6 @@
 {
   "name": "organisation_map",
   "pattern": "/organisations/map",
-  "debug": true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

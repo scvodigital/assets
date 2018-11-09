@@ -4,7 +4,6 @@
     "index": "/digital/evolution/senior-leaders",
     "section": "/digital/evolution/senior-leaders/:path"
   },
-  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

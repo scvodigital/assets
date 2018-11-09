@@ -1,7 +1,6 @@
 {
   "name": "sitemap",
   "pattern": "/sitemap.xml",
-  "debug": true,
   "tasks": [
     {
       "name": "supplimentaryResponses",

@@ -1,7 +1,6 @@
 {
   "name": "favourites",
   "pattern": "/favourites",
-  "debug": true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

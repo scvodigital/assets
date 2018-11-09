@@ -1,7 +1,6 @@
 {
   "name": "geo-lookup",
   "pattern": "/geo-lookup",
-  "debug": true,
   "tasks": [
     {
       "name": "search_data",

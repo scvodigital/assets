@@ -1,7 +1,6 @@
 {
   "name": "organisation",
   "pattern": "/organisation/:slug",
-  "debug": true,
   "defaultParams": {
     "context": "detail"
   },

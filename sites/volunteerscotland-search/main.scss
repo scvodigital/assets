@@ -201,7 +201,7 @@ header {
     .mdc-top-app-bar__main .mdc-tab-bar,
     .mdc-top-app-bar__user .mdc-tab-bar {
       .mdc-tab {
-        color: white;
+        color: black; //d
       }
       .mdc-tab:hover .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.75);
@@ -218,7 +218,7 @@ header {
           border-radius: 0;
           border-top: 2px solid transparent;
           border-bottom: 2px solid transparent;
-          color: white;
+          color: black !important;
           height: $header-lower-height;
           padding: 0;
           text-transform: none;

@@ -7,7 +7,8 @@
     "goodmoves.be",
     "goodmoves.scot",
     "goodmovesjobs.de",
-    "goodmoves.local"
+    "goodmoves.local",
+    "goodmoves.org.uk"
   ],
   "routes": [
     "{:./routes/*.json}"

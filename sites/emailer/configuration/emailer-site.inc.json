@@ -1,6 +1,7 @@
 {
   "domains": [
-    "auth.local"
+    "emailer.local",
+    "emailer.scvo.net"
   ],
   "routes": [
     "{:./routes/*.json}"

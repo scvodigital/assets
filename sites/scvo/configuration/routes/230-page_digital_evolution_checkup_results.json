@@ -1,7 +1,6 @@
 {
   "name": "page_digital_evolution_checkup_results",
   "pattern": "/digital/evolution/check-up/results",
-  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

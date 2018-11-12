@@ -1,3 +1,4 @@
+{{#if @root.data.search_data.map_results.pagination.totalResults ~}}
 <div id="detailed-results-container" class="container-content content-primary-search container-map">
   <div class="mdc-layout-grid head h-padding-full v-margin-full">
     <div class="mdc-layout-grid__inner">
@@ -33,3 +34,10 @@
     </div>
   </div>
 </div>
+{{else}}
+<div id="detailed-results-container" class="container-content content-primary-search">
+  <div class="search-info mdc-elevation--z1">
+    No results could be found, please try a different search query
+  </div>
+</div>
+{{/if ~}}

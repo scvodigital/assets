@@ -24,6 +24,18 @@
       ],
       "must": [
         {{>queries_vacancy_search_must request.params.query}}
+      ],
+      "must_not": [
+        {
+          "term": {
+            "home_based": true
+          }
+        },
+        {
+          "term": {
+            "various_locations": true
+          }
+        }
       ]
     }
   },

@@ -22,7 +22,7 @@
           "term": {
             "country": {
               "value": "Scotland",
-              "boost": 100
+              "boost": 5
             }
           }
         }

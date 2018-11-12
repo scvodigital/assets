@@ -149,7 +149,7 @@
               {{#each @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets ~}}
                 {{#if key ~}}
                   {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                    <h3 class="mdc-typography--headline7">{{{key}}}</h3>
+                    <h3 class="mdc-typography--headline7 h-padding">{{{key}}}</h3>
                   {{/compare ~}}
                 {{/if ~}}
                 {{#each this.regions_slugs.buckets ~}}
@@ -161,7 +161,7 @@
             {{/if ~}}
             {{#ifAny (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ~}}
               {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                <h3 class="mdc-typography--headline7">Other</h3>
+                <h3 class="mdc-typography--headline7 h-padding">Other</h3>
               {{/compare ~}}
               {{#compare (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ">=" 1 ~}}
                 {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../instance_id value="Various locations"}}
@@ -178,7 +178,7 @@
         </div>
       {{/each ~}}
 
-      <div class="h-margin v-margin">
+      <div class="h-margin v-margin-full">
         <button class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="{{instance_id}}-search-submit" data-mdc-auto-init="MDCRipple">
           <span class="far fa-search fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
           Search

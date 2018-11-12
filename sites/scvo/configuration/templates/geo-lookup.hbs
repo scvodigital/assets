@@ -3,6 +3,12 @@
   {
     "display": {{{stringify _source.display}}},
     "place": {{{stringify _source.place}}},
+    {{#if _source.region}}
+      "region": {{{stringify _source.region}}},
+    {{/if}}
+    {{#if _source.population}}
+      "population": {{{default stringify _source.population 0}}},
+    {{/if}}
     {{#if _source.district}}
       "district": {{{stringify _source.district}}},
     {{/if}}
@@ -16,6 +22,6 @@
       "constituency": {{{stringify _source.constituency}}},
     {{/if}}
     "point": {{{stringify _source.point}}}
-  }  
+  }
 {{/eachJoin}}
 ]

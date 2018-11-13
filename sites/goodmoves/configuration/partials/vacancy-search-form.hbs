@@ -63,19 +63,13 @@
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-              <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+              <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField" style="z-index:4;">
                 <span class="far fa-map-marker-alt mdc-text-field__icon geo-lookup" tabindex="0" title="Find my location" role="button" style="pointer-events: initial !important;"></span>
                 <input type="text" id="{{instance_id}}-location" name="location" class="mdc-text-field__input mdc-text-field--fullwidth search-location" value="{{#ifAll @root.request.params.query.lat @root.request.params.query.lng}}{{@root.request.params.query.location}}{{/ifAll}}" placeholder="" data-lpignore="true" data-location-search='{
-                    "googleMapsOptions": {
-                      "type": ["(regions)"],
-                      "componentRestrictions": {
-                        "country": "gb"
-                      }
-                    },
-                    "latSelector": "[name=\"lat\"]",
-                    "lngSelector": "[name=\"lng\"]",
-                    "locationServicesSelector": ".geo-lookup"
-                  }'>
+                  "latSelector": "[name=\"lat\"]",
+                  "lngSelector": "[name=\"lng\"]",
+                  "locationServicesSelector": ".geo-lookup"
+                }'>
                 <label class="mdc-floating-label" for="{{instance_id}}-location">
                   Location
                 </label>
@@ -155,7 +149,7 @@
               {{#each @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets ~}}
                 {{#if key ~}}
                   {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                    <h3 class="mdc-typography--headline7">{{{key}}}</h3>
+                    <h3 class="mdc-typography--headline7 h-padding">{{{key}}}</h3>
                   {{/compare ~}}
                 {{/if ~}}
                 {{#each this.regions_slugs.buckets ~}}
@@ -167,7 +161,7 @@
             {{/if ~}}
             {{#ifAny (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ~}}
               {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                <h3 class="mdc-typography--headline7">Other</h3>
+                <h3 class="mdc-typography--headline7 h-padding">Other</h3>
               {{/compare ~}}
               {{#compare (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ">=" 1 ~}}
                 {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../instance_id value="Various locations"}}
@@ -184,7 +178,7 @@
         </div>
       {{/each ~}}
 
-      <div class="h-margin v-margin">
+      <div class="h-margin v-margin-full">
         <button class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="{{instance_id}}-search-submit" data-mdc-auto-init="MDCRipple">
           <span class="far fa-search fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
           Search

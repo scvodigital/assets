@@ -1153,6 +1153,55 @@ section.search {
     }
   }
 }
+/* Typeahead */
+.twitter-typeahead {
+  width: 100%;
+  .tt-menu {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border: none;
+    border-radius: 0 0 2px 2px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    h3 {
+      font-size: 0.8rem;
+      opacity: 0.6666;
+      font-weight: 400;
+      margin: 0 !important;
+      padding: $unit/2 $unit 0;
+    }
+    .tt-suggestion {
+      padding: $unit/2 $unit;
+    }
+    .tt-suggestion:hover,
+    .tt-cursor {
+      cursor: pointer;
+    }
+  }
+}
+.mdc-list-item--header:focus::before,
+.mdc-list-item--header:focus::after,
+.mdc-list-item--header:hover::before,
+.mdc-list-item--header:hover::after,
+.mdc-tab:active::before,
+.mdc-tab:focus::before,
+.mdc-tab:hover::before,
+.mdc-text-field::before,
+.mdc-text-field:active::before,
+.mdc-text-field:focus::before,
+.mdc-text-field:hover::before,
+.mdc-button:active::after,
+.mdc-button:focus::before,
+.mdc-button:hover::before {
+  opacity: 0;
+  background-color: transparent;
+  transition: none;
+}
+.mdc-tab-bar:not(.mdc-tab-bar-upgraded) .mdc-tab--active,
+.mdc-tab-bar:not(.mdc-tab-bar-upgraded) .mdc-tab:not(.mdc-tab--active):active .mdc-tab__indicator {
+  opacity: 1;
+}
+
 .projects .search_form .search-button-large,
 .jobs-landing .search_form .search-button-large,
 .mdc-card.search .search_form .search-button-large,
@@ -2946,6 +2995,12 @@ table.membership-fees {
     li:last-child .mdc-card__action {
       margin-bottom: 0;
     }
+  }
+}
+.mdc-tab-scroller {
+  margin-bottom: $unit*(3/4);
+  a:hover {
+    text-decoration: none !important;
   }
 }
 .supplimentary-list .list,

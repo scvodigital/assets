@@ -2,6 +2,7 @@
   "name": "save-search",
   "pattern": "/save-search",
   "acceptedVerbs": "POST",
+  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {
@@ -28,7 +29,8 @@
       "name": "destination",
       "taskModule": "redirect",
       "config": {
-        "location": ">data.searchUrl"
+        "location": ">data.searchUrl",
+        "statusCode": 307
       }
     }
   ]

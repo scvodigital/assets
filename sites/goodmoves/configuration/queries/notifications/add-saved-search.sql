@@ -17,7 +17,7 @@ CALL _addSubscriptionParameters(
       location=@root.request.params.query.location
     )
   }}},
-  {{{mysqlEscape @root.request.body.name}}},
+  {{{mysqlEscape (default @root.request.body.name "My saved search")}}},
   {{#if @root.request.body.subscribe}}1{{else}}0{{/if}}
 );
 {{else}}

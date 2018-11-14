@@ -1,0 +1,46 @@
+{
+  "name": "analytics-importer",
+  "pattern": "/analytics-importer",
+  "debug": true,
+  "tasks": [
+    {
+      "name": "dates",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.utility_ga-dates",
+        "parseJson": "true"
+      }
+    },
+    {
+      "name": "get_data",
+      "taskModule": "gaGet",
+      "config": {
+        "connection": "goodmoves",
+        "parameters": ">context.metaData.handlebars.templates.utility_ga-goodmoves-params" 
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "transform",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.utility_ga-transform",
+        "parseJson": "true"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{{{stringify (default @root.data.transform (default @root.errors 'nope'))}}}",
+        "parseJson": "true"
+      }
+    }
+  ]
+}

@@ -784,6 +784,10 @@ a {
   left: 0;
   margin-right: $unit/2;
 }
+.mdc-tab__icon,
+.mdc-list-item__graphic {
+  font-size: inherit;
+}
 
 .mdc-button--raised {
   transition: all 1s cubic-bezier(0, 1, 0.3, 1);

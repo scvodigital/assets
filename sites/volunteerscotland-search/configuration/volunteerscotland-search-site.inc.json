@@ -13,6 +13,7 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/volunteerscotland-search/",
     "favouritesCampaignName": "vs-favourites",
+    "emailCampaignName": "vs-saved-searches",
     "menus": "{:./volunteerscotland-search-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "termTypeLabels": {
@@ -100,17 +101,6 @@
           "parseJson": true
         }
       },
-      "favouritesData": {
-        "name": "favourites",
-        "taskModule": "mysql",
-        "config": {
-          "connectionName": "notifications",
-          "queryTemplates": {
-            "items": ">context.metaData.handlebars.queries.notifications_get-favourites"
-          }
-        },
-        "renderer": "handlebars"
-      },
       "opportunitySupplimentary": {
         "name": "opportunitySupplimentary",
         "taskModule": "elasticsearch",
@@ -177,6 +167,28 @@
               "template": ">context.metaData.handlebars.queries.opportunities_organisations"
             }
           ]
+        },
+        "renderer": "handlebars"
+      },
+      "searchesData": {
+        "name": "searches",
+        "taskModule": "mysql",
+        "config": {
+          "connectionName": "volunteerscotland_notifications",
+          "queryTemplates": {
+            "items": ">context.metaData.handlebars.queries.notifications_get-saved-searches"
+          }
+        },
+        "renderer": "handlebars"
+      },
+      "favouritesData": {
+        "name": "favourites",
+        "taskModule": "mysql",
+        "config": {
+          "connectionName": "volunteerscotland_notifications",
+          "queryTemplates": {
+            "items": ">context.metaData.handlebars.queries.notifications_get-favourites"
+          }
         },
         "renderer": "handlebars"
       }

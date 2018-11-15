@@ -1,11 +1,11 @@
 {
-  "name": "settings",
+  "name": "searches",
   "debug" : true,
-  "pattern": "/settings",
+  "pattern": "/searches",
   "metaData": {
     "sidebarButton": {
-      "icon": "cog",
-      "tooltip": "Settings",
+      "icon": "search",
+      "tooltip": "Search",
       "classes": "hide-md hide-lg"
     }
   },
@@ -14,8 +14,6 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.favouritesData",
-    "context.metaData.commonTasks.opportunitySupplimentary",
     "context.metaData.commonTasks.searchesData",
     {
       "name": "email_days",
@@ -26,6 +24,8 @@
         "template": ">context.metaData.handlebars.partials.email_days"
       }
     },
+    "context.metaData.commonTasks.opportunitySupplimentary",
+    "context.metaData.commonTasks.termsMaps",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -42,9 +42,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.account_settings",
-              "foot": ">context.metaData.handlebars.templates.account_settings-foot",
-              "sidebar": ">context.metaData.handlebars.templates.vacancies_search-form"
+              "body": ">context.metaData.handlebars.templates.opportunities_saved-searches",
+              "sidebar": ">context.metaData.handlebars.templates.opportunities_search-form"
 
             },
             "contentType": "text/html"

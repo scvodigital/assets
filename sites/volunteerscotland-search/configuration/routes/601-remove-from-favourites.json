@@ -1,6 +1,6 @@
 {
-  "name": "add-to-favourites",
-  "pattern": "/add-to-favourites",
+  "name": "remove-from-favourites",
+  "pattern": "/remove-from-favourites",
   "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -10,7 +10,7 @@
       "config": {
         "connectionName": "volunteerscotland_notifications",
         "queryTemplates": {
-          "add_to_favourites": ">context.metaData.handlebars.queries.notifications_add-to-favourites"
+          "remove_from_favourites": ">context.metaData.handlebars.queries.notifications_remove-from-favourites"
         }
       },
       "renderer": "handlebars"
@@ -21,7 +21,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "Added {{@root.request.params.query.id}}"
+        "template": "Removed {{@root.request.params.query.id}}"
       }
     }
   ]

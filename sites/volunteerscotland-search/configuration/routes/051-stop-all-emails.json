@@ -1,6 +1,6 @@
 {
-  "name": "add-to-favourites",
-  "pattern": "/add-to-favourites",
+  "name": "stop-all-emails",
+  "pattern": "/stop-all-emails",
   "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -10,18 +10,16 @@
       "config": {
         "connectionName": "volunteerscotland_notifications",
         "queryTemplates": {
-          "add_to_favourites": ">context.metaData.handlebars.queries.notifications_add-to-favourites"
+          "stop_all_emails": ">context.metaData.handlebars.queries.notifications_stop-all-emails"
         }
       },
       "renderer": "handlebars"
     },
     {
       "name": "destination",
-      "taskModule": "render",
-      "renderer": "handlebars",
+      "taskModule": "redirect",
       "config": {
-        "output": "body",
-        "template": "Added {{@root.request.params.query.id}}"
+        "location": ">request.headers.referer"
       }
     }
   ]

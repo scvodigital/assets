@@ -1,7 +1,6 @@
 {
   "name": "analytics-importer",
   "pattern": "/analytics-importer",
-  "debug": true,
   "tasks": [
     {
       "name": "dates",
@@ -23,13 +22,18 @@
       "renderer": "handlebars"
     },
     {
-      "name": "transform",
-      "taskModule": "render",
+      "name": "import",
+      "taskModule": "salesforceBulk",
       "renderer": "handlebars",
       "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.utility_ga-transform",
-        "parseJson": "true"
+        "connection": "scvoProduction",
+        "recordsTemplate": ">context.metaData.handlebars.templates.utility_ga-transform",
+        "bulkOptions": {
+          "extIdField": "Name__c",
+          "concurrencyMode": "Parallel"
+        },
+        "type": "View_Count__c",
+        "operation": "upsert"
       }
     },
     {
@@ -38,7 +42,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{{{stringify (default @root.data.transform (default @root.errors 'nope'))}}}",
+        "template": "{{{stringify (default @root.data.import (default @root.errors 'nope'))}}}",
         "parseJson": "true"
       }
     }

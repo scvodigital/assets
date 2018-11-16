@@ -58,7 +58,7 @@
       {{/compare ~}}
     {{else}}
       {
-      "date_last_indexed": "desc"
+      "date_last_modified": "desc"
     }
     {{/if ~}}
   ]

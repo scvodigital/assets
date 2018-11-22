@@ -1,7 +1,6 @@
 {
   "name": "pdf",
   "pattern": "/pdf",
-  "debug": true,
   "tasks": [
     {
       "name": "search_data",

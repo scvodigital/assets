@@ -29,14 +29,14 @@
       "width": 150,
       "fit": [150, 150],
       "image": {
-        "$eval": "images.logo"
+        "_eval": "images.logo"
       },
       "alignment": "center",
       "margin": [0, 15]
     },
     {
       "text": {
-        "$eval": "request.params.query.title"
+        "_eval": "request.params.query.title"
       },
       "fontSize": 26,
       "bold": true,
@@ -45,7 +45,7 @@
     },
     {
       "text": {
-        "$eval": "request.params.query.subtitle"
+        "_eval": "request.params.query.subtitle"
       },
       "fontSize": 18,
       "bold": true,
@@ -54,13 +54,13 @@
       "margin": [0, 15]
     },
     {
-      "$map": {
-        "$eval": "data.search_data.detailed_results.hits.hits"
+      "_map": {
+        "_eval": "data.search_data.detailed_results.hits.hits"
       },
       "each(x)": [{
           "style": "h1",
           "text": {
-            "$eval": "x._source.name"
+            "_eval": "x._source.name"
           }
         },
         {
@@ -69,7 +69,7 @@
         },
         {
           "text": {
-            "$eval": "x._source.description"
+            "_eval": "x._source.description"
           }
         },
         {
@@ -84,9 +84,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['fund_status']",
+                    "_if": "x._source['fund_status']",
                     "then": {
-                      "$eval": "x._source['fund_status']"
+                      "_eval": "x._source['fund_status']"
                     },
                     "else": "No status"
                   }
@@ -100,9 +100,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['type_of_funding']",
+                    "_if": "x._source['type_of_funding']",
                     "then": {
-                      "$eval": "x._source['type_of_funding']"
+                      "_eval": "x._source['type_of_funding']"
                     },
                     "else": "No type provided"
                   }
@@ -116,9 +116,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['source_of_fund']",
+                    "_if": "x._source['source_of_fund']",
                     "then": {
-                      "$eval": "x._source['source_of_fund']"
+                      "_eval": "x._source['source_of_fund']"
                     },
                     "else": "No source provided"
                   }
@@ -132,9 +132,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['when_to_apply']",
+                    "_if": "x._source['when_to_apply']",
                     "then": {
-                      "$eval": "x._source['when_to_apply']"
+                      "_eval": "x._source['when_to_apply']"
                     },
                     "else": "No application date"
                   }
@@ -148,9 +148,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['next_deadline']",
+                    "_if": "x._source['next_deadline']",
                     "then": {
-                      "$eval": "jsone.dateFormat('Do MMMM YYYY', x._source['next_deadline'])"
+                      "_eval": "jsone.dateFormat('Do MMMM YYYY', x._source['next_deadline'])"
                     },
                     "else": "No deadline date"
                   }
@@ -164,7 +164,7 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['charities_only']",
+                    "_if": "x._source['charities_only']",
                     "then": "Yes",
                     "else": "No"
                   }
@@ -177,14 +177,14 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['url']",
+                  "_if": "x._source['url']",
                   "then": {
-                    "$eval": "x._source['url']"
+                    "_eval": "x._source['url']"
                   },
                   "else": "No fund specific website"
                 },
                 "link": {
-                  "$eval": "x._source['url']"
+                  "_eval": "x._source['url']"
                 }
               }]
             },
@@ -194,16 +194,16 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['fund_email_address']",
+                  "_if": "x._source['fund_email_address']",
                   "then": {
-                    "$eval": "x._source['fund_email_address']"
+                    "_eval": "x._source['fund_email_address']"
                   },
                   "else": "No fund specific email"
                 },
                 "link": {
-                  "$if": "x._source['fund_email_address']",
+                  "_if": "x._source['fund_email_address']",
                   "then": {
-                    "$eval": "'mailto:' + x._source['fund_email_address']"
+                    "_eval": "'mailto:' + x._source['fund_email_address']"
                   },
                   "else": null
                 }
@@ -215,16 +215,16 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['fund_telephone']", 
+                  "_if": "x._source['fund_telephone']", 
                   "then": {
-                    "$eval": "x._source['fund_telephone']"
+                    "_eval": "x._source['fund_telephone']"
                   }, 
                   "else": "No fund specific phone number"
                 },
                 "link": {
-                  "$if": "x._source['fund_telephone']",
+                  "_if": "x._source['fund_telephone']",
                   "then": {
-                    "$eval": "'tel:' + x._source['fund_telephone']"
+                    "_eval": "'tel:' + x._source['fund_telephone']"
                   },
                   "else": null
                 }
@@ -237,9 +237,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['how_to_apply']",
+                    "_if": "x._source['how_to_apply']",
                     "then": {
-                      "$eval": "x._source['how_to_apply']"
+                      "_eval": "x._source['how_to_apply']"
                     },
                     "else": "No application information provided"
                   }
@@ -253,9 +253,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['fund_exclusion']", 
+                    "_if": "x._source['fund_exclusion']", 
                     "then": {
-                      "$eval": "x._source['fund_exclusion']"
+                      "_eval": "x._source['fund_exclusion']"
                     }, 
                     "else": "No exclusions given"
                   }
@@ -272,9 +272,9 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['minimum_award_size']",
+                  "_if": "x._source['minimum_award_size']",
                   "then": {
-                    "$eval": "jsone.numberFormat(x._source['minimum_award_size'])"
+                    "_eval": "jsone.numberFormat(x._source['minimum_award_size'])"
                   },
                   "else": "No minimum provided"
                 }
@@ -286,9 +286,9 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['maximum_award_size']",
+                  "_if": "x._source['maximum_award_size']",
                   "then": {
-                    "$eval": "jsone.numberFormat(x._source['maximum_award_size'])"
+                    "_eval": "jsone.numberFormat(x._source['maximum_award_size'])"
                   },
                   "else": "No maximum provided"
                 }
@@ -300,9 +300,9 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['average_award_size']",
+                  "_if": "x._source['average_award_size']",
                   "then": {
-                    "$eval": "jsone.numberFormat(x._source['average_award_size'])"
+                    "_eval": "jsone.numberFormat(x._source['average_award_size'])"
                   },
                   "else": "No average award size provided"
                 }
@@ -314,9 +314,9 @@
                 "bold": true
               }, {
                 "text": {
-                  "$if": "x._source['annual_total']",
+                  "_if": "x._source['annual_total']",
                   "then": {
-                    "$eval": "jsone.numberFormat(x._source['annual_total'])"
+                    "_eval": "jsone.numberFormat(x._source['annual_total'])"
                   },
                   "else": "No annual total provided"
                 }
@@ -329,9 +329,9 @@
                 },
                 {
                   "text": {
-                    "$if": "x._source['notes_on_award_amounts']",
+                    "_if": "x._source['notes_on_award_amounts']",
                     "then": {
-                      "$eval": "x._source['notes_on_award_amounts']"
+                      "_eval": "x._source['notes_on_award_amounts']"
                     },
                     "else": "No notes on award amounts"
                   }

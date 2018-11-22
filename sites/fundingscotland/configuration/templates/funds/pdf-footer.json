@@ -1,6 +1,6 @@
 [
   {
-    "$if": "currentPage > 1",
+    "_if": "currentPage > 1",
     "then": {
       "canvas": [
         {
@@ -16,7 +16,7 @@
     }
   },
   {
-    "$if": "currentPage > 1",
+    "_if": "currentPage > 1",
     "then": 
     {
       "text": "© 2017 The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Registration number SC003558.",
@@ -25,7 +25,7 @@
     }
   },
   {
-    "$if": "currentPage > 1",
+    "_if": "currentPage > 1",
     "then": {
       "columns": [
         {
@@ -36,7 +36,7 @@
         {
           "width": "*",
           "text": {
-            "$eval": "jsone.dateFormat('dddd, Do MMMM YYYY, HH:mm:ss')"
+            "_eval": "jsone.dateFormat('dddd, Do MMMM YYYY, HH:mm:ss')"
           },
           "fontSize": 10,
           "alignment": "right"

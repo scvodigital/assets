@@ -1,6 +1,7 @@
 {
   "name": "notes",
   "pattern": "/notes",
+  "debug" : true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",
@@ -26,20 +27,14 @@
           {
             "name": "open",
             "index": "web-content-production",
-            "type": "goodmoves-vacancy",
-            "template": ">context.metaData.handlebars.queries.vacancies_notes-open"
-          },
-          {
-            "name": "closed",
-            "index": "web-content-production",
-            "type": "goodmoves-vacancy",
-            "template": ">context.metaData.handlebars.queries.vacancies_notes-closed"
+            "type": "milo-volunteering-opportunity",
+            "template": ">context.metaData.handlebars.queries.opportunities_notes-open"
           }
         ]
       },
       "renderer": "handlebars"
     },
-    "context.metaData.commonTasks.supplimentaryResponses",
+    "context.metaData.commonTasks.opportunitySupplimentary",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -56,8 +51,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.vacancies_notes",
-              "sidebar": ">context.metaData.handlebars.templates.vacancies_search-form"
+              "body": ">context.metaData.handlebars.templates.opportunities_notes",
+              "sidebar": ">context.metaData.handlebars.templates.opportunities_search-form"
 
             },
             "contentType": "text/html"

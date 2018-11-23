@@ -52,15 +52,6 @@
   var mdeEditors = [];
   $(document).ready(function() {
     {{#if data.auth}}
-      $('textarea[data-simple-mde]').each(function(i, o) {
-        var mdeEditor = new SimpleMDE({
-          element: o,
-          forceSync: true,
-          toolbar: ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
-        });
-        o.mde = mdeEditor;
-        mdeEditors.push(mdeEditor);
-      });
       var recentlyViewed = volunteerscotland.getCookie('recently_viewed') || '';
       // console.log('Recently Viewed:', recentlyViewed, '| opportunity Id:', opportunityId);
       recentlyViewed = recentlyViewed.split(',');

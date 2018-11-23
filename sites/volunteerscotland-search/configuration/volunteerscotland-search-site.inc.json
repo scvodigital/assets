@@ -191,6 +191,15 @@
           }
         },
         "renderer": "handlebars"
+      },
+      "notesData": {
+        "name": "notes",
+        "taskModule": "firebaseRtbGet",
+        "renderer": "handlebars",
+        "config": {
+          "appName": "volunteerscotland-search",
+          "pathTemplate": "/notes/{{data.auth.uid}}"
+        }
       }
     },
     "firebaseDefaultDomain": {

@@ -9,7 +9,7 @@
       "taskModule": "firebaseRtbSet",
       "renderer": "handlebars",
       "config": {
-        "appName": "goodmoves",
+        "appName": "volunteerscotland-search",
         "pathTemplate": "/notes/{{data.auth.uid}}/{{request.body.id}}",
         "setOrUpdate": "set",
         "dataTemplate": "null"

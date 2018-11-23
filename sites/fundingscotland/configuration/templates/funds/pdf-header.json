@@ -1,6 +1,6 @@
 [
   {
-    "$if": "currentPage > 1",
+    "_if": "currentPage > 1",
     "then": {
       "columns": [
         {
@@ -22,7 +22,7 @@
           "height": 100,
           "fit": [65, 65],
           "image": {
-            "$eval": "images.logo"
+            "_eval": "images.logo"
           },
           "alignment": "right"
         }
@@ -31,7 +31,7 @@
     }
   },
   {
-    "$if": "currentPage > 1",
+    "_if": "currentPage > 1",
     "then": {
       "canvas": [
         {

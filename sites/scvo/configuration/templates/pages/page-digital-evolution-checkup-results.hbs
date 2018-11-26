@@ -9,10 +9,20 @@
           <h2>
             Your digital checkup result
           </h2>
+          {{#compare @root.request.params.query.income_band "===" "0" ~}}
           <p>
-            Your overall score was {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}% <span class="mdc-typography--body1">(average: {{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}%)</span>
+            Your overall score was {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}%, compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}% for all organisations who have completed the checkup. If you want to see how you compare to organisations of a similar size, please enter your income bracket as you complete the survey.
           </p>
-          
+          {{else}}
+          {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+          {{#compare this.key "===" @root.request.params.query.income_band ~}}
+          <p>
+            Your overall score was {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}%, the average for an organisation in your income bracket was {{round this.total_stats.avg "up"}}% (based on a sample of {{this.doc_count}}).
+          </p>
+          {{/compare ~}}
+          {{/each ~}}
+          {{/compare ~}}
+
           <!-- <p>
             <strong>Section 1 - Leadership, Culture and Skills</strong><br />
             You scored: {{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}% in this section (average: {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}%)
@@ -351,45 +361,72 @@ function RadarChart(id, data, options) {
 
   var data = [
     [//Average scores
+      {{#compare @root.request.params.query.income_band "===" "0" ~}}
       {
         axis:"Overall",
         value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}/100
       },
       {
-        axis:"Leadership, Culture and Skills",
+        axis:"Leadership",
         value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}/100
       },
       {
-        axis:"ICT (Tools and equipment)",
+        axis:"ICT",
         value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}/100
       },
       {
-        axis:"Content, marketing and data",
+        axis:"Content",
         value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}/100
       },
       {
-        axis:"Cyber resilience and online threats",
+        axis:"Cyber",
         value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}/100
       }
+      {{else}}
+      {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+      {{#compare this.key "===" @root.request.params.query.income_band ~}}
+      {
+        axis:"Overall",
+        value:{{round this.leadership_culture_and_skills_stats.avg "up"}}/100
+      },
+      {
+        axis:"Leadership",
+        value:{{round this.leadership_culture_and_skills_stats.avg "up"}}/100
+      },
+      {
+        axis:"ICT",
+        value:{{round this.tools_and_equipment_stats.avg "up"}}/100
+      },
+      {
+        axis:"Content",
+        value:{{round this.content_marketing_and_data_stats.avg "up"}}/100
+      },
+      {
+        axis:"Cyber",
+        value:{{round this.cyber_resilience_stats.avg "up"}}/100
+      }
+      {{/compare ~}}
+      {{/each ~}}
+      {{/compare ~}}
     ],[//Your scores
       {
         axis:"Overall",
         value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}/100
       },
       {
-        axis:"Leadership, Culture and Skills",
+        axis:"Leadership",
         value:{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}/100
       },
       {
-        axis:"ICT (Tools and equipment)",
+        axis:"ICT",
         value:{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}/100
       },
       {
-        axis:"Content, marketing and data",
+        axis:"Content",
         value:{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}/100
       },
       {
-        axis:"Cyber resilience and online threats",
+        axis:"Cyber",
         value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}/100
       }
     ]

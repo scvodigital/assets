@@ -15,7 +15,7 @@
       "terms": {
         "field": "call",
         "order": {
-          "_term": "desc"
+          "_term": "asc"
         },
         "size": 10000
       }

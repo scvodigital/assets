@@ -1133,9 +1133,13 @@ section.search {
       padding: 0 $unit*2.75 0 $unit*0.75;
       font-size: 1.1rem;
     }
+    .mdc-textfield__input {
+      line-height: 56px;
+      height: 56px;
+    }
     .mdc-select {
       line-height: 35px;
-      height: 35px;
+      // height: 35px;
       margin: 0;
     }
     .search-button-large {
@@ -1143,12 +1147,12 @@ section.search {
       position: absolute;
       top: 0;
       right: 0;
-      height: $unit*2;
-      width: $unit*2;
+      height: 56px;
+      width: 56px;
       .fa-search {
         color: #333;
-        height: $unit*1.25;
-        font-size: 1.5rem;
+        height: auto;
+        font-size: 2rem;
       }
     }
   }
@@ -1202,11 +1206,19 @@ section.search {
   opacity: 1;
 }
 
-.projects .search_form .search-button-large,
-.jobs-landing .search_form .search-button-large,
-.mdc-card.search .search_form .search-button-large,
-.mdc-card-search .search_form .search-button-large {
-  padding: 0.3rem;
+.projects,
+.jobs-landing,
+.mdc-card.search,
+.mdc-card-search {
+  .search_form {
+    .mdc-textfield__input {
+      border-color: rgba(0, 0, 0, 0.42);
+      border-width: 1px;
+    }
+    .search-button-large {
+      padding: 0.5rem;
+    }
+  }
 }
 .post-sidebar .search_form {
   margin-bottom: 0;

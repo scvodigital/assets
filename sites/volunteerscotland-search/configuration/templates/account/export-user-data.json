@@ -23,7 +23,7 @@
     },
     "items": {{{stringify @root.data.notes}}}
   },
-  "shortlist": {
+  "favourites": {
     "dataComment": {
       "description": "A list of all your shortlisted items. See the `vacancyLookup` field for information about each Vacancy's ID",
       "location": "On a MySQL database located at Google's 'europe-west2-c' (London, United Kingdom) data centre. For more information visit https://cloud.google.com/compute/docs/regions-zones/"

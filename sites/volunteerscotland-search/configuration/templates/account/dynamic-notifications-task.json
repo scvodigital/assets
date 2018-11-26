@@ -12,7 +12,7 @@
 {{/inline}}
 {{#if @root.request.body.json}}
   {{#with (parse @root.request.body.json)}}
-    {{#ifAny (any savedSearches.items) (any shortlist.items)}}
+    {{#ifAny (any savedSearches.items) (any favourites.items)}}
       {
         "name": "notifications",
         "taskModule": "mysql",

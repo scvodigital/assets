@@ -2,10 +2,8 @@
   "size": 12,
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 12}},
   "_source": [
-    "title",
-    "description",
-    "recipient_overview",
-    "slug"
+    "rendered.scvo_card",
+    "rendered.json_ld"
   ],
   "query": {
     "bool": {

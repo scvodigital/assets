@@ -7,7 +7,7 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.searchesData",
-    "context.metaData.commonTasks.shortlistData",
+    "context.metaData.commonTasks.favouritesData",
     "context.metaData.commonTasks.notesData",
     {
       "name": "opportunity_lookup",
@@ -20,7 +20,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "milo-volunteering-opportunity",
-          "template": ">context.metaData.handlebars.queries.account_shortlist"
+          "template": ">context.metaData.handlebars.queries.account_favourites"
         }
       },
       "renderer": "handlebars"

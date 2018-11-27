@@ -23,7 +23,16 @@
           {{/each ~}}
           {{/compare ~}}
 
+          {{#if @root.request.params.query.overall ~}}
+          <div class="key">
+            <ul>
+              <li class="key-your">Your scores</li>
+              <li class="key-average">Average scores</li>
+            </ul>
+          </div>
+
           <div class="radarChart"></div>
+          {{/if ~}}
 
           <h3>
             Book a follow-up call to review your results and explore next steps
@@ -322,7 +331,8 @@ function RadarChart(id, data, options) {
 	//Append the labels at each axis
 	axis.append("text")
 		.attr("class", "legend")
-		.style("font-size", "11px")
+    .style("font-size", "1rem")
+    .style("font-variant", "all-small-caps")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
@@ -477,7 +487,7 @@ function RadarChart(id, data, options) {
   //////////////////////// Set-Up //////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  var margin = {top: 100, right: 100, bottom: 100, left: 100},
+  var margin = {top: 75, right: 75, bottom: 20, left: 75},
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
@@ -575,6 +585,4 @@ function RadarChart(id, data, options) {
   };
   //Call function to draw the Radar chart
   RadarChart(".radarChart", data, radarChartOptions);
-
 </script>
-

@@ -3383,6 +3383,12 @@ body.post.author {
       position: relative;
       top: 0em;
     }
+    li.key-your:before {
+      color: #1976D2;
+    }
+    li.key-average:before {
+      color: #EDC951;
+    }
     li.mdc-grid-tile:before {
       content: none;
       margin-left: 0;
@@ -3425,6 +3431,23 @@ body.post.author {
 }
 .mdc-card__actions ul {
   padding: 0;
+}
+
+.key {
+  float: right;
+  display: inline-block;
+  padding: 0.25rem .75rem .5rem;
+  background-color: rgba(205, 205, 205, 0.1);
+  border: 2px solid rgb(205, 205, 205);
+  font-variant: all-small-caps;
+  ul {
+    margin: 0;
+    li:before {
+      font-size: 2.5rem;
+      line-height: 0.5rem;
+      top: 0.2rem;
+    }
+  }
 }
 
 .menu-sidebar {
@@ -5074,6 +5097,7 @@ button.swiper-pagination-bullet {
   /* Windows 8 IE 10 fix */
   -ms-perspective: 1200px;
 }
+
 
 @media print {
   .mdc-toolbar-fixed-adjust {

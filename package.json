@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.89",
+  "version": "0.0.95",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "husky": {
     "hooks": {
       "pre-push": "if [ $(git rev-parse --abbrev-ref HEAD) = \"development\" ]; then npm --no-git-tag-version version patch; git add .; git commit -m \"Bumping version number\"; fi",
-      "post-merge": "touch ./lib/components-initialiser.js"
+      "post-merge": "echo \"/* $(date -u) */\" > ./lib/bump.js; echo \"/* $(date -u) */\" > ./lib/bump.scss"
     }
   },
   "repository": {

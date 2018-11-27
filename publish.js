@@ -17,7 +17,7 @@ const BUILD_DIR = path.join(__dirname, 'build');
 const BUCKET = 'scvo-assets';
 const DESTINATION_DIR = 'test';
 const VERSION = package.version;
-const VERSION_TEST = new RegExp('-' + VERSION.replace(/\./g, '\\.') + '\.[0-9a-z]+$', 'gi');
+const VERSION_TEST = new RegExp('-VERSION\.[0-9a-z]+$', 'i');
 
 const storage = new Storage({
   projectId: 'scvo-net'
@@ -106,6 +106,7 @@ function getUploadOptions(sites) {
 
         if (!!versioned) {
           options.metaData.cacheControl = 'public, max-age=31536000';
+          options.destination = options.destination.replace('VERSION', VERSION);
         }
 
         if (gzipped) {

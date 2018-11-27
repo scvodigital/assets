@@ -42,7 +42,7 @@ function getConfig(site, library) {
       './sites/' + site + '/main.js', 
     ],
     output: {
-      filename: 'build/' + site + '/main-' + package.version + '.js',
+      filename: 'build/' + site + '/main-VERSION.js',
       library: library,
       libraryTarget: 'var'
 		},

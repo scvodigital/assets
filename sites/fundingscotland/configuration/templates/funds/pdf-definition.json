@@ -45,7 +45,11 @@
     },
     {
       "text": {
-        "_eval": "request.params.query.subtitle"
+        "_if": "request.params.query['subtitle']",
+        "then": {
+          "_eval": "request.params.query.subtitle"
+        },
+        "else": ""
       },
       "fontSize": 18,
       "bold": true,

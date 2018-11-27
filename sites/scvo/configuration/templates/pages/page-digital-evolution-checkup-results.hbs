@@ -25,8 +25,8 @@
 
           <div class="key">
             <ul>
-              <li style="color:#1976D2"><span style="color:inherit;">Your score</span></li>
-              <li style="color:#EDC951"><span style="color:inherit;">Average score</span></li>
+              <li class="key-your">Your scores</li>
+              <li class="key-average">Average scores</li>
             </ul>
           </div>
 
@@ -329,7 +329,8 @@ function RadarChart(id, data, options) {
 	//Append the labels at each axis
 	axis.append("text")
 		.attr("class", "legend")
-		.style("font-size", "11px")
+    .style("font-size", "1rem")
+    .style("font-variant", "all-small-caps")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
@@ -484,7 +485,7 @@ function RadarChart(id, data, options) {
   //////////////////////// Set-Up //////////////////////////////
   //////////////////////////////////////////////////////////////
 
-  var margin = {top: 100, right: 100, bottom: 100, left: 100},
+  var margin = {top: 70, right: 50, bottom: 10, left: 60},
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 

@@ -135,8 +135,6 @@
       </div>
     </div>
 
-    {{> term_filter type="regions" instance_id=instance_id ~}}
-
     {{#each (split "organisation_activities" ",") ~}}
       {{> term_filter type=this instance_id=instance_id ~}}
     {{/each ~}}

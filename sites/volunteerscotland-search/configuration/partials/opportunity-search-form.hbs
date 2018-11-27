@@ -91,7 +91,7 @@
 <div class="mdc-drawer__content">
   <!-- <h2 class="mdc-drawer__content-heading hide-sm mdc-drawer--occasional">Search opportunities</h2> -->
 
-  <form action="/{{#compare @root.request.url.pathname "/map"}}map{{else}}search{{/compare}}" method="GET" class="search-form" novalidate>
+  <form id="opportunity-search-form" action="/{{#compare @root.request.url.pathname "/map"}}map{{else}}search{{/compare}}" method="GET" class="search-form" novalidate>
     <input type="hidden" name="sort" value="{{@root.request.params.query.sort}}" id="{{instance_id}}-sort">
     <div class="h-padding">
       <div class="mdc-layout-grid">
@@ -136,12 +136,13 @@
     </div>
 
     <div class="h-padding">
-      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-        <span class="far fa-search mdc-text-field__icon" tabindex="-1"></span>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-trailing-icon" data-mdc-auto-init="MDCTextField">
+
         <input type="text" id="{{instance_id}}-keywords" name="keywords" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.request.params.query.keywords}}" data-lpignore="true" autocomplete="off">
         <label class="mdc-floating-label" for="keywords">
           Keywords
         </label>
+        <span class="far fa-search active-search-icon mdc-text-field__icon" role="button" onclick=" $(this).parents('form:first').submit();" style="pointer-events: initial !important; z-index: 500;" tabindex="-1"></span></a>
         <div class="mdc-line-ripple"></div>
       </div>
     </div>

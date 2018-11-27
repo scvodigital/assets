@@ -3501,10 +3501,12 @@ a.mdc-drawer__content-heading {
 
 .search-form {
   background: $mdc-theme-secondary-light;
-  .geo-lookup {
+  .geo-lookup,
+  .active-search-icon{
     color: $mdc-theme-primary !important;
   }
-  .geo-lookup:hover {
+  .geo-lookup:hover,
+  .active-search-icon:hover{
     color: $mdc-theme-primary-dark !important;
   }
   .search-distance {

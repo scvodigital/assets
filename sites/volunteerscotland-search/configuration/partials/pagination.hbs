@@ -1,4 +1,3 @@
-
 {{#compare paging.totalPages ">" 1 ~}}
   <ul class="pagination inline-list">
   <li class="{{#if paging.prevPage}}{{else}}disabled{{/if}}">
@@ -6,10 +5,10 @@
       <i class="far fa-fw fa-chevron-left"></i>
     </a>
   </li>
-     {{#each (customPaginate paging.currentPage paging.totalPages 2 1) ~}}
-       <li class="{{#compare ../paging.currentPage "===" this}}current-page {{/compare}}{{#compare "..." "===" this}}disabled {{/compare}}">
+  {{#each (customPaginate paging.currentPage paging.totalPages 2 1) ~}}
+    <li class="{{#compare ../paging.currentPage "===" this}}current-page {{/compare}}{{#compare "..." "===" this}}disabled {{/compare}}">
       {{#compare "..." "===" this}}
-        {{this}}
+        &hellip;
       {{else}}
       <a class="pagination-page" href="{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query page=this json=false}}}">
         {{this}}

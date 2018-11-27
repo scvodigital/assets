@@ -1,6 +1,7 @@
 {
   "domains": [
     "localhost",
+    "test",
     "scvo.local",
     "amp.scvo.local",
     "127.0.0.1",

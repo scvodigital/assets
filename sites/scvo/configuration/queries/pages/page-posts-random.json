@@ -53,11 +53,11 @@
               "_type": "scvo-cms-post"
             }
           },
-          "weight": 2,
+          "weight": 3,
           "gauss": {
             "publish_on": {
               "scale": "60d",
-              "decay": 0.02
+              "decay": 0.2
             }
           }
         }

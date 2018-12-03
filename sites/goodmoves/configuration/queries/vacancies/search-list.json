@@ -55,14 +55,14 @@
     }
   },
   {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
-  "script_fields" : {
-    "distance" : {
-      "script" : {
-        "inline": "doc['geo_vacancy_coords'].arcDistance(params.lat,params.lon) * 0.000621371",
+  "script_fields": {
+    "distance": {
+      "script": {
         "lang": "painless",
+        "source": "if (doc['geo_vacancy_coords'].length != 0) { return doc['geo_vacancy_coords'].arcDistance(params.lat,params.lng)*0.000621371 }",
         "params": {
-          "lat": {{request.params.query.lat}},
-          "lon": {{request.params.query.lng}}
+          "lat": {{@root.request.params.query.lat}},
+          "lng": {{@root.request.params.query.lng}}
         }
       }
     }
@@ -116,7 +116,7 @@
       }
     }
     {{else}}
-    "_score"
+    "_score",
     {{/ifAll ~}}
     {{else}}
     {{#compare @root.request.params.query.sort "===" "relevance" ~}}
@@ -130,9 +130,9 @@
     {{/compare ~}}
     {{else}}
     "_score",
+    {{/if ~}}
     {
       "start_at": "desc"
     }
-    {{/if ~}}
   ]
 }

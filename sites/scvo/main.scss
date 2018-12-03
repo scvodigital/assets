@@ -2380,6 +2380,28 @@ body.the-gathering-2019 {
       padding: $unit/10 $unit/4;
     }
   }
+  .page-sidebar {
+    .mdc-layout-grid__inner {
+      grid-gap: 0;
+    }
+    .mdc-layout-grid__cell {
+      grid-column-end: span 12;
+      h3, p {
+        text-align: center;
+      }
+      a {
+        float: none !important;
+        display: inline-block;
+        margin: 0 !important;
+        img {
+          margin-top: $unit;
+        }
+      }
+    }
+    .footer-text.sponsors hr {
+      display: none;
+    }
+  }
 }
 
 body.datawareness:not(.post),

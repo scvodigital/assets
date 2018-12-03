@@ -117,10 +117,16 @@
     }
     {{else}}
     "_score",
+    {
+      "start_at": "desc"
+    }
     {{/ifAll ~}}
     {{else}}
     {{#compare @root.request.params.query.sort "===" "relevance" ~}}
     "_score",
+    {
+      "start_at": "desc"
+    }
     {{/compare ~}}
     {{/compare ~}}
     {{/compare ~}}
@@ -130,9 +136,9 @@
     {{/compare ~}}
     {{else}}
     "_score",
-    {{/if ~}}
     {
       "start_at": "desc"
     }
+    {{/if ~}}
   ]
 }

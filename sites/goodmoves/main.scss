@@ -414,7 +414,8 @@ a {
     background-color: $mdc-theme-complimentary-light;
     .mdc-tab__icon,
     .mdc-tab__text-label {
-      color: $mdc-theme-primary-dark;
+      // color: $mdc-theme-primary-dark;
+      color: black;
     }
     .mdc-tab-indicator__content {
       background-color: $mdc-theme-primary-dark;

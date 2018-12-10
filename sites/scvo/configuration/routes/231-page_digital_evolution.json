@@ -1,8 +1,10 @@
 {
   "name": "page_digital_evolution",
   "pattern": {
-    "index": "/digital/evolution",
-    "section": "/digital/evolution/:path"
+    "index_legacy": "/digital/evolution",
+    "index": "/digital/new/evolution",
+    "section_legacy": "/digital/evolution/:path",
+    "section": "/digital/new/evolution/:path"
   },
   "tasks": [
     {

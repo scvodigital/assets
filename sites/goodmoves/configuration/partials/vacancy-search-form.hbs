@@ -137,19 +137,19 @@
           )
         ",")
       ~}}
-        <h3 class="mdc-drawer__content-heading cursor-pointer noselect" data-collapse-target="#{{../instance_id}}-{{this}}-collapse" role="button" aria-pressed="false" aria-label="Show {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}" tabindex="0">
+        <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11" data-checkbox-collapse-target="#{{../instance_id}}-{{this}}-collapse" role="button" aria-pressed="false" aria-label="Show {{getProperty @root.context.metaData.termTypeLabels (concat type ".plural")}}" tabindex="0">
           {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}
           <span class="mdc-icon-toggle pull-right">
             <i class="far {{#if (getProperty @root.request.params.query this)}}fa-chevron-up{{else}}fa-chevron-down{{/if}}" aria-hidden="true"></i>
           </span>
         </h3>
-        <div class="" id="{{../instance_id}}-{{this}}-collapse"{{#unless (getProperty @root.request.params.query this)}} style="display: none;"{{/unless}}>
+        <div class="mdc-drawer--occasional-ie11 checkbox-toggle-display-checked" id="{{../instance_id}}-{{this}}-collapse">
           {{#compare this "===" "regions" ~}}
             {{#if (any @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ~}}
               {{#each @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets ~}}
                 {{#if key ~}}
                   {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                    <h3 class="mdc-typography--headline7 h-padding">{{{key}}}</h3>
+                    <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">{{{key}}}</h3>
                   {{/compare ~}}
                 {{/if ~}}
                 {{#each this.regions_slugs.buckets ~}}

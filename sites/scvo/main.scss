@@ -2782,7 +2782,6 @@ table.membership-fees {
   }
 }
 
-
 .grid-info {
   .mdc-card__primary {
     h1 {
@@ -3100,9 +3099,6 @@ table.membership-fees {
 .mdc-card__primary {
   border-radius: 4px 4px 0 0;
   padding: $unit;
-  a {
-    display: block;
-  }
 }
 .mdc-card__primary:last-child {
   padding-bottom: 1rem;

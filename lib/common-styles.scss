@@ -791,10 +791,10 @@ a {
 }
 
 .mdc-button--raised {
-  transition: all 1s cubic-bezier(0, 1, 0.3, 1);
+  transition: background-color 1s cubic-bezier(0, 1, 0.3, 1);
 }
 .mdc-button--raised:hover {
-  transition: all .3s ease-out;
+  transition: background-color .3s ease-out;
 }
 
 .mdc-button--fullwidth {

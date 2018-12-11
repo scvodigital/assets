@@ -2579,8 +2579,11 @@ body.i-love-charity .page-info,
     line-height: 2.7rem;
   }
   .latest_content {
+    .mdc-layout-grid__cell {
+      display: block;
+    }
     .mdc-card__subtitle {
-      display: none;
+      // display: none;
     }
     .mdc-layout-grid__inner {
       grid-gap: 0;
@@ -3039,8 +3042,10 @@ table.membership-fees {
   .mdc-card__primary {
     margin-bottom: 0;
   }
-  .mdc-card__media {
+  .mdc-card__media,
+  .mdc-card__media a {
     height: 128px;
+    display: block;
   }
 }
 .mdc-card__actions {

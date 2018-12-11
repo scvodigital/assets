@@ -3036,6 +3036,10 @@
         },
         "path": "/running-your-organisation/governance/jargon-buster",
         "route": "^/running-your-organisation/governance/jargon-buster"
+      }, {
+        "label": "Scottish Governance Code for the Third Sector",
+        "path": "https://governancecode.scot",
+        "route": "^https://governancecode.scot"
       }],
       "label": "Good governance",
       "metaData": {

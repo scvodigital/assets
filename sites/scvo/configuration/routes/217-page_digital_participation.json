@@ -1,8 +1,10 @@
 {
   "name": "page_digital_participation",
   "pattern": {
-    "index": "/digital/participation",
-    "section": "/digital/participation/:path"
+    "index_legacy": "/digital/participation",
+    "index": "/digital/new/participation",
+    "section_legacy": "/digital/participation/:path",
+    "section": "/digital/new/participation/:path"
   },
   "tasks": [
     {

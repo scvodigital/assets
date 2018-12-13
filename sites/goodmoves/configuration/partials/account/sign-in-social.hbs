@@ -40,11 +40,27 @@
       }
     };
 
-    $google.on('click', function(evt) { socialSignIn('google'); });
-    $facebook.on('click', function(evt) { socialSignIn('facebook'); });
-    $twitter.on('click', function(evt) { socialSignIn('twitter'); });
+    $google.on('click', function(evt) { sessionCheck('google'); });
+    $facebook.on('click', function(evt) { sessionCheck('facebook'); });
+    $twitter.on('click', function(evt) { sessionCheck('twitter'); });
 
+    function sessionCheck(provider) {
+      var currentUser = goodmoves.app.auth().currentUser;
+      if (currentUser) {
+        goodmoves.app.auth().signOut().then(function() {
+          socialSignIn(provider);
+        }).catch(function(err) {
+          console.error('Problem signing out', err);
+          socialSignIn(provider);
+        });
+      } else {
+        socialSignIn(provider);
+      }
+    }
+    
     function socialSignIn(providerName) {
+      goodmoves.setCookie('gm_token', '');
+      goodmoves.setCookie('gm_cookie', '');
       $loader.show();
       var providerInfo = providers[providerName];
       var provider = providerInfo.getProvider();

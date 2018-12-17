@@ -16,7 +16,8 @@
     "header_background",
     "header_text",
     "hide_overlay",
-    "text_bag_boost"
+    "text_bag_boost",
+    "quotation"
   ],
   "query": {
     "term": {

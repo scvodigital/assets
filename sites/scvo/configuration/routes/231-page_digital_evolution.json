@@ -6,6 +6,7 @@
     "section_legacy": "/digital/evolution/:path",
     "section": "/digital/new/evolution/:path"
   },
+  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

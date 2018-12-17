@@ -1,0 +1,33 @@
+{{#if sourcePage.quotation.text}}
+  <div class="mdc-layout-grid" style="border-bottom:2px solid #1976D2">
+    <div class="mdc-layout-grid__inner h-padding-full v-padding-full">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+        <blockquote class="wp-block-quote">
+          {{{markdown sourcePage.quotation.text}}}
+        </blockquote>
+        {{#ifAny sourcePage.quotation.author sourcePage.quotation.author_title}}
+          <p class="text-right">
+            {{#if sourcePage.quotation.author}}
+              {{#if sourcePage.quotation.author_url}}
+                <a href="{{sourcePage.quotation.author_url}}">
+              {{/if}}
+              {{sourcePage.quotation.author}}
+              {{~#if sourcePage.quotation.author_url~}}
+                </a>
+              {{~/if~}}
+              {{~#if sourcePage.quotation.author_title}},{{/if~}}
+            {{/if}}
+            {{#if sourcePage.quotation.author_title}}
+              {{sourcePage.quotation.author_title}}
+            {{/if}}
+          </p>
+        {{/ifAny}}
+      </div>
+      {{#if sourcePage.quotation.headshot}}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet hide-sm">
+          <img src="{{sourcePage.quotation.headshot}}" alt="" style="max-width:100%; height:auto;">
+        </div>
+      {{/if}}
+    </div>
+  </div>
+{{/if}}

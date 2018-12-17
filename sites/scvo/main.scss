@@ -1013,6 +1013,16 @@ figure {
   margin-bottom: $unit;
   float: right;
 }
+.mdc-button--full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+a[href^="http://"].mdc-button::after,
+a[href^="https://"].mdc-button::after {
+  display: none !important; 
+}
 
 .cta-content.callout-image {
   background-size: cover;
@@ -4427,6 +4437,12 @@ footer {
     .mdc-button {
       display: block;
     }
+  }
+}
+
+@media (max-width: 479px) {
+  .hide-sm {
+    display: none;
   }
 }
 

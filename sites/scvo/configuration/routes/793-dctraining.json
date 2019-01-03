@@ -1,0 +1,14 @@
+{
+  "name": "short_dctraining",
+  "pattern": "/dctraining",
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/digital/new/participation/digital-champion-training/dc-training-your-feedback",
+        "statusCode": 302
+      }
+    }
+  ]
+}

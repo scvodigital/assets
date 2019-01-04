@@ -238,6 +238,12 @@
             {{/each ~}}
             <div role="separator" class="mdc-list-divider"></div>
             {{#if @root.data.auth ~}}
+            <a class="mdc-list-item mdc-list-item__user" href="#">
+              <span class="mdc-list-item__graphic" aria-hidden="true">
+                <img src="{{@root.data.auth.photoURL}}" />
+              </span>
+              <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
+            </a>
             {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}
             {{else}}

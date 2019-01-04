@@ -114,7 +114,7 @@
             Linked accounts
           </h3>
           <div class="mdc-chip-set mdc-chip-set--filter">
-            {{#each (split "google,facebook,twitter" ",") ~}}
+            {{#each (split "google,twitter,facebook" ",") ~}}
               <div class="v-margin">
                 {{> linkChip
                     provider=this

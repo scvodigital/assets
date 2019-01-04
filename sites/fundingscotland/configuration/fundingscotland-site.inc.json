@@ -2,7 +2,17 @@
   "domains": [
     "fundingscotland.com",
     "test.fundingscotland.com",
-    "fundingscotland.local"
+    "fundingscotland.local",
+    "fs-aberdeen.local",
+    "fs-dev.local",
+    "fs-eastrenfrewshire.local",
+    "fs-fife.local",
+    "fs-northlanarkshire.local",
+    "fs-shetland.local",
+    "fs-southlanarkshire.local",
+    "fs-srn.local",
+    "fs-stirling.local",
+    "fs-www.local"
   ],
   "routes": [
     "{:./routes/*.json}"

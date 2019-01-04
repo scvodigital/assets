@@ -284,6 +284,32 @@ a {
 .mdc-button--raised .mdc-list-item__graphic {
   color: #fff;
 }
+#mobile-menu {
+  .mdc-list-item__user {
+    pointer-events: none;
+    .mdc-list-item__graphic img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+    }
+    .mdc-list-item__text {
+      color: #555;
+      position: relative;
+      white-space: nowrap;
+      text-overflow: clip;
+    }
+    .mdc-list-item__text::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20%;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+      pointer-events: none;
+    }
+  }
+}
 
 .mdc-button--raised {
   background-color: $mdc-theme-primary !important;
@@ -800,7 +826,7 @@ footer.mdc-layout__footer {
     background-color: rgba(66, 132, 42, 0.89);
   }
   .currently-recruiting .content-secondary-logo {
-    padding: 0 $unit/2 $unit;
+    padding: 0 $unit/2 1px;
   }
 }
 

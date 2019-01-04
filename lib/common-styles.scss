@@ -236,6 +236,10 @@ header {
       .mdc-tab {
         font-weight: 600;
       }
+      .mdc-top-app-bar__action-item,
+      .mdc-top-app-bar__navigation-icon {
+        padding: 10px !important;
+      }
     }
   }
 }
@@ -268,10 +272,13 @@ footer h3,
 .mdc-form-field,
 .mdc-text-field,
 .mdc-dialog__body,
+.mdc-dialog__title,
 .mdc-card__subtitle,
 .mdc-floating-label,
 .mdc-card__subtitle,
 .mdc-snackbar__text,
+.mdc-dialog__content,
+.mdc-dialog__actions,
 .mdc-drawer__subtitle,
 .mdc-textfield__input,
 .mdc-typography--body1,
@@ -2375,7 +2382,7 @@ footer.mdc-layout__footer {
     }
   }
   .home-banner .banner-search.overlay .content {
-    padding: $unit/2 $unit/2 $unit;
+    padding: $unit/2;
     .overlay-content {
       padding: $unit;
       .header-text {
@@ -2393,8 +2400,9 @@ footer.mdc-layout__footer {
     #search-view {
       padding: $unit/2;
       .mdc-text-field,
+      .mdc-form-field,
       .mdc-select {
-        margin: 0;
+        margin: 0 !important;
       }
     }
   }
@@ -2567,7 +2575,7 @@ footer.mdc-layout__footer {
       .header-extra {
         max-width: 100%;
         font-size: 1.1rem;
-        padding: $unit/4 0;
+        padding: 0;
       }
     }
     .search-content {

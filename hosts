@@ -1,0 +1,35 @@
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+::1		localhost.localdomain	localhost
+
+127.0.0.1   scvo.local
+127.0.0.1   goodhq.local
+127.0.0.1   goodmoves.local
+127.0.0.1   digitalparticipation.local
+127.0.0.1   humanrightsdeclaration.local
+127.0.0.1   fundingscotland.local
+127.0.0.1   scotlandforeurope.local
+127.0.0.1   getinvolved.local
+127.0.0.1   getinvolved-legacy.local
+127.0.0.1   amp.scvo.local
+127.0.0.1   emailer.local
+127.0.0.1   volunteerscotland-search.local
+
+127.0.0.1   fs-aberdeen.local
+127.0.0.1   fs-dev.local
+127.0.0.1   fs-eastrenfrewshire.local
+127.0.0.1   fs-fife.local
+127.0.0.1   fs-northlanarkshire.local
+127.0.0.1   fs-shetland.local
+127.0.0.1   fs-southlanarkshire.local
+127.0.0.1   fs-srn.local
+127.0.0.1   fs-stirling.local
+127.0.0.1   fs-www.local
+
+10.10.5.21  edinburgh18
+
+# End of file

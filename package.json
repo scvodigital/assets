@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.144",
+  "version": "0.0.149",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -60,6 +60,7 @@
     "@babel/polyfill": "^7.0.0",
     "@google-cloud/storage": "^2.0.3",
     "@scvo/json-inc": "^0.0.15",
+    "dot-object": "^1.7.1",
     "firebase": "^5.4.2",
     "firebase-admin": "^6.0.0",
     "flat": "^4.1.0",
@@ -73,6 +74,7 @@
     "mapbox.js": "^3.1.1",
     "material-components-web": "^0.41.0",
     "pako": "^1.0.6",
+    "request-promise-native": "^1.0.5",
     "simplemde": "^1.11.2",
     "string": "^3.3.3",
     "typeahead.js": "https://github.com/twitter/typeahead.js"

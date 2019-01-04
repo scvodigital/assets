@@ -2,6 +2,7 @@
   "name": "delete-user",
   "pattern": "/delete-user",
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     {
       "name": "notifications",

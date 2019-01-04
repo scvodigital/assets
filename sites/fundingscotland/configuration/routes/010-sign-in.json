@@ -2,6 +2,7 @@
   "name": "sign_in",
   "pattern": "/sign-in",
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",

@@ -23,6 +23,9 @@
     "title": "Funding Scotland",
     "menus": "{:./fundingscotland-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "terms": "{:./terms.json}",
+    "domain-map": "{:./domain-map.json}",
+    "site-configurations": "{:./site-configurations.json}",
     "termTypeLabels": {
       "geographical_areas_funded": {
         "singular": "Region",
@@ -68,6 +71,22 @@
       }
     },
     "commonTasks": {
+      "currentSite": {
+        "name": "currentSite",
+        "taskModule": "render",
+        "renderer": "jsone",
+        "config": {
+          "template": {
+            "_let": {
+              "path": "${context.metaData['domain-map'][request.url.hostname]}"
+            },
+            "in": {
+              "_eval": "context.metaData['site-configurations'][path]"
+            }
+          },
+          "output": "data"
+        }
+      },
       "authNotRequired": {
         "name": "auth",
         "taskModule": "firebaseAuth",
@@ -78,7 +97,7 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": "scvo",
+          "appName": ">data.currentSite.firebaseApp",
           "noTokenRoute": "",
           "notAuthenticatedRoute": ""
         }
@@ -93,7 +112,7 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": "scvo",
+          "appName": ">data.currentSite.firebaseApp",
           "noTokenRoute": "sign_in",
           "notAuthenticatedRoute": "sign_in"
         }

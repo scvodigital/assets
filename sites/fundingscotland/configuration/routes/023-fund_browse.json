@@ -5,6 +5,7 @@
     "browse_selection": "/browse/:browse_type/:browse_slug"
   },
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

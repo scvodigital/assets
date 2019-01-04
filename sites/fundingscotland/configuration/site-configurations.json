@@ -1,0 +1,236 @@
+{
+  "default": {
+    "title": "Funding Scotland",
+    "colors": {
+      "primary": "#68C53E",
+      "primaryText": "#000000",
+      "secondary": "#689F38",
+      "secondaryText": "#000000",
+      "info": "#4779af",
+      "infoText": "#000000",
+      "success": "#4caf50",
+      "successText": "#000000",
+      "warning": "#8b6d11",
+      "warningText": "#ffffff",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": false,
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "eastrenfrewshire": {
+    "title": "Funding East Renfrewshire",
+    "colors": {
+      "primary": "#007FC4",
+      "primaryText": "#000000",
+      "secondary": "#83C24F",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "uk",
+        "scotland",
+        "overseas",
+        "east-renfrewshire",
+        "european-union"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "fife": {
+    "title": "Fife Funding Search",
+    "colors": {
+      "primary": "#00536D",
+      "primaryText": "#ffffff",
+      "secondary": "#C2CFDD",
+      "secondaryText": "#000000",
+      "info": "#663399",
+      "infoText": "#ffffff",
+      "success": "#009966",
+      "successText": "#000000",
+      "warning": "#f35958",
+      "warningText": "#000000",
+      "error": "#de3027",
+      "errorText": "#000000"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "european-union",
+        "europe",
+        "overseas",
+        "scotland",
+        "fife",
+        "uk"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "northlanarkshire": {
+    "title": "Funding North Lanarkshire",
+    "colors": {
+      "primary": "#BD0029",
+      "primaryText": "#ffffff",
+      "secondary": "#4D4D4D",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": true,
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "shetland": {
+    "title": "Shetland Funding Search",
+    "colors": {
+      "primary": "#0A2C3F",
+      "primaryText": "#ffffff",
+      "secondary": "#CCCCCC",
+      "secondaryText": "#000000",
+      "info": "#4779af",
+      "infoText": "#000000",
+      "success": "#4e8b11",
+      "successText": "#000000",
+      "warning": "#ff6600",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "uk",
+        "shetland",
+        "scotland",
+        "overseas",
+        "europe"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "southlanarkshire": {
+    "title": "Funding South Lanarkshire",
+    "colors": {
+      "primary": "#222E66",
+      "primaryText": "#ffffff",
+      "secondary": "#35A1DF",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "european-union",
+        "overseas",
+        "scotland",
+        "uk",
+        "south-lanarkshire"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "srn": {
+    "title": "Scottish Rural Network",
+    "colors": {
+      "primary": "#888888",
+      "primaryText": "#000000",
+      "secondary": "#4A9AE5",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "south-lanarkshire",
+        "stirling",
+        "perth-and-kinross",
+        "renfrewshire",
+        "falkirk",
+        "scottish-borders",
+        "uk",
+        "shetland",
+        "south-ayrshire",
+        "west-dunbartonshire",
+        "west-lothian",
+        "scotland",
+        "overseas",
+        "fife",
+        "highland",
+        "inverclyde",
+        "midlothian",
+        "moray",
+        "na-h-eileanan-siar",
+        "north-ayrshire",
+        "north-lanarkshire",
+        "orkney",
+        "european-union",
+        "east-renfrewshire",
+        "aberdeenshire",
+        "angus",
+        "argyll-and-bute",
+        "clackmannanshire",
+        "dumfries-and-galloway",
+        "east-ayrshire",
+        "east-dunbartonshire",
+        "east-lothian"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  },
+  "stirling": {
+    "title": "Funding Stirling",
+    "colors": {
+      "primary": "#E51072",
+      "primaryText": "#000000",
+      "secondary": "#00ACD6",
+      "secondaryText": "#000000",
+      "info": "#f2dede",
+      "infoText": "#000000",
+      "success": "#e51072",
+      "successText": "#000000",
+      "warning": "#661a6a",
+      "warningText": "#ffffff",
+      "error": "#d2d20e",
+      "errorText": "#000000"
+    },
+    "enableProFeatures": true,
+    "fixedFilters": {
+      "geographical-areas-funded": [
+        "european-union",
+        "overseas",
+        "scotland",
+        "uk",
+        "stirling"
+      ]
+    },
+    "firebaseApp": "scvo-auth-fs"
+  }
+}

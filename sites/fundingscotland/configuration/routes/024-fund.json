@@ -5,6 +5,7 @@
     "context": "detail"
   },
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.notesData",

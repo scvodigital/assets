@@ -1,0 +1,280 @@
+{
+  "activities": { 
+    "label": "Activities",
+    "termGroups": { 
+      "advice": { 
+        "label": "Advice",
+        "terms": {
+          "advising-and-informing": "Advising and informing",
+          "advocacy": "Advocacy",
+          "befriending-and-mentoring": "Befriending and mentoring",
+          "financial-advice-and-support": "Financial advice and support"
+        }
+      },
+      "arts-culture-and-heritage": { 
+        "label": "Arts, culture and heritage",
+        "terms": {
+          "arts-and-cultural-activities": "Arts and Cultural Activities",
+          "heritage-building-preservation": "Heritage/ building preservation"
+        }
+      },
+      "community-and-organisational-development": { 
+        "label": "Community and organisational development",
+        "terms": {
+          "organisation-capacity-building": "Organisation Capacity Building",
+          "organised-sport": "Organised Sport",
+          "recreation-and-social-activities": "Recreation and social activities",
+          "citizenship-and-community-involvement": "Citizenship and community involvement",
+          "community-and-capacity-building": "Community and capacity building",
+          "community-development-and-regeneration": "Community development and regeneration",
+          "community-facilities": "Community facilities",
+          "community-safety": "Community safety",
+          "community-transport": "Community transport",
+          "disaster-emergency-services": "Disaster/ emergency services"
+        }
+      },
+      "education-training-and-research": { 
+        "label": "Education, training and research",
+        "terms": {
+          "education-and-training": "Education and Training",
+          "employability-services": "Employability services",
+          "health-education-&-promotion": "Health education & promotion",
+          "scientific-activities": "Scientific Activities",
+          "research": "Research"
+        }
+      },
+      "environment-and-animals": { 
+        "label": "Environment and animals",
+        "terms": {
+          "environmental-projects": "Environmental Projects",
+          "animal-welfare": "Animal welfare"
+        }
+      },
+      "health-and-social-care": { 
+        "label": "Health and social care",
+        "terms": {
+          "accommodation": "Accommodation",
+          "respite-holidays": "Respite/ holidays",
+          "social-care": "Social care",
+          "health-and-social-care": "Health and social care",
+          "medical-care": "Medical care",
+          "mental-health-care": "Mental health care"
+        }
+      },
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "religious-activities": "Religious activities",
+          "providing-equipment": "Providing equipment",
+          "general-charitable-activities": "General charitable activities",
+          "campaigning": "Campaigning"
+        }
+      }
+    }
+  },
+  "beneficiaries": { 
+    "label": "Beneficiaries",
+    "termGroups": { 
+      "economically-socially-disadvantaged-people": { 
+        "label": "Economically/socially disadvantaged people",
+        "terms": {
+          "addicts-and-misusers": "Addicts and Misusers",
+          "black-and-minority-ethnic-communities": "Black and minority ethnic communities",
+          "carers-parents": "Carers/ parents",
+          "homeless-or-badly-housed": "Homeless or badly Housed",
+          "in-or-leaving-care": "In or leaving care",
+          "isolated-socially": "Isolated socially",
+          "economically-socially-disadvantaged": "Economically/socially disadvantaged",
+          "living-in-poverty": "Living in poverty",
+          "offenders-&-ex-offenders": "Offenders & ex-offenders",
+          "refugees-and-asylum-seekers": "Refugees and asylum seekers",
+          "tenants": "Tenants",
+          "unemployed": "Unemployed",
+          "victims-of-crime-abuse": "Victims of crime / abuse"
+        }
+      },
+      "environment-and-animals": { 
+        "label": "Environment and animals",
+        "terms": {
+          "natural-environment": "Natural Environment",
+          "animals": "Animals"
+        }
+      },
+      "gender-sexual-orientation": { 
+        "label": "Gender/sexual orientation",
+        "terms": {
+          "men": "Men",
+          "lgbt": "LGBT",
+          "women": "Women"
+        }
+      },
+      "geographic-communities": { 
+        "label": "Geographic communities",
+        "terms": {
+          "the-local-community": "The local community",
+          "living-in-rural-areas": "Living in rural areas",
+          "general-public": "General public"
+        }
+      },
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "families": "Families",
+          "third-sector-organisations": "Third sector organisations",
+          "religious-and-belief-groups-communities": "Religious and Belief Groups/Communities"
+        }
+      },
+      "people-affected-by-ill-health-disability": { 
+        "label": "People affected by ill health/disability",
+        "terms": {
+          "mental-health-conditions": "Mental health conditions",
+          "people-affected-by-ill-health": "People affected by ill-health",
+          "people-with-disabilities": "People with disabilities",
+          "people-with-learning-disabilities": "People with learning disabilities",
+          "people-with-physical-disabilities": "People with physical disabilities",
+          "people-with-sensory-impairments": "People with sensory impairments",
+          "physical-health-conditions": "Physical health conditions"
+        }
+      },
+      "people-from-in-specific-occupations": { 
+        "label": "People from/in specific occupations",
+        "terms": {
+          "students-ex-students": "Students/ Ex-students",
+          "volunteers": "Volunteers"
+        }
+      },
+      "people-of-a-specific-age-group": { 
+        "label": "People of a specific age group",
+        "terms": {
+          "older-people": "Older people",
+          "young-people": "Young people",
+          "children": "Children"
+        }
+      }
+    }
+  },
+  "charities-only": { 
+    "label": "Charities only",
+    "termGroups": { 
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "false": "false",
+          "true": "true"
+        }
+      }
+    }
+  },
+  "fund-status": { 
+    "label": "Fund status",
+    "termGroups": { 
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "currently-closed": "Currently Closed",
+          "open": "Open"
+        }
+      }
+    }
+  },
+  "geographical-areas-funded": { 
+    "label": "Geographical areas funded",
+    "termGroups": { 
+      "east": { 
+        "label": "East",
+        "terms": {
+          "angus": "Angus",
+          "clackmannanshire": "Clackmannanshire",
+          "dundee": "Dundee",
+          "east-lothian": "East Lothian",
+          "edinburgh": "Edinburgh",
+          "falkirk": "Falkirk",
+          "fife": "Fife",
+          "midlothian": "Midlothian",
+          "scottish-borders": "Scottish Borders",
+          "west-lothian": "West Lothian",
+          "perth-and-kinross": "Perth and Kinross",
+          "stirling": "Stirling"
+        }
+      },
+      "highlands-and-islands": { 
+        "label": "Highlands and Islands",
+        "terms": {
+          "shetland": "Shetland",
+          "highland": "Highland",
+          "orkney": "Orkney",
+          "moray": "Moray",
+          "na-h-eileanan-siar": "Na h-Eileanan Siar",
+          "argyll-and-bute": "Argyll and Bute"
+        }
+      },
+      "international": { 
+        "label": "International",
+        "terms": {
+          "european-union": "European Union",
+          "overseas": "Overseas"
+        }
+      },
+      "national": { 
+        "label": "National",
+        "terms": {
+          "uk": "UK",
+          "scotland": "Scotland"
+        }
+      },
+      "north-east": { 
+        "label": "North East",
+        "terms": {
+          "aberdeen": "Aberdeen",
+          "aberdeenshire": "Aberdeenshire"
+        }
+      },
+      "south-west": { 
+        "label": "South West",
+        "terms": {
+          "west-dunbartonshire": "West Dunbartonshire",
+          "renfrewshire": "Renfrewshire",
+          "inverclyde": "Inverclyde",
+          "south-ayrshire": "South Ayrshire",
+          "south-lanarkshire": "South Lanarkshire",
+          "glasgow": "Glasgow",
+          "north-ayrshire": "North Ayrshire",
+          "north-lanarkshire": "North Lanarkshire",
+          "dumfries-and-galloway": "Dumfries and Galloway",
+          "east-renfrewshire": "East Renfrewshire",
+          "east-ayrshire": "East Ayrshire",
+          "east-dunbartonshire": "East Dunbartonshire"
+        }
+      }
+    }
+  },
+  "type-of-cost": { 
+    "label": "Type of cost",
+    "termGroups": { 
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "capital": "Capital",
+          "revenue": "Revenue"
+        }
+      }
+    }
+  },
+  "type-of-funding": { 
+    "label": "Type of funding",
+    "termGroups": { 
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "corporate-sponsorship": "Corporate sponsorship",
+          "equipment": "Equipment",
+          "grant": "Grant",
+          "loan": "Loan",
+          "other-resources": "Other resources",
+          "prize-award": "Prize/ award",
+          "staff-time": "Staff time"
+        }
+      }
+    }
+  }
+}

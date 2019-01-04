@@ -3,6 +3,7 @@
   "pattern": "/",
   "debug": true,
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

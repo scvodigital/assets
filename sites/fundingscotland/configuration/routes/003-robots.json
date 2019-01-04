@@ -2,6 +2,7 @@
   "name": "robots",
   "pattern": "/robots.txt",
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -489,8 +489,17 @@ footer h3,
     height: $unit*3;
     .fa-2x {
       position: absolute;
-      top: .6rem;
-      left: .5rem;
+      top: $unit/2;
+      left: $unit/2;
+    }
+    .google-logo {
+      img {
+        float: left;
+        width: $unit*1.5;
+        padding: $unit/4;
+        background: white;
+        border-radius: 2px;
+      }
     }
   }
   #sign-in-message,

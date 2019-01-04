@@ -401,7 +401,7 @@ footer h3,
 .mdc-drawer--occasional-ie11 {
   box-sizing: border-box;
   position: relative;
-  z-index: 4;
+  z-index: 3;
   .mdc-typography--headline7 {
     font-size: 1rem;
     padding: $unit/2;
@@ -489,8 +489,17 @@ footer h3,
     height: $unit*3;
     .fa-2x {
       position: absolute;
-      top: .6rem;
-      left: .5rem;
+      top: $unit/2;
+      left: $unit/2;
+    }
+    .google-logo {
+      img {
+        float: left;
+        width: $unit*1.5;
+        padding: $unit/4;
+        background: white;
+        border-radius: 2px;
+      }
     }
   }
   #sign-in-message,

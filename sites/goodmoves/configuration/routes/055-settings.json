@@ -26,6 +26,7 @@
       }
     },
     "context.metaData.commonTasks.supplimentaryResponses",
+    "context.metaData.commonTasks.termsMaps",
     {
       "name": "vacancy_lookup",
       "taskModule": "elasticsearch",

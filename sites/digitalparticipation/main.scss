@@ -293,13 +293,18 @@ a {
 .mdc-list-item--header:focus::after,
 .mdc-list-item--header:hover::before,
 .mdc-list-item--header:hover::after,
+.mdc-list-item:focus::before,
+.mdc-list-item:focus::after,
+.mdc-list-item:hover::before,
+.mdc-list-item:hover::after,
+:not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item:hover::before,
 .mdc-tab:active::before,
 .mdc-tab:focus::before,
 .mdc-tab:hover::before,
 .mdc-button:not(.mdc-ripple-upgraded):active:after,
 .mdc-button:not(.mdc-ripple-upgraded):focus:before,
 .mdc-button:not(.mdc-ripple-upgraded):hover:before {
-  opacity: 0;
+  opacity: 0 !important;
   background-color: transparent;
 }
 

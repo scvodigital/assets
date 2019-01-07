@@ -38,11 +38,12 @@
     "enableProFeatures": true,
     "fixedFilters": {
       "geographical-areas-funded": [
-        "uk",
-        "scotland",
-        "overseas",
         "east-renfrewshire",
-        "european-union"
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   },
@@ -66,12 +67,12 @@
     "enableProFeatures": true,
     "fixedFilters": {
       "geographical-areas-funded": [
-        "european-union",
-        "europe",
-        "overseas",
-        "scotland",
         "fife",
-        "uk"
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   },
@@ -114,11 +115,12 @@
     "enableProFeatures": true,
     "fixedFilters": {
       "geographical-areas-funded": [
-        "uk",
         "shetland",
         "scotland",
-        "overseas",
-        "europe"
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   },
@@ -142,11 +144,12 @@
     "enableProFeatures": true,
     "fixedFilters": {
       "geographical-areas-funded": [
-        "european-union",
-        "overseas",
+        "south-lanarkshire",
         "scotland",
         "uk",
-        "south-lanarkshire"
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   },
@@ -176,13 +179,10 @@
         "renfrewshire",
         "falkirk",
         "scottish-borders",
-        "uk",
         "shetland",
         "south-ayrshire",
         "west-dunbartonshire",
         "west-lothian",
-        "scotland",
-        "overseas",
         "fife",
         "highland",
         "inverclyde",
@@ -192,7 +192,6 @@
         "north-ayrshire",
         "north-lanarkshire",
         "orkney",
-        "european-union",
         "east-renfrewshire",
         "aberdeenshire",
         "angus",
@@ -201,7 +200,12 @@
         "dumfries-and-galloway",
         "east-ayrshire",
         "east-dunbartonshire",
-        "east-lothian"
+        "east-lothian",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   },
@@ -225,11 +229,12 @@
     "enableProFeatures": true,
     "fixedFilters": {
       "geographical-areas-funded": [
-        "european-union",
-        "overseas",
+        "stirling",
         "scotland",
         "uk",
-        "stirling"
+        "europe",
+        "european-union",
+        "overseas"
       ]
     }
   }

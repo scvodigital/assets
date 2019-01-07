@@ -1,7 +1,7 @@
 {{#if @root.data.auth ~}}
 CALL _setSubscriptionDays(
   {{{mysqlEscape @root.data.auth.email}}},
-  {{{mysqlEscape @root.context.metaData.emailCampaignName}}},
+  {{{mysqlEscape (concat @root.context.metaData.emailCampaignName '-' @root.data.currentSite.name)}}},
   '
     {{~#if @root.request.body.sunday}}1{{/if~}}
     {{~#if @root.request.body.monday}}2{{/if~}}

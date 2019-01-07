@@ -23,6 +23,8 @@
     "title": "Funding Scotland",
     "menus": "{:./fundingscotland-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "emailCampaignName": "fs-saved-searches",
+    "shortlistCampaignName": "fs-shortlist",
     "terms": "{:./terms.json}",
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",
@@ -97,7 +99,7 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": ">data.currentSite.firebaseApp",
+          "appName": "fundingscotland",
           "noTokenRoute": "",
           "notAuthenticatedRoute": ""
         }
@@ -112,19 +114,9 @@
             "maxAge": 1209600000,
             "secure": true
           },
-          "appName": ">data.currentSite.firebaseApp",
+          "appName": "fundingscotland",
           "noTokenRoute": "sign_in",
           "notAuthenticatedRoute": "sign_in"
-        }
-      },
-      "termsMaps": {
-        "name": "termsMaps",
-        "taskModule": "render",
-        "renderer": "handlebars",
-        "config": {
-          "template": ">context.metaData.handlebars.partials.terms_maps",
-          "output": "data",
-          "parseJson": true
         }
       },
       "supplimentaryResponses": {

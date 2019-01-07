@@ -48,7 +48,6 @@
       },
       "renderer": "handlebars"
     },
-    "context.metaData.commonTasks.termsMaps",
     {
       "name": "posts",
       "taskModule": "elasticsearch",

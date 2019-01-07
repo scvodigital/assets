@@ -1,5 +1,6 @@
 {
   "default": {
+    "name": "default",
     "title": "Funding Scotland",
     "colors": {
       "primary": "#68C53E",
@@ -15,10 +16,10 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": false,
-    "firebaseApp": "scvo-auth-fs"
+    "enableProFeatures": false
   },
   "eastrenfrewshire": {
+    "name": "eastrenfrewshire",
     "title": "Funding East Renfrewshire",
     "colors": {
       "primary": "#007FC4",
@@ -43,10 +44,10 @@
         "east-renfrewshire",
         "european-union"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   },
   "fife": {
+    "name": "fife",
     "title": "Fife Funding Search",
     "colors": {
       "primary": "#00536D",
@@ -72,10 +73,10 @@
         "fife",
         "uk"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   },
   "northlanarkshire": {
+    "name": "northlanarkshire",
     "title": "Funding North Lanarkshire",
     "colors": {
       "primary": "#BD0029",
@@ -91,10 +92,10 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true,
-    "firebaseApp": "scvo-auth-fs"
+    "enableProFeatures": true
   },
   "shetland": {
+    "name": "shetland",
     "title": "Shetland Funding Search",
     "colors": {
       "primary": "#0A2C3F",
@@ -119,10 +120,10 @@
         "overseas",
         "europe"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   },
   "southlanarkshire": {
+    "name": "southlanarkshire",
     "title": "Funding South Lanarkshire",
     "colors": {
       "primary": "#222E66",
@@ -147,10 +148,10 @@
         "uk",
         "south-lanarkshire"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   },
   "srn": {
+    "name": "srn",
     "title": "Scottish Rural Network",
     "colors": {
       "primary": "#888888",
@@ -202,10 +203,10 @@
         "east-dunbartonshire",
         "east-lothian"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   },
   "stirling": {
+    "name": "stirling",
     "title": "Funding Stirling",
     "colors": {
       "primary": "#E51072",
@@ -230,7 +231,6 @@
         "uk",
         "stirling"
       ]
-    },
-    "firebaseApp": "scvo-auth-fs"
+    }
   }
 }

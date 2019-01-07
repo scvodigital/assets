@@ -1,7 +1,7 @@
 {{#if @root.data.auth ~}}
 CALL _toggleSubscriptionActiveState(
   {{{mysqlEscape @root.data.auth.email}}},
-  {{{mysqlEscape @root.context.metaData.shortlistCampaignName}}},
+  {{{mysqlEscape (concat @root.context.metaData.shortlistCampaignName '-' @root.data.currentSite.name)}}},
   'Shortlist'
 );
 {{else}}

@@ -41,7 +41,6 @@
       "renderer": "handlebars"
     },
     "context.metaData.commonTasks.supplimentaryResponses",
-    "context.metaData.commonTasks.termsMaps",
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -23,7 +23,7 @@
   <meta name="msapplication-TileImage" content="https://storage.googleapis.com/scvo-assets/assets/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#00838f">
   <link rel="search" type="application/opensearchdescription+xml" title="SCVO" href="https://storage.googleapis.com/scvo-assets/assets/opensearch.xml" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-TXfwrfuHVznxCssTxWoPZjhcss/hp38gEOH8UPZG/JcXonvBQ6SlsIF49wUzsGno" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-LRlmVvLKVApDVGuspQFnRQJjkv0P7/YFrw84YYQtmYG4nK8c+M+NlmYDCv0rKWpG" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main-VERSION.css'~}}">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-4"></script>
   <script>
@@ -73,7 +73,7 @@
                   extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
                   id="main-tab-bar"}}
                 {{#each context.metaData.menus.main}}
-                  {{>components_tab 
+                  {{>components_tab
                     url=path
                     active=(regexMatch ../request.url.pathname route "gi")
                     label=label}}
@@ -112,7 +112,7 @@
           {{{layoutParts.body}}}
         </div>
       </main>
-      
+
       <footer>
         <div class="footer-main">
           <div class="container-fluid">

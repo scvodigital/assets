@@ -115,6 +115,30 @@
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
+            </section>
+          </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
+              {{#>components_tab_bar
+                  extraClasses="mdc-tab-bar__auto-width"
+                  id="main-tab-bar"}}
+                {{#each @root.context.metaData.menus.main ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+                {{#each @root.context.metaData.menus.main-extra ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+              {{/components_tab_bar}}
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
                   id="upper-tab-bar"}}
@@ -140,30 +164,6 @@
                       label=label}}
                 {{/each ~}}
               {{/components_tab_bar}}
-            </section>
-          </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
-              {{#>components_tab_bar
-                  extraClasses="mdc-tab-bar__auto-width"
-                  id="main-tab-bar"}}
-                {{#each @root.context.metaData.menus.main ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-                {{#each @root.context.metaData.menus.main-extra ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-              {{/components_tab_bar}}
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#if @root.data.auth ~}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"

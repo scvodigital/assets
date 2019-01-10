@@ -3,6 +3,7 @@
   "pattern": "/404",
   "defaultStatusCode": 404,
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "not_found",
       "taskModule": "elasticsearch",

@@ -15,6 +15,7 @@
     "context": "results"
   },
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
@@ -40,7 +41,6 @@
       "renderer": "handlebars"
     },
     "context.metaData.commonTasks.supplimentaryResponses",
-    "context.metaData.commonTasks.termsMaps",
     {
       "name": "destination",
       "taskModule": "renderLayout",

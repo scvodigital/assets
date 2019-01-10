@@ -3,19 +3,15 @@
   <div class="mdc-checkbox">
     <input type="checkbox" class="mdc-checkbox__native-control" id="{{instance_id}}_{{field}}_{{slug}}" name="{{#compare field "===" "type"}}{{field}}{{else}}{{field}}[]{{/compare}}" value="{{slug}}"{{#if (contains selected slug)}} checked{{/if}} onchange="this.form.submit();" />
     <div class="mdc-checkbox__background">
-      <svg class="mdc-checkbox__checkmark"
-      viewBox="0 0 24 24">
-      <path class="mdc-checkbox__checkmark-path"
-      fill="none"
-      stroke="white"
-      d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-    </svg>
-    <div class="mdc-checkbox__mixedmark"></div>
+      <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+        <path class="mdc-checkbox__checkmark-path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+      </svg>
+      <div class="mdc-checkbox__mixedmark"></div>
+    </div>
   </div>
-</div>
-<label for="{{instance_id}}_{{field}}_{{slug}}">
-  {{{default value.key value}}}
-</label>
+  <label for="{{instance_id}}_{{field}}_{{slug}}">
+    {{{default value.key value}}}
+  </label>
 </div>
 {{/inline}}
 
@@ -70,7 +66,7 @@
         </span>
         {{/if ~}}
         <span class="mdc-icon-toggle pull-right">
-          <i class="far {{#if (getProperty @root.request.params.query this)}}fa-chevron-up{{else}}fa-chevron-down{{/if}}" aria-hidden="true"></i>
+          <span class="far {{#if (getProperty @root.request.params.query this)}}fa-chevron-up{{else}}fa-chevron-down{{/if}}" aria-hidden="true"></span>
         </span>
       </h3>
       <div class="mdc-drawer--occasional-ie11" id="{{../instance_id}}-{{this}}-collapse"{{#unless (getProperty @root.request.params.query this)}} style="display: none;"{{/unless}}>

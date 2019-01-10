@@ -1,7 +1,7 @@
 {{#if @root.data.auth ~}}
 CALL _addSubscriptionParameters(
   {{{mysqlEscape @root.data.auth.email}}},
-  {{{mysqlEscape @root.context.metaData.emailCampaignName}}},
+  {{{mysqlEscape (concat @root.context.metaData.emailCampaignName '-' @root.data.currentSite.name)}}},
   {{{mysqlEscape (
     querystringify (obj)
       keywords=@root.request.params.query.keywords

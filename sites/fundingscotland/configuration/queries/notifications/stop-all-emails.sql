@@ -2,7 +2,7 @@
 UPDATE subscriptionPartitions
 SET active = 0
 WHERE
-  campaign IN ({{{mysqlEscape @root.context.metaData.emailCampaignName}}}, {{{mysqlEscape @root.context.metaData.shortlistCampaignName}}}) AND
+  campaign IN ({{{mysqlEscape (concat @root.context.metaData.emailCampaignName '-' @root.data.currentSite.name)}}}, {{{mysqlEscape (concat @root.context.metaData.shortlistCampaignName '-' @root.data.currentSite.name)}}}) AND
   email = {{{mysqlEscape @root.data.auth.email}}};
 {{else}}
 SET @query=false;

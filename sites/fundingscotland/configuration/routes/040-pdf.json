@@ -3,6 +3,7 @@
   "pattern": "/pdf",
   "debug": true,
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "search_data",
       "taskModule": "elasticsearch",

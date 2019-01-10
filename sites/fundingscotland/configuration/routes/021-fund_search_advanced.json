@@ -4,6 +4,7 @@
     "browse": "/search/advanced"
   },
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

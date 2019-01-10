@@ -22,15 +22,16 @@
   aria-labelledby="save-search-dialog-label"
   aria-describedby="save-search-dialog-description"
   data-mdc-auto-init="MDCDialog">
-  <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
-    <header class="mdc-dialog__header">
-      <h2 id="save-search-dialog-label" class="mdc-dialog__header__title">
-        Give your search a name
-      </h2>
-    </header>
-    <section id="save-search-dialog-description" class="mdc-dialog__body">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input type="text" id="saved-search-name" name="name" class="mdc-text-field__input" value="
+  <div class="mdc-dialog__container">
+    <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
+      <header class="mdc-dialog__header">
+        <h2 id="save-search-dialog-label" class="mdc-dialog__title">
+          Give your search a name
+        </h2>
+      </header>
+      <section id="save-search-dialog-description" class="mdc-dialog__content">
+        <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+          <input type="text" id="saved-search-name" name="name" class="mdc-text-field__input" value="
 {{~#with @root.request.params.query~}}
   {{~#if keywords~}}
     {{~keywords~}}
@@ -85,34 +86,29 @@
     {{~/each~}}
   {{~/if}}
 {{~/with~}}">
-        <label for="saved-search-name" class="mdc-floating-label">Save search</label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-      <div class="mdc-form-field">
-        <div class="mdc-checkbox">
-          <input type="checkbox"
-                 class="mdc-checkbox__native-control"
-                 name="subscribe"
-                 id="email-on"/>
-          <div class="mdc-checkbox__background">
-            <svg class="mdc-checkbox__checkmark"
-                 viewBox="0 0 24 24">
-              <path class="mdc-checkbox__checkmark-path"
-                    fill="none"
-                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-            </svg>
-            <div class="mdc-checkbox__mixedmark"></div>
-          </div>
+          <label for="saved-search-name" class="mdc-floating-label">Save search</label>
+          <div class="mdc-line-ripple"></div>
         </div>
-        <label for="email-on">Send funds matching this search by email</label>
-      </div>
-    </section>
-    <footer class="mdc-dialog__footer">
-      <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancel</button>
-      <button type="submit" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Save</button>
-    </footer>
-  </form>
-  <div class="mdc-dialog__backdrop"></div>
+        <div class="mdc-form-field">
+          <div class="mdc-checkbox">
+            <input type="checkbox" class="mdc-checkbox__native-control" name="subscribe" id="email-on" />
+            <div class="mdc-checkbox__background">
+              <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+              </svg>
+              <div class="mdc-checkbox__mixedmark"></div>
+            </div>
+          </div>
+          <label for="email-on">Send funds matching this search by email</label>
+        </div>
+      </section>
+      <footer class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">Cancel</button>
+        <button type="submit" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="accept">Save</button>
+      </footer>
+    </form>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
 </aside>
 
 <aside id="edit-search-dialog"
@@ -121,61 +117,63 @@
   aria-labelledby="edit-search-dialog-label"
   aria-describedby="edit-search-dialog-description"
   data-mdc-auto-init="MDCDialog">
-  <div class="mdc-dialog__surface">
-    {{#if @root.data.auth ~}}
-      {{#with (
-        querystringify (obj)
-        keywords=@root.request.params.query.keywords
-        activities=(sort @root.request.params.query.activities)
-        beneficiaries=(sort @root.request.params.query.beneficiaries)
-        fund_status=(sort @root.request.params.query.fund_status)
-        charities_only=(sort @root.request.params.query.charities_only)
-        geographical_areas_funded=(sort @root.request.params.query.geographical_areas_funded)
-        type_of_cost=(sort @root.request.params.query.type_of_cost)
-        type_of_funding=(sort @root.request.params.query.type_of_funding)
-      ) ~}}
-        {{#if (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
-          {{#with (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
-            <header class="mdc-dialog__header">
-              <h2 id="edit-search-dialog-label" class="mdc-dialog__header__title">
-                Your search&ensp;
-                <span class="mdc-typography--body1">
-                  <strong>{{{partition}}}</strong>
-                </span>
-              </h2>
-            </header>
-            <section id="edit-search-dialog-description" class="mdc-dialog__body">
-              <div class="mdc-chip-set mdc-chip-set--filter">
-                {{#> ajax_chip
-                  onUrl="/toggle-subscription"
-                  offUrl="/toggle-subscription"
-                  onText="Send funds matching this search by email"
-                  offText="Send funds matching this search by email"
-                  onMethod="POST"
-                  offMethod="POST"
-                  iconClasses="far fa-envelope"
-                  on=partitionActive
-                }}
-                {
-                  "onData": {
-                    "name": {{{stringify ../partition}}}
-                  },
-                  "offData": {
-                    "name": {{{stringify ../partition}}}
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      {{#if @root.data.auth ~}}
+        {{#with (
+          querystringify (obj)
+          keywords=@root.request.params.query.keywords
+          activities=(sort @root.request.params.query.activities)
+          beneficiaries=(sort @root.request.params.query.beneficiaries)
+          fund_status=(sort @root.request.params.query.fund_status)
+          charities_only=(sort @root.request.params.query.charities_only)
+          geographical_areas_funded=(sort @root.request.params.query.geographical_areas_funded)
+          type_of_cost=(sort @root.request.params.query.type_of_cost)
+          type_of_funding=(sort @root.request.params.query.type_of_funding)
+        ) ~}}
+          {{#if (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
+            {{#with (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
+              <header class="mdc-dialog__header">
+                <h2 id="edit-search-dialog-label" class="mdc-dialog__title">
+                  Your search&ensp;
+                  <span class="mdc-typography--body1">
+                    <strong>{{{partition}}}</strong>
+                  </span>
+                </h2>
+              </header>
+              <section id="edit-search-dialog-description" class="mdc-dialog__content">
+                <div class="mdc-chip-set mdc-chip-set--filter">
+                  {{#> ajax_chip
+                    onUrl="/toggle-subscription"
+                    offUrl="/toggle-subscription"
+                    onText="Send funds matching this search by email"
+                    offText="Send funds matching this search by email"
+                    onMethod="POST"
+                    offMethod="POST"
+                    iconClasses="far fa-envelope"
+                    on=partitionActive
+                  }}
+                  {
+                    "onData": {
+                      "name": {{{stringify ../partition}}}
+                    },
+                    "offData": {
+                      "name": {{{stringify ../partition}}}
+                    }
                   }
-                }
-                {{/ajax_chip}}
-              </div>
-            </section>
-            <footer class="mdc-dialog__footer">
-              <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Close</button>
-            </footer>
-          {{/with ~}}
-        {{/if ~}}
-      {{/with ~}}
-    {{/if ~}}
+                  {{/ajax_chip}}
+                </div>
+              </section>
+              <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">Close</button>
+              </footer>
+            {{/with ~}}
+          {{/if ~}}
+        {{/with ~}}
+      {{/if ~}}
+    </div>
   </div>
-  <div class="mdc-dialog__backdrop"></div>
+  <div class="mdc-dialog__scrim"></div>
 </aside>
 
 {{> dialog_shortlist}}

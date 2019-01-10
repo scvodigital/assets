@@ -8,7 +8,7 @@
   </h1>
 
   <div class="container-content container-map">
-    <div id="map-content-primary" data-map-name="vacancyMap" data-map-options="{}">
+    <div id="map-content-primary" data-map-name="vacancyMap" data-map-clustered-options="{}">
       {{#each @root.data.search_data.detailed_results.hits.hits ~}}
         {{#if _source.geo_vacancy_info ~}}
           {{#each (arrayify _source.geo_vacancy_info) ~}}

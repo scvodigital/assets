@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.162",
+  "version": "0.0.163",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/scvodigital/assets#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.6.3",
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "7",

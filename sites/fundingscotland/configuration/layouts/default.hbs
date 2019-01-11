@@ -69,8 +69,7 @@
   <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"> -->
   <link type="text/css" rel="stylesheet" href="assets/fontawesome-pro/css/all.min.css">
 
-  <link type="text/css" rel="stylesheet" href="{{~>asset_url 
-      url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
 </head>
 <body class="mdc-theme--footer-dark-bg">
   <fundingscotland-site>
@@ -227,6 +226,12 @@
             {{/each ~}}
             <div role="separator" class="mdc-list-divider"></div>
             {{#if @root.data.auth ~}}
+            <a class="mdc-list-item mdc-list-item__user" href="#">
+              <span class="mdc-list-item__graphic" aria-hidden="true">
+                <img src="{{@root.data.auth.photoURL}}" />
+              </span>
+              <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
+            </a>
             {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}
             {{else}}

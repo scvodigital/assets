@@ -35,7 +35,7 @@ function getConfig(site, library) {
     }));
     plugins.push(new CompressionPlugin({
       filename(path) {
-        return path.replace(/\.gz$/, ''); 
+        return path.replace(/\.gz$/, '');
       },
       exclude: /-site\.json$/
     }));
@@ -53,8 +53,8 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
-      './sites/' + site + '/main.scss', 
-      './sites/' + site + '/main.js', 
+      './sites/' + site + '/main.scss',
+      './sites/' + site + '/main.js',
     ],
     output: {
       filename: 'build/' + site + '/main-VERSION.js',
@@ -128,4 +128,4 @@ function getConfig(site, library) {
   return config;
 }
 
-module.exports = getConfig('getinvolved-legacy', 'GetinvolvedLegacy');
+module.exports = getConfig('getinvolved', 'getinvolved');

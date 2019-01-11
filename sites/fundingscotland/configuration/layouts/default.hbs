@@ -54,7 +54,7 @@
     }
   });
 
-  {{#ifAny request.params.query.debug (compare request.url.hostname "fundingscotland.local") ~}}
+  {{#ifAny request.params.query.debug (compare request.url.hostname "fs-www.local") ~}}
   console.log('#### DEBUG MODE ON ####');
   console.log('Request:', {{{regexReplace (regexReplace (stringify request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
   console.log('Route:', {{{regexReplace (regexReplace (stringify route) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
@@ -69,13 +69,12 @@
   <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"> -->
   <link type="text/css" rel="stylesheet" href="assets/fontawesome-pro/css/all.min.css">
 
-  <link type="text/css" rel="stylesheet" href="{{~>asset_url 
-      url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
 </head>
 <body class="mdc-theme--site-bg {{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
   <fundingscotland-site>
     <div class="mdc-typography">
-      {{#ifAny request.params.query.debug (compare request.url.hostname "fundingscotland.local") ~}}
+      {{#ifAny request.params.query.debug (compare request.url.hostname "fs-www.local") ~}}
         {{#if errors.[0]}}
           <div style="z-index:100;position:fixed;top:0;right:0;padding:5px;background-color:#ff0000;color:#ffffff;">
             Route Task Errors (F12)
@@ -237,6 +236,12 @@
             {{/each ~}}
             <div role="separator" class="mdc-list-divider"></div>
             {{#if @root.data.auth ~}}
+            <a class="mdc-list-item mdc-list-item__user" href="#">
+              <span class="mdc-list-item__graphic" aria-hidden="true">
+                <img src="{{@root.data.auth.photoURL}}" />
+              </span>
+              <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
+            </a>
             {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}
             {{else}}

@@ -1,33 +1,36 @@
+$colours: (
+  primary: $mdc-theme-primary,
+  primary-light: $mdc-theme-primary-light,
+  primary-dark: $mdc-theme-primary-dark,
+  complimentary: $mdc-theme-complimentary,
+  complimentary-light: $mdc-theme-complimentary-light,
+  complimentary-dark: $mdc-theme-complimentary-dark,
+  secondary: $mdc-theme-secondary,
+  secondary-light: $mdc-theme-secondary-light,
+  secondary-dark: $mdc-theme-secondary-dark,
+  footer: $mdc-theme-footer,
+  footer-light: $mdc-theme-footer-light,
+  footer-dark: $mdc-theme-footer-dark,
+  success: $mdc-theme-success,
+  success-light: $mdc-theme-success-light,
+  success-dark: $mdc-theme-success-dark,
+  info: $mdc-theme-info,
+  info-light: $mdc-theme-info-light,
+  info-dark: $mdc-theme-info-dark,
+  warning: $mdc-theme-warning,
+  warning-light: $mdc-theme-warning-light,
+  warning-dark: $mdc-theme-warning-dark,
+  error: $mdc-theme-error,
+  error-light: $mdc-theme-error-light,
+  error-dark: $mdc-theme-error-dark,
+  tfn: $mdc-theme-tfn,
+  tfn-light: $mdc-theme-tfn-light,
+  tfn-dark: $mdc-theme-tfn-dark
+);
+
 @each $name, $colour in $colours {
-  $light: lighten($colour, 15%);
-  $dark: darken($colour, 15%); 
-  
-  @if $name == primary {
-    $mdc-theme--primary: $colour;
-    $mdc-theme--primary-light: $light;
-    $mdc-theme--primary-dark: $dark;
-  } @else if $name == secondary {
-    $mdc-theme--secondary: $colour;
-    $mdc-theme--secondary-light: $light;
-    $mdc-theme--secondary-dark: $dark;
-  } @else if $name == background {
-    $mdc-theme--background: $colour;
-    $mdc-theme--background-light: $light;
-    $mdc-theme--background-dark: $dark;
-  } @else if $name == surface {
-    $mdc-theme--surface: $colour;
-    $mdc-theme--surface-light: $light;
-    $mdc-theme--surface-dark: $dark;
-  }
-  
   .mdc-theme--#{$name} { color: $colour; }
-  .mdc-theme--#{$name}-light { color: $light; }
-  .mdc-theme--#{$name}-dark { color: $dark; }
-
   .mdc-theme--#{$name}-bg { background-color: $colour; }
-  .mdc-theme--#{$name}-light-bg { background-color: $light; }
-  .mdc-theme--#{$name}-dark-bg { background-color: $dark; }
-
   .mdc-theme--on-#{$name} { 
     @if mdc-theme-contrast-tone($colour) == 'light' {
       color: #ffffff; 
@@ -35,18 +38,9 @@
       color: #000000;
     }
   }
-  .mdc-theme--on-#{$name}-light {
-    @if mdc-theme-contrast-tone($light) == 'light' {
-      color: #ffffff; 
-    } @else {
-      color: #000000;
-    }
-  }
-  .mdc-theme--on-#{$name}-dark {
-    @if mdc-theme-contrast-tone($dark) == 'light' {
-      color: #ffffff; 
-    } @else {
-      color: #000000;
-    }
-  }
+  .mdc-theme--#{$name}-border { border-color: $colour; }
+  .mdc-theme--#{$name}-border-top { border-top-color: $colour; }
+  .mdc-theme--#{$name}-border-right { border-right-color: $colour; }
+  .mdc-theme--#{$name}-border-bottom { border-bottom-color: $colour; }
+  .mdc-theme--#{$name}-border-left { border-left-color: $colour; }
 }

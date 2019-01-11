@@ -12,10 +12,6 @@
 .home-banner .banner-search .content {
   min-height: 23vh;
 }
-
-body {
-  background-color: $mdc-theme-footer-dark;
-}
 ::-moz-selection {
   color: #fff;
   background: $mdc-theme-primary-dark;
@@ -24,13 +20,6 @@ body {
   color: #fff;
   background: $mdc-theme-primary-dark;
 }
-.mdc-theme--background {
-  background-color: $mdc-theme-secondary-light !important;
-}
-.mdc-top-app-bar {
-  background-color: #fff;
-}
-
 .mdc-toolbar-fixed-adjust {
   padding-top: 307px;
 }
@@ -77,18 +66,6 @@ header {
           }
         }
       }
-      .mdc-top-app-bar__section--align-start,
-      .mdc-top-app-bar__section--align-end {
-        background-color: $mdc-theme-primary;
-      }
-    }
-    .mdc-tab-bar {
-      .mdc-tab {
-        color: white;
-        .mdc-tab__text-label {
-          color: white;
-        }
-      }
     }
     .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
       top: 62px !important;
@@ -107,18 +84,12 @@ header {
     }
     .mdc-top-app-bar__main .mdc-tab-bar,
     .mdc-top-app-bar__user .mdc-tab-bar {
-      .mdc-tab {
-        color: #fff;
-      }
       .mdc-tab:hover .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.75);
       }
       .mdc-tab.mdc-tab--active .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.9);
       }
-    }
-    .mdc-top-app-bar__navigation-icon {
-      color: $mdc-theme-primary;
     }
     .mdc-top-app-bar__main,
     .mdc-top-app-bar__user {
@@ -128,28 +99,8 @@ header {
         }
       }
     }
-    .mdc-top-app-bar__section {
-      .mdc-top-app-bar__action-item {
-        color: $mdc-theme-secondary !important;
-      }
-    }
   }
 }
-.mdc-tab-bar {
-  .mdc-tab {
-    color: $mdc-theme-secondary;
-  }
-}
-
-.mdc-drawer--temporary {
-  .mdc-drawer__header-content {
-    background-color: $mdc-theme-primary;
-  }
-}
-.mdc-drawer--permanent {
-  background-color: #fff !important;
-}
-
 .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
   border-color: $mdc-theme-primary;

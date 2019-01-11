@@ -54,7 +54,7 @@
     }
   });
 
-  {{#ifAny request.params.query.debug (compare request.url.hostname "fundingscotland.local") ~}}
+  {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
   console.log('#### DEBUG MODE ON ####');
   console.log('Request:', {{{regexReplace (regexReplace (stringify request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
   console.log('Route:', {{{regexReplace (regexReplace (stringify route) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
@@ -72,10 +72,10 @@
   <link type="text/css" rel="stylesheet" href="{{~>asset_url 
       url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
 </head>
-<body class="mdc-theme--site-bg {{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
+<body class="mdc-theme--footer-dark-bg">
   <fundingscotland-site>
     <div class="mdc-typography">
-      {{#ifAny request.params.query.debug (compare request.url.hostname "fundingscotland.local") ~}}
+      {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
         {{#if errors.[0]}}
           <div style="z-index:100;position:fixed;top:0;right:0;padding:5px;background-color:#ff0000;color:#ffffff;">
             Route Task Errors (F12)
@@ -103,7 +103,7 @@
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
               {{#unless @root.route.metaData.hideSearch ~}}
               {{#compare @root.route.name "!==" "home" ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
+              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button mdc-theme--primary" id="sidebar-button" title="Search">
                 <span class="far fa-fw fa-2x fa-search"></span>
               </button>
               {{/compare ~}}
@@ -116,30 +116,12 @@
             </section>
           </div>
           <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
-              <!-- {{#>components_tab_bar
-                  extraClasses="mdc-tab-bar__auto-width"
-                  id="main-tab-bar"}}
-                {{#each @root.context.metaData.menus.main ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-                {{#each @root.context.metaData.menus.main-extra ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-              {{/components_tab_bar}} -->
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main mdc-theme--primary-bg">
               <span class="mdc-top-app-bar__title">
                 {{> logo}}
               </span>
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user mdc-theme--primary-bg">
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
                   id="upper-tab-bar"}}
@@ -148,6 +130,8 @@
                     {{>components_tab
                         url=(stripTrailingSlash path)
                         active=(regexMatch @root.request.url.pathname route "gi")
+                        labelClasses="mdc-theme--on-primary"
+                        linkClasses="mdc-theme--on-primary"
                         label=label}}
                   {{/each ~}}
                 {{else}}
@@ -155,6 +139,8 @@
                     {{>components_tab
                         url=(stripTrailingSlash path)
                         active=(regexMatch @root.request.url.pathname route "gi")
+                        labelClasses="mdc-theme--on-primary"
+                        linkClasses="mdc-theme--on-primary"
                         label=label}}
                   {{/each ~}}
                 {{/if ~}}
@@ -162,6 +148,8 @@
                   {{>components_tab
                       url=(stripTrailingSlash path)
                       active=(regexMatch @root.request.url.pathname route "gi")
+                      labelClasses="mdc-theme--on-primary"
+                      linkClasses="mdc-theme--on-primary"
                       label=label}}
                 {{/each ~}}
               {{/components_tab_bar}}
@@ -191,6 +179,8 @@
                         url=(stripTrailingSlash path)
                         labelClasses="mdc-theme--on-primary"
                         active=(regexMatch @root.request.url.pathname route "gi")
+                        labelClasses="mdc-theme--on-primary"
+                        linkClasses="mdc-theme--on-primary"
                         label=label}}
                   {{/each}}
                 {{/components_tab_bar}}
@@ -276,7 +266,7 @@
         {{{layoutParts.body}}}
       </main>
 
-      <footer class="mdc-layout__footer">
+      <footer class="mdc-layout__footer mdc-theme--footer-bg mdc-theme--on-footer">
         <div class="footer-main">
           <div class="container-fluid">
             <div class="mdc-layout-grid">

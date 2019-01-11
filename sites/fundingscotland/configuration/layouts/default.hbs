@@ -107,9 +107,6 @@
               </button>
               {{/compare ~}}
               {{/unless ~}}
-              <span class="mdc-top-app-bar__title">
-                {{> logo link="true"}}
-              </span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
@@ -119,7 +116,7 @@
           </div>
           <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
-              {{#>components_tab_bar
+              <!-- {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}
                 {{#each @root.context.metaData.menus.main ~}}
@@ -136,7 +133,10 @@
                       active=(regexMatch @root.request.url.pathname route "gi")
                       label=label}}
                 {{/each ~}}
-              {{/components_tab_bar}}
+              {{/components_tab_bar}} -->
+              <span class="mdc-top-app-bar__title">
+                {{> logo}}
+              </span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#>components_tab_bar
@@ -169,7 +169,7 @@
                     buttonClasses="mdc-theme--on-primary"
                     imageUrl=(default @root.data.auth.photoURL false)
                     imageClasses="far fa-fw user-avatar"
-                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
+                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "fas fa-fw fa-user" else=false)
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
                   {{#each @root.context.metaData.menus.user-signed-in ~}}

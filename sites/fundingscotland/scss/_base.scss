@@ -1,25 +1,5 @@
-$mdc-theme-primary: #689f38;
-$mdc-theme-primary-light: #68c53e;
-$mdc-theme-primary-dark: #537F2C;
-
-$mdc-theme-complimentary: #c6dabf;
-$mdc-theme-complimentary-light: #ecf2e9;
-$mdc-theme-complimentary-dark: #d9e6d4;
-
-$mdc-theme-secondary: #E0E0E0; // Gray 300
-$mdc-theme-secondary-light: #F5F5F5; // Gray 100
-$mdc-theme-secondary-dark: #212121; // Gray 900
-
-$mdc-theme-footer: #37474F; // Blue Gray 800
-$mdc-theme-footer-light: #455A64; // Blue Gray 700
-$mdc-theme-footer-dark: #263238; // Blue Gray 900
-
-$mdc-theme-error: #A9201E;
-
-$mdc-theme-tfn: #3b9db1;
-
-$unit: 1rem;
-
+@import "./sites/fundingscotland/scss/_mixins.scss";
+@import "./sites/fundingscotland/scss/_colours.scss";
 @import "./node_modules/material-components-web/material-components-web.scss";
 
 @import "./lib/common-styles.scss";
@@ -32,10 +12,6 @@ $unit: 1rem;
 .home-banner .banner-search .content {
   min-height: 23vh;
 }
-
-body {
-  background-color: $mdc-theme-footer-dark;
-}
 ::-moz-selection {
   color: #fff;
   background: $mdc-theme-primary-dark;
@@ -44,19 +20,12 @@ body {
   color: #fff;
   background: $mdc-theme-primary-dark;
 }
-.mdc-theme--background {
-  background-color: $mdc-theme-secondary-light !important;
-}
-.mdc-top-app-bar {
-  background-color: #fff;
-}
-
 .mdc-toolbar-fixed-adjust {
   padding-top: 307px;
 }
 .headroom--unpinned {
-  -webkit-transform: translateY(-33%);
-  transform: translateY(-33%);
+  -webkit-transform: translateY(46%);
+  transform: translateY(-46%);
 }
 
 header {
@@ -71,6 +40,18 @@ header {
       background-position: center center;
       background-size: cover;
     }
+    .mdc-tab-bar,
+    .mdc-tab-bar .mdc-tab,
+    .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
+      height: 62px;
+    }
+    .mdc-tab-bar .mdc-tab {
+      line-height: 62px;
+    }
+    .mdc-tab-bar .mdc-tab .mdc-tab__text-label {
+      height: 58px;
+      line-height: 58px;
+    }
     .mdc-top-app-bar__row.mdc-top-app-bar__lower {
       height: 62px;
       position: relative;
@@ -80,20 +61,14 @@ header {
         left: $unit;
         .header-text {
           margin: 0;
+          img {
+            height: 160px;
+          }
         }
-      }
-      .mdc-top-app-bar__section--align-start,
-      .mdc-top-app-bar__section--align-end {
-        background-color: $mdc-theme-primary;
       }
     }
-    .mdc-tab-bar {
-      .mdc-tab {
-        color: white;
-        .mdc-tab__text-label {
-          color: white;
-        }
-      }
+    .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
+      top: 62px !important;
     }
     .mdc-tab-bar .mdc-tab,
     .mdc-menu-surface--anchor .mdc-button {
@@ -109,18 +84,12 @@ header {
     }
     .mdc-top-app-bar__main .mdc-tab-bar,
     .mdc-top-app-bar__user .mdc-tab-bar {
-      .mdc-tab {
-        color: #fff;
-      }
       .mdc-tab:hover .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.75);
       }
       .mdc-tab.mdc-tab--active .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.9);
       }
-    }
-    .mdc-top-app-bar__navigation-icon {
-      color: $mdc-theme-primary;
     }
     .mdc-top-app-bar__main,
     .mdc-top-app-bar__user {
@@ -130,28 +99,8 @@ header {
         }
       }
     }
-    .mdc-top-app-bar__section {
-      .mdc-top-app-bar__action-item {
-        color: $mdc-theme-secondary !important;
-      }
-    }
   }
 }
-.mdc-tab-bar {
-  .mdc-tab {
-    color: $mdc-theme-secondary;
-  }
-}
-
-.mdc-drawer--temporary {
-  .mdc-drawer__header-content {
-    background-color: $mdc-theme-primary;
-  }
-}
-.mdc-drawer--permanent {
-  background-color: #fff !important;
-}
-
 .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
   border-color: $mdc-theme-primary;

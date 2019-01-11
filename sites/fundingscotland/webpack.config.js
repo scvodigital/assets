@@ -1,4 +1,5 @@
 const path = require('path');
+const globby = require('globby');
 
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -53,8 +54,8 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
-      './sites/' + site + '/main.scss',
-      './sites/' + site + '/main.js',
+      ...globby.sync('./sites/' + site + '/scss/*-main.scss'),
+      './sites/' + site + '/main.js', 
     ],
     output: {
       filename: 'build/' + site + '/main-VERSION.js',
@@ -64,11 +65,12 @@ function getConfig(site, library) {
     module: {
       rules: [
         {
-          test: /\.scss$/,
+          test: /\/([a-z0-9-_]*?)-main\.scss$/,
           use: [{
               loader: 'file-loader',
               options: {
-                name: 'build/' + site + '/main-VERSION.css',
+                regExp: /\/([a-z0-9-_]*?)-main\.scss$/,
+                name: 'build/' + site + '/sub-sites/[1]/main-VERSION.css',
               },
             },
             {

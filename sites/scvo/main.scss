@@ -1021,7 +1021,7 @@ figure {
 
 a[href^="http://"].mdc-button::after,
 a[href^="https://"].mdc-button::after {
-  display: none !important; 
+  display: none !important;
 }
 
 .cta-content.callout-image {
@@ -2361,6 +2361,21 @@ body.the-gathering:not(.post) .full {
   width: 60%;
 }
 body.the-gathering-2019 {
+  .splash-image {
+    background-position: center 33%;
+    padding-bottom: $unit;
+    .mdc-typography--body2 {
+      position: absolute;
+      top: 70%;
+      width: 100%;
+      left: 0;
+      font-size: 95%;
+      color: white;
+      a {
+        color: white;
+      }
+    }
+  }
   .dark-menu {
     background: black;
   }
@@ -4141,6 +4156,14 @@ footer {
 }
 
 @media screen and (max-width: 1340px) {
+  body.the-gathering-2019 {
+    .splash-image {
+      .mdc-typography--body2 {
+        top: 70%;
+        font-size: 90%;
+      }
+    }
+  }
   .home {
     .splash-image.hello .container-fluid .mdc-layout-grid h1.header-text {
       font-size: 4rem;
@@ -4227,6 +4250,13 @@ footer {
 }
 
 @media screen and (max-width: 991px) {
+  body.the-gathering-2019 {
+    .splash-image {
+      .mdc-typography--body2 {
+        top: 70%;
+      }
+    }
+  }
   .hide-lg,
   .mdc-drawer--temporary {
     display: block;

@@ -1,25 +1,5 @@
-$mdc-theme-primary: #178737;
-$mdc-theme-primary-light: #6CC439;
-$mdc-theme-primary-dark: #0E5D24;
-
-$mdc-theme-complimentary: #c6dabf;
-$mdc-theme-complimentary-light: #ecf2e9;
-$mdc-theme-complimentary-dark: #d9e6d4;
-
-$mdc-theme-secondary: #E0E0E0; // Gray 300
-$mdc-theme-secondary-light: #F5F5F5; // Gray 100
-$mdc-theme-secondary-dark: #212121; // Gray 900
-
-$mdc-theme-footer: #37474F; // Blue Gray 800
-$mdc-theme-footer-light: #455A64; // Blue Gray 700
-$mdc-theme-footer-dark: #263238; // Blue Gray 900
-
-$mdc-theme-error: #A9201E;
-
-$mdc-theme-tfn: #3b9db1;
-
-$unit: 1rem;
-
+@import "./sites/fundingscotland/scss/_mixins.scss";
+@import "./sites/fundingscotland/scss/_colours.scss";
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import "./lib/common-styles.scss";
 
@@ -50,6 +30,7 @@ body {
   background-color: #fff;
 }
 
+
 header {
   .container-fluid {
     .mdc-top-app-bar__title {
@@ -61,7 +42,6 @@ header {
       }
     }
     .mdc-top-app-bar__upper .mdc-top-app-bar__section--align-start {
-      background-image: url('https://storage.googleapis.com/scvo-assets/assets/images/fs-legacy-logo.png');
       background-repeat: no-repeat;
       background-position: $unit (-$unit*3.25);
       .mdc-top-app-bar__title .brand-text {

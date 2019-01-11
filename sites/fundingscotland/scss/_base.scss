@@ -51,6 +51,18 @@ header {
       background-position: center center;
       background-size: cover;
     }
+    .mdc-tab-bar,
+    .mdc-tab-bar .mdc-tab,
+    .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
+      height: 62px;
+    }
+    .mdc-tab-bar .mdc-tab {
+      line-height: 62px;
+    }
+    .mdc-tab-bar .mdc-tab .mdc-tab__text-label {
+      height: 58px;
+      line-height: 58px;
+    }
     .mdc-top-app-bar__row.mdc-top-app-bar__lower {
       height: 62px;
       position: relative;
@@ -60,6 +72,9 @@ header {
         left: $unit;
         .header-text {
           margin: 0;
+          img {
+            height: 160px;
+          }
         }
       }
       .mdc-top-app-bar__section--align-start,
@@ -74,6 +89,9 @@ header {
           color: white;
         }
       }
+    }
+    .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
+      top: 62px !important;
     }
     .mdc-tab-bar .mdc-tab,
     .mdc-menu-surface--anchor .mdc-button {

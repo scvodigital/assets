@@ -36,7 +36,7 @@ function getConfig(site, library) {
     }));
     plugins.push(new CompressionPlugin({
       filename(path) {
-        return path.replace(/\.gz$/, ''); 
+        return path.replace(/\.gz$/, '');
       },
       exclude: /-site\.json$/
     }));
@@ -54,8 +54,8 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
+      ...globby.sync('./sites/' + site + '/scss/*-main.scss'),
       './sites/' + site + '/main.js', 
-      ...globby.sync('./sites/' + site + '/scss/*-main.scss')
     ],
     output: {
       filename: 'build/' + site + '/main-VERSION.js',

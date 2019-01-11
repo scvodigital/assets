@@ -66,7 +66,8 @@
   {{/ifAny ~}}
   </script>
 
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"> -->
+  <link type="text/css" rel="stylesheet" href="assets/fontawesome-pro/css/all.min.css">
 
   <link type="text/css" rel="stylesheet" href="{{~>asset_url 
       url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
@@ -107,14 +108,38 @@
               </button>
               {{/compare ~}}
               {{/unless ~}}
-              <span class="mdc-top-app-bar__title">
-                {{> logo link="true"}}
-              </span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
+            </section>
+          </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
+              <!-- {{#>components_tab_bar
+                  extraClasses="mdc-tab-bar__auto-width"
+                  id="main-tab-bar"}}
+                {{#each @root.context.metaData.menus.main ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+                {{#each @root.context.metaData.menus.main-extra ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+              {{/components_tab_bar}} -->
+              <span class="mdc-top-app-bar__title">
+                {{> logo}}
+              </span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
                   id="upper-tab-bar"}}
@@ -140,36 +165,12 @@
                       label=label}}
                 {{/each ~}}
               {{/components_tab_bar}}
-            </section>
-          </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
-              {{#>components_tab_bar
-                  extraClasses="mdc-tab-bar__auto-width"
-                  id="main-tab-bar"}}
-                {{#each @root.context.metaData.menus.main ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-                {{#each @root.context.metaData.menus.main-extra ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
-                {{/each ~}}
-              {{/components_tab_bar}}
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#if @root.data.auth ~}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"
                     imageUrl=(default @root.data.auth.photoURL false)
                     imageClasses="far fa-fw user-avatar"
-                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
+                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "fas fa-fw fa-user" else=false)
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
                   {{#each @root.context.metaData.menus.user-signed-in ~}}

@@ -1,10 +1,10 @@
-$mdc-theme-primary: #689f38;
-$mdc-theme-primary-light: #b6da96;
-$mdc-theme-primary-dark: #537F2C;
+$mdc-theme-primary: #00536D;
+$mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-secondary: #E0E0E0; // Gray 300
-$mdc-theme-secondary-light: #F5F5F5; // Gray 100
-$mdc-theme-secondary-dark: #212121; // Gray 900
+$mdc-theme-secondary: #C2CFDD; // Gray 300
+$mdc-theme-secondary-light: lighten($mdc-theme-secondary, 15%);
+$mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
 
 $mdc-theme-background: #ffffff;
 $mdc-theme-background-light: #ffffff;
@@ -22,19 +22,19 @@ $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #455A64; // Blue Gray 700
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
 
-$mdc-theme-success: #4caf50;
+$mdc-theme-success: #009966;
 $mdc-theme-success-light: lighten($mdc-theme-success, 15%);
 $mdc-theme-success-dark: darken($mdc-theme-success, 15%);
 
-$mdc-theme-info: #4779af;
+$mdc-theme-info: #663399;
 $mdc-theme-info-light: lighten($mdc-theme-info, 15%);
 $mdc-theme-info-dark: darken($mdc-theme-info, 15%);
 
-$mdc-theme-warning: #8b6d11;
+$mdc-theme-warning: #f35958;
 $mdc-theme-warning-light: lighten($mdc-theme-warning, 15%);
 $mdc-theme-warning-dark: darken($mdc-theme-warning, 15%);
 
-$mdc-theme-error: #A9201E;
+$mdc-theme-error: #de3027;
 $mdc-theme-error-light: lighten($mdc-theme-error, 15%);
 $mdc-theme-error-dark: darken($mdc-theme-error, 15%);
 
@@ -48,15 +48,9 @@ $unit: 1rem;
 
 header {
   .container-fluid {
-    // .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
-    //   background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 220px, $mdc-theme-primary 221px, $mdc-theme-primary);
-    // }
     .mdc-top-app-bar__row.mdc-top-app-bar__upper {
       height: 245px;
-      background-image: url('https://storage.googleapis.com/scvo-assets/assets/images/fs-legacy-banner-back.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
+      background-color: $mdc-theme-primary-light;
     }
   }
 }

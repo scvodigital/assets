@@ -1,6 +1,6 @@
 <h1 class="header-text">
   <a href="/">
-    <img src="https://storage.googleapis.com/scvo-assets/assets/images/fs-legacy-logo.png" />
+    <img src="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/logo.png')~}}" />
   </a>
   <span class="header-text-banner">
     {{#if branded ~}}

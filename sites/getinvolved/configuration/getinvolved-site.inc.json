@@ -1,7 +1,7 @@
 {
   "domains": [
     "localhost",
-    "getinvolved-legacy.local",
+    "getinvolved.local",
     "127.0.0.1",
     "getinvolved.scot",
     "www.getinvolved.scot",
@@ -13,8 +13,8 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/getinvolved-legacy/",
-    "menus": "{:./getinvolved-legacy-menus.json}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/getinvolved/",
+    "menus": "{:./getinvolved-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "termTypeLabels": {
       "activities": {

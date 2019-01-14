@@ -1357,7 +1357,7 @@
       "path" : "/the-gathering-2019/event-programme",
       "route" : "^/the-gathering-2019/event-programme"
     }, {
-      "label" : "Book to attend",
+      "label" : "Book a stand",
       "metaData" : {
         "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
         "_menu_item_menu_item_parent" : "25987",
@@ -1371,8 +1371,8 @@
         "breadcrumbs_json" : "[{\"id\":25966,\"title\":\"The Gathering 2019\",\"url\":\"http://cms.scvo.org/the-gathering-2019/\",\"excerpt\":\"\"}]",
         "menu-item-route-pattern" : "^/the-gathering-2019/host-an-event"
       },
-      "path" : "/the-gathering-2019/book-to-attend",
-      "route" : "^/the-gathering-2019/book-to-attend"
+      "path" : "/the-gathering-2019/book-a-stand",
+      "route" : "^/the-gathering-2019/book-a-stand"
     }, {
       "label" : "Sponsorship",
       "metaData" : {

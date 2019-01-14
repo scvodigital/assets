@@ -137,7 +137,7 @@
         <div class="mdc-drawer__content">
           <nav class="mdc-list">
             <a class="mdc-list-item {{#compare @root.request.url.pathname "/"}} mdc-list-item--activated{{/compare}}"
-               href="/" {{#compare @root.request.url.pathname "/"}}aria-selected="true"{{else}}aria-hidden="true"{{/compare}}>
+               href="/" {{#compare @root.request.url.pathname "/"}}aria-selected="true"{{else}}aria-hidden="true"{{/compare}} tabindex="0">
               Home
             </a>
             {{#each @root.context.metaData.menus.main ~}}

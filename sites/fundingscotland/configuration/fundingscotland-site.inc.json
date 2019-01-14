@@ -80,10 +80,17 @@
         "config": {
           "template": {
             "_let": {
-              "path": "${context.metaData['domain-map'][request.url.hostname]}"
+              "hostname": {
+                "_eval": "jsone.stringReplace(request.url.hostname, '.', '_')"
+              }
             },
             "in": {
-              "_eval": "context.metaData['site-configurations'][path]"
+              "_let": {
+                "path": "${context.metaData['domain-map'][hostname]}"
+              },
+              "in": {
+                "_eval": "context.metaData['site-configurations'][path]"
+              }
             }
           },
           "output": "data"

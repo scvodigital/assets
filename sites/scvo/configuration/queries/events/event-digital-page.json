@@ -2,7 +2,9 @@
   "size": 4,
   "_source": [
     "rendered.scvo_gist",
-    "date_start"
+    "date_start",
+    "title",
+    "slug"
   ],
   "query": {
     "bool": {

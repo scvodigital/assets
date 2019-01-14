@@ -8,6 +8,23 @@
     <div class="mdc-layout-grid equal-height support support-organisation support-digital">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <a href="/digital/about" class="mdc-button mdc-button--raised mdc-button--full">
+            Sign up for our e:bulletin
+          </a>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <a href="https://twitter.com/digiscot" class="mdc-button mdc-button--raised mdc-button--full">
+            Follow us on Twitter
+            <i class="fab fa-twitter fa-fw"></i>
+          </a>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <a href="mailto:digital@scvo.org.uk" class="mdc-button mdc-button--raised mdc-button--full" target="_blank">
+            Email us
+            <i class="fas fa-envelope fa-fw"></i>
+          </a>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card participation">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
@@ -44,9 +61,14 @@
                     <a href="/digital/events"><span class="fal fa-fw fa-handshake fa-2x"> </span>Events</a>
                   </h1>
                 </section>
-                <section class="mdc-card__media"><a href="/digital/new/events">&nbsp;</a></section>
+                <section class="mdc-card__media"><a href="/digital/events">&nbsp;</a></section>
                 <section class="mdc-card__supporting-text">
-                  We have {{total}} upcoming event{{#compare total ">" 1}}s{{/compare}}
+                  We have {{total}} upcoming event{{#compare total ">" 1}}s{{/compare~}}
+                  {{~#compare total 1}}:
+                    <a href="/digital/events/{{hits.[0]._source.slug}}">                  
+                      {{{hits.[0]._source.title}}}
+                    </a>
+                  {{/compare}}
                 </section>
                 <section class="mdc-card__actions">
                   <a class="mdc-card__action" href="/digital/events">See more upcoming events</a>
@@ -74,28 +96,28 @@
           <div class="mdc-card funding">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/digital/new/funding"><span class="fal fa-fw fa-chart-bar fa-2x"> </span>Funding</a>
+                <a href="/digital/funding"><span class="fal fa-fw fa-chart-bar fa-2x"> </span>Funding</a>
               </h1>
             </section>
-            <section class="mdc-card__media"><a href="/digital/new/funding">&nbsp;</a></section>
+            <section class="mdc-card__media"><a href="/digital/funding">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
               See open funds and recent awards
             </section>
-            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/new/funding">Find out more</a></section>
+            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/funding">Find out more</a></section>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card skills">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/digital/new/skills"><span class="fal fa-fw fa-graduation-cap fa-2x"> </span>Essential skills</a>
+                <a href="/digital/skills"><span class="fal fa-fw fa-graduation-cap fa-2x"> </span>Essential skills</a>
               </h1>
             </section>
-            <section class="mdc-card__media"><a href="/digital/new/skills">&nbsp;</a></section>
+            <section class="mdc-card__media"><a href="/digital/skills">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
               Get the Toolkit
             </section>
-            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/new/skills">Find out more</a></section>
+            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/skills">Find out more</a></section>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
@@ -112,23 +134,6 @@
               <a class="mdc-card__action" href="/digital/blogs">Read more blog posts</a>
             </section>
           </div>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="/digital/about" class="mdc-button mdc-button--raised mdc-button--full">
-            Sign up for our e:bulletin
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="https://twitter.com/digiscot" class="mdc-button mdc-button--raised mdc-button--full">
-            Follow us on Twitter
-            <i class="fab fa-twitter fa-fw"></i>
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="mailto:digital@scvo.org.uk" class="mdc-button mdc-button--raised mdc-button--full" target="_blank">
-            Email us
-            <i class="fas fa-envelope fa-fw"></i>
-          </a>
         </div>
       </div>
     </div>

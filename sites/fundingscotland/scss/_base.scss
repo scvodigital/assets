@@ -33,13 +33,6 @@ header {
     // .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
     //   background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 220px, $mdc-theme-primary 221px, $mdc-theme-primary);
     // }
-    .mdc-top-app-bar__row.mdc-top-app-bar__upper {
-      height: 245px;
-      background-image: url('https://storage.googleapis.com/scvo-assets/assets/images/fs-legacy-banner-back.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-    }
     .mdc-tab-bar,
     .mdc-tab-bar .mdc-tab,
     .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
@@ -706,4 +699,124 @@ footer.mdc-layout__footer {
 .mdc-button--raised.mdc-button--warning {
   background-color: $mdc-theme-error !important;
   color: #fff !important;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-centre { text-align: center; }
+.text-justify { text-align: justify; }
+.pull-right { float: right; }
+.pull-left { float: left; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.align-centre {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+}
+.v-padding {
+  padding-top: $unit/2;
+  padding-bottom: $unit/2;
+}
+.v-padding-full {
+  padding-top: $unit;
+  padding-bottom: $unit;
+}
+.h-padding {
+  padding-left: $unit/2;
+  padding-right: $unit/2;
+}
+.h-padding-full {
+  padding-left: $unit;
+  padding-right: $unit;
+}
+.x-padding {
+  padding: $unit/2;
+}
+.x-padding-full {
+  padding: $unit;
+}
+.t-padding { padding-top: $unit/2; }
+.b-padding { padding-bottom: $unit/2; }
+.l-padding { padding-left: $unit/2; }
+.r-padding { padding-right: $unit/2; }
+.t-padding-full { padding-top: $unit; }
+.b-padding-full { padding-bottom: $unit; }
+.l-padding-full { padding-left: $unit; }
+.r-padding-full { padding-right: $unit; }
+.v-margin {
+  margin-top: $unit/2;
+  margin-bottom: $unit/2;
+}
+.v-margin-full {
+  margin-top: $unit;
+  margin-bottom: $unit;
+}
+.v-margin-full-bottom {
+  margin-bottom: $unit;
+}
+.v-margin-none {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.h-margin {
+  margin-left: $unit/2;
+  margin-right: $unit/2;
+}
+.h-margin-full {
+  margin-left: $unit;
+  margin-right: $unit;
+}
+.t-margin { margin-top: $unit/2; }
+.b-margin { margin-bottom: $unit/2; }
+.l-margin { margin-left: $unit/2; }
+.r-margin { margin-right: $unit/2; }
+.t-margin-full { margin-top: $unit; }
+.b-margin-full { margin-bottom: $unit; }
+.l-margin-full { margin-left: $unit; }
+.r-margin-full { margin-right: $unit; }
+
+@media (max-width: 479px) {
+  .no-float-sm { float: auto; }
+  .no-t-margin-sm { margin-top: 0; }
+  .no-b-margin-sm { margin-bottom: 0; }
+  .no-l-margin-sm { margin-left: 0; }
+  .no-r-margin-sm { margin-right: 0; }
+  .no-v-margin-sm { margin-top: 0; margin-bottom: 0; }
+  .no-h-margin-sm { margin-left: 0; margin-right: 0; }
+  .no-t-padding-sm { padding-top: 0; }
+  .no-b-padding-sm { padding-bottom: 0; }
+  .no-l-padding-sm { padding-left: 0; }
+  .no-r-padding-sm { padding-right: 0; }
+  .no-v-padding-sm { padding-top: 0; padding-bottom: 0; }
+  .no-h-padding-sm { padding-left: 0; padding-right: 0; }
+  .t-margin-sm { margin-top: $unit/2; }
+  .b-margin-sm { margin-bottom: $unit/2; }
+  .l-margin-sm { margin-left: $unit/2; }
+  .r-margin-sm { margin-right: $unit/2; }
+  .v-margin-sm { margin-top: $unit/2; margin-bottom: $unit/2; }
+  .h-margin-sm { margin-left: $unit/2; margin-right: $unit/2; }
+  .t-margin-full-sm { margin-top: $unit; }
+  .b-margin-full-sm { margin-bottom: $unit; }
+  .l-margin-full-sm { margin-left: $unit; }
+  .r-margin-full-sm { margin-right: $unit; }
+  .v-margin-full-sm { margin-top: $unit; margin-bottom: $unit; }
+  .h-margin-full-sm { margin-left: $unit; margin-right: $unit; }
+  .t-padding-sm { padding-top: $unit/2; }
+  .b-padding-sm { padding-bottom: $unit/2; }
+  .l-padding-sm { padding-left: $unit/2; }
+  .r-padding-sm { padding-right: $unit/2; }
+  .v-padding-sm { padding-top: $unit/2; padding-bottom: $unit/2; }
+  .h-padding-sm { padding-left: $unit/2; padding-right: $unit/2; }
+  .t-padding-full-sm { padding-top: $unit; }
+  .b-padding-full-sm { padding-bottom: $unit; }
+  .l-padding-full-sm { padding-left: $unit; }
+  .r-padding-full-sm { padding-right: $unit; }
+  .v-padding-full-sm { padding-top: $unit; padding-bottom: $unit; }
+  .h-padding-full-sm { padding-left: $unit; padding-right: $unit; }
 }

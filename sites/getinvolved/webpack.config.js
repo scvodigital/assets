@@ -118,9 +118,10 @@ function getConfig(site, library) {
           loader: 'babel-loader',
           query: {
             presets: ['es2015'],
-          },
-        },
-      ],
+            compact: false
+          }
+        }
+      ]
     },
     plugins: plugins
   };

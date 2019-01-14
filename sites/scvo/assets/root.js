@@ -18,25 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Menu buttons
-    $('[data-menu-target]').each(function(i, o) {
-      var selector = $(o).attr('data-menu-target');
-      var menuEl = $(selector)[0];
-      $(o).on('click', function() {
-        menuEl.MDCMenu.open = !menuEl.MDCMenu.open;
-      });
-    });
-
-    // Temporary drawer buttons
-    $('[data-drawer-target]').each(function(i, o) {
-      var selector = $(o).attr('data-drawer-target');
-      var drawerEl = $(selector)[0];
-      var drawerType = $(selector).attr('data-mdc-auto-init');
-      if (drawerType) {
-        $(o).on('click', function() {
-          drawerEl[drawerType].open = !drawerEl[drawerType].open;
-        });
-      }
-    });
 
     // document.onreadystatechange = function(e) {
     //     if (document.readyState === 'complete') {
@@ -125,4 +106,3 @@ function setCookie(name, value, days) {
   }
   document.cookie = name + "=" + (value || "")  + expires + "; path=/; secure";
 }
-

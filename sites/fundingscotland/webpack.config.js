@@ -55,7 +55,7 @@ function getConfig(site, library) {
     },
     entry: [
       ...globby.sync('./sites/' + site + '/scss/*-main.scss'),
-      './sites/' + site + '/main.js', 
+      './sites/' + site + '/main.js',
     ],
     output: {
       filename: 'build/' + site + '/main-VERSION.js',
@@ -120,9 +120,10 @@ function getConfig(site, library) {
           loader: 'babel-loader',
           query: {
             presets: ['es2015'],
-          },
-        },
-      ],
+            compact: false
+          }
+        }
+      ]
     },
     plugins: plugins
   };

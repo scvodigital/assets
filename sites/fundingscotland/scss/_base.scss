@@ -188,10 +188,10 @@ a {
 }
 
 .mdc-chip {
-  background-color: $mdc-theme-secondary;
-  color: $mdc-theme-secondary-dark;
+  background-color: $mdc-theme-primary;
+  color: white;
   .mdc-chip__icon.mdc-chip__icon--leading {
-    color: $mdc-theme-secondary-dark;
+    color: white;
   }
   .mdc-chip__checkmark-path {
     stroke: #fff !important;
@@ -199,11 +199,11 @@ a {
 }
 .mdc-chip:hover {
   .mdc-chip__icon--leading {
-    color: #000;
+    color: #fff;
   }
 }
 .mdc-card .mdc-chip {
-  background-color: $mdc-theme-complimentary-dark;
+  background-color: $mdc-theme-primary;
 }
 .mdc-theme--on-primary a,
 .mdc-card .mdc-chip.mdc-chip--selected,
@@ -211,10 +211,12 @@ a {
   background-color: $mdc-theme-primary;
   color: #fff;
 }
+.mdc-card .mdc-chip:hover,
 .mdc-card .mdc-chip.mdc-chip--selected:hover,
 .mdc-chip.mdc-chip--selected:hover {
   background-color: $mdc-theme-primary-dark;
   color: #fff;
+  text-decoration: none;
 }
 
 .mdc-button--raised .mdc-list-item__graphic {
@@ -286,7 +288,11 @@ a {
   background: $mdc-theme-error;
   color: #fff;
 }
+.fund-details {
+  clear: both;
+}
 .mdc-card.full {
+  box-shadow: none !important;
   .editor-toolbar,
   .CodeMirror {
     border-bottom: 1px solid $mdc-theme-secondary;
@@ -312,19 +318,19 @@ a {
     box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
   }
   .mdc-card--full-content {
-    .key-info-extra {
-      .mdc-chip {
-        color: $mdc-theme-secondary-dark;
-        background-color: $mdc-theme-complimentary-light;
-      }
-      .mdc-chip:hover {
-        color: $mdc-theme-secondary-light;
-        background-color: $mdc-theme-primary-dark;
-      }
-      a {
-        color: $mdc-theme-primary-dark;
-      }
-    }
+    // .key-info-extra {
+    //   .mdc-chip {
+    //     color: $mdc-theme-secondary-dark;
+    //     background-color: $mdc-theme-complimentary-light;
+    //   }
+    //   .mdc-chip:hover {
+    //     color: $mdc-theme-secondary-light;
+    //     background-color: $mdc-theme-primary-dark;
+    //   }
+    //   a {
+    //     color: $mdc-theme-primary-dark;
+    //   }
+    // }
     .save-button-block {
       .mdc-typography--caption {
         color: #2c3e50;

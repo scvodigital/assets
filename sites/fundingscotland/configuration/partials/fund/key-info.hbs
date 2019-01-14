@@ -1,5 +1,5 @@
-<div class="mdc-card__info--fund-row x-padding">
-  <div class="mdc-card__info--fund">
+<div class="mdc-card__info--content-primary-row x-padding">
+  <div class="mdc-card__info--content-primary">
     {{#if funder_organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--funder pull-right hide-sm">
       <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">
@@ -7,7 +7,7 @@
       </a>
     </div>
     {{/if ~}}
-    <h2 class="mdc-card__info--fund-title mdc-typography--headline5">
+    <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
       <a href="/fund/{{slug}}{{@root.request.url.search}}">
         <span class="hover-underline">{{title}}</span>
         {{#ifAll fund_status fund_status_slug ~}}
@@ -16,7 +16,7 @@
       </a>
     </h2>
     <ul class="fa-ul funder">
-      <li class="mdc-card__info--fund-funder mdc-typography--body1">
+      <li class="mdc-card__info--content-primary-funder mdc-typography--body1">
         <span class="fa-li"><span class="far fa-building fa-fw" title="Funder"></span></span>
         <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">{{funder_organisation.name}}</a>
       </li>

@@ -23,76 +23,53 @@
     </ul>
     <div class="fund-details">
       <h4 class="mdc-typography--headline6">Fund details</h4>
-      <dl>
         {{#if (length (arrayify type_of_funding)) ~}}
-          <dt>Type of funding</dt>
-          <dd>
-            {{#each (arrayify type_of_funding) ~}}
-              {{{this}}}{{#unless @last}}, {{/unless}}
-            {{/each}}
-          </dd>
+          <strong>Type of funding:</strong>
+          {{#each (arrayify type_of_funding) ~}}
+            {{{this}}}{{#unless @last}}, {{/unless}}
+          {{/each}}
         {{/if ~}}
         {{#if source_of_fund ~}}
-          <dt>Source</dt>
-          <dd>
-            {{{source_of_fund}}}
-          </dd>
+          <strong>Source:</strong>
+          {{{source_of_fund}}}
         {{/if ~}}
         {{#if (length (arrayify type_of_cost)) ~}}
-          <dt>Type of cost</dt>
-          <dd>
-            {{#each (arrayify type_of_cost) ~}}
-              {{{this}}}{{#unless @last}}, {{/unless}}
-            {{/each}}
-          </dd>
+          <strong>Type of cost:</strong>
+          {{#each (arrayify type_of_cost) ~}}
+            {{{this}}}{{#unless @last}}, {{/unless}}
+          {{/each}}
         {{/if ~}}
         {{#if when_to_apply ~}}
-          <dt>When to apply</dt>
-          <dd>
-            {{{when_to_apply}}}
-          </dd>
+          <strong>When to apply:</strong>
+          {{{when_to_apply}}}
         {{/if ~}}
         {{#if next_deadline ~}}
-          <dt>Next deadline</dt>
-          <dd>
-            {{{next_deadline}}}
-          </dd>
+          <strong>Next deadline:</strong>
+          {{{next_deadline}}}
         {{/if ~}}
         {{#if for_charities_only ~}}
-          <dt>Charities only</dt>
-          <dd>
-            {{{for_charities_only}}}
-          </dd>
+          <strong>Charities only:</strong>
+          {{{for_charities_only}}}
         {{/if ~}}
         {{#if website ~}}
-          <dt>Website</dt>
-          <dd>
-            {{{website}}}
-          </dd>
+          <strong>Website:</strong>
+          {{{website}}}
         {{/if ~}}
         {{#if email ~}}
-          <dt>Email</dt>
-          <dd>
-            {{{email}}}
-          </dd>
+          <strong>Email:</strong>
+          {{{email}}}
         {{/if ~}}
         {{#if phone ~}}
-          <dt>Phone</dt>
-          <dd>
-            {{{phone}}}
-          </dd>
+          <strong>Phone:</strong>
+          {{{phone}}}
         {{/if ~}}
         {{#if how_to_apply ~}}
-          <dt>How to apply</dt>
-          <dd>
-            {{{how_to_apply}}}
-          </dd>
+          <strong>How to apply:</strong>
+          {{{how_to_apply}}}
         {{/if ~}}
         {{#if exclusions ~}}
-          <dt>Exclusions</dt>
-          <dd>
-            {{{exclusions}}}
-          </dd>
+          <strong>Exclusions:</strong>
+          {{{exclusions}}}
         {{/if ~}}
       </dl>
     </div>

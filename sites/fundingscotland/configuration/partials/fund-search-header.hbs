@@ -1,3 +1,4 @@
+{{#if @root.data.auth ~}}
 <div class="banner-search overlay">
   <div class="content page-content">
     <div class="overlay-content">
@@ -11,7 +12,6 @@
         </div>
       </div>
     </div>
-    {{#if @root.data.auth ~}}
     <div class="search-content">
       <form id="search-view" class="search-form mdc-elevation--z5" action="/search" method="GET">
         {{#each (split "activities,beneficiaries,geographical_areas_funded,fund_status,charities_only,type_of_cost,type_of_funding" ",")}}
@@ -53,6 +53,6 @@
         </div>
       </form>
     </div>
-    {{/if ~}}
   </div>
 </div>
+{{/if ~}}

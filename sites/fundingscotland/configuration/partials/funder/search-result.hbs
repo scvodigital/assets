@@ -1,6 +1,6 @@
 <div class="mdc-card search-result" data-funder-id="{{Id}}">
-  <div class="mdc-card__info--funder-row">
-    <div class="mdc-card__info--funder">
+  <div class="mdc-card__info--content-secondary-row">
+    <div class="mdc-card__info--content-secondary">
       {{#if has_logo ~}}
       <div class="mdc-card__media mdc-card__media--funder">
         <a href="/funder/{{slug}}{{@root.request.url.search}}">
@@ -8,7 +8,7 @@
         </a>
       </div>
       {{/if ~}}
-      <div class="mdc-card__info--funder-title mdc-typography--headline6">
+      <div class="mdc-card__info--content-secondary-title mdc-typography--headline6">
         <a href="/funder/{{slug}}{{@root.request.url.search}}">{{title}}</a>
       </div>
       <div class="search-result-article__snippet mdc-typography--body1">

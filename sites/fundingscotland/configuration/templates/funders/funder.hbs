@@ -8,7 +8,7 @@
   {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 0 ~}}
   <hr />
   <div class="mdc-typography--headline5">
-    Current funds
+    Currently open funds
   </div>
   {{#each @root.data.supplimentaryResponses.funds_open.hits.hits ~}}
   {{> fund_list _source}}
@@ -20,7 +20,7 @@
   <hr />
   {{/compare}}
   <div class="mdc-typography--headline5">
-    Closed funds
+    Currently closed funds
   </div>
   {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
   {{> fund_list _source}}

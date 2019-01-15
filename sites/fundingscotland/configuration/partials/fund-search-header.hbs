@@ -11,28 +11,64 @@
         </div>
       </div>
     </div>
-    {{#if @root.data.auth ~}}
     <div class="search-content">
       <form id="search-view" class="search-form mdc-elevation--z5" action="/search" method="GET">
-        {{#each (split "activities,beneficiaries,geographical_areas_funded,fund_status,charities_only,type_of_cost,type_of_funding" ",")}}
-          {{#if (getProperty @root.request.params.query this) ~}}
-            {{#each (arrayify (getProperty @root.request.params.query this)) ~}}
-              <input type="hidden" name="{{../this}}[]" value="{{this}}" />
-            {{/each ~}}
-          {{/if ~}}
-        {{/each ~}}
-        {{#each (split "sort" ",")}}
-          {{#if (getProperty @root.request.params.query this) ~}}
-            <input type="hidden" name="{{this}}" value="{{getProperty @root.request.params.query this}}" />
-          {{/if ~}}
-        {{/each ~}}
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-4-phone">
               <div class="header mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field-tt" data-mdc-auto-init="MDCTextField">
                 <span class="far fa-search mdc-text-field__icon" tabindex="0" role="button"></span>
-                <input type="text" id="keywords" name="keywords" value="{{@root.request.params.query.keywords}}" class="mdc-text-field__input" />
-                <label for="keywords" class="mdc-floating-label">
+                <input type="text" id="what-primary-content" name="keywords" class="mdc-text-field__input" placeholder="" data-lpignore="true" data-typeahead='{
+                  "typeaheadOptions": {
+                    "highlight": true,
+                    "minlength": 0
+                  },
+                  "outputs": [
+                    {
+                      "type": "element",
+                      "options": {
+                        "containerSelectorTemplate": "#search-terms",
+                        "testSelectorTemplate": "#\{{dataset.name}}-\{{item.value}}",
+                        "removeSelectorTemplate": "#remove-\{{dataset.name}}-\{{item.value}}",
+                        "template": {{#blockStringify this~}}
+                          <div class="mdc-chip mdc-theme--primary-bg" tabindex="0" id="\{{dataset.name}}-\{{item.value}}">
+                            <div class="mdc-chip__text">\{{item.label}}</div>
+                            <input type="hidden" name="\{{dataset.name}}[]" value="\{{item.value}}">
+                            <i class="far fa-times-circle mdc-chip__icon mdc-chip__icon--trailing" tabindex="0" role="button" id="remove-\{{dataset.name}}-\{{item.value}}"></i>
+                          </div>
+                        {{~/blockStringify}}
+                      }
+                    },
+                    {
+                      "type": "prop",
+                      "options": {
+                        "selectorTemplate": "[name=\"\{{value}}\"]"
+                      }
+                    }
+                  ],
+                  "datasets": [
+                    {{#each @root.context.metaData.terms}}
+                    {
+                      "name": {{{stringify @key}}},
+                      "templates": {
+                        "header": "<h3>{{{label}}}</h3>"
+                      },
+                      "display": "label",
+                      "items": [
+                      {{#each termGroups}}
+                        {{#each terms}}
+                        {
+                        "label": {{{stringify this}}},
+                        "value": {{{stringify @key}}}
+                        }{{#unlessAll @last @../last}},{{/unlessAll}}
+                        {{/each}}
+                      {{/each}}
+                      ]
+                    }{{#unless @last}},{{/unless}}
+                    {{/each}}
+                  ]
+                }'>
+                <label for="what-primary-content" class="mdc-floating-label">
                   Keywords
                 </label>
                 <div class="mdc-line-ripple"></div>
@@ -53,6 +89,53 @@
         </div>
       </form>
     </div>
-    {{/if ~}}
   </div>
 </div>
+
+{{#compare @root.data.primaryResponse.hits.total ">" 0}}
+<div class="mdc-layout-grid home-heading">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      {{#compare @root.data.primaryResponse.hits.total ">" 0}}
+      <h2 class="mdc-typography--headline5">
+        Your latest funds&ensp;
+        <span class="mdc-typography--body1">
+          <a href="/searches">Your searches</a>
+        </span>
+      </h2>
+      {{else}}
+      <div class="mdc-typography--headline5">
+        Latest funds&ensp;
+        <span class="mdc-typography--body1">
+          <a href="/search?sort=newest&page=2">Find more</a>
+        </span>
+      </div>
+      {{/compare}}
+    </div>
+  </div>
+</div>
+<div class="home-content-primary">
+  {{#>components_horizontal_card_scroller
+      outerClasses="home-latest"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="latest-primary-content latest-primary-content-personalised"
+      items=(if (any @root.data.primaryResponse.hits.hits)
+        (map @root.data.primaryResponse.hits.hits (getProp "_source"))
+        else=(map @root.data.primaryResponse.hits.hits (getProp "_source"))
+      )
+      itemsPartial="fund_mini"
+      moreUrl=(if
+        (compare @root.data.primaryResponse.hits.total ">" 0)
+        "/search?sort=newest"
+        else="/search?sort=newest&page=2"
+      )
+      moreText=(if
+        (compare @root.data.primaryResponse.hits.total ">" 0)
+        "All latest jobs"
+        else="Find more jobs"
+      )}}
+    {{/components_horizontal_card_scroller}}
+  </div>
+</div>
+{{/compare}}

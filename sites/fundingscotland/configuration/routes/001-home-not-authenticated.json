@@ -3,8 +3,6 @@
   "pattern": "/home-not-authenticated",
   "debug": true,
   "tasks": [
-    "context.metaData.commonTasks.searchesData",
-    "context.metaData.commonTasks.shortlistData",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",
@@ -81,7 +79,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_home",
+              "body": ">context.metaData.handlebars.templates.pages_home-not-authenticated",
               "foot": ">context.metaData.handlebars.templates.pages_home-foot"
             },
             "contentType": "text/html"

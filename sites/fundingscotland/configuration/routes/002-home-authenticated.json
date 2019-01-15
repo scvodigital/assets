@@ -82,7 +82,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_home",
+              "body": ">context.metaData.handlebars.templates.pages_home-authenticated",
               "foot": ">context.metaData.handlebars.templates.pages_home-foot"
             },
             "contentType": "text/html"

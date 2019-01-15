@@ -12,7 +12,7 @@
     {{#compare distance "!==" "Infinity" ~}}
     <ul class="fa-ul mdc-card__action hide-sm">
       <li class="mdc-card__info--search-distance mdc-typography--body2">
-        <span class="fa-li"><span class="far fa-location-arrow fa-fw" title="Distance"></span></span>
+        <span class="fa-li"><span class="fas fa-location-arrow fa-fw" title="Distance"></span></span>
         {{#compare distance "<" 4 ~}}
           Less than {{inflect (round distance "up") "mile" "miles" true}} away
         {{else}}

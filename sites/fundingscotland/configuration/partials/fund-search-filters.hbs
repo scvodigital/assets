@@ -18,21 +18,86 @@
 <div class="mdc-drawer__content">
   <!-- <h2 class="mdc-drawer__content-heading hide-sm mdc-drawer--occasional-ie11">Search funds</h2> -->
   <form action="/search" method="GET" class="search-form">
-    {{#each (split "keywords,sort" ",")}}
-      {{#if (getProperty @root.request.params.query this) ~}}
-        <input type="hidden" name="{{this}}" value="{{getProperty @root.request.params.query this}}" />
-      {{/if ~}}
-    {{/each ~}}
-    <!-- <div class="h-padding">
-      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-        <span class="far fa-search mdc-text-field__icon" tabindex="-1"></span>
-        <input type="text" id="{{instance_id}}-keywords" name="keywords" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.request.params.query.keywords}}" data-lpignore="true" autocomplete="off">
-        <label class="mdc-floating-label" for="keywords">
-          Keywords
-        </label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-    </div> -->
+    <div class="header mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field-tt" data-mdc-auto-init="MDCTextField">
+      <span class="far fa-search mdc-text-field__icon" tabindex="0" role="button"></span>
+      <input type="text" id="what-primary-content" name="keywords" class="mdc-text-field__input" placeholder="" data-lpignore="true" data-typeahead='{
+        "typeaheadOptions": {
+          "highlight": true,
+          "minlength": 0
+        },
+        "outputs": [
+          {
+            "type": "element",
+            "options": {
+              "containerSelectorTemplate": "#search-terms",
+              "testSelectorTemplate": "#\{{dataset.name}}-\{{item.value}}",
+              "removeSelectorTemplate": "#remove-\{{dataset.name}}-\{{item.value}}",
+              "template": {{#blockStringify this~}}
+                <div class="mdc-chip mdc-theme--primary-bg" tabindex="0" id="\{{dataset.name}}-\{{item.value}}">
+                  <div class="mdc-chip__text">\{{item.label}}</div>
+                  <input type="hidden" name="\{{dataset.name}}[]" value="\{{item.value}}">
+                  <i class="far fa-times-circle mdc-chip__icon mdc-chip__icon--trailing" tabindex="0" role="button" id="remove-\{{dataset.name}}-\{{item.value}}"></i>
+                </div>
+              {{~/blockStringify}}
+            }
+          },
+          {
+            "type": "prop",
+            "options": {
+              "selectorTemplate": "[name=\"\{{value}}\"]"
+            }
+          }
+        ],
+        "datasets": [
+          {{#each @root.context.metaData.terms}}
+            {{#each termGroups}}
+              {
+                "name": {{{stringify @../key}}},
+                "templates": {
+                  {{#compare (length (getKeys ../termGroups)) 1}}
+                    "header": "<h3>{{{../label}}}</h3>"
+                  {{else}}
+                    "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
+                  {{/compare}}
+                },
+                "display": "label",
+                "items": [
+                  {{#each terms}}
+                  {
+                  "label": {{{stringify this}}},
+                  "value": {{{stringify @key}}}
+                  }{{#unless @last}},{{/unless}}
+                  {{/each}}
+                ]
+              }{{#unlessAll @last @../last}},{{/unlessAll}}
+            {{/each}}
+          {{/each}}
+        ]
+      }'>
+      <label for="what-primary-content" class="mdc-floating-label">
+        Keywords
+      </label>
+      <div class="mdc-line-ripple"></div>
+    </div>
+
+    {{#each @root.context.metaData.terms}}
+      <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
+        {{{label}}}
+        <span class="mdc-icon-toggle pull-right">
+          <span class="far fa-chevron-up" aria-hidden="true"></span>
+        </span>
+      </h3>
+      {{#each termGroups}}
+        <h4>{{{label}}}</h4>
+        <ul>
+          {{#each terms}}
+            <li>{{{this}}}</li>
+          {{/each}}
+        </ul>
+      {{/each}}
+    {{/each}}
+
+    {{!--
     <a href="/search/advanced{{@root.request.url.search}}" class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
       Advanced filters
       <span class="mdc-icon-toggle pull-right">
@@ -77,12 +142,12 @@
         {{/each ~}}
       </div>
     {{/each}}
-
-    <!-- <div class="h-margin v-margin mdc-drawer--occasional-ie11">
+    --}}
+    <div class="h-margin v-margin mdc-drawer--occasional-ie11">
       <button class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="{{instance_id}}-search-submit" data-mdc-auto-init="MDCRipple">
         <span class="far fa-search-plus fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
         Filter
       </button>
-    </div> -->
+    </div>
   </form>
 </div>

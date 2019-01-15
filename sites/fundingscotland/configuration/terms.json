@@ -159,8 +159,8 @@
       "other": { 
         "label": "Other",
         "terms": {
-          "false": "false",
-          "true": "true"
+          "false": "Available to all",
+          "true": "Charities only"
         }
       }
     }

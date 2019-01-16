@@ -89,6 +89,9 @@ header {
     .mdc-top-app-bar__title {
       padding: 0;
       width: auto;
+      img {
+        max-height: 64px;
+      }
       a {
         display: block;
       }

@@ -7,6 +7,9 @@
 .header-text-banner {
   font-size: 3.6rem;
 }
+.home-banner {
+  margin-bottom: $unit !important;
+}
 .home-banner .banner-search,
 .home-banner .banner-search.overlay .content,
 .home-banner .banner-search .content {
@@ -41,40 +44,40 @@ header {
     // .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
     //   background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 220px, $mdc-theme-primary 221px, $mdc-theme-primary);
     // }
-    .mdc-tab-bar,
-    .mdc-tab-bar .mdc-tab,
-    .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
-      height: 62px;
-    }
-    .mdc-tab-bar .mdc-tab {
-      line-height: 62px;
-    }
-    .mdc-tab-bar .mdc-tab .mdc-tab__text-label {
-      height: 58px;
-      line-height: 58px;
-    }
-    .mdc-top-app-bar__row.mdc-top-app-bar__lower {
-      height: 62px;
-      position: relative;
-      .mdc-top-app-bar__title {
-        position: absolute;
-        bottom: 0;
-        left: $unit;
-        .header-text {
-          margin: 0;
-          img {
-            height: 160px;
-          }
-        }
-      }
-    }
-    .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
-      top: 62px !important;
-    }
-    .mdc-tab-bar .mdc-tab,
-    .mdc-menu-surface--anchor .mdc-button {
-      font-weight: 400 !important;
-    }
+    // .mdc-tab-bar,
+    // .mdc-tab-bar .mdc-tab,
+    // .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
+    //   height: 62px;
+    // }
+    // .mdc-tab-bar .mdc-tab {
+    //   line-height: 62px;
+    // }
+    // .mdc-tab-bar .mdc-tab .mdc-tab__text-label {
+    //   height: 58px;
+    //   line-height: 58px;
+    // }
+    // .mdc-top-app-bar__row.mdc-top-app-bar__lower {
+    //   height: 62px;
+    //   position: relative;
+    //   .mdc-top-app-bar__title {
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: $unit;
+    //     .header-text {
+    //       margin: 0;
+    //       img {
+    //         height: 160px;
+    //       }
+    //     }
+    //   }
+    // }
+    // .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
+    //   top: 62px !important;
+    // }
+    // .mdc-tab-bar .mdc-tab,
+    // .mdc-menu-surface--anchor .mdc-button {
+    //   font-weight: 400 !important;
+    // }
     #upper-tab-bar {
       .mdc-tab:hover .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.6);

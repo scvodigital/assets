@@ -48,23 +48,27 @@
                   ],
                   "datasets": [
                     {{#each @root.context.metaData.terms}}
-                    {
-                      "name": {{{stringify @key}}},
-                      "templates": {
-                        "header": "<h3>{{{label}}}</h3>"
-                      },
-                      "display": "label",
-                      "items": [
                       {{#each termGroups}}
-                        {{#each terms}}
                         {
-                        "label": {{{stringify this}}},
-                        "value": {{{stringify @key}}}
+                          "name": {{{stringify @../key}}},
+                          "templates": {
+                            {{#compare (length (getKeys ../termGroups)) 1}}
+                              "header": "<h3>{{{../label}}}</h3>"
+                            {{else}}
+                              "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
+                            {{/compare}}
+                          },
+                          "display": "label",
+                          "items": [
+                            {{#each terms}}
+                            {
+                            "label": {{{stringify this}}},
+                            "value": {{{stringify @key}}}
+                            }{{#unless @last}},{{/unless}}
+                            {{/each}}
+                          ]
                         }{{#unlessAll @last @../last}},{{/unlessAll}}
-                        {{/each}}
                       {{/each}}
-                      ]
-                    }{{#unless @last}},{{/unless}}
                     {{/each}}
                   ]
                 }'>

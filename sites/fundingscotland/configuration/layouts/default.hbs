@@ -96,7 +96,111 @@
           </div>
         {{/if}}
       {{/ifAny}}
+
       <header class="mdc-top-app-bar mdc-elevation--z5 top-bar-stuck" id="top-bar">
+        <div class="container-fluid">
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+              {{#unless @root.route.metaData.hideSearch ~}}
+              {{#compare @root.route.name "!==" "home" ~}}
+              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
+                <span class="far fa-fw fa-2x fa-search"></span>
+              </button>
+              {{/compare ~}}
+              {{/unless ~}}
+              <span class="mdc-top-app-bar__title">
+                <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
+              </span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+              <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
+                <span class="far fa-fw fa-2x fa-bars"></span>
+              </button>
+              {{#>components_tab_bar
+                  extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
+                  id="upper-tab-bar"}}
+                {{#if @root.data.auth ~}}
+                  {{#each @root.context.metaData.menus.upper-signed-in ~}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/each ~}}
+                {{else}}
+                  {{#each @root.context.metaData.menus.upper-not-signed-in ~}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/each ~}}
+                {{/if ~}}
+                {{#each @root.context.metaData.menus.upper ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+              {{/components_tab_bar}}
+            </section>
+          </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
+              {{#>components_tab_bar
+                  extraClasses="mdc-tab-bar__auto-width"
+                  id="main-tab-bar"}}
+                {{#each @root.context.metaData.menus.main ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+                {{#each @root.context.metaData.menus.main-extra ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each ~}}
+              {{/components_tab_bar}}
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
+              {{#if @root.data.auth ~}}
+                {{#>components_anchored_menu
+                    buttonClasses="mdc-theme--on-primary"
+                    imageUrl=(default @root.data.auth.photoURL false)
+                    imageClasses="far fa-fw user-avatar"
+                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
+                    buttonLabel=@root.data.auth.email
+                    arrowClasses="far fa-fw fa-angle-down"}}
+                  {{#each @root.context.metaData.menus.user-signed-in ~}}
+                    <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
+                      {{#if icon ~}}
+                      <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                      {{/if ~}}
+                      {{{label}}}
+                    </a>
+                  {{/each ~}}
+                {{/components_anchored_menu}}
+              {{else}}
+                {{#>components_tab_bar
+                    extraClasses="mdc-tab-bar__auto-width"
+                    id="user-not-signed-in-tab-bar"}}
+                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/each}}
+                {{/components_tab_bar}}
+              {{/if ~}}
+            </section>
+          </div>
+        </div>
+      </header>
+
+      <!-- <header class="mdc-top-app-bar mdc-elevation--z5 top-bar-stuck" id="top-bar">
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
@@ -187,7 +291,7 @@
             </section>
           </div>
         </div>
-      </header>
+      </header> -->
 
       <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
         <div class="mdc-drawer__content">
@@ -261,7 +365,7 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--background mdc-toolbar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-elevation--z3 mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}

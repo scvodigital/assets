@@ -15,6 +15,30 @@
 </div>
 {{/inline}}
 
+{{#*inline "mdc_list_checkbox"}}
+  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" aria-checked="{{checked}}">
+    <span class="mdc-list-item__graphic">
+      <div class="mdc-checkbox">
+        <input type="checkbox" class="mdc-checkbox__native-control" 
+            {{#unless isParent}}name="{{name}}"{{/unless}} value="{{value}}" 
+            id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}>
+        <div class="mdc-checkbox__background">
+          <svg class="mdc-checkbox__checkmark"
+              viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path"
+                fill="none"
+                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+          </svg>
+          <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+      </div>
+    </span>
+    <label class="mdc-list-item__text {{#if isParent}}checkbox-list-group-parent{{/if}} {{#if parent}}checkbox-list-group-child{{/if}}" for="cb-{{name}}-{{value}}">
+      {{{label}}}
+    </label>
+  </li>
+{{/inline}}
+
 <div class="mdc-drawer__content">
   <!-- <h2 class="mdc-drawer__content-heading hide-sm mdc-drawer--occasional-ie11">Search funds</h2> -->
   <form action="/search" method="GET" class="search-form">
@@ -84,17 +108,45 @@
       <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
         {{{label}}}
         <span class="mdc-icon-toggle pull-right">
-          <span class="far fa-chevron-up" aria-hidden="true"></span>
+          <!--<span class="far fa-chevron-up" aria-hidden="true"></span>-->
+          <input type="checkbox" id="toggle-{{@key}}" checked>
         </span>
       </h3>
-      {{#each termGroups}}
-        <h4>{{{label}}}</h4>
-        <ul>
-          {{#each terms}}
-            <li>{{{this}}}</li>
+      {{#compare (length (getKeys termGroups)) 1}}
+        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}">
+          {{#each termGroups}}
+            {{#each terms}}
+              {{> mdc_list_checkbox
+                  name=@../../key
+                  value=@key
+                  label=this
+                  checked=false
+                  first=@first}}
+            {{/each}}
           {{/each}}
         </ul>
-      {{/each}}
+      {{else}}
+        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
+          {{#each termGroups}}
+            {{> mdc_list_checkbox
+                name=@../key
+                isParent=true
+                value=@key
+                label=label
+                checked=false
+                first=@first}}
+            {{#each terms}}
+              {{> mdc_list_checkbox
+                  name=@../../key
+                  parent=@../key
+                  value=@key
+                  label=this
+                  checked=false
+                  first=false}}
+            {{/each}}
+          {{/each}}
+        </ul>
+      {{/compare}}
     {{/each}}
 
     {{!--

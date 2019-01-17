@@ -1,6 +1,8 @@
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,600,700');
+@import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.css);
+@import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css);
 
 $unit: 1rem;
 $nav-height: 38px;
@@ -19,40 +21,30 @@ $footer-font-weight:                400;
 
 $colours: (
 default: (
-primary: #AD1457,
-primary-overlay-start: rgba(173, 20, 87, 0.89),
-primary-overlay-end: rgba(173, 20, 87, 0.91),
-primary-light: #C2185B,
-primary-dark: #880E4F,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-charity: (
-primary: #4527A0,
-primary-overlay-start: rgba(69, 39, 160, 0.89),
-primary-overlay-end: rgba(69, 39, 160, 0.91),
-primary-light: #512DA8,
-primary-dark: #311B92,
+primary: #C2185b,
+primary-overlay-start: rgba(173, 20, 87, 0.95),
+primary-overlay-end: rgba(173, 20, 87, 0.95),
+primary-light: #C2185b,
+primary-dark: #711142,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 jobs: (
-primary: #42842A,
-primary-overlay-start: rgba(66, 132, 42, 0.89),
-primary-overlay-end: rgba(66, 132, 42, 0.91),
-primary-light: #42842A,
-primary-dark: #244817,
+primary: #49459D,
+primary-overlay-start: rgba(73, 69, 157, 0.95),
+primary-overlay-end: rgba(73, 69, 157, 0.95),
+primary-light: #49459D,
+primary-dark: #2D2E7A,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 cjs: (
 primary: #0081BB,
-primary-overlay-light: rgba(0, 129, 187, 0.65),
-primary-overlay-start: rgba(0, 129, 187, 0.89),
-primary-overlay-end: rgba(0, 129, 187, 0.91),
+primary-overlay-light: rgba(0, 129, 187, 0.80),
+primary-overlay-start: rgba(0, 129, 187, 0.95),
+primary-overlay-end: rgba(0, 129, 187, 0.95),
 primary-light: #0081BB,
 primary-dark: #005a82,
 secondary: #FF8F00,
@@ -61,8 +53,8 @@ secondary-dark: #FF6F00
 ),
 goodmoves: (
 primary: #42842A,
-primary-overlay-start: rgba(66, 132, 42, 0.89),
-primary-overlay-end: rgba(66, 132, 42, 0.91),
+primary-overlay-start: rgba(66, 132, 42, 0.95),
+primary-overlay-end: rgba(66, 132, 42, 0.95),
 primary-light: #42842A,
 primary-dark: #244817,
 secondary: #FF8F00,
@@ -70,39 +62,39 @@ secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 funding: (
-primary: #00796A,
-primary-overlay-start: rgba(0, 121, 106, 0.89),
-primary-overlay-end: rgba(0, 121, 106, 0.91),
-primary-light: #198678,
-primary-dark: #006054,
+primary: #448532,
+primary-overlay-start: rgba(68, 133, 50, 0.95),
+primary-overlay-end: rgba(68, 133, 50, 0.95),
+primary-light: #448532,
+primary-dark: #223c1d,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 projects: (
-primary: #AD1457,
-primary-overlay-start: rgba(173, 20, 87, 0.89),
-primary-overlay-end: rgba(173, 20, 87, 0.91),
-primary-light: #C2185B,
-primary-dark: #880E4F,
+primary: #ef4a1a,
+primary-overlay-start: rgba(231, 74, 26, 0.95),
+primary-overlay-end: rgba(231, 74, 26, 0.95),
+primary-light: #ef4a1a,
+primary-dark: #9D3120,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 posts: (
-primary: #D84315,
-primary-overlay-start: rgba(216, 67, 21, 0.89),
-primary-overlay-end: rgba(216, 67, 21, 0.91),
-primary-light: #E64A19,
-primary-dark: #BF360C,
+primary: #1a8778,
+primary-overlay-start: rgba(26, 135, 120, 0.95),
+primary-overlay-end: rgba(26, 135, 120, 0.95),
+primary-light: #1a8778,
+primary-dark: #005146,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 goodhq: (
 primary: #4033E9,
-primary-overlay-start: rgba(64, 51, 233, 0.89),
-primary-overlay-end: rgba(64, 51, 233, 0.91),
+primary-overlay-start: rgba(64, 51, 233, 0.95),
+primary-overlay-end: rgba(64, 51, 233, 0.95),
 primary-light: #4033E9,
 primary-dark: #160AAD,
 secondary: #FF8F00,
@@ -111,8 +103,8 @@ secondary-dark: #FF6F00
 ),
 digital-charter: (
 primary: #022347,
-primary-overlay-start: rgba(2, 35, 71, 0.89),
-primary-overlay-end: rgba(2, 35, 71, 0.91),
+primary-overlay-start: rgba(2, 35, 71, 0.95),
+primary-overlay-end: rgba(2, 35, 71, 0.95),
 primary-light: #022347,
 primary-dark: #022347,
 secondary: #FF8F00,
@@ -121,8 +113,8 @@ secondary-dark: #FF6F00
 ),
 tfn: (
 primary: #3b9db1,
-primary-overlay-start: rgba(59, 157, 177, 0.89),
-primary-overlay-end: rgba(59, 157, 177, 0.91),
+primary-overlay-start: rgba(59, 157, 177, 0.95),
+primary-overlay-end: rgba(59, 157, 177, 0.95),
 primary-light: #3b9db1,
 primary-dark: #3b9db1,
 secondary: #FF8F00,
@@ -131,8 +123,8 @@ secondary-dark: #FF6F00
 ),
 funding-scotland: (
 primary: #71B745,
-primary-overlay-start: rgba(113, 183, 69, 0.89),
-primary-overlay-end: rgba(113, 183, 69, 0.91),
+primary-overlay-start: rgba(113, 183, 69, 0.95),
+primary-overlay-end: rgba(113, 183, 69, 0.95),
 primary-light: #71B745,
 primary-dark: #689F38,
 secondary: #FF8F00,
@@ -141,8 +133,8 @@ secondary-dark: #FF6F00
 ),
 credit-union: (
 primary: #1976D2,
-primary-overlay-start: rgba(21,101,192,0.89),
-primary-overlay-end: rgba(21,101,192,0.91),
+primary-overlay-start: rgba(21,101,192,0.95),
+primary-overlay-end: rgba(21,101,192,0.95),
 primary-light: #1976D2,
 primary-dark: #145ea8,
 secondary: #FF8F00,
@@ -151,8 +143,8 @@ secondary-dark: #FF6F00
 ),
 digital: (
 primary: #1976D2,
-primary-overlay-start: rgba(25,118,210,0.89),
-primary-overlay-end: rgba(25,118,210,0.91),
+primary-overlay-start: rgba(25,118,210,0.95),
+primary-overlay-end: rgba(25,118,210,0.95),
 primary-light: #1976D2,
 primary-dark: #145EA8,
 secondary: #022347,
@@ -161,8 +153,8 @@ secondary-dark: #A7C9F2
 ),
 gathering: (
 primary: #673ab7,
-primary-overlay-start: rgba(92,52,164,0.89),
-primary-overlay-end: rgba(92,52,164,0.91),
+primary-overlay-start: rgba(92,52,164,0.95),
+primary-overlay-end: rgba(92,52,164,0.95),
 primary-light: #5731C9,
 primary-dark: #4527a0,
 secondary: #022347,
@@ -171,8 +163,8 @@ secondary-dark: #A7C9F2
 ),
 i-love-charity: (
 primary: #d50f3c,
-primary-overlay-start: rgba(213,15,60,0.89),
-primary-overlay-end: rgba(213,15,60,0.91),
+primary-overlay-start: rgba(213,15,60,0.95),
+primary-overlay-end: rgba(213,15,60,0.95),
 primary-light: #DA2D54,
 primary-dark: #9F0B2D,
 secondary: #022347,
@@ -180,18 +172,18 @@ secondary-light: #6dede5,
 secondary-dark: #A7C9F2
 ),
 services: (
-primary: #125AAC,
-primary-overlay-start: rgba(21,101,192,0.89),
-primary-overlay-end: rgba(21,101,192,0.91),
-primary-light: #1565C0,
-primary-dark: #0E4686,
+primary: #1976d2,
+primary-overlay-start: rgba(25, 118, 210,0.95),
+primary-overlay-end: rgba(25, 118, 210,0.95),
+primary-light: #1976d2,
+primary-dark: #193c6d,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 footer: (
 primary: #37474F,
-primary-light: #455A64,
+primary-light: #E1E3E4,
 primary-dark: #263238
 )
 );
@@ -202,13 +194,14 @@ primary-dark: #263238
   $themeDefault: map-get($colours, 'default');
   $themePosts: map-get($colours, 'posts');
   $themeServices: map-get($colours, 'services');
-  $themeCharity: map-get($colours, 'charity');
   $themeLoveCharity: map-get($colours, 'i-love-charity');
   $themeDigital: map-get($colours, 'digital');
   $themeJobs: map-get($colours, 'jobs');
+  $themeGoodmoves: map-get($colours, 'goodmoves');
   $themeCJS: map-get($colours, 'cjs');
   $themeGathering: map-get($colours, 'gathering');
   $themeFunding: map-get($colours, 'funding');
+  $themeProjects: map-get($colours, 'projects');
 
   a,
   #share-menu-button,
@@ -264,11 +257,11 @@ primary-dark: #263238
   }
   .featured-background-image {
     .mdc-button {
-      border-color: map-get($themeCharity, 'primary') !important;
+      border-color: map-get($themeDefault, 'primary') !important;
       color: white !important;
     }
     .mdc-button:hover {
-      background-color: map-get($themeCharity, 'primary') !important;
+      background-color: map-get($themeDefault, 'primary') !important;
     }
   }
   .cta-content.case-studies {
@@ -346,7 +339,7 @@ primary-dark: #263238
     background-color: map-get($themeFunding, 'primary') !important;
   }
   .running-your-organisation .support.support-organisation .mdc-card__primary {
-    background-color: map-get($themeCharity, 'primary') !important;
+    background-color: map-get($themeDefault, 'primary') !important;
   }
   .support .cjs-brand .mdc-card__media,
   .jobs.community-jobs-scotland .support.support-organisation .mdc-card__primary {
@@ -360,13 +353,16 @@ primary-dark: #263238
     background-color: map-get($themePosts, 'primary') !important;
   }
   .section-events .mdc-card__primary,
-  .section-events .mdc-card__primary,
+  .section-events .mdc-card__media,
   .section-campaigns .mdc-card__primary,
-  .section-projects .mdc-card__primary,
   .section-campaigns .mdc-card__media,
+  .section-projects .mdc-card__primary,
   .section-projects .mdc-card__media,
   .support.support-organisation .mdc-card__media {
-    background-color: map-get($themeSelected, 'primary');
+    background-color: map-get($themeProjects, 'primary');
+  }
+  .project-digital .mdc-card__media {
+    background-color: map-get($themeDigital, 'primary');
   }
   body {
     background-color: map-get($themeFooter, 'primary-dark');
@@ -411,7 +407,7 @@ primary-dark: #263238
     background-color: map-get($themeSelected, 'primary-light') !important;
   }
   .mdc-theme--primary-dark-bg.toolbar-nav {
-    background-image: linear-gradient(90deg, rgba(0,0,0,0.16), rgba(0,0,0,0.16) 60%, rgba(0,0,0,0.08) 120%, rgba(0,0,0,0.08));
+    background-color: map-get($themeSelected, 'primary-dark') !important;
   }
   .pagination li:hover,
   .pagination li.current-page:hover,
@@ -446,7 +442,7 @@ primary-dark: #263238
 
   .splash-overlay {
     background-image: linear-gradient(
-    60deg,
+    80deg,
     map-get($themeSelected, 'primary-overlay-start'),
     map-get($themeSelected, 'primary-overlay-end') 47%,
     transparent 47.08%,
@@ -456,7 +452,7 @@ primary-dark: #263238
   @media screen and (max-width: 1140px) {
     .splash-overlay {
       background-image: linear-gradient(
-      60deg,
+      80deg,
       map-get($themeSelected, 'primary-overlay-start'),
       map-get($themeSelected, 'primary-overlay-end') 52%,
       transparent 52.08%,
@@ -470,7 +466,7 @@ primary-dark: #263238
   @media screen and (max-width: 991px) {
     .splash-overlay {
       background-image: linear-gradient(
-      60deg,
+      80deg,
       map-get($themeSelected, 'primary-overlay-start'),
       map-get($themeSelected, 'primary-overlay-end') 57%,
       transparent 57.08%,
@@ -484,7 +480,7 @@ primary-dark: #263238
   @media screen and (max-width: 839px) {
     .splash-overlay {
       background-image: linear-gradient(
-      60deg,
+      80deg,
       map-get($themeSelected, 'primary-overlay-start'),
       map-get($themeSelected, 'primary-overlay-end') 67%,
       transparent 67.08%,
@@ -498,7 +494,7 @@ primary-dark: #263238
   @media screen and (max-width: 450px) {
     .splash-overlay {
       background-image: linear-gradient(
-      60deg,
+      80deg,
       map-get($themeSelected, 'primary-overlay-start'),
       map-get($themeSelected, 'primary-overlay-end')
       );
@@ -506,13 +502,13 @@ primary-dark: #263238
   }
   .home .cta-content.callout-image {
     background-image: linear-gradient(
-    map-get($themeJobs, 'primary-overlay-start'),
-    map-get($themeJobs, 'primary-overlay-start')
+    map-get($themePosts, 'primary-overlay-start'),
+    map-get($themePosts, 'primary-overlay-start')
     ),
     url('https://storage.googleapis.com/scvo-cms/23595/THEGATHERING-22.02.17_0475.jpg');
     a:hover .fa-fw {
       background-color: white !important;
-      color: map-get($themeJobs, 'primary') !important;
+      color: map-get($themePosts, 'primary') !important;
     }
   }
   .digital .basic-digital-skills.callout {
@@ -555,7 +551,7 @@ primary-dark: #263238
   .leaflet-popup-content .map-content-goodmoves-vacancy a,
   .vacancy_icon .marker-icon-goodmoves-vacancy,
   .vacancy_icon .map-marker-overlay-goodmoves-vacancy {
-    color: map-get($themeJobs, 'primary');
+    color: map-get($themeGoodmoves, 'primary');
   }
   .community-jobs-scotland .callout-image .caption {
     background-color: map-get($themeCJS, 'primary-overlay-light');
@@ -716,16 +712,22 @@ primary-dark: #263238
   }
 
   footer {
-    color: white;
-    border-top: $unit solid map-get($themeSelected, 'primary');
-    background-color: map-get($themeFooter, 'primary');
-    box-shadow: $toolbar-shadow-reverse;
-    .footer-copyright {
-      background-color: map-get($themeFooter, 'primary-dark');
-    }
+    color: map-get($themeFooter, 'primary');
+    border-top: none;
+    background-color: map-get($themeFooter, 'primary-light');
+    // box-shadow: $toolbar-shadow-reverse;
+    p,
     a,
     a:hover {
-      color: white;
+      color: map-get($themeFooter, 'primary');
+    }
+    .footer-copyright {
+      background-color: map-get($themeFooter, 'primary-dark');
+      p,
+      a,
+      a:hover {
+        color: white;
+      }
     }
   }
 }
@@ -742,7 +744,7 @@ primary-dark: #263238
 .running-a-charity,
 .setting-up-a-charity,
 .running-your-organisation {
-  @include theme-colours('charity');
+  @include theme-colours('default');
 }
 .jobs {
   @include theme-colours('jobs');
@@ -777,6 +779,7 @@ primary-dark: #263238
 }
 .events.a1vb0000007fc04aaa-the-gathering,
 .the-gathering-2019,
+.the-gathering.featured-background-image,
 .the-gathering {
   @include theme-colours('gathering');
 }
@@ -984,7 +987,7 @@ figure {
   width: 100%;
   line-height: $nav-height - 3px;
   height: $nav-height - 3px;
-  border-radius: 2px !important;
+  border-radius: 35px !important;
   box-sizing: border-box;
 }
 .mdc-textfield__input,
@@ -1834,7 +1837,7 @@ form#settled_status {
           line-height: $nav-height - 3px;
           height: $nav-height - 3px;
           background: transparent;
-          border-radius: 2px !important;
+          border-radius: 35px !important;
           box-sizing: border-box;
         }
         ::-webkit-input-placeholder {
@@ -1866,8 +1869,8 @@ form#settled_status {
         .mdc-toolbar__search {
           background-color: transparent;
           position: absolute;
-          padding: 0.4rem;
-          right: 0;
+          padding: 0;
+          right: $unit/10;
           bottom: $unit*2;
         }
       }
@@ -2128,8 +2131,8 @@ form#settled_status {
   background-repeat: no-repeat;
   background-position: center center;
   background-image: linear-gradient(
-  rgba(173, 20, 87, 0.89),
-  rgba(173, 20, 87, 0.89)
+  rgba(173, 20, 87, 0.95),
+  rgba(173, 20, 87, 0.95)
   ),
   url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2017/10/Drake-Music-06.jpg');
   text-align: center;
@@ -2847,13 +2850,6 @@ table.membership-fees {
   }
   .cjs-vacancies .mdc-card__media {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/hiring.jpg');
-  }
-}
-.section-events,
-.section-projects,
-.section-campaigns {
-  .mdc-card__primary {
-    background-color: #AD1457 !important;
   }
 }
 .section-projects {
@@ -4058,14 +4054,12 @@ p.results-highlights em {
   padding: 0 0 0;
   margin-top: 8px;
   margin-bottom: $unit/2;
-
   li {
     min-width: 15%;
     height: auto;
     align-self: baseline;
   }
-
-  li:not(:last-child){
+  li:not(:last-child) {
     margin-right: 5px;
   }
 }
@@ -4077,21 +4071,16 @@ footer {
     margin-bottom: $unit;
   }
   h3 {
-    font-size: 1.2rem;
-    margin: $unit 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin: $unit 0 $unit/2;
     font-family: $footer-font-family;
-    font-weight: 600;
+    font-weight: 700;
     padding-bottom: $unit/2;
-    border-bottom-style: solid;
-    border-bottom-width: $unit/5;
+    border-bottom: none;
   }
-  .about a,
-  a {
-    color: white;
-  }
-  .about a:hover,
-  a:hover {
-    color: white;
+  strong {
+    font-weight: 600;
   }
   .mdc-list .mdc-list-item {
     a {

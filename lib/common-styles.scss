@@ -311,6 +311,7 @@ footer h3,
 .mdc-typography--body2,
 .mdc-typography--title,
 .mdc-text-field__input,
+.mdc-top-app-bar__title,
 .mdc-card__title--large,
 .mdc-typography--caption,
 .mdc-menu .mdc-list-item,
@@ -1420,6 +1421,7 @@ a.mdc-drawer__content-heading {
 a.mdc-drawer__content-heading:hover {
   text-decoration: none;
 }
+.active-search-icon:focus,
 .mdc-drawer__content-heading:focus {
   outline: none;
 }

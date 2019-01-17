@@ -7,26 +7,6 @@
       "route": "^/search"
     },
     {
-      "label": "Browse",
-      "icon": "list-alt",
-      "path": "/browse",
-      "route": "^/browse"
-    }
-  ],
-  "upper": [
-    {
-      "label": "Funding guide",
-      "icon": "question-circle",
-      "path": "/funding-guide",
-      "route": "^/funding-guide"
-    },
-    {
-      "label": "FAQs",
-      "icon": "info-circle",
-      "path": "/faq",
-      "route": "^/faq"
-    },
-    {
       "label": "About",
       "icon": "question-circle",
       "path": "/about",
@@ -37,6 +17,18 @@
       "icon": "award",
       "path": "/premium",
       "route": "^/premium"
+    },
+    {
+      "label": "FAQs",
+      "icon": "info-circle",
+      "path": "/faq",
+      "route": "^/faq"
+    },
+    {
+      "label": "Funding guide",
+      "icon": "question-circle",
+      "path": "/funding-guide",
+      "route": "^/funding-guide"
     }
   ],
   "user-signed-in": [
@@ -81,6 +73,32 @@
   ],
   "footer-info": [
     {
+      "label": "Contact",
+      "icon": "at",
+      "path": "/contact",
+      "route": "^/contact"
+    },
+    {
+      "label": "About",
+      "icon": "question-circle",
+      "path": "/about",
+      "route": "^/about"
+    },
+    {
+      "label": "Premium",
+      "icon": "award",
+      "path": "/premium",
+      "route": "^/premium"
+    },
+    {
+      "label": "FAQs",
+      "icon": "info-circle",
+      "path": "/faq",
+      "route": "^/faq"
+    }
+  ],
+  "footer-help": [
+    {
       "label": "Privacy",
       "icon": "lock-alt",
       "path": "/privacy",
@@ -97,14 +115,6 @@
       "icon": "book",
       "path": "/terms",
       "route": "^/terms"
-    }
-  ],
-  "footer-help": [
-    {
-      "label": "Contact",
-      "icon": "at",
-      "path": "/contact",
-      "route": "^/contact"
     }
   ]
 }

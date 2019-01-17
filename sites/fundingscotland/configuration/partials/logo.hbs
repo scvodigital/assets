@@ -1,10 +1,9 @@
-<h1 class="header-text">
-  <a href="/">
-    <img src="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/logo.png')~}}" />
-  </a>
-  <span class="header-text-banner">
-    {{#if branded ~}}
-    Provided by <a href="https://fundingscotland.com">Funding Scotland</a>
-    {{/if ~}}
+<div class="header-logo">
+  <a href="/"><img src="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/logo.png')~}}" alt="{{@root.data.currentSite.title}}" /></a>
+  {{#compare @root.data.currentSite.name "!==" "default" ~}}
+  <br />
+  <span class="header-logo-provider">
+    <a href="https://fundingscotland.com">Funding Scotland</a>
   </span>
-</h1>
+  {{/compare ~}}
+</div>

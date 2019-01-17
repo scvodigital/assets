@@ -2577,6 +2577,7 @@ body.i-love-charity .page-info,
 .sidebar .list .post-info-author,
 .about.staff-team .splash-image .header-text .mdc-typography--caption .organisation,
 .press-media .mdc-card__actions,
+.digital.participation.dc-training-your-feedback .related-posts,
 .press-media .sidebar h3.blogs {
   display: none;
 }
@@ -2861,6 +2862,9 @@ table.membership-fees {
   }
   .project-open-government .mdc-card__media {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/open-government.png');
+  }
+  .project-european .mdc-card__media {
+    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/european-flag.jpg');
   }
   .project-cjs .mdc-card__media {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/header-cjs.jpg');

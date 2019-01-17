@@ -96,68 +96,82 @@
           </div>
         {{/if}}
       {{/ifAny}}
+
       <header class="mdc-top-app-bar mdc-elevation--z5 top-bar-stuck" id="top-bar">
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
               {{#unless @root.route.metaData.hideSearch ~}}
               {{#compare @root.route.name "!==" "home" ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button mdc-theme--primary" id="sidebar-button" title="Search">
+              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
                 <span class="far fa-fw fa-2x fa-search"></span>
               </button>
               {{/compare ~}}
               {{/unless ~}}
+              <a href="https://scvo.org" class="mdc-top-app-bar__title">
+                <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
+              </a>
+              <span class="mdc-top-app-bar__title">
+                &nbsp;|&ensp;
+              </span>
+              <a href="/" class="mdc-top-app-bar__title">
+                {{#compare @root.data.currentSite.name "===" "default" ~}}
+                Funding Scotland
+                {{else}}
+                {{@root.data.currentSite.title}}
+                {{/compare ~}}
+              </a>
+              {{#compare @root.data.currentSite.name "!==" "default" ~}}
+              &emsp;<span style="font-weight:600;">|</span>&emsp;
+              <a href="https://fundingscotland.com" class="mdc-typography--caption">Funding Scotland</a>
+              {{/compare ~}}
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+              <form action="/search" method="GET" class="h-margin">
+                <div class="mdc-text-field text-field demo-text-field-outlined-shaped mdc-text-field--outlined mdc-text-field--with-trailing-icon" data-mdc-auto-init="MDCTextField">
+                  <input type="text" id="perm-keywords" name="keywords" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
+                  <span class="fas fa-search active-search-icon mdc-text-field__icon" role="button" onclick="$(this).parents('form:first').submit();" style="pointer-events:initial !important; z-index:500;" tabindex="-1"></span>
+                  <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                      <label class="mdc-floating-label" for="keywords">
+                        {{#compare @root.data.currentSite.name "===" "default" ~}}
+                        Search {{@root.data.currentSite.title}}
+                        {{else}}
+                        {{@root.data.currentSite.title}}
+                        {{/compare ~}}
+                      </label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                  </div>
+                </div>
+              </form>
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
           </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main mdc-theme--primary-bg">
-              <span class="mdc-top-app-bar__title">
-                {{> logo}}
-              </span>
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user mdc-theme--primary-bg">
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
               {{#>components_tab_bar
-                  extraClasses="mdc-tab-bar__auto-width hide-sm hide-md"
-                  id="upper-tab-bar"}}
-                {{#if @root.data.auth ~}}
-                  {{#each @root.context.metaData.menus.upper-signed-in ~}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        labelClasses="mdc-theme--on-primary"
-                        linkClasses="mdc-theme--on-primary"
-                        label=label}}
-                  {{/each ~}}
-                {{else}}
-                  {{#each @root.context.metaData.menus.upper-not-signed-in ~}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        labelClasses="mdc-theme--on-primary"
-                        linkClasses="mdc-theme--on-primary"
-                        label=label}}
-                  {{/each ~}}
-                {{/if ~}}
-                {{#each @root.context.metaData.menus.upper ~}}
+                  extraClasses="mdc-tab-bar__auto-width"
+                  id="main-tab-bar"}}
+                {{#each @root.context.metaData.menus.main ~}}
                   {{>components_tab
                       url=(stripTrailingSlash path)
-                      active=(regexMatch @root.request.url.pathname route "gi")
                       labelClasses="mdc-theme--on-primary"
-                      linkClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
                       label=label}}
                 {{/each ~}}
               {{/components_tab_bar}}
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user">
               {{#if @root.data.auth ~}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"
                     imageUrl=(default @root.data.auth.photoURL false)
                     imageClasses="far fa-fw user-avatar"
-                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "fas fa-fw fa-user" else=false)
+                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
                   {{#each @root.context.metaData.menus.user-signed-in ~}}
@@ -178,8 +192,6 @@
                         url=(stripTrailingSlash path)
                         labelClasses="mdc-theme--on-primary"
                         active=(regexMatch @root.request.url.pathname route "gi")
-                        labelClasses="mdc-theme--on-primary"
-                        linkClasses="mdc-theme--on-primary"
                         label=label}}
                   {{/each}}
                 {{/components_tab_bar}}
@@ -261,7 +273,7 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--background mdc-toolbar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-elevation--z3 mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
@@ -294,9 +306,9 @@
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
-                  <h3>Help</h3>
+                  <h3>Information</h3>
                   <ul class="mdc-list">
-                    {{#each @root.context.metaData.menus.footer-help ~}}
+                    {{#each @root.context.metaData.menus.footer-info ~}}
                     <li class="mdc-list-item">
                       <a href="{{path}}">{{{label}}}</a>
                     </li>
@@ -304,9 +316,9 @@
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone info">
-                  <h3>Information</h3>
+                  <h3>Help</h3>
                   <ul class="mdc-list">
-                    {{#each @root.context.metaData.menus.footer-info ~}}
+                    {{#each @root.context.metaData.menus.footer-help ~}}
                     <li class="mdc-list-item">
                       <a href="{{path}}">{{{label}}}</a>
                     </li>

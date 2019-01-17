@@ -668,10 +668,10 @@ footer,
 footer.mdc-layout__footer {
   border-top: none;
   background-color: $mdc-theme-footer-light;
-  box-shadow: $toolbar-shadow-reverse;
+  box-shadow: none;
   h3 {
     color: $mdc-theme-footer;
-    font-weight: $heading-medium-font-weight;
+    font-weight: $heading-font-weight;
     border-bottom: none;
     font-size: 1.1rem;
     margin: $unit 0 0;

@@ -16,11 +16,14 @@
 {{/inline}}
 
 {{#*inline "mdc_list_checkbox"}}
-  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" aria-checked="{{checked}}">
+  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" 
+      {{#if isParent}}data-checkbox-group="{{name}}"{{else}}aria-checked="{{checked}}"{{/if}}
+      {{#if collapseParent}}data-checkbox-collapse-parent="{{collapseParent}}"{{/if}}>
     <span class="mdc-list-item__graphic">
-      <div class="mdc-checkbox">
+      <div class="mdc-checkbox mdc-checkbox--upgraded">
         <input type="checkbox" class="mdc-checkbox__native-control" 
             {{#unless isParent}}name="{{name}}"{{/unless}} value="{{value}}" 
+            {{#if parent}}data-checkbox-group-parent="{{parent}}"{{/if}}
             id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}>
         <div class="mdc-checkbox__background">
           <svg class="mdc-checkbox__checkmark"
@@ -105,11 +108,10 @@
     </div>
 
     {{#each @root.context.metaData.terms}}
-      <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
+      <h3 class="mdc-drawer__content-heading cursor-pointer noselect">
         {{{label}}}
-        <span class="mdc-icon-toggle pull-right">
-          <!--<span class="far fa-chevron-up" aria-hidden="true"></span>-->
-          <input type="checkbox" id="toggle-{{@key}}" checked>
+        <span class="mdc-icon-toggle pull-right" data-checkbox-collapse="{{@key}}">
+          <span class="fas fa-eye" aria-hidden="true"></span>
         </span>
       </h3>
       {{#compare (length (getKeys termGroups)) 1}}
@@ -121,7 +123,8 @@
                   value=@key
                   label=this
                   checked=false
-                  first=@first}}
+                  first=@first
+                  collapseParent=@../../key}}
             {{/each}}
           {{/each}}
         </ul>
@@ -129,20 +132,22 @@
         <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
           {{#each termGroups}}
             {{> mdc_list_checkbox
-                name=@../key
+                name=(concat @../key '-' @key)
                 isParent=true
                 value=@key
                 label=label
                 checked=false
-                first=@first}}
+                first=@first
+                collapseParent=@../key}}
             {{#each terms}}
               {{> mdc_list_checkbox
                   name=@../../key
-                  parent=@../key
+                  parent=(concat @../../key '-' @../key)
                   value=@key
                   label=this
                   checked=false
-                  first=false}}
+                  first=false
+                  collapseParent=@../../key}}
             {{/each}}
           {{/each}}
         </ul>

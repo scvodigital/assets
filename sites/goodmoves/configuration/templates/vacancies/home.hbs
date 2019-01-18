@@ -15,7 +15,7 @@
       </div>
       <div class="search-content">
         {{#compare @root.data.supplimentaryResponses.types.hits.total ">" 0 ~}}
-          <form id="search-view" class="search-form mdc-elevation--z5" action="/search" method="GET">
+          <form id="search-view" class="search-form mdc-elevation--z10" action="/search" method="GET">
             <input type="hidden" name="lat" value="{{@root.request.params.query.lat}}" id="location-lat">
             <input type="hidden" name="lng" value="{{@root.request.params.query.lng}}" id="location-lng">
             <div class="mdc-layout-grid">
@@ -114,7 +114,7 @@
                       "locationServicesSelector": ".geo-lookup"
                     }'>
                     <label for="where-primary-content" class="mdc-floating-label">
-                      Location 
+                      Location
                     </label>
                     <div class="mdc-line-ripple"></div>
                   </div>

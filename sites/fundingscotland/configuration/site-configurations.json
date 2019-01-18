@@ -20,7 +20,7 @@
   },
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
-    "title": "Funding East Renfrewshire",
+    "title": "Funding Scotland for East Renfrewshire",
     "colors": {
       "primary": "#007FC4",
       "primaryText": "#000000",
@@ -49,7 +49,7 @@
   },
   "fife": {
     "name": "fife",
-    "title": "Fife Funding Search",
+    "title": "Funding Scotland for Fife",
     "colors": {
       "primary": "#00536D",
       "primaryText": "#ffffff",
@@ -78,7 +78,7 @@
   },
   "northlanarkshire": {
     "name": "northlanarkshire",
-    "title": "Funding North Lanarkshire",
+    "title": "Funding Scotland for North Lanarkshire",
     "colors": {
       "primary": "#BD0029",
       "primaryText": "#ffffff",
@@ -97,7 +97,7 @@
   },
   "shetland": {
     "name": "shetland",
-    "title": "Shetland Funding Search",
+    "title": "Funding Scotland for Shetland",
     "colors": {
       "primary": "#0A2C3F",
       "primaryText": "#ffffff",
@@ -126,7 +126,7 @@
   },
   "southlanarkshire": {
     "name": "southlanarkshire",
-    "title": "Funding South Lanarkshire",
+    "title": "Funding Scotland for South Lanarkshire",
     "colors": {
       "primary": "#222E66",
       "primaryText": "#ffffff",
@@ -155,7 +155,7 @@
   },
   "srn": {
     "name": "srn",
-    "title": "Scottish Rural Network",
+    "title": "Funding Scotland for Scottish Rural Network",
     "colors": {
       "primary": "#888888",
       "primaryText": "#000000",
@@ -211,7 +211,7 @@
   },
   "stirling": {
     "name": "stirling",
-    "title": "Funding Stirling",
+    "title": "Funding Scotland for Stirling",
     "colors": {
       "primary": "#E51072",
       "primaryText": "#000000",

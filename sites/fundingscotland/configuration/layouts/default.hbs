@@ -115,16 +115,12 @@
                 &nbsp;|&ensp;
               </span>
               <a href="/" class="mdc-top-app-bar__title">
-                {{#compare @root.data.currentSite.name "===" "default" ~}}
-                Funding Scotland
-                {{else}}
                 {{@root.data.currentSite.title}}
-                {{/compare ~}}
               </a>
-              {{#compare @root.data.currentSite.name "!==" "default" ~}}
+              <!-- {{#compare @root.data.currentSite.name "!==" "default" ~}}
               &emsp;<span style="font-weight:600;">|</span>&emsp;
               <a href="https://fundingscotland.com" class="mdc-typography--caption">Funding Scotland</a>
-              {{/compare ~}}
+              {{/compare ~}} -->
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
               <form action="/search" method="GET" class="h-margin">

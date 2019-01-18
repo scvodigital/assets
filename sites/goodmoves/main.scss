@@ -1,6 +1,7 @@
-$mdc-theme-primary: #42842A;
-$mdc-theme-primary-light: #679c54;
-$mdc-theme-primary-dark: #346921;
+$mdc-theme-primary: #448532;
+$mdc-theme-primary-medium: #346921;
+$mdc-theme-primary-light: #448532;
+$mdc-theme-primary-dark: #223c1d;
 
 $mdc-theme-complimentary: #c6dabf;
 $mdc-theme-complimentary-light: #ecf2e9;
@@ -11,7 +12,7 @@ $mdc-theme-secondary-light: #F5F5F5; // Gray 100
 $mdc-theme-secondary-dark: #212121; // Gray 900
 
 $mdc-theme-footer: #37474F; // Blue Gray 800
-$mdc-theme-footer-light: #455A64; // Blue Gray 700
+$mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
 
 $mdc-theme-error: #A9201E;
@@ -45,11 +46,8 @@ body {
 
 header {
   .container-fluid {
-    .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
-      background-image: linear-gradient(60deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 220px, $mdc-theme-primary 221px, $mdc-theme-primary);
-    }
-    .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-end {
-      background-color: $mdc-theme-primary;
+    .mdc-top-app-bar__lower {
+      background-color: $mdc-theme-primary-medium;
     }
     .mdc-tab-bar {
       .mdc-tab {
@@ -194,11 +192,11 @@ header {
       display: none;
     }
     .goog-te-menu-value {
-      color: #fff;
+      color: $mdc-theme-footer;
       margin: 0;
       span {
         border: none !important;
-        color: #fff !important;
+        color: $mdc-theme-footer !important;
       }
       img,
       span:last-child {
@@ -207,7 +205,7 @@ header {
     }
     .goog-te-menu-value:hover {
       text-decoration: underline;
-      color: #fff;
+      color: $mdc-theme-footer;
     }
   }
 }
@@ -452,6 +450,8 @@ a {
 
 hr {
   background-color: $mdc-theme-primary-light;
+  height: 0;
+  visibility: hidden;
 }
 
 a.mdc-drawer__content-heading {
@@ -742,51 +742,50 @@ footer,
 // Footer ======================================================================
 
 footer.mdc-layout__footer {
-  border-top: $unit solid $mdc-theme-primary;
-  background-color: $mdc-theme-footer;
-  box-shadow: $toolbar-shadow-reverse;
+  border-top: none;
+  background-color: $mdc-theme-footer-light;
+  box-shadow: none;
   h3 {
-    color: #fff;
-    border-bottom: $unit/5 solid $mdc-theme-footer-light;
+    color: $mdc-theme-footer;
+    border-bottom: none;
   }
+  a,
+  a:hover,
   .about a,
-  a {
-    color: #fff;
-  }
   .about a:hover,
-  a:hover {
-    color: #fff;
-  }
-  .mdc-layout-grid {
-    p {
-      color: #fff;
-    }
+  .mdc-layout-grid p {
+    color: $mdc-theme-footer;
   }
   .fa-ul {
     .fa-li {
       .fas, .fal, .far, .fab {
-        color: #fff;
+        color: $mdc-theme-footer;
       }
     }
   }
   .footer-copyright {
     background-color: $mdc-theme-footer-dark;
+    p,
+    a,
+    a:hover {
+      color: white;
+    }
   }
 }
 
 @media screen and (min-width: 1551px) {
   .home-banner .banner-search.overlay .content {
-    background-image: linear-gradient(60deg, rgba(66, 132, 42, 0.89), rgba(66, 132, 42, 0.91) 34.5%, transparent 34.58%, transparent);
+    background-image: linear-gradient(80deg, rgb(68, 133, 50), rgb(68, 133, 50) 34.5%, transparent 34.58%, transparent);
   }
 }
 @media screen and (min-width: $mobile-landscape-breakpoint + 1) and (max-width: 1550px) {
   .home-banner .banner-search.overlay .content {
-    background-image: linear-gradient(60deg, rgba(66, 132, 42, 0.89), rgba(66, 132, 42, 0.91) 40%, transparent 40.08%, transparent);
+    background-image: linear-gradient(80deg, rgb(68, 133, 50), rgb(68, 133, 50) 40%, transparent 40.08%, transparent);
   }
 }
 @media screen and (min-width: $mobile-breakpoint + 1) and (max-width: $mobile-landscape-breakpoint) {
   .home-banner .banner-search.overlay .content {
-    background-image: linear-gradient(60deg, rgba(66, 132, 42, 0.89), rgba(66, 132, 42, 0.91) 66%, transparent 66.08%, transparent);
+    background-image: linear-gradient(80deg, rgb(68, 133, 50), rgb(68, 133, 50) 66%, transparent 66.08%, transparent);
   }
 }
 @media screen and (max-width: $mobile-breakpoint) {
@@ -797,7 +796,7 @@ footer.mdc-layout__footer {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)) !important;
   }
   .home-banner .banner-search.overlay .content {
-    background-color: rgba(66, 132, 42, 0.89);
+    background-color: rgb(68, 133, 50);
   }
   .currently-recruiting .content-secondary-logo {
     padding: 0 $unit/2 1px;

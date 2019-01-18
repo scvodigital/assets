@@ -18,7 +18,8 @@
 {{#*inline "mdc_list_checkbox"}}
   <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" 
       {{#if isParent}}data-checkbox-group="{{name}}"{{else}}aria-checked="{{checked}}"{{/if}}
-      {{#if collapseParent}}data-checkbox-collapse-parent="{{collapseParent}}"{{/if}}>
+      {{#if collapseParent}}data-checkbox-collapse-parent="{{collapseParent}}"{{/if}}
+      {{#if collapseAlwaysHide}}data-checkbox-collapse-always-hide="true"{{/if}}>
     <span class="mdc-list-item__graphic">
       <div class="mdc-checkbox mdc-checkbox--upgraded">
         <input type="checkbox" class="mdc-checkbox__native-control" 
@@ -106,7 +107,7 @@
       </label>
       <div class="mdc-line-ripple"></div>
     </div>
-
+        
     {{#each @root.context.metaData.terms}}
       <h3 class="mdc-drawer__content-heading cursor-pointer noselect">
         {{{label}}}
@@ -115,7 +116,7 @@
         </span>
       </h3>
       {{#compare (length (getKeys termGroups)) 1}}
-        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}">
+        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
           {{#each termGroups}}
             {{#each terms}}
               {{> mdc_list_checkbox
@@ -138,7 +139,8 @@
                 label=label
                 checked=false
                 first=@first
-                collapseParent=@../key}}
+                collapseParent=@../key
+                collapseAlwaysHide=true}}
             {{#each terms}}
               {{> mdc_list_checkbox
                   name=@../../key

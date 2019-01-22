@@ -16,30 +16,27 @@
 {{/inline}}
 
 {{#*inline "mdc_list_checkbox"}}
-  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" 
+  <li class="mdc-list-item {{#if isParent}}checkbox-list-group-parent{{/if}} {{#if parent}}checkbox-list-group-child{{/if}}" 
+      {{#if first}}tabindex="0"{{/if}} role="checkbox" 
       {{#if isParent}}data-checkbox-group="{{name}}"{{else}}aria-checked="{{checked}}"{{/if}}
       {{#if collapseParent}}data-checkbox-collapse-parent="{{collapseParent}}"{{/if}}
       {{#if collapseAlwaysHide}}data-checkbox-collapse-always-hide="true"{{/if}}>
-    <span class="mdc-list-item__graphic">
-      <div class="mdc-checkbox mdc-checkbox--upgraded">
-        <input type="checkbox" class="mdc-checkbox__native-control" 
-            {{#unless isParent}}name="{{name}}"{{/unless}} value="{{value}}" 
-            {{#if parent}}data-checkbox-group-parent="{{parent}}"{{/if}}
-            id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}>
-        <div class="mdc-checkbox__background">
-          <svg class="mdc-checkbox__checkmark"
-              viewBox="0 0 24 24">
-            <path class="mdc-checkbox__checkmark-path"
-                fill="none"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-          </svg>
-          <div class="mdc-checkbox__mixedmark"></div>
-        </div>
+    {{{label}}}
+    <div class="mdc-checkbox mdc-list-item__meta">
+      <input type="checkbox" class="mdc-checkbox__native-control" 
+          {{#unless isParent}}name="{{name}}"{{/unless}} value="{{value}}" 
+          {{#if parent}}data-checkbox-group-parent="{{parent}}"{{/if}}
+          id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}>
+      <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark"
+            viewBox="0 0 24 24">
+          <path class="mdc-checkbox__checkmark-path"
+              fill="none"
+              d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
       </div>
-    </span>
-    <label class="mdc-list-item__text {{#if isParent}}checkbox-list-group-parent{{/if}} {{#if parent}}checkbox-list-group-child{{/if}}" for="cb-{{name}}-{{value}}">
-      {{{label}}}
-    </label>
+    </div>
   </li>
 {{/inline}}
 
@@ -55,24 +52,11 @@
         },
         "outputs": [
           {
-            "type": "element",
-            "options": {
-              "containerSelectorTemplate": "#search-terms",
-              "testSelectorTemplate": "#\{{dataset.name}}-\{{item.value}}",
-              "removeSelectorTemplate": "#remove-\{{dataset.name}}-\{{item.value}}",
-              "template": {{#blockStringify this~}}
-                <div class="mdc-chip mdc-theme--primary-bg" tabindex="0" id="\{{dataset.name}}-\{{item.value}}">
-                  <div class="mdc-chip__text">\{{item.label}}</div>
-                  <input type="hidden" name="\{{dataset.name}}[]" value="\{{item.value}}">
-                  <i class="far fa-times-circle mdc-chip__icon mdc-chip__icon--trailing" tabindex="0" role="button" id="remove-\{{dataset.name}}-\{{item.value}}"></i>
-                </div>
-              {{~/blockStringify}}
-            }
-          },
-          {
             "type": "prop",
             "options": {
-              "selectorTemplate": "[name=\"\{{value}}\"]"
+              "selectorTemplate": "[name=\"\{{item.datasetName}}\"][value=\"\{{item.value}}\"]",
+              "prop": "checked",
+              "valueTemplate": "checked"
             }
           }
         ],
@@ -109,51 +93,57 @@
     </div>
         
     {{#each @root.context.metaData.terms}}
-      <h3 class="mdc-drawer__content-heading cursor-pointer noselect">
-        {{{label}}}
-        <span class="mdc-icon-toggle pull-right" data-checkbox-collapse="{{@key}}">
-          <span class="fas fa-eye" aria-hidden="true"></span>
-        </span>
-      </h3>
-      {{#compare (length (getKeys termGroups)) 1}}
-        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
-          {{#each termGroups}}
-            {{#each terms}}
+      <div class="mdc-list-group">
+        <h3 class="mdc-list-group__subheader cursor-pointer noselect" 
+            data-checkbox-collapse="{{@key}}">
+          {{{label}}}
+        </h3>
+        {{#compare (length (getKeys termGroups)) 1}}
+          <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
+            {{#each termGroups}}
+              {{#each terms}}
+                {{> mdc_list_checkbox
+                    name=@../../key
+                    value=@key
+                    label=this
+                    checked=false
+                    first=@first
+                    collapseParent=@../../key}}
+              {{/each}}
+            {{/each}}
+            <li class="mdc-list-item cursor-pointer noselect" data-checkbox-collapse-trigger="{{@key}}">
+              <i class="fas fa-ellipsis-h fa-2x pull-centre"></i>
+            </li>
+          </ul>
+        {{else}}
+          <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
+            {{#each termGroups}}
               {{> mdc_list_checkbox
-                  name=@../../key
+                  name=(concat @../key '-' @key)
+                  isParent=true
                   value=@key
-                  label=this
+                  label=label
                   checked=false
                   first=@first
-                  collapseParent=@../../key}}
+                  collapseParent=@../key
+                  collapseAlwaysHide=true}}
+              {{#each terms}}
+                {{> mdc_list_checkbox
+                    name=@../../key
+                    parent=(concat @../../key '-' @../key)
+                    value=@key
+                    label=this
+                    checked=false
+                    first=false
+                    collapseParent=@../../key}}
+              {{/each}}
             {{/each}}
-          {{/each}}
-        </ul>
-      {{else}}
-        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
-          {{#each termGroups}}
-            {{> mdc_list_checkbox
-                name=(concat @../key '-' @key)
-                isParent=true
-                value=@key
-                label=label
-                checked=false
-                first=@first
-                collapseParent=@../key
-                collapseAlwaysHide=true}}
-            {{#each terms}}
-              {{> mdc_list_checkbox
-                  name=@../../key
-                  parent=(concat @../../key '-' @../key)
-                  value=@key
-                  label=this
-                  checked=false
-                  first=false
-                  collapseParent=@../../key}}
-            {{/each}}
-          {{/each}}
-        </ul>
-      {{/compare}}
+            <li class="mdc-list-item cursor-pointer noselect" data-checkbox-collapse-trigger="{{@key}}">
+              <i class="fas fa-ellipsis-h fa-2x pull-centre"></i>
+            </li>
+          </ul>
+        {{/compare}}
+      </div>
     {{/each}}
 
     {{!--

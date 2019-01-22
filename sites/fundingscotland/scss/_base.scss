@@ -756,14 +756,41 @@ footer.mdc-layout__footer {
 }
 
 .checkbox-list-group-parent {
-  font-size: 1.2rem;
+  font-weight: bold !important;
 }
 
-.checkbox-list-group-child {
-  padding-left: $unit;
+.not-collapsed .checkbox-list-group-child {
+  padding-left: $unit*1.5 !important;
 }
 
+.mdc-list-group {
+  margin: $unit 0;
+}
 
+.mdc-list-group {
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.mdc-list-item {
+  height: auto !important;
+}
+
+.mdc-list-group__subheader {
+  padding: 0 !important;
+  font-size: 1.2rem !important;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.mdc-list-item__graphic {
+  margin-right: $unit;
+}
+
+.mdc-drawer .mdc-list-item {
+  margin: 0 !important;
+}
 
 
 .text-left { text-align: left; }
@@ -772,6 +799,7 @@ footer.mdc-layout__footer {
 .text-justify { text-align: justify; }
 .pull-right { float: right; }
 .pull-left { float: left; }
+.pull-centre { margin-left: auto !important; margin-right: auto !important; }
 
 .clearfix::after {
   content: "";

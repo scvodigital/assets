@@ -755,19 +755,16 @@ footer.mdc-layout__footer {
   color: #fff !important;
 }
 
-.checkbox-list-group-parent {
+.checkbox-list-parent {
   font-weight: bold !important;
 }
 
-.not-collapsed .checkbox-list-group-child {
+.checkbox-list-child {
   padding-left: $unit*1.5 !important;
 }
 
 .mdc-list-group {
   margin: $unit 0;
-}
-
-.mdc-list-group {
   border: 1px solid #cccccc;
   border-radius: 4px;
 }
@@ -782,10 +779,6 @@ footer.mdc-layout__footer {
   border-bottom: 1px solid #cccccc;
   border-radius: 4px;
   background-color: #ffffff;
-}
-
-.mdc-list-item__graphic {
-  margin-right: $unit;
 }
 
 .mdc-drawer .mdc-list-item {

@@ -153,30 +153,6 @@
       }
     }
   },
-  "charities-only": { 
-    "label": "Charities only",
-    "termGroups": { 
-      "other": { 
-        "label": "Other",
-        "terms": {
-          "false": "Available to all",
-          "true": "Charities only"
-        }
-      }
-    }
-  },
-  "fund-status": { 
-    "label": "Fund status",
-    "termGroups": { 
-      "other": { 
-        "label": "Other",
-        "terms": {
-          "currently-closed": "Currently Closed",
-          "open": "Open"
-        }
-      }
-    }
-  },
   "geographical-areas-funded": { 
     "label": "Geographical areas funded",
     "termGroups": { 

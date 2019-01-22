@@ -759,14 +759,27 @@ footer.mdc-layout__footer {
   font-weight: bold !important;
 }
 
+.checkbox-list-parent-hidden {
+  display: none;
+}
+
 .checkbox-list-child {
   padding-left: $unit*1.5 !important;
+}
+
+.checkbox-list-child-no-indent {
+  padding-left: $unit/2 !important;
 }
 
 .mdc-list-group {
   margin: $unit 0;
   border: 1px solid #cccccc;
   border-radius: 4px;
+}
+
+.checkbox-list-indicator {
+  font-weight: 400 !important;
+  font-style: italic;
 }
 
 .mdc-list-item {

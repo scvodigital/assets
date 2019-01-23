@@ -1,46 +1,58 @@
-{{#*inline "term_checkbox"}}
-<div class="mdc-form-field">
-  <div class="mdc-checkbox">
-    <input type="checkbox" class="mdc-checkbox__native-control" id="{{instance_id}}_{{field}}_{{slug}}" name="{{#compare field "===" "type"}}{{field}}{{else}}{{field}}[]{{/compare}}" value="{{slug}}"{{#if (contains selected slug)}} checked{{/if}} onchange="this.form.submit();" />
+{{#*inline "advanced_checkbox_checkbox"}}
+  <div class="mdc-checkbox mdc-list-item__meta">
+    <input type="checkbox" class="mdc-checkbox__native-control"
+        {{#unless hideName}}name="{{name}}"{{/unless}} value="{{value}}"
+        id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}
+        aria-labelledby="li-{{name}}-{{value}}">
     <div class="mdc-checkbox__background">
       <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-        <path class="mdc-checkbox__checkmark-path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
       </svg>
       <div class="mdc-checkbox__mixedmark"></div>
     </div>
   </div>
-  <label for="{{instance_id}}_{{field}}_{{slug}}">
-    {{{default value.key value}}}
-  </label>
-</div>
 {{/inline}}
 
-{{#*inline "mdc_list_checkbox"}}
-  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} role="checkbox" aria-checked="{{checked}}">
-    <span class="mdc-list-item__graphic">
-      <div class="mdc-checkbox">
-        <input type="checkbox" class="mdc-checkbox__native-control" 
-            {{#unless isParent}}name="{{name}}"{{/unless}} value="{{value}}" 
-            id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}>
-        <div class="mdc-checkbox__background">
-          <svg class="mdc-checkbox__checkmark"
-              viewBox="0 0 24 24">
-            <path class="mdc-checkbox__checkmark-path"
-                fill="none"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-          </svg>
-          <div class="mdc-checkbox__mixedmark"></div>
-        </div>
-      </div>
-    </span>
-    <label class="mdc-list-item__text {{#if isParent}}checkbox-list-group-parent{{/if}} {{#if parent}}checkbox-list-group-child{{/if}}" for="cb-{{name}}-{{value}}">
+{{#*inline "advanced_checkbox_list"}}
+  <div class="mdc-list-group" data-advanced-checkbox-list="{{name}}">
+    <h3 class="mdc-list-group__subheader cursor-pointer noselect" data-acl-collapse-trigger>
+      <span class="mdc-icon-toggle mdc-icon-toggle-xs pull-right r-padding-full" data-acl-clear>
+        <span class="far fa-trash" aria-hidden="true"></span>
+      </span>
       {{{label}}}
+    </h3>
+    <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}">
+      {{> @partial-block}}
+      <li class="mdc-list-item cursor-pointer noselect" data-acl-collapse-trigger>
+        <i class="fas fa-ellipsis-h fa-2x pull-centre" data-acl-collapse-icon-collapsed="fa-ellipsis-h"
+            data-acl-collapse-icon-open="fa-chevron-up"></i>
+      </li>
+    </ul>
+  </div>
+{{/inline}}
+
+{{#*inline "advanced_checkbox_group"}}
+<li class="mdc-list-item checkbox-list-parent {{#if hideParent}}checkbox-list-parent-hidden{{/if}}" data-advanced-checkbox-group="{{name}}"
+      role="checkbox" aria-checked="false" id="li-{{name}}-{{value}}">
+    <label for="cb-{{name}}-{{value}}">
+      {{label}}
+      <span class="checkbox-list-indicator" data-advanced-checkbox-group-indicator></span>
     </label>
+    {{> advanced_checkbox_checkbox name=name hideName=true label=label}}
+  </li>
+  {{> @partial-block}}
+{{/inline}}
+
+{{#*inline "advanced_checkbox_item"}}
+<li class="mdc-list-item checkbox-list-child {{#if noIndent}}checkbox-list-child-no-indent{{/if}}" data-advanced-checkbox-item="{{name}}"
+      data-advanced-checkbox-group-parent="{{group}}" role="checkbox" aria-checked="false"
+      id="li-{{name}}-{{value}}">
+    <label for="cb-{{name}}-{{value}}">{{label}}</label>
+    {{> advanced_checkbox_checkbox name=name hideName=false value=value label=label}}
   </li>
 {{/inline}}
 
 <div class="mdc-drawer__content">
-  <!-- <h2 class="mdc-drawer__content-heading hide-sm mdc-drawer--occasional-ie11">Search funds</h2> -->
   <form action="/search" method="GET" class="search-form">
     <div class="header mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field-tt" data-mdc-auto-init="MDCTextField">
       <span class="far fa-search mdc-text-field__icon" tabindex="0" role="button"></span>
@@ -51,24 +63,11 @@
         },
         "outputs": [
           {
-            "type": "element",
-            "options": {
-              "containerSelectorTemplate": "#search-terms",
-              "testSelectorTemplate": "#\{{dataset.name}}-\{{item.value}}",
-              "removeSelectorTemplate": "#remove-\{{dataset.name}}-\{{item.value}}",
-              "template": {{#blockStringify this~}}
-                <div class="mdc-chip mdc-theme--primary-bg" tabindex="0" id="\{{dataset.name}}-\{{item.value}}">
-                  <div class="mdc-chip__text">\{{item.label}}</div>
-                  <input type="hidden" name="\{{dataset.name}}[]" value="\{{item.value}}">
-                  <i class="far fa-times-circle mdc-chip__icon mdc-chip__icon--trailing" tabindex="0" role="button" id="remove-\{{dataset.name}}-\{{item.value}}"></i>
-                </div>
-              {{~/blockStringify}}
-            }
-          },
-          {
             "type": "prop",
             "options": {
-              "selectorTemplate": "[name=\"\{{value}}\"]"
+              "selectorTemplate": "#cb-\{{item.datasetName}}-\{{item.value}}",
+              "prop": "checked",
+              "valueTemplate": "checked"
             }
           }
         ],
@@ -84,12 +83,13 @@
                     "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
                   {{/compare}}
                 },
-                "display": "label",
+                "display": "other",
                 "items": [
                   {{#each terms}}
                   {
-                  "label": {{{stringify this}}},
-                  "value": {{{stringify @key}}}
+                  "label": {{{stringify (concat @../key ' ' this)}}},
+                  "value": {{{stringify @key}}},
+                  "other": {{{stringify this}}}
                   }{{#unless @last}},{{/unless}}
                   {{/each}}
                 ]
@@ -99,103 +99,33 @@
         ]
       }'>
       <label for="what-primary-content" class="mdc-floating-label">
-        Keywords
+        Keywords / categories
       </label>
       <div class="mdc-line-ripple"></div>
     </div>
-
+    
     {{#each @root.context.metaData.terms}}
-      <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
-        {{{label}}}
-        <span class="mdc-icon-toggle pull-right">
-          <!--<span class="far fa-chevron-up" aria-hidden="true"></span>-->
-          <input type="checkbox" id="toggle-{{@key}}" checked>
-        </span>
-      </h3>
-      {{#compare (length (getKeys termGroups)) 1}}
-        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}">
+      {{#unless (getProperty @root.data.currentSite.fixedFilters @key)}}
+        {{#> advanced_checkbox_list name=@key label=label}}
           {{#each termGroups}}
-            {{#each terms}}
-              {{> mdc_list_checkbox
-                  name=@../../key
-                  value=@key
-                  label=this
-                  checked=false
-                  first=@first}}
-            {{/each}}
-          {{/each}}
-        </ul>
-      {{else}}
-        <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}" data-mdc-auto-init="MDCList">
-          {{#each termGroups}}
-            {{> mdc_list_checkbox
-                name=@../key
-                isParent=true
-                value=@key
+            {{#> advanced_checkbox_group
+                name=(concat @../key '-' @key)
                 label=label
-                checked=false
-                first=@first}}
-            {{#each terms}}
-              {{> mdc_list_checkbox
-                  name=@../../key
-                  parent=@../key
-                  value=@key
-                  label=this
-                  checked=false
-                  first=false}}
-            {{/each}}
+                hideParent=(compare (length (getKeys ../../termGroups)) 1)}}
+              {{#each terms}}
+                {{> advanced_checkbox_item
+                    name=@../../../../key
+                    value=@key
+                    label=this
+                    group=(concat @../../../../key '-'  @../../../key)
+                    noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}
+              {{/each}}
+            {{/advanced_checkbox_group}}
           {{/each}}
-        </ul>
-      {{/compare}}
+        {{/advanced_checkbox_list}}
+      {{/unless}}
     {{/each}}
-
-    {{!--
-    <a href="/search/advanced{{@root.request.url.search}}" class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
-      Advanced filters
-      <span class="mdc-icon-toggle pull-right">
-        <i class="far fa-chevron-right" aria-hidden="true"></i>
-      </span>
-    </a>
-
-    {{#each (split "activities,beneficiaries,geographical_areas_funded" ",")}}
-      {{#if (getProperty @root.request.params.query this) ~}}
-        <a href="/search/advanced{{@root.request.url.search}}" class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11">
-          {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}
-          <span class="mdc-typography--caption">
-            {{length (arrayify (getProperty @root.request.params.query this))}} selected
-          </span>
-          <span class="mdc-icon-toggle pull-right">
-            <i class="far fa-chevron-right" aria-hidden="true"></i>
-          </span>
-        </a>
-        {{#each (arrayify (getProperty @root.request.params.query this)) ~}}
-          <input type="hidden" name="{{../this}}[]" value="{{this}}" />
-        {{/each ~}}
-      {{/if ~}}
-    {{/each ~}}
-
-    {{#each (split "fund_status,charities_only,type_of_cost,type_of_funding" ",")}}
-      <h3 class="mdc-drawer__content-heading cursor-pointer noselect mdc-drawer--occasional-ie11" data-collapse-target="#{{../instance_id}}-{{this}}-collapse" role="button" aria-pressed="false" aria-label="Show {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}" tabindex="0">
-        {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}
-        {{#if (getProperty @root.request.params.query this) ~}}
-        <span class="mdc-typography--caption"{{#if (getProperty @root.request.params.query this)}} style="display: none;"{{/if}}>
-          {{length (arrayify (getProperty @root.request.params.query this))}} selected
-        </span>
-        {{/if ~}}
-        <span class="mdc-icon-toggle pull-right">
-          <span class="far {{#if (getProperty @root.request.params.query this)}}fa-chevron-up{{else}}fa-chevron-down{{/if}}" aria-hidden="true"></span>
-        </span>
-      </h3>
-      <div class="mdc-drawer--occasional-ie11" id="{{../instance_id}}-{{this}}-collapse"{{#unless (getProperty @root.request.params.query this)}} style="display: none;"{{/unless}}>
-        {{#each (getProperty @root.data.supplimentaryResponses.types.aggregations (concat this "_slugs.buckets")) ~}}
-          {{#if key ~}}
-            {{> term_checkbox slug=key field=../this selected=(getProperty @root.request.params.query ../this) instance_id=../../instance_id value=(lookup (getProperty @root.data.supplimentaryResponses.types.aggregations (concat ../this ".buckets")) @index)}}
-          {{/if ~}}
-        {{/each ~}}
-      </div>
-    {{/each}}
-    --}}
-    <div class="h-margin v-margin mdc-drawer--occasional-ie11">
+    <div class="h-margin v-margin">
       <button class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="{{instance_id}}-search-submit" data-mdc-auto-init="MDCRipple">
         <span class="far fa-search-plus fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
         Filter

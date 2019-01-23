@@ -22,8 +22,8 @@ $footer-font-weight:                400;
 $colours: (
 default: (
 primary: #C2185b,
-primary-overlay-start: rgba(173, 20, 87, 0.95),
-primary-overlay-end: rgba(173, 20, 87, 0.95),
+primary-overlay-start: #C2185b,
+primary-overlay-end: #C2185b,
 primary-light: #C2185b,
 primary-dark: #711142,
 secondary: #FF8F00,
@@ -32,8 +32,8 @@ secondary-dark: #FF6F00
 ),
 jobs: (
 primary: #49459D,
-primary-overlay-start: rgba(73, 69, 157, 0.95),
-primary-overlay-end: rgba(73, 69, 157, 0.95),
+primary-overlay-start: #49459D,
+primary-overlay-end: #49459D,
 primary-light: #49459D,
 primary-dark: #2D2E7A,
 secondary: #FF8F00,
@@ -43,8 +43,8 @@ secondary-dark: #FF6F00
 cjs: (
 primary: #0081BB,
 primary-overlay-light: rgba(0, 129, 187, 0.80),
-primary-overlay-start: rgba(0, 129, 187, 0.95),
-primary-overlay-end: rgba(0, 129, 187, 0.95),
+primary-overlay-start: #0081BB,
+primary-overlay-end: #0081BB,
 primary-light: #0081BB,
 primary-dark: #005a82,
 secondary: #FF8F00,
@@ -52,19 +52,19 @@ secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 goodmoves: (
-primary: #42842A,
-primary-overlay-start: rgba(66, 132, 42, 0.95),
-primary-overlay-end: rgba(66, 132, 42, 0.95),
-primary-light: #42842A,
-primary-dark: #244817,
+primary: #448532,
+primary-overlay-start: #448532,
+primary-overlay-end: #448532,
+primary-light: #448532,
+primary-dark: #223c1d,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 funding: (
 primary: #448532,
-primary-overlay-start: rgba(68, 133, 50, 0.95),
-primary-overlay-end: rgba(68, 133, 50, 0.95),
+primary-overlay-start: #448532,
+primary-overlay-end: #448532,
 primary-light: #448532,
 primary-dark: #223c1d,
 secondary: #FF8F00,
@@ -73,8 +73,8 @@ secondary-dark: #FF6F00
 ),
 projects: (
 primary: #ef4a1a,
-primary-overlay-start: rgba(231, 74, 26, 0.95),
-primary-overlay-end: rgba(231, 74, 26, 0.95),
+primary-overlay-start: #ef4a1a,
+primary-overlay-end: #ef4a1a,
 primary-light: #ef4a1a,
 primary-dark: #9D3120,
 secondary: #FF8F00,
@@ -83,8 +83,8 @@ secondary-dark: #FF6F00
 ),
 posts: (
 primary: #1a8778,
-primary-overlay-start: rgba(26, 135, 120, 0.95),
-primary-overlay-end: rgba(26, 135, 120, 0.95),
+primary-overlay-start: #1a8778,
+primary-overlay-end: #1a8778,
 primary-light: #1a8778,
 primary-dark: #005146,
 secondary: #FF8F00,
@@ -93,8 +93,8 @@ secondary-dark: #FF6F00
 ),
 goodhq: (
 primary: #4033E9,
-primary-overlay-start: rgba(64, 51, 233, 0.95),
-primary-overlay-end: rgba(64, 51, 233, 0.95),
+primary-overlay-start: #4033E9,
+primary-overlay-end: #4033E9,
 primary-light: #4033E9,
 primary-dark: #160AAD,
 secondary: #FF8F00,
@@ -103,8 +103,8 @@ secondary-dark: #FF6F00
 ),
 digital-charter: (
 primary: #022347,
-primary-overlay-start: rgba(2, 35, 71, 0.95),
-primary-overlay-end: rgba(2, 35, 71, 0.95),
+primary-overlay-start: #022347,
+primary-overlay-end: #022347,
 primary-light: #022347,
 primary-dark: #022347,
 secondary: #FF8F00,
@@ -113,8 +113,8 @@ secondary-dark: #FF6F00
 ),
 tfn: (
 primary: #3b9db1,
-primary-overlay-start: rgba(59, 157, 177, 0.95),
-primary-overlay-end: rgba(59, 157, 177, 0.95),
+primary-overlay-start: #3b9db1,
+primary-overlay-end: #3b9db1,
 primary-light: #3b9db1,
 primary-dark: #3b9db1,
 secondary: #FF8F00,
@@ -123,8 +123,8 @@ secondary-dark: #FF6F00
 ),
 funding-scotland: (
 primary: #71B745,
-primary-overlay-start: rgba(113, 183, 69, 0.95),
-primary-overlay-end: rgba(113, 183, 69, 0.95),
+primary-overlay-start: #71B745,
+primary-overlay-end: #71B745,
 primary-light: #71B745,
 primary-dark: #689F38,
 secondary: #FF8F00,
@@ -133,8 +133,8 @@ secondary-dark: #FF6F00
 ),
 credit-union: (
 primary: #1976D2,
-primary-overlay-start: rgba(21,101,192,0.95),
-primary-overlay-end: rgba(21,101,192,0.95),
+primary-overlay-start: #1976D2,
+primary-overlay-end: #1976D2,
 primary-light: #1976D2,
 primary-dark: #145ea8,
 secondary: #FF8F00,
@@ -143,8 +143,8 @@ secondary-dark: #FF6F00
 ),
 digital: (
 primary: #1976D2,
-primary-overlay-start: rgba(25,118,210,0.95),
-primary-overlay-end: rgba(25,118,210,0.95),
+primary-overlay-start: #1976D2,
+primary-overlay-end: #1976D2,
 primary-light: #1976D2,
 primary-dark: #145EA8,
 secondary: #022347,
@@ -153,8 +153,8 @@ secondary-dark: #A7C9F2
 ),
 gathering: (
 primary: #673ab7,
-primary-overlay-start: rgba(92,52,164,0.95),
-primary-overlay-end: rgba(92,52,164,0.95),
+primary-overlay-start: #673ab7,
+primary-overlay-end: #673ab7,
 primary-light: #5731C9,
 primary-dark: #4527a0,
 secondary: #022347,
@@ -163,8 +163,8 @@ secondary-dark: #A7C9F2
 ),
 i-love-charity: (
 primary: #d50f3c,
-primary-overlay-start: rgba(213,15,60,0.95),
-primary-overlay-end: rgba(213,15,60,0.95),
+primary-overlay-start: #d50f3c,
+primary-overlay-end: #d50f3c,
 primary-light: #DA2D54,
 primary-dark: #9F0B2D,
 secondary: #022347,
@@ -173,8 +173,8 @@ secondary-dark: #A7C9F2
 ),
 services: (
 primary: #1976d2,
-primary-overlay-start: rgba(25, 118, 210,0.95),
-primary-overlay-end: rgba(25, 118, 210,0.95),
+primary-overlay-start: #1976d2,
+primary-overlay-end: #1976d2,
 primary-light: #1976d2,
 primary-dark: #193c6d,
 secondary: #FF8F00,
@@ -409,6 +409,17 @@ primary-dark: #263238
   .mdc-theme--primary-dark-bg.toolbar-nav {
     background-color: map-get($themeSelected, 'primary-dark') !important;
   }
+  .home .mdc-theme--primary-dark-bg.toolbar-nav {
+    background-color: map-get($themeFooter, 'primary-light') !important;
+    #main-tab-bar {
+      .mdc-tab .mdc-tab--label{
+        color: map-get($themeFooter, 'primary') !important;
+      }
+      .mdc-tab:hover .mdc-tab--label {
+        border-bottom-color: map-get($themeFooter, 'primary') !important;
+      }
+    }
+  }
   .pagination li:hover,
   .pagination li.current-page:hover,
   .post-info .post-info-categories .inline-list li a:hover,
@@ -565,6 +576,7 @@ primary-dark: #263238
   .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: map-get($themeServices, 'primary') !important;
   }
+  .the-gathering.featured-background-image,
   .the-gathering .full,
   .the-gathering-2019 .full {
     .mdc-button {
@@ -711,6 +723,9 @@ primary-dark: #263238
     }
   }
 
+  header.mdc-toolbar {
+    background-color: map-get($themeFooter, 'primary');
+  }
   footer {
     color: map-get($themeFooter, 'primary');
     border-top: none;
@@ -718,7 +733,9 @@ primary-dark: #263238
     // box-shadow: $toolbar-shadow-reverse;
     p,
     a,
-    a:hover {
+    a:hover,
+    .about a,
+    .about a:hover {
       color: map-get($themeFooter, 'primary');
     }
     .footer-copyright {
@@ -734,13 +751,12 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
-.about,
-.events,
-.search-result.scvo-staff,
 .funding-updates,
 .funding {
   @include theme-colours('funding');
 }
+.about,
+.search-result.scvo-staff,
 .running-a-charity,
 .setting-up-a-charity,
 .running-your-organisation {
@@ -787,6 +803,7 @@ primary-dark: #263238
 .i-love-charity {
   @include theme-colours('i-love-charity');
 }
+.events,
 .search-result.scvo-cms-post,
 .related-posts,
 .post,
@@ -856,7 +873,7 @@ body {
   margin: 0;
 }
 .container-fluid {
-  max-width: 1280px;
+  max-width: 1400px;
   width: 95%;
   margin: 0 auto;
   padding: $unit/2;
@@ -2131,8 +2148,8 @@ form#settled_status {
   background-repeat: no-repeat;
   background-position: center center;
   background-image: linear-gradient(
-  rgba(173, 20, 87, 0.95),
-  rgba(173, 20, 87, 0.95)
+  rgba(173, 20, 87, 1),
+  rgba(173, 20, 87, 1)
   ),
   url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2017/10/Drake-Music-06.jpg');
   text-align: center;
@@ -2192,11 +2209,12 @@ form#settled_status {
   background-image: none !important;
 }
 .splash-image {
-  background-size: cover;
-  background-position: center center;
+  background-size: 60%;
+  background-position: 100% center;
+  background-repeat: no-repeat;
   .container-fluid {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     position: relative;
     height: 100%;
@@ -2205,7 +2223,7 @@ form#settled_status {
     .mdc-layout-grid {
       word-break: break-word;
       width: 42%;
-      margin: $unit*(2/3) 0 $unit;
+      margin: $unit*(2/3) 0 $unit*3;
     }
   }
   img.header-text {
@@ -2279,16 +2297,24 @@ form#settled_status {
 }
 .home {
   .splash-image.hello .splash-overlay .container-fluid {
-    min-height: 40vh;
+    min-height: auto;
   }
   .splash-image.hello {
+    padding-top: 30vh;
+    background-size: cover;
+    background-position: center center;
+    .splash-overlay {
+      background-image: none;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
     .container-fluid {
       overflow: visible;
       .mdc-layout-grid {
-        margin: $unit*1.5 0 $unit*1.5 3%;
-        width: 45%;
+        padding: $unit*1.5 0;
+        margin: 0;
+        width: 100%;
         h1.header-text {
-          font-size: 4.8rem;
+          font-size: 3.8rem;
           line-height: 4rem;
           letter-spacing: -0.1rem;
           // .normal {
@@ -2320,9 +2346,9 @@ form#settled_status {
     }
   }
 }
-body.scottish-charity-awards:not(.post),
-body.the-gathering-2019:not(.post),
-body.the-gathering:not(.post) {
+body.scottish-charity-awards:not(.post) main,
+body.the-gathering-2019:not(.post) main,
+body.the-gathering:not(.post) main {
   .container-fluid,
   .page-content {
     padding-bottom: 0;
@@ -2360,10 +2386,10 @@ body.the-gathering:not(.post) {
     margin-top: $unit;
   }
 }
-body.the-gathering:not(.post) .full {
+body.the-gathering:not(.post) main .full {
   width: 60%;
 }
-body.the-gathering-2019 {
+body.the-gathering-2019 main {
   .splash-image {
     background-position: center 33%;
     padding-bottom: $unit;
@@ -2433,10 +2459,10 @@ body.the-gathering-2019 {
   }
 }
 
-body.datawareness:not(.post),
-body.i-love-charity:not(.post),
-body.right-approach:not(.post),
-body.building-healthier-happier-communities:not(.post) {
+body.datawareness:not(.post) main,
+body.i-love-charity:not(.post) main,
+body.right-approach:not(.post) main,
+body.building-healthier-happier-communities:not(.post) main {
   .splash-image .splash-overlay .container-fluid {
     min-height: 125px;
     padding-top: $unit*2;
@@ -2453,7 +2479,7 @@ body.building-healthier-happier-communities:not(.post) {
     }
   }
 }
-body.i-love-charity:not(.post) {
+body.i-love-charity:not(.post) main {
   .full {
     margin-bottom: 0;
   }
@@ -2498,7 +2524,7 @@ body.i-love-charity:not(.post) {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/oban.jpg');
   }
 }
-body.scottish-charity-awards:not(.post) {
+body.scottish-charity-awards:not(.post) main {
   .mdc-card {
     .mdc-card__primary .mdc-card__title {
       color: white;
@@ -2556,9 +2582,9 @@ body.scottish-charity-awards:not(.post) {
 .projects-campaigns.terrific-trustees.search .page-info,
 .post-sidebar .page-info,
 .page-sidebar .page-info,
-body.the-gathering-2019 .page-info,
-body.the-gathering .page-info,
-body.i-love-charity .page-info,
+body.the-gathering-2019 main .page-info,
+body.the-gathering main .page-info,
+body.i-love-charity main .page-info,
 .grant-content .page-info,
 .scvo-cms-page-20040 .page-info,
 .scvo-cms-page-20027 .page-info,
@@ -3310,7 +3336,7 @@ table.membership-fees {
   padding: $unit/3 $unit/2;
   box-sizing: border-box;
 }
-body.post.author {
+body.post.author main {
   .search-info {
     margin-top: $unit;
   }
@@ -4149,7 +4175,7 @@ footer {
 }
 
 @media screen and (max-width: 1340px) {
-  body.the-gathering-2019 {
+  body.the-gathering-2019 main {
     .splash-image {
       .mdc-typography--body2 {
         top: 70%;
@@ -4185,7 +4211,7 @@ footer {
       }
     }
   }
-  body.the-gathering-2019 #gathering-menu {
+  body.the-gathering-2019 main #gathering-menu {
     .mdc-button {
       display: inline-block;
     }
@@ -4208,7 +4234,6 @@ footer {
   .mdc-tab-bar {
     .mdc-tab {
       text-transform: none;
-      color: $mdc-theme-secondary;
       min-width: auto !important;
       font-size: 1rem;
       padding: 0 $unit/2;
@@ -4218,7 +4243,7 @@ footer {
   .mdc-button--next {
     float: none;
   }
-  body.scottish-charity-awards:not(.post) {
+  body.scottish-charity-awards:not(.post) main {
     .sidebar {
       margin-bottom: $unit;
       p {
@@ -4243,7 +4268,7 @@ footer {
 }
 
 @media screen and (max-width: 991px) {
-  body.the-gathering-2019 {
+  body.the-gathering-2019 main {
     .splash-image {
       .mdc-typography--body2 {
         top: 70%;
@@ -4319,7 +4344,7 @@ footer {
       width: 100%;
     }
   }
-  body.the-gathering .full {
+  body.the-gathering main .full {
     width: 100%;
   }
   .digital {
@@ -4455,7 +4480,7 @@ footer {
   .events .related .photo-wee {
     max-width: 110px;
   }
-  body.the-gathering-2019 #gathering-menu {
+  body.the-gathering-2019 main #gathering-menu {
     margin-bottom: $unit/2;
     .mdc-button {
       display: block;

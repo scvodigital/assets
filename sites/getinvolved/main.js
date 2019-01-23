@@ -5,7 +5,7 @@ import 'mapbox.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
 
-export class getinvolved {
+export class GetInvolved {
   constructor(firebaseConfig) {
     this.componentsInitialiser = new ComponentsInitialiser({
       themes: {

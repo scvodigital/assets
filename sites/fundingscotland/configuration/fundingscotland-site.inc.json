@@ -198,7 +198,8 @@
         "renderer": "handlebars",
         "config": {
           "appName": "fundingscotland",
-          "pathTemplate": "/notes/{{data.auth.uid}}"
+          "pathTemplate": "/notes/{{data.auth.uid}}/{{data.currentSite.name}}",
+          "defaultData": {}
         }
       }
     },

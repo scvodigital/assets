@@ -156,6 +156,25 @@
   "geographical-areas-funded": { 
     "label": "Geographical areas funded",
     "termGroups": { 
+      "nhs-boards": { 
+        "label": "NHS Boards",
+        "terms": {
+          "ayrshire-and-arran": "Ayrshire and Arran",
+          "borders": "Borders",
+          "dumfries-and-galloway": "Dumfries and Galloway",
+          "western-isles": "Western Isles",
+          "fife": "Fife",
+          "forth-valley": "Forth Valley",
+          "grampian": "Grampian",
+          "greater-glasgow-and-clyde": "Greater Glasgow and Clyde",
+          "highland": "Highland",
+          "lanarkshire": "Lanarkshire",
+          "lothian": "Lothian",
+          "orkney": "Orkney",
+          "shetland": "Shetland",
+          "tayside": "Tayside"
+        }
+      },
       "east": { 
         "label": "East",
         "terms": {
@@ -249,6 +268,18 @@
           "other-resources": "Other resources",
           "prize-award": "Prize/ award",
           "staff-time": "Staff time"
+        }
+      }
+    }
+  },
+  "miscellaneous": { 
+    "label": "Miscellaneous",
+    "termGroups": { 
+      "other": { 
+        "label": "Other",
+        "terms": {
+          "for-charities-only": "For charities only",
+          "show-closed-funds": "Show closed funds"
         }
       }
     }

@@ -83,12 +83,13 @@
                     "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
                   {{/compare}}
                 },
-                "display": "label",
+                "display": "other",
                 "items": [
                   {{#each terms}}
                   {
-                  "label": {{{stringify this}}},
-                  "value": {{{stringify @key}}}
+                  "label": {{{stringify (concat @../key ' ' this)}}},
+                  "value": {{{stringify @key}}},
+                  "other": {{{stringify this}}}
                   }{{#unless @last}},{{/unless}}
                   {{/each}}
                 ]
@@ -102,7 +103,7 @@
       </label>
       <div class="mdc-line-ripple"></div>
     </div>
-
+    
     {{#each @root.context.metaData.terms}}
       {{#> advanced_checkbox_list name=@key label=label}}
         {{#each termGroups}}
@@ -123,7 +124,7 @@
       {{/advanced_checkbox_list}} 
     {{/each}}
     
-    <div class="h-margin v-margin mdc-drawer--occasional-ie11">
+    <div class="h-margin v-margin">
       <button class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="{{instance_id}}-search-submit" data-mdc-auto-init="MDCRipple">
         <span class="far fa-search-plus fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
         Filter

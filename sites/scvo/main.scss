@@ -751,13 +751,12 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
-.about,
-.events,
-.search-result.scvo-staff,
 .funding-updates,
 .funding {
   @include theme-colours('funding');
 }
+.about,
+.search-result.scvo-staff,
 .running-a-charity,
 .setting-up-a-charity,
 .running-your-organisation {
@@ -804,6 +803,7 @@ primary-dark: #263238
 .i-love-charity {
   @include theme-colours('i-love-charity');
 }
+.events,
 .search-result.scvo-cms-post,
 .related-posts,
 .post,
@@ -2209,8 +2209,9 @@ form#settled_status {
   background-image: none !important;
 }
 .splash-image {
-  background-size: cover;
-  background-position: center center;
+  background-size: 60%;
+  background-position: 100% center;
+  background-repeat: no-repeat;
   .container-fluid {
     display: flex;
     justify-content: flex-end;
@@ -2300,6 +2301,8 @@ form#settled_status {
   }
   .splash-image.hello {
     padding-top: 30vh;
+    background-size: cover;
+    background-position: center center;
     .splash-overlay {
       background-image: none;
       background-color: rgba(0, 0, 0, 0.5);

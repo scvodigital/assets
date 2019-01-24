@@ -4216,6 +4216,13 @@ footer {
       display: inline-block;
     }
   }
+  .splash-image {
+    background-size: cover;
+    background-position: center center;
+    .container-fluid .mdc-layout-grid {
+      margin: $unit/2 0;
+    }
+  }
   .splash-image h1.header-text .photo-wee,
   .gist .thumbnail img,
   .gist img.photo-wee {

@@ -13,12 +13,17 @@
     {{#each @root.data.search_data.map_results.hits.hits ~}}
       {{#if _source.geo_vacancy_coords ~}}
         {{#each (arrayify _source.geo_vacancy_coords) ~}}
-          <marker style="display:none;" data-map="fullMap"
-            data-lat="{{lat}}"
-            data-lng="{{lon}}"
-            data-title="{{../_source.title}}">
-            {{>vacancy_map ../_source}}
-          </marker>
+          {{!--#compare (itemAt (itemAt ../fields.distance 0) @index) "<" @root.request.params.query.distance ~--}}
+            <marker style="display:none;" data-map="fullMap"
+              data-lat="{{lat}}"
+              data-lng="{{lon}}"
+              data-title="{{../_source.title}}">
+              Distance: {{itemAt (itemAt ../fields.distance 0) @index}} <br />
+              Lat: {{lat}}<br />
+              Lng: {{lon}}
+              {{>vacancy_map ../_source}}
+            </marker>
+          {{!--/compare ~--}}
         {{/each ~}}
       {{/if ~}}
     {{/each ~}}

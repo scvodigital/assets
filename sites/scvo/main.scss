@@ -2389,9 +2389,19 @@ body.the-gathering:not(.post) main {
 body.the-gathering:not(.post) main .full {
   width: 60%;
 }
+body.scottish-charity-awards main,
+body.eu-are-valued main {
+  .splash-image {
+    background-size: cover;
+    .container-fluid .mdc-layout-grid {
+      margin: $unit/4 0;
+    }
+  }
+}
 body.the-gathering-2019 main {
   .splash-image {
     background-position: center 33%;
+    background-size: cover;
     padding-bottom: $unit;
     .mdc-typography--body2 {
       position: absolute;
@@ -4214,6 +4224,13 @@ footer {
   body.the-gathering-2019 main #gathering-menu {
     .mdc-button {
       display: inline-block;
+    }
+  }
+  .splash-image {
+    background-size: cover;
+    background-position: center center;
+    .container-fluid .mdc-layout-grid {
+      margin: $unit/2 0;
     }
   }
   .splash-image h1.header-text .photo-wee,

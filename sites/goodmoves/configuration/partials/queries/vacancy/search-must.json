@@ -82,7 +82,7 @@
       {{/ifAll ~}}
       {{>queries_do_nothing}}
     ],
-    "minimum_should_match": 2
+    "minimum_should_match": {{#if distance}}2{{else}}{{#ifAny home_based various_locations}}2{{else}}1{{/ifAny}}{{/if}}
   }
 },
 {{/ifAny ~}}

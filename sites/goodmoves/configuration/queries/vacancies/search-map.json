@@ -65,6 +65,8 @@
           "distance_type": "arc"
         }
       }
+    {{else}}
+      "closing_date": "asc"
     {{/ifAll ~}}
   ]
 }

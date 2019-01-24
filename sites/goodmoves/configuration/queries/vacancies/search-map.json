@@ -39,7 +39,32 @@
       ]
     }
   },
-  "sort": {
-    "closing_date": "asc"
-  }
+  "script_fields": {
+    "distance": {
+      "script": {
+        "inline": "double dist = Double.MAX_VALUE; double TO_METERS = 6371008.7714D; double TO_RADIANS = Math.PI / 180D; def l = new ArrayList(); double doc_lat, doc_lon, x1, x2, h1, h2, h, cdist; for (int i=0; i<doc['geo_vacancy_coords'].values.length; i++) { doc_lat = doc['geo_vacancy_coords'][i].lat; doc_lon = doc['geo_vacancy_coords'][i].lon; x1 = doc_lat * TO_RADIANS; x2 = params.lat * TO_RADIANS; h1 = 1 - Math.cos(x1 - x2); h2 = 1 - Math.cos((doc_lon - params.lon) * TO_RADIANS); h = h1 + Math.cos(x1) * Math.cos(x2) * h2; cdist = TO_METERS * 2 * Math.asin(Math.min(1, Math.sqrt(h * 0.5))); dist = Math.min(dist, cdist); l.add(dist * 0.001) } return l.toArray();",
+        "lang": "painless",
+        "params": {
+          "lat": {{@root.request.params.query.lat}},
+          "lon": {{@root.request.params.query.lng}}
+        }
+      }
+    }
+  },
+  "sort": [
+    {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
+      {
+        "_geo_distance": {
+          "geo_vacancy_coords": {
+            "lat": {{@root.request.params.query.lat}},
+            "lon": {{@root.request.params.query.lng}}
+          },
+          "order": "asc",
+          "unit": "km",
+          "mode": "min",
+          "distance_type": "arc"
+        }
+      }
+    {{/ifAll ~}}
+  ]
 }

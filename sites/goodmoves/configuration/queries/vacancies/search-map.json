@@ -19,11 +19,11 @@
   "query": {
     "bool": {
       "filter": [
-        {{>queries_vacancy_common_filters_open request.params.query}},
-        {{>queries_vacancy_search_filters request.params.query}}
+        {{>queries_vacancy_common_filters_open @root.request.params.query}},
+        {{>queries_vacancy_search_filters @root.request.params.query}}
       ],
       "must": [
-        {{>queries_vacancy_search_must request.params.query}}
+        {{>queries_vacancy_search_must @root.request.params.query}}
       ],
       "must_not": [
         {
@@ -39,10 +39,11 @@
       ]
     }
   },
+  {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
   "script_fields": {
     "distance": {
       "script": {
-        "inline": "def l = new ArrayList(); for (int i=0; i<doc['geo_vacancy_coords'].values.length; i++) { double dist = Double.MAX_VALUE; double TO_METERS = 6371008.7714D; double TO_RADIANS = Math.PI / 180D; double doc_lat, doc_lon, x1, x2, h1, h2, h, cdist; doc_lat = params._source['geo_vacancy_coords'][i].lat; doc_lon = params._source['geo_vacancy_coords'][i].lon; x1 = doc_lat * TO_RADIANS; x2 = params.lat * TO_RADIANS; h1 = 1 - Math.cos(x1 - x2); h2 = 1 - Math.cos((doc_lon - params.lon) * TO_RADIANS); h = h1 + Math.cos(x1) * Math.cos(x2) * h2; cdist = TO_METERS * 2 * Math.asin(Math.min(1, Math.sqrt(h * 0.5))); dist = Math.min(dist, cdist); def result = dist * 0.001; l.add(result) } return l;",
+        "inline": "def l = new ArrayList(); for (int i=0; i<doc['geo_vacancy_coords'].values.length; i++) { double dist = Double.MAX_VALUE; double TO_METERS = 6371008.7714D; double TO_RADIANS = Math.PI / 180D; double doc_lat, doc_lon, x1, x2, h1, h2, h, cdist; doc_lat = params._source['geo_vacancy_coords'][i].lat; doc_lon = params._source['geo_vacancy_coords'][i].lon; x1 = doc_lat * TO_RADIANS; x2 = params.lat * TO_RADIANS; h1 = 1 - Math.cos(x1 - x2); h2 = 1 - Math.cos((doc_lon - params.lon) * TO_RADIANS); h = h1 + Math.cos(x1) * Math.cos(x2) * h2; cdist = TO_METERS * 2 * Math.asin(Math.min(1, Math.sqrt(h * 0.5))); dist = Math.min(dist, cdist); l.add(dist * 0.001) } return l;",
         "lang": "painless",
         "params": {
           "lat": {{@root.request.params.query.lat}},
@@ -51,6 +52,7 @@
       }
     }
   },
+  {{/ifAll ~}}
   "sort": [
     {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
       {
@@ -66,7 +68,9 @@
         }
       }
     {{else}}
-      "closing_date": "asc"
+      {
+        "closing_date": "asc"
+      }
     {{/ifAll ~}}
   ]
 }

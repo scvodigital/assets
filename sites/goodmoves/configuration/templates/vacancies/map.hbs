@@ -18,9 +18,6 @@
               data-lat="{{lat}}"
               data-lng="{{lon}}"
               data-title="{{../_source.title}}">
-              Distance: {{itemAt (itemAt ../fields.distance 0) @index}} <br />
-              Lat: {{lat}}<br />
-              Lng: {{lon}}
               {{>vacancy_map ../_source}}
             </marker>
           {{!--/compare ~--}}

@@ -2247,7 +2247,8 @@ form#settled_status {
       float: left;
     }
     .mdc-typography--caption {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: 600;
       line-height: 1.6rem;
       letter-spacing: 0.02rem;
       margin: $unit/3 0 0;
@@ -4209,7 +4210,7 @@ footer {
   .home {
     .splash-image.hello .container-fluid {
       .mdc-layout-grid {
-        width: 60%;
+        width: 100%;
         h1.header-text {
           font-size: 3.8rem;
           line-height: 3.4rem;
@@ -4591,14 +4592,15 @@ footer {
     }
   }
   .home .splash-image.hello .splash-overlay .container-fluid {
-    min-height: 30vh;
+    // min-height: 30vh;
     h1.header-text {
       font-size: 2rem;
       line-height: 2.2rem;
     }
     .mdc-layout-grid {
       width: 100%;
-      margin: $unit*(2/3) 0;
+      padding: $unit/4 0;
+      // margin: $unit*(2/3) 0;
       h1.header-text {
         font-size: 3rem;
         line-height: 3.3rem;

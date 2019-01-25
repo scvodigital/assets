@@ -5,69 +5,168 @@
       "advice": { 
         "label": "Advice",
         "terms": {
-          "advising-and-informing": "Advising and informing",
-          "advocacy": "Advocacy",
-          "befriending-and-mentoring": "Befriending and mentoring",
-          "financial-advice-and-support": "Financial advice and support"
+          "advising-and-informing": {
+            "label": "Advising and informing",
+            "textBag": "Advising and informing"
+          },
+          "advocacy": {
+            "label": "Advocacy",
+            "textBag": "Advocacy"
+          },
+          "befriending-and-mentoring": {
+            "label": "Befriending and mentoring",
+            "textBag": "Befriending and mentoring"
+          },
+          "financial-advice-and-support": {
+            "label": "Financial advice and support",
+            "textBag": "Financial advice and support"
+          }
         }
       },
       "arts-culture-and-heritage": { 
         "label": "Arts, culture and heritage",
         "terms": {
-          "arts-and-cultural-activities": "Arts and Cultural Activities",
-          "heritage-building-preservation": "Heritage/ building preservation"
+          "arts-and-cultural-activities": {
+            "label": "Arts and Cultural Activities",
+            "textBag": "Arts and Cultural Activities Music"
+          },
+          "heritage-building-preservation": {
+            "label": "Heritage/ building preservation",
+            "textBag": "Heritage/ building preservation"
+          }
         }
       },
       "community-and-organisational-development": { 
         "label": "Community and organisational development",
         "terms": {
-          "organisation-capacity-building": "Organisation Capacity Building",
-          "organised-sport": "Organised Sport",
-          "recreation-and-social-activities": "Recreation and social activities",
-          "citizenship-and-community-involvement": "Citizenship and community involvement",
-          "community-and-capacity-building": "Community and capacity building",
-          "community-development-and-regeneration": "Community development and regeneration",
-          "community-facilities": "Community facilities",
-          "community-safety": "Community safety",
-          "community-transport": "Community transport",
-          "disaster-emergency-services": "Disaster/ emergency services"
+          "organisation-capacity-building": {
+            "label": "Organisation Capacity Building",
+            "textBag": "Organisation Capacity Building"
+          },
+          "organised-sport": {
+            "label": "Organised Sport",
+            "textBag": "Organised Sport"
+          },
+          "recreation-and-social-activities": {
+            "label": "Recreation and social activities",
+            "textBag": "Recreation and social activities"
+          },
+          "citizenship-and-community-involvement": {
+            "label": "Citizenship and community involvement",
+            "textBag": "Citizenship and community involvement"
+          },
+          "community-and-capacity-building": {
+            "label": "Community and capacity building",
+            "textBag": "Community and capacity building"
+          },
+          "community-development-and-regeneration": {
+            "label": "Community development and regeneration",
+            "textBag": "Community development and regeneration"
+          },
+          "community-facilities": {
+            "label": "Community facilities",
+            "textBag": "Community facilities"
+          },
+          "community-safety": {
+            "label": "Community safety",
+            "textBag": "Community safety"
+          },
+          "community-transport": {
+            "label": "Community transport",
+            "textBag": "Community transport"
+          },
+          "disaster-emergency-services": {
+            "label": "Disaster/ emergency services",
+            "textBag": "Disaster/ emergency services"
+          }
         }
       },
       "education-training-and-research": { 
         "label": "Education, training and research",
         "terms": {
-          "education-and-training": "Education and Training",
-          "employability-services": "Employability services",
-          "health-education-&-promotion": "Health education & promotion",
-          "scientific-activities": "Scientific Activities",
-          "research": "Research"
+          "education-and-training": {
+            "label": "Education and Training",
+            "textBag": "Education and Training"
+          },
+          "employability-services": {
+            "label": "Employability services",
+            "textBag": "Employability services"
+          },
+          "health-education-&-promotion": {
+            "label": "Health education & promotion",
+            "textBag": "Health education & promotion"
+          },
+          "scientific-activities": {
+            "label": "Scientific Activities",
+            "textBag": "Scientific Activities"
+          },
+          "research": {
+            "label": "Research",
+            "textBag": "Research"
+          }
         }
       },
       "environment-and-animals": { 
         "label": "Environment and animals",
         "terms": {
-          "environmental-projects": "Environmental Projects",
-          "animal-welfare": "Animal welfare"
+          "environmental-projects": {
+            "label": "Environmental Projects",
+            "textBag": "Environmental Projects"
+          },
+          "animal-welfare": {
+            "label": "Animal welfare",
+            "textBag": "Animal welfare"
+          }
         }
       },
       "health-and-social-care": { 
         "label": "Health and social care",
         "terms": {
-          "accommodation": "Accommodation",
-          "respite-holidays": "Respite/ holidays",
-          "social-care": "Social care",
-          "health-and-social-care": "Health and social care",
-          "medical-care": "Medical care",
-          "mental-health-care": "Mental health care"
+          "accommodation": {
+            "label": "Accommodation",
+            "textBag": "Accommodation"
+          },
+          "respite-holidays": {
+            "label": "Respite/ holidays",
+            "textBag": "Respite/ holidays"
+          },
+          "social-care": {
+            "label": "Social care",
+            "textBag": "Social care"
+          },
+          "health-and-social-care": {
+            "label": "Health and social care",
+            "textBag": "Health and social care"
+          },
+          "medical-care": {
+            "label": "Medical care",
+            "textBag": "Medical care"
+          },
+          "mental-health-care": {
+            "label": "Mental health care",
+            "textBag": "Mental health care"
+          }
         }
       },
       "other": { 
         "label": "Other",
         "terms": {
-          "religious-activities": "Religious activities",
-          "providing-equipment": "Providing equipment",
-          "general-charitable-activities": "General charitable activities",
-          "campaigning": "Campaigning"
+          "religious-activities": {
+            "label": "Religious activities",
+            "textBag": "Religious activities"
+          },
+          "providing-equipment": {
+            "label": "Providing equipment",
+            "textBag": "Providing equipment"
+          },
+          "general-charitable-activities": {
+            "label": "General charitable activities",
+            "textBag": "General charitable activities"
+          },
+          "campaigning": {
+            "label": "Campaigning",
+            "textBag": "Campaigning"
+          }
         }
       }
     }
@@ -78,77 +177,185 @@
       "economically-socially-disadvantaged-people": { 
         "label": "Economically/socially disadvantaged people",
         "terms": {
-          "addicts-and-misusers": "Addicts and Misusers",
-          "black-and-minority-ethnic-communities": "Black and minority ethnic communities",
-          "carers-parents": "Carers/ parents",
-          "homeless-or-badly-housed": "Homeless or badly Housed",
-          "in-or-leaving-care": "In or leaving care",
-          "isolated-socially": "Isolated socially",
-          "economically-socially-disadvantaged": "Economically/socially disadvantaged",
-          "living-in-poverty": "Living in poverty",
-          "offenders-&-ex-offenders": "Offenders & ex-offenders",
-          "refugees-and-asylum-seekers": "Refugees and asylum seekers",
-          "tenants": "Tenants",
-          "unemployed": "Unemployed",
-          "victims-of-crime-abuse": "Victims of crime / abuse"
+          "addicts-and-misusers": {
+            "label": "Addicts and Misusers",
+            "textBag": "Addicts and Misusers"
+          },
+          "black-and-minority-ethnic-communities": {
+            "label": "Black and minority ethnic communities",
+            "textBag": "Black and minority ethnic communities"
+          },
+          "carers-parents": {
+            "label": "Carers/ parents",
+            "textBag": "Carers/ parents"
+          },
+          "homeless-or-badly-housed": {
+            "label": "Homeless or badly Housed",
+            "textBag": "Homeless or badly Housed"
+          },
+          "in-or-leaving-care": {
+            "label": "In or leaving care",
+            "textBag": "In or leaving care"
+          },
+          "isolated-socially": {
+            "label": "Isolated socially",
+            "textBag": "Isolated socially"
+          },
+          "economically-socially-disadvantaged": {
+            "label": "Economically/socially disadvantaged",
+            "textBag": "Economically/socially disadvantaged"
+          },
+          "living-in-poverty": {
+            "label": "Living in poverty",
+            "textBag": "Living in poverty"
+          },
+          "offenders-&-ex-offenders": {
+            "label": "Offenders & ex-offenders",
+            "textBag": "Offenders & ex-offenders"
+          },
+          "refugees-and-asylum-seekers": {
+            "label": "Refugees and asylum seekers",
+            "textBag": "Refugees and asylum seekers"
+          },
+          "tenants": {
+            "label": "Tenants",
+            "textBag": "Tenants"
+          },
+          "unemployed": {
+            "label": "Unemployed",
+            "textBag": "Unemployed"
+          },
+          "victims-of-crime-abuse": {
+            "label": "Victims of crime / abuse",
+            "textBag": "Victims of crime / abuse"
+          }
         }
       },
       "environment-and-animals": { 
         "label": "Environment and animals",
         "terms": {
-          "natural-environment": "Natural Environment",
-          "animals": "Animals"
+          "natural-environment": {
+            "label": "Natural Environment",
+            "textBag": "Natural Environment"
+          },
+          "animals": {
+            "label": "Animals",
+            "textBag": "Animals"
+          }
         }
       },
       "gender-sexual-orientation": { 
         "label": "Gender/sexual orientation",
         "terms": {
-          "men": "Men",
-          "lgbt": "LGBT",
-          "women": "Women"
+          "men": {
+            "label": "Men",
+            "textBag": "Men"
+          },
+          "lgbt": {
+            "label": "LGBT",
+            "textBag": "LGBT"
+          },
+          "women": {
+            "label": "Women",
+            "textBag": "Women"
+          }
         }
       },
       "geographic-communities": { 
         "label": "Geographic communities",
         "terms": {
-          "the-local-community": "The local community",
-          "living-in-rural-areas": "Living in rural areas",
-          "general-public": "General public"
+          "the-local-community": {
+            "label": "The local community",
+            "textBag": "The local community"
+          },
+          "living-in-rural-areas": {
+            "label": "Living in rural areas",
+            "textBag": "Living in rural areas"
+          },
+          "general-public": {
+            "label": "General public",
+            "textBag": "General public"
+          }
         }
       },
       "other": { 
         "label": "Other",
         "terms": {
-          "families": "Families",
-          "third-sector-organisations": "Third sector organisations",
-          "religious-and-belief-groups-communities": "Religious and Belief Groups/Communities"
+          "families": {
+            "label": "Families",
+            "textBag": "Families"
+          },
+          "third-sector-organisations": {
+            "label": "Third sector organisations",
+            "textBag": "Third sector organisations"
+          },
+          "religious-and-belief-groups-communities": {
+            "label": "Religious and Belief Groups/Communities",
+            "textBag": "Religious and Belief Groups/Communities"
+          }
         }
       },
       "people-affected-by-ill-health-disability": { 
         "label": "People affected by ill health/disability",
         "terms": {
-          "mental-health-conditions": "Mental health conditions",
-          "people-affected-by-ill-health": "People affected by ill-health",
-          "people-with-disabilities": "People with disabilities",
-          "people-with-learning-disabilities": "People with learning disabilities",
-          "people-with-physical-disabilities": "People with physical disabilities",
-          "people-with-sensory-impairments": "People with sensory impairments",
-          "physical-health-conditions": "Physical health conditions"
+          "mental-health-conditions": {
+            "label": "Mental health conditions",
+            "textBag": "Mental health conditions"
+          },
+          "people-affected-by-ill-health": {
+            "label": "People affected by ill-health",
+            "textBag": "People affected by ill-health"
+          },
+          "people-with-disabilities": {
+            "label": "People with disabilities",
+            "textBag": "People with disabilities"
+          },
+          "people-with-learning-disabilities": {
+            "label": "People with learning disabilities",
+            "textBag": "People with learning disabilities"
+          },
+          "people-with-physical-disabilities": {
+            "label": "People with physical disabilities",
+            "textBag": "People with physical disabilities"
+          },
+          "people-with-sensory-impairments": {
+            "label": "People with sensory impairments",
+            "textBag": "People with sensory impairments"
+          },
+          "physical-health-conditions": {
+            "label": "Physical health conditions",
+            "textBag": "Physical health conditions"
+          }
         }
       },
       "people-from-in-specific-occupations": { 
         "label": "People from/in specific occupations",
         "terms": {
-          "students-ex-students": "Students/ Ex-students",
-          "volunteers": "Volunteers"
+          "students-ex-students": {
+            "label": "Students/ Ex-students",
+            "textBag": "Students/ Ex-students"
+          },
+          "volunteers": {
+            "label": "Volunteers",
+            "textBag": "Volunteers"
+          }
         }
       },
       "people-of-a-specific-age-group": { 
         "label": "People of a specific age group",
         "terms": {
-          "older-people": "Older people",
-          "young-people": "Young people",
-          "children": "Children"
+          "older-people": {
+            "label": "Older people",
+            "textBag": "Older people"
+          },
+          "young-people": {
+            "label": "Young people",
+            "textBag": "Young people"
+          },
+          "children": {
+            "label": "Children",
+            "textBag": "Children Kids Wains Weans Bairns"
+          }
         }
       }
     }
@@ -159,86 +366,236 @@
       "nhs-boards": { 
         "label": "NHS Boards",
         "terms": {
-          "ayrshire-and-arran": "Ayrshire and Arran",
-          "borders": "Borders",
-          "dumfries-and-galloway": "Dumfries and Galloway",
-          "western-isles": "Western Isles",
-          "fife": "Fife",
-          "forth-valley": "Forth Valley",
-          "grampian": "Grampian",
-          "greater-glasgow-and-clyde": "Greater Glasgow and Clyde",
-          "highland": "Highland",
-          "lanarkshire": "Lanarkshire",
-          "lothian": "Lothian",
-          "orkney": "Orkney",
-          "shetland": "Shetland",
-          "tayside": "Tayside"
+          "ayrshire-and-arran": {
+            "label": "Ayrshire and Arran",
+            "textBag": "Ayrshire and Arran"
+          },
+          "borders": {
+            "label": "Borders",
+            "textBag": "Borders"
+          },
+          "dumfries-and-galloway": {
+            "label": "Dumfries and Galloway",
+            "textBag": "Dumfries and Galloway"
+          },
+          "western-isles": {
+            "label": "Western Isles",
+            "textBag": "Western Isles"
+          },
+          "fife": {
+            "label": "Fife",
+            "textBag": "Fife"
+          },
+          "forth-valley": {
+            "label": "Forth Valley",
+            "textBag": "Forth Valley"
+          },
+          "grampian": {
+            "label": "Grampian",
+            "textBag": "Grampian"
+          },
+          "greater-glasgow-and-clyde": {
+            "label": "Greater Glasgow and Clyde",
+            "textBag": "Greater Glasgow and Clyde"
+          },
+          "highland": {
+            "label": "Highland",
+            "textBag": "Highland"
+          },
+          "lanarkshire": {
+            "label": "Lanarkshire",
+            "textBag": "Lanarkshire"
+          },
+          "lothian": {
+            "label": "Lothian",
+            "textBag": "Lothian"
+          },
+          "orkney": {
+            "label": "Orkney",
+            "textBag": "Orkney"
+          },
+          "shetland": {
+            "label": "Shetland",
+            "textBag": "Shetland"
+          },
+          "tayside": {
+            "label": "Tayside",
+            "textBag": "Tayside"
+          }
         }
       },
       "east": { 
         "label": "East",
         "terms": {
-          "angus": "Angus",
-          "clackmannanshire": "Clackmannanshire",
-          "dundee": "Dundee",
-          "east-lothian": "East Lothian",
-          "edinburgh": "Edinburgh",
-          "falkirk": "Falkirk",
-          "fife": "Fife",
-          "midlothian": "Midlothian",
-          "scottish-borders": "Scottish Borders",
-          "west-lothian": "West Lothian",
-          "perth-and-kinross": "Perth and Kinross",
-          "stirling": "Stirling"
+          "angus": {
+            "label": "Angus",
+            "textBag": "Angus"
+          },
+          "clackmannanshire": {
+            "label": "Clackmannanshire",
+            "textBag": "Clackmannanshire"
+          },
+          "dundee": {
+            "label": "Dundee",
+            "textBag": "Dundee"
+          },
+          "east-lothian": {
+            "label": "East Lothian",
+            "textBag": "East Lothian"
+          },
+          "edinburgh": {
+            "label": "Edinburgh",
+            "textBag": "Edinburgh"
+          },
+          "falkirk": {
+            "label": "Falkirk",
+            "textBag": "Falkirk"
+          },
+          "fife": {
+            "label": "Fife",
+            "textBag": "Fife"
+          },
+          "midlothian": {
+            "label": "Midlothian",
+            "textBag": "Midlothian"
+          },
+          "scottish-borders": {
+            "label": "Scottish Borders",
+            "textBag": "Scottish Borders"
+          },
+          "west-lothian": {
+            "label": "West Lothian",
+            "textBag": "West Lothian"
+          },
+          "perth-and-kinross": {
+            "label": "Perth and Kinross",
+            "textBag": "Perth and Kinross"
+          },
+          "stirling": {
+            "label": "Stirling",
+            "textBag": "Stirling"
+          }
         }
       },
       "highlands-and-islands": { 
         "label": "Highlands and Islands",
         "terms": {
-          "shetland": "Shetland",
-          "highland": "Highland",
-          "orkney": "Orkney",
-          "moray": "Moray",
-          "na-h-eileanan-siar": "Na h-Eileanan Siar",
-          "argyll-and-bute": "Argyll and Bute"
+          "shetland": {
+            "label": "Shetland",
+            "textBag": "Shetland"
+          },
+          "highland": {
+            "label": "Highland",
+            "textBag": "Highland"
+          },
+          "orkney": {
+            "label": "Orkney",
+            "textBag": "Orkney"
+          },
+          "moray": {
+            "label": "Moray",
+            "textBag": "Moray"
+          },
+          "na-h-eileanan-siar": {
+            "label": "Na h-Eileanan Siar",
+            "textBag": "Na h-Eileanan Siar"
+          },
+          "argyll-and-bute": {
+            "label": "Argyll and Bute",
+            "textBag": "Argyll and Bute"
+          }
         }
       },
       "international": { 
         "label": "International",
         "terms": {
-          "european-union": "European Union",
-          "overseas": "Overseas"
+          "european-union": {
+            "label": "European Union",
+            "textBag": "European Union"
+          },
+          "overseas": {
+            "label": "Overseas",
+            "textBag": "Overseas"
+          }
         }
       },
       "national": { 
         "label": "National",
         "terms": {
-          "uk": "UK",
-          "scotland": "Scotland"
+          "uk": {
+            "label": "UK",
+            "textBag": "UK"
+          },
+          "scotland": {
+            "label": "Scotland",
+            "textBag": "Scotland"
+          }
         }
       },
       "north-east": { 
         "label": "North East",
         "terms": {
-          "aberdeen": "Aberdeen",
-          "aberdeenshire": "Aberdeenshire"
+          "aberdeen": {
+            "label": "Aberdeen",
+            "textBag": "Aberdeen"
+          },
+          "aberdeenshire": {
+            "label": "Aberdeenshire",
+            "textBag": "Aberdeenshire"
+          }
         }
       },
       "south-west": { 
         "label": "South West",
         "terms": {
-          "west-dunbartonshire": "West Dunbartonshire",
-          "renfrewshire": "Renfrewshire",
-          "inverclyde": "Inverclyde",
-          "south-ayrshire": "South Ayrshire",
-          "south-lanarkshire": "South Lanarkshire",
-          "glasgow": "Glasgow",
-          "north-ayrshire": "North Ayrshire",
-          "north-lanarkshire": "North Lanarkshire",
-          "dumfries-and-galloway": "Dumfries and Galloway",
-          "east-renfrewshire": "East Renfrewshire",
-          "east-ayrshire": "East Ayrshire",
-          "east-dunbartonshire": "East Dunbartonshire"
+          "west-dunbartonshire": {
+            "label": "West Dunbartonshire",
+            "textBag": "West Dunbartonshire"
+          },
+          "renfrewshire": {
+            "label": "Renfrewshire",
+            "textBag": "Renfrewshire"
+          },
+          "inverclyde": {
+            "label": "Inverclyde",
+            "textBag": "Inverclyde"
+          },
+          "south-ayrshire": {
+            "label": "South Ayrshire",
+            "textBag": "South Ayrshire"
+          },
+          "south-lanarkshire": {
+            "label": "South Lanarkshire",
+            "textBag": "South Lanarkshire"
+          },
+          "glasgow": {
+            "label": "Glasgow",
+            "textBag": "Glasgow"
+          },
+          "north-ayrshire": {
+            "label": "North Ayrshire",
+            "textBag": "North Ayrshire"
+          },
+          "north-lanarkshire": {
+            "label": "North Lanarkshire",
+            "textBag": "North Lanarkshire"
+          },
+          "dumfries-and-galloway": {
+            "label": "Dumfries and Galloway",
+            "textBag": "Dumfries and Galloway"
+          },
+          "east-renfrewshire": {
+            "label": "East Renfrewshire",
+            "textBag": "East Renfrewshire"
+          },
+          "east-ayrshire": {
+            "label": "East Ayrshire",
+            "textBag": "East Ayrshire"
+          },
+          "east-dunbartonshire": {
+            "label": "East Dunbartonshire",
+            "textBag": "East Dunbartonshire"
+          }
         }
       }
     }
@@ -249,8 +606,14 @@
       "other": { 
         "label": "Other",
         "terms": {
-          "capital": "Capital",
-          "revenue": "Revenue"
+          "capital": {
+            "label": "Capital",
+            "textBag": "Capital"
+          },
+          "revenue": {
+            "label": "Revenue",
+            "textBag": "Revenue"
+          }
         }
       }
     }
@@ -261,13 +624,34 @@
       "other": { 
         "label": "Other",
         "terms": {
-          "corporate-sponsorship": "Corporate sponsorship",
-          "equipment": "Equipment",
-          "grant": "Grant",
-          "loan": "Loan",
-          "other-resources": "Other resources",
-          "prize-award": "Prize/ award",
-          "staff-time": "Staff time"
+          "corporate-sponsorship": {
+            "label": "Corporate sponsorship",
+            "textBag": "Corporate sponsorship"
+          },
+          "equipment": {
+            "label": "Equipment",
+            "textBag": "Equipment"
+          },
+          "grant": {
+            "label": "Grant",
+            "textBag": "Grant"
+          },
+          "loan": {
+            "label": "Loan",
+            "textBag": "Loan"
+          },
+          "other-resources": {
+            "label": "Other resources",
+            "textBag": "Other resources"
+          },
+          "prize-award": {
+            "label": "Prize/ award",
+            "textBag": "Prize/ award"
+          },
+          "staff-time": {
+            "label": "Staff time",
+            "textBag": "Staff time"
+          }
         }
       }
     }
@@ -278,8 +662,14 @@
       "other": { 
         "label": "Other",
         "terms": {
-          "for-charities-only": "For charities only",
-          "show-closed-funds": "Show closed funds"
+          "for-charities-only": {
+            "label": "For charities only",
+            "textBag": "For charities only"
+          },
+          "show-closed-funds": {
+            "label": "Show closed funds",
+            "textBag": "Show closed funds"
+          }
         }
       }
     }

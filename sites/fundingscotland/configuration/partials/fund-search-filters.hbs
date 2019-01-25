@@ -87,9 +87,9 @@
                 "items": [
                   {{#each terms}}
                   {
-                  "label": {{{stringify (concat @../key ' ' this)}}},
+                  "label": {{{stringify (concat @../key ' ' textBag)}}},
                   "value": {{{stringify @key}}},
-                  "other": {{{stringify this}}}
+                  "other": {{{stringify label}}}
                   }{{#unless @last}},{{/unless}}
                   {{/each}}
                 ]
@@ -116,7 +116,7 @@
                 {{> advanced_checkbox_item
                     name=@../../../../key
                     value=@key
-                    label=this
+                    label=label
                     checked=(contains (getProperty @root.request.params.query @../../../../key) @key)
                     group=(concat @../../../../key '-'  @../../../key)
                     noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}

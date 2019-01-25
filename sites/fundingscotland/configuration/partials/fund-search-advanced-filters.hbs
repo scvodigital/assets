@@ -46,7 +46,7 @@
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        {{#each (split "activities,beneficiaries,geographical_areas_funded,fund_status,charities_only,type_of_cost,type_of_funding" ",")}}
+        {{#each (split "activities,beneficiaries,region_group,fund_status,charities_only,type_of_cost,type_of_funding" ",")}}
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
             <h3 class="mdc-drawer__content-heading noselect mdc-drawer--occasional-ie11">
               {{getProperty @root.context.metaData.termTypeLabels (concat this ".plural")}}

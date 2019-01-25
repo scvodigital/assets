@@ -1,13 +1,11 @@
 <div class="mdc-card full" data-fund-id="{{Id}}">
   {{> fund_key_info}}
   <ul class="fa-ul first">
-    {{#if (length (arrayify geographical_areas_funded)) ~}}
+    {{#if (length (arrayify region_group)) ~}}
       <li class="mdc-typography--body1 mdc-chip-set">
         <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
-        {{#each (arrayify geographical_areas_funded) ~}}
-          <a href="/search?geographical_areas_funded={{lookup ../geographical_areas_funded_slugs @index}}" class="mdc-chip">
-            {{{this}}}
-          </a>
+        {{#each (sort (arrayify region_group)) ~}}
+          <a href="/search?region_group={{lookup (arrayify ../region_group_slug) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
         {{/each ~}}
       </li>
     {{/if ~}}
@@ -15,9 +13,7 @@
       <li class="mdc-typography--body1 mdc-chip-set">
         <span class="fa-li"><span class="far fa-hands-helping fa-fw" title="Activities"></span></span>
         {{#each (arrayify activities) ~}}
-          <a href="/search?activities={{lookup ../activities_slugs @index}}" class="mdc-chip">
-            {{{this}}}
-          </a>
+          <a href="/search?activities={{lookup (arrayify ../activities_slugs) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
         {{/each ~}}
       </li>
     {{/if ~}}
@@ -25,9 +21,7 @@
       <li class="mdc-typography--body1 mdc-chip-set">
         <span class="fa-li"><span class="far fa-user-alt fa-fw" title="Beneficiaries"></span></span>
         {{#each (arrayify beneficiaries) ~}}
-        <a href="/search?beneficiaries={{lookup ../beneficiaries_slugs @index}}" class="mdc-chip">
-          {{{this}}}
-        </a>
+        <a href="/search?beneficiaries={{lookup (arrayify ../beneficiaries_slugs) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
         {{/each ~}}
       </li>
     {{/if ~}}
@@ -62,43 +56,4 @@
     {{{when_to_apply}}}
   </div>
   {{/if ~}}
-
-  <h4 class="mdc-typography--headline6">Your notes</h4>
-  <div class="fund-info-container">
-    <div class="text-field-container user-notes">
-      {{#if @root.data.auth ~}}
-        <form action="/save-notes" method="POST" data-ajax-form="true" data-success-message="Notes saved" data-failure-message="Failed to save notes">
-          <div>
-            <textarea class="mdc-text-field__input" data-simple-mde="true" name="notes">{{getProperty @root.data.notes Id}}</textarea>
-            <input type="hidden" name="id" value="{{Id}}">
-          </div>
-          <div class="save-button-block">
-            <button type="submit" class="mdc-button mdc-button--raised">
-              <span class="far fa-save mdc-list-item__graphic" aria-hidden="true"></span>
-              Save notes
-            </button>
-          </div>
-        </form>
-      {{else}}
-        <div class="detailed-info">
-          <p class="mdc-typography--body1">
-            If you <a href="/sign-up">sign up</a> you'll be able to save notes on active funds.
-          </p>
-        </div>
-      {{/if ~}}
-    </div>
-    <div class="mdc-card__actions">
-      <div class="mdc-card__action-icons mdc-chip-set pull-right">
-        <div class="mdc-chip" onclick="goodmoves.toggleShortlistItem('{{Id}}');" data-mdc-auto-init="MDCChip">
-          <span class="far fa-star mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span>
-          <div class="mdc-chip__checkmark">
-            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
-              <path class="mdc-chip__checkmark-path" fill="none" stroke="#244817" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-            </svg>
-          </div>
-          <div class="mdc-chip__text noselect">Shortlist</div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

@@ -1,7 +1,7 @@
 {{#if keywords ~}}
 {{>queries_query_string
   querystring=keywords
-  fields=(split "text_bag_boost^5,text_bag" ",")
+  fields=(split "text_bag_boost,text_bag" ",")
 }},
 {{/if ~}}
 {{>queries_do_nothing}}

@@ -153,7 +153,7 @@
       }
     }
   },
-  "geographical-areas-funded": { 
+  "geographical_areas_funded": { 
     "label": "Geographical areas funded",
     "termGroups": { 
       "nhs-boards": { 
@@ -243,7 +243,7 @@
       }
     }
   },
-  "type-of-cost": { 
+  "type_of_cost": { 
     "label": "Type of cost",
     "termGroups": { 
       "other": { 
@@ -255,7 +255,7 @@
       }
     }
   },
-  "type-of-funding": { 
+  "type_of_funding": { 
     "label": "Type of funding",
     "termGroups": { 
       "other": { 

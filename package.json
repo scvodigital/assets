@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.225",
+  "version": "0.0.232",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -48,6 +48,7 @@
     "husky": "^1.0.0-rc.14",
     "imports-loader": "^0.8.0",
     "mime-types": "^2.1.20",
+    "mjml": "^4.3.1",
     "node-sass": "^4.9.3",
     "parallel-webpack": "^2.3.0",
     "postcss-loader": "^3.0.0",

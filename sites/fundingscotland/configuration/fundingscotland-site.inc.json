@@ -33,6 +33,10 @@
         "singular": "Region",
         "plural": "Regions"
       },
+      "region_group": {
+        "singular": "Region",
+        "plural": "Regions"
+      },
       "type_of_cost": {
         "singular": "Type of cost",
         "plural": "Type of cost"

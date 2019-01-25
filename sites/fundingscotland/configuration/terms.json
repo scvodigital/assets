@@ -1,8 +1,8 @@
 {
-  "activities": { 
+  "activities": {
     "label": "Activities",
-    "termGroups": { 
-      "advice": { 
+    "termGroups": {
+      "advice": {
         "label": "Advice",
         "terms": {
           "advising-and-informing": {
@@ -23,7 +23,7 @@
           }
         }
       },
-      "arts-culture-and-heritage": { 
+      "arts-culture-and-heritage": {
         "label": "Arts, culture and heritage",
         "terms": {
           "arts-and-cultural-activities": {
@@ -36,7 +36,7 @@
           }
         }
       },
-      "community-and-organisational-development": { 
+      "community-and-organisational-development": {
         "label": "Community and organisational development",
         "terms": {
           "organisation-capacity-building": {
@@ -81,7 +81,7 @@
           }
         }
       },
-      "education-training-and-research": { 
+      "education-training-and-research": {
         "label": "Education, training and research",
         "terms": {
           "education-and-training": {
@@ -106,7 +106,7 @@
           }
         }
       },
-      "environment-and-animals": { 
+      "environment-and-animals": {
         "label": "Environment and animals",
         "terms": {
           "environmental-projects": {
@@ -119,7 +119,7 @@
           }
         }
       },
-      "health-and-social-care": { 
+      "health-and-social-care": {
         "label": "Health and social care",
         "terms": {
           "accommodation": {
@@ -148,7 +148,7 @@
           }
         }
       },
-      "other": { 
+      "other": {
         "label": "Other",
         "terms": {
           "religious-activities": {
@@ -171,10 +171,10 @@
       }
     }
   },
-  "beneficiaries": { 
+  "beneficiaries": {
     "label": "Beneficiaries",
-    "termGroups": { 
-      "economically-socially-disadvantaged-people": { 
+    "termGroups": {
+      "economically-socially-disadvantaged-people": {
         "label": "Economically/socially disadvantaged people",
         "terms": {
           "addicts-and-misusers": {
@@ -231,7 +231,7 @@
           }
         }
       },
-      "environment-and-animals": { 
+      "environment-and-animals": {
         "label": "Environment and animals",
         "terms": {
           "natural-environment": {
@@ -244,7 +244,7 @@
           }
         }
       },
-      "gender-sexual-orientation": { 
+      "gender-sexual-orientation": {
         "label": "Gender/sexual orientation",
         "terms": {
           "men": {
@@ -261,7 +261,7 @@
           }
         }
       },
-      "geographic-communities": { 
+      "geographic-communities": {
         "label": "Geographic communities",
         "terms": {
           "the-local-community": {
@@ -278,7 +278,7 @@
           }
         }
       },
-      "other": { 
+      "other": {
         "label": "Other",
         "terms": {
           "families": {
@@ -295,7 +295,7 @@
           }
         }
       },
-      "people-affected-by-ill-health-disability": { 
+      "people-affected-by-ill-health-disability": {
         "label": "People affected by ill health/disability",
         "terms": {
           "mental-health-conditions": {
@@ -328,7 +328,7 @@
           }
         }
       },
-      "people-from-in-specific-occupations": { 
+      "people-from-in-specific-occupations": {
         "label": "People from/in specific occupations",
         "terms": {
           "students-ex-students": {
@@ -341,7 +341,7 @@
           }
         }
       },
-      "people-of-a-specific-age-group": { 
+      "people-of-a-specific-age-group": {
         "label": "People of a specific age group",
         "terms": {
           "older-people": {
@@ -360,166 +360,63 @@
       }
     }
   },
-  "geographical_areas_funded": { 
+  "region_group": {
     "label": "Geographical areas funded",
-    "termGroups": { 
-      "nhs-boards": { 
-        "label": "NHS Boards",
+    "termGroups": {
+      "regions": {
+        "label": "Regions",
         "terms": {
-          "ayrshire-and-arran": {
-            "label": "Ayrshire and Arran",
-            "textBag": "Ayrshire and Arran"
+          "ayrshire-arran": {
+            "label": "Ayrshire & Arran",
+            "textBag": "Ayrshire Arran"
           },
           "borders": {
             "label": "Borders",
-            "textBag": "Borders"
-          },
-          "dumfries-and-galloway": {
-            "label": "Dumfries and Galloway",
-            "textBag": "Dumfries and Galloway"
-          },
-          "western-isles": {
-            "label": "Western Isles",
-            "textBag": "Western Isles"
-          },
-          "fife": {
-            "label": "Fife",
-            "textBag": "Fife"
-          },
-          "forth-valley": {
-            "label": "Forth Valley",
-            "textBag": "Forth Valley"
-          },
-          "grampian": {
-            "label": "Grampian",
-            "textBag": "Grampian"
-          },
-          "greater-glasgow-and-clyde": {
-            "label": "Greater Glasgow and Clyde",
-            "textBag": "Greater Glasgow and Clyde"
-          },
-          "highland": {
-            "label": "Highland",
-            "textBag": "Highland"
-          },
-          "lanarkshire": {
-            "label": "Lanarkshire",
-            "textBag": "Lanarkshire"
-          },
-          "lothian": {
-            "label": "Lothian",
-            "textBag": "Lothian"
-          },
-          "orkney": {
-            "label": "Orkney",
-            "textBag": "Orkney"
-          },
-          "shetland": {
-            "label": "Shetland",
-            "textBag": "Shetland"
-          },
-          "tayside": {
-            "label": "Tayside",
-            "textBag": "Tayside"
-          }
-        }
-      },
-      "east": { 
-        "label": "East",
-        "terms": {
-          "angus": {
-            "label": "Angus",
-            "textBag": "Angus"
-          },
-          "clackmannanshire": {
-            "label": "Clackmannanshire",
-            "textBag": "Clackmannanshire"
-          },
-          "dundee": {
-            "label": "Dundee",
-            "textBag": "Dundee"
-          },
-          "east-lothian": {
-            "label": "East Lothian",
-            "textBag": "East Lothian"
-          },
-          "edinburgh": {
-            "label": "Edinburgh",
-            "textBag": "Edinburgh"
-          },
-          "falkirk": {
-            "label": "Falkirk",
-            "textBag": "Falkirk"
-          },
-          "fife": {
-            "label": "Fife",
-            "textBag": "Fife"
-          },
-          "midlothian": {
-            "label": "Midlothian",
-            "textBag": "Midlothian"
-          },
-          "scottish-borders": {
-            "label": "Scottish Borders",
             "textBag": "Scottish Borders"
           },
-          "west-lothian": {
-            "label": "West Lothian",
-            "textBag": "West Lothian"
-          },
-          "perth-and-kinross": {
-            "label": "Perth and Kinross",
-            "textBag": "Perth and Kinross"
-          },
-          "stirling": {
-            "label": "Stirling",
-            "textBag": "Stirling"
-          }
-        }
-      },
-      "highlands-and-islands": { 
-        "label": "Highlands and Islands",
-        "terms": {
-          "shetland": {
-            "label": "Shetland",
-            "textBag": "Shetland"
-          },
-          "highland": {
-            "label": "Highland",
-            "textBag": "Highland"
-          },
-          "orkney": {
-            "label": "Orkney",
-            "textBag": "Orkney"
-          },
-          "moray": {
-            "label": "Moray",
-            "textBag": "Moray"
+          "dumfries-galloway": {
+            "label": "Dumfries & Galloway",
+            "textBag": "Dumfries Galloway"
           },
           "na-h-eileanan-siar": {
             "label": "Na h-Eileanan Siar",
-            "textBag": "Na h-Eileanan Siar"
+            "textBag": "Na h-Eileanan Siar Western Isles"
           },
-          "argyll-and-bute": {
-            "label": "Argyll and Bute",
-            "textBag": "Argyll and Bute"
+          "fife": {
+            "label": "Fife",
+            "textBag": "Fife"
+          },
+          "central-scotland": {
+            "label": "Central Scotland",
+            "textBag": "Central Scotland Forth Valley"
+          },
+          "grampian": {
+            "label": "Grampian",
+            "textBag": "Grampian Aberdeenshire"
+          },
+          "glasgow-clyde": {
+            "label": "Glasgow & Clyde",
+            "textBag": "Glasgow Clyde Lanarkshire Dunbartonshire Renfrewshire"
+          },
+          "highlands": {
+            "label": "Highlands",
+            "textBag": "Highland Highlands Islands"
+          },
+          "edinburgh-lothians": {
+            "label": "Edinburgh & Lothians",
+            "textBag": "Edinburgh Lothian Lothians Midlothian"
+          },
+          "northern-isles": {
+            "label": "Northern Isles",
+            "textBag": "Northern Isles Orkney Shetland"
+          },
+          "tayside": {
+            "label": "Tayside",
+            "textBag": "Tayside Dundee Perth"
           }
         }
       },
-      "international": { 
-        "label": "International",
-        "terms": {
-          "european-union": {
-            "label": "European Union",
-            "textBag": "European Union"
-          },
-          "overseas": {
-            "label": "Overseas",
-            "textBag": "Overseas"
-          }
-        }
-      },
-      "national": { 
+      "national": {
         "label": "National",
         "terms": {
           "uk": {
@@ -532,78 +429,25 @@
           }
         }
       },
-      "north-east": { 
-        "label": "North East",
+      "international": {
+        "label": "International",
         "terms": {
-          "aberdeen": {
-            "label": "Aberdeen",
-            "textBag": "Aberdeen"
+          "european-union": {
+            "label": "European Union",
+            "textBag": "European Union"
           },
-          "aberdeenshire": {
-            "label": "Aberdeenshire",
-            "textBag": "Aberdeenshire"
-          }
-        }
-      },
-      "south-west": { 
-        "label": "South West",
-        "terms": {
-          "west-dunbartonshire": {
-            "label": "West Dunbartonshire",
-            "textBag": "West Dunbartonshire"
-          },
-          "renfrewshire": {
-            "label": "Renfrewshire",
-            "textBag": "Renfrewshire"
-          },
-          "inverclyde": {
-            "label": "Inverclyde",
-            "textBag": "Inverclyde"
-          },
-          "south-ayrshire": {
-            "label": "South Ayrshire",
-            "textBag": "South Ayrshire"
-          },
-          "south-lanarkshire": {
-            "label": "South Lanarkshire",
-            "textBag": "South Lanarkshire"
-          },
-          "glasgow": {
-            "label": "Glasgow",
-            "textBag": "Glasgow"
-          },
-          "north-ayrshire": {
-            "label": "North Ayrshire",
-            "textBag": "North Ayrshire"
-          },
-          "north-lanarkshire": {
-            "label": "North Lanarkshire",
-            "textBag": "North Lanarkshire"
-          },
-          "dumfries-and-galloway": {
-            "label": "Dumfries and Galloway",
-            "textBag": "Dumfries and Galloway"
-          },
-          "east-renfrewshire": {
-            "label": "East Renfrewshire",
-            "textBag": "East Renfrewshire"
-          },
-          "east-ayrshire": {
-            "label": "East Ayrshire",
-            "textBag": "East Ayrshire"
-          },
-          "east-dunbartonshire": {
-            "label": "East Dunbartonshire",
-            "textBag": "East Dunbartonshire"
+          "overseas": {
+            "label": "Worldwide",
+            "textBag": "Overseas World"
           }
         }
       }
     }
   },
-  "type_of_cost": { 
+  "type_of_cost": {
     "label": "Type of cost",
-    "termGroups": { 
-      "other": { 
+    "termGroups": {
+      "other": {
         "label": "Other",
         "terms": {
           "capital": {
@@ -618,10 +462,10 @@
       }
     }
   },
-  "type_of_funding": { 
+  "type_of_funding": {
     "label": "Type of funding",
-    "termGroups": { 
-      "other": { 
+    "termGroups": {
+      "other": {
         "label": "Other",
         "terms": {
           "corporate-sponsorship": {
@@ -656,10 +500,10 @@
       }
     }
   },
-  "miscellaneous": { 
+  "miscellaneous": {
     "label": "Miscellaneous",
-    "termGroups": { 
-      "other": { 
+    "termGroups": {
+      "other": {
         "label": "Other",
         "terms": {
           "for-charities-only": {

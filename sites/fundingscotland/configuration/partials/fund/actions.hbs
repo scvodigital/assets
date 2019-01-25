@@ -12,8 +12,13 @@
     {{/compare ~}}
   </div>
   <div class="mdc-card__action-icons pull-right">
-    <div class="mdc-chip-set mdc-chip-set--filter">
-      {{> shortlist_chip id=Id}}
-    </div>
+    <a href="/vacancy/{{slug}}{{@root.request.url.search}}#lists" class="mdc-card__action mdc-card__action-lists">
+      <i class="fal fa-list fa-fw r-margin"></i>
+      {{#if (contains (pluck @root.data.shortlist.items.[0] "id") id)}}
+        Manage fund lists
+      {{else}}
+        Save fund to list
+      {{/if}}
+    </a>
   </div>
 </div>

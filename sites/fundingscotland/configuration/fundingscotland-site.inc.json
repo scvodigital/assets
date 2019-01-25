@@ -24,7 +24,7 @@
     "menus": "{:./fundingscotland-menus.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "emailCampaignName": "fs-saved-searches",
-    "shortlistCampaignName": "fs-shortlist",
+    "shortlistCampaignName": "fs-saved-funds",
     "terms": "{:./terms.json}",
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",

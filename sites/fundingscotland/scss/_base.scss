@@ -332,7 +332,7 @@ a {
 .fund-details {
   clear: both;
 }
-.mdc-card.full {
+.full {
   box-shadow: none !important;
   .editor-toolbar,
   .CodeMirror {
@@ -343,6 +343,9 @@ a {
       background: #fff !important;
     }
   }
+  .mdc-tab-bar--stacked {
+    height: 72px!important;
+  }
   #content-primary-tab-bar {
     background-color: $mdc-theme-complimentary-light;
     .mdc-tab__icon,
@@ -351,6 +354,9 @@ a {
     }
     .mdc-tab-indicator__content {
       background-color: $mdc-theme-primary-dark;
+    }
+    .mdc-tab--stacked {
+        height: 72px!important;
     }
   }
   .content-primary-info-container {
@@ -772,6 +778,14 @@ footer.mdc-layout__footer {
 
 .checkbox-list-child-no-indent {
   padding-left: $unit/2 !important;
+}
+
+.panel {
+  display: none;
+}
+
+.panel--active {
+  display: block;
 }
 
 .mdc-list-group {

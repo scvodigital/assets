@@ -45,7 +45,7 @@
   "query": {
     "bool": {
       "filter": [
-        {{>queries_opportunity_common_filters_open this}},
+        {{>queries_opportunity_common_filters this}},
         {
           "range": {
             "start_date": {

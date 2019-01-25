@@ -21,7 +21,7 @@
       "config": {
         "output": "data",
         "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.process_dynamic-vs-es-task"
+        "template": ">context.metaData.handlebars.templates.process_vs-dynamic-es-task"
       }
     },
     "data.generate_es_task",
@@ -32,7 +32,7 @@
       "config": {
         "output": "data",
         "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.process_dynamic-vs-mysql-task"
+        "template": ">context.metaData.handlebars.templates.process_vs-dynamic-mysql-task"
       }
     },
     "data.generate_mysql_task",

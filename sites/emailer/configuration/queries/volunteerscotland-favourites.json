@@ -3,36 +3,52 @@
   "_source": [
     "Id",
     "slug",
-    "top_job",
+    "milo_ref",
+    "available_from",
+    "client_group",
+    "client_group_slugs",
+    "date_created",
     "description",
+    "description_html",
+    "end_date",
+    "expenses_paid",
+    "experience_required",
+    "frequency_commitment_details",
+    "geo_coords",
+    "geo",
+    "minimum_age",
+    "postcode",
+    "organisation_slug",
+    "organisation_name",
+    "organisation_aims_and_objectives",
+    "organisation_website",
+    "organisation_website_url",
+    "opportunity_contact_first_name",
+    "opportunity_contact_last_name",
+    "opportunity_contact_phone",
+    "opportunity_contact_email",
+    "opportunity_contact_via_tsi",
+    "support_options",
+    "goodhq_organisation.image_url",
     "title",
-    "geo_vacancy_coords",
-    "home_based",
-    "location",
-    "salary",
-    "salary_currency",
-    "role_status_list",
-    "active",
-    "closing_date",
-    "start_at",
-    "end_at",
-    "organisation.slug",
-    "organisation.name",
-    "organisation.has_logo",
-    "organisation.logo_url",
-    "rendered.goodmoves_rss"
+    "travel_expenses",
+    "work_location",
+    "work_type",
+    "work_type_slugs",
+    "availability",
+    "availability_slugs",
+    "taster_available",
+    "volunteersearch_age_group",
+    "volunteersearch_age_group_slugs",
+    "volunteersearch_support_option",
+    "volunteersearch_support_option_slugs"
   ],
   "query": {
     "bool": {
       "filter": [
         {
-          "term": {
-            "active": true
-          }
-        },
-        {
           "range": {
-            "closing_date": {
+            "end_date": {
               "gt": "now+2d/d",
               "lt": "now+4d/d"
             }
@@ -52,7 +68,7 @@
   },
   "sort": [
     {
-      "start_at": "asc"
+      "date_created": "asc"
     }
   ]
 }

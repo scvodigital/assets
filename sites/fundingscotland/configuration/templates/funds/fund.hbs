@@ -1,13 +1,32 @@
 {{#if @root.data.auth ~}}
   <div class="container-fluid">
     {{#compare data.primaryResponse.hits.total ">" 0}}
-      <div class="container-content">
-        <div class="fundingscotland-fund">
-          {{#each data.primaryResponse.hits.hits ~}}
-          {{> fund_full _source}}
-          {{/each ~}}
+      {{#with @root.data.primaryResponse.hits.hits.[0]._source}}
+        <div class="container-content">
+          <div class="fundingscotland-fund full">
+            {{> fund_key_info}}
+            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="tab" extraClasses="mdc-tab-bar--stacked"}}
+              {{>components_tab tabName="details" label="Details" active=true linkClasses="mdc-tab--stacked" iconClasses="fas fa-info-circle"}}
+              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-sticky-note"}}
+              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-list"}}
+            {{/components_tab_bar}}
+            <div class="panels" for="content-primary-tab-bar">
+              <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
+                {{> fund_full this hideTitle=true}}
+              </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+                <h3>Notes</h3>
+              </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
+                <h3>Lists</h3>
+              </div>
+            </div>
+          </div>
         </div>
+      {{/with}}
+      <div class="container-content">
         <div class="fundingscotland-related-funds">
+          <hr class="mdc-list-divider v-margin-full">
           <div class="mdc-typography--headline5 v-margin-full">
             Similar funds
           </div>

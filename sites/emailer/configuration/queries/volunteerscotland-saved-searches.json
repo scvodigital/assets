@@ -3,28 +3,53 @@
   "_source": [
     "Id",
     "slug",
-    "top_job",
+    "milo_ref",
+    "available_from",
+    "client_group",
+    "client_group_slugs",
+    "date_created",
     "description",
+    "description_html",
+    "end_date",
+    "expenses_paid",
+    "experience_required",
+    "frequency_commitment_details",
+    "geo_coords",
+    "geo",
+    "minimum_age",
+    "postcode",
+    "organisation_slug",
+    "organisation_name",
+    "organisation_aims_and_objectives",
+    "organisation_website",
+    "organisation_website_url",
+    "opportunity_contact_first_name",
+    "opportunity_contact_last_name",
+    "opportunity_contact_phone",
+    "opportunity_contact_email",
+    "opportunity_contact_via_tsi",
+    "support_options",
+    "goodhq_organisation.image_url",
     "title",
-    "home_based",
-    "location",
-    "salary",
-    "salary_currency",
-    "role_status_list",
-    "active",
-    "closing_date",
-    "start_at",
-    "end_at",
-    "organisation.slug",
-    "organisation.name"
+    "travel_expenses",
+    "work_location",
+    "work_type",
+    "work_type_slugs",
+    "availability",
+    "availability_slugs",
+    "taster_available",
+    "volunteersearch_age_group",
+    "volunteersearch_age_group_slugs",
+    "volunteersearch_support_option",
+    "volunteersearch_support_option_slugs"
   ],
   "query": {
     "bool": {
       "filter": [
-        {{>queries_vacancy_common_filters_open this}},
+        {{>queries_opportunity_common_filters this}},
         {
           "range": {
-            "start_at": {
+            "date_created": {
               {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
               "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
               {{else}}
@@ -40,10 +65,10 @@
             {
               "bool": {
                 "filter": [
-                  {{>queries_vacancy_search_filters this}}
+                  {{>queries_opportunity_search_filters this}}
                 ],
                 "must": [
-                  {{>queries_vacancy_search_must this}}
+                  {{>queries_opportunity_search_must this}}
                 ]
               }
             }

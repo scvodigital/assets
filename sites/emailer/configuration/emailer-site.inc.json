@@ -12,6 +12,7 @@
     "title": "SCVO Emailer",
     "menus": {},
     "campaignConfig": "{:./emailer-campaigns.json}",
+    "vsCampaignConfig": "{:./vs-emailer-campaigns.json}",
     "elasticsearchUrl": "{$../elasticsearch-url.txt}",
     "firebaseDefaultDomain": {
       "name": "scvo",

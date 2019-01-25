@@ -1,0 +1,46 @@
+[
+{{#if @root.data.search_data}}
+  {{#eachJoin @root.data.notifications.subscriptions.[1] ","}}
+    {{#ifAny
+      (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.sendIfEmpty'))
+      (any (getProperty @root.data.search_data (concat (slugify (concat campaign " " email)) '.hits.hits')))
+    }}
+      {
+        "from": {{{stringify (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.from'))}}},
+        "h:sender": {{{stringify (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.from'))}}},
+        "to": {{{stringify (default testEmail email)}}},
+        "o:tag": {{{stringify (if testEmail (concat 'test-' campaign) else=campaign)}}},
+        "o:tracking": true,
+        {{!-"o:testmode": true,--}}
+        "tag": {{{stringify campaign}}},
+        "id": {{{stringify campaign}}},
+        "connectionName": {{{stringify (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.mailgunConnection'))}}},
+        "subject":
+          {{~#blockStringify this ~}}
+            {{~>
+              (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.subjectPartial'))
+              subscription=this
+              searchData=(getProperty @root.data.search_data (concat (slugify (concat campaign " " email))))
+              vsCampaignConfig=(getProperty @root.context.metaData.vsCampaignConfig campaign)
+            ~}}
+          {{~/blockStringify}},
+        "html":
+          {{~#blockStringify this ~}}
+            {{~>
+              (getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.bodyPartial'))
+              subscription=this
+              searchData=(getProperty @root.data.search_data (concat (slugify (concat campaign " " email))))
+              vsCampaignConfig=(getProperty @root.context.metaData.vsCampaignConfig campaign)
+            ~}}
+          {{~/blockStringify}}
+      }
+      {{else}}{{!--
+      {
+        "nothing_to_send": {{{stringify (slugify (concat campaign " " email))}}},
+        "query": {{{stringify (getProperty @root.data.search_data (concat (slugify (concat campaign " " email)) '.hits.hits'))}}}
+      }
+      --}}
+    {{/ifAny}}
+  {{/eachJoin}}
+{{/if}}
+]

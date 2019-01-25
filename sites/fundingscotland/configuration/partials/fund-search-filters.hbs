@@ -45,10 +45,10 @@
 
 {{#*inline "advanced_checkbox_item"}}
 <li class="mdc-list-item checkbox-list-child {{#if noIndent}}checkbox-list-child-no-indent{{/if}}" data-advanced-checkbox-item="{{name}}"
-      data-advanced-checkbox-group-parent="{{group}}" role="checkbox" aria-checked="false"
+      data-advanced-checkbox-group-parent="{{group}}" role="checkbox" aria-checked="{{checked}}"
       id="li-{{name}}-{{value}}">
     <label for="cb-{{name}}-{{value}}">{{label}}</label>
-    {{> advanced_checkbox_checkbox name=name hideName=false value=value label=label}}
+    {{> advanced_checkbox_checkbox name=name hideName=false value=value label=label checked=checked}}
   </li>
 {{/inline}}
 
@@ -117,6 +117,7 @@
                     name=@../../../../key
                     value=@key
                     label=this
+                    checked=(contains (getProperty @root.request.params.query @../../../../key) @key)
                     group=(concat @../../../../key '-'  @../../../key)
                     noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}
               {{/each}}

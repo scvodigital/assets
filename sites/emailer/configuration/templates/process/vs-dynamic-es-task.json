@@ -1,0 +1,36 @@
+{{#if (any @root.data.notifications.subscriptions.[1])}}
+{
+  "name": "search_data",
+  "taskModule": "elasticsearch",
+  "renderer": "handlebars",
+  "subs": {{{stringify @root.data.notifications}}},
+  "config": {
+    "connectionStringTemplate": "{{{@root.context.metaData.elasticsearchUrl}}}",
+    "elasticsearchConfig": {
+      "apiVersion": "5.6"
+    },
+    "queryTemplates": [
+      {{#each @root.data.notifications.subscriptions.[1]}}
+      {
+        "name": "{{{slugify (concat campaign ' ' email)}}}",
+        "index": "web-content-production",
+        "type": "milo-volunteering-opportunity",
+        "template": "{{{getProperty @root.context.metaData.vsCampaignConfig (concat campaign '.queryTemplate')}}}",
+        "metaData": {{{stringify this}}}
+      }{{#unless @last}},{{/unless}}
+      {{/each}}
+    ]
+  }
+}
+{{else}}
+{
+  "name": "search_data",
+  "taskModule": "render",
+  "renderer": "handlebars",
+  "config": {
+    "output": "data",
+    "template": "{ \"status\": \"No more subscriptions to process\" }",
+    "parseJson": true
+  }
+}
+{{/if}}

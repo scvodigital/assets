@@ -4,12 +4,6 @@
 {{#if beneficiaries ~}}
   {{>queries_terms field="beneficiaries_slugs" terms=beneficiaries}},
 {{/if}}
-{{#if fund_status ~}}
-  {{>queries_terms field="fund_status_slug" terms=fund_status}},
-{{/if}}
-{{#if charities_only ~}}
-  {{>queries_terms field="for_charities_only_slug" terms=charities_only}},
-{{/if ~}}
 {{#if geographical_areas_funded ~}}
   {{>queries_terms field="geographical_areas_funded_slugs" terms=geographical_areas_funded}},
 {{/if ~}}
@@ -18,5 +12,11 @@
 {{/if ~}}
 {{#if type_of_funding ~}}
   {{>queries_terms field="type_of_funding_slug" terms=type_of_funding}},
+{{/if ~}}
+{{#unless (contains miscellaneous "show-closed-funds") ~}}
+  {{>queries_term field="fund_status_slug" term="open"}},
+{{/unless}}
+{{#if (contains miscellaneous "for-charities-only") ~}}
+  {{>queries_terms field="charities_only" terms=true}},
 {{/if ~}}
 {{>queries_do_nothing}}

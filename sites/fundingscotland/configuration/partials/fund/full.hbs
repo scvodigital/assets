@@ -4,7 +4,7 @@
     {{#if (length (arrayify region_group)) ~}}
       <li class="mdc-typography--body1 mdc-chip-set">
         <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
-        {{#each (arrayify region_group) ~}}
+        {{#each (sort (arrayify region_group)) ~}}
           <a href="/search?region_group={{lookup (arrayify ../region_group_slug) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
         {{/each ~}}
       </li>

@@ -113,11 +113,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       return;
     }
 
+    goodmoves.setCookie('gm_token', '');
+    goodmoves.setCookie('gm_cookie', '');
     goodmoves.app.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
       if (user) {
-        console.log('Registered user:', user);
+        // console.log('Registered user:', user);
         user.user.getIdTokenResult().then(function(idTokenResult) {
-          console.log('ID Token Result', idTokenResult);
+          // console.log('ID Token Result', idTokenResult);
           goodmoves.setCookie('gm_token', idTokenResult.token, 7);
           window.location.href = '/';
         });

@@ -1,57 +1,3 @@
-{{#*inline "advanced_checkbox_checkbox"}}
-  <div class="mdc-checkbox mdc-list-item__meta">
-    <input type="checkbox" class="mdc-checkbox__native-control"
-        {{#unless hideName}}name="{{name}}"{{/unless}} value="{{value}}"
-        id="cb-{{name}}-{{value}}" {{#if checked}}checked{{/if}}
-        aria-labelledby="li-{{name}}-{{value}}">
-    <div class="mdc-checkbox__background">
-      <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-      </svg>
-      <div class="mdc-checkbox__mixedmark"></div>
-    </div>
-  </div>
-{{/inline}}
-
-{{#*inline "advanced_checkbox_list"}}
-  <div class="mdc-list-group" data-advanced-checkbox-list="{{name}}">
-    <h3 class="mdc-list-group__subheader cursor-pointer noselect" data-acl-collapse-trigger>
-      <span class="mdc-icon-toggle mdc-icon-toggle-xs pull-right r-padding-full" data-acl-clear>
-        <span class="far fa-trash" aria-hidden="true"></span>
-      </span>
-      {{{label}}}
-    </h3>
-    <ul class="mdc-list mdc-list--dense" role="group" aria-label="{{label}}">
-      {{> @partial-block}}
-      <li class="mdc-list-item cursor-pointer noselect" data-acl-collapse-trigger>
-        <i class="fas fa-ellipsis-h fa-2x pull-centre" data-acl-collapse-icon-collapsed="fa-ellipsis-h"
-            data-acl-collapse-icon-open="fa-chevron-up"></i>
-      </li>
-    </ul>
-  </div>
-{{/inline}}
-
-{{#*inline "advanced_checkbox_group"}}
-<li class="mdc-list-item checkbox-list-parent {{#if hideParent}}checkbox-list-parent-hidden{{/if}}" data-advanced-checkbox-group="{{name}}"
-      role="checkbox" aria-checked="false" id="li-{{name}}-{{value}}">
-    <label for="cb-{{name}}-{{value}}">
-      {{label}}
-      <span class="checkbox-list-indicator" data-advanced-checkbox-group-indicator></span>
-    </label>
-    {{> advanced_checkbox_checkbox name=name hideName=true label=label}}
-  </li>
-  {{> @partial-block}}
-{{/inline}}
-
-{{#*inline "advanced_checkbox_item"}}
-<li class="mdc-list-item checkbox-list-child {{#if noIndent}}checkbox-list-child-no-indent{{/if}}" data-advanced-checkbox-item="{{name}}"
-      data-advanced-checkbox-group-parent="{{group}}" role="checkbox" aria-checked="{{checked}}"
-      id="li-{{name}}-{{value}}">
-    <label for="cb-{{name}}-{{value}}">{{label}}</label>
-    {{> advanced_checkbox_checkbox name=name hideName=false value=value label=label checked=checked}}
-  </li>
-{{/inline}}
-
 <div class="mdc-drawer__content">
   <form action="/search" method="GET" class="search-form">
     <div class="header mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field-tt" data-mdc-auto-init="MDCTextField">
@@ -106,14 +52,14 @@
 
     {{#each @root.context.metaData.terms}}
       {{#unless (getProperty @root.data.currentSite.fixedFilters @key)}}
-        {{#> advanced_checkbox_list name=@key label=label}}
+        {{#> components_advanced_checkbox_list name=@key label=label}}
           {{#each termGroups}}
-            {{#> advanced_checkbox_group
+            {{#> components_advanced_checkbox_group
                 name=(concat @../key '-' @key)
                 label=label
                 hideParent=(compare (length (getKeys ../../termGroups)) 1)}}
               {{#each terms}}
-                {{> advanced_checkbox_item
+                {{> components_advanced_checkbox_item
                     name=@../../../../key
                     value=@key
                     label=label
@@ -121,9 +67,9 @@
                     group=(concat @../../../../key '-'  @../../../key)
                     noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}
               {{/each}}
-            {{/advanced_checkbox_group}}
+            {{/components_advanced_checkbox_group}}
           {{/each}}
-        {{/advanced_checkbox_list}}
+        {{/components_advanced_checkbox_list}}
       {{/unless}}
     {{/each}}
     <div class="v-margin">

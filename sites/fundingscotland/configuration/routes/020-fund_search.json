@@ -21,6 +21,14 @@
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.notesData",
     {
+      "name": "test_http",
+      "taskModule": "request",
+      "config": {
+        "optionsTemplate": "{ \"url\": {{{stringify @root.secrets.testSecret}}}, \"rejectUnauthorized\": false }"
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "search_data",
       "taskModule": "elasticsearch",
       "config": {

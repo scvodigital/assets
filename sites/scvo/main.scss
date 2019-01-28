@@ -4564,10 +4564,16 @@ footer {
 
   footer {
     .footer-main {
-      margin: $unit 0;
+      padding: $unit 0 0;
       h3 {
         margin-top: 0;
       }
+    }
+    .footer-copyright p {
+      margin-bottom: 0;
+    }
+    .brand-logo img {
+      margin-top: 0;
     }
   }
 }

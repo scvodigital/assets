@@ -2,12 +2,7 @@
 
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}
 
-<aside id="save-search-dialog"
-  class="mdc-dialog"
-  role="alertdialog"
-  aria-labelledby="save-search-dialog-label"
-  aria-describedby="save-search-dialog-description"
-  data-mdc-auto-init="MDCDialog">
+<aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description" data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
     <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
       <h2 id="save-search-dialog-label" class="mdc-dialog__title">
@@ -83,12 +78,7 @@
   <div class="mdc-dialog__scrim"></div>
 </aside>
 
-<aside id="edit-search-dialog"
-  class="mdc-dialog"
-  role="alertdialog"
-  aria-labelledby="edit-search-dialog-label"
-  aria-describedby="edit-search-dialog-description"
-  data-mdc-auto-init="MDCDialog">
+<aside id="edit-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="edit-search-dialog-label" aria-describedby="edit-search-dialog-description" data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
     <div class="mdc-dialog__surface">
       {{#if @root.data.auth ~}}

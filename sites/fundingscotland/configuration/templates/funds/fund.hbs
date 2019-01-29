@@ -61,75 +61,41 @@
                 {{/if ~}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
-                {{#*inline "shortlist_item"}}
-                  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
-                    <span class="mdc-list-item__text">
-                      <span class="mdc-list-item__primary-text">
-                        {{name}}
-                      </span>
-                      <span class="mdc-list-item__secondary-text">
-                        <strong>Email alerts: </strong>
-                        {{#if emails}}on{{else}}off{{/if}} | 
-                        <strong>Funds in list: </strong>
-                        {{count}}
-                      </span>
-                    </span>
-                    <span class="mdc-list-item__meta">
-                      {{> @partial-block}}
-                    </span>
-                  </li>  
-                {{/inline}}
-                
                 {{#if @root.data.auth ~}}
                   <div class="mdc-list-group">
-                    <h3 class="mdc-list-group__subheader">Lists fund is in</h3>
-                    <ul class="mdc-list mdc-list--two-line">
-                      {{#unless (contains (pluck @root.data.shortlist.items.[0] "value") Id)}}
-                        <li class="mdc-list-item">
-                          <span class="mdc-list-item__text">
-                            This fund is currently in no lists
-                          </span>
-                        </li>
-                      {{else}}
-                        {{#each @root.data.shortlistPartitions.items.[0]}}
-                          {{#if (contains (getProperty (querystring querystring) "id") ../Id)}}
-                            {{#>shortlist_item
-                                name=partition
-                                emails=partitionActive
-                                count=(length (arrayify (getProperty (querystring querystring) "id")))}}
-                              <form action="/remove-fund" method="POST">
-                                <input type="hidden" name="id" value="{{../../Id}}">
-                                <input type="hidden" name="slug" value="{{../../slug}}">
-                                <input type="hidden" name="name" value="{{../partition}}">
-                                <button type="submit" class="mdc-button mdc-button--raised">
-                                  Remove from list
-                                </button>
-                              </form>
-                            {{/shortlist_item}}
-                          {{/if}}
-                        {{/each}}
-                      {{/unless}}
-                    </ul>
-                  </div>
-                  <div class="mdc-list-group">
-                    <h3 class="mdc-list-group__subheader">Lists fund is not in</h3>
                     <ul class="mdc-list mdc-list--two-line">
                       {{#each @root.data.shortlistPartitions.items.[0]}}
-                        {{#unless (contains (getProperty (querystring querystring) "id") ../Id)}}
-                          {{#>shortlist_item
-                              name=partition
-                              emails=partitionActive
-                              count=(length (arrayify (getProperty (querystring querystring) "id")))}}
-                            <form action="/save-fund" method="POST">
-                              <input type="hidden" name="id" value="{{../../Id}}">
-                              <input type="hidden" name="slug" value="{{../../slug}}">
-                              <input type="hidden" name="name" value="{{../partition}}">
-                              <button type="submit" class="mdc-button mdc-button--raised">
-                                Add to list
-                              </button>
-                            </form>
-                          {{/shortlist_item}}
-                        {{/unless}}
+                        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">
+                              {{partition}}
+                            </span>
+                            <span class="mdc-list-item__secondary-text">
+                              <strong>Email alerts: </strong>
+                              {{#if emails}}on{{else}}off{{/if}} 
+                            </span>
+                          </span>
+                          <span class="mdc-list-item__meta">
+                            {{#> ajax_chip
+                              onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
+                              offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
+                              onText="Remove"
+                              offText="Add"
+                              iconClasses="far fa-plus"
+                              on=(contains (getProperty (querystring querystring) "id") ../Id)
+                            }}
+                            {
+                              "extraAttributes": "data-vacancy-id=\"{{../Id}}\"",
+                              "onClasses": {
+                                ".mdc-chip[data-vacancy-id=\"{{../Id}}\"] .mdc-chip__icon": "fa-trash"
+                                },
+                              "offClasses": {
+                                ".mdc-chip[data-vacancy-id=\"{{../Id}}\"] .mdc-chip__icon": "fa-plus"
+                              }
+                            }
+                            {{/ajax_chip}}
+                          </span>
+                        </li>  
                       {{/each}}
                     </ul>
                     <form action="/save-fund" method="POST">

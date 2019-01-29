@@ -95,7 +95,14 @@
                               name=partition
                               emails=partitionActive
                               count=(length (arrayify (getProperty (querystring querystring) "id")))}}
-                            Remove
+                            <form action="/remove-fund" method="POST">
+                              <input type="hidden" name="id" value="{{../../Id}}">
+                              <input type="hidden" name="slug" value="{{../../slug}}">
+                              <input type="hidden" name="name" value="{{../partition}}">
+                              <button type="submit" class="mdc-button mdc-button--raised">
+                                Remove from list
+                              </button>
+                            </form>
                           {{/shortlist_item}}
                         {{/if}}
                       {{/each}}

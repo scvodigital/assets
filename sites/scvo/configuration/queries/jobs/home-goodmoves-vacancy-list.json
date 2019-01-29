@@ -15,6 +15,11 @@
             },
             {
               "term": {
+                "active": true
+              }
+            },
+            {
+              "term": {
                 "vacancy_status": "vacancy-open"
               }
             },

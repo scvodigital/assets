@@ -5,7 +5,7 @@
         <div class="container-content">
           <div class="fundingscotland-fund full">
             {{> fund_key_info}}
-            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="tab" extraClasses="mdc-tab-bar--stacked"}}
+            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses="mdc-tab-bar--stacked"}}
               {{>components_tab tabName="details" label="Details" active=true linkClasses="mdc-tab--stacked" iconClasses="fas fa-info-circle"}}
               {{>components_tab tabName="notes" label="Notes" active=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-sticky-note"}}
               {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-list"}}
@@ -15,10 +15,130 @@
                 {{> fund_full this hideTitle=true}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
-                <h3>Notes</h3>
+                {{#if @root.data.auth ~}}
+                  <form action="/save-notes" method="POST" data-ajax-form='{
+                        "successMessage": "Notes saved",
+                        "failureMessage": "Failed to save notes",
+                        "successCallback": "notesSaved",
+                        "id": "{{Id}}"
+                      }'>
+                    <div>
+                      <textarea class="mdc-text-field__input" data-simple-mde='{
+                            "forceSync": true,
+                            "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
+                          }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.notes Id}}</textarea>
+                      <input type="hidden" name="id" value="{{Id}}">
+                    </div>
+                    <div class="save-button-block">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <span class="far fa-save mdc-list-item__graphic" aria-hidden="true"></span>
+                        Save notes
+                      </button>
+                      <button type="button" class="mdc-button mdc-button--raised mdc-button--warning" id="delete-notes-{{Id}}" data-id="{{Id}}"
+                          data-ajax-button='{
+                            "url": "/delete-notes",
+                            "method": "POST",
+                            "successMessage": "Notes deleted",
+                            "failureMessage": "Failed to delete notes",
+                            "successCallback": "clearNotes",
+                            "postBody": { "id": "{{Id}}" }
+                            }' {{#unless (getProperty @root.data.notes Id)}}disabled{{/unless}}>
+                        <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
+                        Delete notes
+                      </button>
+                      <div class="mdc-typography--caption">
+                        Any notes you write here are private on your account and are not shared with {{organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
+                      </div>
+                    </div>
+                  </form>
+                {{else}}
+                  <div class="detailed-info">
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save notes on active jobs.
+                    </p>
+                  </div>
+                {{/if ~}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
-                <h3>Lists</h3>
+                {{#*inline "shortlist_item"}}
+                  <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
+                    <span class="mdc-list-item__text">
+                      <span class="mdc-list-item__primary-text">
+                        {{name}}
+                      </span>
+                      <span class="mdc-list-item__secondary-text">
+                        <strong>Email alerts: </strong>
+                        {{#if emails}}on{{else}}off{{/if}} | 
+                        <strong>Funds in list: </strong>
+                        {{count}}
+                      </span>
+                    </span>
+                    <span class="mdc-list-item__meta">
+                      {{> @partial-block}}
+                    </span>
+                  </li>  
+                {{/inline}}
+                
+                <div class="mdc-list-group">
+                  <h3 class="mdc-list-group__subheader">Lists fund is in</h3>
+                  <ul class="mdc-list mdc-list--two-line">
+                    {{#unless (contains (pluck @root.data.shortlist.items.[0] "value") Id)}}
+                      <li class="mdc-list-item">
+                        <span class="mdc-list-item__text">
+                          This fund is currently in no lists
+                        </span>
+                      </li>
+                    {{else}}
+                      {{#each @root.data.shortlistPartitions.items.[0]}}
+                        {{#if (contains (getProperty (querystring querystring) "id") ../Id)}}
+                          {{#>shortlist_item
+                              name=partition
+                              emails=partitionActive
+                              count=(length (arrayify (getProperty (querystring querystring) "id")))}}
+                            Remove
+                          {{/shortlist_item}}
+                        {{/if}}
+                      {{/each}}
+                    {{/unless}}
+                  </ul>
+                </div>
+                <div class="mdc-list-group">
+                  <h3 class="mdc-list-group__subheader">Lists fund is not in</h3>
+                  <ul class="mdc-list mdc-list--two-line">
+                    {{#each @root.data.shortlistPartitions.items.[0]}}
+                      {{#unless (contains (getProperty (querystring querystring) "id") ../Id)}}
+                        {{#>shortlist_item
+                            name=partition
+                            emails=partitionActive
+                            count=(length (arrayify (getProperty (querystring querystring) "id")))}}
+                          Add
+                        {{/shortlist_item}}
+                      {{/unless}}
+                    {{/each}}
+                  </ul>
+                  <form action="/save-fund" method="POST">
+                    <div class="mdc-layout-grid x-padding-full">
+                      <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+                          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+                            <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
+                            <label for="name" class="mdc-floating-label">
+                              Add to new list
+                            </label>
+                            <div class="mdc-line-ripple"></div>
+                          </div>
+                        </div>
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                          <input type="hidden" name="slug" value="{{slug}}">
+                          <input type="hidden" name="id" value="{{Id}}">
+                          <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
+                            Create list
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

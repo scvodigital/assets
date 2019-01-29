@@ -3020,6 +3020,10 @@ form.inline-form {
   .checkbox-list-child-no-indent {
     padding-left: $unit/2 !important;
   }
+
+  .mdc-list-item {
+    height: auto !important;
+  }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {

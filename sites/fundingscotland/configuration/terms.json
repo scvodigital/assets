@@ -380,15 +380,6 @@
           }
         }
       },
-      "borders": {
-        "label": "Borders",
-        "terms": {
-          "scottish-borders": {
-            "label": "Scottish Borders",
-            "textBag": "Scottish Borders"
-          }
-        }
-      },
       "central-scotland": {
         "label": "Central Scotland",
         "terms": {
@@ -400,18 +391,13 @@
             "label": "Falkirk",
             "textBag": "Falkirk"
           },
+          "fife": {
+            "label": "Fife",
+            "textBag": "Fife"
+          },
           "stirling": {
             "label": "Stirling",
             "textBag": "Stirling"
-          }
-        }
-      },
-      "dumfries-galloway": {
-        "label": "Dumfries & Galloway",
-        "terms": {
-          "dumfries-galloway": {
-            "label": "Dumfries & Galloway",
-            "textBag": "Dumfries & Galloway"
           }
         }
       },
@@ -433,15 +419,6 @@
           "west-lothian": {
             "label": "West Lothian",
             "textBag": "West Lothian"
-          }
-        }
-      },
-      "fife": {
-        "label": "Fife",
-        "terms": {
-          "fife": {
-            "label": "Fife",
-            "textBag": "Fife"
           }
         }
       },
@@ -513,12 +490,7 @@
           "na-h-eileanan-siar": {
             "label": "Na h-Eileanan Siar",
             "textBag": "Na h-Eileanan Siar Western Isles"
-          }
-        }
-      },
-      "northern-isles": {
-        "label": "Northern Isles",
-        "terms": {
+          },
           "orkney": {
             "label": "Orkney",
             "textBag": "Orkney"
@@ -526,6 +498,19 @@
           "shetland": {
             "label": "Shetland",
             "textBag": "Shetland"
+          }
+        }
+      },
+      "south-scotland": {
+        "label": "South Scotland",
+        "terms": {
+          "dumfries-galloway": {
+            "label": "Dumfries & Galloway",
+            "textBag": "Dumfries & Galloway"
+          },
+          "scottish-borders": {
+            "label": "Scottish Borders",
+            "textBag": "Scottish Borders"
           }
         }
       },

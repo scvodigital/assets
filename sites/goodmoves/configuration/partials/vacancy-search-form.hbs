@@ -145,24 +145,40 @@
         </h3>
         <div class="mdc-drawer--occasional-ie11 checkbox-toggle-display-checked" id="{{../instance_id}}-{{this}}-collapse">
           {{#compare this "===" "regions" ~}}
-            {{#if (any @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ~}}
-              {{#each @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets ~}}
-                {{#if key ~}}
-                  {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                    <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">{{{key}}}</h3>
-                  {{/compare ~}}
-                {{/if ~}}
-                {{#each this.regions_slugs.buckets ~}}
-                  {{#if key ~}}
-                    {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../../instance_id value=(lookup ../this.regions.buckets @index)}}
-                  {{/if ~}}
-                {{/each ~}}
-              {{/each ~}}
-            {{/if ~}}
+            {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.regions.buckets) ">" 0 ~}}
+            <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">Scotland</h3>
+            {{#each @root.data.supplimentaryResponses.types_regions.aggregations.regions_slugs.buckets ~}}
+              {{#if key ~}}
+                {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../instance_id value=(lookup @root.data.supplimentaryResponses.types_regions.aggregations.regions.buckets @index)}}
+              {{/if ~}}
+            {{/each ~}}
+            {{/compare ~}}
+            {{#compare (length @root.data.supplimentaryResponses.types_regions_england.aggregations.regions.buckets) ">" 0 ~}}
+            <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">England</h3>
+            {{#each @root.data.supplimentaryResponses.types_regions_england.aggregations.regions_slugs.buckets ~}}
+              {{#if key ~}}
+                {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../instance_id value=(lookup @root.data.supplimentaryResponses.types_regions_england.aggregations.regions.buckets @index)}}
+              {{/if ~}}
+            {{/each ~}}
+            {{/compare ~}}
+            {{#compare (length @root.data.supplimentaryResponses.types_regions_northern_ireland.aggregations.regions.buckets) ">" 0 ~}}
+            <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">Northern Ireland</h3>
+            {{#each @root.data.supplimentaryResponses.types_regions_northern_ireland.aggregations.regions_slugs.buckets ~}}
+              {{#if key ~}}
+                {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../instance_id value=(lookup @root.data.supplimentaryResponses.types_regions_northern_ireland.aggregations.regions.buckets @index)}}
+              {{/if ~}}
+            {{/each ~}}
+            {{/compare ~}}
+            {{#compare (length @root.data.supplimentaryResponses.types_regions_wales.aggregations.regions.buckets) ">" 0 ~}}
+            <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">Wales</h3>
+            {{#each @root.data.supplimentaryResponses.types_regions_wales.aggregations.regions_slugs.buckets ~}}
+              {{#if key ~}}
+                {{> term_checkbox slug=key field="regions" selected=@root.request.params.query.regions instance_id=../../instance_id value=(lookup @root.data.supplimentaryResponses.types_regions_wales.aggregations.regions.buckets @index)}}
+              {{/if ~}}
+            {{/each ~}}
+            {{/compare ~}}
             {{#ifAny (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ~}}
-              {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-                <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">Other</h3>
-              {{/compare ~}}
+              <h3 class="mdc-typography--headline7 h-padding checkbox-collapse-element">Other</h3>
               {{#compare (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ">=" 1 ~}}
                 {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../instance_id value="Various locations"}}
               {{/compare ~}}

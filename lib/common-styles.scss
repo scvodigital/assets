@@ -2994,11 +2994,9 @@ form.inline-form {
 .mdc-button--warning {
   background-color: transparent !important;
 }
-
 .mdc-button--raised.mdc-button--warning {
   color: #fff !important;
 }
-
 .mdc-button--warning:disabled {
   opacity: 0.5;
   filter: grayscale(100%);
@@ -3008,21 +3006,20 @@ form.inline-form {
   .checkbox-list-parent {
     font-weight: bold !important;
   }
-
   .checkbox-list-parent-hidden {
     display: none;
   }
-
   .checkbox-list-child {
     padding-left: $unit*1.5 !important;
   }
-
   .checkbox-list-child-no-indent {
     padding-left: $unit/2 !important;
   }
-
   .mdc-list-item {
     height: auto !important;
+  }
+  .mdc-list-item:last-child {
+    padding: $unit/2 0;
   }
 }
 

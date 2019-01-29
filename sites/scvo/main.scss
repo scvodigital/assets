@@ -2068,7 +2068,7 @@ form#settled_status {
 .mdc-layout-grid.equal-height .mdc-layout-grid__cell {
   display: flex;
   .mdc-card {
-    justify-content: start;
+    justify-content: flex-start;
     .mdc-card__supporting-text {
       flex: 1 0 auto;
     }
@@ -4725,9 +4725,9 @@ footer {
   height: auto;
 }
 .swiper-container-autoheight .swiper-wrapper {
-  -webkit-box-align: start;
+  -webkit-box-align: flex-start;
   -webkit-align-items: flex-start;
-  -ms-flex-align: start;
+  -ms-flex-align: flex-start;
   align-items: flex-start;
   -webkit-transition-property: height, -webkit-transform;
   transition-property: height, -webkit-transform;

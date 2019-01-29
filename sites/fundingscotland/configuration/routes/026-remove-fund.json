@@ -1,0 +1,41 @@
+{
+  "name": "remove-fund",
+  "pattern": "/remove-fund",
+  "acceptedVerbs": "POST",
+  "debug": true,
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "update": ">context.metaData.handlebars.queries.notifications_remove-fund"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "renderUrl",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "/fund/{{@root.request.body.slug}}#lists",
+        "output": "data"        
+      }
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": ">data.renderUrl"
+      }
+    }
+  ]
+}

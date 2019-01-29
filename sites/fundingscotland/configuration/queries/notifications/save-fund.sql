@@ -1,10 +1,11 @@
 {{#if @root.data.auth ~}}
-CALL _removeSubscriptionParameter(
+CALL _addSubscriptionParameter(
   {{{mysqlEscape @root.data.auth.email}}},
   {{{mysqlEscape (concat @root.context.metaData.shortlistCampaignName '-' @root.data.currentSite.name)}}},
-  'Shortlist',
-  'id',
-  {{{mysqlEscape @root.request.params.query.id}}}
+  {{{mysqlEscape 'id'}}},
+  {{{mysqlEscape @root.request.body.id}}},
+  {{{mysqlEscape @root.request.body.name}}},
+  NULL
 );
 {{else}}
 SET @query=false;

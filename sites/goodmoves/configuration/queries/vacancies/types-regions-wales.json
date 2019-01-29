@@ -1,0 +1,37 @@
+{
+  "size": 0,
+  "_source": false,
+  "query": {
+    "bool": {
+      "filter": [
+        {{>queries_vacancy_common_filters_open @root.request.params.query}}
+      ],
+      "must_not": [
+        {
+          "term": {
+            "home_based": true
+          }
+        },
+        {
+          "term": {
+            "various_locations": true
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "regions": {
+      "terms": {
+        "field": "region_group_wales",
+        "size": 10000
+      }
+    },
+    "regions_slugs": {
+      "terms": {
+        "field": "region_group_wales_slug",
+        "size": 10000
+      }
+    }
+  }
+}

@@ -360,59 +360,157 @@
       }
     }
   },
-  "region_group": {
+  "geographical_areas_funded": {
     "label": "Geographical areas funded",
     "termGroups": {
-      "regions": {
-        "label": "Regions",
+      "ayrshire-arran": {
+        "label": "Ayrshire & Arran",
         "terms": {
-          "ayrshire-arran": {
-            "label": "Ayrshire & Arran",
-            "textBag": "Ayrshire Arran"
+          "east-ayrshire": {
+            "label": "East Ayrshire",
+            "textBag": "East Ayrshire"
           },
-          "borders": {
-            "label": "Borders",
-            "textBag": "Scottish Borders"
+          "north-ayrshire": {
+            "label": "North Ayrshire",
+            "textBag": "North Ayrshire"
           },
-          "dumfries-galloway": {
-            "label": "Dumfries & Galloway",
-            "textBag": "Dumfries Galloway"
+          "south-ayrshire": {
+            "label": "South Ayrshire",
+            "textBag": "South Ayrshire"
+          }
+        }
+      },
+      "central-scotland": {
+        "label": "Central Scotland",
+        "terms": {
+          "clackmannanshire": {
+            "label": "Clackmannanshire",
+            "textBag": "Clackmannanshire"
           },
-          "na-h-eileanan-siar": {
-            "label": "Na h-Eileanan Siar",
-            "textBag": "Na h-Eileanan Siar Western Isles"
+          "falkirk": {
+            "label": "Falkirk",
+            "textBag": "Falkirk"
           },
           "fife": {
             "label": "Fife",
             "textBag": "Fife"
           },
-          "central-scotland": {
-            "label": "Central Scotland",
-            "textBag": "Central Scotland Forth Valley"
+          "stirling": {
+            "label": "Stirling",
+            "textBag": "Stirling"
+          }
+        }
+      },
+      "edinburgh-lothians": {
+        "label": "Edinburgh & Lothians",
+        "terms": {
+          "east-lothian": {
+            "label": "East Lothian",
+            "textBag": "East Lothian"
           },
-          "grampian": {
-            "label": "Grampian",
-            "textBag": "Grampian Aberdeenshire"
+          "edinburgh": {
+            "label": "Edinburgh",
+            "textBag": "Edinburgh"
           },
-          "glasgow-clyde": {
-            "label": "Glasgow & Clyde",
-            "textBag": "Glasgow Clyde Lanarkshire Dunbartonshire Renfrewshire"
+          "midlothian": {
+            "label": "Midlothian",
+            "textBag": "Midlothian"
           },
-          "highlands": {
-            "label": "Highlands",
-            "textBag": "Highland Highlands Islands"
+          "west-lothian": {
+            "label": "West Lothian",
+            "textBag": "West Lothian"
+          }
+        }
+      },
+      "glasgow-clyde": {
+        "label": "Glasgow & Clyde",
+        "terms": {
+          "east-dunbartonshire": {
+            "label": "East Dunbartonshire",
+            "textBag": "East Dunbartonshire"
           },
-          "edinburgh-lothians": {
-            "label": "Edinburgh & Lothians",
-            "textBag": "Edinburgh Lothian Lothians Midlothian"
+          "east-renfrewshire": {
+            "label": "East Renfrewshire",
+            "textBag": "East Renfrewshire"
           },
-          "northern-isles": {
-            "label": "Northern Isles",
-            "textBag": "Northern Isles Orkney Shetland"
+          "glasgow": {
+            "label": "Glasgow",
+            "textBag": "Glasgow"
           },
-          "tayside": {
-            "label": "Tayside",
-            "textBag": "Tayside Dundee Perth"
+          "inverclyde": {
+            "label": "Inverclyde",
+            "textBag": "Inverclyde"
+          },
+          "north-lanarkshire": {
+            "label": "North Lanarkshire",
+            "textBag": "North Lanarkshire"
+          },
+          "renfrewshire": {
+            "label": "Renfrewshire",
+            "textBag": "Renfrewshire"
+          },
+          "south-lanarkshire": {
+            "label": "South Lanarkshire",
+            "textBag": "South Lanarkshire"
+          },
+          "west-dunbartonshire": {
+            "label": "West Dunbartonshire",
+            "textBag": "West Dunbartonshire"
+          }
+        }
+      },
+      "grampian": {
+        "label": "Grampian",
+        "terms": {
+          "aberdeen": {
+            "label": "Aberdeen",
+            "textBag": "Aberdeen"
+          },
+          "aberdeenshire": {
+            "label": "Aberdeenshire",
+            "textBag": "Aberdeenshire"
+          }
+        }
+      },
+      "highlands-islands": {
+        "label": "Highlands & Islands",
+        "terms": {
+          "argyll-bute": {
+            "label": "Argyll & Bute",
+            "textBag": "Argyll & Bute"
+          },
+          "highland": {
+            "label": "Highland",
+            "textBag": "Highland Inverness"
+          },
+          "moray": {
+            "label": "Moray",
+            "textBag": "Moray"
+          },
+          "na-h-eileanan-siar": {
+            "label": "Na h-Eileanan Siar",
+            "textBag": "Na h-Eileanan Siar Western Isles"
+          },
+          "orkney": {
+            "label": "Orkney",
+            "textBag": "Orkney"
+          },
+          "shetland": {
+            "label": "Shetland",
+            "textBag": "Shetland"
+          }
+        }
+      },
+      "south-scotland": {
+        "label": "South Scotland",
+        "terms": {
+          "dumfries-galloway": {
+            "label": "Dumfries & Galloway",
+            "textBag": "Dumfries & Galloway"
+          },
+          "scottish-borders": {
+            "label": "Scottish Borders",
+            "textBag": "Scottish Borders"
           }
         }
       },

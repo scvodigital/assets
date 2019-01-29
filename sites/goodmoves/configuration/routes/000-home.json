@@ -81,7 +81,31 @@
             "name": "types_regions",
             "index": "web-content-production",
             "type": "goodmoves-vacancy",
-            "template": ">context.metaData.handlebars.queries.vacancies_types-regions"
+            "template": ">context.metaData.handlebars.queries.vacancies_types-regions-scotland"
+          },
+          {
+            "name": "types_regions_belgium",
+            "index": "web-content-production",
+            "type": "goodmoves-vacancy",
+            "template": ">context.metaData.handlebars.queries.vacancies_types-regions-belgium"
+          },
+          {
+            "name": "types_regions_england",
+            "index": "web-content-production",
+            "type": "goodmoves-vacancy",
+            "template": ">context.metaData.handlebars.queries.vacancies_types-regions-england"
+          },
+          {
+            "name": "types_regions_northern_ireland",
+            "index": "web-content-production",
+            "type": "goodmoves-vacancy",
+            "template": ">context.metaData.handlebars.queries.vacancies_types-regions-northern-ireland"
+          },
+          {
+            "name": "types_regions_wales",
+            "index": "web-content-production",
+            "type": "goodmoves-vacancy",
+            "template": ">context.metaData.handlebars.queries.vacancies_types-regions-wales"
           },
           {
             "name": "splash",

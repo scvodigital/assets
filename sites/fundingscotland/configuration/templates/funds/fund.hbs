@@ -20,6 +20,7 @@
                         "successMessage": "Notes saved",
                         "failureMessage": "Failed to save notes",
                         "successCallback": "notesSaved",
+                        "responseType": "json",
                         "id": "{{Id}}"
                       }'>
                     <div>
@@ -36,7 +37,7 @@
                       </button>
                       <button type="button" class="mdc-button mdc-button--raised mdc-button--warning" id="delete-notes-{{Id}}" data-id="{{Id}}"
                           data-ajax-button='{
-                            "url": "/delete-notes",
+                            "url": "/remove-notes",
                             "method": "POST",
                             "successMessage": "Notes deleted",
                             "failureMessage": "Failed to delete notes",
@@ -165,6 +166,17 @@
             </div>
           </div>
         </div>
+        <script>
+          function clearNotes(data) {
+            $('#notes-' + this.request.data.id)[0].mde.value('');
+            this.$button.prop('disabled', true);
+          }
+          function notesSaved(data) {
+            console.log('notesSaved Arguments:', arguments);
+            $('#delete-notes-' + data.id).prop('disabled', false);
+          }
+          window.fundId = '{{Id}}';
+        </script>
       {{/with}}
       <div class="container-content">
         <div class="fundingscotland-related-funds">

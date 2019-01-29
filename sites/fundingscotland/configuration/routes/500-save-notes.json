@@ -1,0 +1,31 @@
+{
+  "name": "save-notes",
+  "pattern": "/save-notes",
+  "acceptedVerbs": "POST",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "notes",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.id}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{stringify (stripTags @root.request.body.notes)}}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{ \"id\": {{{stringify request.body.id}}} }",
+        "parseJson": true
+      }
+    }
+  ]
+}

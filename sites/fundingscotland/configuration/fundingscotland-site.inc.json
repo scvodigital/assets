@@ -202,7 +202,7 @@
         "renderer": "handlebars",
         "config": {
           "appName": "fundingscotland",
-          "pathTemplate": "/notes/{{data.auth.uid}}/{{data.currentSite.name}}",
+          "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes",
           "defaultData": {}
         }
       }

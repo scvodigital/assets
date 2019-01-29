@@ -79,80 +79,88 @@
                   </li>  
                 {{/inline}}
                 
-                <div class="mdc-list-group">
-                  <h3 class="mdc-list-group__subheader">Lists fund is in</h3>
-                  <ul class="mdc-list mdc-list--two-line">
-                    {{#unless (contains (pluck @root.data.shortlist.items.[0] "value") Id)}}
-                      <li class="mdc-list-item">
-                        <span class="mdc-list-item__text">
-                          This fund is currently in no lists
-                        </span>
-                      </li>
-                    {{else}}
+                {{#if @root.data.auth ~}}
+                  <div class="mdc-list-group">
+                    <h3 class="mdc-list-group__subheader">Lists fund is in</h3>
+                    <ul class="mdc-list mdc-list--two-line">
+                      {{#unless (contains (pluck @root.data.shortlist.items.[0] "value") Id)}}
+                        <li class="mdc-list-item">
+                          <span class="mdc-list-item__text">
+                            This fund is currently in no lists
+                          </span>
+                        </li>
+                      {{else}}
+                        {{#each @root.data.shortlistPartitions.items.[0]}}
+                          {{#if (contains (getProperty (querystring querystring) "id") ../Id)}}
+                            {{#>shortlist_item
+                                name=partition
+                                emails=partitionActive
+                                count=(length (arrayify (getProperty (querystring querystring) "id")))}}
+                              <form action="/remove-fund" method="POST">
+                                <input type="hidden" name="id" value="{{../../Id}}">
+                                <input type="hidden" name="slug" value="{{../../slug}}">
+                                <input type="hidden" name="name" value="{{../partition}}">
+                                <button type="submit" class="mdc-button mdc-button--raised">
+                                  Remove from list
+                                </button>
+                              </form>
+                            {{/shortlist_item}}
+                          {{/if}}
+                        {{/each}}
+                      {{/unless}}
+                    </ul>
+                  </div>
+                  <div class="mdc-list-group">
+                    <h3 class="mdc-list-group__subheader">Lists fund is not in</h3>
+                    <ul class="mdc-list mdc-list--two-line">
                       {{#each @root.data.shortlistPartitions.items.[0]}}
-                        {{#if (contains (getProperty (querystring querystring) "id") ../Id)}}
+                        {{#unless (contains (getProperty (querystring querystring) "id") ../Id)}}
                           {{#>shortlist_item
                               name=partition
                               emails=partitionActive
                               count=(length (arrayify (getProperty (querystring querystring) "id")))}}
-                            <form action="/remove-fund" method="POST">
+                            <form action="/save-fund" method="POST">
                               <input type="hidden" name="id" value="{{../../Id}}">
                               <input type="hidden" name="slug" value="{{../../slug}}">
                               <input type="hidden" name="name" value="{{../partition}}">
                               <button type="submit" class="mdc-button mdc-button--raised">
-                                Remove from list
+                                Add to list
                               </button>
                             </form>
                           {{/shortlist_item}}
-                        {{/if}}
+                        {{/unless}}
                       {{/each}}
-                    {{/unless}}
-                  </ul>
-                </div>
-                <div class="mdc-list-group">
-                  <h3 class="mdc-list-group__subheader">Lists fund is not in</h3>
-                  <ul class="mdc-list mdc-list--two-line">
-                    {{#each @root.data.shortlistPartitions.items.[0]}}
-                      {{#unless (contains (getProperty (querystring querystring) "id") ../Id)}}
-                        {{#>shortlist_item
-                            name=partition
-                            emails=partitionActive
-                            count=(length (arrayify (getProperty (querystring querystring) "id")))}}
-                          <form action="/save-fund" method="POST">
-                            <input type="hidden" name="id" value="{{../../Id}}">
-                            <input type="hidden" name="slug" value="{{../../slug}}">
-                            <input type="hidden" name="name" value="{{../partition}}">
-                            <button type="submit" class="mdc-button mdc-button--raised">
-                              Add to list
+                    </ul>
+                    <form action="/save-fund" method="POST">
+                      <div class="mdc-layout-grid x-padding-full">
+                        <div class="mdc-layout-grid__inner">
+                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+                            <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+                              <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
+                              <label for="name" class="mdc-floating-label">
+                                Add to new list
+                              </label>
+                              <div class="mdc-line-ripple"></div>
+                            </div>
+                          </div>
+                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                            <input type="hidden" name="slug" value="{{slug}}">
+                            <input type="hidden" name="id" value="{{Id}}">
+                            <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
+                              Create list
                             </button>
-                          </form>
-                        {{/shortlist_item}}
-                      {{/unless}}
-                    {{/each}}
-                  </ul>
-                  <form action="/save-fund" method="POST">
-                    <div class="mdc-layout-grid x-padding-full">
-                      <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
-                          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-                            <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
-                            <label for="name" class="mdc-floating-label">
-                              Add to new list
-                            </label>
-                            <div class="mdc-line-ripple"></div>
                           </div>
                         </div>
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                          <input type="hidden" name="slug" value="{{slug}}">
-                          <input type="hidden" name="id" value="{{Id}}">
-                          <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
-                            Create list
-                          </button>
-                        </div>
                       </div>
-                    </div>
-                  </form>
-                </div>
+                    </form>
+                  </div>
+                {{else}}
+                  <div class="detailed-info">
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
+                    </p>
+                  </div>
+                {{/if ~}}
               </div>
             </div>
           </div>

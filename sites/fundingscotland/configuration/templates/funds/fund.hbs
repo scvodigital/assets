@@ -5,10 +5,10 @@
         <div class="container-content">
           <div class="fundingscotland-fund full">
             {{> fund_key_info}}
-            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses="mdc-tab-bar--stacked"}}
-              {{>components_tab tabName="details" label="Details" active=true linkClasses="mdc-tab--stacked" iconClasses="fas fa-info-circle"}}
-              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-sticky-note"}}
-              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="mdc-tab--stacked" iconClasses="fas fa-list"}}
+            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
+              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="fas fa-info-circle"}}
+              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="fas fa-sticky-note"}}
+              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="fas fa-list"}}
             {{/components_tab_bar}}
             <div class="panels" for="content-primary-tab-bar">
               <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
@@ -72,7 +72,7 @@
                             </span>
                             <span class="mdc-list-item__secondary-text">
                               <strong>Email alerts: </strong>
-                              {{#if emails}}on{{else}}off{{/if}} 
+                              {{#if emails}}on{{else}}off{{/if}}
                             </span>
                           </span>
                           <span class="mdc-list-item__meta">
@@ -93,7 +93,7 @@
                             }
                             {{/ajax_chip}}
                           </span>
-                        </li>  
+                        </li>
                       {{/each}}
                     </ul>
                     <form action="/save-fund" method="POST">

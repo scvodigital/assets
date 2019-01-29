@@ -1659,12 +1659,6 @@ body.shortlist {
         margin-bottom: $unit/2;
       }
     }
-    .mdc-card__info--content-primary-title a:hover {
-      text-decoration: none;
-      .hover-underline {
-        text-decoration: underline;
-      }
-    }
     .mdc-layout-grid {
       padding: 0;
       width: 100%;
@@ -1696,6 +1690,12 @@ body.shortlist {
       max-height: $unit*8;
       object-fit: contain;
     }
+  }
+}
+.mdc-card__info--content-primary-title a:hover {
+  text-decoration: none;
+  .hover-underline {
+    text-decoration: underline;
   }
 }
 .mdc-card__info--content-secondary-row {

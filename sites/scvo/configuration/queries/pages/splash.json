@@ -8,33 +8,47 @@
     "function_score": {
       "query": {
         "bool": {
-          "should": [
-            {{#if @root.data.primaryResponse.hits.hits.[0]._source.categories_id ~}}
-            {
-              "terms": {
-                "categories_id": [
-                  {{join @root.data.primaryResponse.hits.hits.[0]._source.categories_id}}
-                ]
-              }
-            },
-            {
-              "term": {
-                "categories_id": 1
-              }
+          "must": {
+            "exists": {
+              "field": "categories_id"
             }
-            {{else}}
-            {
-              "term": {
-                "categories_id": 1
-              }
+          },
+          "must_not": {
+            "term": {
+              "original_image": ""
             }
-            {{/if ~}}
-          ],
-          "minimum_should_match": 1
+          }
         }
       },
-      "random_score": {},
-      "score_mode": "sum"
+      "boost": "5",
+      "functions": [
+        {{#if @root.data.primaryResponse.hits.hits.[0]._source.categories_id ~}}
+        {
+          "filter": {
+            "terms": {
+              "categories_id": [
+                {{join @root.data.primaryResponse.hits.hits.[0]._source.categories_id}}
+              ]
+            }
+          },
+          "random_score": {},
+          "weight": 10
+        },
+        {{/if ~}}
+        {
+          "filter": {
+            "term": {
+              "categories_id": 1
+            }
+          },
+          "random_score": {},
+          "weight": 1
+        }
+      ],
+      "max_boost": 10,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 1
     }
   }
 }

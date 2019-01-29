@@ -62,27 +62,75 @@
         Regions
       </div>
       <ul class="mdc-list">
-        {{#each @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets ~}}
+        {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.regions.buckets) ">" 0 ~}}
+        <li class="mdc-list-item mdc-list-item--0">
+          <h3 class="mdc-typography--headline7">Scotland</h3>
+        </li>
+        {{#each @root.data.supplimentaryResponses.types_regions.aggregations.regions.buckets ~}}
           {{#if key ~}}
-          {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
-            <li class="mdc-list-item mdc-list-item--{{@index}}">
-              <h3 class="mdc-typography--headline7">{{{key}}}</h3>
-            </li>
-            {{/compare ~}}
+            <a class="mdc-list-item" href="/search?regions%5B%5D={{urlencode (slugify (replace key "/" "-"))}}" role="menuitem" onclick="gtag('event', 'navigation', { event_category: '{{default ../../eventContext "category-browser"}}', event_label: 'Region: {{slugify (replace key "/" "-")}}' })">
+              <span class="mdc-list-item__text">
+                {{{key}}}
+              </span>
+              <span class="mdc-list-item__meta" aria-label="{{doc_count}} vacancies">
+                {{doc_count}}
+              </span>
+            </a>
           {{/if ~}}
-          {{#each this.regions.buckets ~}}
-            {{#if key ~}}
-              <a class="mdc-list-item" href="/search?regions%5B%5D={{urlencode (slugify (replace key "/" "-"))}}" role="menuitem" onclick="gtag('event', 'navigation', { event_category: '{{default ../../eventContext "category-browser"}}', event_label: 'Region: {{slugify (replace key "/" "-")}}' })">
-                <span class="mdc-list-item__text">
-                  {{{key}}}
-                </span>
-                <span class="mdc-list-item__meta" aria-label="{{doc_count}} vacancies">
-                  {{doc_count}}
-                </span>
-              </a>
-            {{/if ~}}
-          {{/each ~}}
         {{/each ~}}
+        {{/compare ~}}
+        {{#compare (length @root.data.supplimentaryResponses.types_regions_england.aggregations.regions.buckets) ">" 0 ~}}
+        <li class="mdc-list-item mdc-list-item--1">
+          <h3 class="mdc-typography--headline7">England</h3>
+        </li>
+        {{#each @root.data.supplimentaryResponses.types_regions_england.aggregations.regions.buckets ~}}
+          {{#if key ~}}
+            <a class="mdc-list-item" href="/search?regions%5B%5D={{urlencode (slugify (replace key "/" "-"))}}" role="menuitem" onclick="gtag('event', 'navigation', { event_category: '{{default ../../eventContext "category-browser"}}', event_label: 'Region: {{slugify (replace key "/" "-")}}' })">
+              <span class="mdc-list-item__text">
+                {{{key}}}
+              </span>
+              <span class="mdc-list-item__meta" aria-label="{{doc_count}} vacancies">
+                {{doc_count}}
+              </span>
+            </a>
+          {{/if ~}}
+        {{/each ~}}
+        {{/compare ~}}
+        {{#compare (length @root.data.supplimentaryResponses.types_regions_northern_ireland.aggregations.regions.buckets) ">" 0 ~}}
+        <li class="mdc-list-item mdc-list-item--2">
+          <h3 class="mdc-typography--headline7">Northern Ireland</h3>
+        </li>
+        {{#each @root.data.supplimentaryResponses.types_regions_northern_ireland.aggregations.regions.buckets ~}}
+          {{#if key ~}}
+            <a class="mdc-list-item" href="/search?regions%5B%5D={{urlencode (slugify (replace key "/" "-"))}}" role="menuitem" onclick="gtag('event', 'navigation', { event_category: '{{default ../../eventContext "category-browser"}}', event_label: 'Region: {{slugify (replace key "/" "-")}}' })">
+              <span class="mdc-list-item__text">
+                {{{key}}}
+              </span>
+              <span class="mdc-list-item__meta" aria-label="{{doc_count}} vacancies">
+                {{doc_count}}
+              </span>
+            </a>
+          {{/if ~}}
+        {{/each ~}}
+        {{/compare ~}}
+        {{#compare (length @root.data.supplimentaryResponses.types_regions_wales.aggregations.regions.buckets) ">" 0 ~}}
+        <li class="mdc-list-item mdc-list-item--3">
+          <h3 class="mdc-typography--headline7">Wales</h3>
+        </li>
+        {{#each @root.data.supplimentaryResponses.types_regions_wales.aggregations.regions.buckets ~}}
+          {{#if key ~}}
+            <a class="mdc-list-item" href="/search?regions%5B%5D={{urlencode (slugify (replace key "/" "-"))}}" role="menuitem" onclick="gtag('event', 'navigation', { event_category: '{{default ../../eventContext "category-browser"}}', event_label: 'Region: {{slugify (replace key "/" "-")}}' })">
+              <span class="mdc-list-item__text">
+                {{{key}}}
+              </span>
+              <span class="mdc-list-item__meta" aria-label="{{doc_count}} vacancies">
+                {{doc_count}}
+              </span>
+            </a>
+          {{/if ~}}
+        {{/each ~}}
+        {{/compare ~}}
+
         {{#ifAny (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ~}}
           {{#compare (length @root.data.supplimentaryResponses.types_regions.aggregations.countries.buckets) ">" 1 ~}}
             <li class="mdc-list-item mdc-list-item--other">

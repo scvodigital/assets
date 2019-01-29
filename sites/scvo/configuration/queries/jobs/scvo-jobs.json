@@ -6,8 +6,7 @@
     "closing_date",
     "location",
     "description_short",
-    "slug",
-    "rendered.scvo_search_result"
+    "slug"
   ],
   "query": {
     "bool": {

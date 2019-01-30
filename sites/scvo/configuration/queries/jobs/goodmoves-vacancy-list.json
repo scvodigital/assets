@@ -10,7 +10,12 @@
           "must": [
             {
               "term": {
-                "country_iso3": "GBR"
+                "country_slug": "scotland"
+              }
+            },
+            {
+              "term": {
+                "active": true
               }
             },
             {

@@ -8,7 +8,7 @@
           {{else}}
           <h1 class="header-text">
             <span class="header-text-banner">
-              {{{@root.data.supplimentaryResponses.page.hits.hits.[0]._source.title}}}
+              {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
             </span>
           </h1>
           {{/if ~}}
@@ -23,12 +23,12 @@
       <li><a href="/digital">Digital</a></li>
       <li><a href="/digital/evolution">Evolution</a></li>
       <li><a href="/digital/evolution/cyber-resilience">Cyber Resilience and Cyber Essentials Grants</a></li>
-      <li>{{{@root.data.supplimentaryResponses.page.hits.hits.[0]._source.title}}}</li>
+      <li>{{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}</li>
     </ul>
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 content grant-content">
-          {{{@root.data.supplimentaryResponses.page.hits.hits.[0]._source.rendered.scvo_full}}}
+          {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_full}}}
 
           <hr />
 
@@ -36,11 +36,30 @@
 
           <div class="mdc-layout-grid equal-height v-margin">
             <div class="mdc-layout-grid__inner">
-              {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
-              {{#each @root.data.primaryResponse.hits.hits ~}}
+              {{#compare @root.data.supplimentaryResponses.grants.hits.total ">" 0 ~}}
+              {{#each @root.data.supplimentaryResponses.grants.hits.hits ~}}
+              {{#with _source ~}}
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                {{{_source.rendered.scvo_card}}}
+                <div class="mdc-card card scvo-grant scvo-grant-cyber">
+                  <section class="mdc-card__primary">
+                    <h3 class="mdc-card__title mdc-card__title--large">
+                      {{{title}}}
+                    </h3>
+                  </section>
+                  <section class="mdc-card__supporting-text">
+                    <p class="mdc-typography--body1">
+                      Charity registered in Scotland <a href="http://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{recipient_charity_number}}">{{recipient_charity_number}}</a><br />
+                      <strong>Amount awarded:</strong> £{{addCommas amount_awarded}}<br />
+                      {{#if actual_start ~}}
+                      <strong>Project start:</strong> {{momentFormat (moment actual_start 'x') "Do MMM YYYY"}}
+                      {{else}}
+                      <strong>Date awarded:</strong> {{momentFormat (moment date_last_modified 'YYYY-MM-DDThh.mm.ss.0Z') "Do MMM YYYY"}}
+                      {{/if ~}}
+                    </p>
+                  </section>
+                </div>
               </div>
+              {{/with ~}}
               {{/each ~}}
               {{else}}
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">

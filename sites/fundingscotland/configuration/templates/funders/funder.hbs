@@ -17,7 +17,7 @@
   {{> fund_list @root.data.supplimentaryResponses.funds_open.hits.hits.0._source}}
   {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 1 ~}}
   <div class="mdc-typography--body1 v-margin-full">
-    To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more funds, please <a href="/sign-up">sign up</a>.
+    To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_open.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
   </div>
   {{/compare ~}}
   {{/if ~}}
@@ -38,7 +38,7 @@
   {{> fund_list @root.data.supplimentaryResponses.funds_closed.hits.hits.0._source}}
   {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 1 ~}}
   <div class="mdc-typography--body1 v-margin-full">
-    To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more funds, please <a href="/sign-up">sign up</a>.
+    To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
   </div>
   {{/compare ~}}
   {{/if ~}}

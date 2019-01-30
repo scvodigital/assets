@@ -228,32 +228,18 @@ a {
   color: $mdc-theme-tfn;
 }
 
-.mdc-chip {
-  background-color: $mdc-theme-primary;
-  color: white;
-  .mdc-chip__icon.mdc-chip__icon--leading {
-    color: white;
-  }
-  .mdc-chip__checkmark-path {
-    stroke: #fff !important;
-  }
-}
-.mdc-chip:hover {
-  .mdc-chip__icon--leading {
-    color: #fff;
-  }
-}
-.mdc-card .mdc-chip {
-  background-color: $mdc-theme-primary;
+.mdc-chip,
+.mdc-chip .mdc-chip__icon--leading {
+  background-color: $mdc-theme-secondary;
+  color: $mdc-theme-on-secondary;
 }
 .mdc-theme--on-primary a,
-.mdc-card .mdc-chip.mdc-chip--selected,
-.mdc-chip.mdc-chip--selected {
+.mdc-chip.mdc-chip--selected,
+.mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
   background-color: $mdc-theme-primary;
   color: #fff;
 }
 .mdc-card .mdc-chip:hover,
-.mdc-card .mdc-chip.mdc-chip--selected:hover,
 .mdc-chip.mdc-chip--selected:hover {
   background-color: $mdc-theme-primary-dark;
   color: #fff;

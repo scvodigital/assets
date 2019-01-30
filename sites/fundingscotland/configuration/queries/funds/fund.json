@@ -24,6 +24,7 @@
     "website",
     "email",
     "phone",
+    "next_deadline",
     "type_of_cost",
     "type_of_funding",
     "funder_organisation.slug",

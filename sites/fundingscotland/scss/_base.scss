@@ -479,7 +479,20 @@ a.mdc-drawer__content-heading {
   user-select: none;
 }
 
+.report {
+  opacity: 0.85;
+  font-size: 85%;
+  margin-top: $unit/2;
+  .fa-fw,
+  a {
+    color: #ef3e42;
+  }
+}
+
 .mdc-card.full {
+  .mdc-card--full-content h4 {
+    margin: $unit 0 $unit/2;
+  }
   .mdc-card__info--content-primary-row {
     .mdc-card__media--content-secondary {
       background-color: #fff;
@@ -787,7 +800,7 @@ footer.mdc-layout__footer {
 }
 
 .mdc-list-group__subheader {
-  padding: $unit/2 0 !important;
+  padding: $unit/3 0 $unit/2 !important;
   font-size: 1.2rem !important;
   border-bottom: 1px solid #cccccc;
   border-radius: 4px;

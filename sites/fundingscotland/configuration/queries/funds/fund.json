@@ -15,7 +15,7 @@
     "region_group",
     "region_group_slug",
     "geographical_areas_funded",
-    "geographical_areas_funded_slug",
+    "geographical_areas_funded_slugs",
     "description",
     "when_to_apply",
     "who_can_apply",

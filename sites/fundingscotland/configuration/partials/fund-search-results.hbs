@@ -220,10 +220,12 @@
           {{/if ~}}
         {{/with ~}}
       {{else}}
+        {{#compare @root.data.search_data.detailed_results.hits.total ">" 10 ~}}
         <a href="/sign-up" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">
           <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>
-          Sign up to create email alerts
+          Sign up to see more results
         </a>
+        {{/compare ~}}
         <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg" id="filter-search-button" data-drawer-target="#sidebar-temporary">
           <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
           Search filters
@@ -231,7 +233,9 @@
       {{/if ~}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone pagination-desktop">
-      {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+      {{#if @root.data.auth ~}}
+        {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+      {{/if ~}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
       {{#compare @root.data.search_data.detailed_results.hits.total ">" 0 ~}}
@@ -251,13 +255,13 @@
         <div class="mdc-select mdc-select--box pull-right" data-mdc-auto-init="MDCSelect">
           <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
             <option value="relevance"{{#compare @root.request.params.query.sort "===" "relevance"}} selected{{/compare}}>Relevance</option>
-            <option value="max_funded_asc"{{#compare @root.request.params.query.sort "===" "max_funded_asc"}} selected{{/compare}}>Maximum funded - low to high</option>
-            <option value="max_funded_desc"{{#compare @root.request.params.query.sort "===" "max_funded_desc"}} selected{{/compare}}>Maximum funded - high to low</option>
-            <option value="deadline_date_asc"{{#compare @root.request.params.query.sort "===" "deadline_date_asc"}} selected{{/compare}}>Deadline date - soonest first</option>
-            <option value="deadline_date_desc"{{#compare @root.request.params.query.sort "===" "deadline_date_desc"}} selected{{/compare}}>Deadline date - soonest last</option>
-            <option value="date_last_reviewed"{{#compare @root.request.params.query.sort "===" "date_last_reviewed"}} selected{{/compare}}>Date last reviewed</option>
-            <option value="alphabetical_asc"{{#compare @root.request.params.query.sort "===" "alphabetical_asc"}} selected{{/compare}}>Alphabetical - a to z</option>
-            <option value="alphabetical_desc"{{#compare @root.request.params.query.sort "===" "alphabetical_desc"}} selected{{/compare}}>Alphabetical - z to a</option>
+            <option value="max_funded_asc"{{#compare @root.request.params.query.sort "===" "max_funded_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Maximum funded - low to high</option>
+            <option value="max_funded_desc"{{#compare @root.request.params.query.sort "===" "max_funded_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Maximum funded - high to low</option>
+            <option value="deadline_date_asc"{{#compare @root.request.params.query.sort "===" "deadline_date_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Deadline date - soonest first</option>
+            <option value="deadline_date_desc"{{#compare @root.request.params.query.sort "===" "deadline_date_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Deadline date - soonest last</option>
+            <option value="date_last_reviewed"{{#compare @root.request.params.query.sort "===" "date_last_reviewed"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Date last reviewed</option>
+            <option value="alphabetical_asc"{{#compare @root.request.params.query.sort "===" "alphabetical_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Alphabetical - a to z</option>
+            <option value="alphabetical_desc"{{#compare @root.request.params.query.sort "===" "alphabetical_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Alphabetical - z to a</option>
             </select>
           <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
             Sort
@@ -267,7 +271,9 @@
       {{/compare ~}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone pagination-mobile">
-      {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+      {{#if @root.data.auth ~}}
+        {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+      {{/if ~}}
     </div>
   </div>
 </div>
@@ -280,11 +286,18 @@
   {{/compare ~}}
 {{/each ~}}
 
-<div class="foot">
-  {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+<div class="foot v-margin-full">
+  {{#if @root.data.auth ~}}
+    {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
 
-  <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg" id="save-search-button-foot" data-dialog-target="#save-search-dialog">
-    <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
-    Save/email this search
-  </button>
+    <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg" id="save-search-button-foot" data-dialog-target="#save-search-dialog">
+      <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
+      Save/email this search
+    </button>
+  {{else}}
+  <a href="/sign-up" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">
+    <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>
+    Sign up to see more results
+  </a>
+  {{/if ~}}
 </div>

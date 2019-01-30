@@ -1,7 +1,13 @@
 {
-  "size": 24,
-  "from": {{multiply (subtract (default request.params.query.page 1) 1) 24}},
+  "size": 100,
+  "from": {{multiply (subtract (default request.params.query.page 1) 1) 100}},
   "_source": [
+    "title",
+    "recipient_charity_number",
+    "amount_awarded",
+    "date_awarded",
+    "actual_start",
+    "date_last_modified",
     "rendered.scvo_card",
     "rendered.json_ld"
   ],

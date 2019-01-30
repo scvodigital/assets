@@ -1030,7 +1030,9 @@ a {
   .mdc-card__info--content-primary-row {
     padding: $unit/2;
   }
-  .search-result-article__snippet,
+  .search-result-article__snippet {
+    flex: 1 1 auto;
+  }
   .search-result-article__notes,
   .mdc-card__info--content-primary-row {
     flex: 1 0 auto;
@@ -1196,6 +1198,11 @@ a {
 .mdc-card.gist:hover::after,
 .mdc-card.search-result:hover::after {
   opacity: 1;
+}
+.mdc-card.list {
+  .mdc-card__info--content-primary-row {
+    flex: 0 0 auto;
+  }
 }
 .panel-heading {
   margin: -$unit/3 0 0;

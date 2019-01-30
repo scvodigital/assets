@@ -1,26 +1,30 @@
 <div class="mdc-card__info--content-primary-row">
   <div class="mdc-card__info--content-primary">
-    {{#if funder_organisation.has_logo ~}}
+    {{#if fund_status ~}}
+    <span class="pull-right v-margin mdc-typography--caption fund-status fund-{{fund_status_slug}}">Currently {{{lowercase (replace fund_status "Currently" "")}}}</span>
+    {{/if ~}}
+    {{!-- #if funder_organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--funder pull-right hide-sm">
       <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">
         <img src="{{funder_organisation.logo_url}}" alt="{{funder_organisation.name}}" />
       </a>
     </div>
-    {{/if ~}}
+    {{/if ~--}}
+    {{#if title ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
       <a href="/fund/{{slug}}{{@root.request.url.search}}">
         <span class="hover-underline">{{title}}</span>
-        {{#ifAll fund_status fund_status_slug ~}}
-          <span class="mdc-typography--caption fund-status fund-{{fund_status_slug}}">Status: {{{fund_status}}}</span>
-        {{/ifAll ~}}
       </a>
     </h2>
+    {{/if ~}}
+    {{#ifAll funder_organisation.name funder_organisation.slug ~}}
     <ul class="fa-ul funder">
       <li class="mdc-card__info--content-primary-funder mdc-typography--body1">
         <span class="fa-li"><span class="far fa-building fa-fw" title="Funder"></span></span>
         <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">{{funder_organisation.name}}</a>
       </li>
     </ul>
+    {{/ifAll ~}}
     <div class="fund-details">
       <!-- <h4 class="mdc-typography--headline6">Fund details</h4> -->
         {{#if (length (arrayify type_of_funding)) ~}}
@@ -39,17 +43,21 @@
             {{{this}}}{{#unless @last}}, {{/unless}}
           {{/each}}
         {{/if ~}}
-        {{#if when_to_apply ~}}
+        {{!--#if when_to_apply ~}}
           <strong>When to apply:</strong>
           {{{when_to_apply}}}
-        {{/if ~}}
+        {{/if ~--}}
         {{#if next_deadline ~}}
           <strong>Next deadline:</strong>
-          {{{next_deadline}}}
+          {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
         {{/if ~}}
         {{#if for_charities_only ~}}
           <strong>Charities only:</strong>
           {{{for_charities_only}}}
+        {{/if ~}}
+        {{#if exclusions ~}}
+          <strong>Exclusions:</strong>
+          {{{exclusions}}}
         {{/if ~}}
         {{#if website ~}}
           <strong>Website:</strong>
@@ -63,14 +71,10 @@
           <strong>Phone:</strong>
           {{{phone}}}
         {{/if ~}}
-        {{#if how_to_apply ~}}
+        {{!-- #if how_to_apply ~}}
           <strong>How to apply:</strong>
           {{{how_to_apply}}}
-        {{/if ~}}
-        {{#if exclusions ~}}
-          <strong>Exclusions:</strong>
-          {{{exclusions}}}
-        {{/if ~}}
+        {{/if ~ --}}
       </dl>
     </div>
   </div>

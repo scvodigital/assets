@@ -9,8 +9,6 @@
     "fund_status",
     "type_of_cost",
     "type_of_funding",
-    "funder_organisation.slug",
-    "funder_organisation.name",
     "funder_organisation.has_logo",
     "funder_organisation.logo_url",
     "funder_organisation.website",

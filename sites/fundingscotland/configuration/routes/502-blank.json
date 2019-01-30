@@ -1,0 +1,15 @@
+{
+  "name": "blank",
+  "pattern": "/blank",
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "done"
+      }
+    }
+  ]
+}

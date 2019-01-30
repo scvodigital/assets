@@ -7,7 +7,7 @@
   },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.notesData",
     {
@@ -78,10 +78,10 @@
         },
         "queryTemplates": [
           {
-            "name": "tfn_related",
+            "name": "tfn_latest",
             "index": "web-content-production",
-            "type": "tfn-news-post,tfn-blog-post,tfn-feature",
-            "template": ">context.metaData.handlebars.queries.posts_tfn-related"
+            "type": "tfn-news-post,tfn-feature",
+            "template": ">context.metaData.handlebars.queries.posts_tfn-latest"
           }
         ]
       },

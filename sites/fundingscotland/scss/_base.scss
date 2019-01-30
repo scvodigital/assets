@@ -4,6 +4,9 @@
 
 @import "./lib/common-styles.scss";
 
+strong {
+  font-weight: 600;
+}
 .header-text-banner {
   font-size: 3.6rem;
 }
@@ -228,32 +231,18 @@ a {
   color: $mdc-theme-tfn;
 }
 
-.mdc-chip {
-  background-color: $mdc-theme-primary;
-  color: white;
-  .mdc-chip__icon.mdc-chip__icon--leading {
-    color: white;
-  }
-  .mdc-chip__checkmark-path {
-    stroke: #fff !important;
-  }
-}
-.mdc-chip:hover {
-  .mdc-chip__icon--leading {
-    color: #fff;
-  }
-}
-.mdc-card .mdc-chip {
-  background-color: $mdc-theme-primary;
+.mdc-chip,
+.mdc-chip .mdc-chip__icon--leading {
+  background-color: $mdc-theme-secondary;
+  color: $mdc-theme-on-secondary;
 }
 .mdc-theme--on-primary a,
-.mdc-card .mdc-chip.mdc-chip--selected,
-.mdc-chip.mdc-chip--selected {
+.mdc-chip.mdc-chip--selected,
+.mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
   background-color: $mdc-theme-primary;
   color: #fff;
 }
 .mdc-card .mdc-chip:hover,
-.mdc-card .mdc-chip.mdc-chip--selected:hover,
 .mdc-chip.mdc-chip--selected:hover {
   background-color: $mdc-theme-primary-dark;
   color: #fff;
@@ -334,6 +323,9 @@ a {
 }
 .full {
   box-shadow: none !important;
+  .fa-ul.first {
+    margin-top: $unit/2 !important;
+  }
   .editor-toolbar,
   .CodeMirror {
     border-bottom: 1px solid $mdc-theme-secondary;
@@ -476,7 +468,31 @@ a.mdc-drawer__content-heading {
   }
 }
 
+.fund-status {
+  background: $mdc-theme-footer-light;
+  color: $mdc-theme-footer;
+  border: 1px solid $mdc-theme-footer;
+  font-weight: 600;
+  border-radius: $unit;
+  padding: $unit/10 $unit/2;
+  display: inline-block;
+  user-select: none;
+}
+
+.report {
+  opacity: 0.85;
+  font-size: 85%;
+  margin-top: $unit/2;
+  .fa-fw,
+  a {
+    color: #ef3e42;
+  }
+}
+
 .mdc-card.full {
+  .mdc-card--full-content h4 {
+    margin: $unit 0 $unit/2;
+  }
   .mdc-card__info--content-primary-row {
     .mdc-card__media--content-secondary {
       background-color: #fff;
@@ -784,7 +800,7 @@ footer.mdc-layout__footer {
 }
 
 .mdc-list-group__subheader {
-  padding: $unit/2 0 !important;
+  padding: $unit/3 0 $unit/2 !important;
   font-size: 1.2rem !important;
   border-bottom: 1px solid #cccccc;
   border-radius: 4px;

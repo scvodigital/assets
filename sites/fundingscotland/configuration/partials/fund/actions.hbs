@@ -3,16 +3,17 @@
     {{#compare action "===" "funder" ~}}
     <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}" class="mdc-card__action hide-sm">Find out more about {{funder_organisation.name}}</a>
     {{else}}
-    <a href="/vacancy/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-sm">Find out more</a>
-    <a href="/vacancy/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-md hide-lg"><span class="fal fa-info-circle fa-fw fa-2x" aria-hidden="true"></span></a>
+    <a href="/fund/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-sm">Find out more</a>
+    <a href="/fund/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-md hide-lg"><span class="fal fa-info-circle fa-fw fa-2x" aria-hidden="true"></span></a>
     {{#compare (trim (getProperty @root.data.notes Id)) "!==" "" ~}}
-    <a href="/vacancy/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-sm">Your notes</a>
-    <a href="/vacancy/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-md hide-lg"><span class="fal fa-edit fa-fw fa-2x" aria-hidden="true"></span></a>
+    <a href="/fund/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-sm">Your notes</a>
+    <a href="/fund/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-md hide-lg"><span class="fal fa-edit fa-fw fa-2x" aria-hidden="true"></span></a>
     {{/compare ~}}
     {{/compare ~}}
   </div>
   <div class="mdc-card__action-icons pull-right">
-    <a href="/vacancy/{{slug}}{{@root.request.url.search}}#lists" class="mdc-card__action mdc-card__action-lists">
+    {{#if @root.data.auth ~}}
+    <a href="/fund/{{slug}}{{@root.request.url.search}}#lists" class="mdc-card__action mdc-card__action-lists">
       <i class="fal fa-list fa-fw r-margin"></i>
       {{#if (contains (pluck @root.data.shortlist.items.[0] "id") id)}}
         Manage fund lists
@@ -20,5 +21,6 @@
         Save fund to list
       {{/if}}
     </a>
+    {{/if}}
   </div>
 </div>

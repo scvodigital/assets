@@ -4,6 +4,9 @@
 
 @import "./lib/common-styles.scss";
 
+strong {
+  font-weight: 600;
+}
 .header-text-banner {
   font-size: 3.6rem;
 }
@@ -320,6 +323,9 @@ a {
 }
 .full {
   box-shadow: none !important;
+  .fa-ul.first {
+    margin-top: $unit/2 !important;
+  }
   .editor-toolbar,
   .CodeMirror {
     border-bottom: 1px solid $mdc-theme-secondary;
@@ -460,6 +466,17 @@ a.mdc-drawer__content-heading {
       }
     }
   }
+}
+
+.fund-status {
+  background: $mdc-theme-footer-light;
+  color: $mdc-theme-footer;
+  border: 1px solid $mdc-theme-footer;
+  font-weight: 600;
+  border-radius: $unit;
+  padding: $unit/10 $unit/2;
+  display: inline-block;
+  user-select: none;
 }
 
 .mdc-card.full {

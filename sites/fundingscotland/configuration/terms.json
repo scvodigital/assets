@@ -606,11 +606,11 @@
         "terms": {
           "for-charities-only": {
             "label": "For charities only",
-            "textBag": "For charities only"
+            "textBag": "charities charity only"
           },
           "show-closed-funds": {
-            "label": "Show closed funds",
-            "textBag": "Show closed funds"
+            "label": "Include currently closed funds",
+            "textBag": "currently closed funds"
           }
         }
       }

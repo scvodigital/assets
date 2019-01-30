@@ -12,8 +12,8 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "scvo-grant-cyber",
-          "template": ">context.metaData.handlebars.queries.grants_grant-cyber-search"
+          "type": "scvo-cms-page",
+          "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },
       "renderer": "handlebars"
@@ -28,10 +28,10 @@
         },
         "queryTemplates": [
           {
-            "name": "page",
+            "name": "grants",
             "index": "web-content-production",
-            "type": "scvo-cms-page",
-            "template": ">context.metaData.handlebars.queries.pages_page"
+            "type": "scvo-grant-cyber",
+            "template": ">context.metaData.handlebars.queries.grants_grant-cyber-search"
           },
           {
             "name": "types",

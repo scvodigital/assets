@@ -2,7 +2,8 @@
   "name": "page_digital_participation_charter",
   "pattern": {
     "index": "/digital/participation/charter-fund",
-    "section": "/digital/participation/charter-fund/:path"
+    "section": "/digital/participation/charter-fund/:path",
+    "subsection": "/digital/participation/charter-fund/call-for-funding/:path"
   },
   "tasks": [
     {

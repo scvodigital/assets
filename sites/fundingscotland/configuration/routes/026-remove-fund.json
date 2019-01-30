@@ -1,7 +1,6 @@
 {
   "name": "remove-fund",
   "pattern": "/remove-fund",
-  "acceptedVerbs": "POST",
   "debug": true,
   "defaultParams": {
     "context": "detail"
@@ -21,20 +20,12 @@
       "renderer": "handlebars"
     },
     {
-      "name": "renderUrl",
+      "name": "destination",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "template": "/fund/{{@root.request.body.slug}}#lists",
-        "output": "data"        
-      }
-    },
-    {
-      "name": "redirect",
-      "taskModule": "redirect",
-      "renderer": "handlebars",
-      "config": {
-        "location": ">data.renderUrl"
+        "template": "done",
+        "output": "body"        
       }
     }
   ]

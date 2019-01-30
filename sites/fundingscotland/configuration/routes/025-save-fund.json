@@ -20,12 +20,20 @@
       "renderer": "handlebars"
     },
     {
-      "name": "destination",
+      "name": "url",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "template": "done",
-        "output": "body"        
+        "template": "{{#if request.params.query.slug}}/fund/{{request.params.query.slug}}#lists{{else}}/blank{{/if}}",
+        "output": "data"        
+      }
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": ">data.url"
       }
     }
   ]

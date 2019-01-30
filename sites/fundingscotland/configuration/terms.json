@@ -517,13 +517,13 @@
       "national": {
         "label": "National",
         "terms": {
-          "uk": {
-            "label": "UK",
-            "textBag": "UK"
-          },
           "scotland": {
             "label": "Scotland",
             "textBag": "Scotland"
+          },
+          "uk": {
+            "label": "UK",
+            "textBag": "UK"
           }
         }
       },

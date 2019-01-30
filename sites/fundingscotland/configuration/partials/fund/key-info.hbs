@@ -49,7 +49,7 @@
         {{/if ~--}}
         {{#if next_deadline ~}}
           <strong>Next deadline:</strong>
-          {{{next_deadline}}}
+          {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
         {{/if ~}}
         {{#if for_charities_only ~}}
           <strong>Charities only:</strong>

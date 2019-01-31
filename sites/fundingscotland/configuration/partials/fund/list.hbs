@@ -5,7 +5,11 @@
     {{> fund_description limit="3rem" description=description}}
     {{> fund_notes limit="3rem"}}
   {{else}}
-    {{> fund_description limit="10.5rem" description=description}}
+    {{#if @root.data.auth ~}}
+      {{> fund_description limit="10.5rem" description=description}}
+    {{else}}
+      {{> fund_description limit="5rem" description=(truncate description "130")}}
+    {{/if}}
   {{/compare ~}}
   {{> fund_actions slug=slug Id=Id title=title}}
 </div>

@@ -158,6 +158,12 @@
             {{/each ~}}
           </div>
         </div>
+        {{#if @root.data.auth ~}}
+        {{else}}
+        <div class="mdc-typography--body1 v-margin-full">
+          To find more similar funds, please <a href="/sign-up">sign up</a>.
+        </div>
+        {{/if ~}}
       </div>
 
       {{> tfn_latest}}

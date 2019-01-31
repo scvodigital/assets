@@ -42,6 +42,12 @@
             "index": "web-content-production",
             "type": "scvo-cms-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
+          },
+          {
+            "name": "saved",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_saved"
           }
         ]
       },

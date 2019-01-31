@@ -196,13 +196,13 @@
         },
         "renderer": "handlebars"
       },
-      "notesData": {
-        "name": "notes",
+      "profileData": {
+        "name": "profile",
         "taskModule": "firebaseRtbGet",
         "renderer": "handlebars",
         "config": {
           "appName": "fundingscotland",
-          "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes",
+          "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}",
           "defaultData": {}
         }
       }

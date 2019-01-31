@@ -5,7 +5,7 @@
     {{else}}
     <a href="/fund/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-sm">Find out more</a>
     <a href="/fund/{{slug}}{{@root.request.url.search}}" class="mdc-card__action hide-md hide-lg"><span class="fal fa-info-circle fa-fw fa-2x" aria-hidden="true"></span></a>
-    {{#compare (trim (getProperty @root.data.notes Id)) "!==" "" ~}}
+    {{#compare (trim (getProperty @root.data.profile.notes Id)) "!==" "" ~}}
     <a href="/fund/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-sm">Your notes</a>
     <a href="/fund/{{slug}}{{@root.request.url.search}}#notes" class="mdc-card__action mdc-card__action-notes hide-md hide-lg"><span class="fal fa-edit fa-fw fa-2x" aria-hidden="true"></span></a>
     {{/compare ~}}

@@ -3,6 +3,8 @@
     {{#if fund_status ~}}
     <span class="pull-right v-margin mdc-typography--caption fund-status fund-{{fund_status_slug}}">Currently {{{lowercase (replace fund_status "Currently" "")}}}</span>
     {{/if ~}}
+
+    {{>hide_fund_button id=Id name=title extraClasses="pull-right"}}
     {{!-- #if funder_organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--funder pull-right hide-sm">
       <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">
@@ -49,7 +51,11 @@
         {{/if ~--}}
         {{#if next_deadline ~}}
           <strong>Next deadline:</strong>
-          {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
+          {{#if @root.data.auth ~}}
+            {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
+          {{else}}
+            in {{{momentFormat (moment next_deadline 'x') 'MMMM YYYY'}}}
+          {{/if ~}}
         {{/if ~}}
         {{#if for_charities_only ~}}
           <strong>Charities only:</strong>

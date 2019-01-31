@@ -26,7 +26,7 @@
                     <textarea class="mdc-text-field__input" data-simple-mde='{
                           "forceSync": true,
                           "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
-                        }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.notes Id}}</textarea>
+                        }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.profile.notes Id}}</textarea>
                     <input type="hidden" name="id" value="{{Id}}">
                   </div>
                   <div class="save-button-block">
@@ -42,7 +42,7 @@
                           "failureMessage": "Failed to delete notes",
                           "successCallback": "clearNotes",
                           "postBody": { "id": "{{Id}}" }
-                          }' {{#unless (getProperty @root.data.notes Id)}}disabled{{/unless}}>
+                          }' {{#unless (getProperty @root.data.profile.notes Id)}}disabled{{/unless}}>
                       <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
                       Delete notes
                     </button>
@@ -84,12 +84,12 @@
                             on=(contains (getProperty (querystring querystring) "id") ../Id)
                           }}
                           {
-                            "extraAttributes": "data-vacancy-id=\"{{../partition}}\"",
+                            "extraAttributes": "data-fund-id=\"{{../partition}}\"",
                             "onClasses": {
-                              "[data-vacancy-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                              "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
                             },
                             "offClasses": {
-                              "[data-vacancy-id=\"{{../partition}}\"]": "mdc-theme--on-secondary mdc-theme--secondary-bg"
+                              "[data-fund-id=\"{{../partition}}\"]": "mdc-theme--on-secondary mdc-theme--secondary-bg"
                             }
                           }
                           {{/ajax_chip}}
@@ -158,6 +158,12 @@
             {{/each ~}}
           </div>
         </div>
+        {{#if @root.data.auth ~}}
+        {{else}}
+        <div class="mdc-typography--body1 v-margin-full">
+          To find more similar funds, please <a href="/sign-up">sign up</a>.
+        </div>
+        {{/if ~}}
       </div>
 
       {{> tfn_latest}}

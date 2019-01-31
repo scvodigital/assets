@@ -1,5 +1,5 @@
 {
-  "size": 4,
+  "size": {{#if @root.data.auth}}4{{else}}2{{/if}},
   "_source": [
     "Id",
     "slug",

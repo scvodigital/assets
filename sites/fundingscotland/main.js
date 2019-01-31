@@ -82,6 +82,21 @@ export class FundingScotland {
     ci.options.cookie = "CookieInfoScript";
     ci.options.textAlign = "left";
     ci.run();
+
+    this.$hideFundDialog = $('#hide-fund-dialog');
+    this.hideFundDialog = new mdc.dialog.MDCDialog(this.$hideFundDialog[0]);
+    $('[data-hide-fund-id]').on('click', (evt) => {
+      const $el = $(evt.currentTarget);
+      const id = $el.data('hide-fund-id');
+      const redirect = $el.data('hide-fund-redirect');
+      const name = $el.data('hide-fund-name');
+
+      $('#hide-fund-dialog-id').val(id);
+      $('#hide-fund-dialog-redirect').val(redirect);
+      $('#hide-fund-dialog-name').text(name);
+
+      this.hideFundDialog.open();
+    });
   }
 
   windowResized() {

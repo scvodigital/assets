@@ -1,15 +1,3 @@
-{{#if activities ~}}
-  {{>queries_terms field="activities_slugs" terms=activities}},
-{{/if}}
-{{#if beneficiaries ~}}
-  {{>queries_terms field="beneficiaries_slugs" terms=beneficiaries}},
-{{/if}}
-{{#if geographical_areas_funded ~}}
-  {{>queries_terms field="geographical_areas_funded_slugs" terms=geographical_areas_funded}},
-{{/if ~}}
-{{#if region_group ~}}
-  {{>queries_terms field="region_group_slug" terms=region_group}},
-{{/if ~}}
 {{#if type_of_cost ~}}
   {{>queries_terms field="type_of_cost_slug" terms=type_of_cost}},
 {{/if ~}}

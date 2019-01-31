@@ -1,7 +1,7 @@
 {{#if data.primaryResponse.hits.hits.[0] ~}}
 {{#with data.primaryResponse.hits.hits.[0]._source ~}}
-<title>Funding Scotland – Funds from {{title}}</title>
-<meta property="og:title" content="Goodmoves – Funding Scotland – Funds from {{title}}" data-dynamic="true">
+<title>{{@root.data.currentSite.title}} – Funds from {{title}}</title>
+<meta property="og:title" content="{{@root.data.currentSite.title}} – Funds from {{title}}" data-dynamic="true">
 {{#ifAny og_image ../og_image ~}}
 <meta property="og:image" content="{{default og_image ../og_image}}" data-dynamic="true">
 {{/ifAny ~}}
@@ -16,6 +16,6 @@
 {{/if ~}}
 {{/with ~}}
 {{else}}
-<title>Goodmoves – Funder</title>
-<meta property="og:title" content="Goodmoves – Funder" data-dynamic="true">
+<title>{{@root.data.currentSite.title}} – Funder</title>
+<meta property="og:title" content="{{@root.data.currentSite.title}} – Funder" data-dynamic="true">
 {{/if ~}}

@@ -1,6 +1,6 @@
 {{#*inline "to_percentage"}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{/inline}}
 <div class="page">
-  {{> header_splash}}
+  {{> header_splash headerTextOverride="Digital Check-up Results" headerTextCaptionOverride=@root.request.params.query.web_organisation}}
   <div class="container-fluid">
     {{> breadcrumbs}}
     {{> leading_quotation sourcePage=@root.data.primaryResponse.hits.hits.[0]._source}}
@@ -8,7 +8,12 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content">
           <h2>
-            Your digital checkup result
+            {{#if @root.request.params.query.web_organisation ~}}
+            {{@root.request.params.query.web_organisation}}
+            {{else}}
+            Your
+            {{/if ~}}
+            digital checkup result
           </h2>
           {{#compare @root.request.params.query.income_band "===" "0" ~}}
           <p>

@@ -14,17 +14,24 @@
         "appName": "fundingscotland",
         "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/hidden/{{request.body.id}}",
         "setOrUpdate": "set",
-        "dataTemplate": true
+        "dataTemplate": "true"
       }
     },
     {
-      "name": "destination",
+      "name": "url",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "output": "body",
-        "template": "{ \"id\": {{{stringify request.body.id}}} }",
-        "parseJson": true
+        "output": "data",
+        "template": "{{default request.body.redirect '/'}}"
+      }
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": ">data.url"
       }
     }
   ]

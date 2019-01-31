@@ -692,7 +692,7 @@
           "menu-item-route-pattern" : "^/digital/evolution/check-up$"
         },
         "path" : "/digital/evolution/check-up",
-        "route" : "^/digital/evolution/check-up$"
+        "route" : "^/digital/evolution/check-up"
       }, {
         "label" : "Digital Pioneers",
         "metaData" : {

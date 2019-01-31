@@ -3830,10 +3830,16 @@ ul.breadcrumbs {
 }
 
 blockquote {
-  border-left: 0.2rem solid white;
-  margin: 0 0 0.75rem;
+  border-left: $unit/5 solid white;
+  margin: 0 0 $unit;
   padding: 0 0.75rem;
-  font-size: 125%;
+  font-size: 1.1rem;
+  cite {
+    display: block;
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
 }
 blockquote p {
   display: inline;
@@ -5287,6 +5293,13 @@ button.swiper-pagination-bullet {
 
 .wp-block-image {
   clear: both;
+  .is-resized {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    a::after {
+      content: "";
+    }
+  }
 }
 .text-left { text-align: left; }
 .alignright,

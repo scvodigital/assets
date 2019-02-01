@@ -287,7 +287,7 @@
           <span id="sort-label" class="mdc-floating-label mdc-floating-label--float-above">Sort</span>
           <div class="mdc-line-ripple"></div>
         </div> -->
-        <div class="mdc-select pull-right" data-mdc-auto-init="MDCSelect">
+        <div class="mdc-select pull-right mdc-elevation--z2" data-mdc-auto-init="MDCSelect">
           <span class="mdc-select__dropdown-icon"></span>
           <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
             <option value="relevance"{{#compare @root.request.params.query.sort "===" "relevance"}} selected{{/compare}}>Relevance</option>

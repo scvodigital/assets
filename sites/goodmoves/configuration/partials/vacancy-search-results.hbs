@@ -2,11 +2,11 @@
 
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}
 
-<aside id="save-search-dialog" 
-       class="mdc-dialog" 
-       role="alertdialog" 
-       aria-labelledby="save-search-dialog-label" 
-       aria-describedby="save-search-dialog-description" 
+<aside id="save-search-dialog"
+       class="mdc-dialog"
+       role="alertdialog"
+       aria-labelledby="save-search-dialog-label"
+       aria-describedby="save-search-dialog-description"
        data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
     <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
@@ -220,7 +220,8 @@
           {{/if ~}}
         {{/each ~}}
         <input type="hidden" name="distance" value="{{#if @root.request.params.query.distance}}{{@root.request.params.query.distance}}{{else}}16.09344{{/if}}" />
-        <div class="mdc-select mdc-select--box pull-right" data-mdc-auto-init="MDCSelect">
+        <div class="mdc-select pull-right" data-mdc-auto-init="MDCSelect">
+          <span class="mdc-select__dropdown-icon"></span>
           <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
             <option value="relevance"{{#compare @root.request.params.query.sort "===" "relevance"}} selected{{/compare}}>Relevance</option>
             <option value="distance"{{#compare @root.request.params.query.sort "===" "distance"}} selected{{/compare}}{{#if @root.request.params.query.location}}{{#compare @root.request.params.query.location "===" ""}} disabled{{/compare}}{{else}} disabled{{/if}}>Distance</option>
@@ -233,6 +234,7 @@
           <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
             Sort
           </label>
+          <div class="mdc-line-ripple"></div>
         </div>
       </form>
       {{/compare ~}}

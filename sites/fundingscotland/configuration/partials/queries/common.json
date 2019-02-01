@@ -13,7 +13,7 @@
           "must_not": {
             {{#if @root.data.profile.hidden}}
               "ids": {
-                "type": "funding-scotland-fund",
+                "type": "fundingscotland-fund",
                 "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
               }
             {{/if}}

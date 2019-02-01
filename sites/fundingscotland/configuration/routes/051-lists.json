@@ -1,0 +1,45 @@
+{
+  "name": "lists",
+  "pattern": "/lists",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.shortlistData",
+    {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": ">context.metaData.handlebars.queries.notifications_get-shortlist-partitions"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "body": ">context.metaData.handlebars.templates.account_lists",
+              "head": ">context.metaData.handlebars.templates.pages_home-head-tags"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

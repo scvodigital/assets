@@ -152,6 +152,10 @@ header {
   background-color: $mdc-theme-primary;
 }
 
+.main-body {
+  min-height: 55vh;
+}
+
 .sign-in-form,
 .reset-password-form {
   .middle-line-text {

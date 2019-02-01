@@ -234,7 +234,7 @@
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone pagination-desktop">
       {{#if @root.data.auth ~}}
-        {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+        {{> pagination firstLastNavigation=true paging=@root.data.search_data.detailed_results.pagination}}
       {{/if ~}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
@@ -309,7 +309,7 @@
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone pagination-mobile">
       {{#if @root.data.auth ~}}
-        {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+        {{> pagination firstLastNavigation=true paging=@root.data.search_data.detailed_results.pagination}}
       {{/if ~}}
     </div>
   </div>
@@ -325,12 +325,12 @@
 
 <div class="foot v-margin-full">
   {{#if @root.data.auth ~}}
-    {{> pagination paging=@root.data.search_data.detailed_results.pagination}}
+  {{> pagination firstLastNavigation=true paging=@root.data.search_data.detailed_results.pagination}}
 
-    <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg" id="save-search-button-foot" data-dialog-target="#save-search-dialog">
-      <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
-      Save/email this search
-    </button>
+  <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg" id="save-search-button-foot" data-dialog-target="#save-search-dialog">
+    <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
+    Save/email this search
+  </button>
   {{else}}
   <a href="/sign-up" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">
     <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>

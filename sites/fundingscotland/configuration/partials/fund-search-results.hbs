@@ -17,18 +17,11 @@
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}
 
 {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-<aside id="save-search-dialog"
-  class="mdc-dialog"
-  role="alertdialog"
-  aria-labelledby="save-search-dialog-label"
-  aria-describedby="save-search-dialog-description"
-  data-mdc-auto-init="MDCDialog">
+<aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description" data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
     <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
       <header class="mdc-dialog__header">
-        <h2 id="save-search-dialog-label" class="mdc-dialog__title">
-          Give your search a name
-        </h2>
+        <h2 id="save-search-dialog-label" class="mdc-dialog__title">Give your search a name</h2>
       </header>
       <section id="save-search-dialog-description" class="mdc-dialog__content">
         <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
@@ -112,12 +105,7 @@
   <div class="mdc-dialog__scrim"></div>
 </aside>
 
-<aside id="edit-search-dialog"
-  class="mdc-dialog"
-  role="alertdialog"
-  aria-labelledby="edit-search-dialog-label"
-  aria-describedby="edit-search-dialog-description"
-  data-mdc-auto-init="MDCDialog">
+<aside id="edit-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="edit-search-dialog-label" aria-describedby="edit-search-dialog-description" data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
     <div class="mdc-dialog__surface">
       {{#if @root.data.auth ~}}
@@ -135,12 +123,7 @@
           {{#if (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
             {{#with (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
               <header class="mdc-dialog__header">
-                <h2 id="edit-search-dialog-label" class="mdc-dialog__title">
-                  Your search&ensp;
-                  <span class="mdc-typography--body1">
-                    <strong>{{{partition}}}</strong>
-                  </span>
-                </h2>
+                <h2 id="edit-search-dialog-label" class="mdc-dialog__title">Your search&ensp;<span class="mdc-typography--body1"><strong>{{{partition}}}</strong></span></h2>
               </header>
               <section id="edit-search-dialog-description" class="mdc-dialog__content">
                 <div class="mdc-chip-set mdc-chip-set--filter">
@@ -176,8 +159,6 @@
   </div>
   <div class="mdc-dialog__scrim"></div>
 </aside>
-
-{{> dialog_shortlist}}
 {{/ifAny ~}}
 
 <div class="mdc-layout-grid head v-margin">

@@ -242,8 +242,10 @@ a {
   background-color: $mdc-theme-primary;
   color: #fff;
 }
-.mdc-card .mdc-chip:hover,
-.mdc-chip.mdc-chip--selected:hover {
+.mdc-chip:hover,
+.mdc-chip:hover .mdc-chip__icon--leading, 
+.mdc-chip.mdc-chip--selected:hover,
+.mdc-chip.mdc-chip--selected:hover .mdc-chip__icon--leading {
   background-color: $mdc-theme-primary-dark;
   color: #fff;
   text-decoration: none;

@@ -6,7 +6,7 @@
   <div class="mdc-list-group">
     <ul class="mdc-list mdc-list--two-line">
       {{#each @root.data.shortlistPartitions.items.[0]}}
-        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-index="{{@index}}">
+        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
           <span class="mdc-list-item__text">
             <span class="mdc-list-item__primary-text">
               {{partition}}
@@ -31,12 +31,11 @@
               on=false
             }}
             {
-              "extraAttributes": "data-list-delete-index=\"{{@../index}}\"",
+              "extraAttributes": "data-list-delete-name=\"{{../partition}}\"",
               "onClasses": {
-                "[data-list-index=\"{{@../index}}\"]": "hidden"
+                "[data-list-name=\"{{../partition}}\"]": "hidden" 
               },
               "offClasses": {
-                "[data-list-index=\"{{@../index}}\"]": "hidden"
               }
             }
             {{/ajax_chip}}

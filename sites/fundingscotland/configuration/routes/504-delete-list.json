@@ -1,0 +1,21 @@
+{
+  "name": "delete-list",
+  "pattern": "/delete-list",
+  "debug": true,
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "done",
+        "output": "body"        
+      }
+    }
+  ]
+}

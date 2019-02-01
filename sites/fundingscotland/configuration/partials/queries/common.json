@@ -3,21 +3,24 @@
     "must": [
       {
         "bool": {
-          "filter": {
+          "filter": [
             {{#if @root.data.currentSite.fixedFilters}}
               {{#each @root.data.currentSite.fixedFilters}}
-                {{>queries_terms field=@key terms=this}},
+                {{>queries_terms field=@key terms=this}}
+                {{#unless @last}},{{/unless}}
               {{/each}}
             {{/if}}
-          },
-          "must_not": {
+          ],
+          "must_not": [
             {{#if @root.data.profile.hidden}}
-              "ids": {
-                "type": "fundingscotland-fund",
-                "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
+              {
+                "ids": {
+                  "type": "fundingscotland-fund",
+                  "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
+                }
               }
             {{/if}}
-          }
+          ]
         }
       },
       {

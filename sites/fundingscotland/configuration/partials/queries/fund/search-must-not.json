@@ -1,0 +1,9 @@
+{{#if @root.data.profile.hidden ~}}
+{
+  "ids": {
+    "type": "funding-scotland-fund",
+    "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
+  },
+}
+{{/if ~}}
+{{>queries_do_nothing}}

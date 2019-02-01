@@ -25,7 +25,7 @@
     "funder_organisation.logo_url",
     "rendered.fundingscotland_rss"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "bool": {
       "filter": [
         {{>queries_fund_search_filters @root.request.params.query}}
@@ -34,7 +34,7 @@
         {{>queries_fund_search_must @root.request.params.query}}
       ]
     }
-  },
+  {{/queries_common}},
   "sort": [
     {{#if @root.request.params.query.sort ~}}
     {{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}

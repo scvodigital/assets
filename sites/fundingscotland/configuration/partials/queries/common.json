@@ -1,0 +1,28 @@
+{
+  "bool": {
+    "must": [
+      {
+        "bool": {
+          "filter": {
+            {{#if @root.data.currentSite.fixedFilters}}
+              {{#each @root.data.currentSite.fixedFilters}}
+                {{>queries_terms field=@key terms=this}},
+              {{/each}}
+            {{/if}}
+          },
+          "must_not": {
+            {{#if @root.data.profile.hidden}}
+              "ids": {
+                "type": "funding-scotland-fund",
+                "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
+              }
+            {{/if}}
+          }
+        }
+      },
+      {
+        {{> @partial-block}}
+      }
+    ]
+  }
+}

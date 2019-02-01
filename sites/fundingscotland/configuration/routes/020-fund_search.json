@@ -17,9 +17,9 @@
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
-    "context.metaData.commonTasks.profileData",
     {
       "name": "test_http",
       "taskModule": "request",

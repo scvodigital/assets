@@ -4,7 +4,6 @@
     <span class="pull-right v-margin mdc-typography--caption fund-status fund-{{fund_status_slug}}">Currently {{{lowercase (replace fund_status "Currently" "")}}}</span>
     {{/if ~}}
 
-    {{>hide_fund_button id=Id name=title extraClasses="pull-right"}}
     {{!-- #if funder_organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--funder pull-right hide-sm">
       <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">

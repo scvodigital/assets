@@ -8,8 +8,8 @@
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.shortlistData",
     {
       "name": "shortlistPartitions",
       "taskModule": "mysql",

@@ -1,5 +1,5 @@
 <div class="mdc-card__actions">
-  <div class="mdc-card__action-buttons demo-card__action-buttons--text-only mdc-card__actions--full-bleed">
+  <div class="mdc-card__action-buttons mdc-card__actions--full-bleed">
     {{#compare action "===" "funder" ~}}
     <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}" class="mdc-card__action hide-sm">Find out more about {{funder_organisation.name}}</a>
     {{else}}
@@ -13,14 +13,8 @@
   </div>
   <div class="mdc-card__action-icons pull-right">
     {{#if @root.data.auth ~}}
-    <a href="/fund/{{slug}}{{@root.request.url.search}}#lists" class="mdc-card__action mdc-card__action-lists">
-      <i class="fal fa-list fa-fw r-margin"></i>
-      {{#if (contains (pluck @root.data.shortlist.items.[0] "id") id)}}
-        Manage fund lists
-      {{else}}
-        Save fund to list
-      {{/if}}
-    </a>
+    {{> fund_action_hide_fund id=Id name=title}}
+    {{> fund_action_manage_lists id=Id slug=slug}}
     {{/if}}
   </div>
 </div>

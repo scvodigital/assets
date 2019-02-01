@@ -4,14 +4,6 @@
     <span class="pull-right v-margin mdc-typography--caption fund-status fund-{{fund_status_slug}}">Currently {{{lowercase (replace fund_status "Currently" "")}}}</span>
     {{/if ~}}
 
-    {{>hide_fund_button id=Id name=title extraClasses="pull-right"}}
-    {{!-- #if funder_organisation.has_logo ~}}
-    <div class="mdc-card__media mdc-card__media--funder pull-right hide-sm">
-      <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">
-        <img src="{{funder_organisation.logo_url}}" alt="{{funder_organisation.name}}" />
-      </a>
-    </div>
-    {{/if ~--}}
     {{#if title ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
       <a href="/fund/{{slug}}{{@root.request.url.search}}">
@@ -28,58 +20,79 @@
     </ul>
     {{/ifAll ~}}
     <div class="fund-details">
-      <!-- <h4 class="mdc-typography--headline6">Fund details</h4> -->
         {{#if (length (arrayify type_of_funding)) ~}}
-          <strong>Type of funding:</strong>
-          {{#each (arrayify type_of_funding) ~}}
-            {{{this}}}{{#unless @last}}, {{/unless}}
-          {{/each}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Type of funding:</strong>
+            {{#each (arrayify type_of_funding) ~}}
+              {{{this}}}{{#unless @last}}, {{/unless}}
+            {{/each}}
+          </span>
         {{/if ~}}
         {{#if source_of_fund ~}}
-          <strong>Source:</strong>
-          {{{source_of_fund}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Source:</strong>
+            {{{source_of_fund}}}
+          </span>
         {{/if ~}}
         {{#if (length (arrayify type_of_cost)) ~}}
-          <strong>Type of cost:</strong>
-          {{#each (arrayify type_of_cost) ~}}
-            {{{this}}}{{#unless @last}}, {{/unless}}
-          {{/each}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Type of cost:</strong>
+            {{#each (arrayify type_of_cost) ~}}
+              {{{this}}}{{#unless @last}}, {{/unless}}
+            {{/each}}
+          </span>
         {{/if ~}}
         {{!--#if when_to_apply ~}}
-          <strong>When to apply:</strong>
-          {{{when_to_apply}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>When to apply:</strong>
+            {{{when_to_apply}}}
+          </span>
         {{/if ~--}}
         {{#if next_deadline ~}}
-          <strong>Next deadline:</strong>
-          {{#if @root.data.auth ~}}
-            {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
-          {{else}}
-            in {{{momentFormat (moment next_deadline 'x') 'MMMM YYYY'}}}
-          {{/if ~}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Next deadline:</strong>
+            {{#if @root.data.auth ~}}
+              {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
+            {{else}}
+              in {{{momentFormat (moment next_deadline 'x') 'MMMM YYYY'}}}
+            {{/if ~}}
+          </span>
         {{/if ~}}
         {{#if for_charities_only ~}}
-          <strong>Charities only:</strong>
-          {{{for_charities_only}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Charities only:</strong>
+            {{{for_charities_only}}}
+          </span>
         {{/if ~}}
         {{#if exclusions ~}}
-          <strong>Exclusions:</strong>
-          {{{exclusions}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Exclusions:</strong>
+            {{{exclusions}}}
+          </span>
         {{/if ~}}
         {{#if website ~}}
-          <strong>Website:</strong>
-          {{{website}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Website:</strong>
+            {{{website}}}
+          </span>
         {{/if ~}}
         {{#if email ~}}
-          <strong>Email:</strong>
-          {{{email}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Email:</strong>
+            {{{email}}}
+          </span>
         {{/if ~}}
         {{#if phone ~}}
-          <strong>Phone:</strong>
-          {{{phone}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>Phone:</strong>
+            {{{phone}}}
+          </span>
         {{/if ~}}
         {{!-- #if how_to_apply ~}}
-          <strong>How to apply:</strong>
-          {{{how_to_apply}}}
+          <span class="key-info-bit r-margin-full">
+            <strong>How to apply:</strong>
+            {{{how_to_apply}}}
+          </span>
         {{/if ~ --}}
       </dl>
     </div>

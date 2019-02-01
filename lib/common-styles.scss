@@ -1009,6 +1009,10 @@ a {
     .mdc-card__action:last-child {
       margin-right: 0;
     }
+    .mdc-card__action--icon {
+      line-height: 1;
+      margin-right: 0 !important;
+    }
   }
 }
 .mdc-card .mdc-card__actions {
@@ -1205,6 +1209,34 @@ a {
     flex: 0 0 auto;
   }
 }
+
+.panel {
+  display: none;
+}
+.panel--active {
+  display: block;
+}
+
+.mdc-list-group {
+  margin: $unit 0;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+.checkbox-list-indicator {
+  font-weight: 400 !important;
+  font-style: normal;
+}
+.mdc-list-group__subheader {
+  padding: $unit/3 0 $unit/2 !important;
+  font-size: 1.2rem !important;
+  border-bottom: 1px solid #cccccc;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.mdc-drawer .mdc-list-item {
+  margin: 0 !important;
+}
+
 .panel-heading {
   margin: -$unit/3 0 0;
   padding: $unit*(2/3) $unit;

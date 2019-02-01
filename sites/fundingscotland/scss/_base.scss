@@ -242,8 +242,10 @@ a {
   background-color: $mdc-theme-primary;
   color: #fff;
 }
-.mdc-card .mdc-chip:hover,
-.mdc-chip.mdc-chip--selected:hover {
+.mdc-chip:hover,
+.mdc-chip:hover .mdc-chip__icon--leading, 
+.mdc-chip.mdc-chip--selected:hover,
+.mdc-chip.mdc-chip--selected:hover .mdc-chip__icon--leading {
   background-color: $mdc-theme-primary-dark;
   color: #fff;
   text-decoration: none;
@@ -776,37 +778,6 @@ footer.mdc-layout__footer {
 .mdc-button--raised.mdc-button--warning {
   background-color: $mdc-theme-error !important;
   color: #fff !important;
-}
-
-.panel {
-  display: none;
-}
-
-.panel--active {
-  display: block;
-}
-
-.mdc-list-group {
-  margin: $unit 0;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-}
-
-.checkbox-list-indicator {
-  font-weight: 400 !important;
-  font-style: italic;
-}
-
-.mdc-list-group__subheader {
-  padding: $unit/3 0 $unit/2 !important;
-  font-size: 1.2rem !important;
-  border-bottom: 1px solid #cccccc;
-  border-radius: 4px;
-  background-color: #ffffff;
-}
-
-.mdc-drawer .mdc-list-item {
-  margin: 0 !important;
 }
 
 .mdc-icon-toggle-xs {

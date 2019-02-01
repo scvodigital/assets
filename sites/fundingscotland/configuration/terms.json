@@ -2,66 +2,70 @@
   "activities": {
     "label": "Activities",
     "termGroups": {
-      "advice": {
-        "label": "Advice",
+      "advice-and-justice": {
+        "label": "Advice and justice",
         "terms": {
-          "advising-and-informing": {
-            "label": "Advising & informing",
-            "textBag": "Advising informing"
+          "advice-and-information": {
+            "label": "Advice and information ",
+            "textBag": "Advice and information "
           },
           "advocacy": {
             "label": "Advocacy",
             "textBag": "Advocacy"
           },
           "befriending-and-mentoring": {
-            "label": "Befriending & mentoring",
-            "textBag": "Befriending mentoring"
+            "label": "Befriending and mentoring",
+            "textBag": "Befriending and mentoring"
           },
           "financial-advice-and-support": {
-            "label": "Financial advice & support",
-            "textBag": "Financial advice support"
+            "label": "Financial advice and support",
+            "textBag": "Financial advice and support"
+          },
+          "campaigning": {
+            "label": "Campaigning",
+            "textBag": "Campaigning"
+          },
+          "justice-and-law": {
+            "label": "Justice and law",
+            "textBag": "Justice and law"
           }
         }
       },
-      "arts-culture-and-heritage": {
-        "label": "Arts, culture & heritage",
+      "arts-culture-and-recreation": {
+        "label": "Arts, Culture and Recreation",
         "terms": {
-          "arts-and-cultural-activities": {
-            "label": "Arts & cultural activities",
-            "textBag": "Arts cultural activities music"
+          "arts-and-culture": {
+            "label": "Arts and culture",
+            "textBag": "Arts and culture"
           },
-          "heritage-building-preservation": {
-            "label": "Heritage/building preservation",
-            "textBag": "Heritage building preservation"
-          }
-        }
-      },
-      "community-and-organisational-development": {
-        "label": "Community & organisational development",
-        "terms": {
-          "organisation-capacity-building": {
-            "label": "Organisation capacity building",
-            "textBag": "Organisation capacity building"
+          "heritage-and-building-preservation": {
+            "label": "Heritage and building preservation",
+            "textBag": "Heritage and building preservation"
           },
-          "organised-sport": {
-            "label": "Organised sport",
-            "textBag": "Organised Sport"
+          "sport-and-physical-activity": {
+            "label": "Sport and physical activity",
+            "textBag": "Sport and physical activity"
           },
           "recreation-and-social-activities": {
-            "label": "Recreation & social activities",
-            "textBag": "Recreation social activities"
+            "label": "Recreation and social activities",
+            "textBag": "Recreation and social activities"
           },
+          "religious-activities": {
+            "label": "Religious activities",
+            "textBag": "Religious activities"
+          }
+        }
+      },
+      "community-support-and-development": {
+        "label": "Community Support and Development",
+        "terms": {
           "citizenship-and-community-involvement": {
-            "label": "Citizenship & community involvement",
-            "textBag": "Citizenship community involvement"
-          },
-          "community-and-capacity-building": {
-            "label": "Community & capacity building",
-            "textBag": "Community capacity building"
+            "label": "Citizenship and community involvement",
+            "textBag": "Citizenship and community involvement"
           },
           "community-development-and-regeneration": {
-            "label": "Community development & regeneration",
-            "textBag": "Community development regeneration"
+            "label": "Community development and regeneration",
+            "textBag": "Community development and regeneration"
           },
           "community-facilities": {
             "label": "Community facilities",
@@ -71,101 +75,88 @@
             "label": "Community safety",
             "textBag": "Community safety"
           },
-          "community-transport": {
-            "label": "Community transport",
-            "textBag": "Community transport"
+          "transport": {
+            "label": "Transport",
+            "textBag": "Transport"
           },
-          "disaster-emergency-services": {
-            "label": "Disaster/emergency services",
-            "textBag": "Disaster emergency services"
+          "disaster-and-emergency-services": {
+            "label": "Disaster and emergency services",
+            "textBag": "Disaster and emergency services"
+          },
+          "organisation-development-and-capacity-building": {
+            "label": "Organisation development and capacity building",
+            "textBag": "Organisation development and capacity building"
           }
         }
       },
       "education-training-and-research": {
-        "label": "Education, training & research",
+        "label": "Education, training and research",
         "terms": {
           "education-and-training": {
-            "label": "Education & training",
-            "textBag": "Education Training"
+            "label": "Education and training",
+            "textBag": "Education and training"
           },
           "employability-services": {
             "label": "Employability services",
             "textBag": "Employability services"
           },
-          "health-education-&-promotion": {
-            "label": "Health education & promotion",
-            "textBag": "Health education & promotion"
-          },
-          "scientific-activities": {
-            "label": "Scientific activities",
-            "textBag": "Scientific Activities"
-          },
           "research": {
             "label": "Research",
             "textBag": "Research"
+          },
+          "science-and-technology": {
+            "label": "Science and technology",
+            "textBag": "Science and technology"
           }
         }
       },
       "environment-and-animals": {
-        "label": "Environment & animals",
+        "label": "Environment and animals",
         "terms": {
-          "environmental-projects": {
-            "label": "Environmental projects",
-            "textBag": "Environment Environmental Projects"
-          },
           "animal-welfare": {
             "label": "Animal welfare",
             "textBag": "Animal welfare"
+          },
+          "environment": {
+            "label": "Environment",
+            "textBag": "Environment"
+          },
+          "energy": {
+            "label": "Energy",
+            "textBag": "Energy"
           }
         }
       },
       "health-and-social-care": {
-        "label": "Health & social care",
+        "label": "Health and social care",
         "terms": {
-          "accommodation": {
-            "label": "Accommodation",
-            "textBag": "Accommodation"
+          "health-care-and-wellbeing": {
+            "label": "Health care and wellbeing",
+            "textBag": "Health care and wellbeing"
           },
-          "respite-holidays": {
-            "label": "Respite/holidays",
-            "textBag": "Respite holidays"
+          "health-education-and-promotion": {
+            "label": "Health education and promotion",
+            "textBag": "Health education and promotion"
           },
-          "social-care": {
-            "label": "Social care",
-            "textBag": "Social care"
-          },
-          "health-and-social-care": {
-            "label": "Health & social care",
-            "textBag": "Health social care"
-          },
-          "medical-care": {
-            "label": "Medical care",
-            "textBag": "Medical care"
+          "heritage-and-building-preservation": {
+            "label": "Heritage and building preservation",
+            "textBag": "Heritage and building preservation"
           },
           "mental-health-care": {
             "label": "Mental health care",
             "textBag": "Mental health care"
-          }
-        }
-      },
-      "other": {
-        "label": "Other",
-        "terms": {
-          "religious-activities": {
-            "label": "Religious activities",
-            "textBag": "Religious activities"
           },
-          "providing-equipment": {
-            "label": "Providing equipment",
-            "textBag": "Providing equipment"
+          "social-care-and-welfare": {
+            "label": "Social care and welfare",
+            "textBag": "Social care and welfare"
           },
-          "general-charitable-activities": {
-            "label": "General charitable activities",
-            "textBag": "General charitable activities"
+          "respite-and-holidays": {
+            "label": "Respite and holidays",
+            "textBag": "Respite and holidays"
           },
-          "campaigning": {
-            "label": "Campaigning",
-            "textBag": "Campaigning"
+          "housing-and-shelter": {
+            "label": "Housing and shelter",
+            "textBag": "Housing and shelter"
           }
         }
       }
@@ -174,103 +165,144 @@
   "beneficiaries": {
     "label": "Beneficiaries",
     "termGroups": {
-      "economically-socially-disadvantaged-people": {
-        "label": "Economically/socially disadvantaged people",
+      "age": {
+        "label": "Age",
         "terms": {
-          "addicts-and-misusers": {
-            "label": "Addicts & misusers",
-            "textBag": "Addicts Misusers"
+          "children": {
+            "label": "Children",
+            "textBag": "Children"
           },
-          "black-and-minority-ethnic-communities": {
-            "label": "Black & minority ethnic communities",
-            "textBag": "Black minority ethnic communities"
+          "older-people": {
+            "label": "Older people",
+            "textBag": "Older people"
           },
-          "carers-parents": {
-            "label": "Carers/parents",
-            "textBag": "Carers parents"
-          },
-          "homeless-or-badly-housed": {
-            "label": "Homeless or badly housed",
-            "textBag": "Homeless badly housed housing"
-          },
-          "in-or-leaving-care": {
-            "label": "In or leaving care",
-            "textBag": "In leaving care"
-          },
-          "isolated-socially": {
-            "label": "Isolated socially",
-            "textBag": "Isolated socially"
-          },
-          "economically-socially-disadvantaged": {
-            "label": "Economically/socially disadvantaged",
-            "textBag": "Economically/socially disadvantaged"
-          },
-          "living-in-poverty": {
-            "label": "Living in poverty",
-            "textBag": "Living poverty"
-          },
-          "offenders-&-ex-offenders": {
-            "label": "Offenders & ex-offenders",
-            "textBag": "Offenders & ex-offenders"
-          },
-          "refugees-and-asylum-seekers": {
-            "label": "Refugees & asylum seekers",
-            "textBag": "Refugees asylum seekers"
-          },
-          "tenants": {
-            "label": "Tenants",
-            "textBag": "Tenants"
-          },
-          "unemployed": {
-            "label": "Unemployed",
-            "textBag": "Unemployed"
-          },
-          "victims-of-crime-abuse": {
-            "label": "Victims of crime/abuse",
-            "textBag": "Victims crime abuse"
+          "young-people": {
+            "label": "Young people",
+            "textBag": "Young people"
           }
         }
       },
-      "environment-and-animals": {
-        "label": "Environment & animals",
+      "gender-and-relationships": {
+        "label": "Gender and relationships",
         "terms": {
-          "natural-environment": {
-            "label": "Natural environment",
-            "textBag": "Nature Natural Environment"
+          "lgbtqi": {
+            "label": "LGBTQI ",
+            "textBag": "LGBTQI "
           },
-          "animals": {
-            "label": "Animals",
-            "textBag": "Animals"
-          }
-        }
-      },
-      "gender-sexual-orientation": {
-        "label": "Gender/sexual orientation",
-        "terms": {
           "men": {
             "label": "Men",
             "textBag": "Men"
           },
-          "lgbt": {
-            "label": "LGBT",
-            "textBag": "LGBT LGBTQI+"
+          "carers": {
+            "label": "Carers",
+            "textBag": "Carers"
           },
-          "women": {
-            "label": "Women",
-            "textBag": "Women"
+          "families": {
+            "label": "Families",
+            "textBag": "Families"
+          },
+          "women-and-girls": {
+            "label": "Women and girls",
+            "textBag": "Women and girls"
           }
         }
       },
-      "geographic-communities": {
-        "label": "Geographic communities",
+      "people-affected-by-ill-healthdisability": {
+        "label": "People affected by ill-health/disability",
         "terms": {
-          "the-local-community": {
-            "label": "The local community",
-            "textBag": "The local community"
+          "ill-health": {
+            "label": "Ill-health",
+            "textBag": "Ill-health"
           },
-          "living-in-rural-areas": {
-            "label": "Living in rural areas",
-            "textBag": "Living rural areas"
+          "disabilities": {
+            "label": "Disabilities",
+            "textBag": "Disabilities"
+          },
+          "learning-disabilities": {
+            "label": "Learning disabilities",
+            "textBag": "Learning disabilities"
+          },
+          "physical-disabilities": {
+            "label": "Physical disabilities",
+            "textBag": "Physical disabilities"
+          },
+          "sensory-impairments": {
+            "label": "Sensory impairments",
+            "textBag": "Sensory impairments"
+          },
+          "mental-health-conditions": {
+            "label": "Mental health conditions",
+            "textBag": "Mental health conditions"
+          }
+        }
+      },
+      "economicallysocially-disadvantaged-people": {
+        "label": "Economically/socially disadvantaged people",
+        "terms": {
+          "people-in-poverty": {
+            "label": "People in poverty",
+            "textBag": "People in poverty"
+          },
+          "economicallysocially-disadvantaged": {
+            "label": "Economically/socially disadvantaged",
+            "textBag": "Economically/socially disadvantaged"
+          },
+          "socially-isolated": {
+            "label": "Socially isolated ",
+            "textBag": "Socially isolated "
+          },
+          "care-experienced": {
+            "label": "Care experienced",
+            "textBag": "Care experienced"
+          },
+          "homeless-or-badly-housed": {
+            "label": "Homeless or badly housed",
+            "textBag": "Homeless or badly housed"
+          },
+          "unemployed": {
+            "label": "Unemployed ",
+            "textBag": "Unemployed "
+          },
+          "addicts-and-misusers": {
+            "label": "Addicts and Misusers",
+            "textBag": "Addicts and Misusers"
+          },
+          "victims-of-crime-and-abuse": {
+            "label": "Victims of crime and abuse",
+            "textBag": "Victims of crime and abuse"
+          },
+          "veterans-and-armed-forces-personnel": {
+            "label": "Veterans and armed forces personnel",
+            "textBag": "Veterans and armed forces personnel"
+          },
+          "offenders-and-ex-offenders": {
+            "label": "Offenders and ex-offenders",
+            "textBag": "Offenders and ex-offenders"
+          },
+          "refugees-and-asylum-seekers": {
+            "label": "Refugees and asylum seekers",
+            "textBag": "Refugees and asylum seekers"
+          },
+          "black-and-ethnic-minorities": {
+            "label": "Black and Ethnic Minorities",
+            "textBag": "Black and Ethnic Minorities"
+          }
+        }
+      },
+      "geographic-groups": {
+        "label": "Geographic Groups",
+        "terms": {
+          "rural-communities": {
+            "label": "Rural communities",
+            "textBag": "Rural communities"
+          },
+          "urban-communities": {
+            "label": "Urban communities",
+            "textBag": "Urban communities"
+          },
+          "local-communities": {
+            "label": "Local communities",
+            "textBag": "Local communities"
           },
           "general-public": {
             "label": "General public",
@@ -281,80 +313,17 @@
       "other": {
         "label": "Other",
         "terms": {
-          "families": {
-            "label": "Families",
-            "textBag": "Families"
+          "volunteers": {
+            "label": "Volunteers",
+            "textBag": "Volunteers"
           },
           "third-sector-organisations": {
             "label": "Third sector organisations",
             "textBag": "Third sector organisations"
           },
-          "religious-and-belief-groups-communities": {
-            "label": "Religious & belief groups/communities",
-            "textBag": "Religious Belief Groups/Communities"
-          }
-        }
-      },
-      "people-affected-by-ill-health-disability": {
-        "label": "People affected by ill health/disability",
-        "terms": {
-          "mental-health-conditions": {
-            "label": "Mental health conditions",
-            "textBag": "Mental health conditions"
-          },
-          "people-affected-by-ill-health": {
-            "label": "People affected by ill-health",
-            "textBag": "People affected by ill-health"
-          },
-          "people-with-disabilities": {
-            "label": "People with disabilities",
-            "textBag": "People with disabilities"
-          },
-          "people-with-learning-disabilities": {
-            "label": "People with learning disabilities",
-            "textBag": "People with learning disabilities"
-          },
-          "people-with-physical-disabilities": {
-            "label": "People with physical disabilities",
-            "textBag": "People with physical disabilities"
-          },
-          "people-with-sensory-impairments": {
-            "label": "People with sensory impairments",
-            "textBag": "People with sensory impairments"
-          },
-          "physical-health-conditions": {
-            "label": "Physical health conditions",
-            "textBag": "Physical health conditions"
-          }
-        }
-      },
-      "people-from-in-specific-occupations": {
-        "label": "People from/in specific occupations",
-        "terms": {
-          "students-ex-students": {
-            "label": "Students/ex-students",
-            "textBag": "Students Ex-students"
-          },
-          "volunteers": {
-            "label": "Volunteers",
-            "textBag": "Volunteers"
-          }
-        }
-      },
-      "people-of-a-specific-age-group": {
-        "label": "People of a specific age group",
-        "terms": {
-          "older-people": {
-            "label": "Older people",
-            "textBag": "Older people"
-          },
-          "young-people": {
-            "label": "Young people",
-            "textBag": "Young people"
-          },
-          "children": {
-            "label": "Children",
-            "textBag": "Children Kids Wains Weans Bairns"
+          "religious-and-belief-groups": {
+            "label": "Religious and Belief Groups",
+            "textBag": "Religious and Belief Groups"
           }
         }
       }

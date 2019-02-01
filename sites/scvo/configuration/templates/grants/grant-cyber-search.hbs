@@ -24,7 +24,7 @@
           {{#compare key "===" "Cyber 2" ~}}
           <h2>Call 2, 2019</h2>
           <p>
-            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation.
+            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{grants.hits.total}} have currently been awarded.
           </p>
           {{else}}
           {{#compare key "===" "Cyber 3" ~}}
@@ -41,16 +41,34 @@
               {{#compare grants.hits.total ">" "0" ~}}
               {{#each grants.hits.hits ~}}
               {{#with _source ~}}
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-card card scvo-grant scvo-grant-cyber">
                   <section class="mdc-card__primary">
+                    {{#ifAny goodhq_organisation.website goodhq_organisation.twitter goodhq_organisation.facebook goodhq_organisation.linkedin ~}}
+                    <div class="pull-right">
+                      {{#if goodhq_organisation.website ~}}
+                      <a href="{{fixUrl goodhq_organisation.website "http"}}"><span class="far fa-link" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.twitter ~}}
+                      <a href="https://twitter.com/{{goodhq_organisation.twitter}}"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.facebook ~}}
+                      <a href="{{fixUrl goodhq_organisation.facebook "http"}}"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.linkedin ~}}
+                      <a href="{{fixUrl goodhq_organisation.linkedin "http"}}"><span class="fab fa-linkedin" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                    </div>
+                    {{/ifAny ~}}
                     <h2 class="mdc-card__title mdc-card__title--large">
                       {{{title}}}
                     </h2>
                   </section>
                   <section class="mdc-card__supporting-text">
                     <p class="mdc-typography--body1">
+                      {{#if (contains recipient_charity_number "SC") ~}}
                       <span class="mdc-typography--caption">Charity registered in Scotland <a href="http://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{recipient_charity_number}}">{{recipient_charity_number}}</a></span><br />
+                      {{/if ~}}
                       <strong>Amount awarded:</strong> £{{addCommas amount_awarded}}
                       {{!-- #ifAll actual_start actual_end ~}}
                       <strong>Project dates:</strong> {{momentFormat (moment actual_start 'x') "Do MMM YYYY"}} - {{momentFormat (moment actual_end 'x') "Do MMM YYYY"}}<br />
@@ -58,6 +76,15 @@
                       {{!-- #if date_awarded ~}}
                       <strong>Date awarded:</strong> {{momentFormat (moment date_awarded 'x') "Do MMM YYYY"}}
                       {{/if ~ --}}
+                      {{#if date_contracted ~}}<br />
+                      <strong>Contracted:</strong> {{momentFormat (moment date_contracted 'x') "Do MMM YYYY"}}
+                      {{/if ~}}
+                      {{#if date_payment_1 ~}}<br />
+                      <strong>Payment 1:</strong> {{momentFormat (moment date_payment_1 'x') "Do MMM YYYY"}}
+                      {{/if ~}}
+                      {{#if date_payment_2 ~}}<br />
+                      <strong>Payment 2:</strong> {{momentFormat (moment date_payment_2 'x') "Do MMM YYYY"}}
+                      {{/if ~}}
                     </p>
                   </section>
                 </div>

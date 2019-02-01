@@ -1,22 +1,5 @@
 <div class="search grant-search grant-cyber-search">
-  <div class="splash-image splash-image-{{@root.data.primaryResponse.hits.hits.[0]._type}}-search" style="{{> header_splash_image}}">
-    <div class="splash-overlay{{#if @root.data.primaryResponse.hits.hits.[0]._source.hide_overlay}} splash-overlay-hidden{{/if}}">
-      <div class="container-fluid">
-        <div class="mdc-layout-grid">
-          {{#if @root.data.primaryResponse.hits.hits.[0]._source.header_text ~}}
-          <img src="{{@root.data.primaryResponse.hits.hits.[0]._source.header_text}}" alt="{{@root.data.primaryResponse.hits.hits.[0]._source.title}}" class="header-text" />
-          {{else}}
-          <h1 class="header-text">
-            <span class="header-text-banner">
-              {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
-            </span>
-          </h1>
-          {{/if ~}}
-        </div>
-        {{> header_caption}}
-      </div>
-    </div>
-  </div>
+  {{> header_splash}}
   <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
@@ -30,30 +13,77 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 content grant-content">
           {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_full}}}
 
-          <hr />
+          {{#compare (length @root.data.supplimentaryResponses.grants.aggregations.calls.buckets) ">" "0" ~}}
+          {{#each @root.data.supplimentaryResponses.grants.aggregations.calls.buckets ~}}
+          {{#compare key "===" "Cyber 1" ~}}
+          <h2>Call 1 pilot, 2017</h2>
+          <p>
+            To test the ability of third sector organisations to achieve Cyber Essentials accreditation, a small scale ‘grants’ programme supported 15 third sector organisations to help cover the application and IT support costs needed to achieve Cyber Essentials accreditation.
+          </p>
+          {{else}}
+          {{#compare key "===" "Cyber 2" ~}}
+          <h2>Call 2, 2019</h2>
+          <p>
+            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{grants.hits.total}} have currently been awarded.
+          </p>
+          {{else}}
+          {{#compare key "===" "Cyber 3" ~}}
+          <h2>Call 3, 2019</h2>
+          <p>
 
-          <!-- {{> search_info paging=@root.data.primaryResponse.pagination}} -->
+          </p>
+          {{/compare ~}}
+          {{/compare ~}}
+          {{/compare ~}}
 
           <div class="mdc-layout-grid equal-height v-margin">
             <div class="mdc-layout-grid__inner">
-              {{#compare @root.data.supplimentaryResponses.grants.hits.total ">" 0 ~}}
-              {{#each @root.data.supplimentaryResponses.grants.hits.hits ~}}
+              {{#compare grants.hits.total ">" "0" ~}}
+              {{#each grants.hits.hits ~}}
               {{#with _source ~}}
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-card card scvo-grant scvo-grant-cyber">
                   <section class="mdc-card__primary">
-                    <h3 class="mdc-card__title mdc-card__title--large">
+                    {{#ifAny goodhq_organisation.website goodhq_organisation.twitter goodhq_organisation.facebook goodhq_organisation.linkedin ~}}
+                    <div class="pull-right">
+                      {{#if goodhq_organisation.website ~}}
+                      <a href="{{fixUrl goodhq_organisation.website "http"}}"><span class="far fa-link" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.twitter ~}}
+                      <a href="https://twitter.com/{{goodhq_organisation.twitter}}"><span class="fab fa-twitter" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.facebook ~}}
+                      <a href="{{fixUrl goodhq_organisation.facebook "http"}}"><span class="fab fa-facebook" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                      {{#if goodhq_organisation.linkedin ~}}
+                      <a href="{{fixUrl goodhq_organisation.linkedin "http"}}"><span class="fab fa-linkedin" aria-hidden="true"></span></a>
+                      {{/if ~}}
+                    </div>
+                    {{/ifAny ~}}
+                    <h2 class="mdc-card__title mdc-card__title--large">
                       {{{title}}}
-                    </h3>
+                    </h2>
                   </section>
                   <section class="mdc-card__supporting-text">
                     <p class="mdc-typography--body1">
-                      Charity registered in Scotland <a href="http://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{recipient_charity_number}}">{{recipient_charity_number}}</a><br />
-                      <strong>Amount awarded:</strong> £{{addCommas amount_awarded}}<br />
-                      {{#if actual_start ~}}
-                      <strong>Project start:</strong> {{momentFormat (moment actual_start 'x') "Do MMM YYYY"}}
-                      {{else}}
-                      <strong>Date awarded:</strong> {{momentFormat (moment date_last_modified 'YYYY-MM-DDThh.mm.ss.0Z') "Do MMM YYYY"}}
+                      {{#if (contains recipient_charity_number "SC") ~}}
+                      <span class="mdc-typography--caption">Charity registered in Scotland <a href="http://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{recipient_charity_number}}">{{recipient_charity_number}}</a></span><br />
+                      {{/if ~}}
+                      <strong>Amount awarded:</strong> £{{addCommas amount_awarded}}
+                      {{!-- #ifAll actual_start actual_end ~}}
+                      <strong>Project dates:</strong> {{momentFormat (moment actual_start 'x') "Do MMM YYYY"}} - {{momentFormat (moment actual_end 'x') "Do MMM YYYY"}}<br />
+                      {{/ifAll ~ --}}
+                      {{!-- #if date_awarded ~}}
+                      <strong>Date awarded:</strong> {{momentFormat (moment date_awarded 'x') "Do MMM YYYY"}}
+                      {{/if ~ --}}
+                      {{#if date_contracted ~}}<br />
+                      <strong>Contracted:</strong> {{momentFormat (moment date_contracted 'x') "Do MMM YYYY"}}
+                      {{/if ~}}
+                      {{#if date_payment_1 ~}}<br />
+                      <strong>Payment 1:</strong> {{momentFormat (moment date_payment_1 'x') "Do MMM YYYY"}}
+                      {{/if ~}}
+                      {{#if date_payment_2 ~}}<br />
+                      <strong>Payment 2:</strong> {{momentFormat (moment date_payment_2 'x') "Do MMM YYYY"}}
                       {{/if ~}}
                     </p>
                   </section>
@@ -61,16 +91,16 @@
               </div>
               {{/with ~}}
               {{/each ~}}
-              {{else}}
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-                <p>
-                  No results could be found, please try a different search.
-                </p>
-                <p>&nbsp;</p>
-              </div>
-              {{/compare ~}}
             </div>
           </div>
+          {{/compare ~}}
+          {{/each ~}}
+          {{else}}
+          <p>
+            No results could be found, please try a different search.
+          </p>
+          <p>&nbsp;</p>
+          {{/compare ~}}
 
           {{> pagination paging=@root.data.primaryResponse.pagination}}
         </div>

@@ -181,20 +181,13 @@
   <div class="mdc-dialog__backdrop"></div>
 </aside>
 
-<aside id="import-user-dialog"
-  class="mdc-dialog"
-  role="alertdialog"
-  aria-labelledby="import-user-dialog-label"
-  aria-describedby="import-user-dialog-description"
-  data-mdc-auto-init="MDCDialog">
+<aside id="import-user-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="import-user-dialog-label" aria-describedby="import-user-dialog-description" data-mdc-auto-init="MDCDialog">
   <div class="mdc-dialog__container">
   <form action="/import-user-data" method="POST" class="mdc-dialog__surface" data-ajax-form='{
         "successMessage": "Data imported successfully",
         "failureMessage": "Failed to import data"
       }'>
-    <h2 id="import-user-dialog-label" class="mdc-dialog__title">
-      Import user data
-    </h2>
+    <h2 id="import-user-dialog-label" class="mdc-dialog__title">Import user data</h2>
     <section id="import-user-dialog-description" class="mdc-dialog__content">
       <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" style="min-width: 400px;" data-mdc-auto-init="MDCTextField">
         <textarea id="import-user-json" name="json" class="mdc-text-field__input" rows="10"></textarea>

@@ -153,11 +153,22 @@
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}
                 {{#each @root.context.metaData.menus.main ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
+                  {{#compare label "===" "Premium" ~}}
+                    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                    {{else}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                    {{/ifAny ~}}
+                  {{else}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/compare}}
                 {{/each ~}}
               {{/components_tab_bar}}
             </section>
@@ -206,13 +217,26 @@
               Home
             </a>
             {{#each @root.context.metaData.menus.main ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
+              {{#compare label "===" "Premium" ~}}
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                {{else}}
+                  <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+                     href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+                    {{#if icon ~}}
+                    <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                    {{/if ~}}
+                    {{{label}}}
+                  </a>
+                {{/ifAny ~}}
+              {{else}}
+                <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+                   href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+                  {{#if icon ~}}
+                  <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                  {{/if ~}}
+                  {{{label}}}
+                </a>
+              {{/compare ~}}
             {{/each ~}}
             {{#each @root.context.metaData.menus.upper ~}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
@@ -269,7 +293,7 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}

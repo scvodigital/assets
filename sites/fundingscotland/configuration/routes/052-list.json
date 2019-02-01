@@ -1,0 +1,53 @@
+{
+  "name": "list",
+  "pattern": "/list",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.shortlistData",
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "name": "saved",
+          "index": "web-content-production",
+          "type": "fundingscotland-fund",
+          "template": ">context.metaData.handlebars.queries.funds_saved",
+          "metaData": {
+            "showAll": true
+          }
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "body": ">context.metaData.handlebars.templates.account_lists",
+              "head": ">context.metaData.handlebars.templates.pages_home-head-tags"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

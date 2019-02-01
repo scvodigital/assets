@@ -41,6 +41,7 @@
               {{#compare grants.hits.total ">" "0" ~}}
               {{#each grants.hits.hits ~}}
               {{#with _source ~}}
+              {{#compare title "!==" "Community Welfare Test (CO)" ~}}
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-card card scvo-grant scvo-grant-cyber">
                   <section class="mdc-card__primary">
@@ -69,7 +70,9 @@
                       {{#if (contains recipient_charity_number "SC") ~}}
                       <span class="mdc-typography--caption">Charity registered in Scotland <a href="http://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{recipient_charity_number}}">{{recipient_charity_number}}</a></span><br />
                       {{/if ~}}
+                      {{#if amount_awarded ~}}
                       <strong>Amount awarded:</strong> £{{addCommas amount_awarded}}
+                      {{/if ~}}
                       {{!-- #ifAll actual_start actual_end ~}}
                       <strong>Project dates:</strong> {{momentFormat (moment actual_start 'x') "Do MMM YYYY"}} - {{momentFormat (moment actual_end 'x') "Do MMM YYYY"}}<br />
                       {{/ifAll ~ --}}
@@ -89,6 +92,7 @@
                   </section>
                 </div>
               </div>
+              {{/compare ~}}
               {{/with ~}}
               {{/each ~}}
             </div>

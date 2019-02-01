@@ -16,7 +16,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": false
+    "enablePremiumFeatures": false
   },
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
@@ -35,7 +35,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "east-renfrewshire",
@@ -64,7 +64,7 @@
       "error": "#de3027",
       "errorText": "#000000"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "fife",
@@ -93,7 +93,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true
+    "enablePremiumFeatures": true
   },
   "shetland": {
     "name": "shetland",
@@ -112,7 +112,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "shetland",
@@ -141,7 +141,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "south-lanarkshire",
@@ -170,7 +170,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "south-lanarkshire",
@@ -226,7 +226,7 @@
       "error": "#d2d20e",
       "errorText": "#000000"
     },
-    "enableProFeatures": true,
+    "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
         "stirling",

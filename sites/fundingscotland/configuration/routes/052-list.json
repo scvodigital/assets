@@ -1,11 +1,22 @@
 {
   "name": "list",
-  "pattern": "/list",
+  "pattern": "/lists/:name",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
-    "context.metaData.commonTasks.shortlistData",
+    {
+      "name": "shortlistPartition",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": ">context.metaData.handlebars.queries.notifications_get-shortlist-partition"
+        }
+      },
+      "renderer": "handlebars"
+    },
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",
@@ -18,7 +29,7 @@
           "name": "saved",
           "index": "web-content-production",
           "type": "fundingscotland-fund",
-          "template": ">context.metaData.handlebars.queries.funds_saved",
+          "template": ">context.metaData.handlebars.queries.funds_list",
           "metaData": {
             "size": 1000
           }
@@ -41,7 +52,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "body": ">context.metaData.handlebars.templates.account_lists",
+              "body": ">context.metaData.handlebars.templates.account_list",
               "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
               "foot": ">context.metaData.handlebars.templates.account_lists-foot",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar"

@@ -1,0 +1,31 @@
+<div id="detailed-results-container" class="container-content lists fundingscotland-lists">
+  {{#with @root.data.shortlistPartition.items.[0].[0]}}
+    <h1 class="mdc-typography--headline3 v-margin-full">
+      <div class="pull-right">
+        {{#> ajax_chip
+          onUrl=(concat "/toggle-list-subscription?name=" partition)
+          offUrl=(concat "/toggle-list-subscription?name=" partition)
+          onText="Email alerts"
+          offText="Email alerts"
+          iconClasses="far fa-envelope"
+          on=partitionActive
+        }}
+        {
+          "extraAttributes": "data-fund-id=\"{{../partition}}\"",
+          "onClasses": {
+            "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+          },
+          "offClasses": {
+            "[data-fund-id=\"{{../partition}}\"]": ""
+          }
+        }
+        {{/ajax_chip}}
+      </div>
+      List: {{partition}}
+    </h1>
+  {{/with}}
+
+  {{#each @root.data.primaryResponse.hits.hits ~}}
+    {{> fund_search_result _source sort=sort}}
+  {{/each ~}}
+</div>

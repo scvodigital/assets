@@ -231,6 +231,11 @@ header {
 a {
   color: $mdc-theme-primary;
 }
+a:focus,
+a:active,
+a:hover {
+  color: $mdc-theme-primary-dark;
+}
 .tfn a {
   color: $mdc-theme-tfn;
 }

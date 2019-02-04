@@ -48,26 +48,14 @@
             {{{when_to_apply}}}
           </span>
         {{/if ~--}}
-        {{#if next_deadline ~}}
+        {{#if date_next_deadline ~}}
           <span class="key-info-bit r-margin-full">
             <strong>Next deadline:</strong>
             {{#if @root.data.auth ~}}
-              {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
+              {{{momentFormat (moment date_next_deadline 'x') 'Do MMM YYYY'}}}
             {{else}}
-              in {{{momentFormat (moment next_deadline 'x') 'MMMM YYYY'}}}
+              in {{{momentFormat (moment date_next_deadline 'x') 'MMMM YYYY'}}}
             {{/if ~}}
-          </span>
-        {{/if ~}}
-        {{#if for_charities_only ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Charities only:</strong>
-            {{{for_charities_only}}}
-          </span>
-        {{/if ~}}
-        {{#if exclusions ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Exclusions:</strong>
-            {{{exclusions}}}
           </span>
         {{/if ~}}
         {{#if website ~}}

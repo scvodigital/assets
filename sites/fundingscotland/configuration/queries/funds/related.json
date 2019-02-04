@@ -15,7 +15,7 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "function_score": {
       "query": {
         "bool": {
@@ -87,5 +87,5 @@
       "boost_mode": "multiply",
       "min_score" : 1
     }
-  }
+  {{/queries_common}}
 }

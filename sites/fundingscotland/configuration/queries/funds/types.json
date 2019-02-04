@@ -1,9 +1,9 @@
 {
   "size": 0,
   "_source": false,
-  "query": {
+  "query": {{#>queries_common}}
     "match_all": {}
-  },
+  {{/queries_common}},
   "aggs": {
     "activities": {
       "terms": {

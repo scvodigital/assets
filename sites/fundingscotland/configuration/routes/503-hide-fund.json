@@ -23,7 +23,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "{{default request.body.redirect '/'}}"
+        "template": "{{default request.body.redirect '/search'}}"
       }
     },
     {

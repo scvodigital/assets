@@ -13,8 +13,10 @@
   </div>
   <div class="mdc-card__action-icons pull-right">
     {{#if @root.data.auth ~}}
-    {{> fund_action_hide_fund id=Id name=title}}
-    {{> fund_action_manage_lists id=Id slug=slug}}
+      {{> fund_action_hide_fund id=Id name=title}}
+      {{#compare @root.route.name "!==" "fund" ~}}
+        {{> fund_action_manage_lists id=Id slug=slug}}
+      {{/compare ~}}
     {{/if}}
   </div>
 </div>

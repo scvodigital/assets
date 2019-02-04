@@ -2,131 +2,134 @@
   {{#compare data.primaryResponse.hits.total ">" 0}}
     {{#with @root.data.primaryResponse.hits.hits.[0]._source}}
       <div class="container-content">
-        <div class="fundingscotland-fund mdc-card full">
+        <div class="fundingscotland-fund content-primary mdc-card full">
           {{> fund_key_info}}
-          {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
-            {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="fas fa-info-circle"}}
-            {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="fas fa-sticky-note"}}
-            {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="fas fa-list"}}
-          {{/components_tab_bar}}
-          <div class="panels" for="content-primary-tab-bar">
-            <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
-              {{> fund_full this hideTitle=true}}
-            </div>
-            <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
-              {{#if @root.data.auth ~}}
-                <form action="/save-notes" method="POST" data-ajax-form='{
-                      "successMessage": "Notes saved",
-                      "failureMessage": "Failed to save notes",
-                      "successCallback": "notesSaved",
-                      "responseType": "json",
-                      "id": "{{Id}}"
-                    }'>
-                  <div>
-                    <textarea class="mdc-text-field__input" data-simple-mde='{
-                          "forceSync": true,
-                          "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
-                        }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.profile.notes Id}}</textarea>
-                    <input type="hidden" name="id" value="{{Id}}">
-                  </div>
-                  <div class="save-button-block">
-                    <button type="submit" class="mdc-button mdc-button--raised">
-                      <span class="far fa-save mdc-list-item__graphic" aria-hidden="true"></span>
-                      Save notes
-                    </button>
-                    <button type="button" class="mdc-button mdc-button--raised mdc-button--warning" id="delete-notes-{{Id}}" data-id="{{Id}}"
-                        data-ajax-button='{
-                          "url": "/remove-notes",
-                          "method": "POST",
-                          "successMessage": "Notes deleted",
-                          "failureMessage": "Failed to delete notes",
-                          "successCallback": "clearNotes",
-                          "postBody": { "id": "{{Id}}" }
-                          }' {{#unless (getProperty @root.data.profile.notes Id)}}disabled{{/unless}}>
-                      <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
-                      Delete notes
-                    </button>
-                    <div class="mdc-typography--caption">
-                      Any notes you write here are private on your account and are not shared with {{organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
+          <div class="content-primary-info-container">
+            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
+              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="fas fa-info-circle"}}
+              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="fas fa-sticky-note"}}
+              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="fas fa-list"}}
+            {{/components_tab_bar}}
+            <div class="panels" for="content-primary-tab-bar">
+              <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
+                {{> fund_full this hideTitle=true}}
+              </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+                {{#if @root.data.auth ~}}
+                  <form action="/save-notes" method="POST" data-ajax-form='{
+                        "successMessage": "Notes saved",
+                        "failureMessage": "Failed to save notes",
+                        "successCallback": "notesSaved",
+                        "responseType": "json",
+                        "id": "{{Id}}"
+                      }'>
+                    <div>
+                      <textarea class="mdc-text-field__input" data-simple-mde='{
+                            "forceSync": true,
+                            "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
+                          }' name="notes" id="notes-{{Id}}" data-id="{{Id}}">{{getProperty @root.data.profile.notes Id}}</textarea>
+                      <input type="hidden" name="id" value="{{Id}}">
                     </div>
-                  </div>
-                </form>
-              {{else}}
-                <div class="detailed-info">
-                  <p class="mdc-typography--body1">
-                    If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
-                  </p>
-                </div>
-              {{/if ~}}
-            </div>
-            <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
-              {{#if @root.data.auth ~}}
-                <div class="mdc-list-group">
-                  <ul class="mdc-list mdc-list--two-line">
-                    {{#each @root.data.shortlistPartitions.items.[0]}}
-                      <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
-                        <span class="mdc-list-item__text">
-                          <span class="mdc-list-item__primary-text">
-                            {{partition}}
-                          </span>
-                          <span class="mdc-list-item__secondary-text">
-                            <strong>Email alerts: </strong>
-                            {{#if emails}}on{{else}}off{{/if}}
-                          </span>
-                        </span>
-                        <span class="mdc-list-item__meta">
-                          {{#> ajax_chip
-                            onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
-                            offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
-                            onText="Remove"
-                            offText="Add"
-                            iconClasses="far fa-plus"
-                            on=(contains (getProperty (querystring querystring) "id") ../Id)
-                          }}
-                          {
-                            "extraAttributes": "data-fund-id=\"{{../partition}}\"",
-                            "onClasses": {
-                              "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
-                            },
-                            "offClasses": {
-                              "[data-fund-id=\"{{../partition}}\"]": ""
-                            }
-                          }
-                          {{/ajax_chip}}
-                        </span>
-                      </li>
-                    {{/each}}
-                  </ul>
-                  <form action="/save-fund" method="GET">
-                    <div class="mdc-layout-grid x-padding-full">
-                      <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
-                          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-                            <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
-                            <label for="name" class="mdc-floating-label">
-                              Add to new list
-                            </label>
-                            <div class="mdc-line-ripple"></div>
-                          </div>
-                        </div>
-                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                          <input type="hidden" name="slug" value="{{slug}}">
-                          <input type="hidden" name="id" value="{{Id}}">
-                          <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
-                            Create list
-                          </button>
-                        </div>
+                    <div class="save-button-block">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <span class="far fa-save mdc-list-item__graphic" aria-hidden="true"></span>
+                        Save notes
+                      </button>
+                      <button type="button" class="mdc-button mdc-button--raised mdc-button--warning" id="delete-notes-{{Id}}" data-id="{{Id}}"
+                          data-ajax-button='{
+                            "url": "/remove-notes",
+                            "method": "POST",
+                            "successMessage": "Notes deleted",
+                            "failureMessage": "Failed to delete notes",
+                            "successCallback": "clearNotes",
+                            "postBody": { "id": "{{Id}}" }
+                            }' {{#unless (getProperty @root.data.profile.notes Id)}}disabled{{/unless}}>
+                        <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
+                        Delete notes
+                      </button>
+                      <div class="mdc-typography--caption">
+                        Any notes you write here are private on your account and are not shared with {{organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
                       </div>
                     </div>
                   </form>
-                </div>
-              {{else}}
-                <div class="detailed-info">
-                  <p class="mdc-typography--body1">
-                    If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
-                  </p>
-                </div>
-              {{/if ~}}
+                {{else}}
+                  <div class="detailed-info">
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
+                    </p>
+                  </div>
+                {{/if ~}}
+              </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
+                {{#if @root.data.auth ~}}
+                  <div class="mdc-list-group">
+                    <ul class="mdc-list mdc-list--two-line">
+                      {{#each @root.data.shortlistPartitions.items.[0]}}
+                        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
+                          <span class="mdc-list-item__text">
+                            <span class="mdc-list-item__primary-text">
+                              {{partition}}
+                            </span>
+                            <span class="mdc-list-item__secondary-text">
+                              <strong>Email alerts: </strong>
+                              {{#if emails}}on{{else}}off{{/if}}
+                            </span>
+                          </span>
+                          <span class="mdc-list-item__meta">
+                            {{#> ajax_chip
+                              onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
+                              offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
+                              onText="Remove"
+                              offText="Add"
+                              iconClasses="far fa-plus"
+                              on=(contains (getProperty (querystring querystring) "id") ../Id)
+                            }}
+                            {
+                              "extraAttributes": "data-fund-id=\"{{../partition}}\"",
+                              "onClasses": {
+                                "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                              },
+                              "offClasses": {
+                                "[data-fund-id=\"{{../partition}}\"]": ""
+                              }
+                            }
+                            {{/ajax_chip}}
+                          </span>
+                        </li>
+                      {{/each}}
+                    </ul>
+                    <form action="/save-fund" method="GET">
+                      <div class="mdc-layout-grid x-padding-full" style="padding-bottom:0.5rem">
+                        <div class="mdc-layout-grid__inner">
+                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+                            <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+                              <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
+                              <label for="name" class="mdc-floating-label">
+                                Add to new list
+                              </label>
+                              <div class="mdc-line-ripple"></div>
+                            </div>
+                          </div>
+                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                            <input type="hidden" name="slug" value="{{slug}}">
+                            <input type="hidden" name="id" value="{{Id}}">
+                            <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
+                              Create list
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                {{else}}
+                  <div class="detailed-info">
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
+                    </p>
+                  </div>
+                {{/if ~}}
+              </div>
+              {{> fund_actions action="funder"}}
             </div>
           </div>
         </div>
@@ -145,7 +148,7 @@
     {{/with}}
     <div class="container-content">
       <div class="fundingscotland-related-funds">
-        <hr class="mdc-list-divider v-margin-full">
+        <!-- <hr class="mdc-list-divider v-margin-full"> -->
         <div class="mdc-typography--headline5 v-margin-full">
           Similar funds
         </div>

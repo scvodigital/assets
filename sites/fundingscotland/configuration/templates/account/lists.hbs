@@ -2,32 +2,62 @@
   <h1 class="mdc-typography--headline3 v-margin-full">
     Lists
   </h1>
+
   <div class="mdc-list-group">
-    <ul class="mdc-list">
+    <ul class="mdc-list mdc-list--two-line">
       {{#each @root.data.shortlistPartitions.items.[0]}}
-        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
+        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
           <span class="mdc-list-item__text">
-            {{partition}}
+            <span class="mdc-list-item__primary-text">
+              {{partition}}
+            </span>
+            <span class="mdc-list-item__secondary-text">
+              <span class="r-margin-full">
+                <strong>Funds in list: </strong>
+                {{length (filter (getProperty (querystring querystring) "id") null "valueIn" (pluck @root.data.primaryResponse.hits.hits "_id"))}}
+              </span>
+              <span class="r-margin-full">
+                <a href="#">Delete list</a>
+              </span>
+            </span>
           </span>
-          <span class="mdc-list-item__meta">{{!--
-            {{#> ajax_chip
-              onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
-              offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
-              onText="Remove"
-              offText="Add"
-              iconClasses="far fa-plus"
-              on=(contains (getProperty (querystring querystring) "id") ../Id)
-            }}
-            {
-              "extraAttributes": "data-fund-id=\"{{../partition}}\"",
-              "onClasses": {
-                "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
-              },
-              "offClasses": {
-                "[data-fund-id=\"{{../partition}}\"]": "mdc-theme--on-secondary mdc-theme--secondary-bg"
+          <span class="mdc-list-item__meta">
+            <div class="mdc-chip-set">
+              {{#> ajax_chip
+                onUrl=(concat "/delete-list?name=" partition)
+                offUrl=(concat "/delete-list?name=" partition)
+                onText="Delete"
+                offText="Delete"
+                iconClasses="far fa-envelope"
+                on=false
+              }}
+              {
+                "extraAttributes": "data-list-delete-name=\"{{../partition}}\"",
+                "onClasses": {
+                  "[data-list-name=\"{{../partition}}\"]": "hidden" 
+                },
+                "offClasses": {}
               }
-            }
-            {{/ajax_chip}}--}}
+              {{/ajax_chip}}
+              {{#> ajax_chip
+                onUrl=(concat "/save-fund?name=" partition)
+                offUrl=(concat "/remove-fund?name=" partition)
+                onText="Email alerts"
+                offText="Email alerts"
+                iconClasses="far fa-envelope"
+                on=partitionActive
+              }}
+              {
+                "extraAttributes": "data-fund-id=\"{{../partition}}\"",
+                "onClasses": {
+                  "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                },
+                "offClasses": {
+                  "[data-fund-id=\"{{../partition}}\"]": ""
+                }
+              }
+              {{/ajax_chip}}
+            </div>
           </span>
         </li>
       {{/each}}

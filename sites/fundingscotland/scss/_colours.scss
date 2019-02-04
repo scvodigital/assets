@@ -29,18 +29,18 @@ $colours: (
 );
 
 @each $name, $colour in $colours {
-  .mdc-theme--#{$name} { color: $colour; }
-  .mdc-theme--#{$name}-bg { background-color: $colour; }
+  .mdc-theme--#{$name} { color: $colour !important; }
+  .mdc-theme--#{$name}-bg { background-color: $colour !important; }
   .mdc-theme--on-#{$name} { 
     @if mdc-theme-contrast-tone($colour) == 'light' {
-      color: #ffffff; 
+      color: #ffffff !important; 
     } @else {
-      color: #000000;
+      color: #000000 !important;
     }
   }
-  .mdc-theme--#{$name}-border { border-color: $colour; }
-  .mdc-theme--#{$name}-border-top { border-top-color: $colour; }
-  .mdc-theme--#{$name}-border-right { border-right-color: $colour; }
-  .mdc-theme--#{$name}-border-bottom { border-bottom-color: $colour; }
-  .mdc-theme--#{$name}-border-left { border-left-color: $colour; }
+  .mdc-theme--#{$name}-border { border-color: $colour !important; }
+  .mdc-theme--#{$name}-border-top { border-top-color: $colour !important; }
+  .mdc-theme--#{$name}-border-right { border-right-color: $colour !important; }
+  .mdc-theme--#{$name}-border-bottom { border-bottom-color: $colour !important; }
+  .mdc-theme--#{$name}-border-left { border-left-color: $colour !important; }
 }

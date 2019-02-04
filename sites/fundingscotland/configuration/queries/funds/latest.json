@@ -15,9 +15,9 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "match_all": {}
-  },
+  {{/queries_common}},
   "sort": {
     "date_last_important_activity": "desc"
   }

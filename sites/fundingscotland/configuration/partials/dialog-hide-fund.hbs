@@ -3,14 +3,15 @@
     <div class="mdc-dialog__surface">
       <h2 class="mdc-dialog__title" id="hide-fund-dialog-title">Hide fund</h2>
       <div class="mdc-dialog__content" id="hide-fund-dialog-content">
-        <p>
-          Are you sure you want to hide the following fund
-          &quot;<strong><span id="hide-fund-dialog-name"></span></strong>&quot;?
-          If you choose &quot;Yes&quot;, this fund will no longer appear in:
+        <p class="mdc-typography--body1">
+          Are you sure you want to hide &quot;<strong><span id="hide-fund-dialog-name"></span></strong>&quot;?
         </p>
-        <ul>
+        <p class="mdc-typography--body1">
+          If you choose &quot;<strong>Hide</strong>&quot;, this fund will no longer appear in:
+        </p>
+        <ul class="mdc-typography--body1">
           <li>search results</li>
-          <li>email alert</li>
+          <li>email alerts</li>
           <li>lists of saved funds</li>
           <li>related funds</li>
         </ul>
@@ -19,10 +20,10 @@
       </div>
       <footer class="mdc-dialog__actions">
         <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
-          <span class="mdc-button__label">No</span>
+          <span class="mdc-button__label">Cancel</span>
         </button>
         <button type="submit" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="accept">
-          <span class="mdc-button__label">Yes</span>
+          <span class="mdc-button__label">Hide</span>
         </button>
       </footer>
     </div>

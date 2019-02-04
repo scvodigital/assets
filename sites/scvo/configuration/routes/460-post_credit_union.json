@@ -1,7 +1,6 @@
 {
   "name": "post_credit_union",
   "pattern": "/credit-union/important-news",
-  "debug": true, 
   "tasks": [
     {
       "name": "primaryResponse",

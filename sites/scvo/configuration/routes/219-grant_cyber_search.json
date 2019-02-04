@@ -1,7 +1,6 @@
 {
   "name": "grant_cyber_search",
   "pattern": "/digital/evolution/cyber-resilience/projects",
-  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

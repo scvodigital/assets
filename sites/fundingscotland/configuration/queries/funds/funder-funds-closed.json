@@ -15,12 +15,12 @@
     "funder_organisation.profile",
     "funder_organisation_website_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "bool": {
       "must": [
         {
           "term": {
-            "funder_organisation.id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
+            "funder_organisation.id": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
           }
         },
         {
@@ -30,6 +30,7 @@
         }
       ]
     }
+  {{/queries_common}}
   },
   "sort": {
     "start_at": "desc"

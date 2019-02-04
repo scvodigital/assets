@@ -15,7 +15,7 @@
     "funder_organisation.profile",
     "funder_organisation_website_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "bool": {
       "must": [
         {
@@ -30,7 +30,7 @@
         }
       ]
     }
-  },
+  {{/queries_common}},
   "sort": {
     "start_at": "desc"
   }

@@ -5,6 +5,7 @@
     "slug",
     "title",
     "text_bag_boost",
+    "summary",
     "fund_status",
     "fund_status_slug",
     "for_charities_only",
@@ -42,7 +43,7 @@
     "funder_organisation_linkedin_url",
     "rendered.json_ld"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "term": {
       {{#if (includes request.params.slug "-") ~}}
       "slug": "{{request.params.slug}}"
@@ -50,5 +51,5 @@
       "Id": "{{request.params.slug}}"
       {{/if ~}}
     }
-  }
+  {{/queries_common}}
 }

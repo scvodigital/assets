@@ -2,6 +2,7 @@
   "name": "delete-list",
   "pattern": "/delete-list",
   "debug": true,
+  "acceptedVerbs": ["POST"],
   "defaultParams": {
     "context": "detail"
   },
@@ -20,12 +21,11 @@
       "renderer": "handlebars"
     },
     {
-      "name": "destination",
-      "taskModule": "render",
+      "name": "redirect",
+      "taskModule": "redirect",
       "renderer": "handlebars",
       "config": {
-        "template": "done",
-        "output": "body"        
+        "location": "/lists"
       }
     }
   ]

@@ -1,0 +1,94 @@
+{
+  "size": 100,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "fund_status",
+    "fund_status_slug",
+    "for_charities_only",
+    "activities",
+    "activities_slugs",
+    "beneficiaries",
+    "beneficiaries_slugs",
+    "region_group",
+    "region_group_slug",
+    "description",
+    "source_of_fund",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url"
+  ],
+  "query": {{#>queries_common}}
+    {{#if @root.data.profile.notes ~}}
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "fund_status_slug": "currently-closed"
+          }
+        }
+      ],
+      "must": [
+        {{>queries_terms field="Id" terms=(getKeys @root.data.profile.notes)}}
+      ]
+    }
+    {{else}}
+    "match_none": {}
+    {{/if ~}}
+  {{/queries_common}},
+  "sort": [
+    {{#if @root.request.params.query.sort ~}}
+    {{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}
+    {
+      "maximum_award_size": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "max_funded_desc" ~}}
+    {
+      "maximum_award_size": "desc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "deadline_date_asc" ~}}
+    {
+      "next_deadline": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "deadline_date_desc" ~}}
+    {
+      "next_deadline": "desc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "alphabetical_asc" ~}}
+    {
+      "name": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "alphabetical_desc" ~}}
+    {
+      "name": "desc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "date_last_reviewed" ~}}
+    {
+      "date_last_important_activity": "asc"
+    }
+    {{else}}
+    {{#compare @root.request.params.query.sort "===" "relevance" ~}}
+    "_score"
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+    {{else}}
+    "_score"
+    {{/if ~}}
+  ]
+}

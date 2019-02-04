@@ -20,6 +20,7 @@
     "organisation.logo_url"
   ],
   "query": {
+    {{#if data.notes ~}}
     "bool": {
       "filter": [
         {{>queries_vacancy_common_filters_open request.params.query}}
@@ -28,6 +29,9 @@
         {{>queries_terms field="Id" terms=(getKeys data.notes)}}
       ]
     }
+    {{else}}
+    "match_none": {}
+    {{/if ~}}
   },
   "sort": [
     {{#if @root.request.params.query.sort ~}}

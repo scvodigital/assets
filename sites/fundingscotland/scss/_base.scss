@@ -388,6 +388,20 @@ hr {
   background-color: $mdc-theme-primary-light;
 }
 
+.mdc-theme--background {
+  background-color: $mdc-theme-surface;
+}
+.mdc-drawer {
+  background-color: white;
+  .mdc-list-group__subheader {
+    font-weight: $heading-medium-font-weight;
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+.advanced-checkbox-list .mdc-list-item:last-child {
+  background-color: $mdc-theme-surface;
+}
+
 a.mdc-drawer__content-heading {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -699,6 +713,10 @@ footer,
 
 // Footer ======================================================================
 
+footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
+  background-color: $mdc-theme-footer-light !important;
+  color: $mdc-theme-footer !important;
+}
 footer.mdc-layout__footer {
   border-top: none;
   background-color: $mdc-theme-footer-light;

@@ -32,8 +32,8 @@
         {
           "filter": {
             "more_like_this": {
-              "fields": ["title^5","funder_organisation.name^2","text_bag","who_can_apply"],
-              "like": "{{data.primaryResponse.hits.hits.[0]._source.text_bag_boost}}",
+              "fields": ["title^5","text_bag"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
               "min_term_freq": 1,
               "max_query_terms": 12
             }
@@ -42,9 +42,20 @@
         },
         {
           "filter": {
+            "more_like_this": {
+              "fields": ["funder_organisation.name^2","text_bag","who_can_apply"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
+              "min_term_freq": 1,
+              "max_query_terms": 12
+            }
+          },
+          "weight": 4
+        },
+        {
+          "filter": {
             "common": {
               "activities": {
-                "query": "{{data.primaryResponse.hits.hits.[0]._source.activities}}",
+                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.activities}}",
                 "cutoff_frequency": 0.001,
                 "minimum_should_match": {
                   "low_freq" : 2,
@@ -59,7 +70,7 @@
           "filter": {
             "common": {
               "beneficiaries": {
-                "query": "{{data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
+                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
                 "cutoff_frequency": 0.001,
                 "minimum_should_match": {
                   "low_freq" : 2,

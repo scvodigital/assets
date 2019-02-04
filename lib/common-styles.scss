@@ -1218,9 +1218,14 @@ a {
 }
 
 .mdc-list-group {
-  margin: $unit 0;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
+  margin: 0;
+}
+.mdc-drawer {
+  .mdc-list-group {
+    margin: $unit 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+  }
 }
 .checkbox-list-indicator {
   font-weight: 400 !important;
@@ -1229,8 +1234,7 @@ a {
 .mdc-list-group__subheader {
   padding: $unit/3 0 $unit/2 !important;
   font-size: 1.2rem !important;
-  border-bottom: 1px solid #cccccc;
-  border-radius: 4px;
+  border-radius: 4px 4px 0 0;
   background-color: #ffffff;
 }
 .mdc-drawer .mdc-list-item {
@@ -1833,9 +1837,9 @@ body.shortlist {
   .mdc-text-field--box::after {
     width: 100%;
   }
-  .mdc-floating-label {
-    transform: translateY(-50%) scale(0.75);
-  }
+  // .mdc-floating-label {
+  //   transform: translateY(-50%) scale(0.75);
+  // }
   .geo-lookup:hover {
     font-weight: 600;
     cursor: pointer;
@@ -3059,6 +3063,8 @@ form.inline-form {
     height: auto !important;
   }
   .mdc-list-item:last-child {
+    border-top: 1px solid #cccccc;
+    border-radius: 0 0 4px 4px;
     padding: $unit/2 0;
   }
 }

@@ -5,6 +5,7 @@
     "slug",
     "title",
     "text_bag_boost",
+    "summary",
     "fund_status",
     "fund_status_slug",
     "for_charities_only",

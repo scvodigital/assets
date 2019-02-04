@@ -277,23 +277,7 @@
           <span id="sort-label" class="mdc-floating-label mdc-floating-label--float-above">Sort</span>
           <div class="mdc-line-ripple"></div>
         </div> -->
-        <div class="mdc-select pull-right mdc-elevation--z2" data-mdc-auto-init="MDCSelect">
-          <span class="mdc-select__dropdown-icon"></span>
-          <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
-            <option value="relevance"{{#compare @root.request.params.query.sort "===" "relevance"}} selected{{/compare}}>Relevance</option>
-            <option value="max_funded_asc"{{#compare @root.request.params.query.sort "===" "max_funded_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Maximum funded - low to high</option>
-            <option value="max_funded_desc"{{#compare @root.request.params.query.sort "===" "max_funded_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Maximum funded - high to low</option>
-            <option value="deadline_date_asc"{{#compare @root.request.params.query.sort "===" "deadline_date_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Deadline date - soonest first</option>
-            <option value="deadline_date_desc"{{#compare @root.request.params.query.sort "===" "deadline_date_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Deadline date - soonest last</option>
-            <option value="date_last_reviewed"{{#compare @root.request.params.query.sort "===" "date_last_reviewed"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Date last reviewed</option>
-            <option value="alphabetical_asc"{{#compare @root.request.params.query.sort "===" "alphabetical_asc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Alphabetical - a to z</option>
-            <option value="alphabetical_desc"{{#compare @root.request.params.query.sort "===" "alphabetical_desc"}} selected{{/compare}}{{#if @root.data.auth}}{{else}} disabled{{/if}}>Alphabetical - z to a</option>
-            </select>
-          <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
-            Sort
-          </label>
-          <div class="mdc-line-ripple"></div>
-        </div>
+        {{> fund_search_sort}}
       </form>
       {{/compare ~}}
     </div>

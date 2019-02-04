@@ -4,9 +4,17 @@
     "Id",
     "slug",
     "title",
-    "description",
-    "geographical_areas_funded",
     "fund_status",
+    "fund_status_slug",
+    "for_charities_only",
+    "activities",
+    "activities_slugs",
+    "beneficiaries",
+    "beneficiaries_slugs",
+    "region_group",
+    "region_group_slug",
+    "description",
+    "source_of_fund",
     "type_of_cost",
     "type_of_funding",
     "funder_organisation.has_logo",
@@ -15,23 +23,25 @@
     "funder_organisation.profile",
     "funder_organisation_website_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "bool": {
-      "must": [
-        {
-          "term": {
-            "funder_organisation.id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
-          }
-        },
+      "filter": [
         {
           "term": {
             "fund_status_slug": "currently-closed"
           }
         }
+      ],
+      "must": [
+        {
+          "term": {
+            "funder_organisation.id": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
+          }
+        }
       ]
     }
-  },
+  {{/queries_common}},
   "sort": {
-    "start_at": "desc"
+    "name": "asc"
   }
 }

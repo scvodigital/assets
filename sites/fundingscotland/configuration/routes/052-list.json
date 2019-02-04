@@ -44,6 +44,7 @@
               "body": ">context.metaData.handlebars.templates.account_lists",
               "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
               "foot": ">context.metaData.handlebars.templates.account_lists-foot"
+              "sidebar": ">context.metaData.handlebars.templates.funds_search-form"
             },
             "contentType": "text/html"
           }

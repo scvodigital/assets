@@ -1,43 +1,47 @@
 {
-  "name": "lists",
-  "pattern": "/lists",
+  "name": "notes",
+  "pattern": "/notes",
   "debug": true,
+  "metaData": {
+    "sidebarButton": {
+      "icon": "search",
+      "tooltip": "Search",
+      "classes": "hide-md hide-lg"
+    }
+  },
+  "defaultParams": {
+    "context": "results"
+  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
-    "context.metaData.commonTasks.shortlistData",
     {
-      "name": "shortlistPartitions",
-      "taskModule": "mysql",
-      "config": {
-        "connectionName": "notifications",
-        "queryTemplates": {
-          "items": ">context.metaData.handlebars.queries.notifications_get-shortlist-partitions"
-        }
-      },
-      "renderer": "handlebars"
-    },
-    {
-      "name": "primaryResponse",
+      "name": "notes_funds",
       "taskModule": "elasticsearch",
       "config": {
         "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
         "elasticsearchConfig": {
           "apiVersion": "5.6"
         },
-        "queryTemplates": {
-          "name": "saved",
-          "index": "web-content-production",
-          "type": "fundingscotland-fund",
-          "template": ">context.metaData.handlebars.queries.funds_saved",
-          "metaData": {
-            "size": 1000
+        "queryTemplates": [
+          {
+            "name": "open",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_notes-open"
+          },
+          {
+            "name": "closed",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_notes-closed"
           }
-        }
+        ]
       },
       "renderer": "handlebars"
     },
+    "context.metaData.commonTasks.supplimentaryResponses",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -53,10 +57,10 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "body": ">context.metaData.handlebars.templates.account_lists",
-              "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
-              "foot": ">context.metaData.handlebars.templates.account_lists-foot"
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.funds_notes",
               "sidebar": ">context.metaData.handlebars.templates.funds_search-form"
+
             },
             "contentType": "text/html"
           }

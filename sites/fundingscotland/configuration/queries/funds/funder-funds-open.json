@@ -17,15 +17,17 @@
   ],
   "query": {{#>queries_common}}
     "bool": {
+      "filter": [
+        {
+          "term": {
+            "fund_status_slug": "open"
+          }
+        }
+      ],
       "must": [
         {
           "term": {
             "funder_organisation.id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
-          }
-        },
-        {
-          "term": {
-            "fund_status_slug": "open"
           }
         }
       ]

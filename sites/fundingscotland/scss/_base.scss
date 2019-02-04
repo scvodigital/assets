@@ -330,7 +330,7 @@ a {
 .full {
   box-shadow: none !important;
   .fa-ul.first {
-    margin-top: $unit/2 !important;
+    // margin-top: $unit/2 !important;
   }
   .editor-toolbar,
   .CodeMirror {
@@ -385,7 +385,9 @@ a {
 }
 
 hr {
-  background-color: $mdc-theme-primary-light;
+  background-color: transparent;
+  height: 0;
+  border: none;
 }
 
 .mdc-theme--background {

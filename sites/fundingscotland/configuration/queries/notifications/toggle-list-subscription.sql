@@ -2,7 +2,7 @@
 CALL _toggleSubscriptionActiveState(
   {{{mysqlEscape @root.data.auth.email}}},
   {{{mysqlEscape (concat @root.context.metaData.shortlistCampaignName '-' @root.data.currentSite.name)}}},
-  'Shortlist'
+  {{{mysqlEscape @root.request.params.query.name}}}
 );
 {{else}}
 SET @query=false;

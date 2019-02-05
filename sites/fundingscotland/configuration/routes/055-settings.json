@@ -1,11 +1,11 @@
 {
-  "name": "notes",
-  "pattern": "/notes",
+  "name": "settings",
+  "pattern": "/settings",
   "debug": true,
   "metaData": {
     "sidebarButton": {
-      "icon": "search",
-      "tooltip": "Search",
+      "icon": "cog",
+      "tooltip": "Settings",
       "classes": "hide-md hide-lg"
     }
   },
@@ -16,30 +16,41 @@
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.searchesData",
+    "context.metaData.commonTasks.shortlistData",
     {
-      "name": "notes_funds",
+      "name": "email_days",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.partials.email_days"
+      }
+    },
+    {
+      "name": "fund_lookup",
       "taskModule": "elasticsearch",
       "config": {
         "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
         "elasticsearchConfig": {
           "apiVersion": "5.6"
         },
-        "queryTemplates": [
-          {
-            "name": "open",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
-            "template": ">context.metaData.handlebars.queries.funds_notes-open"
-          },
-          {
-            "name": "closed",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
-            "template": ">context.metaData.handlebars.queries.funds_notes-closed"
-          }
-        ]
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "fundingscotland-fund",
+          "template": ">context.metaData.handlebars.queries.account_shortlist"
+        }
       },
       "renderer": "handlebars"
+    },
+    {
+      "name": "export_user_data",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_export-user-data"
+      }
     },
     {
       "name": "destination",
@@ -57,9 +68,9 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.funds_notes",
+              "body": ">context.metaData.handlebars.templates.account_settings",
+              "foot": ">context.metaData.handlebars.templates.account_settings-foot",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
-
             },
             "contentType": "text/html"
           }

@@ -10,6 +10,9 @@
 {{#if (contains miscellaneous "for-charities-only") ~}}
   {{>queries_terms field="charities_only" terms=true}},
 {{/if ~}}
+{{#if (contains miscellaneous "funds-individuals") ~}}
+  {{>queries_terms field="also_funds_individuals" terms=true}},
+{{/if ~}}
 {{#if activities ~}}
   {{>queries_terms field="activities_slugs" terms=activities}},
 {{/if}}

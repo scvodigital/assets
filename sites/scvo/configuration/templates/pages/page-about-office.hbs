@@ -10,7 +10,7 @@
       </p>
       <p>
         Bicycles nearby:<br />
-        {{#each @root.data.bicyclesEdinburgh.network.stations ~}}
+        {{#each @root.data.bicycles.edinburgh.network.stations ~}}
         {{#compare name "===" "Canonmills" ~}}
         {{free_bikes}} available and {{empty_slots}} spaces at {{name}}<br />
         {{/compare ~}}
@@ -24,7 +24,7 @@
       </p>
       <p>
         Bicycles nearby:<br />
-        {{#each @root.data.bicyclesEdinburgh.network.stations ~}}
+        {{#each @root.data.bicycles.edinburgh.network.stations ~}}
         {{#compare name "===" "Lauriston Place" ~}}
         {{free_bikes}} available and {{empty_slots}} spaces at {{name}}<br />
         {{/compare ~}}
@@ -40,7 +40,7 @@
       </p>
       <p>
         Bicycles nearby:<br />
-        {{#each @root.data.bicyclesGlasgow.network.stations ~}}
+        {{#each @root.data.bicycles.glasgow.network.stations ~}}
         {{#compare name "===" "Gallery of Modern Art" ~}}
         {{free_bikes}} available and {{empty_slots}} spaces at {{name}}<br />
         {{/compare ~}}
@@ -54,7 +54,7 @@
       </p>
       <p>
         Bicycles nearby:<br />
-        {{#each @root.data.bicyclesGlasgow.network.stations ~}}
+        {{#each @root.data.bicycles.glasgow.network.stations ~}}
         {{#compare name "===" "Sauchiehall Street" ~}}
         {{free_bikes}} available and {{empty_slots}} spaces at {{name}}<br />
         {{/compare ~}}

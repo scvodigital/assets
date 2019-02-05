@@ -231,6 +231,11 @@ header {
 a {
   color: $mdc-theme-primary;
 }
+a:focus,
+a:active,
+a:hover {
+  color: $mdc-theme-primary-dark;
+}
 .tfn a {
   color: $mdc-theme-tfn;
 }
@@ -345,7 +350,7 @@ a {
     background-color: $mdc-theme-complimentary-light;
     .mdc-tab__icon,
     .mdc-tab__text-label {
-      color: $mdc-theme-primary-dark;
+      color: black;
     }
     .mdc-tab-indicator__content {
       background-color: $mdc-theme-primary-dark;
@@ -823,6 +828,11 @@ footer.mdc-layout__footer {
   cursor: pointer;
 }
 
+
+.mdc-drawer--open .mdc-list-item__user .mdc-list-item__text::after {
+  width: 10%;
+}
+.mdc-drawer--open .mdc-list-item__user .mdc-list-item__graphic,
 .hidden { display: none !important; }
 
 .text-left { text-align: left; }

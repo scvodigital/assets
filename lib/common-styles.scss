@@ -264,7 +264,7 @@ header {
       right: 0;
       width: 20%;
       height: 100%;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 80%, #ffffff 100%);
       pointer-events: none;
     }
   }
@@ -2121,9 +2121,6 @@ footer,
   }
   .mdc-list-item {
     height: auto !important;
-  }
-  .browse-title-regions {
-    margin-top: 24px;
   }
 }
 .home-browse {

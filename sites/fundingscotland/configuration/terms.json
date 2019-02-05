@@ -186,8 +186,8 @@
         "label": "Gender and relationships",
         "terms": {
           "lgbtqi": {
-            "label": "LGBTQI ",
-            "textBag": "LGBTQI "
+            "label": "LGBTQI",
+            "textBag": "LGBTQI lgbt"
           },
           "men": {
             "label": "Men",
@@ -573,9 +573,13 @@
       "other": {
         "label": "Other",
         "terms": {
+          "funds-individuals": {
+            "label": "Also funds individuals",
+            "textBag": "also funds individuals"
+          },
           "for-charities-only": {
             "label": "For charities only",
-            "textBag": "charities charity only"
+            "textBag": "for charities charity only"
           },
           "show-closed-funds": {
             "label": "Include currently closed funds",

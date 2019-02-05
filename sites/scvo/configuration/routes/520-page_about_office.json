@@ -4,28 +4,18 @@
     "index": "/about/offices",
     "section": "/about/offices/:slug"
   },
+  "debug": true,
   "tasks": [
     {
-      "name": "bicyclesEdinburgh",
+      "name": "bicycles",
       "taskModule": "request",
+      "renderer": "handlebars",
       "config": {
         "options": {
-          "url": "https://api.citybik.es/v2/networks/edinburgh-cycle-hire",
-          "json": true
+          "edinburgh": { "url": "https://api.citybik.es/v2/networks/edinburgh-cycle-hire", "json": true },
+          "glasgow": { "url": "https://api.citybik.es/v2/networks/nextbike-glasgow", "json": true }
         }
-      },
-      "renderer": "handlebars"
-    },
-    {
-      "name": "bicyclesGlasgow",
-      "taskModule": "request",
-      "config": {
-        "options": {
-          "url": "https://api.citybik.es/v2/networks/nextbike-glasgow",
-          "json": true
-        }
-      },
-      "renderer": "handlebars"
+      }
     },
     {
       "name": "supplimentaryResponses",

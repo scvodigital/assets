@@ -692,7 +692,7 @@
           "menu-item-route-pattern" : "^/digital/evolution/check-up$"
         },
         "path" : "/digital/evolution/check-up",
-        "route" : "^/digital/evolution/check-up$"
+        "route" : "^/digital/evolution/check-up"
       }, {
         "label" : "Digital Pioneers",
         "metaData" : {
@@ -960,6 +960,22 @@
     "children" : [ {
       "children" : [ {
         "children" : [ {
+          "label" : "Call for funding",
+          "path" : "/digital/participation/charter-fund/call-for-funding",
+          "route" : "^/digital/participation/charter-fund/call-for-funding$"
+        }, {
+          "label" : "Key criteria",
+          "path" : "/digital/participation/charter-fund/call-for-funding/key-criteria",
+          "route" : "^/digital/participation/charter-fund/call-for-funding/key-criteria$"
+        }, {
+          "label" : "FAQs",
+          "path" : "/digital/participation/charter-fund/call-for-funding/faqs",
+          "route" : "^/digital/participation/charter-fund/call-for-funding/faqs$"
+        }, {
+          "label" : "Apply",
+          "path" : "/digital/participation/charter-fund/apply",
+          "route" : "^/digital/participation/charter-fund/apply$"
+        }, {
           "label" : "Projects",
           "metaData" : {
             "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",

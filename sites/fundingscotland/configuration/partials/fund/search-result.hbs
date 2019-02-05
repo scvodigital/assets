@@ -1,7 +1,7 @@
 <div class="mdc-card search-result" data-fund-id="{{Id}}">
   {{> fund_key_info}}
   <hr class="mdc-list-divider" />
-  {{#compare (trim (getProperty @root.data.notes Id)) "!==" "" ~}}
+  {{#compare (trim (getProperty @root.data.profile.notes Id)) "!==" "" ~}}
     {{> fund_description limit="3rem" description=description}}
     {{> fund_notes limit="3rem"}}
   {{else}}

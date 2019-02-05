@@ -6,10 +6,10 @@
   },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
-    "context.metaData.commonTasks.notesData",
+    "context.metaData.commonTasks.profileData",
     {
       "name": "search_data",
       "taskModule": "elasticsearch",

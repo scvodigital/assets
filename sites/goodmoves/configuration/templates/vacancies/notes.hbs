@@ -10,18 +10,7 @@
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
         <form action="{{{@root.request.url.path}}}" method="GET">
-          <div class="mdc-select mdc-select--box pull-right" data-mdc-auto-init="MDCSelect">
-            <select class="mdc-select__native-control" id="sort" name="sort" onchange="this.form.submit();">
-              <option value="closing_soon"{{#compare @root.request.params.query.sort "===" "closing_soon"}} selected{{/compare}}>Closing soon</option>
-              <option value="newest"{{#compare @root.request.params.query.sort "===" "newest"}} selected{{/compare}}>Newest</option>
-              <option value="oldest"{{#compare @root.request.params.query.sort "===" "oldest"}} selected{{/compare}}>Oldest</option>
-              <option value="salary_high"{{#compare @root.request.params.query.sort "===" "salary_high"}} selected{{/compare}}>Salary - high to low</option>
-              <option value="salary_low"{{#compare @root.request.params.query.sort "===" "salary_low"}} selected{{/compare}}>Salary - low to high</option>
-            </select>
-            <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
-              Sort
-            </label>
-          </div>
+          {{> vacancy_search_sort}}
         </form>
       </div>
     </div>

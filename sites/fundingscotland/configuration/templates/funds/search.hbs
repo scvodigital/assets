@@ -1,9 +1,5 @@
-{{#if @root.data.auth ~}}
-  <div class="container-fluid">
-    <div id="detailed-results-container" class="container-content fundingscotland-fund-search">
-      {{> fund_search_results this}}
-    </div>
+<div class="container-fluid">
+  <div id="detailed-results-container" class="container-content fundingscotland-fund-search">
+    {{> fund_search_results this}}
   </div>
-{{else}}
-  {{> account_not_signed_in}}
-{{/if ~}}
+</div>

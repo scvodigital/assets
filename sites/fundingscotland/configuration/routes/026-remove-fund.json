@@ -1,0 +1,32 @@
+{
+  "name": "remove-fund",
+  "pattern": "/remove-fund",
+  "debug": true,
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "update": ">context.metaData.handlebars.queries.notifications_remove-fund"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "done",
+        "output": "body"        
+      }
+    }
+  ]
+}

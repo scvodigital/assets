@@ -2,16 +2,22 @@
   "domains": [
     "fundingscotland.com",
     "test.fundingscotland.com",
-    "fundingscotland.local",
-    "fs-aberdeen.local",
-    "fs-dev.local",
+    "test.fife.fundingscotland.com",
     "fs-eastrenfrewshire.local",
+    "eastrenfrewshire.fundingscotland.com",
     "fs-fife.local",
+    "fifefundingsearch.com",
+    "fife.fundingscotland.com",
     "fs-northlanarkshire.local",
+    "northlanarkshire.fundingscotland.com",
     "fs-shetland.local",
+    "shetland.fundingscotland.com",
     "fs-southlanarkshire.local",
+    "southlanarkshire.fundingscotland.com",
     "fs-srn.local",
+    "srn.fundingscotland.com",
     "fs-stirling.local",
+    "stirling.fundingscotland.com",
     "fs-www.local"
   ],
   "routes": [
@@ -196,13 +202,13 @@
         },
         "renderer": "handlebars"
       },
-      "notesData": {
-        "name": "notes",
+      "profileData": {
+        "name": "profile",
         "taskModule": "firebaseRtbGet",
         "renderer": "handlebars",
         "config": {
           "appName": "fundingscotland",
-          "pathTemplate": "/notes/{{data.auth.uid}}/{{data.currentSite.name}}",
+          "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}",
           "defaultData": {}
         }
       }

@@ -1,58 +1,119 @@
-<div class="mdc-card full" data-fund-id="{{Id}}">
-  <ul class="fa-ul first">
-    {{#if (length (arrayify region_group)) ~}}
-      <li class="mdc-typography--body1 mdc-chip-set">
+<div class="full" data-fund-id="{{Id}}">
+  <div class="key-info-extra">
+    <ul class="fa-ul first">
+      {{#if (length (arrayify geographical_areas_funded)) ~}}
+      <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
-        {{#each (sort (arrayify region_group)) ~}}
-          <a href="/search?region_group={{lookup (arrayify ../region_group_slug) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
+        {{#each (sort (arrayify geographical_areas_funded)) ~}}
+        <a href="/search?geographical_areas_funded={{lookup (arrayify ../geographical_areas_funded_slugs) @index}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
         {{/each ~}}
       </li>
-    {{/if ~}}
-    {{#if (length (arrayify activities)) ~}}
-      <li class="mdc-typography--body1 mdc-chip-set">
+      {{/if ~}}
+      {{#if (length (arrayify activities)) ~}}
+      <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-hands-helping fa-fw" title="Activities"></span></span>
         {{#each (arrayify activities) ~}}
-          <a href="/search?activities={{lookup (arrayify ../activities_slugs) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
+        <a href="/search?activities={{lookup (arrayify ../activities_slugs) @index}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
         {{/each ~}}
       </li>
-    {{/if ~}}
-    {{#if (length (arrayify activities)) ~}}
-      <li class="mdc-typography--body1 mdc-chip-set">
+      {{/if ~}}
+      {{#if (length (arrayify beneficiaries)) ~}}
+      <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-user-alt fa-fw" title="Beneficiaries"></span></span>
         {{#each (arrayify beneficiaries) ~}}
-        <a href="/search?beneficiaries={{lookup (arrayify ../beneficiaries_slugs) @index}}" class="">{{{this}}}</a>{{#unless @last}},&nbsp;{{/unless}}
+        <a href="/search?beneficiaries={{lookup (arrayify ../beneficiaries_slugs) @index}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
         {{/each ~}}
       </li>
+      {{/if ~}}
+      {{#if charities_only ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-home-heart fa-fw" title="Charities only"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <strong>For charities only</strong>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if also_funds_individuals ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-user-check fa-fw" title="Also funds individuals"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <strong>Also funds individuals</strong>
+        </span>
+      </li>
+      {{/if ~}}
+    </ul>
+  </div>
+  <div class="detailed-info">
+    {{#if @root.data.auth ~}}
+    {{#if description ~}}
+    <h4 class="mdc-typography--headline7">Summary</h4>
+    <div class="mdc-typography--body1">
+      {{{description}}}
+    </div>
     {{/if ~}}
-  </ul>
 
-  <hr class="mdc-list-divider" />
+    {{#ifAny award_size_min award_size_max award_size_avg annual_total notes_on_award_amounts ~}}
+    <h4 class="mdc-typography--headline7">Fund award sizes</h4>
+    <dl class="dl-horizontal">
+      {{#if award_size_min ~}}
+      <dt>Minimum:</dt>
+      <dd>{{{currency_sign}}}{{addCommas award_size_min}}</dd>
+      {{/if ~}}
+      {{#if award_size_max ~}}
+      <dt>Maximum:</dt>
+      <dd>{{{currency_sign}}}{{addCommas award_size_max}}</dd>
+      {{/if ~}}
+      {{#if award_size_avg ~}}
+      <dt>Average:</dt>
+      <dd>{{{currency_sign}}}{{addCommas award_size_avg}}</dd>
+      {{/if ~}}
+      {{#if annual_total ~}}
+      <dt>Annually awarded:</dt>
+      <dd>{{{currency_sign}}}{{addCommas annual_total}}</dd>
+      {{/if ~}}
+      {{#if notes_on_award_amounts ~}}
+      <dt>Notes on award amounts:</dt>
+      <dd>{{notes_on_award_amounts}}</dd>
+      {{/if ~}}
+    </dl>
+    {{/ifAny ~}}
+    
+    {{#if who_can_apply ~}}
+    <h4 class="mdc-typography--headline7">Who can apply</h4>
+    <div class="mdc-typography--body1">
+      {{{who_can_apply}}}
+    </div>
+    {{/if ~}}
 
-  {{#if description ~}}
-  <h4 class="mdc-typography--headline6">Summary</h4>
-  <div class="mdc-typography--body1">
-    {{{description}}}
+    {{#if exclusions ~}}
+    <h4 class="mdc-typography--headline7">Exclusions</h4>
+    <div class="mdc-typography--body1">
+      {{{exclusions}}}
+    </div>
+    {{/if ~}}
+
+    {{#if when_to_apply ~}}
+    <h4 class="mdc-typography--headline7">When to apply</h4>
+    <div class="mdc-typography--body1">
+      {{{when_to_apply}}}
+    </div>
+    {{/if ~}}
+
+    <div class="mdc-typography--body1 report">
+      <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
+      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report inaccuracy: {{title}} - {{funder_organisation.name}}">Report inaccuracy</a>
+    </div>
+    {{else}}
+    {{#if description ~}}
+    <h4 class="mdc-typography--headline7">Summary</h4>
+    <div class="mdc-typography--body1">
+      {{{truncate description "280"}}}
+    </div>
+    {{/if ~}}
+    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+    <div class="mdc-typography--body1">
+      To see more information about this fund, please <a href="/sign-up">sign up</a>.
+    </div>
+    {{/if ~}}
   </div>
-  {{/if ~}}
-
-  {{#if who_can_apply ~}}
-  <h4 class="mdc-typography--headline6">Who can apply?</h4>
-  <div class="mdc-typography--body1">
-    {{{who_can_apply}}}
-  </div>
-  {{/if ~}}
-
-  {{#if exclusions ~}}
-  <h4 class="mdc-typography--headline6">Exclusions</h4>
-  <div class="mdc-typography--body1">
-    {{{exclusions}}}
-  </div>
-  {{/if ~}}
-
-  {{#if when_to_apply ~}}
-  <h4 class="mdc-typography--headline6">When to apply?</h4>
-  <div class="mdc-typography--body1">
-    {{{when_to_apply}}}
-  </div>
-  {{/if ~}}
 </div>

@@ -5,9 +5,10 @@
     "slug",
     "title",
     "text_bag_boost",
+    "summary",
     "fund_status",
     "fund_status_slug",
-    "for_charities_only",
+    "charities_only",
     "activities",
     "activities_slugs",
     "beneficiaries",
@@ -15,15 +16,23 @@
     "region_group",
     "region_group_slug",
     "geographical_areas_funded",
-    "geographical_areas_funded_slug",
+    "geographical_areas_funded_slugs",
     "description",
     "when_to_apply",
     "who_can_apply",
+    "also_funds_individuals",
     "source_of_fund",
     "exclusions",
     "website",
     "email",
     "phone",
+    "currency_sign",
+    "award_size_min",
+    "award_size_max",
+    "award_size_avg",
+    "annual_total",
+    "notes_on_award_amounts",
+    "date_next_deadline",
     "type_of_cost",
     "type_of_funding",
     "funder_organisation.slug",
@@ -41,7 +50,7 @@
     "funder_organisation_linkedin_url",
     "rendered.json_ld"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "term": {
       {{#if (includes request.params.slug "-") ~}}
       "slug": "{{request.params.slug}}"
@@ -49,5 +58,5 @@
       "Id": "{{request.params.slug}}"
       {{/if ~}}
     }
-  }
+  {{/queries_common}}
 }

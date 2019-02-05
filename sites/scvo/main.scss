@@ -512,11 +512,12 @@ primary-dark: #263238
     }
   }
   .home .cta-content.callout-image {
-    background-image: linear-gradient(
-    map-get($themePosts, 'primary-overlay-start'),
-    map-get($themePosts, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/23595/THEGATHERING-22.02.17_0475.jpg');
+    background-color: map-get($themePosts, 'primary');
+    // background-color: linear-gradient(
+    // map-get($themePosts, 'primary-overlay-start'),
+    // map-get($themePosts, 'primary-overlay-start')
+    // ),
+    // url('https://storage.googleapis.com/scvo-cms/23595/THEGATHERING-22.02.17_0475.jpg');
     a:hover .fa-fw {
       background-color: white !important;
       color: map-get($themePosts, 'primary') !important;
@@ -690,18 +691,20 @@ primary-dark: #263238
     }
   }
   .running-your-organisation .footer-image {
-    background-image: linear-gradient(
-    map-get($themeDefault, 'primary-overlay-start'),
-    map-get($themeDefault, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/23601/THEGATHERING-23.02.17_0302.jpg');
+    background-color: map-get($themeDefault, 'primary');
+    // background-image: linear-gradient(
+    // map-get($themeDefault, 'primary-overlay-start'),
+    // map-get($themeDefault, 'primary-overlay-start')
+    // ),
+    // url('https://storage.googleapis.com/scvo-cms/23601/THEGATHERING-23.02.17_0302.jpg');
   }
   .footer-image.join-our-hub {
-    background-image: linear-gradient(
-    map-get($themeServices, 'primary-overlay-start'),
-    map-get($themeServices, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg');
+    background-color: map-get($themeServices, 'primary');
+    // background-image: linear-gradient(
+    // map-get($themeServices, 'primary-overlay-start'),
+    // map-get($themeServices, 'primary-overlay-start')
+    // ),
+    // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg');
     .mdc-button:hover {
       background-color: white !important;
       border-color: map-get($themeServices, 'primary-dark') !important;
@@ -711,11 +714,12 @@ primary-dark: #263238
   .running-a-charity .footer-image.join-our-hub,
   .setting-up-a-charity .footer-image.join-our-hub,
   .running-your-organisation .footer-image.join-our-hub {
-    background-image: linear-gradient(
-    map-get($themePosts, 'primary-overlay-start'),
-    map-get($themePosts, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg') !important;
+    background-color: map-get($themePosts, 'primary');
+    // background-image: linear-gradient(
+    // map-get($themePosts, 'primary-overlay-start'),
+    // map-get($themePosts, 'primary-overlay-start')
+    // ),
+    // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg') !important;
     .mdc-button:hover {
       background-color: white !important;
       border-color: map-get($themePosts, 'primary-dark') !important;
@@ -1409,7 +1413,7 @@ section.search {
           border: $unit/8 solid white;
           border-radius: 50%;
           padding: $unit*1.75;
-          box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
+          // box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
         }
         .fa-fw {
           display: inline-table;
@@ -1569,7 +1573,6 @@ section.search {
 .page-related .gist,
 .post-related .gist {
   box-shadow: none;
-  -webkit-box-shadow: none;
   .post-info-closing-date,
   .post-info-published {
     font-weight: 400;
@@ -2065,7 +2068,7 @@ form#settled_status {
 .mdc-layout-grid.equal-height .mdc-layout-grid__cell {
   display: flex;
   .mdc-card {
-    justify-content: start;
+    justify-content: flex-start;
     .mdc-card__supporting-text {
       flex: 1 0 auto;
     }
@@ -2144,14 +2147,14 @@ form#settled_status {
 }
 .footer-image {
   position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: linear-gradient(
-  rgba(173, 20, 87, 1),
-  rgba(173, 20, 87, 1)
-  ),
-  url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2017/10/Drake-Music-06.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  // background-image: linear-gradient(
+  // rgba(173, 20, 87, 1),
+  // rgba(173, 20, 87, 1)
+  // ),
+  // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2017/10/Drake-Music-06.jpg');
   text-align: center;
   color: white;
   padding: $unit 0 $unit*2.5;
@@ -2203,7 +2206,7 @@ form#settled_status {
 .splash-image .splash-overlay .container-fluid {
   overflow: hidden;
   position: relative;
-  min-height: 25vh;
+  min-height: 27vh;
 }
 .splash-overlay.splash-overlay-hidden {
   background-image: none !important;
@@ -2222,7 +2225,7 @@ form#settled_status {
     margin: 0 auto;
     .mdc-layout-grid {
       word-break: break-word;
-      width: 42%;
+      width: 44%;
       margin: $unit*(2/3) 0 $unit*3;
     }
   }
@@ -2295,6 +2298,9 @@ form#settled_status {
 .splash-image-scvo-document-evidence h1.header-text {
   font-size: 2rem;
   line-height: 2.2rem;
+}
+.scvo-grant-cyber .mdc-card__primary {
+  padding-bottom: 0 !important;
 }
 .home {
   .splash-image.hello .splash-overlay .container-fluid {
@@ -2631,7 +2637,6 @@ body.i-love-charity main .page-info,
     .mdc-card {
       background: transparent;
       box-shadow: none;
-      -webkit-box-shadow: none;
       h3 {
         margin: 0;
       }
@@ -2705,7 +2710,7 @@ body.i-love-charity main .page-info,
           border: $unit/8 solid white;
           border-radius: 50%;
           padding: $unit*1.75;
-          box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
+          // box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
         }
         .fa-fw {
           height: 1.25em;
@@ -3583,7 +3588,6 @@ body.post.author main {
   -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
   .mdc-button {
     box-shadow: none !important;
-    -webkit-box-shadow: none;
     padding: 8px $unit;
     line-height: $unit*1.3;
     border: none;
@@ -3829,10 +3833,16 @@ ul.breadcrumbs {
 }
 
 blockquote {
-  border-left: 0.2rem solid white;
-  margin: 0 0 0.75rem;
+  border-left: $unit/5 solid white;
+  margin: 0 0 $unit;
   padding: 0 0.75rem;
-  font-size: 125%;
+  font-size: 1.1rem;
+  cite {
+    display: block;
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
 }
 blockquote p {
   display: inline;
@@ -4724,9 +4734,9 @@ footer {
   height: auto;
 }
 .swiper-container-autoheight .swiper-wrapper {
-  -webkit-box-align: start;
+  -webkit-box-align: flex-start;
   -webkit-align-items: flex-start;
-  -ms-flex-align: start;
+  -ms-flex-align: flex-start;
   align-items: flex-start;
   -webkit-transition-property: height, -webkit-transform;
   transition-property: height, -webkit-transform;
@@ -4915,10 +4925,7 @@ button.swiper-pagination-bullet {
   border: none;
   margin: 0;
   padding: 0;
-  -webkit-box-shadow: none;
   box-shadow: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -5289,6 +5296,13 @@ button.swiper-pagination-bullet {
 
 .wp-block-image {
   clear: both;
+  .is-resized {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    a::after {
+      content: "";
+    }
+  }
 }
 .text-left { text-align: left; }
 .alignright,

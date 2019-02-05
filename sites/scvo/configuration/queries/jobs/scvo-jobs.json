@@ -2,7 +2,11 @@
   "size": 20,
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 20}},
   "_source": [
-    "rendered.scvo_search_result"
+    "title",
+    "closing_date",
+    "location",
+    "description_short",
+    "slug"
   ],
   "query": {
     "bool": {
@@ -14,7 +18,12 @@
         },
         {
           "term": {
-            "country_iso3": "GBR"
+            "country_slug": "scotland"
+          }
+        },
+        {
+          "term": {
+            "active": true
           }
         },
         {

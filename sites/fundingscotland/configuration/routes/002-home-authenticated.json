@@ -4,6 +4,7 @@
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
     {
@@ -42,6 +43,12 @@
             "index": "web-content-production",
             "type": "scvo-cms-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
+          },
+          {
+            "name": "saved",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_saved"
           }
         ]
       },

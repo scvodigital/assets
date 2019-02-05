@@ -1,40 +1,59 @@
-{{#if @root.data.auth ~}}
 <div class="container-content fundingscotland-organisation">
   {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
   {{#with @root.data.primaryResponse.hits.hits.[0]._source as |funder| ~}}
 
   {{> funder_full funder}}
 
-  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 0 ~}}
-  <hr />
-  <div class="mdc-typography--headline5">
-    Currently open funds
-  </div>
-  {{#each @root.data.supplimentaryResponses.funds_open.hits.hits ~}}
-  {{> fund_list _source}}
-  {{/each ~}}
-  {{/compare ~}}
+  <div class="v-margin-full">
+    {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 0 ~}}
+    <hr />
+    <div class="mdc-typography--headline5">
+      Currently open funds
+    </div>
+    {{#if @root.data.auth ~}}
+    {{#each @root.data.supplimentaryResponses.funds_open.hits.hits ~}}
+    {{> fund_list _source}}
+    {{/each ~}}
+    {{else}}
+    {{> fund_list @root.data.supplimentaryResponses.funds_open.hits.hits.0._source}}
+    {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 1 ~}}
+    <div class="mdc-typography--body1 v-margin-full">
+      To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_open.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
+    </div>
+    {{/compare ~}}
+    {{/if ~}}
+    {{/compare ~}}
 
-  {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 0 ~}}
-  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
-  <hr />
-  {{/compare}}
-  <div class="mdc-typography--headline5">
-    Currently closed funds
-  </div>
-  {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
-  {{> fund_list _source}}
-  {{/each ~}}
-  {{/compare ~}}
+    {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 0 ~}}
+    {{#if @root.data.auth ~}}
+    {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
+    <hr />
+    {{/compare}}
+    <div class="mdc-typography--headline5">
+      Currently closed funds
+    </div>
+    {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
+    {{> fund_list _source}}
+    {{/each ~}}
+    {{else}}
+    {{> fund_list @root.data.supplimentaryResponses.funds_closed.hits.hits.0._source}}
+    {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 1 ~}}
+    <div class="mdc-typography--body1 v-margin-full">
+      To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
+    </div>
+    {{/compare ~}}
+    {{/if ~}}
+    {{/compare ~}}
 
-  {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
-  {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total "===" 0 ~}}
-  <hr />
-  <div class="mdc-typography--headline6">
-    There are no current or recently closed funds available
+    {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
+    {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total "===" 0 ~}}
+    <hr />
+    <div class="mdc-typography--headline6">
+      There are no current or recently closed funds available
+    </div>
+    {{/compare ~}}
+    {{/compare ~}}
   </div>
-  {{/compare ~}}
-  {{/compare ~}}
 
   {{/with ~}}
   {{else}}
@@ -43,6 +62,3 @@
   </p>
   {{/compare ~}}
 </div>
-{{else}}
- {{> account_not_signed_in}}
-{{/if ~}}

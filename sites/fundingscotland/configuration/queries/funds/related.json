@@ -1,5 +1,5 @@
 {
-  "size": 4,
+  "size": {{#if @root.data.auth}}4{{else}}2{{/if}},
   "_source": [
     "Id",
     "slug",
@@ -15,38 +15,10 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {
+  "query": {{#>queries_common}}
     "function_score": {
       "query": {
         "bool": {
-          "should": [
-            {
-              "match": {
-                "title" : {
-                  "query" : "{{data.primaryResponse.hits.hits.[0]._source.title}}",
-                  "operator" : "and",
-                  "zero_terms_query": "all"
-                }
-              }
-            },
-            {
-              "terms": {
-                "activities_slugs": {{{stringify (arrayify data.primaryResponse.hits.hits.[0]._source.activities_slugs)}}}
-              }
-            },
-            {
-              "terms": {
-                "beneficiaries_slugs": {{{stringify (arrayify data.primaryResponse.hits.hits.[0]._source.beneficiaries_slugs)}}}
-              }
-            }
-          ],
-          "must": [
-            {
-              "term": {
-                "fund_status_slug": "open"
-              }
-            }
-          ],
           "must_not": [
             {
               "term": {
@@ -55,7 +27,65 @@
             }
           ]
         }
-      }
+      },
+      "functions": [
+        {
+          "filter": {
+            "more_like_this": {
+              "fields": ["title^5","text_bag"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
+              "min_term_freq": 1,
+              "max_query_terms": 12
+            }
+          },
+          "weight": 5
+        },
+        {
+          "filter": {
+            "more_like_this": {
+              "fields": ["funder_organisation.name^2","text_bag","who_can_apply"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
+              "min_term_freq": 1,
+              "max_query_terms": 12
+            }
+          },
+          "weight": 4
+        },
+        {
+          "filter": {
+            "common": {
+              "activities": {
+                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.activities}}",
+                "cutoff_frequency": 0.001,
+                "minimum_should_match": {
+                  "low_freq" : 2,
+                  "high_freq" : 3
+                }
+              }
+            }
+          },
+          "weight": 1
+        },
+        {
+          "filter": {
+            "common": {
+              "beneficiaries": {
+                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
+                "cutoff_frequency": 0.001,
+                "minimum_should_match": {
+                  "low_freq" : 2,
+                  "high_freq" : 3
+                }
+              }
+            }
+          },
+          "weight": 1
+        }
+      ],
+      "max_boost": 50,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 1
     }
-  }
+  {{/queries_common}}
 }

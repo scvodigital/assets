@@ -1,0 +1,32 @@
+<div class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="hide-fund-dialog-title" aria-describedby="hide-fund-dialog-content" id="hide-fund-dialog">
+  <form action="/hide-fund" method="POST" class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <h2 class="mdc-dialog__title" id="hide-fund-dialog-title">Hide fund</h2>
+      <div class="mdc-dialog__content" id="hide-fund-dialog-content">
+        <p class="mdc-typography--body1">
+          Are you sure you want to hide &quot;<strong><span id="hide-fund-dialog-name"></span></strong>&quot;?
+        </p>
+        <p class="mdc-typography--body1">
+          If you choose &quot;<strong>Hide</strong>&quot;, this fund will no longer appear in:
+        </p>
+        <ul class="mdc-typography--body1">
+          <li>search results</li>
+          <li>email alerts</li>
+          <li>lists of saved funds</li>
+          <li>related funds</li>
+        </ul>
+        <input type="hidden" name="id" id="hide-fund-dialog-id">
+        <input type="hidden" name="redirect" id="hide-fund-dialog-redirect">
+      </div>
+      <footer class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="close">
+          <span class="mdc-button__label">Cancel</span>
+        </button>
+        <button type="submit" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" data-mdc-dialog-action="accept">
+          <span class="mdc-button__label">Hide</span>
+        </button>
+      </footer>
+    </div>
+  </form>
+  <div class="mdc-dialog__scrim"></div>
+</div>

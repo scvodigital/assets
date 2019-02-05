@@ -1,14 +1,26 @@
 {
   "name": "fund",
   "pattern": "/fund/:slug",
+  "debug": true,
   "defaultParams": {
     "context": "detail"
   },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.shortlistData",
-    "context.metaData.commonTasks.notesData",
+    {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": ">context.metaData.handlebars.queries.notifications_get-shortlist-partitions"
+        }
+      },
+      "renderer": "handlebars"
+    },
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",
@@ -66,10 +78,10 @@
         },
         "queryTemplates": [
           {
-            "name": "tfn_related",
+            "name": "tfn_latest",
             "index": "web-content-production",
-            "type": "tfn-news-post,tfn-blog-post,tfn-feature",
-            "template": ">context.metaData.handlebars.queries.posts_tfn-related"
+            "type": "tfn-news-post,tfn-feature",
+            "template": ">context.metaData.handlebars.queries.posts_tfn-latest"
           }
         ]
       },

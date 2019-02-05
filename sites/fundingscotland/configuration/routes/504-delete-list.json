@@ -1,0 +1,32 @@
+{
+  "name": "delete-list",
+  "pattern": "/delete-list",
+  "debug": true,
+  "acceptedVerbs": ["POST"],
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "deletePartition",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "delete": ">context.metaData.handlebars.queries.notifications_delete-list"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": "/lists"
+      }
+    }
+  ]
+}

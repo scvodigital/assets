@@ -16,9 +16,19 @@
             <a href="https://goodmoves.com"><strong>good</strong>moves</a> and set up email alerts.
           </p>
           {{else}}
-          <h3>Current vacancies with SCVO</h3>
+          <h2>Current vacancies with SCVO</h2>
           {{#each data.supplimentaryResponses.scvo_jobs.hits.hits ~}}
-          {{{_source.rendered.scvo_search_result}}}
+          {{#with _source ~}}
+          <h3>
+            <a href="https://goodmoves.com/vacancy/{{slug}}">{{{title}}}</a>
+          </h3>
+          <p class="mdc-typography--body1">
+            <strong>Location:</strong> {{location}}<br />
+            <strong>Closing date:</strong> {{momentFormat (moment closing_date 'x') 'dddd Do MMMM YYYY'}}<br />
+            {{{description_short}}}<br />
+            <a href="https://goodmoves.com/vacancy/{{slug}}">Find out more &amp; apply</a>
+          </p>
+          {{/with ~}}
           {{/each ~}}
           {{/compare ~}}
         </div>

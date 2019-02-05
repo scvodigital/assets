@@ -1,0 +1,40 @@
+{
+  "name": "save-fund",
+  "pattern": "/save-fund",
+  "debug": true,
+  "defaultParams": {
+    "context": "detail"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "update": ">context.metaData.handlebars.queries.notifications_save-fund"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "url",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{{#if request.params.query.slug}}/fund/{{request.params.query.slug}}#lists{{else}}/blank{{/if}}",
+        "output": "data"        
+      }
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": ">data.url"
+      }
+    }
+  ]
+}

@@ -36,7 +36,7 @@
   <meta name="msapplication-TileColor" content="#3c7524">
   <meta name="msapplication-TileImage" content="{{~>asset_url url='images/icons/ms-icon-144x144.png'~}}">
   <meta name="theme-color" content="#3c7524">
-  <link rel="search" type="application/opensearchdescription+xml" title="Funding Scotland" href="{{~>asset_url url='opensearch.xml'~}}" />
+  <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://fundingscotland.com{{request.params.uri.pathname}}" /> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-12"></script>
@@ -119,7 +119,7 @@
               </a>
               <!-- {{#compare @root.data.currentSite.name "!==" "default" ~}}
               &emsp;<span style="font-weight:600;">|</span>&emsp;
-              <a href="https://fundingscotland.com" class="mdc-typography--caption">Funding Scotland</a>
+              <a href="https://fundingscotland.com" class="mdc-typography--caption">{{@root.data.currentSite.title}}</a>
               {{/compare ~}} -->
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
@@ -153,11 +153,22 @@
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}
                 {{#each @root.context.metaData.menus.main ~}}
-                  {{>components_tab
-                      url=(stripTrailingSlash path)
-                      labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname route "gi")
-                      label=label}}
+                  {{#compare label "===" "Premium" ~}}
+                    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                    {{else}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                    {{/ifAny ~}}
+                  {{else}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/compare}}
                 {{/each ~}}
               {{/components_tab_bar}}
             </section>
@@ -206,13 +217,26 @@
               Home
             </a>
             {{#each @root.context.metaData.menus.main ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
+              {{#compare label "===" "Premium" ~}}
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                {{else}}
+                  <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+                     href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+                    {{#if icon ~}}
+                    <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                    {{/if ~}}
+                    {{{label}}}
+                  </a>
+                {{/ifAny ~}}
+              {{else}}
+                <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+                   href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+                  {{#if icon ~}}
+                  <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                  {{/if ~}}
+                  {{{label}}}
+                </a>
+              {{/compare ~}}
             {{/each ~}}
             {{#each @root.context.metaData.menus.upper ~}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
@@ -269,7 +293,7 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
@@ -324,7 +348,7 @@
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
                   <h3>About</h3>
                   <p>
-                    <strong>Funding Scotland</strong> lists funders with a track record of supporting projects in Scotland and is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>. <a href="/about">Find out more</a>
+                    <strong>{{@root.data.currentSite.title}}</strong> lists funders with a track record of supporting projects in Scotland and is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>. <a href="/about">Find out more</a>
                   </p>
                 </div>
               </div>
@@ -352,16 +376,14 @@
         </div>
       </footer>
     </div>
-    <div class="mdc-snackbar mdc-elevation--z10"
-         aria-live="assertive"
-         aria-atomic="true"
-         aria-hidden="true"
-         id="app-snackbar">
+    <div class="mdc-snackbar mdc-elevation--z10" aria-live="assertive" aria-atomic="true" aria-hidden="true" id="app-snackbar">
       <div class="mdc-snackbar__text"></div>
       <div class="mdc-snackbar__action-wrapper">
         <button type="button" class="mdc-snackbar__action-button"></button>
       </div>
     </div>
+    {{> dialog_hide_fund}}
+    {{> dialog_shortlist}}
   </fundingscotland-site>
 
   <script type="text/javascript">

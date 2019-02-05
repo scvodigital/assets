@@ -19,12 +19,12 @@
   </div>
 {{/inline}}
 
-<div id="detailed-results-container" class="container-content goodmoves-settings">
+<div id="detailed-results-container" class="container-content settings fundingscotland-settings">
   <h1 class="mdc-typography--headline3 v-margin-full">
     Settings
   </h1>
 
-  <section class="settings-section goodmoves-settings-email">
+  <section class="settings-section settings-email fundingscotland-settings-email">
     <h2 class="mdc-typography--headline5 v-margin-full">
       Email alerts
     </h2>
@@ -32,13 +32,13 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
           <h3 class="mdc-typography--headline6 v-margin-full">
-            Email frequency for new job alerts
+            Email frequency for fund alerts
           </h3>
           {{> email_frequency}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
           <h3 class="mdc-typography--headline6 v-margin-full">
-            Shortlist alerts
+            Listed fund alerts
           </h3>
           <div class="mdc-chip-set mdc-chip-set--filter">
             {{> shortlist_alerts}}
@@ -66,7 +66,7 @@
 
   <hr />
 
-  <section class="settings-section goodmoves-settings-account">
+  <section class="settings-section settings-account fundingscotland-settings-account">
     <h2 class="mdc-typography--headline5 v-margin-full">
       Account
     </h2>
@@ -116,10 +116,7 @@
           <div class="mdc-chip-set mdc-chip-set--filter">
             {{#each (split "google,facebook,twitter" ",") ~}}
               <div class="v-margin">
-                {{> linkChip
-                    provider=this
-                    linked=(contains (map @root.data.auth.providerData (getProp "providerId")) (concat this ".com"))
-                }}
+                {{> linkChip provider=this linked=(contains (map @root.data.auth.providerData (getProp "providerId")) (concat this ".com"))}}
               </div>
             {{/each ~}}
           </div>
@@ -165,9 +162,9 @@
       <ul>
         <li>Stop all email alerts</li>
         <li>Delete your saved searches</li>
-        <li>Delete your shortlist</li>
-        <li>Delete your notes on vacancies</li>
-        <li>Fully remove your account from the Goodmoves system</li>
+        <li>Delete your lists of saved funds</li>
+        <li>Delete your notes on funds</li>
+        <li>Fully remove your account from all Funding Scotland sites</li>
       </ul>
       <p>
         If you only want to stop your email alerts, please see the options on <a href="/searches">searches &amp; email</a>.

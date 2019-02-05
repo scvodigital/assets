@@ -1,11 +1,11 @@
 {{#if data.primaryResponse.hits.hits.[0] ~}}
 {{#with data.primaryResponse.hits.hits.[0]._source ~}}
 {{#ifAny title og_title ~}}
-<title>Funding Scotland – {{{default title og_title}}}</title>
-<meta property="og:title" content="Funding Scotland – {{{default title og_title}}}" data-dynamic="true">
+<title>{{@root.data.currentSite.title}} – {{{default title og_title}}}</title>
+<meta property="og:title" content="{{@root.data.currentSite.title}} – {{{default title og_title}}}" data-dynamic="true">
 {{else}}
-<title>Funding Scotland</title>
-<meta property="og:title" content="Funding Scotland" data-dynamic="true">
+<title>{{@root.data.currentSite.title}}</title>
+<meta property="og:title" content="{{@root.data.currentSite.title}}" data-dynamic="true">
 {{/ifAny ~}}
 <!-- <meta property="og:image" content="" data-dynamic="true"> -->
 <meta property="og:image:width" content="96" data-dynamic="true">
@@ -21,6 +21,6 @@
 {{/if ~}}
 {{/with ~}}
 {{else}}
-<title>Funding Scotland</title>
-<meta property="og:title" content="Funding Scotland" data-dynamic="true">
+<title>{{@root.data.currentSite.title}}</title>
+<meta property="og:title" content="{{@root.data.currentSite.title}}" data-dynamic="true">
 {{/if ~}}

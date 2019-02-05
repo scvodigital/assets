@@ -39,6 +39,12 @@
       "route": "^/$"
     },
     {
+      "label": "Lists",
+      "icon": "list",
+      "path": "/lists",
+      "route": "^/lists"
+    },
+    {
       "label": "Notes",
       "icon": "edit",
       "path": "/notes",

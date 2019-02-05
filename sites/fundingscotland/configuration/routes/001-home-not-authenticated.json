@@ -2,6 +2,9 @@
   "name": "home-not-authenticated",
   "pattern": "/home-not-authenticated",
   "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     {
       "name": "primaryResponse",

@@ -1,6 +1,9 @@
 {
   "name": "sign_up",
   "pattern": "/sign-up",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",

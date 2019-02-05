@@ -102,11 +102,9 @@
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
               {{#unless @root.route.metaData.hideSearch ~}}
-              {{#compare @root.route.name "!==" "home" ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
                 <span class="far fa-fw fa-2x fa-search"></span>
               </button>
-              {{/compare ~}}
               {{/unless ~}}
               <a href="https://scvo.org" class="mdc-top-app-bar__title">
                 <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />

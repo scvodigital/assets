@@ -2,6 +2,7 @@
   "name": "settings",
   "pattern": "/settings",
   "metaData": {
+    "hideSearch": true,
     "sidebarButton": {
       "icon": "cog",
       "tooltip": "Settings",

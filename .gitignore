@@ -72,3 +72,4 @@ secrets.tar
 lib/bump.*
 lib/bump.js
 lib/bump.scss
+.cache

@@ -139,7 +139,7 @@
   } ],
   "charity-awards" : [ {
     "children" : [ {
-      "label" : "Application forms",
+      "label" : "Apply now",
       "path" : "/scottish-charity-awards/apply-2019",
       "route" : "^/scottish-charity-awards/apply-2019"
     }, {

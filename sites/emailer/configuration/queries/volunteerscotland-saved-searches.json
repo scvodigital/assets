@@ -49,7 +49,7 @@
         {{>queries_opportunity_common_filters this}},
         {
           "range": {
-            "date_created": {
+            "publish_start_date": {
               {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
               "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
               {{else}}

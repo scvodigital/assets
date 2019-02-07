@@ -2,6 +2,9 @@
   "name": "pdf",
   "pattern": "/pdf",
   "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     {
@@ -34,7 +37,7 @@
       },
       "definitionTemplate": "{:../templates/funds/pdf-definition.json}",
       "headerTemplate": "{:../templates/funds/pdf-header.json}",
-      "footerTemplate": "{:../templates/funds/pdf-footer.json}" 
+      "footerTemplate": "{:../templates/funds/pdf-footer.json}"
     }
   }]
 }

@@ -139,71 +139,23 @@
   } ],
   "charity-awards" : [ {
     "children" : [ {
-      "label" : "2018 finalists",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "24111",
-        "_menu_item_object" : "custom",
-        "_menu_item_object_id" : "25457",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "custom",
-        "_menu_item_url" : "https://goodhq.org/scottish_charity_awards_2018/",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:0:{}",
-        "breadcrumbs_json" : "[]",
-        "menu-item-route-pattern" : "^https://goodhq.org/scottish_charity_awards_2018/$"
-      },
-      "path" : "https://goodhq.org/scottish_charity_awards_2018",
-      "route" : "^https://goodhq.org/scottish_charity_awards_2018/$"
+      "label" : "Apply now",
+      "path" : "/scottish-charity-awards/apply-2019",
+      "route" : "^/scottish-charity-awards/apply-2019"
+    }, {
+      "label" : "2018 winners",
+      "path" : "/scottish-charity-awards/winners-2018",
+      "route" : "^/scottish-charity-awards/winners-2018"
     }, {
       "label" : "2017 winners",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "24111",
-        "_menu_item_object" : "page",
-        "_menu_item_object_id" : "24113",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "post_type",
-        "_menu_item_url" : "",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:1:{i:0;a:4:{s:2:\"id\";i:20040;s:5:\"title\";s:23:\"Scottish Charity Awards\";s:3:\"url\";s:44:\"http://cms.scvo.org/scottish-charity-awards/\";s:7:\"excerpt\";s:53:\"\n                Scottish Charity Awards\n            \";}}",
-        "breadcrumbs_json" : "[{\"id\":20040,\"title\":\"Scottish Charity Awards\",\"url\":\"http://cms.scvo.org/scottish-charity-awards/\",\"excerpt\":\"n                Scottish Charity Awardsn            \"}]",
-        "menu-item-route-pattern" : "^/scottish-charity-awards/winners-2017"
-      },
       "path" : "/scottish-charity-awards/winners-2017",
       "route" : "^/scottish-charity-awards/winners-2017"
     }, {
       "label" : "FAQs",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "24111",
-        "_menu_item_object" : "page",
-        "_menu_item_object_id" : "24109",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "post_type",
-        "_menu_item_url" : "",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:1:{i:0;a:4:{s:2:\"id\";i:20040;s:5:\"title\";s:23:\"Scottish Charity Awards\";s:3:\"url\";s:44:\"http://cms.scvo.org/scottish-charity-awards/\";s:7:\"excerpt\";s:53:\"\n                Scottish Charity Awards\n            \";}}",
-        "breadcrumbs_json" : "[{\"id\":20040,\"title\":\"Scottish Charity Awards\",\"url\":\"http://cms.scvo.org/scottish-charity-awards/\",\"excerpt\":\"n                Scottish Charity Awardsn            \"}]",
-        "menu-item-route-pattern" : "^/scottish-charity-awards/faqs"
-      },
       "path" : "/scottish-charity-awards/faqs",
       "route" : "^/scottish-charity-awards/faqs"
     } ],
     "label" : "Scottish Charity Awards",
-    "metaData" : {
-      "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-      "_menu_item_menu_item_parent" : "0",
-      "_menu_item_object" : "page",
-      "_menu_item_object_id" : "20040",
-      "_menu_item_target" : "",
-      "_menu_item_type" : "post_type",
-      "_menu_item_url" : "",
-      "_menu_item_xfn" : "",
-      "breadcrumbs" : "a:0:{}",
-      "breadcrumbs_json" : "[]",
-      "menu-item-route-pattern" : "^/scottish-charity-awards$"
-    },
     "path" : "/scottish-charity-awards",
     "route" : "^/scottish-charity-awards$"
   } ],

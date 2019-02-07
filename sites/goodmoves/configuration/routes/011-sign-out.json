@@ -1,6 +1,9 @@
 {
   "name": "sign_out",
   "pattern": "/sign-out",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {

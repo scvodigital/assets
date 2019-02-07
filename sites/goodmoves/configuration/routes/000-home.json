@@ -1,6 +1,9 @@
 {
   "name": "home",
   "pattern": "/",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.searchesData",

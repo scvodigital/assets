@@ -1,6 +1,9 @@
 {
   "name": "delete-user",
   "pattern": "/delete-user",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",

@@ -3,6 +3,7 @@
   "pattern": "/settings",
   "debug": true,
   "metaData": {
+    "hideSearch": true,
     "sidebarButton": {
       "icon": "cog",
       "tooltip": "Settings",

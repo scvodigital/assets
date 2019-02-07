@@ -1,6 +1,9 @@
 {
   "name": "vacancy_search_rss",
   "pattern": "/search?rss",
+  "metaData": {
+    "hideSearch": true
+  },
   "defaultParams": {
     "context": "results"
   },

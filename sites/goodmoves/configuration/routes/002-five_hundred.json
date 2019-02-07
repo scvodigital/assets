@@ -1,6 +1,9 @@
 {
   "name": "five_hundred",
   "pattern": "/500",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     {
       "name": "destination",

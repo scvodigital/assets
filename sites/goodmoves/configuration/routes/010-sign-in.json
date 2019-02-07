@@ -1,6 +1,9 @@
 {
   "name": "sign_in",
   "pattern": "/sign-in",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

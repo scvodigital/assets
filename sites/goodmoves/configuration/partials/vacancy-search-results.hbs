@@ -183,11 +183,11 @@
           <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>
           Sign up to create email alerts
         </a>
-        <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg filter-search-button" id="filter-search-button" data-drawer-target="#sidebar-temporary">
-          <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
-          Search filters
-        </button>
       {{/if ~}}
+      <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg filter-search-button" id="filter-search-button" data-drawer-target="#sidebar-temporary">
+        <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
+        Search filters
+      </button>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone pagination-desktop">
       {{> pagination firstLastNavigation=true paging=@root.data.search_data.detailed_results.pagination}}

@@ -6,7 +6,17 @@
     "description",
     "files",
     "rendered.json_ld",
-    "rendered.charter_full"
+    "logos",
+    "mission_statement",
+    "description",
+    "support_offered",
+    "support_wanted",
+    "sector",
+    "category",
+    "website",
+    "blog",
+    "twitter",
+    "facebook"
   ],
   "query": {
     "term": {

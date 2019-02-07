@@ -3,6 +3,7 @@
   "pattern": "/notes",
   "debug": true,
   "metaData": {
+    "hideSearch": true,
     "sidebarButton": {
       "icon": "search",
       "tooltip": "Search",

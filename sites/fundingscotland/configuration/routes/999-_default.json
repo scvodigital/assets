@@ -1,6 +1,9 @@
 {
   "name": "_default",
   "pattern": "/*path",
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",

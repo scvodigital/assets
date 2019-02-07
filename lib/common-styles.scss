@@ -665,11 +665,11 @@ footer h3,
   bottom: 0 !important;
   right: 0 !important;
 }
-.mdc-list .mdc-list-item:hover::before,
-.mdc-list .mdc-list-item:hover::after,
+#detailed-results-container .mdc-list .mdc-list-item:hover::before,
+#detailed-results-container .mdc-list .mdc-list-item:hover::after,
 .saved-search-remove:focus::before,
 .saved-search-remove:hover::before {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .icon-toggle-off {
@@ -2122,9 +2122,6 @@ footer,
   .mdc-list-item {
     height: auto !important;
   }
-  .browse-title-regions {
-    margin-top: 24px;
-  }
 }
 .home-browse {
   .mdc-layout-grid__inner {
@@ -3010,6 +3007,7 @@ form.inline-form {
 .faded-overflow {
   overflow: hidden;
   position: relative;
+  min-height: 2rem;
   &:before {
     display: block;
     margin-top: -$unit*1.5;

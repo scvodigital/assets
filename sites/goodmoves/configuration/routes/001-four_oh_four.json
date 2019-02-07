@@ -2,6 +2,9 @@
   "name": "four_oh_four",
   "pattern": "/404",
   "defaultStatusCode": 404,
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

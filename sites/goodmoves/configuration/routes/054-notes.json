@@ -2,6 +2,7 @@
   "name": "notes",
   "pattern": "/notes",
   "metaData": {
+    "hideSearch": true,
     "sidebarButton": {
       "icon": "search",
       "tooltip": "Search",

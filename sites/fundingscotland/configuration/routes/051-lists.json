@@ -2,6 +2,9 @@
   "name": "lists",
   "pattern": "/lists",
   "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",

@@ -14,6 +14,7 @@ $base-font-weight:                  400;
 
 $heading-font-family:               "Montserrat", Helvetica, Arial, sans-serif;
 $heading-font-weight:               700;
+$heading-medium-font-weight:        600;
 $heading-light-font-weight:         500;
 
 $footer-font-family:                "Open Sans", Helvetica, Arial, sans-serif;
@@ -972,7 +973,7 @@ footer h3,
   font-weight: $heading-font-weight;
 }
 .mdc-drawer--temporary .mdc-list-item {
-  font-weight: 600;
+  font-weight: $heading-medium-font-weight;
 }
 .mdc-typography {
   padding: 0;
@@ -980,7 +981,7 @@ footer h3,
   box-sizing: border-box;
 }
 a {
-  font-weight: 600;
+  font-weight: $heading-medium-font-weight;
   text-decoration: none;
   text-decoration-skip: ink;
 }
@@ -1071,7 +1072,7 @@ a[href^="https://"].mdc-button::after {
       .caption {
         text-align: right;
         color: #fff;
-        font-weight: 600;
+        font-weight: $heading-medium-font-weight;
         font-size: 1.75rem;
         align-self: flex-end;
         margin: 0;
@@ -1299,7 +1300,7 @@ section.search {
   }
   .featured-content {
     .mdc-typography--caption {
-      font-weight: 600;
+      font-weight: $heading-medium-font-weight;
       font-size: 1rem;
       margin-left: 0.25rem;
       letter-spacing: -0.02rem;
@@ -1485,7 +1486,7 @@ section.search {
     h2 {
       margin-top: 0;
       .mdc-typography--caption {
-        font-weight: 600;
+        font-weight: $heading-medium-font-weight;
         font-size: 1rem;
         margin-left: 0.25rem;
         letter-spacing: -0.02rem;
@@ -1762,7 +1763,7 @@ form#settled_status {
 }
 .scvo-staff.list {
   .name_full {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   .fal {
     font-size: 1.4rem;
@@ -1905,7 +1906,7 @@ form#settled_status {
           font-size: 1rem;
           min-height: $nav-height;
           height: $nav-height;
-          font-weight: 600;
+          font-weight: $heading-medium-font-weight;
           padding: 0 $unit/2;
           display: inline-block;
           .mdc-tab--label {
@@ -1947,7 +1948,7 @@ form#settled_status {
         text-align: right;
         .mdc-tab {
           min-width: auto;
-          font-weight: 600;
+          font-weight: $heading-medium-font-weight;
         }
         .mdc-tab:hover .mdc-tab--label {
           border-bottom-color: rgba(255,255,255,0.6);
@@ -2097,7 +2098,7 @@ form#settled_status {
       color: #000;
       padding: 0;
       margin: 0;
-      font-weight: 600;
+      font-weight: $heading-medium-font-weight;
       display: block;
     }
     a.pagination-arrow {
@@ -2251,7 +2252,7 @@ form#settled_status {
     }
     .mdc-typography--caption {
       font-size: 1.4rem;
-      font-weight: 600;
+      font-weight: $heading-medium-font-weight;
       line-height: 1.6rem;
       letter-spacing: 0.02rem;
       margin: $unit/3 0 0;
@@ -2259,7 +2260,7 @@ form#settled_status {
     }
   }
   p.header-extra {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     color: white;
     font-size: 1.5rem;
     padding: $unit 0;
@@ -2280,7 +2281,7 @@ form#settled_status {
     border-radius: $unit/4 $unit/4 0 0;
     padding: $unit/10 $unit/3 $unit/4;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     font-variant-caps: all-small-caps;
     line-height: 1;
     p {
@@ -2367,7 +2368,7 @@ body.the-gathering:not(.post) main {
     //   width: 100%;
     // }
     .gallery-caption {
-      font-weight: 600;
+      font-weight: $heading-medium-font-weight;
       margin-bottom: $unit;
     }
   }
@@ -2774,7 +2775,7 @@ body.i-love-charity main .page-info,
 }
 .mdc-button,
 .mdc-card__subtitle {
-  font-weight: 600;
+  font-weight: $heading-medium-font-weight;
 }
 .mdc-button {
   display: inline-table;
@@ -2800,7 +2801,7 @@ body.i-love-charity main .page-info,
   line-height: 1.7rem;
   margin: 0;
   padding: 0 0 $unit/2;
-  font-weight: 600 !important;
+  font-weight: $heading-medium-font-weight !important;
 }
 h1.mdc-typography--title {
   font-size: 2rem;
@@ -3224,7 +3225,7 @@ table.membership-fees {
     min-width: auto;
     width: 50%;
     text-transform: none;
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     float: left;
     line-height: 1;
   }
@@ -3338,7 +3339,7 @@ table.membership-fees {
     position: absolute;
     top: 2px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     left: 2px;
     background: white;
     border-radius: 50%;
@@ -3420,7 +3421,7 @@ body.post.author main {
     margin: 0 0 $unit;
   }
   dt {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     clear: both;
     width: 30%;
   }
@@ -3451,7 +3452,7 @@ body.post.author main {
   }
   dt {
     clear: both;
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     width: 20%;
   }
   dd {
@@ -3485,7 +3486,7 @@ body.post.author main {
 }
 .events .inline-dl {
   dt {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   dd {
     margin: 0 0 $unit;
@@ -3500,7 +3501,7 @@ body.post.author main {
 }
 .booking {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: $heading-medium-font-weight;
 }
 
 .container-content {
@@ -3630,7 +3631,7 @@ body.post.author main {
     margin-right: $unit/2;
   }
   .mdc-list-item {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   .mdc-list-item:after,
   .mdc-list-item:before {
@@ -3711,7 +3712,7 @@ ul.breadcrumbs {
     padding: 0;
     font-size: 1rem;
     color: rgba(0,0,0,0.75);
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   li:before {
     content: "\203A" !important;
@@ -3805,7 +3806,7 @@ ul.breadcrumbs {
     }
   }
   #share-menu-button {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   #share-menu-button:hover {
     cursor: pointer;
@@ -3887,6 +3888,11 @@ ul.supplimentary-list {
   margin-bottom: $unit;
 }
 
+b,
+strong {
+  font-weight: $heading-medium-font-weight;
+}
+
 h1,
 h2,
 h3,
@@ -3894,6 +3900,7 @@ h4 {
   margin-bottom: $unit/2;
   font-family: $heading-font-family, $base-font-family, Helvetica, Arial, sans-serif;
   font-weight: $heading-font-weight;
+  b,
   strong {
     font-weight: $heading-font-weight;
   }
@@ -3993,7 +4000,7 @@ p:last-child {
   .search-distance {
     font-variant: all-small-caps;
     // font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
     color: rgba(0, 0, 0, 0.7);
   }
 }
@@ -4131,13 +4138,14 @@ footer {
     padding-bottom: $unit/2;
     border-bottom: none;
   }
+  b,
   strong {
-    font-weight: 600;
+    font-weight: $heading-medium-font-weight;
   }
   .mdc-list .mdc-list-item {
     a {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: $heading-medium-font-weight;
     }
     a:hover {
       text-decoration: underline !important;

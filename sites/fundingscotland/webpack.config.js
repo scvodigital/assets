@@ -125,7 +125,8 @@ function getConfig(site, library) {
         }
       ]
     },
-    plugins: plugins
+    plugins: plugins,
+    devtool: "source-map"
   };
 
   return config;

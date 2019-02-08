@@ -7,6 +7,7 @@
     "test": "echo \"No tests specified\" && exit 0",
     "start": "npm run clear-build && ./node_modules/.bin/webpack",
     "dev": "npm run clear-build && ./node_modules/.bin/webpack --watch",
+    "compile-email-templates": "node_modules/mjml/bin/mjml sites/emailer/configuration/emails/*mjml -o sites/emailer/configuration/partials/bodies/",
     "publish": "npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "publish-local": "export TRAVIS=\"true\" && npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "clear-build": "rm -rf build/**",

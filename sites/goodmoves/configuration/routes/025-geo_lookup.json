@@ -11,9 +11,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "name": "detailed_results",
           "index": "geo_lookup",
-          "type": "postcode,place",
+          "type": "os_place,postcode",
           "template": ">context.metaData.handlebars.queries.geo-lookup"
         }
       },
@@ -21,12 +20,24 @@
     },
     {
       "name": "destination",
-      "taskModule": "render",
+      "taskModule": "renderLayout",
       "renderer": "handlebars",
       "config": {
+        "logic": {
+          "if": [
+            "data"
+          ]
+        },
         "output": "body",
-        "template": ">context.metaData.handlebars.templates.geo-lookup",
-        "parseJson": "true"
+        "layouts": {
+          "data": {
+            "layout": ">context.metaData.handlebars.layouts.data",
+            "parts": {
+              "content": ">context.metaData.handlebars.templates.geo-lookup"
+            },
+            "contentType": "application/json; charset=utf-8"
+          }
+        }
       }
     }
   ]

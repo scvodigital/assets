@@ -24,11 +24,11 @@
             <mj-column padding="0px">
               <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
                 <h2 style="margin:10px 0 0;">
-                  <a href="https://goodmoves.com/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
+                  <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
                 </h2>
                 <p>
                   <strong>Organisation:</strong>
-                  <a href="https://goodmoves.com/organisation/{{_source.organisation_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.organisation_name}}}</a><br />
+                  <a href="https://search.volunteerscotland.net/organisation/{{_source.organisation_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.organisation_name}}}</a><br />
                   <strong>Salary:</strong>
                   {{{_source.salary}}}<br />
                   <strong>Location:</strong>
@@ -46,7 +46,7 @@
           <mj-section>
             <mj-column padding="0px">
               <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, helvetica, Arial, sans-serif">
-                <p>There is nothing in your Volunteer Scotland opportunity alert today</p>
+                <p>There is nothing in your Volunteer Scotland Search alert today</p>
               </mj-text>
             </mj-column>
           </mj-section>
@@ -55,7 +55,7 @@
         <mj-section>
           <mj-column padding="0px">
             <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, helvetica, Arial, sans-serif">
-              <p>There is nothing in your Volunteer Scotland opportunity alert today</p>
+              <p>There is nothing in your Volunteer Scotland Search alert today</p>
             </mj-text>
           </mj-column>
         </mj-section>

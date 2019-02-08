@@ -21,6 +21,9 @@
     {{#if _source.constituency}}
       "constituency": {{{stringify _source.constituency}}},
     {{/if}}
+    {{#if _source.country}}
+      "country": {{{stringify _source.country}}},
+    {{/if}}
     "point": {{{stringify _source.point}}}
   }
 {{/eachJoin}}

@@ -21,7 +21,8 @@
         {
           "term": {
             "country": {
-              "value": "Scotland"
+              "value": "Scotland",
+              "boost": 10.0
             }
           }
         },
@@ -37,8 +38,7 @@
             }
           }
         }
-      ],
-      "boost": 1
+      ]
     }
   }
 }

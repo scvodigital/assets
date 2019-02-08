@@ -13,7 +13,7 @@
             <mj-column padding="0px">
               <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
                 <p>
-                  <strong>{{inflect hits.total "opportunity" "opportunities" true}}</strong> matching your preferences {{inflect hits.total "was" "were"}} added to Volunteer Scotland since the {{momentFormat (moment ../subscription.lastSent "") "Do \o\f MMMM"}}.
+                  <strong>{{inflect hits.total "opportunity" "opportunities" true}}</strong> matching your preferences {{inflect hits.total "was" "were"}} added to Volunteer Scotland Search since the {{momentFormat (moment ../subscription.lastSent "") "Do \o\f MMMM"}}.
                 </p>
               </mj-text>
             </mj-column>
@@ -28,11 +28,7 @@
                 </h2>
                 <p>
                   <strong>Organisation:</strong>
-                  <a href="https://search.volunteerscotland.net/organisation/{{_source.organisation_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.organisation_name}}}</a><br />
-                  {{#if _source.postcode}}
-                  <strong>Postcode:</strong>
-                  {{{_source.postcode}}}
-                  {{/if}}
+                  <a href="https://search.volunteerscotland.net/organisation/{{_source.organisation_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.organisation_name}}}</a>
                 </p>
                 <p>
                   {{{truncate (stripTags _source.description) 250}}}
@@ -46,7 +42,7 @@
           <mj-section>
             <mj-column padding="0px">
               <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, helvetica, Arial, sans-serif">
-                <p>There is nothing in your Volunteer Scotland opportunity alert today</p>
+                <p>There is nothing in your Volunteer Scotland Search alert today</p>
               </mj-text>
             </mj-column>
           </mj-section>
@@ -55,7 +51,7 @@
         <mj-section>
           <mj-column padding="0px">
             <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, helvetica, Arial, sans-serif">
-              <p>There is nothing in your Volunteer Scotland opportunity alert today</p>
+              <p>There is nothing in your Volunteer Scotland Search alert today</p>
             </mj-text>
           </mj-column>
         </mj-section>

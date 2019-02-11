@@ -1,8 +1,8 @@
 {
-  "name": "sign_up_review",
-  "pattern": "/sign-up/review",
+  "name": "skill_up_toolkit",
+  "pattern": "/skill-up/toolkit",
   "metaData": {
-    "title": "Sign up for the Essential Digital Skills for Scotland project"
+    "title": "Toolkit – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.sign-up-form-annual",
+              "body": ">context.metaData.handlebars.templates.skill-up_toolkit",
               "foot": ""
             },
             "contentType": "text/html"

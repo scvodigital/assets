@@ -68,7 +68,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.signatory-search",
+              "body": ">context.metaData.handlebars.templates.signatories_signatory-search",
               "foot": ""
             },
             "contentType": "text/html"

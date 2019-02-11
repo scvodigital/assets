@@ -56,7 +56,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.signatory",
+              "body": ">context.metaData.handlebars.templates.signatories_signatory",
               "foot": ""
             },
             "contentType": "text/html"

@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.the-charter",
+              "body": ">context.metaData.handlebars.templates.the-charter_the-charter",
               "foot": ""
             },
             "contentType": "text/html"

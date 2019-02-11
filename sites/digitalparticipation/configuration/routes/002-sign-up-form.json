@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.sign-up-form",
+              "body": ">context.metaData.handlebars.templates.sign-up_form",
               "foot": ""
             },
             "contentType": "text/html"

@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skill-up",
+              "body": ">context.metaData.handlebars.templates.skill-up_skill-up",
               "foot": ""
             },
             "contentType": "text/html"

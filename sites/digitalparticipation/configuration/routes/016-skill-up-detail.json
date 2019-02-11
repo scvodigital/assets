@@ -1,8 +1,8 @@
 {
-  "name": "stories",
-  "pattern": "/stories",
+  "name": "skill_up_detail",
+  "pattern": "/skill-up/:slug",
   "metaData": {
-    "title": "Stories – Scotland's Digital Participation Charter"
+    "title": "Skill up – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.stories_stories",
+              "body": ">context.metaData.handlebars.templates.skill-up_detail",
               "foot": ""
             },
             "contentType": "text/html"

@@ -19,7 +19,7 @@ $brand-skills:                      #6beda0;
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
 $mdc-theme-footer: #37474F;
-$mdc-theme-footer-light: #455A64;
+$mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238;
 
 // Base variables
@@ -1056,11 +1056,11 @@ footer {
   --mdc-layout-grid-gutter-tablet: 1rem;
   --mdc-layout-grid-margin-phone: 1rem;
   --mdc-layout-grid-gutter-phone: 1rem;
-  color: white;
   background-color: $mdc-theme-footer-dark;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
+    color: $mdc-theme-footer;
     font-size: 1.05rem;
   }
   h3, a, strong {
@@ -1072,8 +1072,7 @@ footer {
   }
   .footer-main {
     padding: 0 0 $unit/2;
-    border-top: $unit solid $brand-typography;
-    background-color: $mdc-theme-footer;
+    background-color: $mdc-theme-footer-light;
     // background-image: linear-gradient(
     // -120deg,
     // $scvo-background,
@@ -1091,24 +1090,26 @@ footer {
     // $brand-typography $unit*4.55,
     // $brand-typography
     // );
-    box-shadow: $toolbar-shadow-reverse;
-    // border-top: $unit*(0.6) solid white;
+    // box-shadow: $toolbar-shadow-reverse;
+    border-top: 0.4rem solid white;
     // background-image: linear-gradient(160deg, $brand-typography, $brand-typography 60%, $scvo-background 110%, $scvo-background);
   }
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: $unit 0;
     padding-bottom: $unit/2;
-    border-bottom: $unit/5 solid $mdc-theme-footer-light;
-    color: white;
+    color: $mdc-theme-footer;
+    font-weight: $heading-font-weight;
+    text-transform: uppercase;
   }
   a {
-    color: white;
+    color: $mdc-theme-footer;
     text-decoration: none;
-    // font-weight: 400;
   }
-  a:hover {
-    color: white;
+  a:hover,
+  a:active,
+  a:focus {
+    color: $mdc-theme-footer;
     text-decoration: underline;
   }
   .mdc-list .mdc-list-item a:hover {
@@ -1156,9 +1157,19 @@ footer {
   .footer-copyright {
     background-color: $mdc-theme-footer-dark;
     padding-bottom: $unit/2;
+    .container-fluid {
+      padding: $unit 0 .9rem;
+    }
     p {
       font-size: 0.9rem;
-      margin: 0.7rem 0 0;
+      margin: 0;
+    }
+    p,
+    a,
+    a:hover,
+    a:active,
+    a:focus {
+      color: white;
     }
   }
   .logo.scvo {

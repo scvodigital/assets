@@ -3,52 +3,52 @@
     "label": "Activities",
     "termGroups": {
       "advice-and-justice": {
-        "label": "Advice and justice",
+        "label": "Advice & justice",
         "terms": {
           "advice-and-information": {
-            "label": "Advice and information ",
-            "textBag": "Advice and information "
+            "label": "Advice & information",
+            "textBag": "Advice information"
           },
           "advocacy": {
             "label": "Advocacy",
             "textBag": "Advocacy"
           },
           "befriending-and-mentoring": {
-            "label": "Befriending and mentoring",
-            "textBag": "Befriending and mentoring"
+            "label": "Befriending & mentoring",
+            "textBag": "Befriending mentoring"
           },
           "financial-advice-and-support": {
-            "label": "Financial advice and support",
-            "textBag": "Financial advice and support"
+            "label": "Financial advice & support",
+            "textBag": "Financial advice support"
           },
           "campaigning": {
             "label": "Campaigning",
             "textBag": "Campaigning"
           },
           "justice-and-law": {
-            "label": "Justice and law",
-            "textBag": "Justice and law"
+            "label": "Justice & law",
+            "textBag": "Justice law"
           }
         }
       },
       "arts-culture-and-recreation": {
-        "label": "Arts, Culture and Recreation",
+        "label": "Arts, Culture & Recreation",
         "terms": {
           "arts-and-culture": {
-            "label": "Arts and culture",
-            "textBag": "Arts and culture"
+            "label": "Arts & culture",
+            "textBag": "Arts culture"
           },
           "heritage-and-building-preservation": {
-            "label": "Heritage and building preservation",
-            "textBag": "Heritage and building preservation"
+            "label": "Heritage & building preservation",
+            "textBag": "Heritage building preservation"
           },
           "sport-and-physical-activity": {
-            "label": "Sport and physical activity",
-            "textBag": "Sport and physical activity"
+            "label": "Sport & physical activity",
+            "textBag": "Sport physical activity"
           },
           "recreation-and-social-activities": {
-            "label": "Recreation and social activities",
-            "textBag": "Recreation and social activities"
+            "label": "Recreation & social activities",
+            "textBag": "Recreation social activities"
           },
           "religious-activities": {
             "label": "Religious activities",
@@ -57,15 +57,15 @@
         }
       },
       "community-support-and-development": {
-        "label": "Community Support and Development",
+        "label": "Community Support & Development",
         "terms": {
           "citizenship-and-community-involvement": {
-            "label": "Citizenship and community involvement",
-            "textBag": "Citizenship and community involvement"
+            "label": "Citizenship & community involvement",
+            "textBag": "Citizenship community involvement"
           },
           "community-development-and-regeneration": {
-            "label": "Community development and regeneration",
-            "textBag": "Community development and regeneration"
+            "label": "Community development & regeneration",
+            "textBag": "Community development regeneration"
           },
           "community-facilities": {
             "label": "Community facilities",
@@ -80,21 +80,21 @@
             "textBag": "Transport"
           },
           "disaster-and-emergency-services": {
-            "label": "Disaster and emergency services",
-            "textBag": "Disaster and emergency services"
+            "label": "Disaster & emergency services",
+            "textBag": "Disaster emergency services"
           },
           "organisation-development-and-capacity-building": {
-            "label": "Organisation development and capacity building",
-            "textBag": "Organisation development and capacity building"
+            "label": "Organisation development & capacity building",
+            "textBag": "Organisation development capacity building"
           }
         }
       },
       "education-training-and-research": {
-        "label": "Education, training and research",
+        "label": "Education, training & research",
         "terms": {
           "education-and-training": {
-            "label": "Education and training",
-            "textBag": "Education and training"
+            "label": "Education & training",
+            "textBag": "Education training"
           },
           "employability-services": {
             "label": "Employability services",
@@ -105,13 +105,13 @@
             "textBag": "Research"
           },
           "science-and-technology": {
-            "label": "Science and technology",
-            "textBag": "Science and technology"
+            "label": "Science & technology",
+            "textBag": "Science & technology"
           }
         }
       },
       "environment-and-animals": {
-        "label": "Environment and animals",
+        "label": "Environment & animals",
         "terms": {
           "animal-welfare": {
             "label": "Animal welfare",
@@ -128,35 +128,35 @@
         }
       },
       "health-and-social-care": {
-        "label": "Health and social care",
+        "label": "Health & social care",
         "terms": {
           "health-care-and-wellbeing": {
-            "label": "Health care and wellbeing",
-            "textBag": "Health care and wellbeing"
+            "label": "Health care & wellbeing",
+            "textBag": "Health care wellbeing"
           },
           "health-education-and-promotion": {
-            "label": "Health education and promotion",
-            "textBag": "Health education and promotion"
+            "label": "Health education & promotion",
+            "textBag": "Health education promotion"
           },
           "heritage-and-building-preservation": {
-            "label": "Heritage and building preservation",
-            "textBag": "Heritage and building preservation"
+            "label": "Heritage & building preservation",
+            "textBag": "Heritage building preservation"
           },
           "mental-health-care": {
             "label": "Mental health care",
             "textBag": "Mental health care"
           },
           "social-care-and-welfare": {
-            "label": "Social care and welfare",
-            "textBag": "Social care and welfare"
+            "label": "Social care & welfare",
+            "textBag": "Social care welfare"
           },
           "respite-and-holidays": {
-            "label": "Respite and holidays",
-            "textBag": "Respite and holidays"
+            "label": "Respite & holidays",
+            "textBag": "Respite holidays"
           },
           "housing-and-shelter": {
-            "label": "Housing and shelter",
-            "textBag": "Housing and shelter"
+            "label": "Housing & shelter",
+            "textBag": "Housing shelter"
           }
         }
       }
@@ -183,7 +183,7 @@
         }
       },
       "gender-and-relationships": {
-        "label": "Gender and relationships",
+        "label": "Gender & relationships",
         "terms": {
           "lgbtqi": {
             "label": "LGBTQI",
@@ -202,8 +202,8 @@
             "textBag": "Families"
           },
           "women-and-girls": {
-            "label": "Women and girls",
-            "textBag": "Women and girls"
+            "label": "Women & girls",
+            "textBag": "Women girls"
           }
         }
       },
@@ -248,8 +248,8 @@
             "textBag": "Economically/socially disadvantaged"
           },
           "socially-isolated": {
-            "label": "Socially isolated ",
-            "textBag": "Socially isolated "
+            "label": "Socially isolated",
+            "textBag": "Socially isolated"
           },
           "care-experienced": {
             "label": "Care experienced",
@@ -260,32 +260,32 @@
             "textBag": "Homeless or badly housed"
           },
           "unemployed": {
-            "label": "Unemployed ",
-            "textBag": "Unemployed "
+            "label": "Unemployed",
+            "textBag": "Unemployed"
           },
           "addicts-and-misusers": {
-            "label": "Addicts and Misusers",
-            "textBag": "Addicts and Misusers"
+            "label": "Addicts & Misusers",
+            "textBag": "Addicts Misusers"
           },
           "victims-of-crime-and-abuse": {
-            "label": "Victims of crime and abuse",
-            "textBag": "Victims of crime and abuse"
+            "label": "Victims of crime & abuse",
+            "textBag": "Victims of crime abuse"
           },
           "veterans-and-armed-forces-personnel": {
-            "label": "Veterans and armed forces personnel",
-            "textBag": "Veterans and armed forces personnel"
+            "label": "Veterans & armed forces personnel",
+            "textBag": "Veterans armed forces personnel"
           },
           "offenders-and-ex-offenders": {
-            "label": "Offenders and ex-offenders",
-            "textBag": "Offenders and ex-offenders"
+            "label": "Offenders & ex-offenders",
+            "textBag": "Offenders ex-offenders"
           },
           "refugees-and-asylum-seekers": {
-            "label": "Refugees and asylum seekers",
-            "textBag": "Refugees and asylum seekers"
+            "label": "Refugees & asylum seekers",
+            "textBag": "Refugees asylum seekers"
           },
           "black-and-ethnic-minorities": {
-            "label": "Black and Ethnic Minorities",
-            "textBag": "Black and Ethnic Minorities"
+            "label": "Black & Ethnic Minorities",
+            "textBag": "Black Ethnic Minorities"
           }
         }
       },
@@ -322,8 +322,8 @@
             "textBag": "Third sector organisations"
           },
           "religious-and-belief-groups": {
-            "label": "Religious and Belief Groups",
-            "textBag": "Religious and Belief Groups"
+            "label": "Religious & Belief Groups",
+            "textBag": "Religious Belief Groups"
           }
         }
       }
@@ -446,7 +446,7 @@
         "terms": {
           "argyll-bute": {
             "label": "Argyll & Bute",
-            "textBag": "Argyll & Bute"
+            "textBag": "Argyll Bute"
           },
           "highland": {
             "label": "Highland",
@@ -475,7 +475,7 @@
         "terms": {
           "dumfries-galloway": {
             "label": "Dumfries & Galloway",
-            "textBag": "Dumfries & Galloway"
+            "textBag": "Dumfries Galloway"
           },
           "scottish-borders": {
             "label": "Scottish Borders",

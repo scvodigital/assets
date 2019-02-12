@@ -12,10 +12,10 @@
     </div>
     {{#if @root.data.auth ~}}
     {{#each @root.data.supplimentaryResponses.funds_open.hits.hits ~}}
-    {{> fund_list _source}}
+    {{> fund_list _source actions="more-fund,lists,hide-fund"}}
     {{/each ~}}
     {{else}}
-    {{> fund_list @root.data.supplimentaryResponses.funds_open.hits.hits.0._source}}
+    {{> fund_list @root.data.supplimentaryResponses.funds_open.hits.hits.0._source actions="more-fund,lists,hide-fund"}}
     {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 1 ~}}
     <div class="mdc-typography--body1 v-margin-full b-padding-full">
       To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more open {{inflect (subtract @root.data.supplimentaryResponses.funds_open.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
@@ -33,10 +33,10 @@
     </div>
     {{#if @root.data.auth ~}}
     {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
-    {{> fund_list _source}}
+    {{> fund_list _source actions="more-fund,lists,hide-fund"}}
     {{/each ~}}
     {{else}}
-    {{> fund_list @root.data.supplimentaryResponses.funds_closed.hits.hits.0._source}}
+    {{> fund_list @root.data.supplimentaryResponses.funds_closed.hits.hits.0._source actions="more-fund,lists,hide-fund"}}
     {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 1 ~}}
     <div class="mdc-typography--body1 v-margin-full b-padding-full">
       To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more closed {{inflect (subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.

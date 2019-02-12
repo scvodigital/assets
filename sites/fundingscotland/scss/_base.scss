@@ -216,6 +216,11 @@ header {
 .saved-search-remove:hover .far {
   color: $mdc-theme-error !important;
 }
+.content-settings-account {
+  .mdc-button.mdc-button--delete {
+    background-color: $mdc-theme-error !important;
+  }
+}
 
 .icon-toggle-off {
   color: #999999;

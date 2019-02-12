@@ -191,21 +191,21 @@ var d = [
       value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s1w}}{{else}}{{@root.request.params.query.s1}}{{/compare}}
     },
     {
-      axis: "Handling info",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s2w}}{{else}}{{@root.request.params.query.s2}}{{/compare}}
-    },
-    {
-      axis: "Problem solving",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s3w}}{{else}}{{@root.request.params.query.s3}}{{/compare}}
+      axis: "Staying safe",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s5w}}{{else}}{{@root.request.params.query.s5}}{{/compare}}
     },
     {
       axis: "Transacting",
       value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s4w}}{{else}}{{@root.request.params.query.s4}}{{/compare}}
     },
     {
-      axis: "Staying safe",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s5w}}{{else}}{{@root.request.params.query.s5}}{{/compare}}
+      axis: "Problem solving",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s3w}}{{else}}{{@root.request.params.query.s3}}{{/compare}}
     },
+    {
+      axis: "Handling info",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s2w}}{{else}}{{@root.request.params.query.s2}}{{/compare}}
+    }
   ]
 ];
 

@@ -1,415 +1,237 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner title">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
       <h1>Toolkit</h1>
       <p>
-        essential skills results
+        Thanks for taking the Essential Digital Skills survey. If your skills aren't what you'd like them to be, you can find more resources on improving them here:
       </p>
-      <ol>
-        <li>{{@root.request.params.query.s1}}</li>
-        <li>{{@root.request.params.query.s2}}</li>
-        <li>{{@root.request.params.query.s3}}</li>
-        <li>{{@root.request.params.query.s4}}</li>
-        <li>{{@root.request.params.query.s5}}</li>
-        <li>{{@root.request.params.query.s6}}</li>
-        <li>{{@root.request.params.query.s7}}</li>
-        <li>{{@root.request.params.query.s8}}</li>
-      </ol>
-      <div class="radarChart"></div>
-
-      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png" alt="The Essentials illustration" class="responsive-img hide-on-med-and-up" />
+      <ul>
+        <li><a href="http://www.letsgetonline.scot">Let’s Get Online</a></li>
+        <li><a href="http://www.learnmyway.com">Learn My Way</a></li>
+        <li><a href="http://www.digitalunite.com">Digital Unite</a></li>
+        <li><a href="http://www.learndigital.withgoogle.com/digitalgarage">Google Garage</a></li>
+      </ul>
     </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet">
-      &nbsp;
-    </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png" alt="The Essentials illustration" class="responsive-img" />
+    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="radarChart responsive-img pull-right" style="margin-top:3rem;background-image:url('{{> asset_url url='images/toolkit-essential-wheel.png'}}');background-repeat: no-repeat;background-position:center center;height:320px;width:320px;"></div>
     </div>
   </div>
 </div>
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script>
 
-/////////////////////////////////////////////////////////
-/////////////// The Radar Chart Function ////////////////
-/////////////// Written by Nadieh Bremer ////////////////
-////////////////// VisualCinnamon.com ///////////////////
-/////////// Inspired by the code of alangrafu ///////////
-/////////////////////////////////////////////////////////
+//Practically all this code comes from https://github.com/alangrafu/radar-chart-d3
+//I only made some additions and aesthetic adjustments to make the chart look better
+//(of course, that is only my point of view)
+//Such as a better placement of the titles at each line end,
+//adding numbers that reflect what each circular level stands for
+//Not placing the last level and slight differences in color
+//
+//For a bit of extra information check the blog about it:
+//http://nbremer.blogspot.nl/2013/09/making-d3-radar-chart-look-bit-better.html
 
-function RadarChart(id, data, options) {
-	var cfg = {
-	 w: 600,				//Width of the circle
-	 h: 600,				//Height of the circle
-	 margin: {top: 5, right: 5, bottom: 5, left: 5}, //The margins of the SVG
-	 levels: 4,				//How many levels or inner circles should there be drawn
-	 maxValue: 0, 			//What is the value that the biggest circle will represent
-	 labelFactor: 1.2, 	//How much farther than the radius of the outer circle should the labels be placed
-	 wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
-	 opacityArea: 0.35, 	//The opacity of the area of the blob
-	 dotRadius: 8, 			//The size of the colored circles of each blog
-	 opacityCircles: 0.1, 	//The opacity of the circles of each blob
-	 strokeWidth: 2, 		//The width of the stroke around each blob
-	 roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
-	 color: d3.scale.category10()	//Color function
-	};
+var RadarChart = {
+  draw: function(id, d, options){
+    var cfg = {
+      radius: 5,
+      w: 320,
+      h: 320,
+      factor: 1,
+      factorLegend: .85,
+      levels: 3,
+      maxValue: 0,
+      radians: 2 * Math.PI,
+      opacityArea: 0,
+      ToRight: 5,
+      TranslateX: 0,
+      TranslateY: 0,
+      ExtraWidthX: 0,
+      ExtraWidthY: 0,
+      color: d3.scale.category10()
+    };
 
-	//Put all of the options into a variable called cfg
-	if('undefined' !== typeof options){
-	  for(var i in options){
-		if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
-	  }//for i
-	}//if
+    if('undefined' !== typeof options){
+      for(var i in options){
+        if('undefined' !== typeof options[i]){
+          cfg[i] = options[i];
+        }
+      }
+    }
+    cfg.maxValue = Math.max(cfg.maxValue, d3.max(d, function(i){return d3.max(i.map(function(o){return o.value;}))}));
+    var allAxis = (d[0].map(function(i, j){return i.axis}));
+    var total = allAxis.length;
+    var radius = cfg.factor*Math.min(cfg.w/2, cfg.h/2);
+    var Format = d3.format('');
+    d3.select(id).select("svg").remove();
 
-	//If the supplied maxValue is smaller than the actual one, replace by the max in the data
-	var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(o){return o.value;}))}));
+    var g = d3.select(id)
+    .append("svg")
+    .attr("width", cfg.w+cfg.ExtraWidthX)
+    .attr("height", cfg.h+cfg.ExtraWidthY)
+    .append("g")
+    .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
+    ;
 
-	var allAxis = (data[0].map(function(i, j){return i.axis})),	//Names of each axis
-		total = allAxis.length,					//The number of different axes
-		radius = Math.min(cfg.w/2, cfg.h/2), 	//Radius of the outermost circle
-		Format = d3.format('%'),			 	//Percentage formatting
-		angleSlice = Math.PI * 2 / total;		//The width in radians of each "slice"
+    var tooltip;
 
-	//Scale for the radius
-	var rScale = d3.scale.linear()
-		.range([0, radius])
-		.domain([0, maxValue]);
+    //Circular segments
+    g.selectAll(".levels")
+    .data(d3.range(1,(cfg.levels+1)).reverse())
+    .enter()
+    .append("circle")
+    .attr("class", "gridCircle")
+    .attr("r", function(d, i){return radius/cfg.levels*d;})
+    .style("stroke", "#8FC9DC")
+    .style("stroke-opacity", "1")
+    .style("stroke-width", "1px")
+    .style("fill-opacity", "0")
+    .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
+    ;
 
-	/////////////////////////////////////////////////////////
-	//////////// Create the container SVG and g /////////////
-	/////////////////////////////////////////////////////////
+    series = 0;
 
-	//Remove whatever chart with the same id/class was present before
-	d3.select(id).select("svg").remove();
+    var axis = g.selectAll(".axis")
+    .data(allAxis)
+    .enter()
+    .append("g")
+    .attr("class", "axis");
 
-	//Initiate the radar chart SVG
-	var svg = d3.select(id).append("svg")
-			.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-			.attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
-			.attr("class", "radar"+id);
-	//Append a g element
-	var g = svg.append("g")
-			.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
+    axis.append("line")
+    .attr("x1", cfg.w/2)
+    .attr("y1", cfg.h/2)
+    .attr("x2", function(d, i){return cfg.w/2*(1-cfg.factor*Math.sin(i*cfg.radians/total));})
+    .attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
+    .attr("class", "line")
+    .style("stroke", "#8FC9DC")
+    .style("stroke-width", "1px");
 
-	/////////////////////////////////////////////////////////
-	////////// Glow filter for some extra pizzazz ///////////
-	/////////////////////////////////////////////////////////
+    d.forEach(function(y, x){
+      dataValues = [];
+      g.selectAll(".nodes")
+      .data(y, function(j, i){
+        dataValues.push([
+          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+        ]);
+      });
+      dataValues.push(dataValues[0]);
+      g.selectAll(".area")
+      .data([dataValues])
+      .enter()
+      .append("polygon")
+      .attr("class", "radar-chart-serie"+series)
+      .style("stroke-width", "2px")
+      .style("stroke", "white")
+      .attr("points",function(d) {
+        var str="";
+        for(var pti=0;pti<d.length;pti++){
+          str=str+d[pti][0]+","+d[pti][1]+" ";
+        }
+        return str;
+      })
+      .style("fill", function(j, i){return "white"})
+      .style("fill-opacity", "0")
+      .on('mouseover', function (d){
+        z = "polygon."+d3.select(this).attr("class");
+        g.selectAll("polygon")
+        .transition(200)
+        .style("fill-opacity", cfg.opacityArea);
+        g.selectAll(z)
+        .transition(200)
+        .style("fill-opacity", cfg.opacityArea);
+      })
+      .on('mouseout', function(){
+        g.selectAll("polygon")
+        .transition(200)
+        .style("fill-opacity", cfg.opacityArea);
+      });
+      series++;
+    });
+    series=0;
 
-	//Filter for the outside glow
-	var filter = g.append('defs').append('filter').attr('id','glow'),
-		feGaussianBlur = filter.append('feGaussianBlur').attr('stdDeviation','2.5').attr('result','coloredBlur'),
-		feMerge = filter.append('feMerge'),
-		feMergeNode_1 = feMerge.append('feMergeNode').attr('in','coloredBlur'),
-		feMergeNode_2 = feMerge.append('feMergeNode').attr('in','SourceGraphic');
 
-	/////////////////////////////////////////////////////////
-	/////////////// Draw the Circular grid //////////////////
-	/////////////////////////////////////////////////////////
+    d.forEach(function(y, x){
+      g.selectAll(".nodes")
+      .data(y).enter()
+      .append("svg:circle")
+      .attr("class", "radar-chart-serie"+series)
+      .attr('r', cfg.radius)
+      .attr("alt", function(j){return Math.max(j.value, 0)})
+      .attr("cx", function(j, i){
+        dataValues.push([
+          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)),
+          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+        ]);
+        return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));
+      })
+      .attr("cy", function(j, i){
+        return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
+      })
+      .attr("data-id", function(j){return j.axis})
+      .style("fill", "white").style("fill-opacity", 1)
+      .append("svg:title")
+      .text(function(j){return Math.max(j.value, 0)});
 
-	//Wrapper for the grid & axes
-	var axisGrid = g.append("g").attr("class", "axisWrapper");
+      series++;
+    });
+  }
+};
 
-	//Draw the background circles
-	axisGrid.selectAll(".levels")
-	   .data(d3.range(1,(cfg.levels+1)).reverse())
-	   .enter()
-		.append("circle")
-		.attr("class", "gridCircle")
-		.attr("r", function(d, i){return radius/cfg.levels*d;})
-		.style("fill", "#CDCDCD")
-		.style("stroke", "#CDCDCD")
-		.style("fill-opacity", cfg.opacityCircles)
-		.style("filter" , "url(#glow)");
-
-	//Text indicating at what % each level is
-	axisGrid.selectAll(".axisLabel")
-	   .data(d3.range(1,(cfg.levels+1)).reverse())
-	   .enter().append("text")
-	   .attr("class", "axisLabel")
-	   .attr("x", 4)
-	   .attr("y", function(d){return -d*radius/cfg.levels;})
-	   .attr("dy", "0.4em")
-	   .style("font-size", "10px")
-	   .attr("fill", "#737373")
-	   .text(function(d,i) { return Format(maxValue * d/cfg.levels); });
-
-	/////////////////////////////////////////////////////////
-	//////////////////// Draw the axes //////////////////////
-	/////////////////////////////////////////////////////////
-
-	//Create the straight lines radiating outward from the center
-	var axis = axisGrid.selectAll(".axis")
-		.data(allAxis)
-		.enter()
-		.append("g")
-		.attr("class", "axis");
-	//Append the lines
-	axis.append("line")
-		.attr("x1", 0)
-		.attr("y1", 0)
-		.attr("x2", function(d, i){ return rScale(maxValue*1.1) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i - Math.PI/2); })
-		.attr("class", "line")
-		.style("stroke", "white")
-		.style("stroke-width", "2px");
-
-	//Append the labels at each axis
-	axis.append("text")
-		.attr("class", "legend")
-    .style("font-size", "1rem")
-    .style("font-variant", "all-small-caps")
-		.attr("text-anchor", "middle")
-		.attr("dy", "0.35em")
-		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
-		.text(function(d){return d})
-		.call(wrap, cfg.wrapWidth);
-
-	/////////////////////////////////////////////////////////
-	///////////// Draw the radar chart blobs ////////////////
-	/////////////////////////////////////////////////////////
-
-	//The radial line function
-	var radarLine = d3.svg.line.radial()
-		.interpolate("linear-closed")
-		.radius(function(d) { return rScale(d.value); })
-		.angle(function(d,i) {	return i*angleSlice; });
-
-	if(cfg.roundStrokes) {
-		radarLine.interpolate("cardinal-closed");
-	}
-
-	//Create a wrapper for the blobs
-	var blobWrapper = g.selectAll(".radarWrapper")
-		.data(data)
-		.enter().append("g")
-		.attr("class", "radarWrapper");
-
-	//Append the backgrounds
-	blobWrapper
-		.append("path")
-		.attr("class", "radarArea")
-		.attr("d", function(d,i) { return radarLine(d); })
-		.style("fill", function(d,i) { return cfg.color(i); })
-		.style("fill-opacity", cfg.opacityArea)
-		.on('mouseover', function (d,i){
-			//Dim all blobs
-			d3.selectAll(".radarArea")
-				.transition().duration(200)
-				.style("fill-opacity", 0.1);
-			//Bring back the hovered over blob
-			d3.select(this)
-				.transition().duration(200)
-				.style("fill-opacity", 0.7);
-		})
-		.on('mouseout', function(){
-			//Bring back all blobs
-			d3.selectAll(".radarArea")
-				.transition().duration(200)
-				.style("fill-opacity", cfg.opacityArea);
-		});
-
-	//Create the outlines
-	blobWrapper.append("path")
-		.attr("class", "radarStroke")
-		.attr("d", function(d,i) { return radarLine(d); })
-		.style("stroke-width", cfg.strokeWidth + "px")
-		.style("stroke", function(d,i) { return cfg.color(i); })
-		.style("fill", "none")
-		.style("filter" , "url(#glow)");
-
-	//Append the circles
-	blobWrapper.selectAll(".radarCircle")
-		.data(function(d,i) { return d; })
-		.enter().append("circle")
-		.attr("class", "radarCircle")
-		.attr("r", cfg.dotRadius)
-		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-		.style("fill", function(d,i,j) { return cfg.color(j); })
-		.style("fill-opacity", 0.8);
-
-	/////////////////////////////////////////////////////////
-	//////// Append invisible circles for tooltip ///////////
-	/////////////////////////////////////////////////////////
-
-	//Wrapper for the invisible circles on top
-	var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
-		.data(data)
-		.enter().append("g")
-		.attr("class", "radarCircleWrapper");
-
-	//Append a set of invisible circles on top for the mouseover pop-up
-	blobCircleWrapper.selectAll(".radarInvisibleCircle")
-		.data(function(d,i) { return d; })
-		.enter().append("circle")
-		.attr("class", "radarInvisibleCircle")
-		.attr("r", cfg.dotRadius*1.5)
-		.attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
-		.attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-		.style("fill", "none")
-		.style("pointer-events", "all")
-		.on("mouseover", function(d,i) {
-			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
-
-			tooltip
-				.attr('x', newX)
-				.attr('y', newY)
-				.text(Format(d.value))
-				.transition().duration(200)
-				.style('opacity', 1);
-		})
-		.on("mouseout", function(){
-			tooltip.transition().duration(200)
-				.style("opacity", 0);
-		});
-
-	//Set up the small tooltip for when you hover over a circle
-	var tooltip = g.append("text")
-		.attr("class", "tooltip")
-		.style("opacity", 0);
-
-	/////////////////////////////////////////////////////////
-	/////////////////// Helper Function /////////////////////
-	/////////////////////////////////////////////////////////
-
-	//Taken from http://bl.ocks.org/mbostock/7555321
-	//Wraps SVG text
-	function wrap(text, width) {
-	  text.each(function() {
-		var text = d3.select(this),
-			words = text.text().split(/\s+/).reverse(),
-			word,
-			line = [],
-			lineNumber = 0,
-			lineHeight = 1.4, // ems
-			y = text.attr("y"),
-			x = text.attr("x"),
-			dy = parseFloat(text.attr("dy")),
-			tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
-
-		while (word = words.pop()) {
-		  line.push(word);
-		  tspan.text(line.join(" "));
-		  if (tspan.node().getComputedTextLength() > width) {
-			line.pop();
-			tspan.text(line.join(" "));
-			line = [word];
-			tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-		  }
-		}
-	  });
-	}//wrap
-
-}//RadarChart
 </script>
 <script>
 
-  /* Radar chart design created by Nadieh Bremer - VisualCinnamon.com */
+var colorscale = d3.scale.category10();
 
-  //////////////////////////////////////////////////////////////
-  //////////////////////// Set-Up //////////////////////////////
-  //////////////////////////////////////////////////////////////
+//Data
+var d = [
+  [
+    {
+      axis: "Communicating",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s1w}}{{else}}{{@root.request.params.query.s1}}{{/compare}}
+    },
+    {
+      axis: "Handling info",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s2w}}{{else}}{{@root.request.params.query.s2}}{{/compare}}
+    },
+    {
+      axis: "Problem solving",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s3w}}{{else}}{{@root.request.params.query.s3}}{{/compare}}
+    },
+    {
+      axis: "Transacting",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s4w}}{{else}}{{@root.request.params.query.s4}}{{/compare}}
+    },
+    {
+      axis: "Staying safe",
+      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s5w}}{{else}}{{@root.request.params.query.s5}}{{/compare}}
+    },
+  ]
+];
 
-  var margin = {top: 75, right: 75, bottom: 20, left: 75},
-    width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-    height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+//Options for the Radar chart, other than default
+var mycfg = {
+  w: 240,
+  h: 240,
+  maxValue: 3,
+  levels: 3,
+  TranslateX: 40,
+  TranslateY: 40,
+  ExtraWidthX: 80,
+  ExtraWidthY: 80
+}
 
-  //////////////////////////////////////////////////////////////
-  ////////////////////////// Data //////////////////////////////
-  //////////////////////////////////////////////////////////////
+//Call function to draw the Radar chart
+RadarChart.draw(".radarChart", d, mycfg);
 
-  var data = [
-    [//Average scores
-      {{#compare @root.request.params.query.income_band "===" "0" ~}}
-      {
-        axis:"Overall",
-        value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}/100
-      },
-      {
-        axis:"Leadership",
-        value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}/100
-      },
-      {
-        axis:"Tools",
-        value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}/100
-      },
-      {
-        axis:"Data",
-        value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}/100
-      },
-      {
-        axis:"Cyber",
-        value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}/100
-      }
-      {{else}}
-      {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-      {{#compare this.key "===" @root.request.params.query.income_band ~}}
-      {
-        axis:"Overall",
-        value:{{round this.total_stats.avg "up"}}/100
-      },
-      {
-        axis:"Leadership",
-        value:{{round this.leadership_culture_and_skills_stats.avg "up"}}/100
-      },
-      {
-        axis:"Tools",
-        value:{{round this.tools_and_equipment_stats.avg "up"}}/100
-      },
-      {
-        axis:"Data",
-        value:{{round this.content_marketing_and_data_stats.avg "up"}}/100
-      },
-      {
-        axis:"Cyber",
-        value:{{round this.cyber_resilience_stats.avg "up"}}/100
-      }
-      {{/compare ~}}
-      {{/each ~}}
-      {{/compare ~}}
-    ],[//Your scores
-      {
-        axis:"Overall",
-        value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}/100
-      },
-      {
-        axis:"Leadership",
-        value:{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}/100
-      },
-      {
-        axis:"Tools",
-        value:{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}/100
-      },
-      {
-        axis:"Data",
-        value:{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}/100
-      },
-      {
-        axis:"Cyber",
-        value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}/100
-      }
-    ]
-  ];
-  //////////////////////////////////////////////////////////////
-  //////////////////// Draw the Chart //////////////////////////
-  //////////////////////////////////////////////////////////////
+////////////////////////////////////////////
+/////////// Initiate legend ////////////////
+////////////////////////////////////////////
 
-  var color = d3.scale.ordinal()
-    .range(["#EDC951","#1976D2"]);
+var svg = d3.select('#body')
+.selectAll('svg')
+.append('svg')
+.attr("width", w)
+.attr("height", h)
 
-  var radarChartOptions = {
-    w: width,
-    h: height,
-    margin: margin,
-    maxValue: 0,
-    levels: 5,
-    roundStrokes: true,
-    color: color
-  };
-  //Call function to draw the Radar chart
-  RadarChart(".radarChart", data, radarChartOptions);
 </script>

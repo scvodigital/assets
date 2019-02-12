@@ -44,17 +44,19 @@
                   </div>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
-                  <div class="mdc-select">
-                    <i class="mdc-select__dropdown-icon"></i>
+                  <div class="mdc-select mdc-elevation--z2" data-mdc-auto-init="MDCSelect">
+                    <span class="mdc-select__dropdown-icon"></span>
                     <select class="mdc-select__native-control" id="grant-ccrf-call" name="call">
-                      <option value="" selected>All funding rounds</option>
+                      <option value=""{{#if @root.request.params.query.call}}{{else}} selected{{/if}}></option>
                       {{#each @root.data.supplimentaryResponses.types.aggregations.calls.buckets ~}}
                       <option value="{{slugify key}}"{{#compare @root.request.params.query.call "===" (slugify key)}} selected{{/compare}}>
                         {{key}} ({{doc_count}})
                       </option>
                       {{/each ~}}
                     </select>
-                    <label class="mdc-floating-label mdc-floating-label--float-above">Funding round</label>
+                    <label class="mdc-floating-label" for="call">
+                      Funding round
+                    </label>
                     <div class="mdc-line-ripple"></div>
                   </div>
                 </div>
@@ -64,7 +66,7 @@
 
           <hr />
 
-          <div class="mdc-layout-grid equal-height">
+          <div class="mdc-layout-grid equal-height b-margin-full">
             <div class="mdc-layout-grid__inner">
               {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
               {{#each @root.data.primaryResponse.hits.hits ~}}

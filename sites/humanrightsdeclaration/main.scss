@@ -8,9 +8,9 @@ $brand-border-width: 2px;
 $mdc-theme-primary: #5C96DD;
 $mdc-theme-secondary: #2C2C2B;
 
-$mdc-theme-footer: #37474F;
-$mdc-theme-footer-light: #455A64;
-$mdc-theme-footer-dark: #263238;
+$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer-light: #E1E3E4;
+$mdc-theme-footer-dark: #263238; // Blue Gray 900
 
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
@@ -241,6 +241,7 @@ a:hover {
       padding: 0 $unit*.7;
       text-transform: none;
       display: inline-block;
+      height: 2.35rem;
       .mdc-tab--label {
         text-transform: uppercase;
         display: block;
@@ -620,16 +621,18 @@ footer {
   --mdc-layout-grid-gutter-tablet: 1rem;
   --mdc-layout-grid-margin-phone: 1rem;
   --mdc-layout-grid-gutter-phone: 1rem;
-  color: white;
-  background-color: $mdc-theme-footer;
+  color: $mdc-theme-footer;
+  background-color: $mdc-theme-footer-light;
   p, li, div {
     font-family: $footer-font-family;
     font-weight: $footer-font-weight;
     font-size: 0.9rem;
+    color: $mdc-theme-footer;
   }
   h3, a, strong {
     font-family: $footer-font-family;
     font-weight: 600;
+    color: $mdc-theme-footer;
   }
   .brand-logo {
     margin-right: $unit;
@@ -638,29 +641,34 @@ footer {
     }
   }
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
   }
   strong {
     font-weight: 600;
   }
   p {
-    color: white;
+    color: $mdc-theme-footer;
     a {
-      color: white;
+      color: $mdc-theme-footer;
       text-decoration: none;
       font-weight: 600;
       // text-decoration: underline;
     }
     a:hover {
       text-decoration: underline;
-      color: white;
+      color: $mdc-theme-footer;
     }
   }
   .footer-copyright {
     background-color: $mdc-theme-footer-dark;
     p {
+      color: white;
       font-size: 0.8rem;
       margin-bottom: 0;
+      a {
+        color: white;
+      }
     }
   }
   .container-fluid {
@@ -668,7 +676,7 @@ footer {
   }
   .footer-main {
     padding-bottom: $unit/2;
-    border-top: $unit solid $mdc-theme-primary;
+    // border-top: $unit solid $mdc-theme-primary;
     // background-image: linear-gradient(
     // -120deg,
     // #1A1A19,
@@ -680,20 +688,18 @@ footer {
     // $mdc-theme-secondary $unit*3.05,
     // $mdc-theme-secondary
     // );
-    box-shadow: $toolbar-shadow-reverse;
+    // box-shadow: $toolbar-shadow-reverse;
     // border-top: $unit/2 solid #5C96DD;
     // background-image: linear-gradient(120deg, $mdc-theme-secondary, $mdc-theme-secondary 50%, #1A1A19 95%, #1A1A19);
     // padding: $unit 0 $unit*2;
   }
   h3 {
-    font-weight: 600;
-    margin: $unit/2 0 $unit;
-    padding-bottom: $unit/2;
-    border-bottom: $unit/5 solid $mdc-theme-footer-light;
-    color: white;
+    font-weight: 800;
+    margin: $unit/2 0;
+    padding-bottom: 0;
   }
   .mdc-list .mdc-list-item a {
-    color: white;
+    color: $mdc-theme-footer;
     font-weight: 600;
   }
   .mdc-list .mdc-list-item a:hover {
@@ -716,8 +722,9 @@ footer {
   }
   p,
   .fa-ul li,
-  .mdc-list-item {
-    color: white;
+  .mdc-list-item,
+  a {
+    color: $mdc-theme-footer;
     // font-size: 1rem;
   }
   .fa-ul {

@@ -17,29 +17,29 @@
     {{else}}
     {{> fund_list @root.data.supplimentaryResponses.funds_open.hits.hits.0._source}}
     {{#compare @root.data.supplimentaryResponses.funds_open.hits.total ">" 1 ~}}
-    <div class="mdc-typography--body1 v-margin-full">
-      To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_open.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
+    <div class="mdc-typography--body1 v-margin-full b-padding-full">
+      To see {{subtract @root.data.supplimentaryResponses.funds_open.hits.total 1}} more open {{inflect (subtract @root.data.supplimentaryResponses.funds_open.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
     </div>
     {{/compare ~}}
     {{/if ~}}
     {{/compare ~}}
 
     {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 0 ~}}
-    {{#if @root.data.auth ~}}
     {{#compare @root.data.supplimentaryResponses.funds_open.hits.total "===" 0 ~}}
     <hr />
     {{/compare}}
     <div class="mdc-typography--headline5">
       Currently closed funds
     </div>
+    {{#if @root.data.auth ~}}
     {{#each @root.data.supplimentaryResponses.funds_closed.hits.hits ~}}
     {{> fund_list _source}}
     {{/each ~}}
     {{else}}
     {{> fund_list @root.data.supplimentaryResponses.funds_closed.hits.hits.0._source}}
     {{#compare @root.data.supplimentaryResponses.funds_closed.hits.total ">" 1 ~}}
-    <div class="mdc-typography--body1 v-margin-full">
-      To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more {{inflect (subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
+    <div class="mdc-typography--body1 v-margin-full b-padding-full">
+      To see {{subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1}} more closed {{inflect (subtract @root.data.supplimentaryResponses.funds_closed.hits.total 1) "fund" "funds"}}, please <a href="/sign-up">sign up</a>.
     </div>
     {{/compare ~}}
     {{/if ~}}

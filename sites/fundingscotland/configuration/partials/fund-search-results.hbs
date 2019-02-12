@@ -291,9 +291,9 @@
 
 {{#each @root.data.search_data.detailed_results.hits.hits ~}}
   {{#compare @root.route.name "===" "fund_search" ~}}
-    {{> fund_search_result _source sort=sort}}
+    {{> fund_search_result _source sort=sort actions="more-fund,hide-fund,lists"}}
   {{else}}
-    {{> fund_mini _source sort=sort}}
+    {{> fund_mini _source sort=sort actions="more-fund,hide-fund,lists"}}
   {{/compare ~}}
 {{/each ~}}
 

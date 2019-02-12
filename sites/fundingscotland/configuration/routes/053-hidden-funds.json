@@ -1,0 +1,58 @@
+{
+  "name": "hidden-funds",
+  "pattern": "/hidden-funds",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.profileData",
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "name": "saved",
+          "index": "web-content-production",
+          "type": "fundingscotland-fund",
+          "template": ">context.metaData.handlebars.queries.funds_hidden",
+          "metaData": {
+            "size": 1000
+          }
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "body": ">context.metaData.handlebars.templates.account_hidden-funds",
+              "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
+              "foot": ">context.metaData.handlebars.templates.account_hidden-funds-foot",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

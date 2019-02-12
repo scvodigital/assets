@@ -13,47 +13,50 @@
             <div class="mdc-text-field mdc-text-field--with-leading-icon">
               <span class="far fa-search mdc-text-field__icon" tabindex="0" role="button"></span>
               <input type="text" id="events-keywords" name="q" class="mdc-text-field__input" value="{{@root.request.params.query.q}}">
-              <label for="events-keywords" class="mdc-floating-label mdc-floating-label--float-above">Keywords</label>
+              <label for="events-keywords" class="mdc-floating-label">Keywords</label>
               <div class="mdc-line-ripple"></div>
             </div>
             <h3>Filter</h3>
             <div class="mdc-form-field">
-              <div class="mdc-select">
+              <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                <span class="mdc-select__dropdown-icon"></span>
                 <select class="mdc-select__native-control" id="events-course_type" name="course_type">
-                  <option value="" {{#if @root.request.params.query.course_type}}{{else}}selected{{/if}}>Any type</option>
+                  <option value=""{{#if @root.request.params.query.course_type}}{{else}} selected{{/if}}></option>
                   {{#each @root.data.supplimentaryResponses.types.aggregations.types.buckets ~}}
                   <option value="{{key}}" {{#compare @root.request.params.query.course_type "===" key}}selected{{/compare}}>{{key}}</option>
                   {{/each ~}}
                 </select>
-                <label class="mdc-floating-label mdc-floating-label--float-above">Event type</label>
+                <label class="mdc-floating-label" for="course_type">Event type</label>
                 <div class="mdc-line-ripple"></div>
               </div>
             </div>
             <div class="mdc-form-field">
-              <div class="mdc-select">
+              <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                <span class="mdc-select__dropdown-icon"></span>
                 <select class="mdc-select__native-control" id="events-month" name="month">
-                  <option value="" {{#if @root.request.params.query.month}}{{else}}selected{{/if}}>Any month</option>
+                  <option value=""{{#if @root.request.params.query.month}}{{else}} selected{{/if}}></option>
                   {{#each @root.data.supplimentaryResponses.types.aggregations.months.buckets ~}}
                   {{#if key ~}}
                   <option value="{{key}}" {{#compare @root.request.params.query.month "===" key}}selected{{/compare}}>{{key}}</option>
                   {{/if ~}}
                   {{/each ~}}
                 </select>
-                <label class="mdc-floating-label mdc-floating-label--float-above">Month</label>
+                <label class="mdc-floating-label" for="month">Month</label>
                 <div class="mdc-line-ripple"></div>
               </div>
             </div>
             <div class="mdc-form-field">
-              <div class="mdc-select">
+              <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                <span class="mdc-select__dropdown-icon"></span>
                 <select class="mdc-select__native-control" id="events-locations" name="location">
-                  <option value="" {{#if @root.request.params.query.location}}{{else}}selected{{/if}}>Any location</option>
+                  <option value=""{{#if @root.request.params.query.location}}{{else}} selected{{/if}}></option>
                   {{#each @root.data.supplimentaryResponses.types.aggregations.locations.buckets ~}}
                   {{#if key ~}}
                   <option value="{{key}}" {{#compare @root.request.params.query.location "===" key}}selected{{/compare}}>{{key}}</option>
                   {{/if ~}}
                   {{/each ~}}
                 </select>
-                <label class="mdc-floating-label mdc-floating-label--float-above">Location</label>
+                <label class="mdc-floating-label" for="location">Location</label>
                 <div class="mdc-line-ripple"></div>
               </div>
             </div>

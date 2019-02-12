@@ -1,6 +1,6 @@
 {
   "name": "event_cjs_search",
-  "pattern": "/jobs/community-jobs-scotland/training-opportunities",
+  "pattern": "__DISABLED__/jobs/community-jobs-scotland/training-opportunities",
   "tasks": [
     {
       "name": "primaryResponse",

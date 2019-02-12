@@ -12,6 +12,7 @@
             {{/if}}
           ],
           "must_not": [
+            {{#unless showHidden}}
             {{#if @root.data.profile.hidden}}
               {
                 "ids": {
@@ -20,6 +21,7 @@
                 }
               }
             {{/if}}
+            {{/unless}}
           ]
         }
       },

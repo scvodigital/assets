@@ -54,7 +54,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page-cjs-surveys-completion",
+              "body": ">context.metaData.handlebars.templates.pages_page-cjs-survey-completion",
               "foot": ""
             },
             "contentType": "text/html"

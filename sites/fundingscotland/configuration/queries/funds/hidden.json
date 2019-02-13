@@ -15,6 +15,7 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
+  {{#if @root.data.profile.hidden}}
   "query": {{#>queries_common showHidden=true}}
     "ids": {
       "type": "fundingscotland-fund",
@@ -24,4 +25,9 @@
   "sort": {
     "date_last_important_activity": "desc"
   }
+  {{else}}
+  "query": {
+    "match_none": {}
+  }
+  {{/if}}
 }

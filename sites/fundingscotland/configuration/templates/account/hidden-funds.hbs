@@ -3,7 +3,19 @@
     Hidden funds
   </h1>
 
-  {{#each @root.data.primaryResponse.hits.hits ~}}
-    {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund"}}
-  {{/each ~}}
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding-full mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <p>
+      <i class="fas fa-info-circle fa-fw"></i>
+      Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by
+      clicking on the <i class="fal fa-eye fa-fw"></i> button.
+    </p>
+  </div>
+
+  {{#compare @root.data.primaryResponse.hits.total ">" 0}}
+    {{#each @root.data.primaryResponse.hits.hits ~}}
+      {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
+    {{/each ~}}
+  {{else}}
+    <p>You are currently hiding no funds</p>
+  {{/compare}}
 </div>

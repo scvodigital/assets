@@ -17,7 +17,7 @@
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}
 
 {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-<aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description" data-mdc-auto-init="MDCDialog">
+<aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description">
   <div class="mdc-dialog__container">
     <form action="/save-search{{{@root.request.url.search}}}" method="POST" class="mdc-dialog__surface">
       <header class="mdc-dialog__header">
@@ -25,61 +25,7 @@
       </header>
       <section id="save-search-dialog-description" class="mdc-dialog__content">
         <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-          <input type="text" id="saved-search-name" name="name" class="mdc-text-field__input" value="
-{{~#with @root.request.params.query~}}
-  {{~#if keywords~}}
-    {{~keywords~}}
-    {{~#ifAny type_of_funding type_of_cost geographical_areas_funded charities_only activities beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if type_of_funding~}}
-    {{~#each (arrayify type_of_funding)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.type_of_funding.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny type_of_cost geographical_areas_funded charities_only activities beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if type_of_cost~}}
-    {{~#each (arrayify type_of_cost)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.type_of_cost.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny geographical_areas_funded charities_only activities beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if geographical_areas_funded~}}
-    {{~#each (arrayify geographical_areas_funded)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.geographical_areas_funded.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny charities_only activities beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if charities_only~}}
-    {{~#each (arrayify charities_only)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.charities_only.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny activities beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if activities~}}
-    {{~#each (arrayify activities)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.activities.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny beneficiaries fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if beneficiaries~}}
-    {{~#each (arrayify beneficiaries)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.beneficiaries.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-    {{~#ifAny fund_status}}, {{/ifAny~}}
-  {{~/if~}}
-  {{~#if fund_status~}}
-    {{~#each (arrayify fund_status)~}}
-      {{~getProperty (getProperty @root.data.termsMaps.fund_status.slugsMap this) "term"~}}
-      {{~#unless @last}}, {{/unless~}}
-    {{~/each~}}
-  {{~/if}}
-{{~/with~}}">
+          <input type="text" id="saved-search-name" name="name" class="mdc-text-field__input" value="" maxlength="255">
           <label for="saved-search-name" class="mdc-floating-label">Save search</label>
           <div class="mdc-line-ripple"></div>
         </div>
@@ -193,7 +139,7 @@
                 </h3>
               {{/with ~}}
             {{else}}
-              <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button" data-dialog-target="#save-search-dialog">
+              <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md save-search-dialog-button" id="save-search-button">
                 <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
                 Save/email this search
               </button>
@@ -301,7 +247,7 @@
   {{#if @root.data.auth ~}}
   {{> pagination firstLastNavigation=true paging=@root.data.search_data.detailed_results.pagination}}
 
-  <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg" id="save-search-button-foot" data-dialog-target="#save-search-dialog">
+  <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-lg save-search-dialog-button" id="save-search-button-foot">
     <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
     Save/email this search
   </button>

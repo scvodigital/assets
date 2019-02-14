@@ -1,0 +1,5 @@
+{{~#withExtend (getProperty @root.context.metaData.terms field) term=term~}}
+  {{~#each termGroups~}}{{~#each terms~}}
+    {{~#compare @key ../../term}}{{label}}{{~/compare~}}
+  {{~/each~}}{{~/each~}}
+{{~/withExtend~}}

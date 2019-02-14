@@ -1,0 +1,29 @@
+{
+  "name": "unhide-fund",
+  "pattern": "/unhide-fund/:fundId",
+  "acceptedVerbs": "GET",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "notes",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/hidden/{{request.params.fundId}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "null"
+      }
+    },
+    {
+      "name": "redirect",
+      "taskModule": "redirect",
+      "renderer": "handlebars",
+      "config": {
+        "location": "/hidden-funds"
+      }
+    }
+  ]
+}

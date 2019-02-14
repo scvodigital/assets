@@ -1,6 +1,7 @@
 {
   "name": "resources",
   "pattern": "/resources",
+  "debug": true,
   "metaData": {
     "title": "Resources – Scotland's Digital Participation Charter"
   },

@@ -51,6 +51,12 @@
       "route": "^/notes"
     },
     {
+      "label": "Hidden funds",
+      "icon": "eye-slash",
+      "path": "/hidden-funds",
+      "route": "^/hidden-funds"
+    },
+    {
       "label": "Settings",
       "icon": "cog",
       "path": "/settings",

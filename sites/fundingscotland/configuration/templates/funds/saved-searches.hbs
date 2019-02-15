@@ -135,9 +135,14 @@
     {{/each ~}}
   </ul>
   {{else}}
-  <p class="mdc-typography--body1">
-    You don't yet have any searches saved. To save a search, click the &ensp;<strong><span class="far fa-search-plus mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span>Save/email this search</strong>&ensp;button once you've entered some search parameters.
-  </p>
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        You don't yet have any searches saved. To save a search, click the &ensp;<strong><span class="far fa-search-plus mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span>Save/email this search</strong>&ensp;button once you've entered some search parameters.
+      </li>
+    </ul>
+  </div>
   {{/compare ~}}
   {{else}}
   {{> upgrade_ad_searches}}

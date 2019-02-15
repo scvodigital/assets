@@ -4,7 +4,9 @@
   </h1>
 
   {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding-full mdc-theme--secondary-dark-border border rounded b-margin-full">
+
+  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
     <ul class="fa-ul">
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-info-circle"></span></span>
@@ -12,13 +14,19 @@
       </li>
     </ul>
   </div>
+  {{#each @root.data.primaryResponse.hits.hits ~}}
+    {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
+  {{/each ~}}
 
-  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
-    {{#each @root.data.primaryResponse.hits.hits ~}}
-      {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
-    {{/each ~}}
   {{else}}
-    <p>You are not currently hiding any funds.</p>
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        You are not currently hiding any funds.
+      </li>
+    </ul>
+  </div>
   {{/compare ~}}
 
   {{else}}

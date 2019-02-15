@@ -1,0 +1,21 @@
+{{#withExtend this dismissed=(contains @root.request.cookies.fs_dismissed (concat "[" id "]"))}}
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding 
+      mdc-theme--secondary-dark-border border rounded b-margin-full help-box
+      {{~#ifAll dismissed (if permanent false else=true)}} help-box--dismissed{{/ifAll~}}
+      " data-help-box-id="{{id}}">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        {{> @partial-block}}
+      </li>
+    </ul>
+    {{#unless permanent}}
+    <div class="text-right">
+      <button class="mdc-button help-box__dismiss-button" type="button" data-mdc-auto-init="MDCRipple">
+        <span class="mdc-button__icon fal fa-times-circle" aria-hidden="true"></span>
+        <span class="mdc-button__label">Dismiss</span>
+      </button>
+    </div>
+    {{/unless}}
+  </div>
+{{/withExtend}}

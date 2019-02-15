@@ -829,6 +829,10 @@ footer.mdc-layout__footer {
   font-size: 1.6rem !important;
 }
 
+.help-box--dismissed {
+  display: none !important;
+}
+
 .toggle-link {
   text-decoration: underline;
   cursor: pointer;

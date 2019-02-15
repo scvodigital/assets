@@ -422,9 +422,9 @@
       }
     }
 
-    {{#if @root.context.metaData.terms}}
-      var terms = {{{safeStringify @root.context.metaData.terms}}};
-    {{/if}}
+    {{#if @root.context.metaData.terms ~}}
+    var terms = {{{safeStringify @root.context.metaData.terms}}};
+    {{/if ~}}
   </script>
 
   {{{layoutParts.foot}}}

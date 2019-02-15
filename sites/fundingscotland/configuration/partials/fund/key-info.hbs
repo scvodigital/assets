@@ -1,7 +1,21 @@
 <div class="mdc-card__info--content-primary-row">
   <div class="mdc-card__info--content-primary">
     {{#if fund_status ~}}
-    <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status fund-{{fund_status_slug}}">Currently {{{lowercase (replace fund_status "Currently" "")}}}</span>
+      {{#if (contains fund_status "Open")}}
+        <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--success-dark-border mdc-theme--success-dark">
+          Currently Open
+        </span>
+      {{else}}
+        {{#ifAll (compare date_reopens ">" (dateMath "now/d")) (compare date_reopens "<" (dateMath "now+7d/d"))}}
+          <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--warning-border mdc-theme--warning">
+            Opening Soon
+          </span>
+        {{else}}
+          <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--error-border mdc-theme--error">
+            Currently Closed
+          </span>
+        {{/ifAll}}
+      {{/if}}
     {{/if ~}}
 
     {{#if title ~}}

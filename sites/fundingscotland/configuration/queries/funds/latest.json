@@ -8,6 +8,7 @@
     "geographical_areas_funded",
     "fund_status",
     "fund_status_slug",
+    "date_reopens",
     "type_of_cost",
     "type_of_funding",
     "funder_organisation.slug",

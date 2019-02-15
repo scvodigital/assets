@@ -25,6 +25,14 @@
         {{/each ~}}
       </li>
       {{/if ~}}
+      <!-- {{#if source_of_fund ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-sitemap fa-fw" title="Source of fund"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <strong>{{source_of_fund}}</strong>
+        </span>
+      </li>
+      {{/if ~}} -->
       {{#if charities_only ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-home-heart fa-fw" title="Charities only"></span></span>
@@ -101,7 +109,7 @@
 
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
-      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report inaccuracy: {{title}} - {{funder_organisation.name}}">Report inaccuracy</a>
+      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report%20inaccuracy:%20{{urlencode title}}%20-%20{{urlencode funder_organisation.name}}">Report inaccuracy</a>
     </div>
     {{else}}
     {{#if description ~}}

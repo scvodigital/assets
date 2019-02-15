@@ -6,13 +6,17 @@
           {{> fund_key_info}}
           <div class="content-primary-info-container">
             {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
-              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="fas fa-info-circle"}}
-              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="fas fa-sticky-note"}}
-              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="fas fa-list"}}
+              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="far fa-info-circle"}}
+              {{>components_tab tabName="contact" label="Contact" active=false linkClasses="" iconClasses="far fa-address-book"}}
+              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="far fa-edit"}}
+              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="far fa-tasks"}}
             {{/components_tab_bar}}
             <div class="panels" for="content-primary-tab-bar">
               <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
                 {{> fund_full this hideTitle=true}}
+              </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="contact">
+                {{> fund_contact this hideTitle=true}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
                 {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}

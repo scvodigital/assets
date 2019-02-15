@@ -46,7 +46,7 @@
     },
     {
       "label": "Lists & updates",
-      "icon": "list",
+      "icon": "tasks",
       "path": "/lists",
       "route": "^/lists"
     },

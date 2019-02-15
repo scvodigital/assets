@@ -1,0 +1,66 @@
+<div class="contact" data-fund-id="{{Id}}">
+  <div class="detailed-info">
+    <ul class="fa-ul first">
+      {{#if funder_organisation.website ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-link fa-fw" title="Website"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.website}}">{{funder_organisation.website}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if funder_organisation.email ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-at fa-fw" title="Email"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.email}}">{{funder_organisation.email}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if funder_organisation.telephone ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-phone fa-fw" title="Phone"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.telephone}}">{{funder_organisation.telephone}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if funder_organisation.twitter ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="fab fa-twitter fa-fw" title="Twitter"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.twitter}}">{{funder_organisation.twitter}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if funder_organisation.facebook ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="fab fa-facebook fa-fw" title="Facebook"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.facebook}}">{{funder_organisation.facebook}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{#if funder_organisation.linkedin ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="fab fa-linkedin fa-fw" title="LinkedIn"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{funder_organisation.linkedin}}">{{funder_organisation.linkedin}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+    </ul>
+    
+    {{#if @root.data.auth ~}}
+    <div class="mdc-typography--body1 report">
+      <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
+      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report%20inaccuracy:%20{{urlencode title}}%20-%20{{urlencode funder_organisation.name}}">Report inaccuracy</a>
+    </div>
+    {{else}}
+    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+    <div class="mdc-typography--body1">
+      To see contact information for this fund, please <a href="/sign-up">sign up</a>.
+    </div>
+    {{/if ~}}
+  </div>
+</div>

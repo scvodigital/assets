@@ -44,9 +44,9 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "body": ">context.metaData.handlebars.templates.account_hidden-funds",
+              "body": ">context.metaData.handlebars.templates.funds_hidden",
               "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
-              "foot": ">context.metaData.handlebars.templates.account_hidden-funds-foot",
+              "foot": "",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
             },
             "contentType": "text/html"

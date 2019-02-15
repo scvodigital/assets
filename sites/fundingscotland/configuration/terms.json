@@ -36,7 +36,7 @@
         "terms": {
           "arts-and-culture": {
             "label": "Arts & culture",
-            "textBag": "Arts culture"
+            "textBag": "Arts culture, Music"
           },
           "heritage-and-building-preservation": {
             "label": "Heritage & building preservation",
@@ -115,7 +115,7 @@
         "terms": {
           "animal-welfare": {
             "label": "Animal welfare",
-            "textBag": "Animal welfare"
+            "textBag": "Animal welfare, Wildlife"
           },
           "environment": {
             "label": "Environment",
@@ -159,6 +159,15 @@
             "textBag": "Housing shelter"
           }
         }
+      },
+      "other": {
+        "label": "Other",
+        "terms": {
+          "general-charitable-activities": {
+            "label": "General charitable activities",
+            "textBag": "General charitable activities"
+          }
+        }
       }
     }
   },
@@ -170,11 +179,11 @@
         "terms": {
           "children": {
             "label": "Children",
-            "textBag": "Children"
+            "textBag": "Children, Kids, Bairns, Weans"
           },
           "older-people": {
             "label": "Older people",
-            "textBag": "Older people"
+            "textBag": "Older people, Elderly"
           },
           "young-people": {
             "label": "Young people",
@@ -187,23 +196,23 @@
         "terms": {
           "lgbtqi": {
             "label": "LGBTQI",
-            "textBag": "LGBTQI lgbt"
+            "textBag": "LGBTQI lgbt, Lesbian, Gay, Bisexual, Transgender, Queer, Intersex,"
           },
           "men": {
             "label": "Men",
-            "textBag": "Men"
+            "textBag": "Men, Males"
           },
           "carers": {
             "label": "Carers",
-            "textBag": "Carers"
+            "textBag": "Carers, Caregivers, Guardians"
           },
           "families": {
             "label": "Families",
-            "textBag": "Families"
+            "textBag": "Families, Guardians"
           },
           "women-and-girls": {
             "label": "Women & girls",
-            "textBag": "Women girls"
+            "textBag": "Women, Girls, Ladies"
           }
         }
       },
@@ -212,15 +221,15 @@
         "terms": {
           "ill-health": {
             "label": "Ill-health",
-            "textBag": "Ill-health"
+            "textBag": "Ill-health, Sick"
           },
           "disabilities": {
             "label": "Disabilities",
-            "textBag": "Disabilities"
+            "textBag": "Disabilities, Disabled"
           },
           "learning-disabilities": {
             "label": "Learning disabilities",
-            "textBag": "Learning disabilities"
+            "textBag": "Learning disabilities, Cognitive, Dyslexia, Nonverbal, Non-verbal, Asperger, Autistic, Dyscalculia, Dysgraphia, Language Processing"
           },
           "physical-disabilities": {
             "label": "Physical disabilities",
@@ -228,11 +237,11 @@
           },
           "sensory-impairments": {
             "label": "Sensory impairments",
-            "textBag": "Sensory impairments"
+            "textBag": "Sensory impairments, Deaf, Blind, Visual, Mute"
           },
           "mental-health-conditions": {
             "label": "Mental health conditions",
-            "textBag": "Mental health conditions"
+            "textBag": "Mental health conditions, Bipolar, Obsessive Compulsive Disorder, Depression, Schizophrenia, Borderline, Anxiety, Suicide, Eating Disorders, Dissociative, PTSD, Schizoaffective, Panic Attacks, ADHD, Attention Deficit Hyperactivity Disorder,"
           }
         }
       },
@@ -241,7 +250,7 @@
         "terms": {
           "people-in-poverty": {
             "label": "People in poverty",
-            "textBag": "People in poverty"
+            "textBag": "People in poverty, Poor"
           },
           "economicallysocially-disadvantaged": {
             "label": "Economically/socially disadvantaged",
@@ -249,7 +258,7 @@
           },
           "socially-isolated": {
             "label": "Socially isolated",
-            "textBag": "Socially isolated"
+            "textBag": "Socially isolated, Lonely"
           },
           "care-experienced": {
             "label": "Care experienced",
@@ -257,7 +266,7 @@
           },
           "homeless-or-badly-housed": {
             "label": "Homeless or badly housed",
-            "textBag": "Homeless or badly housed"
+            "textBag": "Homeless or badly housed, Shelter"
           },
           "unemployed": {
             "label": "Unemployed",
@@ -265,7 +274,7 @@
           },
           "addicts-and-misusers": {
             "label": "Addicts & Misusers",
-            "textBag": "Addicts Misusers"
+            "textBag": "Addicts Misusers, Drugs"
           },
           "victims-of-crime-and-abuse": {
             "label": "Victims of crime & abuse",
@@ -281,11 +290,11 @@
           },
           "refugees-and-asylum-seekers": {
             "label": "Refugees & asylum seekers",
-            "textBag": "Refugees asylum seekers"
+            "textBag": "Refugees asylum seekers, Immigrants"
           },
           "black-and-ethnic-minorities": {
             "label": "Black & Ethnic Minorities",
-            "textBag": "Black Ethnic Minorities"
+            "textBag": "Black Ethnic Minorities, Asian, Pakistani, Indian, Chinese, Caribbean, African, Bangladeshi, Arab"
           }
         }
       },
@@ -332,6 +341,32 @@
   "geographical_areas_funded": {
     "label": "Geographical areas funded",
     "termGroups": {
+      "national": {
+        "label": "National",
+        "terms": {
+          "scotland": {
+            "label": "Scotland",
+            "textBag": "Scotland"
+          },
+          "uk": {
+            "label": "UK",
+            "textBag": "UK"
+          }
+        }
+      },
+      "international": {
+        "label": "International",
+        "terms": {
+          "european-union": {
+            "label": "European Union",
+            "textBag": "European Union"
+          },
+          "overseas": {
+            "label": "Worldwide",
+            "textBag": "Overseas World"
+          }
+        }
+      },
       "ayrshire-arran": {
         "label": "Ayrshire & Arran",
         "terms": {
@@ -482,32 +517,6 @@
             "textBag": "Scottish Borders"
           }
         }
-      },
-      "national": {
-        "label": "National",
-        "terms": {
-          "scotland": {
-            "label": "Scotland",
-            "textBag": "Scotland"
-          },
-          "uk": {
-            "label": "UK",
-            "textBag": "UK"
-          }
-        }
-      },
-      "international": {
-        "label": "International",
-        "terms": {
-          "european-union": {
-            "label": "European Union",
-            "textBag": "European Union"
-          },
-          "overseas": {
-            "label": "Worldwide",
-            "textBag": "Overseas World"
-          }
-        }
       }
     }
   },
@@ -520,6 +529,10 @@
           "capital": {
             "label": "Capital",
             "textBag": "Capital"
+          },
+          "core-costs": {
+            "label": "Core costs",
+            "textBag": "Core costs"
           },
           "revenue": {
             "label": "Revenue",
@@ -568,7 +581,7 @@
     }
   },
   "miscellaneous": {
-    "label": "Miscellaneous",
+    "label": "Other filters",
     "termGroups": {
       "other": {
         "label": "Other",

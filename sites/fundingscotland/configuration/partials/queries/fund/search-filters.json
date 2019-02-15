@@ -4,9 +4,6 @@
 {{#if type_of_funding ~}}
   {{>queries_terms field="type_of_funding_slug" terms=type_of_funding}},
 {{/if ~}}
-{{#unless (contains miscellaneous "show-closed-funds") ~}}
-  {{>queries_term field="fund_status_slug" term="open"}},
-{{/unless}}
 {{#if (contains miscellaneous "for-charities-only") ~}}
   {{>queries_terms field="charities_only" terms=true}},
 {{/if ~}}

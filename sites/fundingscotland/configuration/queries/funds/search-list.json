@@ -8,6 +8,7 @@
     "text_bag_boost",
     "fund_status",
     "fund_status_slug",
+    "date_reopens",
     "for_charities_only",
     "activities",
     "activities_slugs",

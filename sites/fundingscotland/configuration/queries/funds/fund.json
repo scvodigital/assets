@@ -34,6 +34,7 @@
     "notes_on_award_amounts",
     "date_next_deadline",
     "type_of_cost",
+    "date_reopens",
     "type_of_funding",
     "funder_organisation.slug",
     "funder_organisation.name",

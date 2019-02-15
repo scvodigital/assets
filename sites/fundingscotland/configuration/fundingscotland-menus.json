@@ -39,7 +39,13 @@
       "route": "^/$"
     },
     {
-      "label": "Lists",
+      "label": "Searches & alerts",
+      "icon": "search-plus",
+      "path": "/searches",
+      "route": "^/searches"
+    },
+    {
+      "label": "Lists & updates",
       "icon": "list",
       "path": "/lists",
       "route": "^/lists"

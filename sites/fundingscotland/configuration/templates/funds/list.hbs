@@ -5,6 +5,7 @@
       Back to lists
     </a>
   </div>
+  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
   {{#with @root.data.shortlistPartition.items.[0].[0]}}
     <h1 class="mdc-typography--headline3 v-margin-full">
       <div class="pull-right mdc-chip-set">
@@ -37,7 +38,7 @@
       </span>
       <span class="r-margin-full">
         <a href="/download-list/{{partition}}" data-delete-list="{{partition}}">
-          Download as PDF 
+          Download as PDF
         </a>
       </span>
     </p>
@@ -46,4 +47,11 @@
   {{#each @root.data.primaryResponse.hits.hits ~}}
     {{> fund_search_result _source sort=sort actions="more-fund,lists,hide-fund"}}
   {{/each ~}}
+
+  {{else}}
+  <h1 class="mdc-typography--headline3 v-margin-full">
+    Lists &amp; email updates
+  </h1>
+  {{> upgrade_ad_lists}}
+  {{/ifAny ~}}
 </div>

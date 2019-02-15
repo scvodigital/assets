@@ -25,20 +25,24 @@
         {{/each ~}}
       </li>
       {{/if ~}}
+      <!-- {{#if source_of_fund ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-sitemap fa-fw" title="Source of fund"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <strong>{{source_of_fund}}</strong>
+        </span>
+      </li>
+      {{/if ~}} -->
       {{#if charities_only ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-home-heart fa-fw" title="Charities only"></span></span>
-        <span class="key-info-bit r-margin-full">
-          <strong>For charities only</strong>
-        </span>
+        <strong>For charities only</strong>
       </li>
       {{/if ~}}
       {{#if also_funds_individuals ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-user-check fa-fw" title="Also funds individuals"></span></span>
-        <span class="key-info-bit r-margin-full">
-          <strong>Also funds individuals</strong>
-        </span>
+        <strong>Also funds individuals</strong>
       </li>
       {{/if ~}}
     </ul>
@@ -48,34 +52,44 @@
     {{#if description ~}}
     <h4 class="mdc-typography--headline7">Summary</h4>
     <div class="mdc-typography--body1">
-      {{{description}}}
+      {{{markdown description}}}
     </div>
     {{/if ~}}
 
     {{#ifAny award_size_min award_size_max award_size_avg annual_total notes_on_award_amounts ~}}
     <h4 class="mdc-typography--headline7">Fund award sizes</h4>
-    <dl class="dl-horizontal">
+    <div class="fund-details">
       {{#if award_size_min ~}}
-      <dt>Minimum:</dt>
-      <dd>{{{currency_sign}}}{{addCommas award_size_min}}</dd>
+      <span class="key-info-bit r-margin-full">
+        <strong>Minimum:</strong>
+        {{{currency_sign}}}{{addCommas award_size_min}}
+      </span>
       {{/if ~}}
       {{#if award_size_max ~}}
-      <dt>Maximum:</dt>
-      <dd>{{{currency_sign}}}{{addCommas award_size_max}}</dd>
+      <span class="key-info-bit r-margin-full">
+        <strong>Maximum:</strong>
+        {{{currency_sign}}}{{addCommas award_size_max}}
+      </span>
       {{/if ~}}
       {{#if award_size_avg ~}}
-      <dt>Average:</dt>
-      <dd>{{{currency_sign}}}{{addCommas award_size_avg}}</dd>
+      <span class="key-info-bit r-margin-full">
+        <strong>Average:</strong>
+        {{{currency_sign}}}{{addCommas award_size_avg}}
+      </span>
       {{/if ~}}
       {{#if annual_total ~}}
-      <dt>Annually awarded:</dt>
-      <dd>{{{currency_sign}}}{{addCommas annual_total}}</dd>
+      <span class="key-info-bit r-margin-full">
+        <strong>Annually awarded:</strong>
+        {{{currency_sign}}}{{addCommas annual_total}}
+      </span>
       {{/if ~}}
-      {{#if notes_on_award_amounts ~}}
-      <dt>Notes on award amounts:</dt>
-      <dd>{{notes_on_award_amounts}}</dd>
-      {{/if ~}}
-    </dl>
+    </div>
+    {{#if notes_on_award_amounts ~}}
+    <span class="key-info-bit">
+      <strong>Notes on award amounts:</strong>
+      {{notes_on_award_amounts}}
+    </span>
+    {{/if ~}}
     {{/ifAny ~}}
 
     {{#if who_can_apply ~}}
@@ -101,7 +115,7 @@
 
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
-      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report inaccuracy: {{title}} - {{funder_organisation.name}}">Report inaccuracy</a>
+      <a href="mailto:fundingscotland@scvo.org.uk?subject=Report%20inaccuracy:%20{{urlencode title}}%20-%20{{urlencode funder_organisation.name}}">Report inaccuracy</a>
     </div>
     {{else}}
     {{#if description ~}}

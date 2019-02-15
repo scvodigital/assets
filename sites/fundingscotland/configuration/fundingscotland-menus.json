@@ -39,8 +39,14 @@
       "route": "^/$"
     },
     {
-      "label": "Lists",
-      "icon": "list",
+      "label": "Searches & alerts",
+      "icon": "search-plus",
+      "path": "/searches",
+      "route": "^/searches"
+    },
+    {
+      "label": "Lists & updates",
+      "icon": "tasks",
       "path": "/lists",
       "route": "^/lists"
     },

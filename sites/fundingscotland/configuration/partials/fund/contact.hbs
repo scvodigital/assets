@@ -49,8 +49,19 @@
         </span>
       </li>
       {{/if ~}}
+      {{#if funder_organisation.charity_number ~}}
+      {{#if (contains funder_organisation.charity_number "not") ~}}
+      {{else}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle fa-fw" title="Registered charity"></span></span>
+        <span class="key-info-bit r-margin-full">
+          <a href="{{#if (contains funder_organisation.charity_number "SC")}}https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number={{funder_organisation.charity_number}}{{else}}http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithoutPartB.aspx?RegisteredCharityNumber={{funder_organisation.charity_number}}{{/if}}">{{funder_organisation.charity_number}}</a>
+        </span>
+      </li>
+      {{/if ~}}
+      {{/if ~}}
     </ul>
-    
+
     {{#if @root.data.auth ~}}
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>

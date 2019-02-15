@@ -580,6 +580,40 @@
       }
     }
   },
+  "source_of_fund": {
+    "label": "Source of fund",
+    "termGroups": {
+      "other": {
+        "label": "Other",
+        "terms": {
+          "community-benefit": {
+            "label": "Community Benefit",
+            "textBag": "Community Benefit"
+          },
+          "european": {
+            "label": "European",
+            "textBag": "European"
+          },
+          "lottery": {
+            "label": "Lottery",
+            "textBag": "Lottery"
+          },
+          "private-for-profit-organisation": {
+            "label": "Private/for Profit Organisation",
+            "textBag": "Private for Profit Organisation"
+          },
+          "statutory": {
+            "label": "Statutory",
+            "textBag": "Statutory"
+          },
+          "trust-foundation": {
+            "label": "Trust/Foundation",
+            "textBag": "Trust Foundation"
+          } 
+        }
+      }
+    }
+  },
   "miscellaneous": {
     "label": "Other filters",
     "termGroups": {
@@ -596,7 +630,7 @@
           },
           "show-opening-soon-funds": {
             "label": "Include funds opening soon",
-            "textBag": "Include funds opening soon"
+            "textBag": "funds opening soon"
           },
           "show-closed-funds": {
             "label": "Include currently closed funds",

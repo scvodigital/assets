@@ -4,6 +4,9 @@
 {{#if type_of_funding ~}}
   {{>queries_terms field="type_of_funding_slug" terms=type_of_funding}},
 {{/if ~}}
+{{#if source_of_fund ~}}
+  {{>queries_terms field="source_of_fund_slug" terms=source_of_fund}},
+{{/if ~}}
 {{#if (contains miscellaneous "for-charities-only") ~}}
   {{>queries_terms field="charities_only" terms=true}},
 {{/if ~}}

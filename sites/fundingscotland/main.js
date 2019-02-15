@@ -108,7 +108,9 @@ export class FundingScotland {
         $helpBox.addClass('help-box--dismissed');
         const dismissedCookie = this.getCookie('fs_dismissed');
         const dismissedList = dismissedCookie.substr(1, dismissedCookie.length - 2).split('][');
-        dismissedList.push(id);
+        if (dismissedList.indexOf(id) === -1) {
+          dismissedList.push(id);
+        }
         const newCookie = '[' + dismissedList.join('][') + ']';
         this.setCookie('fs_dismissed', newCookie);
       });

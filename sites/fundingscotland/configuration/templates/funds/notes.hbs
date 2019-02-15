@@ -9,47 +9,64 @@
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop hide-md hide-sm">
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+        {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
         <form action="{{{@root.request.url.path}}}" method="GET">
           {{> fund_search_sort}}
         </form>
+        {{/ifAny ~}}
       </div>
     </div>
   </div>
 
-  {{#compare @root.data.notes_funds.open.hits.total "===" 0}}
-    {{#compare @root.data.notes_funds.closed.hits.total "===" 0}}
-      <p class="mdc-typography--body1">
-        You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
-      </p>
-    {{else}}
-      <p class="mdc-typography--body1">
-        You don't have notes on any open funds.
-      </p>
-    {{/compare}}
+  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+  {{#compare @root.data.notes_funds.open.hits.total "===" 0 ~}}
+  {{#compare @root.data.notes_funds.closed.hits.total "===" 0 ~}}
+  <p class="mdc-typography--body1">
+    You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
+  </p>
+  {{else}}
+  <p class="mdc-typography--body1">
+    You don't have notes on any open funds.
+  </p>
+  {{/compare ~}}
+  {{/compare ~}}
+
+  {{#compare @root.data.notes_funds.open.hits.total ">" 0 ~}}
+  {{#each @root.data.notes_funds.open.hits.hits ~}}
+  {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
+  {{> fund_search_result _source}}
+  {{/compare ~}}
+  {{/each ~}}
+  <div class="foot">
+    {{> pagination paging=@root.data.notes_funds.open.pagination}}
+  </div>
   {{/compare}}
 
-  {{#compare @root.data.notes_funds.open.hits.total ">" 0}}
-    {{#each @root.data.notes_funds.open.hits.hits ~}}
-      {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
-        {{> fund_search_result _source}}
-      {{/compare ~}}
-    {{/each ~}}
-    <div class="foot">
-      {{> pagination paging=@root.data.notes_funds.open.pagination}}
-    </div>
-  {{/compare}}
+  {{#compare @root.data.notes_funds.closed.hits.total ">" 0 ~}}
+  <h2 class="mdc-typography--headline5 v-margin-full">
+    Closed funds
+  </h2>
+  {{#each @root.data.notes_funds.closed.hits.hits ~}}
+  {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
+  {{> fund_search_result _source}}
+  {{/compare ~}}
+  {{/each ~}}
+  <div class="foot">
+    {{> pagination paging=@root.data.notes_funds.closed.pagination}}
+  </div>
+  {{/compare ~}}
+  {{else}}
 
-  {{#compare @root.data.notes_funds.closed.hits.total ">" 0}}
-    <h2 class="mdc-typography--headline5 v-margin-full">
-      Closed funds
-    </h2>
-    {{#each @root.data.notes_funds.closed.hits.hits ~}}
-      {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
-        {{> fund_search_result _source}}
-      {{/compare ~}}
-    {{/each ~}}
-    <div class="foot">
-      {{> pagination paging=@root.data.notes_funds.closed.pagination}}
-    </div>
-  {{/compare}}
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding-full mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        This page lists funds that you've written notes on to track the progress of your funding applications.
+      </li>
+    </ul>
+  </div>
+
+  {{> upgrade_ad}}
+
+  {{/ifAny ~}}
 </div>

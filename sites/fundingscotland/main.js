@@ -1,14 +1,16 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import "@babel/polyfill";
+import 'leaflet';
+import 'mapbox.js';
 import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
-import * as querystring from 'querystring';
 
-import * as cookieInfoScript from '../../lib/cookie-info-script';
+import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
 window.firebase = firebase;
+
 
 export class FundingScotland {
   constructor(firebaseConfig) {
@@ -21,6 +23,8 @@ export class FundingScotland {
       { name: 'tablet', min: 600, max: 959 },
       { name: 'desktop', min: 960, max: 20000 }
     ];
+
+    this.maps = {};
 
     this.ie = navigator.appName.indexOf('Microsoft') > -1 || navigator.userAgent.indexOf('Trident') > -1;
     this.occasionalDrawers = Array.from(document.querySelectorAll('.mdc-drawer--occasional')).map(el => {
@@ -35,31 +39,7 @@ export class FundingScotland {
     });
     this.windowResized();
 
-    this.componentsInitialiser = new ComponentsInitialiser({
-      themes: {
-        primary: {
-          background: '#178737',
-          text: '#ffffff'
-        },
-        secondary: {
-          background: '#e0e0e0',
-          text: '#000000'
-        },
-        success: {
-          background: '#679c54',
-          text: '#000000'
-        },
-        warning: {
-          background: '#A95E1E',
-          text: '#ffffff'
-        },
-        error: {
-          background: '#A9201E',
-          text: '#ffffff'
-        }
-      },
-      displayModes: this.displayModes
-    });
+    this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
 
     // Headroom
@@ -74,72 +54,15 @@ export class FundingScotland {
     ci.options.message = "We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.";
     ci.options.fontFamily = "'Open Sans',Helvetica,Arial,sans-serif";
     ci.options.bg = "#fff";
-    ci.options.link = "#178737";
+    ci.options.link = "#448532";
     ci.options.divlink = "#fff";
-    ci.options.divlinkbg = "#178737";
+    ci.options.divlinkbg = "#448532";
     ci.options.position = "bottom";
     ci.options.acceptOnScroll = "true";
     ci.options.moreinfo = "/cookies";
     ci.options.cookie = "CookieInfoScript";
     ci.options.textAlign = "left";
     ci.run();
-
-    this.$hideFundDialog = $('#hide-fund-dialog');
-    this.hideFundDialog = new mdc.dialog.MDCDialog(this.$hideFundDialog[0]);
-    $('[data-hide-fund-id]').on('click', (evt) => {
-      const $el = $(evt.currentTarget);
-      const id = $el.data('hide-fund-id');
-      const redirect = $el.data('hide-fund-redirect');
-      const name = $el.data('hide-fund-name');
-
-      $('#hide-fund-dialog-id').val(id);
-      $('#hide-fund-dialog-redirect').val(redirect);
-      $('#hide-fund-dialog-name').text(name);
-
-      this.hideFundDialog.open();
-    });
-
-    this.$saveSearchDialog = $('#save-search-dialog');
-    this.saveSearchDialog = new mdc.dialog.MDCDialog(this.$saveSearchDialog[0]);
-    $('.save-search-dialog-button').on('click', (evt) => {
-      const search = location.search.substring(1);
-      const query = querystring.parse(search);
-      const selected = {};
-      for (const [selectedField, selectedTerm] of Object.entries(query)) {
-        const selectedTerms = Array.isArray(selectedTerm) ? selectedTerm : [selectedTerm];
-        if (!terms[selectedField]) continue;
-        const field = terms[selectedField];
-        selected[field.label] = [];
-        for (const [termGroupName, termGroup] of Object.entries(field.termGroups)) {
-          const inGroup = [];
-          for (const [term, termItem] of Object.entries(termGroup.terms)) {
-            if (selectedTerms.indexOf(term) > -1) {
-              inGroup.push(termItem.label);
-            }
-          }
-          if (inGroup.length === Object.keys(termGroup.terms).length) {
-            selected[field.label].push(termGroup.label);
-          } else {
-            selected[field.label].push(...inGroup);
-          }
-        }
-      }
-      const nameParts = [];
-      if (query.keywords) {
-        nameParts.push('Keywords: ' + keywords);
-      }
-      for (const [field, terms] of Object.entries(selected)) {
-        if (terms.length > 2) {
-          nameParts.push(field + ': ' + terms.slice(0, 2).join(', ') + ' (+' + (terms.length - 2) + ')');
-        } else {
-          nameParts.push(field + ': ' + terms.join(', '))
-        }
-      }
-      const name = nameParts.join(' - ');
-      $('#saved-search-name').val(name.substr(0, 254));
-
-      this.saveSearchDialog.open();
-    });
   }
 
   windowResized() {
@@ -158,6 +81,7 @@ export class FundingScotland {
   }
 
   displayModeChanged() {
+    // console.log('Display Mode!xs:', this.displayMode);
     this.occasionalDrawers.forEach(od => {
       var menuButton = $(od.element).data('menu-button');
       if (this.displayMode === 'desktop') {
@@ -210,5 +134,27 @@ export class FundingScotland {
 
   snackbarShow(options) {
     console.log('DEPRECATED SNACKBARSHOW CALLED:', arguments);
+  }
+
+  popupPagerPage(pager, direction) {
+    var currentPage = $(pager).find('.map-content:visible');
+    var nextPage = currentPage;
+    if (direction === 'next') {
+      var nextElement = currentPage.next();
+      if (!nextElement || nextElement.length === 0) {
+        nextPage = $(pager).children().first();
+      } else {
+        nextPage = nextElement;
+      }
+    } else if (direction === 'back') {
+      var prevElement = currentPage.prev();
+      if (!prevElement || prevElement.length === 0) {
+        nextPage = $(pager).children().last();
+      } else {
+        nextPage = prevElement;
+      }
+    }
+    currentPage.hide();
+    nextPage.show();
   }
 }

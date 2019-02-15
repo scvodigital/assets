@@ -15,6 +15,7 @@
     "region_group_slug",
     "description",
     "source_of_fund",
+    "date_reopens",
     "type_of_cost",
     "type_of_funding",
     "funder_organisation.has_logo",

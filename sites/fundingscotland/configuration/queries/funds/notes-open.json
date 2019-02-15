@@ -13,6 +13,7 @@
     "beneficiaries_slugs",
     "region_group",
     "region_group_slug",
+    "date_reopens",
     "description",
     "source_of_fund",
     "type_of_cost",

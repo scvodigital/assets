@@ -1,0 +1,39 @@
+<div id="detailed-results-container" class="container-content lists fundingscotland-lists">
+  <h1 class="mdc-typography--headline3 v-margin-full">
+    Hidden funds
+  </h1>
+
+  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding-full mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by clicking on the <i class="fal fa-eye fa-fw"></i> button.
+      </li>
+    </ul>
+  </div>
+
+  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+    {{#each @root.data.primaryResponse.hits.hits ~}}
+      {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
+    {{/each ~}}
+  {{else}}
+    <p>You are not currently hiding any funds.</p>
+  {{/compare ~}}
+
+  {{else}}
+
+  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding-full mdc-theme--secondary-dark-border border rounded b-margin-full">
+    <ul class="fa-ul">
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-info-circle"></span></span>
+        This page lists funds that you've chosen to hide from {{@root.data.currentSite.title}} and provides the option to un-hide.
+      </li>
+    </ul>
+  </div>
+
+  {{> upgrade_ad}}
+
+  {{/ifAny ~}}
+
+</div>

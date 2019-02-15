@@ -3,11 +3,9 @@
     Account
   </h3>
   <nav class="mdc-list">
-    {{#withExtend this toHide=(split 
-      (concat 
-        "Home,Sign out" 
-        (if @root.data.profile.hidden "" else=",Hidden funds")
-        (if @root.data.profile.notes "" else=",Notes")
+    {{#withExtend this toHide=(split
+      (concat
+        "Home,Sign out"
       ) ",")}}
       {{#each @root.context.metaData.menus.user-signed-in ~}}
         {{#unless (contains ../toHide label)}}

@@ -75,11 +75,30 @@
                         <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
                           <span class="mdc-list-item__text">
                             <span class="mdc-list-item__primary-text">
-                              {{partition}}
+                              <a href="/lists/{{partition}}">{{partition}}</a>
                             </span>
                             <span class="mdc-list-item__secondary-text">
-                              <strong>Email alerts: </strong>
-                              {{#if emails}}on{{else}}off{{/if}}
+                              <strong>List email alerts: </strong>
+                              {{#> toggle_link
+                                onUrl=(concat "/toggle-list-subscription?name=" partition)
+                                offUrl=(concat "/toggle-list-subscription?name=" partition)
+                                onText="Turn Off"
+                                offText="Turn On"
+                                onClasses="mdc-theme--error"
+                                offClasses="mdc-theme--success"
+                                iconClasses="far fa-fw"
+                                on=partitionActive
+                              }}
+                              {
+                                "extraAttributes": "data-fund-list-email=\"{{../partition}}\"",
+                                "onClasses": {
+                                  "_self": "mdc-theme--error"
+                                },
+                                "offClasses": {
+                                  "_self": "mdc-theme--success"
+                                }
+                              }
+                              {{/toggle_link}}
                             </span>
                           </span>
                           <span class="mdc-list-item__meta">

@@ -15,6 +15,7 @@
                 {{> fund_full this hideTitle=true}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
                   <form action="/save-notes" method="POST" data-ajax-form='{
                         "successMessage": "Notes saved",
@@ -59,8 +60,14 @@
                     </p>
                   </div>
                 {{/if ~}}
+                {{else}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_notes}}
+                </div>
+                {{/ifAny ~}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
                   <div class="mdc-list-group">
                     <ul class="mdc-list mdc-list--two-line">
@@ -128,6 +135,11 @@
                     </p>
                   </div>
                 {{/if ~}}
+                {{else}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_lists}}
+                </div>
+                {{/ifAny ~}}
               </div>
               {{> fund_actions actions="more-funder,hide-fund" funder=funder}}
             </div>

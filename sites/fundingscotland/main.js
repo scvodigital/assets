@@ -106,7 +106,7 @@ export class FundingScotland {
       const $dismissButton = $helpBox.find('.help-box__dismiss-button');
       $dismissButton.on('click', (evt) => {
         $helpBox.addClass('help-box--dismissed');
-        const dismissedCookie = this.getCookie('fs_dismissed');
+        const dismissedCookie = this.getCookie('fs_dismissed') || '';
         const dismissedList = dismissedCookie.substr(1, dismissedCookie.length - 2).split('][');
         if (dismissedList.indexOf(id) === -1) {
           dismissedList.push(id);

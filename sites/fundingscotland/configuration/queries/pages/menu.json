@@ -1,0 +1,21 @@
+{
+  "size": 10,
+  "_source": [
+    "slug",
+    "title",
+    "menu_order",
+    "menu_label"
+  ],
+  "query": {
+    "term": {
+      "show_in_menu": true
+    }
+  },
+  "sort": [
+    {
+      "menu_order": {
+        "order": "asc"
+      }
+    }
+  ]
+}

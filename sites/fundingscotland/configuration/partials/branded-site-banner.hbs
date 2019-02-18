@@ -1,0 +1,17 @@
+{{#each (pluck (shuffle (entries @root.context.metaData.site-configurations)) "1")}}
+  {{#each @root.request.params.query}}
+    {{#if (getProperty ../this (concat "defaultSiteAdTerms." @key))}}
+      {{#if (any (filter 
+        (getProperty ../this (concat "defaultSiteAdTerms." @key))
+        null "valueIn" (arrayify this)))}}
+        <div class="v-margin-full">
+          <a href="{{../url}}">
+            Show ad for {{../title}}
+          </a>
+        </div>
+        <!--
+      {{/if}}
+    {{/if}}
+  {{/each}}
+{{/each}}
+<!-- -->

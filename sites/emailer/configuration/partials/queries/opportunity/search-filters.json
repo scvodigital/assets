@@ -1,30 +1,37 @@
-{{#ifAny home_based suitable_for_groups suitable_for_one_off board_trustee ~}}
+{{#unless @root.request.params.local_authority ~}}
+{{#ifAny location la ~}}
 {
-"bool": {
-"should": [
-{{#if home_based ~}}
-{{>queries_boolean field="home_based"}},
-{{/if ~}}
-{{#if suitable_for_groups ~}}
-{{>queries_boolean field="suitable_for_groups"}},
-{{/if ~}}
-{{#if suitable_for_one_off ~}}
-{{>queries_boolean field="suitable_for_one_off"}},
-{{/if ~}}
-{{#if board_trustee ~}}
-{{>queries_boolean field="board_trustee"}},
-{{/if ~}}
-{{>queries_do_nothing}}
-],
-"minimum_should_match": 2
-}
+  "bool": {
+    "should": [
+      {{#ifAll location lat lng distance ~}}
+      {
+        "geo_distance": {
+          "distance": "{{default distance "10"}}mi",
+          "geo_coords": {
+            "lat": {{lat}},
+            "lon": {{lng}}
+          }
+        }
+      },
+      {{/ifAll ~}}
+      {{#ifAll location la ~}}
+      {{>queries_term field="advertised_areas_slugs" term=la}},
+      {{/ifAll ~}}
+      {{>queries_do_nothing}}
+    ],
+    "minimum_should_match": {{#if distance}}2{{else}}{{#if la}}2{{else}}1{{/if}}{{/if}}
+  }
 },
 {{/ifAny ~}}
-{{#if work_types ~}}
-{{>queries_terms field="work_type_slugs" terms=work_types}},
+{{/unless ~}}
+{{#if volunteersearch_types ~}}
+{{>queries_terms field="volunteersearch_type_slugs" terms=volunteersearch_types}},
 {{/if ~}}
-{{#if client_groups ~}}
-{{>queries_terms field="client_group_slugs" terms=client_groups}},
+{{#if activities ~}}
+{{>queries_terms field="activities_slugs" terms=activities}},
+{{/if ~}}
+{{#if themes ~}}
+{{>queries_terms field="themes_slugs" terms=themes}},
 {{/if ~}}
 {{#if services ~}}
 {{>queries_terms field="volunteersearch_support_option_slugs" terms=services}},
@@ -35,5 +42,4 @@
 {{#if availability ~}}
 {{>queries_terms field="availability_slugs" terms=availability}},
 {{/if ~}}
-{{>queries_date_range field="date_last_modified" gt="now-12M"}},
 {{>queries_do_nothing}}

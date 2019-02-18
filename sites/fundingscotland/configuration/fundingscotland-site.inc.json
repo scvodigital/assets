@@ -114,7 +114,8 @@
           "cookieName": "fs_cookie",
           "cookieOptions": {
             "maxAge": 1209600000,
-            "secure": true
+            "secure": true,
+            "path": "/"
           },
           "appName": "fundingscotland",
           "noTokenRoute": "",
@@ -129,7 +130,8 @@
           "cookieName": "fs_cookie",
           "cookieOptions": {
             "maxAge": 1209600000,
-            "secure": true
+            "secure": true,
+            "path": "/"
           },
           "appName": "fundingscotland",
           "noTokenRoute": "sign_in",

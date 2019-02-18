@@ -2,6 +2,7 @@
   "default": {
     "name": "default",
     "title": "Funding Scotland",
+    "url": "https://fundingscotland.com",
     "colors": {
       "primary": "#68C53E",
       "primaryText": "#000000",
@@ -22,6 +23,7 @@
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
     "title": "Funding Scotland for East Renfrewshire",
+    "url": "https://eastrenfrewshire.fundingscotland.com",
     "colors": {
       "primary": "#007FC4",
       "primaryText": "#000000",
@@ -47,11 +49,17 @@
         "european-union",
         "overseas"
       ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-renfrewshire"
+      ]
     }
   },
   "fife": {
     "name": "fife",
     "title": "Funding Scotland for Fife",
+    "url": "https://fifefundingsearch.com",
     "colors": {
       "primary": "#00536D",
       "primaryText": "#ffffff",
@@ -77,11 +85,17 @@
         "european-union",
         "overseas"
       ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "fife"
+      ]
     }
   },
   "northlanarkshire": {
     "name": "northlanarkshire",
     "title": "Funding Scotland for North Lanarkshire",
+    "url": "https://northlanarkshire.fundingscotland.com",
     "colors": {
       "primary": "#BD0029",
       "primaryText": "#ffffff",
@@ -97,11 +111,17 @@
       "errorText": "#ffffff"
     },
     "pageLimit": 5,
-    "enablePremiumFeatures": true
+    "enablePremiumFeatures": true,
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "north-lanarkshire"
+      ]
+    }
   },
   "shetland": {
     "name": "shetland",
     "title": "Funding Scotland for Shetland",
+    "url": "https://shetland.fundingscotland.com",
     "colors": {
       "primary": "#0A2C3F",
       "primaryText": "#ffffff",
@@ -127,11 +147,17 @@
         "european-union",
         "overseas"
       ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "shetland"
+      ]
     }
   },
   "southlanarkshire": {
     "name": "southlanarkshire",
     "title": "Funding Scotland for South Lanarkshire",
+    "url": "https://southlanarkshire.fundingscotland.com",
     "colors": {
       "primary": "#222E66",
       "primaryText": "#ffffff",
@@ -157,11 +183,17 @@
         "european-union",
         "overseas"
       ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "south-lanarkshire"
+      ]
     }
   },
   "srn": {
     "name": "srn",
     "title": "Funding Scotland for Scottish Rural Network",
+    "url": "https://srn.fundingscotland.com",
     "colors": {
       "primary": "#888888",
       "primaryText": "#000000",
@@ -214,11 +246,38 @@
         "european-union",
         "overseas"
       ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "perth-and-kinross",
+        "renfrewshire",
+        "falkirk",
+        "scottish-borders",
+        "south-ayrshire",
+        "west-dunbartonshire",
+        "west-lothian",
+        "highland",
+        "inverclyde",
+        "midlothian",
+        "moray",
+        "na-h-eileanan-siar",
+        "north-ayrshire",
+        "orkney",
+        "aberdeenshire",
+        "angus",
+        "argyll-and-bute",
+        "clackmannanshire",
+        "dumfries-and-galloway",
+        "east-ayrshire",
+        "east-dunbartonshire",
+        "east-lothian"
+      ]
     }
   },
   "stirling": {
     "name": "stirling",
     "title": "Funding Scotland for Stirling",
+    "url": "https://stirling.fundingscotland.com",
     "colors": {
       "primary": "#E51072",
       "primaryText": "#000000",
@@ -243,6 +302,11 @@
         "europe",
         "european-union",
         "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "stirling"
       ]
     }
   }

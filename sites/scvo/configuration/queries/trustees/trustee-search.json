@@ -55,7 +55,7 @@
               },
               {
                 "terms": {
-                  "work_type_slugs": ["committee-work"]
+                  "activities_slugs": ["committee-work"]
                 }
               }
             ]

@@ -1,32 +1,25 @@
 <div id="detailed-results-container" class="container-content lists fundingscotland-lists">
   <h1 class="mdc-typography--headline3 v-margin-full">
     Hidden funds
+    {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+      <span class="far fa-fw fa-question-circle fa-xs pointer" data-help-box-toggle="hidden-funds"></span>
+    {{/compare}}
   </h1>
 
   {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
 
   {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
-  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
-    <ul class="fa-ul">
-      <li class="mdc-typography--body1">
-        <span class="fa-li"><span class="far fa-info-circle"></span></span>
-        Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by clicking on the <i class="fal fa-eye fa-fw"></i> button.
-      </li>
-    </ul>
-  </div>
+    {{#>help_box id="hidden-funds"}}
+      Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by clicking on the <i class="fal fa-eye fa-fw"></i> button.
+    {{/help_box}}
   {{#each @root.data.primaryResponse.hits.hits ~}}
     {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
   {{/each ~}}
 
   {{else}}
-  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
-    <ul class="fa-ul">
-      <li class="mdc-typography--body1">
-        <span class="fa-li"><span class="far fa-info-circle"></span></span>
-        You are not currently hiding any funds.
-      </li>
-    </ul>
-  </div>
+    {{#>help_box id="hidden-funds-none" permanent=true}}
+      You are not currently hiding any funds.
+    {{/help_box}}
   {{/compare ~}}
 
   {{else}}

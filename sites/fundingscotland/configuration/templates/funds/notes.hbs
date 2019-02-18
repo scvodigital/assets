@@ -25,14 +25,9 @@
 
   {{#compare @root.data.notes_funds.open.hits.total "===" 0 ~}}
   {{#compare @root.data.notes_funds.closed.hits.total "===" 0 ~}}
-  <div class="mdc-theme--secondary-bg mdc-theme--on-secondary x-padding mdc-theme--secondary-dark-border border rounded b-margin-full">
-    <ul class="fa-ul">
-      <li class="mdc-typography--body1">
-        <span class="fa-li"><span class="far fa-info-circle"></span></span>
-        You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
-      </li>
-    </ul>
-  </div>
+    {{#>help_box id="notes-none" permanent=true}}
+      You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
+    {{/help_box}}
   {{else}}
   <p class="mdc-typography--body1">
     You don't have notes on any open funds.

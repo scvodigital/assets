@@ -2,7 +2,7 @@
   <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <h1>Essential digital skills toolkit:<br />Your results</h1>
-      <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:2rem;margin-bottom: 2rem;height:640px;width:640px;"></div>
+      <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:2rem;margin-bottom: 2rem;height:560px;width:560px;"></div>
       <div class="radarChartMobile responsive-img hide-on-med-and-up" style="margin-top:1rem;height:300px;width:300px;"></div>
       <p>
         To help interpret your results: if your points are closer to the edge of the circle you have a good understanding of this section, if the point is closer to the middle in each section you might need to improve your skills in this area.
@@ -52,8 +52,8 @@ var RadarChart = {
   draw: function(id, d, options){
     var cfg = {
       radius: 5,
-      w: 640,
-      h: 640,
+      w: 600,
+      h: 600,
       factor: 1,
       factorLegend: .85,
       levels: 3,
@@ -237,14 +237,14 @@ var d = [
 
 //Options for the desktop radar chart, other than default
 var mycfg = {
-  w: 480,
-  h: 480,
+  w: 420,
+  h: 420,
   maxValue: 3,
   levels: 3,
-  TranslateX: 80,
-  TranslateY: 80,
-  ExtraWidthX: 160,
-  ExtraWidthY: 160
+  TranslateX: 70,
+  TranslateY: 70,
+  ExtraWidthX: 140,
+  ExtraWidthY: 140
 }
 //Call function to draw the desktop radar chart
 RadarChart.draw(".radarChartDesktop", d, mycfg);

@@ -19,8 +19,8 @@
                 {{> fund_contact this hideTitle=true}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
-                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                   <form action="/save-notes" method="POST" data-ajax-form='{
                         "successMessage": "Notes saved",
                         "failureMessage": "Failed to save notes",
@@ -57,22 +57,23 @@
                       </div>
                     </div>
                   </form>
+                  {{else}}
+                  <div class="detailed-info">
+                    {{> upgrade_ad_notes}}
+                  </div>
+                  {{/ifAny ~}}
                 {{else}}
                   <div class="detailed-info">
+                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
                     <p class="mdc-typography--body1">
                       If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
                     </p>
                   </div>
                 {{/if ~}}
-                {{else}}
-                <div class="detailed-info">
-                  {{> upgrade_ad_notes}}
-                </div>
-                {{/ifAny ~}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
-                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                   <div class="mdc-list-group">
                     <ul class="mdc-list mdc-list--two-line">
                       {{#each @root.data.shortlistPartitions.items.[0]}}
@@ -151,18 +152,19 @@
                       </div>
                     </form>
                   </div>
+                  {{else}}
+                  <div class="detailed-info">
+                    {{> upgrade_ad_lists}}
+                  </div>
+                  {{/ifAny ~}}
                 {{else}}
                   <div class="detailed-info">
+                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
                     <p class="mdc-typography--body1">
                       If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
                     </p>
                   </div>
                 {{/if ~}}
-                {{else}}
-                <div class="detailed-info">
-                  {{> upgrade_ad_lists}}
-                </div>
-                {{/ifAny ~}}
               </div>
               {{> fund_actions actions="more-funder,hide-fund" funder=funder}}
             </div>

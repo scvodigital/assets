@@ -1,9 +1,29 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner title">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
-      <h1>Essential Digital Skills: Your Results</h1>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <h1>Essential digital skills toolkit:<br />Your results</h1>
+      <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:2rem;margin-bottom: 2rem;height:640px;width:640px;"></div>
+      <div class="radarChartMobile responsive-img hide-on-med-and-up" style="margin-top:1rem;height:300px;width:300px;"></div>
       <p>
-        Thanks for taking the Essential Digital Skills survey. If your skills aren't what you'd like them to be, you can find more resources on improving them here:
+        To help interpret your results: if your points are closer to the edge of the circle you have a good understanding of this section, if the point is closer to the middle in each section you might need to improve your skills in this area.
+      </p>
+      <p>
+        This checklist is designed to simply provide evidence of whether or not people have Essential Digital Skills. Individal responses can obviously be looked at in details, but the most basic interpretation is:
+      </p>
+      <ol>
+        <li>Have got Essential Digital Skills<br />
+        = Answer "I can do this" to all of the questions
+        </li>
+        <li>
+          Have not got Essential Digital Skills<br />
+          = Answer "I can't do" or "I want to learn how to do this" to any of the questions
+        </li>
+      </ol>
+      <p>
+        Thank you for using our toolkit, please <a href="/skill-up/toolkit/essential/feedback">provide us with feedback</a> or contact <a href="mailto:claire.sharp@scvo.org.uk">Claire Sharp</a>.
+      </p>
+      <p>
+        If your skills aren't what you'd like them to be, you can find more resources on improving them here:
       </p>
       <ul>
         <li><a href="http://www.letsgetonline.scot">Let’s Get Online</a></li>
@@ -11,9 +31,6 @@
         <li><a href="http://www.digitalunite.com">Digital Unite</a></li>
         <li><a href="http://www.learndigital.withgoogle.com/digitalgarage">Google Garage</a></li>
       </ul>
-    </div>
-    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="radarChart responsive-img pull-right" style="margin-top:3rem;background-image:url('{{> asset_url url='images/toolkit-essential-wheel.png'}}');background-repeat: no-repeat;background-position:center center;height:320px;width:320px;"></div>
     </div>
   </div>
 </div>
@@ -35,8 +52,8 @@ var RadarChart = {
   draw: function(id, d, options){
     var cfg = {
       radius: 5,
-      w: 320,
-      h: 320,
+      w: 640,
+      h: 640,
       factor: 1,
       factorLegend: .85,
       levels: 3,
@@ -75,6 +92,15 @@ var RadarChart = {
 
     var tooltip;
 
+    // Background
+    g.append("circle")
+    .attr("class", "gridCircle")
+    .attr("r", function(d, i){return radius*1.333;})
+    .style("fill", "#022347")
+    .style("fill-opacity", "1")
+    .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
+    ;
+
     //Circular segments
     g.selectAll(".levels")
     .data(d3.range(1,(cfg.levels+1)).reverse())
@@ -84,7 +110,7 @@ var RadarChart = {
     .attr("r", function(d, i){return radius/cfg.levels*d;})
     .style("stroke", "#8FC9DC")
     .style("stroke-opacity", "1")
-    .style("stroke-width", "1px")
+    .style("stroke-width", "2px")
     .style("fill-opacity", "0")
     .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
     ;
@@ -104,7 +130,7 @@ var RadarChart = {
     .attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
     .attr("class", "line")
     .style("stroke", "#8FC9DC")
-    .style("stroke-width", "1px");
+    .style("stroke-width", "2px");
 
     d.forEach(function(y, x){
       dataValues = [];
@@ -121,7 +147,7 @@ var RadarChart = {
       .enter()
       .append("polygon")
       .attr("class", "radar-chart-serie"+series)
-      .style("stroke-width", "2px")
+      .style("stroke-width", "3px")
       .style("stroke", "white")
       .attr("points",function(d) {
         var str="";
@@ -209,10 +235,24 @@ var d = [
   ]
 ];
 
-//Options for the Radar chart, other than default
+//Options for the desktop radar chart, other than default
 var mycfg = {
-  w: 240,
-  h: 240,
+  w: 480,
+  h: 480,
+  maxValue: 3,
+  levels: 3,
+  TranslateX: 80,
+  TranslateY: 80,
+  ExtraWidthX: 160,
+  ExtraWidthY: 160
+}
+//Call function to draw the desktop radar chart
+RadarChart.draw(".radarChartDesktop", d, mycfg);
+
+//Options for the mobile radar chart, other than default
+var mycfg = {
+  w: 220,
+  h: 220,
   maxValue: 3,
   levels: 3,
   TranslateX: 40,
@@ -220,9 +260,8 @@ var mycfg = {
   ExtraWidthX: 80,
   ExtraWidthY: 80
 }
-
-//Call function to draw the Radar chart
-RadarChart.draw(".radarChart", d, mycfg);
+//Call function to draw the mobile radar chart
+RadarChart.draw(".radarChartMobile", d, mycfg);
 
 ////////////////////////////////////////////
 /////////// Initiate legend ////////////////

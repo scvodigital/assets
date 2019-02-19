@@ -10,6 +10,7 @@
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.menu",
     "context.metaData.commonTasks.fundersWithFunds",
     {
       "name": "primaryResponse",

@@ -6,6 +6,7 @@
   },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.menu",
     "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",

@@ -150,23 +150,17 @@
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}
-                {{#each @root.context.metaData.menus.main ~}}
-                  {{#compare label "===" "Premium" ~}}
-                    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-                    {{else}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        labelClasses="mdc-theme--on-primary"
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        label=label}}
-                    {{/ifAny ~}}
-                  {{else}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        labelClasses="mdc-theme--on-primary"
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        label=label}}
-                  {{/compare}}
+                {{>components_tab
+                    url="/search"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "/search" "gi")
+                    label="Funds"}}
+                {{#each @root.data.menu.hits.hits ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash (concat "/" _source.slug))
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")
+                      label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
               {{/components_tab_bar}}
             </section>

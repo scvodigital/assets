@@ -7,6 +7,7 @@
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.menu",
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -6,6 +6,7 @@
     "hideSearch": true
   },
   "tasks": [
+    "context.metaData.commonTasks.menu",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

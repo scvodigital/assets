@@ -9,6 +9,7 @@
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.menu",
     {
       "name": "shortlistPartition",
       "taskModule": "mysql",

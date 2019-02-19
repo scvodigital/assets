@@ -16,6 +16,7 @@
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.fundersWithFunds",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.menu",
     {
       "name": "search_data",
       "taskModule": "elasticsearch",

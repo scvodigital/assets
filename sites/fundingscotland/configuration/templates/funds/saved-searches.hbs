@@ -50,20 +50,20 @@
         <span class="mdc-list-item__meta">
           <div class="mdc-chip-set">
             {{#> ajax_chip
-              onUrl=(concat "/toggle-subscription?name=" savedSearch.partition)
-              offUrl=(concat "/toggle-subscription?name=" savedSearch.partition)
+              onUrl=(concat "/toggle-subscription?name=" (urlencode partition))
+              offUrl=(concat "/toggle-subscription?name=" (urlencode partition))
               onText="Emails"
               offText="Emails"
               iconClasses="far fa-envelope"
               on=partitionActive
             }}
             {
-              "extraAttributes": "data-saved-search-name=\"{{../savedSearch.partition}}\"",
+              "extraAttributes": "data-saved-search-name=\"{{../partition}}\"",
               "onClasses": {
-                "[data-saved-search-name=\"{{../savedSearch.partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                "[data-saved-search-name=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
               },
               "offClasses": {
-                "[data-saved-search-name=\"{{../savedSearch.partition}}\"]": ""
+                "[data-saved-search-name=\"{{../partition}}\"]": ""
               }
             }
             {{/ajax_chip}}

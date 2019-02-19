@@ -1,11 +1,11 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h1>Foundation Digital Skills:<br />Your Results</h1>
+      <h1>Foundation digital skills:<br />Your results</h1>
       <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:3rem;margin-bottom: 2rem;height:640px;width:640px;"></div>
       <div class="radarChartMobile responsive-img hide-on-med-and-up" style="margin-top:2rem;height:300px;width:300px;"></div>
       <p>
-        Thanks for taking the Foundation Digital Skills survey. If your skills aren't what you'd like them to be, you can find more resources on improving them here:
+        If your skills aren't what you'd like them to be, you can find more resources on improving them here:
       </p>
       <ul>
         <li><a href="http://www.letsgetonline.scot">Let’s Get Online</a></li>
@@ -34,8 +34,8 @@ var RadarChart = {
   draw: function(id, d, options){
     var cfg = {
       radius: 5,
-      w: 320,
-      h: 320,
+      w: 640,
+      h: 640,
       factor: 1,
       factorLegend: .85,
       levels: 3,
@@ -74,6 +74,15 @@ var RadarChart = {
 
     var tooltip;
 
+    // Background
+    g.append("circle")
+    .attr("class", "gridCircle")
+    .attr("r", function(d, i){return radius*1.333;})
+    .style("fill", "#022347")
+    .style("fill-opacity", "1")
+    .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
+    ;
+
     //Circular segments
     g.selectAll(".levels")
     .data(d3.range(1,(cfg.levels+1)).reverse())
@@ -83,9 +92,10 @@ var RadarChart = {
     .attr("r", function(d, i){return radius/cfg.levels*d;})
     .style("stroke", "#8FC9DC")
     .style("stroke-opacity", "1")
-    .style("stroke-width", "1px")
+    .style("stroke-width", "2px")
     .style("fill-opacity", "0")
     .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
+    ;
 
     series = 0;
 
@@ -102,7 +112,7 @@ var RadarChart = {
     .attr("y2", function(d, i){return cfg.h/2*(1-cfg.factor*Math.cos(i*cfg.radians/total));})
     .attr("class", "line")
     .style("stroke", "#8FC9DC")
-    .style("stroke-width", "1px");
+    .style("stroke-width", "2px");
 
     d.forEach(function(y, x){
       dataValues = [];
@@ -119,7 +129,7 @@ var RadarChart = {
       .enter()
       .append("polygon")
       .attr("class", "radar-chart-serie"+series)
-      .style("stroke-width", "2px")
+      .style("stroke-width", "3px")
       .style("stroke", "white")
       .attr("points",function(d) {
         var str="";
@@ -147,6 +157,7 @@ var RadarChart = {
       series++;
     });
     series=0;
+
 
     d.forEach(function(y, x){
       g.selectAll(".nodes")

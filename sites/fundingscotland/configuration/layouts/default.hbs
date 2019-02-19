@@ -155,7 +155,7 @@
                     labelClasses="mdc-theme--on-primary"
                     active=(regexMatch @root.request.url.pathname "/search" "gi")
                     label="Funds"}}
-                {{#each @root.data.menu.hits.hits ~}}
+                {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{>components_tab
                       url=(stripTrailingSlash (concat "/" _source.slug))
                       labelClasses="mdc-theme--on-primary"

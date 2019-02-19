@@ -9,7 +9,7 @@
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.profileData",
-    "context.metaData.commonTasks.menu",
+    "context.metaData.commonTasks.menus",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

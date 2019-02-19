@@ -10,7 +10,7 @@
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.profileData",
-    "context.metaData.commonTasks.menu",
+    "context.metaData.commonTasks.menus",
     {
       "name": "search_data",
       "taskModule": "elasticsearch",

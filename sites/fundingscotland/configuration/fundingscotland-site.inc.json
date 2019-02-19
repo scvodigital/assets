@@ -138,8 +138,8 @@
           "notAuthenticatedRoute": "sign_in"
         }
       },
-      "menu": {
-        "name": "menu",
+      "menus": {
+        "name": "menus",
         "taskModule": "elasticsearch",
         "config": {
           "connectionStringTemplate": "{$../elasticsearch-url.txt}",
@@ -149,7 +149,7 @@
           "queryTemplates": {
               "index": "web-content-production",
               "type": "fundingscotland-page",
-              "template": ">context.metaData.handlebars.queries.pages_menu"
+              "template": ">context.metaData.handlebars.queries.pages_menus"
             } 
         },
         "renderer": "handlebars"

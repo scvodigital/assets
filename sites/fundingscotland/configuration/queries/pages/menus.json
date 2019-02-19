@@ -4,12 +4,10 @@
     "slug",
     "title",
     "menu_order",
-    "menu_label"
+    "menu_label",
+    "which_menus"
   ],
   "query": {
-    "term": {
-      "show_in_menu": true
-    }
   },
   "sort": [
     {

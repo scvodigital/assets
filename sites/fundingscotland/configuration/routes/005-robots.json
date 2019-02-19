@@ -3,7 +3,7 @@
   "pattern": "/robots.txt",
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menu",
+    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

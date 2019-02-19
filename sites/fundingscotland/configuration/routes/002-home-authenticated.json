@@ -7,7 +7,7 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.menu",
+    "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

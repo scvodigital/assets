@@ -1,0 +1,31 @@
+{
+  "name": "toggle-subscription",
+  "pattern": "/toggle-subscription",
+  "acceptedVerbs": "GET",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "toggleListSubscription",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "toggleListSubscription": ">context.metaData.handlebars.queries.notifications_toggle-subscription"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{ \"list\": {{{stringify request.params.query.name}}} }",
+        "parseJson": true
+      }
+    }
+  ]
+}

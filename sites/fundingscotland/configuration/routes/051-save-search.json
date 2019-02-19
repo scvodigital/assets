@@ -2,9 +2,9 @@
   "name": "save-search",
   "pattern": "/save-search",
   "debug": true,
-  "acceptedVerbs": "POST",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "notifications",
       "taskModule": "mysql",

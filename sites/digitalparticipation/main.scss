@@ -380,6 +380,9 @@ main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
   }
 }
+.skill-up.foundation main {
+  background: $brand-primary;
+}
 
 main {
   padding-bottom: 4rem;

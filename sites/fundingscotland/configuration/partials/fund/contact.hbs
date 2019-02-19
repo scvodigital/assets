@@ -1,5 +1,6 @@
 <div class="contact" data-fund-id="{{Id}}">
   <div class="detailed-info">
+    {{#if @root.data.auth ~}}
     <ul class="fa-ul first">
       {{#if funder_organisation.website ~}}
       <li class="mdc-typography--body1">
@@ -62,7 +63,6 @@
       {{/if ~}}
     </ul>
 
-    {{#if @root.data.auth ~}}
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
       <a href="mailto:fundingscotland@scvo.org.uk?subject=Report%20inaccuracy:%20{{urlencode title}}%20-%20{{urlencode funder_organisation.name}}">Report inaccuracy</a>

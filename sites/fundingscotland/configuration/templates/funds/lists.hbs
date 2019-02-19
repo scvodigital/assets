@@ -55,6 +55,9 @@
           </div>
         </span>
       </li>
+      {{#unless @last}}
+        <li class="mdc-list-divider" role="separator"></li>
+      {{/unless ~}}
       {{/each ~}}
       {{else}}
       <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">

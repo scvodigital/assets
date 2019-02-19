@@ -1,0 +1,55 @@
+{
+  "name": "searches",
+  "pattern": "/searches",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true,
+    "sidebarButton": {
+      "icon": "search",
+      "tooltip": "Search",
+      "classes": "hide-md hide-lg"
+    }
+  },
+  "defaultParams": {
+    "context": "results"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.menus",
+    {
+      "name": "email_days",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.partials.email_days"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.funds_saved-searches",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

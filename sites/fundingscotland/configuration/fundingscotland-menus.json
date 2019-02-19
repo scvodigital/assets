@@ -1,36 +1,4 @@
 {
-  "main": [
-    {
-      "label": "Funds",
-      "icon": "search",
-      "path": "/search",
-      "route": "^/search"
-    },
-    {
-      "label": "About",
-      "icon": "question-circle",
-      "path": "/about",
-      "route": "^/about"
-    },
-    {
-      "label": "Premium",
-      "icon": "award",
-      "path": "/premium",
-      "route": "^/premium"
-    },
-    {
-      "label": "FAQs",
-      "icon": "info-circle",
-      "path": "/faq",
-      "route": "^/faq"
-    },
-    {
-      "label": "Funding guide",
-      "icon": "question-circle",
-      "path": "/funding-guide",
-      "route": "^/funding-guide"
-    }
-  ],
   "user-signed-in": [
     {
       "label": "Home",
@@ -39,8 +7,14 @@
       "route": "^/$"
     },
     {
-      "label": "Lists",
-      "icon": "list",
+      "label": "Searches & alerts",
+      "icon": "search-plus",
+      "path": "/searches",
+      "route": "^/searches"
+    },
+    {
+      "label": "Lists & updates",
+      "icon": "tasks",
       "path": "/lists",
       "route": "^/lists"
     },
@@ -81,52 +55,6 @@
       "icon": "list-alt",
       "path": "/sign-up",
       "route": "^/sign-up"
-    }
-  ],
-  "footer-info": [
-    {
-      "label": "Contact",
-      "icon": "at",
-      "path": "/contact",
-      "route": "^/contact"
-    },
-    {
-      "label": "About",
-      "icon": "question-circle",
-      "path": "/about",
-      "route": "^/about"
-    },
-    {
-      "label": "Premium",
-      "icon": "award",
-      "path": "/premium",
-      "route": "^/premium"
-    },
-    {
-      "label": "FAQs",
-      "icon": "info-circle",
-      "path": "/faq",
-      "route": "^/faq"
-    }
-  ],
-  "footer-help": [
-    {
-      "label": "Privacy",
-      "icon": "lock-alt",
-      "path": "/privacy",
-      "route": "^/privacy"
-    },
-    {
-      "label": "Cookies",
-      "icon": "cookie",
-      "path": "/cookies",
-      "route": "^/cookies"
-    },
-    {
-      "label": "Terms &amp; conditions",
-      "icon": "book",
-      "path": "/terms",
-      "route": "^/terms"
     }
   ]
 }

@@ -6,15 +6,20 @@
           {{> fund_key_info}}
           <div class="content-primary-info-container">
             {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
-              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="fas fa-info-circle"}}
-              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="fas fa-sticky-note"}}
-              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="fas fa-list"}}
+              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="far fa-info-circle"}}
+              {{>components_tab tabName="contact" label="Contact" active=false linkClasses="" iconClasses="far fa-address-book"}}
+              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="far fa-edit"}}
+              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="far fa-tasks"}}
             {{/components_tab_bar}}
             <div class="panels" for="content-primary-tab-bar">
               <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
                 {{> fund_full this hideTitle=true}}
               </div>
+              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="contact">
+                {{> fund_contact this hideTitle=true}}
+              </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
                   <form action="/save-notes" method="POST" data-ajax-form='{
                         "successMessage": "Notes saved",
@@ -59,8 +64,14 @@
                     </p>
                   </div>
                 {{/if ~}}
+                {{else}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_notes}}
+                </div>
+                {{/ifAny ~}}
               </div>
               <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
+                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
                 {{#if @root.data.auth ~}}
                   <div class="mdc-list-group">
                     <ul class="mdc-list mdc-list--two-line">
@@ -68,11 +79,30 @@
                         <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
                           <span class="mdc-list-item__text">
                             <span class="mdc-list-item__primary-text">
-                              {{partition}}
+                              <a href="/lists/{{partition}}">{{partition}}</a>
                             </span>
                             <span class="mdc-list-item__secondary-text">
-                              <strong>Email alerts: </strong>
-                              {{#if emails}}on{{else}}off{{/if}}
+                              <strong>List email alerts: </strong>
+                              {{#> toggle_link
+                                onUrl=(concat "/toggle-list-subscription?name=" partition)
+                                offUrl=(concat "/toggle-list-subscription?name=" partition)
+                                onText="Turn Off"
+                                offText="Turn On"
+                                onClasses="mdc-theme--error"
+                                offClasses="mdc-theme--success"
+                                iconClasses="far fa-fw"
+                                on=partitionActive
+                              }}
+                              {
+                                "extraAttributes": "data-fund-list-email=\"{{../partition}}\"",
+                                "onClasses": {
+                                  "_self": "mdc-theme--error"
+                                },
+                                "offClasses": {
+                                  "_self": "mdc-theme--success"
+                                }
+                              }
+                              {{/toggle_link}}
                             </span>
                           </span>
                           <span class="mdc-list-item__meta">
@@ -128,6 +158,11 @@
                     </p>
                   </div>
                 {{/if ~}}
+                {{else}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_lists}}
+                </div>
+                {{/ifAny ~}}
               </div>
               {{> fund_actions actions="more-funder,hide-fund" funder=funder}}
             </div>

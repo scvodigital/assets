@@ -11,7 +11,6 @@ import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
 window.firebase = firebase;
 
-
 export class FundingScotland {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
@@ -63,6 +62,8 @@ export class FundingScotland {
     ci.options.cookie = "CookieInfoScript";
     ci.options.textAlign = "left";
     ci.run();
+
+    this.helpBoxes();
   }
 
   windowResized() {
@@ -94,6 +95,36 @@ export class FundingScotland {
         $(od.element).addClass('mdc-drawer--modal');
         od.mdc = mdc.drawer.MDCDrawer.attachTo(od.element);
         $(menuButton).on('click', () => { od.mdc.open = !od.mdc.open; });
+      }
+    });
+  }
+
+  helpBoxes() {
+    this.$helpBoxes = $('[data-help-box-id]').each((i, o) => {
+      const $helpBox = $(o);
+      const id = $helpBox.data('help-box-id');
+      const $dismissButton = $helpBox.find('.help-box__dismiss-button');
+      $dismissButton.on('click', (evt) => {
+        $helpBox.addClass('help-box--dismissed');
+        const dismissedCookie = this.getCookie('fs_dismissed') || '';
+        const dismissedList = dismissedCookie.substr(1, dismissedCookie.length - 2).split('][');
+        if (dismissedList.indexOf(id) === -1) {
+          dismissedList.push(id);
+        }
+        const newCookie = '[' + dismissedList.join('][') + ']';
+        this.setCookie('fs_dismissed', newCookie);
+      });
+    });
+
+    this.$helpBoxToggles = $('[data-help-box-toggle]').click(evt => {
+      const $helpBoxToggle = $(evt.currentTarget);
+      const id = $helpBoxToggle.data('help-box-toggle');
+      const $helpBox = $('[data-help-box-id="' + id + '"]');
+
+      if ($helpBox.hasClass('help-box--dismissed')) {
+        $helpBox.removeClass('help-box--dismissed');
+      } else { 
+        $helpBox.addClass('help-box--flash').fadeOut(50).fadeIn(250);
       }
     });
   }
@@ -134,27 +165,5 @@ export class FundingScotland {
 
   snackbarShow(options) {
     console.log('DEPRECATED SNACKBARSHOW CALLED:', arguments);
-  }
-
-  popupPagerPage(pager, direction) {
-    var currentPage = $(pager).find('.map-content:visible');
-    var nextPage = currentPage;
-    if (direction === 'next') {
-      var nextElement = currentPage.next();
-      if (!nextElement || nextElement.length === 0) {
-        nextPage = $(pager).children().first();
-      } else {
-        nextPage = nextElement;
-      }
-    } else if (direction === 'back') {
-      var prevElement = currentPage.prev();
-      if (!prevElement || prevElement.length === 0) {
-        nextPage = $(pager).children().last();
-      } else {
-        nextPage = prevElement;
-      }
-    }
-    currentPage.hide();
-    nextPage.show();
   }
 }

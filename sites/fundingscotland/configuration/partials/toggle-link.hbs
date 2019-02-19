@@ -1,0 +1,28 @@
+{{#with (parse (@partial-block))}}
+  <span class="toggle-link {{if ../on (concat "toggle-link--selected " onClasses._self) else=offClasses._self}}" {{{extraAttributes}}} data-toggle-link='{
+      "onUrl": "{{../onUrl}}",
+      "offUrl": "{{../offUrl}}",
+      "onMethod": "{{default ../onMethod "GET"}}",
+      "offMethod": "{{default ../offMethod "GET"}}",
+      {{#if onData}}
+        "onData": {{{stringify onData}}},
+      {{/if}}
+      {{#if offData}}
+        "offData": {{{stringify offData}}},
+      {{/if}}
+      {{#if onClasses}}
+        "onClasses": {{{stringify onClasses}}},
+      {{/if}}
+      {{#if offClasses}}
+        "offClasses": {{{stringify offClasses}}},
+      {{/if}}
+      "onText": "{{../onText}}",
+      "offText": "{{../offText}}"}' role="button">
+    {{#if ../onIcon}}
+      <span class="{{../iconClasses}} {{if ../on ../onIcon else=../offIcon}}" aria-hidden="true"></span>
+    {{/if}}
+    <span class="toggle-link__text">
+      {{{if ../on ../onText else=../offText}}}
+    </span>
+  </span>
+{{/with}}

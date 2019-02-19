@@ -1,6 +1,6 @@
 {
   "size": 10,
-  "from": {{#if @root.data.auth}}{{multiply (subtract (default request.params.query.page 1) 1) 10}}{{else}}0{{/if}},
+  "from": {{#if @root.data.auth}}{{multiply (subtract (default (if (compare request.params.query.page ">" 5) 5 else=request.params.query.page) 1) 1) 10}}{{else}}0{{/if}},
   "_source": [
     "Id",
     "slug",

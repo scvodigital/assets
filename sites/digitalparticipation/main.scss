@@ -490,6 +490,9 @@ main {
       font-size: 1.4rem;
       font-weight: 400;
     }
+    ol li {
+      list-style-type: decimal;
+    }
     th {
       font-size: 1.4rem;
     }
@@ -550,17 +553,24 @@ main {
   .title,
   .detail,
   .expand {
+    .sg-instructions,
+    .sg-page-description,
     p {
       font-size: 1.4rem;
       font-weight: 400;
       margin-top: 1rem;
       margin-bottom: 1rem;
     }
+    label,
     li,
     dt,
     dd {
       font-size: 1.4rem;
       font-weight: 400;
+    }
+    .sg-wrapper, .sg-question-title, .sg-question-title label {
+      font-size: 1.4rem;
+      font-weight: 700;
     }
   }
   .resources {
@@ -802,6 +812,11 @@ main {
       margin: 0 auto;
     }
   }
+}
+
+.radarChartDesktop,
+.radarChartMobile {
+  margin: 0 auto;
 }
 
 // .mdc-button {

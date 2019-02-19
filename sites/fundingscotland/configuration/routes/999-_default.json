@@ -7,6 +7,7 @@
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.menus",
     {
       "name": "primaryResponse",

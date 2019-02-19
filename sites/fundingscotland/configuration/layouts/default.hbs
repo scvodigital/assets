@@ -157,7 +157,7 @@
                     label="Funds"}}
                 {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{>components_tab
-                      url=(stripTrailingSlash (concat "/" _source.slug))
+                      url=(default _source.menu_url (stripTrailingSlash (concat "/" _source.slug)))
                       labelClasses="mdc-theme--on-primary"
                       active=(regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")
                       label=(default _source.menu_label _source.title)}}
@@ -208,47 +208,24 @@
               <span class="far fa-home mdc-list-item__graphic" aria-hidden="true"></span>
               Home
             </a>
-            {{#each @root.context.metaData.menus.main ~}}
-              {{#compare label "===" "Premium" ~}}
-                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-                {{else}}
-                  <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-                     href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-                    {{#if icon ~}}
-                    <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-                    {{/if ~}}
-                    {{{label}}}
-                  </a>
-                {{/ifAny ~}}
-              {{else}}
-                <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-                   href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-                  {{#if icon ~}}
-                  <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-                  {{/if ~}}
-                  {{{label}}}
-                </a>
-              {{/compare ~}}
-            {{/each ~}}
-            {{#each @root.context.metaData.menus.upper ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
+            <a class="mdc-list-item {{#compare @root.request.url.pathname "/search"}} mdc-list-item--activated{{/compare}}"
+               href="/search" aria-selected="true" tabindex="1">
+              <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
+              Funds
             </a>
+            {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
+              <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}} mdc-list-item--activated{{/if}}"
+                  href="{{default _source.menu_url (stripTrailingSlash (concat "/" _source.slug))}}" 
+                  {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+                {{#if _source.menu_icon ~}}
+                <span class="{{_source.menu_icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+                {{/if ~}}
+                {{{default _source.menu_label _source.title}}}
+              </a>
             {{/each ~}}
-            {{#each @root.context.metaData.menus.main-extra ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
-            {{/each ~}}
+            
             <div role="separator" class="mdc-list-divider"></div>
+
             {{#if @root.data.auth ~}}
             <a class="mdc-list-item mdc-list-item__user" href="#">
               <span class="mdc-list-item__graphic" aria-hidden="true">
@@ -320,9 +297,9 @@
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
                   <h3>Information</h3>
                   <ul class="mdc-list">
-                    {{#each @root.context.metaData.menus.footer-info ~}}
+                    {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{path}}">{{{label}}}</a>
+                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
                     </li>
                     {{/each ~}}
                   </ul>
@@ -330,9 +307,9 @@
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone info">
                   <h3>Help</h3>
                   <ul class="mdc-list">
-                    {{#each @root.context.metaData.menus.footer-help ~}}
+                    {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-help") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{path}}">{{{label}}}</a>
+                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
                     </li>
                     {{/each ~}}
                   </ul>

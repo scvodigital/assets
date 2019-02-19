@@ -5,15 +5,32 @@
     "title",
     "menu_order",
     "menu_label",
-    "which_menus"
+    "which_menus",
+    "menu_url",
+    "menu_icon"
   ],
   "query": {
-  },
-  "sort": [
-    {
-      "menu_order": {
-        "order": "asc"
-      }
+    "bool": {
+      "must": [{
+          "term": {
+            "menu_item_visibility": {
+              "value": "{{if @root.data.auth.uid 'authenticated-users' else='unauthenticated-users'}}"
+            }
+          }
+        },
+        {
+          "term": {
+            "menu_item_visibility": {
+              "value": "{{if (compare @root.data.currentSite.name '!==' 'default') 'premium-users' else=(if @root.data.profile.isPremium 'premium-users' else='not-premium-users')}}"
+            }
+          }
+        }
+      ]
     }
-  ]
+  },
+  "sort": [{
+    "menu_order": {
+      "order": "asc"
+    }
+  }]
 }

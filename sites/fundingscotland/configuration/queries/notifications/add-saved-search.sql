@@ -14,8 +14,8 @@ CALL _addSubscriptionParameters(
       beneficiaries=@root.request.params.query.beneficiaries
     )
   }}},
-  {{{mysqlEscape @root.request.body.name}}},
-  {{#if @root.request.body.subscribe}}1{{else}}0{{/if}}
+  {{{mysqlEscape @root.request.params.query.name}}},
+  {{#if @root.request.params.query.subscribe}}1{{else}}0{{/if}}
 );
 {{else}}
 SET @query=false;

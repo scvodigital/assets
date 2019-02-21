@@ -88,7 +88,6 @@ var RadarChart = {
     .attr("height", cfg.h+cfg.ExtraWidthY)
     .append("g")
     .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
-    ;
 
     var tooltip;
 
@@ -99,7 +98,6 @@ var RadarChart = {
     .style("fill", "#022347")
     .style("fill-opacity", "1")
     .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
-    ;
 
     //Circular segments
     g.selectAll(".levels")
@@ -113,7 +111,6 @@ var RadarChart = {
     .style("stroke-width", "2px")
     .style("fill-opacity", "0")
     .attr("transform", "translate(" + (cfg.w/2) + ", " + (cfg.h/2) + ")");
-    ;
 
     series = 0;
 
@@ -131,6 +128,19 @@ var RadarChart = {
     .attr("class", "line")
     .style("stroke", "#8FC9DC")
     .style("stroke-width", "2px");
+
+    axis.append("text")
+  		.attr("class", "legend")
+  		.text(function(d){return d})
+      .style("font-family", "Poppins")
+      .style("font-weight", "700")
+      .style("font-size", "1.4rem")
+      .style("fill", "#fff")
+  		.attr("text-anchor", "middle")
+  		.attr("dy", "1.5em")
+  		.attr("transform", function(d, i){return "translate(0, -20)"})
+  		.attr("x", function(d, i){return cfg.w/2*(1-cfg.factorLegend*Math.sin(i*cfg.radians/total))-60*Math.sin(i*cfg.radians/total);})
+  		.attr("y", function(d, i){return cfg.h/2*(1-Math.cos(i*cfg.radians/total))-20*Math.cos(i*cfg.radians/total);});
 
     d.forEach(function(y, x){
       dataValues = [];
@@ -175,7 +185,6 @@ var RadarChart = {
       series++;
     });
     series=0;
-
 
     d.forEach(function(y, x){
       g.selectAll(".nodes")

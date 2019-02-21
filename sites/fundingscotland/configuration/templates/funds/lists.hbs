@@ -35,8 +35,8 @@
         <span class="mdc-list-item__meta">
           <div class="mdc-chip-set">
             {{#> ajax_chip
-              onUrl=(concat "/toggle-list-subscription?name=" partition)
-              offUrl=(concat "/toggle-list-subscription?name=" partition)
+              onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+              offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
               onText="Email alerts"
               offText="Email alerts"
               iconClasses="far fa-envelope"

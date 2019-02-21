@@ -85,8 +85,8 @@
                             <span class="mdc-list-item__secondary-text">
                               <strong>List email alerts: </strong>
                               {{#> toggle_link
-                                onUrl=(concat "/toggle-list-subscription?name=" partition)
-                                offUrl=(concat "/toggle-list-subscription?name=" partition)
+                                onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+                                offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
                                 onText="Turn Off"
                                 offText="Turn On"
                                 onClasses="mdc-theme--error"

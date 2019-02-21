@@ -1291,57 +1291,6 @@
       "path" : "/the-gathering-2019/about",
       "route" : "^/the-gathering-2019/about"
     }, {
-      "label" : "New for 2019",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "25987",
-        "_menu_item_object" : "page",
-        "_menu_item_object_id" : "25972",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "post_type",
-        "_menu_item_url" : "",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:1:{i:0;a:4:{s:2:\"id\";i:25966;s:5:\"title\";s:18:\"The Gathering 2019\";s:3:\"url\";s:39:\"http://cms.scvo.org/the-gathering-2019/\";s:7:\"excerpt\";s:0:\"\";}}",
-        "breadcrumbs_json" : "[{\"id\":25966,\"title\":\"The Gathering 2019\",\"url\":\"http://cms.scvo.org/the-gathering-2019/\",\"excerpt\":\"\"}]",
-        "menu-item-route-pattern" : "^/the-gathering-2019/new-for-2019"
-      },
-      "path" : "/the-gathering-2019/new-for-2019",
-      "route" : "^/the-gathering-2019/new-for-2019"
-    }, {
-      "label" : "Event programme",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "25987",
-        "_menu_item_object" : "page",
-        "_menu_item_object_id" : "26335",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "post_type",
-        "_menu_item_url" : "",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:1:{i:0;a:4:{s:2:\"id\";i:25966;s:5:\"title\";s:18:\"The Gathering 2019\";s:3:\"url\";s:39:\"http://cms.scvo.org/the-gathering-2019/\";s:7:\"excerpt\";s:0:\"\";}}",
-        "breadcrumbs_json" : "[{\"id\":25966,\"title\":\"The Gathering 2019\",\"url\":\"http://cms.scvo.org/the-gathering-2019/\",\"excerpt\":\"\"}]",
-        "menu-item-route-pattern" : "^/the-gathering-2019/book-a-stand"
-      },
-      "path" : "/the-gathering-2019/event-programme",
-      "route" : "^/the-gathering-2019/event-programme"
-    }, {
-      "label" : "Book a stand",
-      "metaData" : {
-        "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",
-        "_menu_item_menu_item_parent" : "25987",
-        "_menu_item_object" : "page",
-        "_menu_item_object_id" : "26337",
-        "_menu_item_target" : "",
-        "_menu_item_type" : "post_type",
-        "_menu_item_url" : "",
-        "_menu_item_xfn" : "",
-        "breadcrumbs" : "a:1:{i:0;a:4:{s:2:\"id\";i:25966;s:5:\"title\";s:18:\"The Gathering 2019\";s:3:\"url\";s:39:\"http://cms.scvo.org/the-gathering-2019/\";s:7:\"excerpt\";s:0:\"\";}}",
-        "breadcrumbs_json" : "[{\"id\":25966,\"title\":\"The Gathering 2019\",\"url\":\"http://cms.scvo.org/the-gathering-2019/\",\"excerpt\":\"\"}]",
-        "menu-item-route-pattern" : "^/the-gathering-2019/host-an-event"
-      },
-      "path" : "/the-gathering-2019/book-a-stand",
-      "route" : "^/the-gathering-2019/book-a-stand"
-    }, {
       "label" : "Sponsorship",
       "metaData" : {
         "_menu_item_classes" : "a:1:{i:0;s:0:\"\";}",

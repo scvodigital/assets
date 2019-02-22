@@ -31,7 +31,7 @@ strong {
 }
 
 .mdc-top-app-bar-fixed-adjust {
-  padding-top: 138px;
+  padding-top: 100px;
 }
 
 .container-fluid {
@@ -82,20 +82,36 @@ header {
     // }
     .mdc-top-app-bar__upper {
       background-color: $mdc-theme-footer;
+      .mdc-top-app-bar__section {
+        background-color: $mdc-theme-primary;
+      }
+      .mdc-top-app-bar__section--logo {
+        background-color: $mdc-theme-footer;
+        flex: 0 0 auto;
+        padding-left: $unit/2;
+        img {
+          max-height: 64px;
+          margin: 0 $unit 0 $unit/2;
+          margin-top: -($unit/5);
+          vertical-align: middle;
+        }
+      }
+      .mdc-top-app-bar__section--align-end {
+        padding-right: 0 !important;
+      }
+      .mdc-top-app-bar__user {
+        flex: 0 0 auto;
+        padding-right: $unit/2 !important;
+      }
       .mdc-top-app-bar__title {
         color: white;
         vertical-align: middle;
         font-size: 1.75rem;
-        font-weight: 400;
-        line-height: 1;
-        text-transform: uppercase;
+        letter-spacing: -0.05rem;
+        font-weight: 600;
+        line-height: 100px;
         display: block;
-        img {
-          max-height: 64px;
-          margin: 0 0 0 $unit/2;
-          margin-top: -.2rem;
-          vertical-align: middle;
-        }
+        margin-left: $unit*1.25;
       }
       .mdc-top-app-bar__title:hover {
         text-decoration: none;
@@ -149,6 +165,42 @@ header {
   }
 }
 
+.header-banner {
+  height: 200px !important;
+  flex: 1 1 auto;
+  width: 100%;
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-bottom: $unit/3 solid $mdc-theme-secondary;
+  .site-brand {
+    background: white;
+    margin: $unit*1.5;
+    padding: $unit;
+    display: inline-block;
+    .site-brand--organisation {
+      padding-right: $unit;
+      img {
+        max-width: 150px;
+        max-height: 150px;
+      }
+    }
+    .site-brand--fundingscotland {
+      margin-top: .75rem;
+      border-left: $unit/5 solid $mdc-theme-complimentary;
+      padding-left: $unit;
+      padding-right: $unit/2;
+      color: $mdc-theme-complimentary;
+      font-size: 1.2rem;
+      float: right;
+    }
+    .site-brand--fundingscotland:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
   border-color: $mdc-theme-primary;
@@ -193,10 +245,9 @@ header {
   }
 }
 
-.content-settings-account {
-  .mdc-button.mdc-button--delete {
-    background-color: #dd4b39 !important;
-  }
+.mdc-chip--premium,
+.content-settings-account .mdc-button.mdc-button--delete {
+  background-color: #dd4b39 !important;
 }
 
 .settings {
@@ -296,7 +347,7 @@ a:hover {
 
 .mdc-card {
   .mdc-card__actions {
-    background-color: $mdc-theme-complimentary-light;
+    background-color: $mdc-theme-surface-light;
     a {
       color: $mdc-theme-primary-dark;
     }
@@ -312,10 +363,10 @@ a:hover {
 .mdc-card.search-result {
   background-color: #fff;
   .search-result-article__notes {
-    background-color: $mdc-theme-complimentary-light;
+    background-color: $mdc-theme-surface-light;
   }
   .mdc-card__actions {
-    background-color: $mdc-theme-complimentary-light;
+    background-color: $mdc-theme-surface-light;
     .mdc-card__action {
       color: $mdc-theme-primary-dark;
     }
@@ -326,7 +377,7 @@ a:hover {
 .content-primary.mdc-card.mini,
 .content-primary.mdc-card.gist,
 .content-primary.mdc-card.search-result {
-  border-top: $unit/3 solid $mdc-theme-complimentary-light;
+  border-top: $unit/3 solid $mdc-theme-surface-light;
 }
 
 .content-primary.mdc-card.list.top-content,
@@ -369,7 +420,7 @@ a:hover {
     height: 72px !important;
   }
   #content-primary-tab-bar {
-    background-color: $mdc-theme-complimentary-light;
+    background-color: $mdc-theme-surface-light;
     .mdc-tab__icon,
     .mdc-tab__text-label {
       color: black;
@@ -390,7 +441,7 @@ a:hover {
     // .key-info-extra {
     //   .mdc-chip {
     //     color: $mdc-theme-secondary-dark;
-    //     background-color: $mdc-theme-complimentary-light;
+    //     background-color: $mdc-theme-surface-light;
     //   }
     //   .mdc-chip:hover {
     //     color: $mdc-theme-secondary-light;
@@ -470,7 +521,7 @@ a.mdc-drawer__content-heading {
     background-color: #fff;
     .tt-suggestion:hover,
     .tt-cursor {
-      background-color: $mdc-theme-complimentary-light;
+      background-color: $mdc-theme-surface-light;
     }
   }
 }
@@ -511,7 +562,7 @@ a.mdc-drawer__content-heading {
   .mdc-card__info--content-primary {
     .mdc-card__info--content-primary-title {
       a .top-content {
-        background-color: $mdc-theme-complimentary-dark !important;
+        background-color: $mdc-theme-surface-dark !important;
         color: #000;
       }
     }
@@ -592,7 +643,7 @@ a.mdc-drawer__content-heading {
     color: $mdc-theme-secondary-dark;
   }
   li.current-page {
-    background-color: $mdc-theme-complimentary-dark;
+    background-color: $mdc-theme-surface-dark;
   }
   li:hover,
   li.current-page:hover {
@@ -706,7 +757,7 @@ footer,
 }
 
 .home-browse {
-  background-color: $mdc-theme-complimentary-light;
+  background-color: $mdc-theme-surface-light;
   border-bottom: $unit/5 solid $mdc-theme-primary-light;
 }
 

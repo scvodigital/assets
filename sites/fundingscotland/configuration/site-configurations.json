@@ -22,7 +22,7 @@
   },
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
-    "title": "Funding Scotland for East Renfrewshire",
+    "title": "East Renfrewshire Funding Search",
     "url": "https://eastrenfrewshire.fundingscotland.com",
     "colors": {
       "primary": "#007FC4",
@@ -58,7 +58,7 @@
   },
   "fife": {
     "name": "fife",
-    "title": "Funding Scotland for Fife",
+    "title": "Fife Funding Search",
     "url": "https://fifefundingsearch.com",
     "colors": {
       "primary": "#00536D",
@@ -94,7 +94,7 @@
   },
   "northlanarkshire": {
     "name": "northlanarkshire",
-    "title": "Funding Scotland for North Lanarkshire",
+    "title": "North Lanarkshire Funding Search",
     "url": "https://northlanarkshire.fundingscotland.com",
     "colors": {
       "primary": "#BD0029",
@@ -120,7 +120,7 @@
   },
   "shetland": {
     "name": "shetland",
-    "title": "Funding Scotland for Shetland",
+    "title": "Shetland Funding Search",
     "url": "https://shetland.fundingscotland.com",
     "colors": {
       "primary": "#0A2C3F",
@@ -156,7 +156,7 @@
   },
   "southlanarkshire": {
     "name": "southlanarkshire",
-    "title": "Funding Scotland for South Lanarkshire",
+    "title": "South Lanarkshire Funding Search",
     "url": "https://southlanarkshire.fundingscotland.com",
     "colors": {
       "primary": "#222E66",
@@ -192,7 +192,7 @@
   },
   "srn": {
     "name": "srn",
-    "title": "Funding Scotland for Scottish Rural Network",
+    "title": "SRN Funding Search",
     "url": "https://srn.fundingscotland.com",
     "colors": {
       "primary": "#888888",
@@ -214,7 +214,7 @@
       "geographical_areas_funded_slugs": [
         "south-lanarkshire",
         "stirling",
-        "perth-and-kinross",
+        "perth-kinross",
         "renfrewshire",
         "falkirk",
         "scottish-borders",
@@ -234,9 +234,9 @@
         "east-renfrewshire",
         "aberdeenshire",
         "angus",
-        "argyll-and-bute",
+        "argyll-bute",
         "clackmannanshire",
-        "dumfries-and-galloway",
+        "dumfries-galloway",
         "east-ayrshire",
         "east-dunbartonshire",
         "east-lothian",
@@ -249,7 +249,7 @@
     },
     "defaultSiteAdTerms": {
       "geographical_areas_funded": [
-        "perth-and-kinross",
+        "perth-kinross",
         "renfrewshire",
         "falkirk",
         "scottish-borders",
@@ -265,9 +265,9 @@
         "orkney",
         "aberdeenshire",
         "angus",
-        "argyll-and-bute",
+        "argyll-bute",
         "clackmannanshire",
-        "dumfries-and-galloway",
+        "dumfries-galloway",
         "east-ayrshire",
         "east-dunbartonshire",
         "east-lothian"
@@ -276,7 +276,7 @@
   },
   "stirling": {
     "name": "stirling",
-    "title": "Funding Scotland for Stirling",
+    "title": "Stirling Funding Search",
     "url": "https://stirling.fundingscotland.com",
     "colors": {
       "primary": "#E51072",

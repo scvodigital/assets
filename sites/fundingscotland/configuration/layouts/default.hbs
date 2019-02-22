@@ -100,18 +100,17 @@
       <header class="mdc-top-app-bar mdc-elevation--z5 top-bar-stuck" id="top-bar">
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--logo">
               {{#unless @root.route.metaData.hideSearch ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
                 <span class="far fa-fw fa-2x fa-search"></span>
               </button>
               {{/unless ~}}
-              <a href="https://scvo.org" class="mdc-top-app-bar__title">
+              <a href="https://scvo.org">
                 <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
               </a>
-              <span class="mdc-top-app-bar__title">
-                &nbsp;|&ensp;
-              </span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
               <a href="/" class="mdc-top-app-bar__title">
                 {{@root.data.currentSite.title}}
               </a>
@@ -144,8 +143,8 @@
               {{#compare @root.data.currentSite.name "===" "default" ~}}
               {{#withExtend this isPremium=@root.data.profile.isPremium ~}}
               <div class="mdc-chipset pull-right">
-                <a href="/premium-toggle" class="mdc-chip mdc-theme--primary-bg mdc-theme--on-primary">
-                  <i class="far mdc-chip__icon mdc-chip__icon--leading mdc-theme--primary-bg mdc-theme--on-primary {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
+                <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
+                  <i class="far mdc-chip__icon {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
                   <div class="mdc-chip__text">
                     Premium user
                   </div>
@@ -158,9 +157,9 @@
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
-          </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main">
+          <!-- </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main">
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}
@@ -213,6 +212,19 @@
           </div>
         </div>
       </header>
+
+      <div class="header-banner mdc-top-app-bar-fixed-adjust">
+        {{#compare @root.data.currentSite.name "!==" "default" ~}}
+        <div class="site-brand">
+          <a href="/" class="site-brand--organisation">
+            <img src="http://www.penumbra.org.uk/wp-content/uploads/2016/02/FifeCouncil.png" />
+          </a>
+          <a href="https://fundingscotland.com" class="site-brand--fundingscotland">
+            Funding <br />Scotland
+          </a>
+        </div>
+        {{/compare ~}}
+      </div>
 
       <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
         <div class="mdc-drawer__content">
@@ -276,7 +288,7 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--background mdc-top-app-bar-fixed-adjust main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="mdc-theme--background main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}

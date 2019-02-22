@@ -140,6 +140,18 @@
                   </div>
                 </div>
               </form> -->
+
+              {{#withExtend this isPremium=@root.data.profile.isPremium}}
+              <div class="mdc-chipset pull-right">
+                <a href="/premium-toggle" class="mdc-chip mdc-theme--primary-bg mdc-theme--on-primary">
+                  <i class="fas mdc-chip__icon mdc-chip__icon--leading mdc-theme--primary-bg mdc-theme--on-primary {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
+                  <div class="mdc-chip__text">
+                    {{if isPremium "Turn off premium" else="Turn on premium"}}
+                  </div>
+                </a>
+              </div>
+              {{/withExtend}}
+  
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>

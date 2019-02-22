@@ -35,7 +35,13 @@
                         <div class="mdc-layout-grid">
                           <div class="mdc-layout-grid__inner">
                             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                              <div class="mdc-select mdc-elevation--z2" data-mdc-auto-init="MDCSelect">
+                              <div class="mdc-text-field mdc-text-field--with-trailing-icon" style="display:none;" id="note-status-custom" data-mdc-auto-init="MDCTextField">
+                                <input type="text" id="custom-status" name="custom-status" class="mdc-text-field__input"> 
+                                <label for="custom-status" class="mdc-floating-label">Custom status</label>
+                                <i class="mdc-text-field__icon fal fa-times-circle" tabindex="0" role="button" id="note-status-custom-close"></i>
+                                <div class="mdc-line-ripple"></div>
+                              </div>
+                              <div class="mdc-select mdc-elevation--z2" data-mdc-auto-init="MDCSelect" id="note-status-select">
                                 <span class="mdc-select__dropdown-icon"></span>
                                 <select class="mdc-select__native-control" id="status" name="status">
                                   {{#if (any notes)}}
@@ -48,13 +54,12 @@
                                       <option value="{{this}}">{{this}}</option>
                                     {{/each}}
                                   </optgroup>
-                                  {{#if (any (filter (distinct (dotPattern @root.data.profile.notes '*.*.status')) null "valueNotIn" @root.context.metaData.globalNoteStatuses))}}
                                   <optgroup label="Custom">
                                     {{#each (filter (distinct (dotPattern @root.data.profile.notes '*.*.status')) null "valueNotIn" @root.context.metaData.globalNoteStatuses)}}
                                       <option value="{{this}}">{{this}}</option>
                                     {{/each}}
+                                    <option value="New custom status">-- New custom status --</option>
                                   </optgroup>
-                                  {{/if}}
                                 </select>
                                 <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
                                   Status

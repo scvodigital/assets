@@ -1045,6 +1045,14 @@ footer.mdc-layout__footer {
   margin-right: $unit !important;
 }
 
+.x-margin {
+  margin: $unit/2 !important;
+}
+
+.x-margin-full {
+  margin: $unit !important;
+}
+
 .border {
   border-style: solid;
   border-width: 1px;

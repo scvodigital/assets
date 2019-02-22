@@ -1,0 +1,19 @@
+<script>
+  $(document).ready(function() {
+    $('#status').on('change', function(evt) {
+      var $status = $(evt.currentTarget);
+      var value = $status.val();
+      if (value === 'New custom status') {
+        $('#note-status-select').hide();
+        $('#status').prop('selectedIndex', 0);
+        $('#note-status-custom').show();
+        $('#custom-status').focus();
+      }
+    });
+    $('#note-status-custom-close').on('click', function(evt) {
+      $('#custom-status').val('');
+      $('#note-status-custom').hide();
+      $('#note-status-select').show();
+    });
+  });
+</script>

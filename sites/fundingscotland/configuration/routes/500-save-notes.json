@@ -14,7 +14,7 @@
         "appName": "fundingscotland",
         "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.id}}/{{moment null 'x'}}",
         "setOrUpdate": "set",
-        "dataTemplate": "{ \"status\": {{{stringify @root.request.body.status}}}, \"note\": {{{stringify (stripTags @root.request.body.notes)}}} }"
+        "dataTemplate": "{ \"status\": {{{stringify (default @root.request.body.custom-status (default @root.request.body.status 'None'))}}}, \"note\": {{{stringify (default (stripTags @root.request.body.notes) 'No notes entered')}}} }"
       }
     },
     {

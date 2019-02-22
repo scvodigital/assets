@@ -34,6 +34,14 @@
     "terms": "{:./terms.json}",
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",
+    "globalNoteStatuses": [
+      "Application in process",
+      "Application sent and received / under review",
+      "Application rejected",
+      "Application successful",
+      "Open to reapply",
+      "Not open to apply"
+    ],
     "termTypeLabels": {
       "geographical_areas_funded": {
         "singular": "Region",

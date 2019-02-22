@@ -12,19 +12,25 @@
       "renderer": "handlebars",
       "config": {
         "appName": "fundingscotland",
-        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.id}}",
+        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.id}}/{{moment null 'x'}}",
         "setOrUpdate": "set",
-        "dataTemplate": "{{{stringify (stripTags @root.request.body.notes)}}}"
+        "dataTemplate": "{ \"status\": {{{stringify @root.request.body.status}}}, \"note\": {{{stringify (stripTags @root.request.body.notes)}}} }"
+      }
+    },
+    {
+      "name": "url",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "/fund/{{{@root.request.body.slug}}}#notes"
       }
     },
     {
       "name": "destination",
-      "taskModule": "render",
-      "renderer": "handlebars",
+      "taskModule": "redirect",
       "config": {
-        "output": "body",
-        "template": "{ \"id\": {{{stringify request.body.id}}} }",
-        "parseJson": true
+        "location": ">data.url"
       }
     }
   ]

@@ -141,17 +141,19 @@
                 </div>
               </form> -->
 
-              {{#withExtend this isPremium=@root.data.profile.isPremium}}
+              {{#compare @root.data.currentSite.name "===" "default" ~}}
+              {{#withExtend this isPremium=@root.data.profile.isPremium ~}}
               <div class="mdc-chipset pull-right">
                 <a href="/premium-toggle" class="mdc-chip mdc-theme--primary-bg mdc-theme--on-primary">
-                  <i class="fas mdc-chip__icon mdc-chip__icon--leading mdc-theme--primary-bg mdc-theme--on-primary {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
+                  <i class="far mdc-chip__icon mdc-chip__icon--leading mdc-theme--primary-bg mdc-theme--on-primary {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
                   <div class="mdc-chip__text">
-                    {{if isPremium "Turn off premium" else="Turn on premium"}}
+                    Premium user
                   </div>
                 </a>
               </div>
-              {{/withExtend}}
-  
+              {{/withExtend ~}}
+              {{/compare ~}}
+
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
@@ -227,7 +229,7 @@
             </a>
             {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
               <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}} mdc-list-item--activated{{/if}}"
-                  href="{{default _source.menu_url (stripTrailingSlash (concat "/" _source.slug))}}" 
+                  href="{{default _source.menu_url (stripTrailingSlash (concat "/" _source.slug))}}"
                   {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
                 {{#if _source.menu_icon ~}}
                 <span class="{{_source.menu_icon}} mdc-list-item__graphic" aria-hidden="true"></span>
@@ -235,7 +237,7 @@
                 {{{default _source.menu_label _source.title}}}
               </a>
             {{/each ~}}
-            
+
             <div role="separator" class="mdc-list-divider"></div>
 
             {{#if @root.data.auth ~}}

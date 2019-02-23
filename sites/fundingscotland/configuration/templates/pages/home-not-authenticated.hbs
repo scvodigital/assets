@@ -5,6 +5,9 @@
   <div class="mdc-layout-grid home-funds h-margin-full">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone latest-funds">
+        <h1 class="mdc-typography--headline3">
+          Funding in {{@root.data.currentSite.areaName}}
+        </h1>
         {{#compare @root.data.currentSite.name "===" "default" ~}}
         <p>
           Find funding for your charity, community group or social enterprise using our free online search engine. From small grants to funding for big capital projects, we can help you track down the funding you need to make a difference in your community.

@@ -135,9 +135,7 @@ header {
       .mdc-tab .mdc-tab__text-label {
         color: white;
       }
-      .mdc-tab:hover .mdc-tab__text-label {
-        border-bottom-color: rgba(255, 255, 255, 0.6);
-      }
+      .mdc-tab:hover .mdc-tab__text-label,
       .mdc-tab.mdc-tab--active .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.6);
       }
@@ -181,6 +179,7 @@ header {
     display: inline-flex;
     .site-brand--organisation {
       padding-right: $unit;
+      line-height: 1;
       img {
         max-width: 150px;
         max-height: 100px;

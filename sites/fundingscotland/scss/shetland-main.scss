@@ -1,8 +1,8 @@
-$mdc-theme-primary: #989898;
-$mdc-theme-primary-light: #989898;
-$mdc-theme-primary-dark: #666;
+$mdc-theme-primary: #0093DD;
+$mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-secondary: #FF4B00;
+$mdc-theme-secondary: #D5A300;
 $mdc-theme-secondary-light: #fafafa;
 $mdc-theme-secondary-dark: #333;
 

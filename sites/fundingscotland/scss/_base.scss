@@ -172,6 +172,7 @@ header {
   background-position: center center;
   background-repeat: no-repeat;
   border-bottom: $unit/3 solid $mdc-theme-secondary;
+  border-radius: 2px;
   .site-brand {
     background: white;
     margin: $unit*1.5;
@@ -419,7 +420,7 @@ a:hover {
     height: 72px !important;
   }
   #content-primary-tab-bar {
-    background-color: $mdc-theme-surface-light;
+    background-color: $mdc-theme-surface;
     .mdc-tab__icon,
     .mdc-tab__text-label {
       color: black;
@@ -520,7 +521,7 @@ a.mdc-drawer__content-heading {
     background-color: #fff;
     .tt-suggestion:hover,
     .tt-cursor {
-      background-color: $mdc-theme-surface-light;
+      background-color: $mdc-theme-surface;
     }
   }
 }
@@ -598,6 +599,7 @@ a.mdc-drawer__content-heading {
 }
 
 .mdc-card.full {
+  margin-top: $unit/2;
   .mdc-card--full-content h4 {
     margin: $unit 0 $unit/2;
   }

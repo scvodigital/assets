@@ -47,5 +47,5 @@ $unit: 1rem;
 @import "./sites/fundingscotland/scss/_base.scss";
 
 .header-banner {
-  background-position: center 0px;
+  background-position: center $unit/10;
 }

@@ -505,6 +505,23 @@
           }
         }
       },
+      "tayside": {
+        "label": "Tayside",
+        "terms": {
+          "angus": {
+            "label": "Angus",
+            "textBag": "Angus"
+          },
+          "dundee": {
+            "label": "Dundee",
+            "textBag": "Dundee"
+          },
+          "perth-kinross": {
+            "label": "Perth & Kinross",
+            "textBag": "Perth Kinross"
+          }
+        }
+      },
       "south-scotland": {
         "label": "South Scotland",
         "terms": {
@@ -609,7 +626,7 @@
           "trust-foundation": {
             "label": "Trust/Foundation",
             "textBag": "Trust Foundation"
-          } 
+          }
         }
       }
     }

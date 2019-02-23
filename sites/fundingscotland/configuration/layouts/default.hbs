@@ -140,7 +140,7 @@
                 </div>
               </form> -->
 
-              {{#compare @root.data.currentSite.name "===" "default" ~}}
+              {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
               {{#withExtend this isPremium=@root.data.profile.isPremium ~}}
               <div class="mdc-chipset pull-right">
                 <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
@@ -151,7 +151,7 @@
                 </a>
               </div>
               {{/withExtend ~}}
-              {{/compare ~}}
+              {{/ifAll ~}}
 
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
@@ -213,11 +213,11 @@
         </div>
       </header>
 
-      <div class="header-banner mdc-top-app-bar-fixed-adjust">
+      <div class="header-banner mdc-top-app-bar-fixed-adjust" style="background-image:url('{{@root.data.currentSite.headerImage}}')">
         {{#compare @root.data.currentSite.name "!==" "default" ~}}
         <div class="site-brand">
           <a href="/" class="site-brand--organisation">
-            <img src="http://www.penumbra.org.uk/wp-content/uploads/2016/02/FifeCouncil.png" />
+            <img src="{{@root.data.currentSite.logo}}" alt="{{@root.data.currentSite.organisationName}}" />
           </a>
           <a href="https://fundingscotland.com" class="site-brand--fundingscotland">
             Funding <br />Scotland

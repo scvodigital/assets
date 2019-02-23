@@ -178,22 +178,22 @@ header {
     background: white;
     margin: $unit*1.5;
     padding: $unit;
-    display: inline-block;
+    display: inline-flex;
     .site-brand--organisation {
       padding-right: $unit;
       img {
         max-width: 150px;
-        max-height: 150px;
+        max-height: 100px;
       }
     }
     .site-brand--fundingscotland {
-      margin-top: .75rem;
       border-left: $unit/5 solid $mdc-theme-complimentary;
       padding-left: $unit;
       padding-right: $unit/2;
       color: $mdc-theme-complimentary;
       font-size: 1.2rem;
-      float: right;
+      display: flex;
+      align-items: center;
     }
     .site-brand--fundingscotland:hover {
       text-decoration: none;
@@ -347,7 +347,7 @@ a:hover {
 
 .mdc-card {
   .mdc-card__actions {
-    background-color: $mdc-theme-surface-light;
+    background-color: $mdc-theme-surface;
     a {
       color: $mdc-theme-primary-dark;
     }
@@ -363,10 +363,10 @@ a:hover {
 .mdc-card.search-result {
   background-color: #fff;
   .search-result-article__notes {
-    background-color: $mdc-theme-surface-light;
+    background-color: $mdc-theme-surface;
   }
   .mdc-card__actions {
-    background-color: $mdc-theme-surface-light;
+    background-color: $mdc-theme-surface;
     .mdc-card__action {
       color: $mdc-theme-primary-dark;
     }
@@ -377,7 +377,7 @@ a:hover {
 .content-primary.mdc-card.mini,
 .content-primary.mdc-card.gist,
 .content-primary.mdc-card.search-result {
-  border-top: $unit/3 solid $mdc-theme-surface-light;
+  border-top: $unit/3 solid $mdc-theme-surface;
 }
 
 .content-primary.mdc-card.list.top-content,

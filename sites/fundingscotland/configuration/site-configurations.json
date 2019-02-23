@@ -2,7 +2,10 @@
   "default": {
     "name": "default",
     "title": "Funding Scotland",
+    "organisationName": "SCVO",
     "url": "https://fundingscotland.com",
+    "logo": "/assets/images/logos/scvo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-old-header.png",
     "colors": {
       "primary": "#68C53E",
       "primaryText": "#000000",
@@ -23,7 +26,10 @@
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
     "title": "East Renfrewshire Funding Search",
+    "organisationName": "East Renfrewshire Council",
     "url": "https://eastrenfrewshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastren-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/eastren-header-crop.jpg",
     "colors": {
       "primary": "#007FC4",
       "primaryText": "#000000",
@@ -59,7 +65,10 @@
   "fife": {
     "name": "fife",
     "title": "Fife Funding Search",
+    "organisationName": "Fife Council",
     "url": "https://fifefundingsearch.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/fife-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fife-header-crop.jpg",
     "colors": {
       "primary": "#00536D",
       "primaryText": "#ffffff",
@@ -95,7 +104,10 @@
   "northlanarkshire": {
     "name": "northlanarkshire",
     "title": "North Lanarkshire Funding Search",
+    "organisationName": "North Lanarkshire Council",
     "url": "https://northlanarkshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/northlanarkshire-header.jpg",
     "colors": {
       "primary": "#BD0029",
       "primaryText": "#ffffff",
@@ -121,7 +133,10 @@
   "shetland": {
     "name": "shetland",
     "title": "Shetland Funding Search",
+    "organisationName": "Shetland Islands Council",
     "url": "https://shetland.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/shetland-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/shetland-header-crop.jpg",
     "colors": {
       "primary": "#0A2C3F",
       "primaryText": "#ffffff",
@@ -157,7 +172,10 @@
   "southlanarkshire": {
     "name": "southlanarkshire",
     "title": "South Lanarkshire Funding Search",
+    "organisationName": "South Lanarkshire Council",
     "url": "https://southlanarkshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/southlanarkshire-header.png",
     "colors": {
       "primary": "#222E66",
       "primaryText": "#ffffff",
@@ -193,7 +211,10 @@
   "srn": {
     "name": "srn",
     "title": "SRN Funding Search",
+    "organisationName": "Scottish Rural Network",
     "url": "https://srn.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/srn-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/srn-header.jpg",
     "colors": {
       "primary": "#888888",
       "primaryText": "#000000",
@@ -276,8 +297,11 @@
   },
   "stirling": {
     "name": "stirling",
-    "title": "Stirling Funding Search",
+    "title": "Funding Stirling",
+    "organisationName": "Stirling Council",
     "url": "https://stirling.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/stirling-logo.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/stirling-header-crop.jpg",
     "colors": {
       "primary": "#E51072",
       "primaryText": "#000000",

@@ -505,6 +505,19 @@
           }
         }
       },
+      "south-scotland": {
+        "label": "South Scotland",
+        "terms": {
+          "dumfries-galloway": {
+            "label": "Dumfries & Galloway",
+            "textBag": "Dumfries Galloway"
+          },
+          "scottish-borders": {
+            "label": "Scottish Borders",
+            "textBag": "Scottish Borders"
+          }
+        }
+      },
       "tayside": {
         "label": "Tayside",
         "terms": {
@@ -519,19 +532,6 @@
           "perth-kinross": {
             "label": "Perth & Kinross",
             "textBag": "Perth Kinross"
-          }
-        }
-      },
-      "south-scotland": {
-        "label": "South Scotland",
-        "terms": {
-          "dumfries-galloway": {
-            "label": "Dumfries & Galloway",
-            "textBag": "Dumfries Galloway"
-          },
-          "scottish-borders": {
-            "label": "Scottish Borders",
-            "textBag": "Scottish Borders"
           }
         }
       }

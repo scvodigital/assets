@@ -872,7 +872,8 @@ footer.mdc-layout__footer {
     .mdc-top-app-bar__title {
       font-size: 1.25rem;
       margin-left: 0.5rem;
-      line-height: 64px;
+      line-height: 26px;
+      white-space: normal;
     }
     .mdc-top-app-bar__section--logo {
       width: 53px;

@@ -128,6 +128,16 @@
     },
     "pageLimit": 5,
     "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded_slugs": [
+        "north-lanarkshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
     "defaultSiteAdTerms": {
       "geographical_areas_funded": [
         "north-lanarkshire"

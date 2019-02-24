@@ -1,12 +1,12 @@
 <div class="mdc-card__info--content-primary-row">
   <div class="mdc-card__info--content-primary">
     {{#if fund_status ~}}
-    {{#if (contains fund_status "Open")}}
+    {{#if (contains fund_status "Open") ~}}
     <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--success-dark-border mdc-theme--success-dark">
       Currently Open
     </span>
     {{else}}
-    {{#ifAll (compare date_reopens ">" (dateMath "now/d")) (compare date_reopens "<" (dateMath "now+7d/d"))}}
+    {{#ifAll (compare date_reopens ">" (dateMath "now/d")) (compare date_reopens "<" (dateMath "now+7d/d")) ~}}
     <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--warning-border mdc-theme--warning">
       Opening Soon
     </span>
@@ -14,8 +14,8 @@
     <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--error-border mdc-theme--error">
       Currently Closed
     </span>
-    {{/ifAll}}
-    {{/if}}
+    {{/ifAll ~}}
+    {{/if ~}}
     {{/if ~}}
 
     {{#if title ~}}
@@ -40,6 +40,7 @@
         {{{momentFormat (moment date_last_important_activity "x") "YYYY-MM-DD"}}}
       </span>
       {{/if ~}}
+      {{#if type_of_funding ~}}
       {{#compare (length (arrayify type_of_funding)) ">" 0 ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Type of funding:</strong>
@@ -48,12 +49,14 @@
         {{/each}}
       </span>
       {{/compare ~}}
+      {{/if ~}}
       {{#if source_of_fund ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Source:</strong>
         {{{source_of_fund}}}
       </span>
       {{/if ~}}
+      {{#if type_of_cost ~}}
       {{#compare (length (arrayify type_of_cost)) ">" 0 ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Type of cost:</strong>
@@ -62,6 +65,7 @@
         {{/each}}
       </span>
       {{/compare ~}}
+      {{/if ~}}
       {{#if date_next_deadline ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Next deadline:</strong>

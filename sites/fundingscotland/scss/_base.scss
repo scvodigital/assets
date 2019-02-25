@@ -202,9 +202,9 @@ header {
   background-color: $mdc-theme-primary;
 }
 
-.main-body {
-  min-height: 55vh;
-}
+// .main-body {
+//   min-height: 55vh;
+// }
 
 .sign-in-form,
 .reset-password-form {
@@ -747,7 +747,6 @@ footer,
   }
 }
 
-.home-funds,
 .home-content-primary {
   background-color: $mdc-theme-secondary-light;
 }

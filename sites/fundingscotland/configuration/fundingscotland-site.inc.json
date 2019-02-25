@@ -1,24 +1,30 @@
 {
   "domains": [
-    "fundingscotland.com",
+    "fs-www.local",
     "test.fundingscotland.com",
-    "test.fife.fundingscotland.com",
+    "fundingscotland.com",
     "fs-eastrenfrewshire.local",
+    "eastrenfrewshire.test.fundingscotland.com",
     "eastrenfrewshire.fundingscotland.com",
     "fs-fife.local",
-    "fifefundingsearch.com",
+    "test.fife.fundingscotland.com",
     "fife.fundingscotland.com",
+    "fifefundingsearch.com",
     "fs-northlanarkshire.local",
+    "northlanarkshire.test.fundingscotland.com",
     "northlanarkshire.fundingscotland.com",
     "fs-shetland.local",
+    "shetland.test.fundingscotland.com",
     "shetland.fundingscotland.com",
     "fs-southlanarkshire.local",
+    "southlanarkshire.test.fundingscotland.com",
     "southlanarkshire.fundingscotland.com",
     "fs-srn.local",
+    "srn.test.fundingscotland.com",
     "srn.fundingscotland.com",
     "fs-stirling.local",
-    "stirling.fundingscotland.com",
-    "fs-www.local"
+    "stirling.test.fundingscotland.com",
+    "stirling.fundingscotland.com"
   ],
   "routes": [
     "{:./routes/*.json}"
@@ -158,7 +164,7 @@
               "index": "web-content-production",
               "type": "fundingscotland-page",
               "template": ">context.metaData.handlebars.queries.pages_menus"
-            } 
+            }
         },
         "renderer": "handlebars"
       },

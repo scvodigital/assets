@@ -4,77 +4,63 @@
   anyOpen=(any @root.data.notes_funds.open.hits.hits)
   anyClosed=(any @root.data.notes_funds.closed.hits.hits)}}
 <div id="detailed-results-container" class="container-content content-notes">
-  <pre>
-    isPremium:  {{isPremium}}
-    anyNotes:   {{anyNotes}}
-    anyOpen:    {{anyOpen}}
-    anyClosed:  {{anyClosed}}
-  </pre>
-  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-        <h1 class="mdc-typography--headline3 v-margin-full">
-          Notes
-        </h1>
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop hide-md hide-sm">
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-        {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-        {{#compare @root.data.notes_funds.open.hits.total "!==" 0 ~}}
-        {{#compare @root.data.notes_funds.closed.hits.total "!==" 0 ~}}
-        <form action="{{{@root.request.url.path}}}" method="GET">
-          {{> fund_search_sort}}
-        </form>
-        {{/compare ~}}
-        {{/compare ~}}
-        {{/ifAny ~}}
+  {{#if isPremium ~}}
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <h1 class="mdc-typography--headline3 v-margin-full">
+            Notes
+          </h1>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop hide-md hide-sm">
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          {{#if anyNotes ~}}
+          <form action="{{{@root.request.url.path}}}" method="GET">
+            {{> fund_search_sort}}
+          </form>
+          {{/if ~}}
+        </div>
       </div>
     </div>
-  </div>
 
-  {{#compare @root.data.notes_funds.open.hits.total "===" 0 ~}}
-  {{#compare @root.data.notes_funds.closed.hits.total "===" 0 ~}}
-    {{#>help_box id="notes-none" permanent=true}}
-      You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
-    {{/help_box}}
+    {{#if anyNotes}}
+      {{#if anyOpen}}
+        {{#each @root.data.notes_funds.open.hits.hits ~}}
+          {{> fund_search_result _source showFullNotes=true}}
+        {{/each ~}}
+        <div class="foot">
+          {{> pagination paging=@root.data.notes_funds.open.pagination}}
+        </div>
+      {{else}}
+        <p class="mdc-typography--body1">
+          You don't have notes on any open funds.
+        </p>
+      {{/if ~}}
+
+      {{#if anyClosed}}
+        <h2 class="mdc-typography--headline5 v-margin-full">
+          Closed funds
+        </h2>
+        {{#each @root.data.notes_funds.closed.hits.hits ~}}
+          {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
+            {{> fund_search_result _source showFullNotes=true}}
+          {{/compare ~}}
+        {{/each ~}}
+        <div class="foot">
+          {{> pagination paging=@root.data.notes_funds.closed.pagination}}
+        </div>
+      {{/if}}
+    {{else}}
+      {{#>help_box id="notes-none" permanent=true}}
+        You haven't yet written notes on any funds. To write a note, navigate to the full details of a fund then enter the&ensp;<strong><span class="far fa-edit mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Notes</strong>&ensp;tab, type out some text, then click the&ensp;<strong><span class="far fa-save mdc-chip__icon mdc-chip__icon--leading" aria-hidden="true"></span> Save notes</strong>&ensp;button.
+      {{/help_box}}
+    {{/if}}
   {{else}}
-  <p class="mdc-typography--body1">
-    You don't have notes on any open funds.
-  </p>
-  {{/compare ~}}
-  {{/compare ~}}
-
-  {{#compare @root.data.notes_funds.open.hits.total ">" 0 ~}}
-  {{#each @root.data.notes_funds.open.hits.hits ~}}
-  {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
-  {{> fund_search_result _source}}
-  {{/compare ~}}
-  {{/each ~}}
-  <div class="foot">
-    {{> pagination paging=@root.data.notes_funds.open.pagination}}
-  </div>
-  {{/compare}}
-
-  {{#compare @root.data.notes_funds.closed.hits.total ">" 0 ~}}
-  <h2 class="mdc-typography--headline5 v-margin-full">
-    Closed funds
-  </h2>
-  {{#each @root.data.notes_funds.closed.hits.hits ~}}
-  {{#compare (trim (getProperty @root.data.profile.notes _source.Id)) "!==" "" ~}}
-  {{> fund_search_result _source}}
-  {{/compare ~}}
-  {{/each ~}}
-  <div class="foot">
-    {{> pagination paging=@root.data.notes_funds.closed.pagination}}
-  </div>
-  {{/compare ~}}
-  {{else}}
-  <h1 class="mdc-typography--headline3 v-margin-full">
-    Notes
-  </h1>
-  {{> upgrade_ad_notes}}
-  {{/ifAny ~}}
+    <h1 class="mdc-typography--headline3 v-margin-full">
+      Notes
+    </h1>
+    {{> upgrade_ad_notes}}
+  {{/if ~}}
 </div>
 {{/withExtend}}

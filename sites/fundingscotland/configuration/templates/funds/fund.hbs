@@ -82,23 +82,7 @@
                     </form>
                  
                     <hr>
-                    {{#each notes}}
-                      <div class="note x-padding-full t-border mdc-theme--primary-light-border-top">
-                        <h4 class="note-head mdc-typography--headline7">
-                          <div class="pull-right mdc-chip-set">
-                            <div class="mdc-chip" tabindex="0">
-                              <div class="mdc-chip__text">
-                                {{this.value.status}}
-                              </div>
-                            </div>
-                          </div>
-                          {{momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm"}}
-                        </h4> 
-                        <div class="note-contents">
-                          {{{markdown this.value.note}}}
-                        </div>
-                      </div>
-                    {{/each}}
+                    {{>fund_notes_rendered id=Id}}
                   {{/withExtend}}
                   {{else}}
                   <div class="detailed-info">

@@ -1,4 +1,15 @@
+{{#withExtend this 
+  isPremium=(ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium)
+  anyNotes=(ifAny (any @root.data.notes_funds.open.hits.hits) (any @root.data.notes_funds.closed.hits.hits))
+  anyOpen=(any @root.data.notes_funds.open.hits.hits)
+  anyClosed=(any @root.data.notes_funds.closed.hits.hits)}}
 <div id="detailed-results-container" class="container-content content-notes">
+  <pre>
+    isPremium:  {{isPremium}}
+    anyNotes:   {{anyNotes}}
+    anyOpen:    {{anyOpen}}
+    anyClosed:  {{anyClosed}}
+  </pre>
   {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
@@ -66,3 +77,4 @@
   {{> upgrade_ad_notes}}
   {{/ifAny ~}}
 </div>
+{{/withExtend}}

@@ -18,7 +18,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "fundingscotland-fund",
-          "template": ">context.metaData.handlebars.queries.funds_latest"
+          "template": ">context.metaData.handlebars.queries.funds_home-latest"
         }
       },
       "renderer": "handlebars"

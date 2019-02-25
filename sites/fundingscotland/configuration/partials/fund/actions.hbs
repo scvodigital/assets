@@ -36,9 +36,7 @@
             {{> fund_action_hide_fund id=Id name=title}}
           {{/if ~}}
           {{#if (contains actions "unhide-fund") ~}}
-            <a href="/unhide-fund/{{Id}}" class="mdc-card__action mdc-card__action-unhide">
-              <span class="fal fa-eye fa-fw fa-2x"></span>
-            </a>
+            {{> fund_action_unhide_fund id=Id}}
           {{/if ~}}
           {{#if (contains actions "lists")}}
             {{> fund_action_manage_lists id=Id slug=slug}}

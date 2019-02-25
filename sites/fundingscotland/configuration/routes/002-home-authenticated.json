@@ -19,11 +19,20 @@
         "elasticsearchConfig": {
           "apiVersion": "5.6"
         },
-        "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fundingscotland-fund",
-          "template": ">context.metaData.handlebars.queries.funds_latest"
-        }
+        "queryTemplates": [
+          {
+            "name": "all",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_home-latest"
+          },
+          {
+            "name": "personalised",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_home-latest-personalised"
+          }
+        ]
       },
       "renderer": "handlebars"
     },

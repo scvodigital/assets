@@ -2,11 +2,11 @@
   {{> fund_search_header}}
 </div>
 <div class="container-fluid b-padding">
-  {{#compare @root.data.primaryResponse.hits.total ">" 0}}
+  {{#compare @root.data.primaryResponse.all.hits.total ">" 0 ~}}
     <div class="mdc-layout-grid home-heading">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          {{#compare @root.data.primaryResponse.hits.total ">" 0}}
+          {{#ifAll @root.data.searches.items.[0] (compare @root.data.primaryResponse.personalised.hits.total ">" 0) ~}}
           <h2 class="mdc-typography--headline5">
             Your latest funds&ensp;
             <span class="mdc-typography--body1">
@@ -20,7 +20,7 @@
               <a href="/search?sort=newest&page=2">Find more</a>
             </span>
           </div>
-          {{/compare}}
+          {{/ifAll ~}}
         </div>
       </div>
     </div>
@@ -30,25 +30,26 @@
           scrollLeftIconClasses="fal fa-fw fa-angle-left"
           scrollRightIconClasses="fal fa-fw fa-angle-right"
           itemClasses="latest-primary-content latest-primary-content-personalised"
-          items=(if (any @root.data.primaryResponse.hits.hits)
-            (map @root.data.primaryResponse.hits.hits (getProp "_source"))
-            else=(map @root.data.primaryResponse.hits.hits (getProp "_source"))
+          items=(if (any @root.data.primaryResponse.personalised.hits.hits)
+            (map @root.data.primaryResponse.personalised.hits.hits (getProp "_source"))
+            else=(map @root.data.primaryResponse.all.hits.hits (getProp "_source"))
           )
           itemsPartial="fund_mini"
           moreUrl=(if
-            (compare @root.data.primaryResponse.hits.total ">" 0)
+            (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
             "/search?sort=newest"
             else="/search?sort=newest&page=2"
           )
           moreText=(if
-            (compare @root.data.primaryResponse.hits.total ">" 0)
+            (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
             "All latest funds"
             else="Find more funds"
           )}}
       {{/components_horizontal_card_scroller}}
     </div>
 
-    {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0)}}
+    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+    {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0) ~}}
       <div class="mdc-layout-grid home-heading">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
@@ -74,7 +75,8 @@
             moreText="View all lists"}}
         {{/components_horizontal_card_scroller}}
       </div>
-    {{/if}}
-    {{/compare}}
+    {{/if ~}}
+    {{/ifAny ~}}
+    {{/compare ~}}
   </div>
 </div>

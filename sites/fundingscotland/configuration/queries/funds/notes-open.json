@@ -40,7 +40,7 @@
     {{else}}
     "match_none": {}
     {{/if ~}}
-  {{/queries_cqueries_fund_commonommon}},
+  {{/queries_fund_common}},
   "sort": [
     {{#if @root.request.params.query.sort ~}}
     {{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}

@@ -17,30 +17,34 @@
     {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
     {{#ifAll @root.data.auth @root.data.searches.items.[0] ~}}
     "bool": {
-      "should": [
-        {{>queries_term field="fund_status_slug" term="open"}},
+      "filter": [
         {
           "bool": {
-            "filter": [
-              {{>queries_term field="fund_status_slug" term="currently-closed"}},
-              {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
-            ]
+            "should": [
+              {{>queries_term field="fund_status_slug" term="open"}},
+              {
+                "bool": {
+                  "filter": [
+                    {{>queries_term field="fund_status_slug" term="currently-closed"}},
+                    {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+                  ]
+                }
+              }
+            ],
+            "minimum_should_match": 1
           }
         }
       ],
-      "minimum_should_match": 1
-    },
-    "bool": {
       "should": [
         {{#each @root.data.searches.items.[0] ~}}
           {{#with (querystring querystring) ~}}
             {
               "bool": {
                 "filter": [
-                  {{>queries_vacancy_search_filters this}}
+                  {{>queries_fund_search_filters this}}
                 ],
                 "must": [
-                  {{>queries_vacancy_search_must this}}
+                  {{>queries_fund_search_must this}}
                 ]
               }
             }

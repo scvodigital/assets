@@ -22,31 +22,41 @@
           <strong> TO UPDATE: </strong> To start searching for funding you must register or login. The terms and conditions and privacy policy are here. Please fill in the forms below to get started. You can unsubscribe at any time.
         </p>
 
-        {{> account_sign_up}}
-        <h2 class="mdc-typography--headline5">Blogs/advice</h2>
-        <ul>
-          <li>&hellip;</li>
-          <li>&hellip;</li>
-          <li>&hellip;</li>
-        </ul>
-        <h2 class="mdc-typography--headline5">Go premium</h2>
-        <p>
-          To start searching for funds, <a href="/">sign in</a>. For features such as email alerts, adding notes to your funds, and more, <a href="/premium">go premium</a>.
-        </p>
-        {{#compare @root.data.currentSite.name "===" "default" ~}}
-        <h2 class="mdc-typography--headline5">Go local</h2>
-        <p>
-          For information on funding in your area, check out:
-        </p>
-        <ul>
-          <li><a href="">Fife Funding Search</a></li>
-          <li><a href="">SRN Funding Search</a></li>
-          <li><a href="">South Lanarkshire</a></li>
-        </ul>
-        {{/compare ~}}
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+              {{> account_sign_up}}
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+              <h2 class="mdc-typography--headline5">Blogs/advice</h2>
+              <ul>
+                <li>&hellip;</li>
+                <li>&hellip;</li>
+                <li>&hellip;</li>
+              </ul>
+              <h2 class="mdc-typography--headline5">Go premium</h2>
+              <p>
+                To see what is available, <a href="/search">search for funds</a>. To see all fund details please <a href="/sign-up">sign up</a> or <a href="/sign-in">sign in</a>. For additional features such as email alerts, adding notes to your funds, and more, <a href="/premium">go premium</a>.
+              </p>
+              {{#compare @root.data.currentSite.name "===" "default" ~}}
+              <h2 class="mdc-typography--headline5">Go local</h2>
+              <p>
+                We've teamed up with a number of other organisations to provide premium features for funding searches in specific local areas:
+              </p>
+              <ul>
+                {{#each @root.context.metaData.site-configurations ~}}
+                {{#compare @key "!==" "default" ~}}
+                <li><a href="{{url}}">{{title}}</a></li>
+                {{/compare ~}}
+                {{/each ~}}
+              </ul>
+              {{/compare ~}}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone latest-funds h-padding b-padding-full">
-        <div class="h-margin-full">
+        <div class="h-margin-full b-padding">
           <div class="mdc-typography--headline5 v-margin-full">
             Recently updated funds
           </div>

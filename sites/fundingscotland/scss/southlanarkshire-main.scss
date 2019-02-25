@@ -1,8 +1,8 @@
-$mdc-theme-primary: #689F39;
-$mdc-theme-primary-light: #E8F0E1;
-$mdc-theme-primary-dark: #223c1d;
+$mdc-theme-primary: #5F91D8;
+$mdc-theme-primary-light: #CEDFFE;
+$mdc-theme-primary-dark: #27529C;
 
-$mdc-theme-secondary: #689F39;
+$mdc-theme-secondary: #27529C;
 $mdc-theme-secondary-light: #fafafa;
 $mdc-theme-secondary-dark: #333;
 
@@ -47,5 +47,5 @@ $unit: 1rem;
 @import "./sites/fundingscotland/scss/_base.scss";
 
 .header-banner {
-  background-position: center 30%;
+  background-position: center 5%;
 }

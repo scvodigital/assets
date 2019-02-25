@@ -22,7 +22,7 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {{#>queries_common}}
+  "query": {{#>queries_fund_common}}
     {{#if @root.data.profile.notes ~}}
     "bool": {
       "filter": [
@@ -39,7 +39,7 @@
     {{else}}
     "match_none": {}
     {{/if ~}}
-  {{/queries_common}},
+  {{/queries_fund_common}},
   "sort": [
     {{#if @root.request.params.query.sort ~}}
     {{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}

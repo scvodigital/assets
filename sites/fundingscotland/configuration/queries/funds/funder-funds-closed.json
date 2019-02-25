@@ -24,7 +24,7 @@
     "funder_organisation.profile",
     "funder_organisation_website_url"
   ],
-  "query": {{#>queries_common}}
+  "query": {{#>queries_fund_common}}
     "bool": {
       "filter": [
         {
@@ -41,7 +41,7 @@
         }
       ]
     }
-  {{/queries_common}},
+  {{/queries_fund_common}},
   "sort": {
     "name": "asc"
   }

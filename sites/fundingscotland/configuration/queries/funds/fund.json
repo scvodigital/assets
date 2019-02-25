@@ -48,7 +48,7 @@
     "funder_organisation.charity_number",
     "rendered.json_ld"
   ],
-  "query": {{#>queries_common}}
+  "query": {{#>queries_fund_common}}
     "term": {
       {{#if (includes request.params.slug "-") ~}}
       "slug": "{{request.params.slug}}"
@@ -56,5 +56,5 @@
       "Id": "{{request.params.slug}}"
       {{/if ~}}
     }
-  {{/queries_common}}
+  {{/queries_fund_common}}
 }

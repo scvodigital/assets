@@ -23,10 +23,10 @@
     ]
   },
   "size": 100,
-  "query": {{#>queries_common}}
+  "query": {{#>queries_fund_common}}
     "ids": {
       "type": "fundingscotland-fund",
       "values": {{{stringify (split @root.request.params.query.ids ",")}}}
     }
-  {{/queries_common}}
+  {{/queries_fund_common}}
 }

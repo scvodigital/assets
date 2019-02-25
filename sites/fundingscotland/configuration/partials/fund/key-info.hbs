@@ -1,21 +1,21 @@
 <div class="mdc-card__info--content-primary-row">
   <div class="mdc-card__info--content-primary">
     {{#if fund_status ~}}
-      {{#if (contains fund_status "Open")}}
-        <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--success-dark-border mdc-theme--success-dark">
-          Currently Open
-        </span>
-      {{else}}
-        {{#ifAll (compare date_reopens ">" (dateMath "now/d")) (compare date_reopens "<" (dateMath "now+7d/d"))}}
-          <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--warning-border mdc-theme--warning">
-            Opening Soon
-          </span>
-        {{else}}
-          <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--error-border mdc-theme--error">
-            Currently Closed
-          </span>
-        {{/ifAll}}
-      {{/if}}
+    {{#if (contains fund_status "Open") ~}}
+    <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--success-dark-border mdc-theme--success-dark">
+      Currently Open
+    </span>
+    {{else}}
+    {{#ifAll (compare date_reopens ">" (dateMath "now/d")) (compare date_reopens "<" (dateMath "now+7d/d")) ~}}
+    <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--warning-border mdc-theme--warning">
+      Opening Soon
+    </span>
+    {{else}}
+    <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--error-border mdc-theme--error">
+      Currently Closed
+    </span>
+    {{/ifAll ~}}
+    {{/if ~}}
     {{/if ~}}
 
     {{#if title ~}}
@@ -34,69 +34,66 @@
     </ul>
     {{/ifAll ~}}
     <div class="fund-details">
-        {{#if (length (arrayify type_of_funding)) ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Type of funding:</strong>
-            {{#each (arrayify type_of_funding) ~}}
-              {{{this}}}{{#unless @last}}, {{/unless}}
-            {{/each}}
-          </span>
+      {{#if date_last_important_activity ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Updated:</strong>
+        {{{momentFormat (moment date_last_important_activity "x") "YYYY-MM-DD"}}}
+      </span>
+      {{/if ~}}
+      {{#if type_of_funding ~}}
+      {{#compare (length (arrayify type_of_funding)) ">" 0 ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Type of funding:</strong>
+        {{#each (arrayify type_of_funding) ~}}
+        {{{this}}}{{#unless @last}}, {{/unless}}
+        {{/each}}
+      </span>
+      {{/compare ~}}
+      {{/if ~}}
+      {{#if source_of_fund ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Source:</strong>
+        {{{source_of_fund}}}
+      </span>
+      {{/if ~}}
+      {{#if type_of_cost ~}}
+      {{#compare (length (arrayify type_of_cost)) ">" 0 ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Type of cost:</strong>
+        {{#each (arrayify type_of_cost) ~}}
+        {{{this}}}{{#unless @last}}, {{/unless}}
+        {{/each}}
+      </span>
+      {{/compare ~}}
+      {{/if ~}}
+      {{#if date_next_deadline ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Next deadline:</strong>
+        {{#if @root.data.auth ~}}
+        {{{momentFormat (moment date_next_deadline 'x') 'Do MMM YYYY'}}}
+        {{else}}
+        in {{{momentFormat (moment date_next_deadline 'x') 'MMMM YYYY'}}}
         {{/if ~}}
-        {{#if source_of_fund ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Source:</strong>
-            {{{source_of_fund}}}
-          </span>
-        {{/if ~}}
-        {{#if (length (arrayify type_of_cost)) ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Type of cost:</strong>
-            {{#each (arrayify type_of_cost) ~}}
-              {{{this}}}{{#unless @last}}, {{/unless}}
-            {{/each}}
-          </span>
-        {{/if ~}}
-        {{!--#if when_to_apply ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>When to apply:</strong>
-            {{{when_to_apply}}}
-          </span>
-        {{/if ~--}}
-        {{#if date_next_deadline ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Next deadline:</strong>
-            {{#if @root.data.auth ~}}
-              {{{momentFormat (moment date_next_deadline 'x') 'Do MMM YYYY'}}}
-            {{else}}
-              in {{{momentFormat (moment date_next_deadline 'x') 'MMMM YYYY'}}}
-            {{/if ~}}
-          </span>
-        {{/if ~}}
-        {{#if website ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Website:</strong>
-            {{{website}}}
-          </span>
-        {{/if ~}}
-        {{#if email ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Email:</strong>
-            {{{email}}}
-          </span>
-        {{/if ~}}
-        {{#if phone ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>Phone:</strong>
-            {{{phone}}}
-          </span>
-        {{/if ~}}
-        {{!-- #if how_to_apply ~}}
-          <span class="key-info-bit r-margin-full">
-            <strong>How to apply:</strong>
-            {{{how_to_apply}}}
-          </span>
-        {{/if ~ --}}
-      </dl>
+      </span>
+      {{/if ~}}
+      {{#if website ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Website:</strong>
+        {{{website}}}
+      </span>
+      {{/if ~}}
+      {{#if email ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Email:</strong>
+        {{{email}}}
+      </span>
+      {{/if ~}}
+      {{#if phone ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Phone:</strong>
+        {{{phone}}}
+      </span>
+      {{/if ~}}
     </div>
   </div>
 </div>

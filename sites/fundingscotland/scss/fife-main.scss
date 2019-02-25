@@ -1,8 +1,8 @@
-$mdc-theme-primary: #00536D;
-$mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
+$mdc-theme-primary: #01526D;
+$mdc-theme-primary-light: #D7DDD2;
 $mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-secondary: #E0E0E0;
+$mdc-theme-secondary: #D93024;
 $mdc-theme-secondary-light: #fafafa;
 $mdc-theme-secondary-dark: #333;
 
@@ -14,27 +14,27 @@ $mdc-theme-surface: #F5F5F5;
 $mdc-theme-surface-light: lighten($mdc-theme-surface, 15%);
 $mdc-theme-surface-dark: darken($mdc-theme-surface, 15%);
 
-$mdc-theme-complimentary: #c6dabf;
-$mdc-theme-complimentary-light: #ecf2e9;
-$mdc-theme-complimentary-dark: #d9e6d4;
+$mdc-theme-complimentary: #689F39;
+$mdc-theme-complimentary-light: #82AB58;
+$mdc-theme-complimentary-dark: #223c1d;
 
 $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
 
-$mdc-theme-success: #009966;
+$mdc-theme-success: #4caf50;
 $mdc-theme-success-light: lighten($mdc-theme-success, 15%);
 $mdc-theme-success-dark: darken($mdc-theme-success, 15%);
 
-$mdc-theme-info: #663399;
+$mdc-theme-info: #4779af;
 $mdc-theme-info-light: lighten($mdc-theme-info, 15%);
 $mdc-theme-info-dark: darken($mdc-theme-info, 15%);
 
-$mdc-theme-warning: #f35958;
+$mdc-theme-warning: #8b6d11;
 $mdc-theme-warning-light: lighten($mdc-theme-warning, 15%);
 $mdc-theme-warning-dark: darken($mdc-theme-warning, 15%);
 
-$mdc-theme-error: #de3027;
+$mdc-theme-error: #A9201E;
 $mdc-theme-error-light: lighten($mdc-theme-error, 15%);
 $mdc-theme-error-dark: darken($mdc-theme-error, 15%);
 

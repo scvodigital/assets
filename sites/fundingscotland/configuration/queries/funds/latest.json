@@ -9,16 +9,13 @@
     "fund_status",
     "fund_status_slug",
     "date_reopens",
-    "type_of_cost",
-    "type_of_funding",
-    "funder_organisation.slug",
-    "funder_organisation.name",
+    "date_last_important_activity",
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {{#>queries_common}}
+  "query": {{#>queries_fund_common}}
     "match_all": {}
-  {{/queries_common}},
+  {{/queries_fund_common}},
   "sort": {
     "date_last_important_activity": "desc"
   }

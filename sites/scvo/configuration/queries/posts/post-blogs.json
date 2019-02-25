@@ -6,10 +6,20 @@
   ],
   "query": {
     "bool": {
-      "must": [
+      "must_not": [
         {
           "term": {
-            "is_press_release": false
+            "hide_in_results": true
+          }
+        },
+        {
+          "term": {
+            "hide_from_search": "1"
+          }
+        },
+        {
+          "term": {
+            "is_press_release": true
           }
         }
       ],

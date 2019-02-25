@@ -10,6 +10,16 @@
           "term": {
             "hide_in_results": true
           }
+        },
+        {
+          "match": {
+            "Id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
+          }
+        },
+        {
+          "match": {
+            "title": "{{data.primaryResponse.hits.hits.[0]._source.title}}"
+          }
         }
       ],
       "must": [
@@ -40,19 +50,7 @@
             }
           }
         }
-      ],
-      "should": [
-        {
-          "bool": {
-            "must_not": {
-              "match": {
-                "Id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
-              }
-            }
-          }
-        }
-      ],
-      "minimum_should_match": 1
+      ]
     }
   }
 }

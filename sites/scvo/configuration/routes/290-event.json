@@ -35,6 +35,12 @@
             "template": ">context.metaData.handlebars.queries.events_event-related"
           },
           {
+            "name": "same_events",
+            "index": "web-content-production",
+            "type": "scvo-event",
+            "template": ">context.metaData.handlebars.queries.events_event-same"
+          },
+          {
             "name": "types",
             "index": "web-content-production",
             "type": "scvo-event",

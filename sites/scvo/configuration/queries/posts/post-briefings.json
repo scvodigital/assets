@@ -10,15 +10,27 @@
   ],
   "query": {
     "bool": {
-      "must": [
+      "must_not": [
         {
           "term": {
-            "categories_id": 2
+            "hide_in_results": true
           }
         },
         {
           "term": {
-            "is_press_release": false
+            "hide_from_search": "1"
+          }
+        },
+        {
+          "term": {
+            "is_press_release": true
+          }
+        }
+      ],
+      "must": [
+        {
+          "term": {
+            "categories_id": 2
           }
         }
       ]

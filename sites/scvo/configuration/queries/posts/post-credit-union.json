@@ -9,17 +9,29 @@
   ],
   "query": {
     "bool": {
+      "must_not": [
+        {
+          "term": {
+            "hide_in_results": true
+          }
+        },
+        {
+          "term": {
+            "hide_from_search": "1"
+          }
+        },
+        {
+          "term": {
+            "is_press_release": true
+          }
+        }
+      ],
       "must": [
         {
           "terms": {
             "categories_id": [
               539
             ]
-          }
-        },
-        {
-          "term": {
-            "is_press_release": false
           }
         }
       ]

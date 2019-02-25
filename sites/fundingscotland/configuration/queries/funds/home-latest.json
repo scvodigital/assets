@@ -14,7 +14,20 @@
     "funder_organisation.logo_url"
   ],
   "query": {{#>queries_fund_common}}
-    "match_all": {}
+    "bool": {
+      "should": [
+        {{>queries_term field="fund_status_slug" term="open"}},
+        {
+          "bool": {
+            "filter": [
+              {{>queries_term field="fund_status_slug" term="currently-closed"}},
+              {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+            ]
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
   {{/queries_fund_common}},
   "sort": {
     "date_last_important_activity": "desc"

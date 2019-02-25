@@ -1,0 +1,63 @@
+{
+  "size": 5,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "description",
+    "geographical_areas_funded",
+    "fund_status",
+    "fund_status_slug",
+    "date_reopens",
+    "date_last_important_activity",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url"
+  ],
+  "query": {{#>queries_fund_common}}
+    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+    {{#ifAll @root.data.auth @root.data.searches.items.[0] ~}}
+    "bool": {
+      "should": [
+        {{>queries_term field="fund_status_slug" term="open"}},
+        {
+          "bool": {
+            "filter": [
+              {{>queries_term field="fund_status_slug" term="currently-closed"}},
+              {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+            ]
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    },
+    "bool": {
+      "should": [
+        {{#each @root.data.searches.items.[0] ~}}
+          {{#with (querystring querystring) ~}}
+            {
+              "bool": {
+                "filter": [
+                  {{>queries_vacancy_search_filters this}}
+                ],
+                "must": [
+                  {{>queries_vacancy_search_must this}}
+                ]
+              }
+            }
+            {{#unless @last}},{{/unless}}
+          {{/with ~}}
+        {{/each ~}}
+      ],
+      "minimum_should_match": 1
+    }
+    {{else}}
+    "match_none": {}
+    {{/ifAll ~}}
+    {{else}}
+    "match_none": {}
+    {{/ifAny ~}}
+  {{/queries_fund_common}},
+  "sort": {
+    "date_last_important_activity": "desc"
+  }
+}

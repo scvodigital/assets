@@ -49,7 +49,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "east-renfrewshire",
         "scotland",
         "uk",
@@ -89,7 +89,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "fife",
         "scotland",
         "uk",
@@ -129,7 +129,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "north-lanarkshire",
         "scotland",
         "uk",
@@ -169,7 +169,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "shetland",
         "scotland",
         "uk",
@@ -209,7 +209,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "south-lanarkshire",
         "scotland",
         "uk",
@@ -249,7 +249,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "south-lanarkshire",
         "stirling",
         "perth-kinross",
@@ -337,7 +337,7 @@
     "pageLimit": 5,
     "enablePremiumFeatures": true,
     "fixedFilters": {
-      "geographical_areas_funded_slugs": [
+      "geographical_areas_funded": [
         "stirling",
         "scotland",
         "uk",

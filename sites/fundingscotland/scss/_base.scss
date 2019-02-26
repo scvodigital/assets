@@ -608,6 +608,12 @@ a.mdc-drawer__content-heading {
     background-color: #fff;
   }
 }
+.mdc-card.mini {
+  .search-result-article__notes,
+  .mdc-card__info--content-primary-row {
+    flex: 0 0 auto;
+  }
+}
 
 .search-form {
   .geo-lookup {
@@ -903,6 +909,11 @@ footer.mdc-layout__footer {
   }
   .home-banner .banner-header.overlay .content {
     background-color: rgba(23, 135, 55, 0.89);
+  }
+  .fund-details {
+    .key-info-bit {
+      display: block;
+    }
   }
 }
 

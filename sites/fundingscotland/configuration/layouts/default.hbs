@@ -150,17 +150,17 @@
               {{/ifAll ~}}
 
               {{#unless @root.route.metaData.hideSearch ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-md hide-lg filter-search-button" id="sidebar-button" title="Search">
+              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
                 <span class="far fa-fw fa-2x fa-search"></span>
               </button>
               {{/unless ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-mg hide-lg" data-drawer-target="#mobile-menu">
+              <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
           <!-- </div>
           <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-sm">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
               {{#>components_tab_bar
                   extraClasses="mdc-tab-bar__auto-width"
                   id="main-tab-bar"}}

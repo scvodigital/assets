@@ -1,0 +1,34 @@
+{{#compare @root.data.currentSite.name "default"}}
+  {{#unless @root.data.profile.isPremium}}
+    {{#each (pluck (shuffle (entries @root.context.metaData.site-configurations)) "1")}}
+      {{#each @root.request.params.query}}
+        {{#if (getProperty ../this (concat "defaultSiteAdTerms." @key))}}
+          {{#if (any (filter
+            (getProperty ../this (concat "defaultSiteAdTerms." @key))
+            null "valueIn" (arrayify this)))}}
+            {{#unless (contains @root.request.cookies.fs_dismissed (concat "localised-site-banner-" ../name))}}
+              <div data-help-box-id="{{concat "localised-site-banner-" ../name}}">
+                <div class="localised-site-banner t-margin-full" style="background-image:url('{{../headerImage}}');">
+                  <a href="{{../url}}/search{{{@root.request.url.search}}}">
+                    <span class="pull-right organisation-logo"><img src="{{../logo}}" alt="{{../organisationName}}" /></span>
+                    <span class="mdc-typography--headline6">{{../headingText}}</span><br />
+                    {{../organisationName}} has teamed up with SCVO's Funding Scotland to provide premium features in your area.<br />
+                    <span class="underline">Visit {{../title}}</span>
+                  </a>
+                </div>
+                <div class="text-right">
+                  <button class="mdc-button help-box__dismiss-button" type="button" data-mdc-auto-init="MDCRipple">
+                    <span class="mdc-button__icon fal fa-times-circle" aria-hidden="true"></span>
+                    <span class="mdc-button__label">Hide</span>
+                  </button>
+                </div>
+              </div>
+              <!--
+            {{/unless}}
+          {{/if}}
+        {{/if}}
+      {{/each}}
+    {{/each}}
+    <!-- -->
+  {{/unless}}
+{{/compare}}

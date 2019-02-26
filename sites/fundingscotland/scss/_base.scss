@@ -196,6 +196,44 @@ header {
   }
 }
 
+.localised-site-banner {
+  background-position: center center;
+  background-size: cover;
+  a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    .underline {
+      display: inline-block;
+      margin-top: $unit/2;
+    }
+  }
+  a:focus,
+  a:visited,
+  a:active,
+  a:hover {
+    text-decoration: none;
+    color: white;
+    .underline {
+      text-decoration: underline;
+    }
+  }
+  .mdc-typography--headline6 {
+    margin-bottom: $unit/4;
+    display: inline-block;
+  }
+  .organisation-logo {
+    background: white;
+    line-height: 1;
+    padding: $unit/4;
+    img {
+      max-width: 150px;
+      max-height: 70px;
+    }
+  }
+}
+
 .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
   border-color: $mdc-theme-primary;

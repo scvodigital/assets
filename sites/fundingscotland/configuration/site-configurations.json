@@ -115,7 +115,7 @@
     "headingText": "Funding in North Lanarkshire",
     "url": "https://northlanarkshire.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire-logo.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/northlanarkshire-header.jpg",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/northlanarkshire-header-crop.jpg",
     "colors": {
       "primary": "#BD0029",
       "primaryText": "#ffffff",
@@ -197,7 +197,7 @@
     "headingText": "Funding in South Lanarkshire",
     "url": "https://southlanarkshire.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire-logo.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/southlanarkshire-header3.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/southlanarkshire-header-crop.jpg",
     "colors": {
       "primary": "#222E66",
       "primaryText": "#ffffff",

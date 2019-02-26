@@ -334,7 +334,6 @@ footer h3,
 .mdc-simple-menu .mdc-list-item,
 .mdc-temporary-drawer .mdc-list-item,
 .mdc-drawer--temporary .mdc-list-item,
-.mdc-drawer .mdc-list-group__subheader,
 .mdc-list {
   font-family: $base-font-family, Helvetica, Arial, sans-serif;
   font-weight: $base-font-weight;
@@ -344,6 +343,7 @@ footer h3,
 .mdc-drawer__title,
 .mdc-textfield__label,
 .mdc-typography--title,
+.supplimentary-list-title,
 .mdc-typography--headline,
 .mdc-typography--headline1,
 .mdc-typography--headline2,
@@ -353,7 +353,7 @@ footer h3,
 .mdc-typography--headline6,
 .mdc-typography--headline7,
 .mdc-drawer__content-heading,
-.supplimentary-list-title {
+.mdc-drawer .mdc-list-group__subheader {
   font-family: $heading-font-family, $base-font-family, Helvetica, Arial, sans-serif;
   font-weight: $heading-font-weight;
   letter-spacing: -0.03rem;
@@ -367,7 +367,8 @@ footer h3,
 .mdc-typography--headline5,
 .mdc-typography--headline6,
 .mdc-typography--headline7,
-.mdc-drawer__content-heading {
+.mdc-drawer__content-heading,
+.mdc-drawer .mdc-list-group__subheader {
   font-weight: $heading-medium-font-weight;
   a {
     font-weight: $heading-medium-font-weight;
@@ -957,7 +958,7 @@ a {
 }
 
 .search-info {
-  margin: $unit*1.5 0 $unit*(3/4);
+  margin: $unit 0 $unit*(3/4);
   background-color: white;
   padding: $unit/3 $unit/2;
   box-sizing: border-box;
@@ -1232,10 +1233,13 @@ a {
   font-style: normal;
 }
 .mdc-list-group__subheader {
-  padding: $unit/3 0 $unit/2 !important;
+  padding: $unit/5 $unit/2 $unit/4 !important;
   font-size: 1.2rem !important;
   border-radius: 4px 4px 0 0;
   background-color: #ffffff;
+}
+.mdc-list-group__subheader::before {
+  content: none !important;
 }
 .mdc-drawer .mdc-list-item {
   margin: 0 !important;

@@ -86,8 +86,7 @@
               "head": ">context.metaData.handlebars.templates.funds_search-head-tags",
               "header": ">context.metaData.handlebars.templates.funds_search-header",
               "sidebar": ">context.metaData.handlebars.templates.funds_search-form",
-              "body": ">context.metaData.handlebars.templates.funds_search",
-              "foot": ">context.metaData.handlebars.templates.funds_search-foot"
+              "body": ">context.metaData.handlebars.templates.funds_search"
             },
             "contentType": "text/html"
           },

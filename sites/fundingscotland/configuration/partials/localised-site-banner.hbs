@@ -8,7 +8,7 @@
             null "valueIn" (arrayify this)))}}
             {{#unless (contains @root.request.cookies.fs_dismissed (concat "localised-site-banner-" ../name))}}
               <div data-help-box-id="{{concat "localised-site-banner-" ../name}}">
-                <div class="localised-site-banner v-margin-full" style="background-image:url('{{../headerImage}}');">
+                <div class="localised-site-banner t-margin-full" style="background-image:url('{{../headerImage}}');">
                   <a href="{{../url}}/search{{{@root.request.url.search}}}">
                     <span class="pull-right organisation-logo"><img src="{{../logo}}" alt="{{../organisationName}}" /></span>
                     <span class="mdc-typography--headline6">{{../headingText}}</span><br />
@@ -23,8 +23,8 @@
                   </button>
                 </div>
               </div>
+              <!--
             {{/unless}}
-            <!--
           {{/if}}
         {{/if}}
       {{/each}}

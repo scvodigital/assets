@@ -209,6 +209,9 @@ header {
       margin-top: $unit/2;
     }
   }
+  a:focus,
+  a:visited,
+  a:active,
   a:hover {
     text-decoration: none;
     color: white;
@@ -226,7 +229,7 @@ header {
     padding: $unit/4;
     img {
       max-width: 150px;
-      max-height: 80px;
+      max-height: 70px;
     }
   }
 }

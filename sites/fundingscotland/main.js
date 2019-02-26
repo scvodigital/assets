@@ -1,9 +1,8 @@
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
 import "@babel/polyfill";
 import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
+import { Auth } from '../../lib/firebase-auth';
 import * as querystring from 'querystring';
 
 import * as cookieInfoScript from '../../lib/cookie-info-script' ;
@@ -13,7 +12,7 @@ window.firebase = firebase;
 export class FundingScotland {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
-    this.app = firebase.initializeApp(this.firebaseConfig);
+    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
 
     this.displayMode = null;
     this.displayModes = [
@@ -222,46 +221,5 @@ export class FundingScotland {
 
   snackbarShow(options) {
     console.log('DEPRECATED SNACKBARSHOW CALLED:', arguments);
-  }
-
-  async signInEmailPassword(email, password) {
-    try {
-      console.log('Signing in with', email, password);
-      const userCredentials = await this.app.auth().signInWithEmailAndPassword(email, password);
-      if (!userCredentials) {
-        throw new Error('Something went wrong, signed in but no user?');
-      }
-      
-      console.log('Getting Id Token result for', userCredentials);
-      const idToken = await userCredentials.user.getIdTokenResult();
-      if (!idToken) {
-        throw new Error('Failed to get Id Token');
-      }
-
-      console.log('Upgrading Id Token for Session Cookie', idToken);
-      const user = await this.upgradeIdToken(idToken.token);
-      if (!user) {
-        throw new Error('Something went wrong upgrading id token');
-      }
-
-      console.log('All done and we have user', user);
-      return user;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  upgradeIdToken(idToken) {
-    return new Promise((resolve, reject) => {
-      const url = '/upgrade-token?fs_token=' + idToken;
-      console.log('About to ajax upgrade token', url);
-      $.getJSON(url, (data, status, xhr) => {
-        console.log('Request successful', url, arguments);
-        resolve(data);
-      }).fail((data, status, xhr) => {
-        console.error('Failed request', url, arguments);
-        reject(data);
-      });
-    });
   }
 }

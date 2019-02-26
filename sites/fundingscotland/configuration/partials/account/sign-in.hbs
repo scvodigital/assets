@@ -1,13 +1,3 @@
-{{#ifAll @root.data.auth (compare @root.request.params.query.reauth "!==" "true") ~}}
-{{> account_sign_out_loader}}
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    window.setTimeout(function() {
-      window.location.href = '/';
-    }, 100);
-  });
-</script>
-{{else}}
 <form id="sign-in-form" method="POST" class="sign-in-form">
   <div class="mdc-card mdc-elevation--z0">
     <div class="mdc-card__info--content-primary">
@@ -86,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $loader.css('display', 'flex');
     evt.preventDefault();
 
-    fundingscotland.signInEmailPassword(email, password)
+    fundingscotland.auth.signInEmailPassword(email, password)
       .then(function(user) {
         console.log('Logged in:', user);
         window.location.href = '{{#if (contains @root.request.headers.referer "sign-out")}}/{{else}}{{default @root.request.headers.referer "/"}}{{/if}}';
@@ -98,4 +88,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 });
 </script>
-{{/ifAll ~}}

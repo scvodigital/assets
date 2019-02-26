@@ -1,0 +1,32 @@
+{
+  "name": "upgrade_token",
+  "pattern": "/upgrade-token",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    {
+      "name": "auth",
+      "taskModule": "firebaseGetSession",
+      "config": {
+        "tokenPath": "request.params.query.fs_token",
+        "cookieName": "fs_cookie",
+        "cookieOptions": {
+          "maxAge": 1209600000,
+          "secure": true,
+          "path": "/"
+        },
+        "appName": "fundingscotland"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{{{safeStringify @root.data.auth}}}",
+        "parseJson": true
+      }
+    }
+  ]
+}

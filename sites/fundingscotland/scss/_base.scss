@@ -204,6 +204,10 @@ header {
     padding: 1rem;
     color: white;
     background: rgba(0, 0, 0, 0.6);
+    .underline {
+      display: inline-block;
+      margin-top: $unit/2;
+    }
   }
   a:hover {
     text-decoration: none;
@@ -212,12 +216,17 @@ header {
       text-decoration: underline;
     }
   }
+  .mdc-typography--headline6 {
+    margin-bottom: $unit/4;
+    display: inline-block;
+  }
   .organisation-logo {
     background: white;
     line-height: 1;
+    padding: $unit/4;
     img {
       max-width: 150px;
-      max-height: 70px;
+      max-height: 80px;
     }
   }
 }

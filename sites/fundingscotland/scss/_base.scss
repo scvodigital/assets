@@ -196,6 +196,32 @@ header {
   }
 }
 
+.localised-site-banner {
+  background-position: center center;
+  background-size: cover;
+  a {
+    display: block;
+    padding: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
+    .underline {
+      text-decoration: underline;
+    }
+  }
+  .organisation-logo {
+    background: white;
+    line-height: 1;
+    img {
+      max-width: 150px;
+      max-height: 70px;
+    }
+  }
+}
+
 .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
   border-color: $mdc-theme-primary;

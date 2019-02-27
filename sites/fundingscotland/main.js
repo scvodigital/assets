@@ -34,6 +34,13 @@ export class FundingScotland {
     });
     this.windowResized();
 
+    this.filterButtonContainer = $('#filter-button-container');
+    this.filterButton = $('#perm-search-submit');
+    if (this.filterButton.length > 0) {
+      this.filterButtonFixed = false;
+      this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
+    }
+
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
 
@@ -135,6 +142,26 @@ export class FundingScotland {
       this.displayModeChanged();
     }
     this.fie();
+  }
+
+  handleFilterButton() {
+    window.cancelAnimationFrame(this.filterButtonFrame);
+    const bottom = $(window).scrollTop() + $(window).height();
+    const filterButtonHeight = this.filterButton.outerHeight();
+    const filterButtonContainerTop = this.filterButtonContainer.offset().top;
+    if (filterButtonContainerTop + filterButtonHeight > bottom && !this.filterButtonFixed) {
+      const filterButtonContainerWidth = this.filterButtonContainer.innerWidth();
+      this.filterButton.addClass('filter-button-fixed');
+      this.filterButtonContainer.css('height', filterButtonHeight);
+      this.filterButton.css('width', filterButtonContainerWidth);
+      this.filterButtonFixed = true;
+    } else if (filterButtonContainerTop + filterButtonHeight <= bottom && this.filterButtonFixed) {
+      this.filterButton.removeClass('filter-button-fixed');
+      this.filterButtonContainer.css('height', 'auto');
+      this.filterButton.css('width', '100%');
+      this.filterButtonFixed = false;
+    }
+    this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
   }
 
   displayModeChanged() {

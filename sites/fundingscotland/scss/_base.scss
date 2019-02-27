@@ -1014,12 +1014,16 @@ footer.mdc-layout__footer {
   display: none !important;
 }
 
-  .filter-button-fixed {
-    width: 302.688px;
-    position: fixed;
-    bottom: 1rem;
-    left: 0.5rem;
-  }
+.filter-button-fixed {
+  position: fixed;
+  bottom: 1rem;
+  left: 0.5rem;
+}
+
+.mdc-button[disabled] {
+  pointer-events: none;
+  background-color: #cccccc !important;
+}
 
 .text-left {
   text-align: left;

@@ -41,6 +41,8 @@ export class FundingScotland {
       this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
     }
 
+    this.searchInitialState = $('.search-form').serialize();
+
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
 
@@ -161,6 +163,16 @@ export class FundingScotland {
       this.filterButton.css('width', '100%');
       this.filterButtonFixed = false;
     }
+
+    const searchNewState = $('.search-form').serialize();
+    if (searchNewState !== this.searchInitialState) {
+      this.filterButton.prop('disabled', false);
+      this.filterButton.removeClass('mdc-button--disabled');
+    } else {
+      this.filterButton.prop('disabled', true);
+      this.filterButton.addClass('mdc-button--disabled');
+    }
+
     this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
   }
 

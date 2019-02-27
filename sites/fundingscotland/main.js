@@ -42,6 +42,11 @@ export class FundingScotland {
     }
 
     this.searchInitialState = $('.search-form').serialize();
+    this.searchLastState = this.searchInitialState;
+    this.searchLastStateArray = $('.search-form').serializeArray();
+    this.searchLastStateSelectors = this.searchLastStateArray
+        .filter(field => { return field.name !== 'keywords'; })
+        .map(field => '[name="' + field.name + '"][value="' + field.value + '"]');
 
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
@@ -165,12 +170,33 @@ export class FundingScotland {
     }
 
     const searchNewState = $('.search-form').serialize();
-    if (searchNewState !== this.searchInitialState) {
-      this.filterButton.prop('disabled', false);
-      this.filterButton.removeClass('mdc-button--disabled');
-    } else {
-      this.filterButton.prop('disabled', true);
-      this.filterButton.addClass('mdc-button--disabled');
+    if (searchNewState !== this.searchLastState) {
+      if (searchNewState !== this.searchInitialState) {
+        this.filterButton.prop('disabled', false);
+        this.filterButton.removeClass('mdc-button--disabled');
+      } else {
+        this.filterButton.prop('disabled', true);
+        this.filterButton.addClass('mdc-button--disabled');
+      }
+
+      //find change
+      const searchNewStateArray = $('.search-form').serializeArray();
+      const searchNewStateSelectors = searchNewStateArray
+        .filter(field => { return field.name !== 'keywords'; })
+        .map(field => '[name="' + field.name + '"][value="' + field.value + '"]');
+
+      for (const selector of searchNewStateSelectors) {
+        if (this.searchLastStateSelectors.indexOf(selector) === -1) {
+          const fieldTop = $(selector).offset().top;
+          if (fieldTop > bottom) {
+            this.filterButton.fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);  
+          }
+        }
+      }
+
+      this.searchLastState = searchNewState;
+      this.searchLastStateArray = searchNewStateArray;
+      this.searchLastStateSelectors = searchNewStateSelectors;
     }
 
     this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });

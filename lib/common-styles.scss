@@ -1446,9 +1446,11 @@ hr {
     padding: 0 $unit/2;
     box-sizing: border-box;
   }
-  .mdc-list-item--activated {
+  .mdc-list-item {
     border-radius: 0 $unit*2 $unit*2 0;
     margin-right: $unit/2 !important;
+  }
+  .mdc-list-item--activated {
     font-weight: $heading-medium-font-weight;
   }
 }
@@ -1835,6 +1837,12 @@ body.shortlist {
 }
 .search-form {
   padding-top: $unit/2;
+  .mdc-list {
+    .mdc-list-item {
+      padding-right: 0;
+      margin-right: $unit/4 !important;
+    }
+  }
   .mdc-typography--headline5 {
     margin-top: $unit*1.5;
     margin-left: $unit;
@@ -3084,6 +3092,7 @@ form.inline-form {
     border-top: 1px solid #cccccc;
     border-radius: 0 0 4px 4px;
     padding: $unit/2 0;
+    margin-right: 0 !important;
   }
 }
 

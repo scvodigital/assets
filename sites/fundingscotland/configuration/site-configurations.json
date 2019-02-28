@@ -5,7 +5,7 @@
     "organisationName": "SCVO",
     "organisationContact": "fundingscotland@scvo.org.uk",
     "headingText": "Funding at your fingertips",
-    "url": "https://fundingscotland.com",
+    "url": "https://test.fundingscotland.com",
     "logo": "/assets/images/logos/scvo.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
@@ -31,7 +31,7 @@
     "organisationName": "East Renfrewshire Council",
     "organisationContact": "eastren.fundingscotland@scvo.org.uk",
     "headingText": "Funding in East Renfrewshire",
-    "url": "https://eastrenfrewshire.fundingscotland.com",
+    "url": "https://eastrenfrewshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/eastren.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
@@ -113,7 +113,7 @@
     "organisationName": "North Lanarkshire Council",
     "organisationContact": "northlanarkshire.fundingscotland@scvo.org.uk",
     "headingText": "Funding in North Lanarkshire",
-    "url": "https://northlanarkshire.fundingscotland.com",
+    "url": "https://northlanarkshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
@@ -154,7 +154,7 @@
     "organisationName": "Shetland Islands Council",
     "organisationContact": "shetland.fundingscotland@scvo.org.uk",
     "headingText": "Funding on the Shetland Islands",
-    "url": "https://shetland.fundingscotland.com",
+    "url": "https://shetland.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/shetland.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/shetland-cm-crop.jpg",
     "colors": {
@@ -195,7 +195,7 @@
     "organisationName": "South Lanarkshire Council",
     "organisationContact": "southlanarkshire.fundingscotland@scvo.org.uk",
     "headingText": "Funding in South Lanarkshire",
-    "url": "https://southlanarkshire.fundingscotland.com",
+    "url": "https://southlanarkshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
@@ -236,7 +236,7 @@
     "organisationName": "Scottish Rural Network (SRN)",
     "organisationContact": "srn.fundingscotland@scvo.org.uk",
     "headingText": "Funding in Rural Scotland",
-    "url": "https://srn.fundingscotland.com",
+    "url": "https://srn.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/srn.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/srn-cm-crop.jpg",
     "colors": {
@@ -325,7 +325,7 @@
     "organisationName": "Stirling Council",
     "organisationContact": "stirling.fundingscotland@scvo.org.uk",
     "headingText": "Funding in Stirling",
-    "url": "https://stirling.fundingscotland.com",
+    "url": "https://stirling.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/stirling.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/stirling-cm-crop.jpg",
     "colors": {

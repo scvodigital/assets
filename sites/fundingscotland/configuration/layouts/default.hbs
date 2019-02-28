@@ -138,7 +138,7 @@
 
               {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
               {{#withExtend this isPremium=@root.data.profile.isPremium ~}}
-              <div class="mdc-chipset pull-right hide-sm">
+              <div class="mdc-chipset pull-right hide-md hide-sm">
                 <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
                   <i class="far mdc-chip__icon {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
                   <div class="mdc-chip__text">
@@ -178,7 +178,7 @@
                 {{/each ~}}
               {{/components_tab_bar}}
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-sm">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
               {{#if @root.data.auth ~}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"

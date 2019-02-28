@@ -34,8 +34,9 @@ export class FundingScotland {
     });
     this.windowResized();
 
-    this.filterButtonContainer = $('#filter-container-outer');
-    this.filterButton = $('#filter-container-inner');
+    this.filterButtonContainerOuter = $('#filter-container-outer');
+    this.filterButtonContainerInner = $('#filter-container-inner');
+    this.filterButton = $('#perm-search-submit');
     if (this.filterButton.length > 0) {
       this.filterButtonFixed = false;
       this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
@@ -154,18 +155,18 @@ export class FundingScotland {
   handleFilterButton() {
     window.cancelAnimationFrame(this.filterButtonFrame);
     const bottom = $(window).scrollTop() + $(window).height();
-    const filterButtonHeight = this.filterButton.outerHeight();
-    const filterButtonContainerTop = this.filterButtonContainer.offset().top;
+    const filterButtonHeight = this.filterButtonContainerInner.outerHeight();
+    const filterButtonContainerTop = this.filterButtonContainerOuter.offset().top;
     if (filterButtonContainerTop + filterButtonHeight > bottom && !this.filterButtonFixed) {
-      const filterButtonContainerWidth = this.filterButtonContainer.innerWidth();
-      this.filterButton.addClass('filter-button-fixed');
-      this.filterButtonContainer.css('height', filterButtonHeight);
-      this.filterButton.css('width', filterButtonContainerWidth);
+      const filterButtonContainerWidth = this.filterButtonContainerOuter.innerWidth();
+      this.filterButtonContainerInner.addClass('filter-button-fixed');
+      this.filterButtonContainerOuter.css('height', filterButtonHeight);
+      this.filterButtonContainerInner.css('width', filterButtonContainerWidth);
       this.filterButtonFixed = true;
     } else if (filterButtonContainerTop + filterButtonHeight <= bottom && this.filterButtonFixed) {
-      this.filterButton.removeClass('filter-button-fixed');
-      this.filterButtonContainer.css('height', 'auto');
-      this.filterButton.css('width', '100%');
+      this.filterButtonContainerInner.removeClass('filter-button-fixed');
+      this.filterButtonContainerOuter.css('height', 'auto');
+      this.filterButtonContainerInner.css('width', '100%');
       this.filterButtonFixed = false;
     }
 
@@ -189,7 +190,7 @@ export class FundingScotland {
         if (this.searchLastStateSelectors.indexOf(selector) === -1) {
           const fieldTop = $(selector).offset().top;
           if (fieldTop > bottom) {
-            this.filterButton.fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+            this.filterButtonContainerInner.fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
           }
         }
       }

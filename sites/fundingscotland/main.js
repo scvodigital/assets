@@ -34,6 +34,21 @@ export class FundingScotland {
     });
     this.windowResized();
 
+    this.filterButtonContainerOuter = $('#filter-container-outer');
+    this.filterButtonContainerInner = $('#filter-container-inner');
+    this.filterButton = $('#perm-search-submit');
+    if (this.filterButton.length > 0) {
+      this.filterButtonFixed = false;
+      this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
+    }
+
+    this.searchInitialState = $('.search-form').serialize();
+    this.searchLastState = this.searchInitialState;
+    this.searchLastStateArray = $('.search-form').serializeArray();
+    this.searchLastStateSelectors = this.searchLastStateArray
+        .filter(field => { return field.name !== 'keywords'; })
+        .map(field => '[name="' + field.name + '"][value="' + field.value + '"]');
+
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
 
@@ -135,6 +150,57 @@ export class FundingScotland {
       this.displayModeChanged();
     }
     this.fie();
+  }
+
+  handleFilterButton() {
+    window.cancelAnimationFrame(this.filterButtonFrame);
+    const bottom = $(window).scrollTop() + $(window).height();
+    const filterButtonHeight = this.filterButtonContainerInner.outerHeight();
+    const filterButtonContainerTop = this.filterButtonContainerOuter.offset().top;
+    if (filterButtonContainerTop + filterButtonHeight > bottom && !this.filterButtonFixed) {
+      const filterButtonContainerWidth = this.filterButtonContainerOuter.innerWidth();
+      this.filterButtonContainerInner.addClass('filter-button-fixed');
+      this.filterButtonContainerOuter.css('height', filterButtonHeight);
+      this.filterButtonContainerInner.css('width', filterButtonContainerWidth);
+      this.filterButtonFixed = true;
+    } else if (filterButtonContainerTop + filterButtonHeight <= bottom && this.filterButtonFixed) {
+      this.filterButtonContainerInner.removeClass('filter-button-fixed');
+      this.filterButtonContainerOuter.css('height', 'auto');
+      this.filterButtonContainerInner.css('width', '100%');
+      this.filterButtonFixed = false;
+    }
+
+    const searchNewState = $('.search-form').serialize();
+    if (searchNewState !== this.searchLastState) {
+      if (searchNewState !== this.searchInitialState) {
+        this.filterButton.prop('disabled', false);
+        this.filterButton.removeClass('mdc-button--disabled');
+      } else {
+        this.filterButton.prop('disabled', true);
+        this.filterButton.addClass('mdc-button--disabled');
+      }
+
+      //find change
+      const searchNewStateArray = $('.search-form').serializeArray();
+      const searchNewStateSelectors = searchNewStateArray
+        .filter(field => { return field.name !== 'keywords'; })
+        .map(field => '[name="' + field.name + '"][value="' + field.value + '"]');
+
+      for (const selector of searchNewStateSelectors) {
+        if (this.searchLastStateSelectors.indexOf(selector) === -1) {
+          const fieldTop = $(selector).offset().top;
+          if (fieldTop > bottom) {
+            this.filterButtonContainerInner.fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+          }
+        }
+      }
+
+      this.searchLastState = searchNewState;
+      this.searchLastStateArray = searchNewStateArray;
+      this.searchLastStateSelectors = searchNewStateSelectors;
+    }
+
+    this.filterButtonFrame = window.requestAnimationFrame(() => { this.handleFilterButton() });
   }
 
   displayModeChanged() {

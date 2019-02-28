@@ -962,6 +962,12 @@ footer.mdc-layout__footer {
       display: block;
     }
   }
+  .localised-site-banner {
+    .organisation-logo {
+      float: none;
+      margin: 0 auto $unit;
+    }
+  }
 }
 
 #app-snackbar {

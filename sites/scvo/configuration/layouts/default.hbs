@@ -287,27 +287,32 @@
   catch(e){window.attachEvent("onload", $buo_f)}
   </script>
   <script type="text/javascript" src="{{~>asset_url url='swiper.min.js'}}"></script>
-  <script type="text/javascript" id="cookieinfo" src="{{~>asset_url url='cookieinfo.min.js'}}" data-message="We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies." data-font-family="'Open Sans',Helvetica,Arial,sans-serif" data-bg="#fff" data-link="#c2185b" data-divlink="#fff" data-divlinkbg="#c2185b" data-position="bottom" data-accept-on-scroll="true" data-moreinfo="/cookies" data-cookie="CookieInfoScript" data-text-align="left"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script type="text/javascript" src="{{~>asset_url url='root.js'}}"></script>
   <script type="text/javascript" src="{{~>asset_url url='main-VERSION.js'}}"></script>
 
   <script>
-    var scvo = null, readyListeners = [];
-    $(document).ready(function() {
-      scvo = new SCVO.SCVO();
-      ready = true;readyListeners.forEach(function(listener) {
-        listener();
-      });
+  var scvo = null; readyListeners = [];
+  $(document).ready(function() {
+    scvo = new SCVO.SCVO({
+      apiKey: "AIzaSyBi394RRo4NADgb_slJOYgzOugxXQPjKT8",
+      authDomain: "scvo-auth-cjs.firebaseapp.com",
+      databaseURL: "https://scvo-auth-cjs.firebaseio.com",
+      projectId: "scvo-auth-cjs",
+      storageBucket: "scvo-auth-cjs.appspot.com",
+      messagingSenderId: "550823198000"
     });
+    ready = true;
+    readyListeners.forEach(function(listener) {
+      listener();
+    });
+  });
 
-    function registerReadyListener(listener) {
-      if (scvo) {
-        listener();
-      } else {
-        readyListeners.push(listener);
-      }
+  function registerReadyListener(listener) {
+    if (scvo) {
+      listener();
+    } else {
+      readyListeners.push(listener);
     }
+  }
   </script>
 
   {{{layoutParts.foot}}}

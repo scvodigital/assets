@@ -33,7 +33,7 @@
     "headingText": "Funding in East Renfrewshire",
     "url": "https://eastrenfrewshire.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/eastren.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/eastren-fb-crop.jpg",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#007FC4",
       "primaryText": "#000000",
@@ -115,7 +115,7 @@
     "headingText": "Funding in North Lanarkshire",
     "url": "https://northlanarkshire.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/northlanarkshire-ws-crop.jpg",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#BD0029",
       "primaryText": "#ffffff",
@@ -197,7 +197,7 @@
     "headingText": "Funding in South Lanarkshire",
     "url": "https://southlanarkshire.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/southlanarkshire-ws-crop.jpg",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#222E66",
       "primaryText": "#ffffff",

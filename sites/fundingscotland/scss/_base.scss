@@ -28,6 +28,9 @@ strong {
 .mdc-top-app-bar-fixed-adjust {
   margin-top: 100px;
 }
+.top-bar-stuck {
+  top: 0;
+}
 
 .container-fluid {
   box-sizing: border-box;
@@ -1018,6 +1021,10 @@ footer.mdc-layout__footer {
   position: fixed;
   bottom: 1rem;
   left: 0.5rem;
+}
+#filter-container-inner {
+  padding: $unit 0;
+  background: red;
 }
 
 .mdc-button[disabled] {

@@ -930,17 +930,20 @@ footer.mdc-layout__footer {
     }
   }
   .mdc-top-app-bar-fixed-adjust {
-    padding-top: 64px;
+    margin-top: 64px;
   }
-  .header-banner .site-brand {
-    margin: $unit/2;
-    .site-brand--organisation {
-      img {
-        max-width: 120px;
+  .header-banner {
+    height: 150px !important;
+    .site-brand {
+      margin: $unit/2;
+      .site-brand--organisation {
+        img {
+          max-width: 120px;
+        }
       }
-    }
-    .site-brand--fundingscotland {
-      font-size: 1.1rem;
+      .site-brand--fundingscotland {
+        font-size: 1.1rem;
+      }
     }
   }
 }

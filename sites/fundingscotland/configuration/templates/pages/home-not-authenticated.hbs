@@ -18,9 +18,9 @@
         </p>
         {{/compare ~}}
 
-        <p>
+        <!-- <p>
           <strong> TO UPDATE: </strong> To start searching for funding you must register or login. The terms and conditions and privacy policy are here. Please fill in the forms below to get started. You can unsubscribe at any time.
-        </p>
+        </p> -->
 
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
@@ -28,17 +28,19 @@
               {{> account_sign_up}}
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-              <h2 class="mdc-typography--headline5">Blogs/advice</h2>
+              <!-- <h2 class="mdc-typography--headline5">Blogs/advice</h2>
               <ul>
                 <li>&hellip;</li>
                 <li>&hellip;</li>
                 <li>&hellip;</li>
-              </ul>
+              </ul> -->
+              {{#compare @root.data.currentSite.name "===" "default" ~}}
+              {{#unless @root.data.profile.isPremium ~}}
               <h2 class="mdc-typography--headline5">Go premium</h2>
               <p>
                 To see what is available, <a href="/search">search for funds</a>. To see all fund details please <a href="/sign-up">sign up</a> or <a href="/sign-in">sign in</a>. For additional features such as email alerts, adding notes to your funds, and more, <a href="/premium">go premium</a>.
               </p>
-              {{#compare @root.data.currentSite.name "===" "default" ~}}
+              {{/unless ~}}
               <h2 class="mdc-typography--headline5">Go local</h2>
               <p>
                 We've teamed up with a number of other organisations to provide premium features for funding searches in specific local areas:

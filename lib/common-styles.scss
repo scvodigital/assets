@@ -833,6 +833,10 @@ a {
   opacity: 1;
 }
 
+.mdc-list-item--activated {
+  font-weight: $heading-medium-font-weight;
+}
+
 .mdc-form-field,
 .mdc-button,
 .mdc-card__supporting-text,
@@ -1434,10 +1438,18 @@ hr {
   max-width: 320px;
 }
 .mdc-drawer__content {
-  padding: 0 $unit/2 $unit;
+  padding: 0 0 $unit;
+  h3.mdc-typography--headline6 {
+    padding: 0 $unit/2;
+  }
   #search-tab-bar {
     padding: 0 $unit/2;
     box-sizing: border-box;
+  }
+  .mdc-list-item--activated {
+    border-radius: 0 $unit*2 $unit*2 0;
+    margin-right: $unit/2 !important;
+    font-weight: $heading-medium-font-weight;
   }
 }
 .mdc-drawer__content.mdc-list {
@@ -1845,6 +1857,9 @@ body.shortlist {
   // .mdc-floating-label {
   //   transform: translateY(-50%) scale(0.75);
   // }
+  .mdc-floating-label {
+    line-height: 1.2rem;
+  }
   .geo-lookup:hover {
     font-weight: 600;
     cursor: pointer;

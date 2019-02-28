@@ -8,8 +8,8 @@
             null "valueIn" (arrayify this)))}}
             {{#unless (contains @root.request.cookies.fs_dismissed (concat "localised-site-banner-" ../name))}}
               <div data-help-box-id="{{concat "localised-site-banner-" ../name}}">
-                <div class="localised-site-banner t-margin-full" style="background-image:url('{{../headerImage}}');">
-                  <a href="{{../url}}/search{{{@root.request.url.search}}}">
+                <div class="localised-site-banner rounded t-margin-full mdc-elevation--z1" style="background-image:url('{{../headerImage}}');">
+                  <a href="{{../url}}/search{{{@root.request.url.search}}}" class="rounded">
                     <span class="pull-right organisation-logo"><img src="{{../logo}}" alt="{{../organisationName}}" /></span>
                     <span class="mdc-typography--headline6">{{../headingText}}</span><br />
                     {{../organisationName}} has teamed up with SCVO's Funding Scotland to provide premium features in your area.<br />

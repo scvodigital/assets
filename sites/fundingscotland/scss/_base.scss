@@ -363,6 +363,9 @@ a:hover {
 .mdc-button--raised .mdc-list-item__graphic {
   color: #fff;
 }
+.mdc-button--raised.mdc-button--disabled .mdc-list-item__graphic {
+  color: rgba(0, 0, 0, 0.37);
+}
 
 .mdc-button--raised {
   background-color: $mdc-theme-primary !important;

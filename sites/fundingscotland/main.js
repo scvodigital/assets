@@ -14,6 +14,9 @@ export class FundingScotland {
     this.firebaseConfig = firebaseConfig;
     this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
 
+    this.componentsInitialiser = new ComponentsInitialiser();
+    this.componentsInitialiser.initialise();
+
     this.displayMode = null;
     this.displayModes = [
       { name: 'mobile', min: 0, max: 599 },
@@ -48,9 +51,6 @@ export class FundingScotland {
     this.searchLastStateSelectors = this.searchLastStateArray
         .filter(field => { return field.name !== 'keywords'; })
         .map(field => '[name="' + field.name + '"][value="' + field.value + '"]');
-
-    this.componentsInitialiser = new ComponentsInitialiser();
-    this.componentsInitialiser.initialise();
 
     // Headroom
     var header = document.querySelector("header.top-bar-stuck");

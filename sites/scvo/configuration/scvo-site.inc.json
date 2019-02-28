@@ -31,7 +31,12 @@
         "config": {
           "tokenPath": "request.cookies.cjs_token",
           "cookieName": "cjs_cookie",
-          "appName": "cjs",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "scvo",
           "noTokenRoute": "",
           "notAuthenticatedRoute": ""
         }
@@ -42,7 +47,12 @@
         "config": {
           "tokenPath": "request.cookies.cjs_token",
           "cookieName": "cjs_cookie",
-          "appName": "cjs",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "scvo",
           "noTokenRoute": "cjs_sign_in",
           "notAuthenticatedRoute": "cjs_sign_in"
         }

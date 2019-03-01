@@ -1,16 +1,53 @@
 <div class="x-margin-full l-border mdc-theme--primary-border-left l-padding-full">
   {{#each (sortBy (keyValue (getProperty @root.data.profile.notes id)) "key" "desc")}}
-    <i class="fas fa-circle fa-lg pull-left mdc-theme--primary-dark" style="margin-left: -1.7rem; margin-top: 1rem;"></i>
-    <div class="note x-padding-full l-margin-full mdc-theme--primary-light-bg mdc-theme--on-primary-light">
-      <div class="mdc-theme--primary-light-bg" style="height: 1rem; width: 1rem; position: absolute; margin-left: -1.5rem; transform: rotate(45deg);"></div>
-      <div class="mdc-typography--headline7 b-margin">
-        <strong>{{this.value.status}}</strong>
-        <small>{{momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm"}}</small>
-      </div> 
-      <div class="note-contents">
-        {{{markdown this.value.note}}}
+    <div class="v-margin" data-note-id="{{../id}}-{{this.key}}">
+      <i class="fas fa-circle fa-lg pull-left mdc-theme--primary-dark" style="margin-left: -1.7rem; margin-top: 1rem;"></i>
+      <div class="note x-padding-full l-margin-full mdc-theme--primary-light-bg mdc-theme--on-primary-light">
+        <div class="mdc-theme--primary-light-bg" style="height: 1rem; width: 1rem; position: absolute; margin-left: -1.5rem; transform: rotate(45deg);"></div>
+        <div class="mdc-typography--headline7 b-margin">
+          <button type="button" class="mdc-icon-button pull-right" data-advanced-ajax-button='{
+              "url": "/delete-note", 
+              "method": "POST",
+              "responseType": "json",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "postBody": {
+                "fundId": {{{stringify ../id}}},
+                "noteId": {{{stringify this.key}}}
+              },
+              "newState": {
+                "if": [
+                  { "==": [ { "var": "body.success" }, true ] },
+                  "off",
+                  "on"
+                ]
+              },
+              "initial": { },              
+              "before": {
+                "attributes": {
+                  ">": {
+                    "disabled": "disabled"
+                  }
+                }
+              },
+              "after": {
+                "styles": {
+                "[data-note-id=\"{{../id}}-{{this.key}}\"]": {
+                    "display": "none"
+                  }
+                }
+              }
+            }'>
+            <span class="fas fa-trash mdc-icon-button__icon fa-xs"></span>
+          </button>
+          <strong>{{this.value.status}}</strong> | 
+          <small>{{momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm"}}</small>
+        </div> 
+        <div class="note-contents">
+          {{{markdown this.value.note}}}
+        </div>
       </div>
     </div>
-    <div class="v-padding-full"></div>
   {{/each}}
 </div>

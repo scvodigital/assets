@@ -1,6 +1,6 @@
 {
-  "name": "remove-notes",
-  "pattern": "/remove-notes",
+  "name": "delete-note",
+  "pattern": "/delete-note",
   "acceptedVerbs": "POST",
   "debug": true,
   "tasks": [
@@ -12,7 +12,7 @@
       "renderer": "handlebars",
       "config": {
         "appName": "fundingscotland",
-        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.id}}",
+        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.fundId}}/{{request.body.noteId}}",
         "setOrUpdate": "set",
         "dataTemplate": "null"
       }
@@ -23,7 +23,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{ \"id\": {{{stringify request.body.id}}} }",
+        "template": "{ \"fundId\": {{{stringify request.body.fundId}}}, \"noteId\": {{{stringify request.body.noteId}}} }",
         "parseJson": true
       }
     }

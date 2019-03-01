@@ -80,12 +80,6 @@ function getConfig(site, library) {
               loader: 'css-loader'
             },
             {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [autoprefixer()],
-              },
-            },
-            {
               loader: 'sass-loader',
               options: {
                 includePaths: ['./node_modules'],
@@ -117,7 +111,7 @@ function getConfig(site, library) {
         },
         {
           test: /\.js$/,
-          loader: 'babel-loader',
+          loader: 'babel-loader?cacheDirectory=true',
           query: {
             presets: ['@babel/preset-env'],
             compact: false

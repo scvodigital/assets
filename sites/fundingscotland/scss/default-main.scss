@@ -1,8 +1,8 @@
-$mdc-theme-primary: #689F39;
-$mdc-theme-primary-light: #E8F0E1;
-$mdc-theme-primary-dark: #223c1d;
+$mdc-theme-primary: #537F2C;//#689f38
+$mdc-theme-primary-light: #b6da96;
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-secondary: #689F39;
+$mdc-theme-secondary: #F49039;
 $mdc-theme-secondary-light: lighten($mdc-theme-secondary, 55%);
 $mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
 
@@ -11,8 +11,8 @@ $mdc-theme-background-light: #ffffff;
 $mdc-theme-background-dark: #bbbbbb;
 
 $mdc-theme-surface: #F5F5F5;
-$mdc-theme-surface-light: lighten($mdc-theme-surface, 15%);
-$mdc-theme-surface-dark: darken($mdc-theme-surface, 15%);
+$mdc-theme-surface-light: #fafafa;
+$mdc-theme-surface-dark: #4a4a4a;
 
 $mdc-theme-complimentary: #689F39;
 $mdc-theme-complimentary-light: #82AB58;

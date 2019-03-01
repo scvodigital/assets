@@ -121,8 +121,8 @@
                       "method": "POST",
                       "successMessage": "Notes deleted",
                       "failureMessage": "Failed to delete notes",
-                      "successCallback": "clearNotes",
-                      "postBody": { "id": "{{Id}}" }
+                      "postBody": { "id": "{{Id}}" },
+                      "successUpdates": {}
                       }' {{#unless (getProperty @root.data.notes Id)}}disabled{{/unless}}>
                   <span class="far fa-remove mdc-list-item__graphic" aria-hidden="true"></span>
                   Delete notes

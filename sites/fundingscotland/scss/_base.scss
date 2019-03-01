@@ -617,6 +617,7 @@ a.mdc-drawer__content-heading {
   padding: $unit/10 $unit/2;
   display: inline-block;
   user-select: none;
+  margin-right: -($unit/5);
 }
 
 .fund-currently-closed {

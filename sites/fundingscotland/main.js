@@ -37,6 +37,7 @@ export class FundingScotland {
 
     this.filterButtonContainerOuter = $('#filter-container-outer');
     this.filterButtonContainerInner = $('#filter-container-inner');
+    this.filterIndicator = $('#filter-indicator');
     this.filterButton = $('#perm-search-submit');
     if (this.filterButton.length > 0) {
       this.filterButtonFixed = false;
@@ -161,11 +162,16 @@ export class FundingScotland {
       this.filterButtonContainerOuter.css('height', filterButtonHeight);
       this.filterButtonContainerInner.css('width', filterButtonContainerWidth);
       this.filterButtonFixed = true;
+      this.filterIndicator.css({
+        'bottom': filterButtonHeight,
+        'left': (filterButtonContainerWidth / 2) - (this.filterIndicator.outerWidth() / 2)
+      });
     } else if (filterButtonContainerTop + filterButtonHeight <= bottom && this.filterButtonFixed) {
       this.filterButtonContainerInner.removeClass('filter-button-fixed');
       this.filterButtonContainerOuter.css('height', 'auto');
       this.filterButtonContainerInner.css('width', '100%');
       this.filterButtonFixed = false;
+      this.filterIndicator.hide();
     }
 
     const searchNewState = $('.search-form').serialize();
@@ -187,8 +193,8 @@ export class FundingScotland {
       for (const selector of searchNewStateSelectors) {
         if (this.searchLastStateSelectors.indexOf(selector) === -1) {
           const fieldTop = $(selector).offset().top;
-          if (fieldTop > bottom) {
-            this.filterButtonContainerInner.fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+          if (fieldTop > bottom && this.filterButtonFixed) {
+            this.filterIndicator.hide().fadeTo(250, 0.8).delay(1000).fadeOut(250);
           }
         }
       }

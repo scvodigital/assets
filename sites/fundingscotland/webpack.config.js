@@ -119,7 +119,7 @@ function getConfig(site, library) {
           test: /\.js$/,
           loader: 'babel-loader',
           query: {
-            presets: ['es2015'],
+            presets: ['@babel/preset-env'],
             compact: false
           }
         }

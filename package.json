@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.490",
+  "version": "0.0.496",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -34,9 +34,12 @@
   },
   "homepage": "https://github.com/scvodigital/assets#readme",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
     "autoprefixer": "^9.1.5",
-    "babel-core": "^6.26.3",
-    "babel-loader": "7",
+    "babel-loader": "^8.0.5",
     "babel-preset-es2015": "^6.24.1",
     "compression-webpack-plugin": "1.1.12",
     "copy-webpack-plugin": "^4.5.3",
@@ -62,6 +65,7 @@
     "@babel/polyfill": "^7.0.0",
     "@google-cloud/storage": "^2.0.3",
     "@scvo/json-inc": "^0.0.15",
+    "babel-polyfill": "^6.26.0",
     "dot-object": "^1.7.1",
     "firebase": "^5.4.2",
     "firebase-admin": "^6.0.0",

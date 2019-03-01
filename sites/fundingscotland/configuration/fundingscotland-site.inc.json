@@ -41,12 +41,12 @@
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",
     "globalNoteStatuses": [
-      "Application in process",
-      "Application sent and received / under review",
+      "Application in progress",
+      "Application sent - under review",
       "Application rejected",
-      "Application successful",
+      "Application successful!",
       "Open to reapply",
-      "Not open to apply"
+      "Not elligible"
     ],
     "termTypeLabels": {
       "geographical_areas_funded": {

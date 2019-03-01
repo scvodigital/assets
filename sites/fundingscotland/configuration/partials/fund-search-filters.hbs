@@ -51,8 +51,8 @@
     </div>
 
     {{#each @root.context.metaData.terms}}
-      {{#unless (getProperty @root.data.currentSite.fixedFilters @key)}}
-        {{#> components_advanced_checkbox_list name=@key label=label}}
+      {{#> components_advanced_checkbox_list name=@key label=label}}
+        {{#unless (getProperty @root.data.currentSite.fixedFilters @key)}}
           {{#each termGroups}}
             {{#> components_advanced_checkbox_group
                 name=(concat @../key '-' @key)
@@ -69,8 +69,27 @@
               {{/each}}
             {{/components_advanced_checkbox_group}}
           {{/each}}
-        {{/components_advanced_checkbox_list}}
-      {{/unless}}
+        {{else}}
+          {{#> components_advanced_checkbox_group
+              name=(concat @key '-other')
+              label='Other'
+              hideParent=true}}
+            {{#each termGroups}}
+              {{#each terms}}
+                {{#if (contains (getProperty @root.data.currentSite.fixedFilters @../../../../key) @key)}}
+                  {{> components_advanced_checkbox_item
+                      name=@../../../../key
+                      value=@key
+                      label=label
+                      checked=(contains (getProperty @root.request.params.query @../../../../key) @key)
+                      group=(concat @../../../../key '-other')
+                      noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}
+                {{/if}}
+              {{/each}}
+            {{/each}}
+          {{/components_advanced_checkbox_group}}
+        {{/unless}}
+      {{/components_advanced_checkbox_list}}
     {{/each}}
     <div id="filter-container-outer">
       <div id="filter-container-inner">

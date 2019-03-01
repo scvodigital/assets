@@ -377,7 +377,7 @@ a:hover {
 
 .search-info {
   background: #fff;
-  color: $mdc-theme-secondary-dark;
+  color: $mdc-theme-surface-dark;
 }
 
 .mdc-card {
@@ -444,7 +444,7 @@ a:hover {
   box-shadow: none !important;
   .editor-toolbar,
   .CodeMirror {
-    border-bottom: 1px solid $mdc-theme-secondary;
+    border-bottom: 1px solid $mdc-theme-surface;
   }
   .text-field-container.user-notes {
     .mdc-text-field--textarea .mdc-floating-label {
@@ -679,23 +679,26 @@ a.mdc-drawer__content-heading {
 .pagination {
   li {
     a {
-      color: $mdc-theme-secondary-dark;
+      color: $mdc-theme-surface-dark;
     }
     a.pagination-arrow {
-      color: $mdc-theme-secondary-dark;
+      color: $mdc-theme-surface-dark;
     }
   }
   li.disabled a.pagination-arrow {
-    color: $mdc-theme-secondary-dark;
+    color: $mdc-theme-surface-dark;
   }
   li.current-page {
-    background-color: $mdc-theme-surface-dark;
+    background-color: $mdc-theme-primary;
+    a {
+      color: $mdc-theme-surface-light;
+    }
   }
   li:hover,
   li.current-page:hover {
     background-color: $mdc-theme-primary-dark;
     a {
-      color: $mdc-theme-secondary-light;
+      color: $mdc-theme-surface-light;
     }
   }
   li.disabled:hover {

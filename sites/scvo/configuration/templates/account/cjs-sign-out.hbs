@@ -27,11 +27,11 @@
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function(event) {
-  window.setTimeout(function() {
-    scvo.app.auth().signOut().then(function() {
-      scvo.setCookie('cjs_token');
-      scvo.setCookie('cjs_cookie');
-      window.location.href = '/jobs/community-jobs-scotland/vacancies/sign-in';
+  setTimeout(function() {
+    scvo.auth.sessionCleanup().then(function() {
+      window.setTimeout(function() {
+        window.location.href = '/';
+      }, 1000);
     }).catch(function(err) {
       console.error('Error signing out:', err);
     });

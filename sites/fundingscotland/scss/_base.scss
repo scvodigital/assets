@@ -258,9 +258,9 @@ header {
 }
 
 .card-loader {
-  background-color: $mdc-theme-secondary-light;
+  background-color: $mdc-theme-surface;
   .card-loader-inner {
-    color: $mdc-theme-primary-dark;
+    color: $mdc-theme-secondary;
   }
 }
 

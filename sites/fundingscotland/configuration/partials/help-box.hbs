@@ -1,10 +1,10 @@
 {{#withExtend this dismissed=(contains @root.request.cookies.fs_dismissed (concat "[" id "]"))}}
-  <div class="mdc-theme--primary-light-bg mdc-theme--on-primary-light x-padding
-      mdc-theme--primary-border border rounded b-margin-full help-box
+  <div class="mdc-theme--info-light-bg mdc-theme--on-info-light x-padding
+      mdc-theme--info-border border rounded b-margin-full help-box
       {{~#ifAll dismissed (if permanent false else=true)}} help-box--dismissed{{/ifAll~}}
       " data-help-box-id="{{id}}">
     <ul class="fa-ul">
-      <li class="mdc-typography--body1 mdc-theme--primary-dark">
+      <li class="mdc-typography--body1 mdc-theme--info-dark">
         <span class="fa-li">
           <span class="{{default iconClasses "far fa-question-circle"}}"></span>
         </span>

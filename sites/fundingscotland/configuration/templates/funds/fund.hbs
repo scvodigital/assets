@@ -196,20 +196,18 @@
           </div>
         </div>
       </div>
-    </div>
-    <script>
-      function clearNotes(data) {
-        $('#notes-' + this.request.data.id)[0].mde.value('');
-        this.$button.prop('disabled', true);
-      }
-      function notesSaved(data) {
-        console.log('notesSaved Arguments:', arguments);
-        $('#delete-notes-' + data.id).prop('disabled', false);
-      }
-      window.fundId = '{{Id}}';
-    </script>
-  {{/with}}
-  <div class="container-content">
+      <script>
+        function clearNotes(data) {
+          $('#notes-' + this.request.data.id)[0].mde.value('');
+          this.$button.prop('disabled', true);
+        }
+        function notesSaved(data) {
+          console.log('notesSaved Arguments:', arguments);
+          $('#delete-notes-' + data.id).prop('disabled', false);
+        }
+        window.fundId = '{{Id}}';
+      </script>
+    {{/with}}
     <div class="fundingscotland-related-funds">
       <!-- <hr class="mdc-list-divider v-margin-full"> -->
       <div class="mdc-typography--headline5 v-margin-full">

@@ -1061,7 +1061,15 @@ footer.mdc-layout__footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  padding: 0 $unit/2;
+  padding: 0;
+  z-index: 10;
+  height: 48px;
+  width: 48px;
+  margin: 0 $unit*1;
+  text-align: center;
+  color: white;
+  background-color: $mdc-theme-info-dark;
+  border-radius: 50%;
 }
 
 .mdc-button[disabled] {

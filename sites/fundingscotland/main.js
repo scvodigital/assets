@@ -194,7 +194,7 @@ export class FundingScotland {
         if (this.searchLastStateSelectors.indexOf(selector) === -1) {
           const fieldTop = $(selector).offset().top;
           if (fieldTop > bottom && this.filterButtonFixed) {
-            this.filterIndicator.hide().fadeTo(250, 0.7).delay(1000).fadeOut(250);
+            this.filterIndicator.hide().fadeTo(250, 0.8).delay(1000).fadeOut(250);
           }
         }
       }

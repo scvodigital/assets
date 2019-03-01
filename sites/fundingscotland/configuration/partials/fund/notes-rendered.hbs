@@ -1,17 +1,16 @@
-{{#each (sortBy (keyValue (getProperty @root.data.profile.notes id)) "key" "desc")}}
-  <div class="note x-padding-full t-border mdc-theme--primary-light-border-top">
-    <h4 class="note-head mdc-typography--headline7">
-      <div class="pull-right mdc-chip-set">
-        <div class="mdc-chip" tabindex="0">
-          <div class="mdc-chip__text">
-            {{this.value.status}}
-          </div>
-        </div>
+<div class="x-margin-full l-border mdc-theme--primary-border-left l-padding-full">
+  {{#each (sortBy (keyValue (getProperty @root.data.profile.notes id)) "key" "desc")}}
+    <i class="fas fa-circle fa-lg pull-left mdc-theme--primary-dark" style="margin-left: -1.7rem; margin-top: 1rem;"></i>
+    <div class="note x-padding-full l-margin-full mdc-theme--primary-light-bg mdc-theme--on-primary-light">
+      <div class="mdc-theme--primary-light-bg" style="height: 1rem; width: 1rem; position: absolute; margin-left: -1.5rem; transform: rotate(45deg);"></div>
+      <div class="mdc-typography--headline7 b-margin">
+        <strong>{{this.value.status}}</strong>
+        <small>{{momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm"}}</small>
+      </div> 
+      <div class="note-contents">
+        {{{markdown this.value.note}}}
       </div>
-      {{momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm"}}
-    </h4> 
-    <div class="note-contents">
-      {{{markdown this.value.note}}}
     </div>
-  </div>
-{{/each}}
+    <div class="v-padding-full"></div>
+  {{/each}}
+</div>

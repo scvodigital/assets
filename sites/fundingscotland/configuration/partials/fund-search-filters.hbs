@@ -84,7 +84,7 @@
                       label=label
                       checked=(contains (getProperty @root.request.params.query @../../../../key) @key)
                       group=(concat @../../../../key '-other')
-                      noIndent=(compare (length (getKeys ../../../../termGroups)) 1)}}
+                      noIndent=1}}
                 {{/if}}
               {{/each}}
             {{/each}}

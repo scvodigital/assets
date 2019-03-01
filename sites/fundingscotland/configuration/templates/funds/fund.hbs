@@ -1,200 +1,198 @@
-<div class="container-fluid">
-  {{#compare data.primaryResponse.hits.total ">" 0}}
-    {{#with @root.data.primaryResponse.hits.hits.[0]._source}}
-      <div class="container-content">
-        <div class="fundingscotland-fund content-primary mdc-card full">
-          {{> fund_key_info}}
-          <div class="content-primary-info-container">
-            {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
-              {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="far fa-info-circle"}}
-              {{>components_tab tabName="contact" label="Contact" active=false linkClasses="" iconClasses="far fa-address-book"}}
-              {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="far fa-edit"}}
-              {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="far fa-tasks"}}
-            {{/components_tab_bar}}
-            <div class="panels" for="content-primary-tab-bar">
-              <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
-                {{> fund_full this hideTitle=true}}
-              </div>
-              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="contact">
-                {{> fund_contact this hideTitle=true}}
-              </div>
-              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
-                {{#if @root.data.auth ~}}
-                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-                  {{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "desc")}}
-                    <form action="/save-notes" method="POST">
-                      <div class="clearfix x-margin">
-                        <textarea class="mdc-text-field__input" data-simple-mde='{
-                              "forceSync": true,
-                              "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
-                            }' name="notes"></textarea>
-                        <input type="hidden" name="id" value="{{Id}}">
-                        <input type="hidden" name="slug" value="{{slug}}">
-                      </div>
-                      <div class="h-margin-full">
-                        <div class="mdc-layout-grid">
-                          <div class="mdc-layout-grid__inner">
-                            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                              <div class="mdc-text-field mdc-text-field--with-trailing-icon" style="display:none;" id="note-status-custom" data-mdc-auto-init="MDCTextField">
-                                <input type="text" id="custom-status" name="custom-status" class="mdc-text-field__input"> 
-                                <label for="custom-status" class="mdc-floating-label">Custom status</label>
-                                <i class="mdc-text-field__icon fal fa-times-circle" tabindex="0" role="button" id="note-status-custom-close"></i>
-                                <div class="mdc-line-ripple"></div>
-                              </div>
-                              <div class="mdc-select mdc-elevation--z2" data-mdc-auto-init="MDCSelect" id="note-status-select">
-                                <span class="mdc-select__dropdown-icon"></span>
-                                <select class="mdc-select__native-control" id="status" name="status">
-                                  {{#if (any notes)}}
-                                    <optgroup label="Last used">
-                                      <option value="{{notes.[0].value.status}}">{{notes.[0].value.status}}</option>
-                                    </optgroup>
-                                  {{/if}}
-                                  <optgroup label="Global">
-                                    {{#each @root.context.metaData.globalNoteStatuses}}
-                                      <option value="{{this}}">{{this}}</option>
-                                    {{/each}}
-                                  </optgroup>
-                                  <optgroup label="Custom">
-                                    {{#each (filter (distinct (dotPattern @root.data.profile.notes '*.*.status')) null "valueNotIn" @root.context.metaData.globalNoteStatuses)}}
-                                      <option value="{{this}}">{{this}}</option>
-                                    {{/each}}
-                                    <option value="New custom status">-- New custom status --</option>
-                                  </optgroup>
-                                </select>
-                                <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
-                                  Status
-                                </label>
-                                <div class="mdc-line-ripple"></div>
-                              </div>
-                            </div>
-                            <div class="mdc-layout-grid__cell">
-                              <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
-                                <span class="far fa-plus mdc-list-item__graphic" aria-hidden="true"></span>
-                                Add note
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="mdc-typography--caption">
-                          Any notes you write here are private on your account and are not shared with {{funder_organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
-                        </div>
-                      </div>
-                    </form>
-                 
-                    <hr>
-                    {{>fund_notes_rendered id=Id}}
-                  {{/withExtend}}
-                  {{else}}
-                  <div class="detailed-info">
-                    {{> upgrade_ad_notes}}
-                  </div>
-                  {{/ifAny ~}}
-                {{else}}
-                  <div class="detailed-info">
-                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
-                    <p class="mdc-typography--body1">
-                      If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
-                    </p>
-                  </div>
-                {{/if ~}}
-              </div>
-              <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
-                {{#if @root.data.auth ~}}
-                {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-                  <div class="mdc-list-group">
-                    <ul class="mdc-list mdc-list--two-line">
-                      {{#each @root.data.shortlistPartitions.items.[0]}}
-                        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
-                          <span class="mdc-list-item__text">
-                            <span class="mdc-list-item__primary-text">
-                              <a href="/lists/{{partition}}">{{partition}}</a>
-                            </span>
-                            <span class="mdc-list-item__secondary-text">
-                              <strong>List email alerts: </strong>
-                              {{#> toggle_link
-                                onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
-                                offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
-                                onText="Turn Off"
-                                offText="Turn On"
-                                onClasses="mdc-theme--error"
-                                offClasses="mdc-theme--success"
-                                iconClasses="far fa-fw"
-                                on=partitionActive
-                              }}
-                              {
-                                "extraAttributes": "data-fund-list-email=\"{{../partition}}\"",
-                                "onClasses": {
-                                  "_self": "mdc-theme--error"
-                                },
-                                "offClasses": {
-                                  "_self": "mdc-theme--success"
-                                }
-                              }
-                              {{/toggle_link}}
-                            </span>
-                          </span>
-                          <span class="mdc-list-item__meta">
-                            {{#> ajax_chip
-                              onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
-                              offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
-                              onText="Remove"
-                              offText="Add"
-                              iconClasses="far fa-plus"
-                              on=(contains (getProperty (querystring querystring) "id") ../Id)
-                            }}
-                            {
-                              "extraAttributes": "data-fund-id=\"{{../partition}}\"",
-                              "onClasses": {
-                                "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
-                              },
-                              "offClasses": {
-                                "[data-fund-id=\"{{../partition}}\"]": ""
-                              }
-                            }
-                            {{/ajax_chip}}
-                          </span>
-                        </li>
-                      {{/each}}
-                    </ul>
-                    <form action="/save-fund" method="GET">
-                      <div class="mdc-layout-grid x-padding-full" style="padding-bottom:0.5rem">
+{{#compare data.primaryResponse.hits.total ">" 0}}
+  {{#with @root.data.primaryResponse.hits.hits.[0]._source}}
+    <div class="container-content">
+      <div class="fundingscotland-fund content-primary mdc-card full">
+        {{> fund_key_info}}
+        <div class="content-primary-info-container">
+          {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
+            {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="far fa-info-circle"}}
+            {{>components_tab tabName="contact" label="Contact" active=false linkClasses="" iconClasses="far fa-address-book"}}
+            {{>components_tab tabName="notes" label="Notes" active=false linkClasses="" iconClasses="far fa-edit"}}
+            {{>components_tab tabName="lists" label="Lists" acrive=false linkClasses="" iconClasses="far fa-tasks"}}
+          {{/components_tab_bar}}
+          <div class="panels" for="content-primary-tab-bar">
+            <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="details">
+              {{> fund_full this hideTitle=true}}
+            </div>
+            <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="contact">
+              {{> fund_contact this hideTitle=true}}
+            </div>
+            <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="notes">
+              {{#if @root.data.auth ~}}
+              {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                {{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "desc")}}
+                  <form action="/save-notes" method="POST">
+                    <div class="clearfix x-margin">
+                      <textarea class="mdc-text-field__input" data-simple-mde='{
+                            "forceSync": true,
+                            "toolbar": ["heading-1", "heading-2", "bold", "italic", "|", "unordered-list", "ordered-list", "link"]
+                          }' name="notes"></textarea>
+                      <input type="hidden" name="id" value="{{Id}}">
+                      <input type="hidden" name="slug" value="{{slug}}">
+                    </div>
+                    <div class="h-margin-full">
+                      <div class="mdc-layout-grid">
                         <div class="mdc-layout-grid__inner">
-                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
-                            <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-                              <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
-                              <label for="name" class="mdc-floating-label">
-                                Add to new list
+                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+                            <div class="mdc-text-field mdc-text-field--with-trailing-icon" style="display:none;" id="note-status-custom" data-mdc-auto-init="MDCTextField">
+                              <input type="text" id="custom-status" name="custom-status" class="mdc-text-field__input">
+                              <label for="custom-status" class="mdc-floating-label">Custom status</label>
+                              <i class="mdc-text-field__icon fal fa-times-circle" tabindex="0" role="button" id="note-status-custom-close"></i>
+                              <div class="mdc-line-ripple"></div>
+                            </div>
+                            <div class="mdc-select mdc-elevation--z2" data-mdc-auto-init="MDCSelect" id="note-status-select">
+                              <span class="mdc-select__dropdown-icon"></span>
+                              <select class="mdc-select__native-control" id="status" name="status">
+                                {{#if (any notes)}}
+                                  <optgroup label="Last used">
+                                    <option value="{{notes.[0].value.status}}">{{notes.[0].value.status}}</option>
+                                  </optgroup>
+                                {{/if}}
+                                <optgroup label="Global">
+                                  {{#each @root.context.metaData.globalNoteStatuses}}
+                                    <option value="{{this}}">{{this}}</option>
+                                  {{/each}}
+                                </optgroup>
+                                <optgroup label="Custom">
+                                  {{#each (filter (distinct (dotPattern @root.data.profile.notes '*.*.status')) null "valueNotIn" @root.context.metaData.globalNoteStatuses)}}
+                                    <option value="{{this}}">{{this}}</option>
+                                  {{/each}}
+                                  <option value="New custom status">-- New custom status --</option>
+                                </optgroup>
+                              </select>
+                              <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
+                                Status
                               </label>
                               <div class="mdc-line-ripple"></div>
                             </div>
                           </div>
-                          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
-                            <input type="hidden" name="slug" value="{{slug}}">
-                            <input type="hidden" name="id" value="{{Id}}">
+                          <div class="mdc-layout-grid__cell">
                             <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
-                              Create list
+                              <span class="far fa-plus mdc-list-item__graphic" aria-hidden="true"></span>
+                              Add note
                             </button>
                           </div>
                         </div>
                       </div>
-                    </form>
-                  </div>
-                  {{else}}
-                  <div class="detailed-info">
-                    {{> upgrade_ad_lists}}
-                  </div>
-                  {{/ifAny ~}}
+                      <div class="mdc-typography--caption">
+                        Any notes you write here are private on your account and are not shared with {{funder_organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
+                      </div>
+                    </div>
+                  </form>
+
+                  <hr>
+                  {{>fund_notes_rendered id=Id}}
+                {{/withExtend}}
                 {{else}}
-                  <div class="detailed-info">
-                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
-                    <p class="mdc-typography--body1">
-                      If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
-                    </p>
-                  </div>
-                {{/if ~}}
-              </div>
-              {{> fund_actions actions="more-funder,hide-fund" funder=funder}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_notes}}
+                </div>
+                {{/ifAny ~}}
+              {{else}}
+                <div class="detailed-info">
+                  <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+                  <p class="mdc-typography--body1">
+                    If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
+                  </p>
+                </div>
+              {{/if ~}}
             </div>
+            <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
+              {{#if @root.data.auth ~}}
+              {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+                <div class="mdc-list-group">
+                  <ul class="mdc-list mdc-list--two-line">
+                    {{#each @root.data.shortlistPartitions.items.[0]}}
+                      <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}}>
+                        <span class="mdc-list-item__text">
+                          <span class="mdc-list-item__primary-text">
+                            <a href="/lists/{{partition}}">{{partition}}</a>
+                          </span>
+                          <span class="mdc-list-item__secondary-text">
+                            <strong>List email alerts: </strong>
+                            {{#> toggle_link
+                              onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+                              offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+                              onText="Turn Off"
+                              offText="Turn On"
+                              onClasses="mdc-theme--error"
+                              offClasses="mdc-theme--success"
+                              iconClasses="far fa-fw"
+                              on=partitionActive
+                            }}
+                            {
+                              "extraAttributes": "data-fund-list-email=\"{{../partition}}\"",
+                              "onClasses": {
+                                "_self": "mdc-theme--error"
+                              },
+                              "offClasses": {
+                                "_self": "mdc-theme--success"
+                              }
+                            }
+                            {{/toggle_link}}
+                          </span>
+                        </span>
+                        <span class="mdc-list-item__meta">
+                          {{#> ajax_chip
+                            onUrl=(concat "/save-fund?id=" ../Id "&name=" partition)
+                            offUrl=(concat "/remove-fund?id=" ../Id "&name=" partition)
+                            onText="Remove"
+                            offText="Add"
+                            iconClasses="far fa-plus"
+                            on=(contains (getProperty (querystring querystring) "id") ../Id)
+                          }}
+                          {
+                            "extraAttributes": "data-fund-id=\"{{../partition}}\"",
+                            "onClasses": {
+                              "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                            },
+                            "offClasses": {
+                              "[data-fund-id=\"{{../partition}}\"]": ""
+                            }
+                          }
+                          {{/ajax_chip}}
+                        </span>
+                      </li>
+                    {{/each}}
+                  </ul>
+                  <form action="/save-fund" method="GET">
+                    <div class="mdc-layout-grid x-padding-full" style="padding-bottom:0.5rem">
+                      <div class="mdc-layout-grid__inner">
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+                          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+                            <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
+                            <label for="name" class="mdc-floating-label">
+                              Add to new list
+                            </label>
+                            <div class="mdc-line-ripple"></div>
+                          </div>
+                        </div>
+                        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+                          <input type="hidden" name="slug" value="{{slug}}">
+                          <input type="hidden" name="id" value="{{Id}}">
+                          <button type="submit" class="mdc-button mdc-button--raised mdc-button--large mdc-button--fullwidth">
+                            Create list
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                {{else}}
+                <div class="detailed-info">
+                  {{> upgrade_ad_lists}}
+                </div>
+                {{/ifAny ~}}
+              {{else}}
+                <div class="detailed-info">
+                  <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+                  <p class="mdc-typography--body1">
+                    If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
+                  </p>
+                </div>
+              {{/if ~}}
+            </div>
+            {{> fund_actions actions="more-funder,hide-fund" funder=funder}}
           </div>
         </div>
       </div>
@@ -210,34 +208,32 @@
         window.fundId = '{{Id}}';
       </script>
     {{/with}}
-    <div class="container-content">
-      <div class="fundingscotland-related-funds">
-        <!-- <hr class="mdc-list-divider v-margin-full"> -->
-        <div class="mdc-typography--headline5 v-margin-full">
-          Similar funds
-        </div>
-        <div class="mdc-layout-grid equal-height">
-          <div class="mdc-layout-grid__inner">
-            {{#each data.supplimentaryResponses.related.hits.hits ~}}
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-              {{> fund_list _source actions="more-fund,lists,hide-fund"}}
-            </div>
-            {{/each ~}}
-          </div>
-        </div>
-        {{#if @root.data.auth ~}}
-        {{else}}
-        <div class="mdc-typography--body1 v-margin-full">
-          To find more similar funds, please <a href="/sign-up">sign up</a>.
-        </div>
-        {{/if ~}}
+    <div class="fundingscotland-related-funds">
+      <!-- <hr class="mdc-list-divider v-margin-full"> -->
+      <div class="mdc-typography--headline5 v-margin-full">
+        Similar funds
       </div>
-
-      {{> tfn_latest}}
+      <div class="mdc-layout-grid equal-height">
+        <div class="mdc-layout-grid__inner">
+          {{#each data.supplimentaryResponses.related.hits.hits ~}}
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+            {{> fund_list _source actions="more-fund,lists,hide-fund"}}
+          </div>
+          {{/each ~}}
+        </div>
+      </div>
+      {{#if @root.data.auth ~}}
+      {{else}}
+      <div class="mdc-typography--body1 v-margin-full">
+        To find more similar funds, please <a href="/sign-up">sign up</a>.
+      </div>
+      {{/if ~}}
     </div>
-  {{else}}
-    <p>
-      <strong>Error:</strong> the requested fund could not be found - it may have been removed from our database.
-    </p>
-  {{/compare}}
-</div>
+
+    {{> tfn_latest}}
+  </div>
+{{else}}
+  <p>
+    <strong>Error:</strong> the requested fund could not be found - it may have been removed from our database.
+  </p>
+{{/compare}}

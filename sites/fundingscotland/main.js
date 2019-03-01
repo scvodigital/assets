@@ -7,8 +7,6 @@ import * as querystring from 'querystring';
 
 import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
-window.firebase = firebase;
-
 export class FundingScotland {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;

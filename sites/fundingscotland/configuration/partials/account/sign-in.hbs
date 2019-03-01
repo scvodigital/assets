@@ -15,7 +15,7 @@
       {{/if}}
     </div>
     <div class="l-margin-full r-margin-full">
-      <div class="mdc-card__info x-padding-full mdc-theme--primary-bg mdc-theme--on-primary" id="sign-in-message">
+      <div class="mdc-card__info x-padding-full border rounded mdc-theme--info-light-bg mdc-theme--info-dark mdc-theme--info-border" id="sign-in-message">
         <span id="form-message"></span>
       </div>
     </div>
@@ -47,7 +47,7 @@
           Forgot your password? <a href="/reset-password">Reset password</a>
         </div>
         <div class="mdc-typography--body1 v-margin-full">
-          Don't have an account? <a href="/sign-up">Sign up</a>
+          Don't have a Funding Scotland account? <a href="/sign-up">Sign up</a>
         </div>
         <div class="mdc-typography--body1 v-margin-full">
           Read our <a href="/privacy" target="_blank">privacy notice</a>
@@ -55,7 +55,7 @@
       </div>
       <div class="card-loader" id="sign-in-loader">
         <div class="card-loader-inner">
-          <span class="far fa-2x fa-circle-notch fa-spin"></span>
+          <span class="far fa-2x fa-spinner-third fa-spin"></span>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     fundingscotland.auth.signInEmailPassword(email, password)
       .then(function(user) {
-        console.log('Logged in:', user);
+        // console.log('Logged in:', user);
         window.location.href = '{{#if (contains @root.request.headers.referer "sign-out")}}/{{else}}{{default @root.request.headers.referer "/"}}{{/if}}';
       })
       .catch(function(err) {

@@ -9,8 +9,6 @@ import 'mapbox.js';
 
 import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
-window.firebase = firebase;
-
 export class SCVO {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;

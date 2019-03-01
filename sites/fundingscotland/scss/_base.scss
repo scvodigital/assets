@@ -510,6 +510,9 @@ hr {
   .mdc-list-group__subheader {
     font-weight: $heading-medium-font-weight;
     color: rgba(0, 0, 0, 0.87);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 

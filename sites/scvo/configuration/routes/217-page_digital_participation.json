@@ -3,8 +3,8 @@
   "pattern": {
     "index_legacy": "/digital/participation",
     "index": "/digital/new/participation",
-    "section_legacy": "/digital/participation/:path",
-    "section": "/digital/new/participation/:path"
+    "section_legacy": "/digital/participation/*path",
+    "section": "/digital/new/participation/*path"
   },
   "tasks": [
     {

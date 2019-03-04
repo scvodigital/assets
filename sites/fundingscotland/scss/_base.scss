@@ -840,6 +840,7 @@ footer,
 
 .home-funds {
   background: $mdc-theme-primary-light;
+  padding-right: $unit;
 }
 .home-info {
   background-color: $mdc-theme-surface;
@@ -963,6 +964,9 @@ footer.mdc-layout__footer {
         font-size: 1.1rem;
       }
     }
+  }
+  .home-funds {
+    padding-right: 0;
   }
 }
 @media screen and (max-width: $mobile-breakpoint) {

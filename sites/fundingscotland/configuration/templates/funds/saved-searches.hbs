@@ -1,12 +1,4 @@
 <div id="detailed-results-container" class="container-content content-saved-searches">
-  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-  {{#compare (length @root.data.searches.items.[0]) ">" 0 ~}}
-  <div class="settings mdc-typography--body1">
-    <span class="settings-heading">Email frequency</span>
-    {{> email_frequency}}
-  </div>
-  {{/compare}}
-  {{/ifAny ~}}
   <h1 class="mdc-typography--headline3 v-margin-full">
     Saved searches &amp; email alerts
   </h1>
@@ -24,9 +16,9 @@
           </span>
           <span class="mdc-list-item__secondary-text" title="
               {{~#each (entries (querystring this.querystring))~}}
-                {{concat (getProperty @root.context.metaData.terms (concat this.[0] ".label")) ": "}} 
+                {{concat (getProperty @root.context.metaData.terms (concat this.[0] ".label")) ": "}}
                 {{~#each (arrayify this.[1])~}}
-                  {{~>get_term_label field=../[0] term=this}}{{#unless @last}}, {{/unless~}} 
+                  {{~>get_term_label field=../[0] term=this}}{{#unless @last}}, {{/unless~}}
                 {{~/each~}}
                 {{~#unless @last}} | {{/unless~}}
               {{~/each}}">
@@ -35,7 +27,7 @@
               <strong>{{getProperty @root.context.metaData.terms (concat this.[0] ".label")}}: </strong>
               {{#each (arrayify this.[1])}}
                 {{#if (compare @index "<" ../../termLimit)}}
-                  {{>get_term_label field=../[0] term=this}}{{#unless @last}},{{/unless}} 
+                  {{>get_term_label field=../[0] term=this}}{{#unless @last}},{{/unless}}
                 {{/if}}
               {{/each}}
               {{#if (compare (length (arrayify this.[1])) ">" ../termLimit)}}
@@ -46,7 +38,7 @@
             {{/withExtend}}
           </span>
         </span>
-        
+
         <span class="mdc-list-item__meta">
           <div class="mdc-chip-set">
             {{#> ajax_chip

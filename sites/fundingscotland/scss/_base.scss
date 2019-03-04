@@ -245,7 +245,6 @@ header {
 
 .sign-in-form,
 .reset-password-form {
-  padding-top: 0;
   .middle-line-text {
     border-bottom: 2px solid #dfdfdf;
     span {
@@ -798,27 +797,10 @@ footer,
   }
 }
 
-.home-browse {
-  .mdc-button {
-    .mdc-icon-toggle {
-      color: #fff;
-    }
-  }
-}
-
 .home-content-primary {
   background-color: $mdc-theme-primary-light;
   margin-bottom: 0;
   padding-bottom: $unit;
-}
-
-.latest-funds {
-  background-color: $mdc-theme-primary-light;
-}
-
-.home-browse {
-  background-color: $mdc-theme-surface-light;
-  border-bottom: $unit/4 solid $mdc-theme-primary-light;
 }
 
 .tfn-latest {
@@ -844,7 +826,13 @@ footer,
 
 .home-funds {
   background: $mdc-theme-primary-light;
-  padding-bottom: $unit;
+  padding-right: $unit;
+}
+.home-info {
+  background-color: $mdc-theme-surface;
+  .sign-up-form {
+    padding-top: 0 !important;
+  }
 }
 
 .scroll-button.scroll-left {
@@ -965,6 +953,9 @@ footer.mdc-layout__footer {
         font-size: 1.1rem;
       }
     }
+  }
+  .home-funds {
+    padding-right: 0;
   }
 }
 @media screen and (max-width: $mobile-breakpoint) {

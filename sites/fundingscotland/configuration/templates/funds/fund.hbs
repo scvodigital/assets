@@ -2,7 +2,7 @@
   {{#with @root.data.primaryResponse.hits.hits.[0]._source}}
     <div class="container-content content-primary-detail">
       <div class="fundingscotland-fund content-primary mdc-card full">
-        {{> fund_key_info}}
+        {{> fund_key_info view="full"}}
         <div class="content-primary-info-container">
           {{#>components_tab_bar id="content-primary-tab-bar" defaultTabIdentifier="hash" extraClasses=""}}
             {{>components_tab tabName="details" label="Details" active=true linkClasses="" iconClasses="far fa-info-circle"}}

@@ -18,6 +18,16 @@
     {{/if ~}}
     {{/if ~}}
 
+    {{#compare @root.route.name "===" "fund" ~}}
+    {{#compare view "===" "full" ~}}
+    {{#if @root.request.url.search ~}}
+    {{#ifAny @root.request.params.query.keywords @root.request.params.query.activities @root.request.params.query.beneficiaries @root.request.params.query.geographical_areas_funded @root.request.params.query.type_of_cost @root.request.params.query.type_of_funding @root.request.params.query.source_of_fund @root.request.params.query.miscellaneous ~}}
+    <a href="/search{{@root.request.url.search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
+    {{/ifAny ~}}
+    {{/if ~}}
+    {{/compare ~}}
+    {{/compare ~}}
+
     {{#if title ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
       <a href="/fund/{{slug}}{{@root.request.url.search}}">

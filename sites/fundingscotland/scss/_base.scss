@@ -1027,6 +1027,18 @@ footer.mdc-layout__footer {
   cursor: pointer;
 }
 
+.areas {
+  .area {
+    display: inline;
+  }
+  .area::after {
+    content: ", ";
+  }
+  .area:last-child::after {
+    content: "";
+  }
+}
+
 .mdc-drawer--open .mdc-list-item__user .mdc-list-item__text::after {
   width: 10%;
 }

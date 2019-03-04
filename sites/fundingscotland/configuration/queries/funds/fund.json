@@ -46,6 +46,7 @@
     "funder_organisation.facebook",
     "funder_organisation.linkedin",
     "funder_organisation.charity_number",
+    "applicant_success_rate",
     "rendered.json_ld"
   ],
   "query": {{#>queries_fund_common}}

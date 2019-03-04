@@ -45,6 +45,12 @@
         <strong>Also funds individuals</strong>
       </li>
       {{/if ~}}
+      {{#if applicant_success_rate ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-badge-check fa-fw" title="Applicant success rate"></span></span>
+        <strong>{{applicant_success_rate}}%</strong>
+      </li>
+      {{/if ~}}
     </ul>
   </div>
   <div class="detailed-info">

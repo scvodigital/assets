@@ -3093,6 +3093,15 @@ form.inline-form {
     padding: $unit/2 0;
     margin-right: 0 !important;
   }
+  .mdc-icon-toggle-xs {
+    height: 24px;
+    width: 28px;
+    .fas,
+    .fab,
+    .far {
+      font-size: 0.85rem;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {

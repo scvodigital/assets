@@ -20,22 +20,6 @@
 )}}
 {{>localised_site_banner @root.request.params.querystring}}
 
-{{#if @root.request.params.browse_slug ~}}
-  {{#if @root.request.params.browse_type ~}}
-    {{#compare @root.request.params.browse_type "===" "activities" ~}}
-      <div class="browse-heading">
-        <h1>Activity: {{{@root.request.params.activities_slug}}}</h1>
-      </div>
-    {{else}}
-      {{#compare @root.request.params.browse_type "===" "beneficiaries" ~}}
-        <div class="browse-heading">
-          <h1>Beneficiary: {{{@root.request.params.activities_slug}}}</h1>
-        </div>
-      {{/compare ~}}
-    {{/compare ~}}
-  {{/if ~}}
-{{/if ~}}
-
 {{#if savedSearch}}
   <h1 class="mdc-typography--headline3">
     <div class="pull-right">

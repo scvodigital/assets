@@ -20,29 +20,57 @@
         ],
         "datasets": [
           {{#each @root.context.metaData.terms}}
-            {{#each termGroups}}
+            {{#unless (getProperty @root.data.currentSite.fixedFilters @key)}}
+              {{#each termGroups}}
+                {
+                  "debug": "We have no fixed filters",
+                  "name": {{{stringify @../key}}},
+                  "templates": {
+                    {{#compare (length (getKeys ../termGroups)) 1}}
+                      "header": "<h3>{{{../label}}}</h3>"
+                    {{else}}
+                      "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
+                    {{/compare}}
+                  },
+                  "display": "other",
+                  "items": [
+                    {{#each terms}}
+                      {
+                      "label": {{{stringify (concat @../key ' ' textBag)}}},
+                      "value": {{{stringify @key}}},
+                      "other": {{{stringify label}}}
+                      },
+                    {{/each}}
+                    null
+                  ]
+                },
+              {{/each}}
+            {{else}}
               {
-                "name": {{{stringify @../key}}},
+                "debug": "We have fixed filters",
+                "name": {{{stringify @key}}},
                 "templates": {
-                  {{#compare (length (getKeys ../termGroups)) 1}}
-                    "header": "<h3>{{{../label}}}</h3>"
-                  {{else}}
-                    "header": "<h3>{{{../label}}} &gt; {{{label}}}</h3>"
-                  {{/compare}}
+                  "header": "<h3>{{{label}}}</h3>"
                 },
                 "display": "other",
                 "items": [
-                  {{#each terms}}
-                  {
-                  "label": {{{stringify (concat @../key ' ' textBag)}}},
-                  "value": {{{stringify @key}}},
-                  "other": {{{stringify label}}}
-                  }{{#unless @last}},{{/unless}}
+                  {{#each termGroups}}
+                    {{#each terms}}
+                      {{#if (contains (getProperty @root.data.currentSite.fixedFilters @../../key) @key)}}
+                        {
+                        "label": {{{stringify (concat @../key ' ' textBag)}}},
+                        "value": {{{stringify @key}}},
+                        "other": {{{stringify label}}}
+                        },
+                      {{/if}}
+                    {{/each}}
                   {{/each}}
+                  null
                 ]
-              }{{#unlessAll @last @../last}},{{/unlessAll}}
-            {{/each}}
+              },
+            {{/unless}}
           {{/each}}
+          null
         ]
       }'>
       <label for="what-primary-content" class="mdc-floating-label">

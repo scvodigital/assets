@@ -461,6 +461,12 @@ footer h3,
     font-size: 1.25rem;
   }
 }
+.search-form .mdc-button .fa-search,
+.search-form .mdc-button .fa-search-plus {
+  position: absolute;
+  right: $unit*(2/3);
+}
+
 .drawer-container-permanent {
   display: flex;
 }

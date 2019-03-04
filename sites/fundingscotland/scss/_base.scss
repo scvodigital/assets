@@ -807,6 +807,8 @@ footer,
 
 .home-content-primary {
   background-color: $mdc-theme-primary-light;
+  margin-bottom: 0;
+  padding-bottom: $unit;
 }
 
 .latest-funds {
@@ -839,20 +841,24 @@ footer,
   }
 }
 
+.home-heading {
+  background: $mdc-theme-primary-light;
+}
+
 .scroll-button.scroll-left {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-right {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-left:hover {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-right:hover {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 // Footer ======================================================================

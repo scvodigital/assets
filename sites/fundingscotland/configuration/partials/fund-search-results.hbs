@@ -8,11 +8,12 @@
         keywords=@root.request.params.query.keywords
         activities=(sort @root.request.params.query.activities)
         beneficiaries=(sort @root.request.params.query.beneficiaries)
-        fund_status=(sort @root.request.params.query.fund_status)
-        charities_only=(sort @root.request.params.query.charities_only)
         geographical_areas_funded=(sort @root.request.params.query.geographical_areas_funded)
         type_of_cost=(sort @root.request.params.query.type_of_cost)
         type_of_funding=(sort @root.request.params.query.type_of_funding)
+        source_of_fund=(sort @root.request.params.query.source_of_fund)
+        charities_only=(sort @root.request.params.query.charities_only)
+        miscellaneous=(sort @root.request.params.query.miscellaneous)
       )
     )
   )
@@ -119,10 +120,23 @@
       {{#if @root.data.auth ~}}
         {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
           {{#unless savedSearch ~}}
+            {{#with (
+              querystringify (obj)
+              keywords=@root.request.params.query.keywords
+              activities=(sort @root.request.params.query.activities)
+              beneficiaries=(sort @root.request.params.query.beneficiaries)
+              geographical_areas_funded=(sort @root.request.params.query.geographical_areas_funded)
+              type_of_cost=(sort @root.request.params.query.type_of_cost)
+              type_of_funding=(sort @root.request.params.query.type_of_funding)
+              source_of_fund=(sort @root.request.params.query.source_of_fund)
+              charities_only=(sort @root.request.params.query.charities_only)
+              miscellaneous=(sort @root.request.params.query.miscellaneous)
+            ) ~}}
             <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md save-search-dialog-button" id="save-search-button">
               <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
               Save/email this search
             </button>
+            {{/with ~}}
             <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg filter-search-button" id="filter-search-button">
               <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
               Search filters

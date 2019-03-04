@@ -1,4 +1,4 @@
-<div class="x-margin-full l-border mdc-theme--primary-border-left l-padding-full">
+<div class="x-margin-full l-border mdc-theme--primary-border-left l-padding-full" data-notes-for="{{id}}">
   {{#each (sortBy (keyValue (getProperty @root.data.profile.notes id)) "key" "desc")}}
     <div class="v-margin" data-note-id="{{../id}}-{{this.key}}">
       <i class="fas fa-circle fa-lg pull-left mdc-theme--primary-dark" style="margin-left: -1.7rem; margin-top: 1rem;"></i>
@@ -17,27 +17,27 @@
                 "fundId": {{{stringify ../id}}},
                 "noteId": {{{stringify this.key}}}
               },
-              "newState": {
-                "if": [
-                  { "==": [ { "var": "body.success" }, true ] },
-                  "off",
-                  "on"
-                ]
-              },
-              "initial": { },              
               "before": {
                 "attributes": {
                   ">": {
                     "disabled": "disabled"
                   }
+                },
+                "createElements": {
+                  "[data-notes-for=\"{{../id}}\"]": {
+                    "tagName": "a",
+                    "attributes": {
+                      "style": "color: #ff0000 !important",
+                      "href": "https://google.com"
+                    },
+                    "html": "Go to Google"
+                  }
                 }
               },
               "after": {
-                "styles": {
-                "[data-note-id=\"{{../id}}-{{this.key}}\"]": {
-                    "display": "none"
-                  }
-                }
+                "deleteElements": [
+                  "[data-note-id=\"{{../id}}-{{this.key}}\"]" 
+                ]
               }
             }'>
             <span class="fas fa-trash mdc-icon-button__icon fa-xs"></span>

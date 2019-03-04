@@ -1,4 +1,4 @@
-<div class="container-fluid home-funds b-padding-full">
+<div class="container-fluid home-funds t-padding-full b-padding-full">
   {{#compare @root.data.primaryResponse.all.hits.total ">" 0 ~}}
     <div class="mdc-layout-grid home-heading">
       <div class="mdc-layout-grid__inner">
@@ -14,7 +14,7 @@
           <div class="mdc-typography--headline6">
             Latest funds&ensp;
             <span class="mdc-typography--body1">
-              <a href="/search?sort=newest&page=2">Find more</a>
+              <a href="/search?sort=date_last_reviewed">Find more</a>
             </span>
           </div>
           {{/ifAll ~}}
@@ -32,10 +32,7 @@
             else=(map @root.data.primaryResponse.all.hits.hits (getProp "_source"))
           )
           itemsPartial="fund_mini"
-          moreUrl=(if
-            (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
-            "/search?sort=newest"
-            else="/search?sort=newest&page=2"
+          moreUrl="/search?sort=date_last_reviewed"
           )
           moreText=(if
             (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
@@ -69,7 +66,7 @@
             items=(map @root.data.supplimentaryResponses.saved.hits.hits (getProp "_source"))
             itemsPartial="fund_mini"
             moreUrl="/lists"
-            moreText="View all lists"}}
+            moreText="View lists"}}
         {{/components_horizontal_card_scroller}}
       </div>
     {{/if ~}}

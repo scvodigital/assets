@@ -48,7 +48,7 @@
       {{#if applicant_success_rate ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-badge-check fa-fw" title="Applicant success rate"></span></span>
-        <strong>{{applicant_success_rate}}%</strong>
+        <strong>Applicant success rate:</strong> {{applicant_success_rate}}%
       </li>
       {{/if ~}}
     </ul>
@@ -108,7 +108,9 @@
     {{#ifAny fund_exclusion annual_income_min annual_income_max ~}}
     <h4 class="mdc-typography--headline7">Exclusions</h4>
     <div class="mdc-typography--body1">
+      {{#if fund_exclusion ~}}
       {{{fund_exclusion}}}
+      {{/if ~}}
     </div>
     {{#ifAny annual_income_min annual_income_max ~}}
     <ul class="fa-ul">
@@ -128,12 +130,17 @@
     {{/ifAny ~}}
     {{/ifAny ~}}
 
-    {{#if when_to_apply ~}}
+    {{#ifAny when_to_apply date_due_to_open ~}}
     <h4 class="mdc-typography--headline7">When to apply</h4>
     <div class="mdc-typography--body1">
+      {{#if when_to_apply ~}}
       {{{when_to_apply}}}
+      {{/if ~}}
+      {{#if date_due_to_open ~}}
+      <br /><strong>Due to open:</strong> {{momentFormat (moment date_due_to_open "x") "YYYY-MM-DD"}}
+      {{/if ~}}
     </div>
-    {{/if ~}}
+    {{/ifAny ~}}
 
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>

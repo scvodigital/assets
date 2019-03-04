@@ -35,6 +35,7 @@
     "date_next_deadline",
     "type_of_cost",
     "date_reopens",
+    "date_due_to_open",
     "type_of_funding",
     "funder_organisation.slug",
     "funder_organisation.name",

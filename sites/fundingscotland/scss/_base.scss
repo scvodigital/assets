@@ -807,6 +807,8 @@ footer,
 
 .home-content-primary {
   background-color: $mdc-theme-primary-light;
+  margin-bottom: 0;
+  padding-bottom: $unit;
 }
 
 .latest-funds {
@@ -837,6 +839,10 @@ footer,
   .scroll-icon {
     background-color: $mdc-theme-primary-dark;
   }
+}
+
+.home-heading {
+  background: $mdc-theme-primary-light;
 }
 
 .scroll-button.scroll-left {

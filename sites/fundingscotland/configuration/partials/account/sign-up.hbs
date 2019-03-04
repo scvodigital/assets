@@ -5,69 +5,63 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 </script>
 {{else}}
-<form id="sign-up-form" method="POST" class="sign-in-form sign-up-form">
-  <div class="mdc-card mdc-elevation--z0">
-    <div class="mdc-card__info--content-primary">
-      <div class="mdc-card__info--content-primary-title mdc-typography--headline4 x-padding">
-        Sign up
+<form id="sign-up-form" method="POST" class="sign-in-form sign-up-form" autocomplete="off">
+  <div class="mdc-typography--headline4">
+    Sign up
+  </div>
+  <div class="mdc-card__info x-padding-full border rounded mdc-theme--info-light-bg mdc-theme--info-dark mdc-theme--info-border" id="sign-up-message">
+    <span id="form-message"></span>
+  </div>
+  <div class="mdc-card__info">
+    <div class="mdc-typography--body1" id="form-section-email">
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
+        <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <label class="mdc-floating-label" for="sign-up-email">
+          Email
+        </label>
+        <div class="mdc-line-ripple"></div>
       </div>
-    </div>
-    <div class="l-margin-full r-margin-full">
-      <div class="mdc-card__info x-padding-full border rounded mdc-theme--info-light-bg mdc-theme--info-dark mdc-theme--info-border" id="sign-up-message">
-        <span id="form-message"></span>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
+        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <label class="mdc-floating-label" for="sign-up-email-confirm">
+          Confirm email
+        </label>
+        <div class="mdc-line-ripple"></div>
       </div>
-    </div>
-    <div class="mdc-card__info x-padding-full">
-      <div class="mdc-typography--body1" id="form-section-email">
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-          <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-          <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-email">
-            Email
-          </label>
-          <div class="mdc-line-ripple"></div>
-        </div>
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-          <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-          <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-email-confirm">
-            Confirm email
-          </label>
-          <div class="mdc-line-ripple"></div>
-        </div>
 
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-          <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-          <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-password">
-            Password
-          </label>
-          <div class="mdc-line-ripple"></div>
-        </div>
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-          <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-          <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-password-confirm">
-            Confirm password
-          </label>
-          <div class="mdc-line-ripple"></div>
-        </div>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <label class="mdc-floating-label" for="sign-up-password">
+          Password
+        </label>
+        <div class="mdc-line-ripple"></div>
       </div>
-      <div id="form-section-sign-up-buttons">
-        <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">
-          Sign up
-        </button>
-        <div class="mdc-typography--body1 v-margin-full">
-          Already have a Funding Scotland account? <a href="/sign-in">Sign in</a>
-        </div>
-        <div class="mdc-typography--body1 v-margin-full">
-          Read our <a href="/privacy" target="_blank">privacy notice</a>
-        </div>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <label class="mdc-floating-label" for="sign-up-password-confirm">
+          Confirm password
+        </label>
+        <div class="mdc-line-ripple"></div>
       </div>
-      <div class="card-loader" id="sign-up-loader">
-        <div class="card-loader-inner">
-          <span class="far fa-2x fa-circle-notch fa-spin"></span>
-        </div>
+    </div>
+    <div id="form-section-sign-up-buttons">
+      <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">
+        Sign up
+      </button>
+      <div class="mdc-typography--body1 v-margin-full">
+        Already have a Funding Scotland account? <a href="/sign-in">Sign in</a>
+      </div>
+      <div class="mdc-typography--body1 t-margin-full">
+        Read our <a href="/privacy" target="_blank">privacy notice</a>
+      </div>
+    </div>
+    <div class="card-loader" id="sign-up-loader">
+      <div class="card-loader-inner">
+        <span class="far fa-2x fa-circle-notch fa-spin"></span>
       </div>
     </div>
   </div>

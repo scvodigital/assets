@@ -15,10 +15,6 @@
         </p>
         {{/compare ~}}
 
-        <!-- <p>
-          <strong> TO UPDATE: </strong> To start searching for funding you must register or login. The terms and conditions and privacy policy are here. Please fill in the forms below to get started. You can unsubscribe at any time.
-        </p> -->
-
         <div class="mdc-layout-grid">
           <div class="mdc-layout-grid__inner">
             {{#compare @root.data.currentSite.name "default" ~}}
@@ -43,6 +39,9 @@
             </div>
             {{/compare ~}}
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}6{{else}}12{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+              <!-- <p>
+              <strong> TO UPDATE: </strong> To start searching for funding you must register or login. The terms and conditions and privacy policy are here. Please fill in the forms below to get started. You can unsubscribe at any time.
+              </p> -->
               {{> account_sign_up}}
             </div>
           </div>

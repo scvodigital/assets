@@ -841,8 +841,9 @@ footer,
   }
 }
 
-.home-heading {
+.home-funds {
   background: $mdc-theme-primary-light;
+  padding-bottom: $unit;
 }
 
 .scroll-button.scroll-left {
@@ -1024,6 +1025,10 @@ footer.mdc-layout__footer {
 
 .help-box--dismissed {
   display: none !important;
+}
+.help-box .mdc-chip__icon--leading {
+  color: $mdc-theme-info-dark;
+  margin-top: -3px;
 }
 
 .pointer {

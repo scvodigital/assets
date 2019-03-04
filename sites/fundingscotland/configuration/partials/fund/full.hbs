@@ -1,14 +1,6 @@
 <div class="full" data-fund-id="{{Id}}">
   <div class="key-info-extra">
     <ul class="fa-ul first">
-      {{#if (length (arrayify geographical_areas_funded)) ~}}
-      <li class="mdc-typography--body1">
-        <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
-        {{#each (sort (arrayify geographical_areas_funded)) ~}}
-        <a href="/search?geographical_areas_funded={{lookup (arrayify ../geographical_areas_funded_slugs) @index}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
-        {{/each ~}}
-      </li>
-      {{/if ~}}
       {{#if (length (arrayify activities)) ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-hands-helping fa-fw" title="Activities"></span></span>
@@ -23,6 +15,18 @@
         {{#each (arrayify beneficiaries) ~}}
         <a href="/search?beneficiaries={{lookup (arrayify ../beneficiaries_slugs) @index}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
         {{/each ~}}
+      </li>
+      {{/if ~}}
+      {{#if (length (arrayify geographical_areas_funded)) ~}}
+      <li class="mdc-typography--body1">
+        <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
+        <span class="areas">
+        {{#each (sort (arrayify geographical_areas_funded)) ~}}
+        {{#ifAny (compare @root.data.currentSite.name "default") (contains @root.data.currentSite.fixedFilters.geographical_areas_funded (lookup (arrayify ../geographical_areas_funded_slugs) @index)) ~}}
+        <a href="/search?geographical_areas_funded={{lookup (arrayify ../geographical_areas_funded_slugs) @index}}" class="area">{{{this}}}</a>
+        {{/ifAny ~}}
+        {{/each ~}}
+        </span>
       </li>
       {{/if ~}}
       <!-- {{#if source_of_fund ~}}

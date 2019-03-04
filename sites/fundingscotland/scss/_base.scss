@@ -806,7 +806,9 @@ footer,
 }
 
 .home-content-primary {
-  background-color: $mdc-theme-secondary-light;
+  background-color: $mdc-theme-primary-light;
+  margin-bottom: 0;
+  padding-bottom: $unit;
 }
 
 .latest-funds {
@@ -839,20 +841,25 @@ footer,
   }
 }
 
+.home-funds {
+  background: $mdc-theme-primary-light;
+  padding-bottom: $unit;
+}
+
 .scroll-button.scroll-left {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-right {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.1) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-left:hover {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 .scroll-button.scroll-right:hover {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-secondary-light 50.01%, $mdc-theme-secondary-light);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.3) 50%, $mdc-theme-primary-light 50.01%, $mdc-theme-primary-light);
 }
 
 // Footer ======================================================================
@@ -1007,16 +1014,6 @@ footer.mdc-layout__footer {
   color: #fff !important;
 }
 
-.mdc-icon-toggle-xs {
-  height: 28px;
-  width: 28px;
-  .fas,
-  .fab,
-  .far {
-    font-size: 0.85rem;
-  }
-}
-
 .mdc-list-item__graphic-counter {
   font-size: 1.6rem !important;
 }
@@ -1028,6 +1025,10 @@ footer.mdc-layout__footer {
 
 .help-box--dismissed {
   display: none !important;
+}
+.help-box .mdc-chip__icon--leading {
+  color: $mdc-theme-info-dark;
+  margin-top: -3px;
 }
 
 .pointer {

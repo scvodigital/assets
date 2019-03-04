@@ -1,5 +1,22 @@
 <script>
   $(document).ready(function() {
+    {{#if data.auth}}
+      var recentlyViewed = fundingscotland.getCookie('recently_viewed') || '';
+      // console.log('Recently Viewed:', recentlyViewed, '| fund Id:', fundId);
+      recentlyViewed = recentlyViewed.split(',');
+      recentlyViewed.unshift(fundId);
+      var newRecentlyViewed = [];
+      for (var i = 0; i < Math.min(recentlyViewed.length, 10); ++i) {
+        var item = recentlyViewed[i];
+        if (item && newRecentlyViewed.indexOf(item) === -1) {
+          newRecentlyViewed.push(item);
+        }
+      };
+      newRecentlyViewed = newRecentlyViewed.join(',');
+      // console.log('New Recently Viewed:', newRecentlyViewed);
+      fundingscotland.setCookie('recently_viewed', newRecentlyViewed, 7);
+    {{/if}}
+
     $('#status').on('change', function(evt) {
       var $status = $(evt.currentTarget);
       var value = $status.val();

@@ -62,6 +62,12 @@
             "index": "web-content-production",
             "type": "fundingscotland-fund",
             "template": ">context.metaData.handlebars.queries.funds_saved"
+          },
+          {
+            "name": "recently_viewed",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_recently-viewed"
           }
         ]
       },

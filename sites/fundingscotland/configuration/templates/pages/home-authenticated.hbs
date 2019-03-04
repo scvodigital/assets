@@ -1,79 +1,107 @@
-<div class="container-fluid home-funds">
+<div class="container-fluid home-funds b-padding-full">
   {{#compare @root.data.primaryResponse.all.hits.total ">" 0 ~}}
-    <div class="mdc-layout-grid home-heading">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          {{#ifAll @root.data.searches.items.[0] (compare @root.data.primaryResponse.personalised.hits.total ">" 0) ~}}
-          <h2 class="mdc-typography--headline5">
-            Your latest funds&ensp;
-            <span class="mdc-typography--body1">
-              <a href="/searches">Your searches</a>
-            </span>
-          </h2>
-          {{else}}
-          <div class="mdc-typography--headline5">
-            Latest funds&ensp;
-            <span class="mdc-typography--body1">
-              <a href="/search?sort=newest&page=2">Find more</a>
-            </span>
-          </div>
-          {{/ifAll ~}}
-        </div>
+  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+  {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0) ~}}
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <h2 class="mdc-typography--headline6">
+          Your saved funds&ensp;
+          <span class="mdc-typography--body1">
+            <a href="/lists">Your lists</a>
+          </span>
+        </h2>
       </div>
     </div>
-    <div class="home-content-primary">
-      {{#>components_horizontal_card_scroller
-          outerClasses="home-latest"
-          scrollLeftIconClasses="fal fa-fw fa-angle-left"
-          scrollRightIconClasses="fal fa-fw fa-angle-right"
-          itemClasses="latest-primary-content latest-primary-content-personalised"
-          items=(if (any @root.data.primaryResponse.personalised.hits.hits)
-            (map @root.data.primaryResponse.personalised.hits.hits (getProp "_source"))
-            else=(map @root.data.primaryResponse.all.hits.hits (getProp "_source"))
-          )
-          itemsPartial="fund_mini"
-          moreUrl=(if
-            (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
-            "/search?sort=newest"
-            else="/search?sort=newest&page=2"
-          )
-          moreText=(if
-            (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
-            "All latest funds"
-            else="Find more funds"
-          )}}
-      {{/components_horizontal_card_scroller}}
-    </div>
-
-    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-    {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0) ~}}
-      <div class="mdc-layout-grid home-heading">
-        <div class="mdc-layout-grid__inner">
-          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-            <h2 class="mdc-typography--headline5">
-              Your saved funds&ensp;
-              <span class="mdc-typography--body1">
-                <a href="/lists">Your lists</a>
-              </span>
-            </h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="home-content-primary">
-        {{#>components_horizontal_card_scroller
-            outerClasses="home-saved"
-            scrollLeftIconClasses="fal fa-fw fa-angle-left"
-            scrollRightIconClasses="fal fa-fw fa-angle-right"
-            itemClasses="saved-content"
-            items=(map @root.data.supplimentaryResponses.saved.hits.hits (getProp "_source"))
-            itemsPartial="fund_mini"
-            moreUrl="/lists"
-            moreText="View all lists"}}
-        {{/components_horizontal_card_scroller}}
-      </div>
-    {{/if ~}}
-    {{/ifAny ~}}
-    {{/compare ~}}
   </div>
+
+  <div class="home-content-primary">
+    {{#> components_horizontal_card_scroller
+      outerClasses="home-saved"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="saved-content"
+      items=(map @root.data.supplimentaryResponses.saved.hits.hits (getProp "_source"))
+      itemsPartial="fund_mini"
+      moreUrl="/lists"
+      moreText="View lists"}}
+      {{/components_horizontal_card_scroller}}
+  </div>
+  {{/if ~}}
+  {{/ifAny ~}}
+
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        {{#ifAll @root.data.searches.items.[0] (compare @root.data.primaryResponse.personalised.hits.total ">" 0) ~}}
+        <h2 class="mdc-typography--headline6">
+          Your latest funds&ensp;
+          <span class="mdc-typography--body1">
+            <a href="/searches">Your searches</a>
+          </span>
+        </h2>
+        {{else}}
+        <h2 class="mdc-typography--headline6">
+          Latest funds&ensp;
+          <span class="mdc-typography--body1">
+            <a href="/search?sort=date_last_reviewed">Find more</a>
+          </span>
+        </h2>
+        {{/ifAll ~}}
+      </div>
+    </div>
+  </div>
+  <div class="home-content-primary">
+    {{#>components_horizontal_card_scroller
+      outerClasses="home-latest"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="latest-primary-content latest-primary-content-personalised"
+      items=(if (any @root.data.primaryResponse.personalised.hits.hits)
+      (map @root.data.primaryResponse.personalised.hits.hits (getProp "_source"))
+      else=(map @root.data.primaryResponse.all.hits.hits (getProp "_source"))
+      )
+      itemsPartial="fund_mini"
+      moreUrl="/search?sort=date_last_reviewed"
+      moreText=(if
+      (compare @root.data.primaryResponse.personalised.hits.total ">" 0)
+      "All latest funds"
+      else="Find more funds"
+      )}}
+      {{/components_horizontal_card_scroller}}
+  </div>
+  {{/compare ~}}
+
+  {{#if @root.data.auth.email}}
+  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+  {{#compare @root.data.supplimentaryResponses.recently_viewed.hits.total ">" 0}}
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <h2 class="mdc-typography--headline6">
+          Recently viewed&ensp;
+          <span class="mdc-typography--body1">
+            <a href="/search?sort=newest&page=1">Find more</a>
+          </span>
+        </h2>
+      </div>
+    </div>
+  </div>
+  <div class="home-content-primary">
+    {{#>components_horizontal_card_scroller
+      outerClasses="home-latest"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="latest-primary-content"
+      items=(map
+      (sortByIndex @root.data.supplimentaryResponses.recently_viewed.hits.hits (split @root.request.cookies.recently_viewed ',') '_id') (getProp "_source")
+      )
+      itemsPartial="fund_mini"
+      moreUrl="/search?sort=date_last_reviewed"
+      moreText="Find more funds"}}
+      {{/components_horizontal_card_scroller}}
+  </div>
+  {{/compare}}
+  {{/ifAny}}
+  {{/if}}
 </div>

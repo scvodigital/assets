@@ -812,10 +812,6 @@ footer,
   padding-bottom: $unit;
 }
 
-.latest-funds {
-  background-color: $mdc-theme-primary-light;
-}
-
 .home-browse {
   background-color: $mdc-theme-surface-light;
   border-bottom: $unit/4 solid $mdc-theme-primary-light;
@@ -844,7 +840,9 @@ footer,
 
 .home-funds {
   background: $mdc-theme-primary-light;
-  padding-bottom: $unit;
+}
+.home-info {
+  background-color: $mdc-theme-surface;
 }
 
 .scroll-button.scroll-left {

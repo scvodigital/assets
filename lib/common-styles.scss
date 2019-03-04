@@ -57,6 +57,9 @@ body {
   background-color: white;
   z-index: 5;
 }
+.mdc-layout-grid__inner {
+  grid-gap: $unit;
+}
 h1,
 h2,
 h3,
@@ -465,6 +468,7 @@ footer h3,
 .search-form .mdc-button .fa-search-plus {
   position: absolute;
   right: $unit*(2/3);
+  left: auto;
 }
 
 .drawer-container-permanent {
@@ -2084,6 +2088,7 @@ footer,
         .fa-search {
           position: absolute;
           right: $unit*(2/3);
+          left: auto;
         }
       }
       .search-form {

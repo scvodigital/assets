@@ -1,14 +1,5 @@
-{{> account_sign_out}}
-<script>
-document.addEventListener("DOMContentLoaded", function(event) {
-  setTimeout(function() {
-    fundingscotland.auth.sessionCleanup().then(function() {
-      window.setTimeout(function() {
-        window.location.href = '/';
-      }, 1000);
-    }).catch(function(err) {
-      console.error('Error signing out:', err);
-    });
-  }, 1000);
-});
-</script>
+<div class="sign-in-form t-padding-full mdc-theme--surface">
+  <div class="mdc-card mdc-elevation--z0">
+    {{> account_sign_out}}
+  </div>
+</div>

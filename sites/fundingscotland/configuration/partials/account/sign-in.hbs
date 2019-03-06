@@ -7,11 +7,11 @@
     {{/if}}
   </div>
   {{#if @root.request.params.query.reauth}}
-    <div class="mdc-card__info--content-primary-title mdc-typography--headline6">
+    <div class="mdc-typography--headline6 v-margin">
       Before you can do that you must sign in again
     </div>
   {{/if}}
-  <div class="mdc-card__info x-padding-full border rounded mdc-theme--info-light-bg mdc-theme--info-dark mdc-theme--info-border" id="sign-in-message">
+  <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border" id="sign-in-message">
     <span id="form-message"></span>
   </div>
   <div class="mdc-card__info">

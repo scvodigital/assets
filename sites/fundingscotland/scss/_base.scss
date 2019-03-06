@@ -341,8 +341,8 @@ a:hover {
 
 .mdc-chip,
 .mdc-chip .mdc-chip__icon--leading {
-  background-color: $mdc-theme-secondary;
-  color: $mdc-theme-on-secondary;
+  background-color: $mdc-theme-primary;
+  color: $mdc-theme-on-primary;
 }
 
 .mdc-theme--on-primary a,
@@ -359,6 +359,10 @@ a:hover {
   background-color: $mdc-theme-primary-dark;
   color: #fff;
   text-decoration: none;
+}
+
+.advanced-checkbox-list .mdc-icon-toggle-xs {
+  margin-left: 2.2rem;
 }
 
 .mdc-button--raised .mdc-list-item__graphic {

@@ -61,8 +61,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
               "body": ">context.metaData.handlebars.templates.vacancies_shortlist",
-              "sidebar": ">context.metaData.handlebars.templates.vacancies_search-form"
-
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
             },
             "contentType": "text/html"
           }

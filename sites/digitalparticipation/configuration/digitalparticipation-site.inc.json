@@ -3,9 +3,7 @@
     "localhost",
     "digitalparticipation.local",
     "127.0.0.1",
-    "test.digitalparticipation.scot",
-    "digitalparticipation.scot",
-    "www.digitalparticipation.scot"
+    "test.digitalparticipation.scot"
   ],
   "routes": [
     "{:./routes/*.json}"

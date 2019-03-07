@@ -422,6 +422,13 @@ footer h3,
     padding: $unit 0 0;
   }
 }
+.mdc-drawer__header {
+  padding: 0 $unit !important;
+  min-height: auto !important;
+  h3 {
+    margin-bottom: $unit;
+  }
+}
 .mdc-drawer--modal {
   top: 0;
   z-index: 8 !important;

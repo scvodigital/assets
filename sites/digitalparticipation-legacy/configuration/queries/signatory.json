@@ -1,0 +1,26 @@
+{
+  "size": 1,
+  "_source": [
+    "Id",
+    "title",
+    "description",
+    "files",
+    "rendered.json_ld",
+    "logos",
+    "mission_statement",
+    "description",
+    "support_offered",
+    "support_wanted",
+    "sector",
+    "category",
+    "website",
+    "blog",
+    "twitter",
+    "facebook"
+  ],
+  "query": {
+    "term": {
+      "slug": "{{@root.request.params.slug}}"
+    }
+  }
+}

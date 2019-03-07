@@ -52,7 +52,6 @@
               "head": ">context.metaData.handlebars.templates.organisations_search-head-tags",
               "body": ">context.metaData.handlebars.templates.organisations_search",
               "sidebar": ">context.metaData.handlebars.templates.organisations_organisation-search-form"
-
             },
             "contentType": "text/html"
           }

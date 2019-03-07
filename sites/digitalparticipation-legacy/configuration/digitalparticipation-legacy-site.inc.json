@@ -1,0 +1,32 @@
+{
+  "domains": [
+    "localhost",
+    "digitalparticipation-legacy.local",
+    "127.0.0.1",
+    "digitalparticipation.scot",
+    "www.digitalparticipation.scot"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation/",
+    "title": "Scotland's Digital Participation Charter",
+    "menus": "{:./digitalparticipation-legacy-menus.json}",
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

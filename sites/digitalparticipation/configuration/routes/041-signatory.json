@@ -1,6 +1,7 @@
 {
   "name": "signatory",
   "pattern": "/signatories/:slug",
+  "debug": true,
   "metaData": {
     "title": "Signatory – Scotland's Digital Participation Charter"
   },
@@ -35,6 +36,12 @@
             "index": "web-content-production",
             "type": "charter-signatory-digitalparticipation",
             "template": ">context.metaData.handlebars.queries.signatory-aggs"
+          },
+          {
+            "name": "projects",
+            "index": "web-content-production",
+            "type": "scvo-grant-charter",
+            "template": ">context.metaData.handlebars.queries.signatory-projects"
           }
         ]
       },

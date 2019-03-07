@@ -117,9 +117,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.organisations_organisation-head-tags",
               "body": ">context.metaData.handlebars.templates.organisations_organisation",
-              "foot": "",
               "sidebar": ">context.metaData.handlebars.templates.organisations_organisation-search-form"
-
             },
             "contentType": "text/html"
           }

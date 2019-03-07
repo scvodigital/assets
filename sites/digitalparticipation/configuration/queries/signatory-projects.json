@@ -1,0 +1,25 @@
+{
+  "size": 100,
+  "from": 0,
+  "_source": [
+    "title",
+    "call",
+    "amount_awarded",
+    "day_awarded",
+    "slug"
+  ],
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "recipient_id": "{{@root.data.primaryResponse.hits.hits.[0]._source.organisation_id}}"
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "planned_start": "desc"
+  }
+}

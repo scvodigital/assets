@@ -20,7 +20,7 @@
     "emailCampaignName": "goodmoves-saved-searches",
     "shortlistCampaignName": "goodmoves-shortlist",
     "menus": "{:./goodmoves-menus.json}",
-    "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "termTypeLabels": {
       "working_patterns": {
         "singular": "Working pattern",
@@ -100,7 +100,7 @@
         "name": "supplimentaryResponses",
         "taskModule": "elasticsearch",
         "config": {
-          "connectionStringTemplate": "{$../elasticsearch-url.txt}",
+          "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
           "elasticsearchConfig": {
             "apiVersion": "5.6"
           },
@@ -161,7 +161,7 @@
         "name": "organisationsWithVacancies",
         "taskModule": "elasticsearch",
         "config": {
-          "connectionStringTemplate": "{$../elasticsearch-url.txt}",
+          "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
           "elasticsearchConfig": {
             "apiVersion": "5.6"
           },
@@ -180,7 +180,7 @@
         "name": "organisationsWithVacancies",
         "taskModule": "elasticsearch",
         "config": {
-          "connectionStringTemplate": "{$../elasticsearch-url.txt}",
+          "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
           "elasticsearchConfig": {
             "apiVersion": "5.6"
           },

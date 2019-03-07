@@ -34,7 +34,7 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/fundingscotland/",
     "title": "Funding Scotland",
     "menus": "{:./fundingscotland-menus.json}",
-    "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "emailCampaignName": "fs-saved-searches",
     "shortlistCampaignName": "fs-saved-funds",
     "terms": "{:./terms.json}",

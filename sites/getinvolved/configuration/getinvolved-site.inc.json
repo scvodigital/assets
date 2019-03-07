@@ -15,7 +15,7 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/getinvolved/",
     "menus": "{:./getinvolved-menus.json}",
-    "elasticsearchUrl": "{$../elasticsearch-url.txt}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "termTypeLabels": {
       "activities": {
         "singular": "Activity",

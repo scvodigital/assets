@@ -1,0 +1,45 @@
+{
+  "name": "fund-pdf",
+  "pattern": "/fund-pdf/:slug",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
+    {
+      "name": "search_data",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6",
+          "log": "debug"
+        },
+        "queryTemplates": [
+          {
+            "name": "detailed_results",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funds_fund"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
+    {
+    "name": "destination",
+    "taskModule": "generatePdf",
+    "renderer": "handlebars",
+    "config": {
+      "imagesTemplate": {
+        "logo": "http://fundingscotland.blob.core.windows.net/${request.params.query.subdomain}/logo"
+      },
+      "definitionTemplate": ">context.metaData.handlebars.templates.funds_pdf-definition",
+      "headerTemplate": ">context.metaData.handlebars.templates.funds_pdf-header",
+      "footerTemplate": ">context.metaData.handlebars.templates.funds_pdf-footer"
+    }
+  }]
+}

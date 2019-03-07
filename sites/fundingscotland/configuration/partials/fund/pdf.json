@@ -1,0 +1,30 @@
+{{~#*inline "label_value"}}
+  {{#>pdf_text}}
+    {{>pdf_text text=(concat ../label ": ") bold=true}},
+    {{>pdf_text text=(default ../text ../link) link=../link default=../default}}
+  {{/pdf_text}}
+{{/inline~}}
+
+{{>pdf_text text=name style="h1"}},
+{{>pdf_text text="Summary" style="h2"}},
+{{>pdf_text text=description}},
+{{#>pdf_stack pageBreak="after"}}
+  {{>pdf_text text="Fund Details" style="h2"}},
+  {{>label_value label="Status" text=../fund_status default="No status"}},
+  {{>label_value label="Type" text=../type_of_funding default="No type provided"}},
+  {{>label_value label="Source" text=../source_of_fund default="No source provided"}},
+  {{>label_value label="When to apply" text=../when_to_apply default="No application date"}},
+  {{>label_value label="Next deadline" text=../next_deadline default="No deadline date"}},
+  {{>label_value label="Charities only" text=(if ../charities_only "Yes" else="No")}},
+  {{>label_value label="Website" text=../url link=../url default="No fund specific website"}},
+  {{>label_value label="Email" text=../fund_email_address link=(concat "mailto:" ../fund_email_address) default="No fund specific email"}},
+  {{>label_value label="Phone" text=../fund_telephone link=(concat "tel:" ../fund_telephone) default="No fund specific phone number"}},
+  {{>label_value label="How to apply" text=../how_to_apply default="No application information provided"}},
+  {{>label_value label="Exclusions" text=../fund_exclusion default="No exclusions given"}},
+  {{>pdf_text text="Funding Award Sizes" style="h2"}},
+  {{>label_value label="Minimum" text=../minimum_award_size default="No minimum provided"}},
+  {{>label_value label="Maximum" text=../maximum_award_size default="No maximum provided"}},
+  {{>label_value label="Average" text=../average_award_size default="No average provided"}},
+  {{>label_value label="Anually awarded" text=../annual_total default="No annual total provided"}},
+  {{>label_value label="Notes on award amounts" text=../notes_on_award_amounts default="No notes on award amounts"}}
+{{/pdf_stack}}

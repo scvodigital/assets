@@ -1,13 +1,15 @@
-{
-  "url": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io/{{@root.request.params.proxyPath}}",
-  "method": "{{@root.request.verb}}",
-  {{#compare (getProperty @root.request.headers 'content-type') "application/x-ndjson"}}
-  "body": {{{stringify (default @root.request.body null)}}}, 
-  {{else}}
-  "json": true,
-  "body": {{{stringify (default @root.request.body null)}}}, 
-  {{/compare}}
-  "headers": {
-    "content-type": {{{safeStringify (getProperty @root.request.headers "content-type")}}}
+{{#withExtend this contentType=(getProperty @root.request.headers "content-type")}}
+  {
+    "method": "{{@root.request.verb}}",
+    "headers": {
+      "content-type": {{{safeStringify (if (compare contentType "text/plain") "application/json" else=contentType)}}}
+    },
+    {{#if @root.request.body}}
+      "body": {{{stringify (default @root.request.body null)}}}, 
+    {{/if}}
+    {{#compare contentType "!==" "application/x-ndjson"}}
+      "json": true,
+    {{/compare}}
+    "url": "https://readonly:onlyread@2e6b5fd9344d4f8565e7d015d861b240.europe-west3.gcp.cloud.es.io/{{@root.request.params.proxyPath}}"
   }
-}
+{{/withExtend}}

@@ -1,9 +1,8 @@
 {
-  "name": "signatory",
-  "pattern": "/signatories/:slug",
-  "debug": true,
+  "name": "signatory_search",
+  "pattern": "/signatories",
   "metaData": {
-    "title": "Signatory – Scotland's Digital Participation Charter"
+    "title": "Signatories – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -17,7 +16,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "charter-signatory-digitalparticipation",
-          "template": ">context.metaData.handlebars.queries.signatory"
+          "template": ">context.metaData.handlebars.queries.signatory-search"
         }
       },
       "renderer": "handlebars"
@@ -32,16 +31,22 @@
         },
         "queryTemplates": [
           {
+            "name": "total",
+            "index": "web-content-production",
+            "type": "charter-signatory-digitalparticipation",
+            "template": ">context.metaData.handlebars.queries.signatory-total"
+          },
+          {
             "name": "types",
             "index": "web-content-production",
             "type": "charter-signatory-digitalparticipation",
             "template": ">context.metaData.handlebars.queries.signatory-aggs"
           },
           {
-            "name": "projects",
+            "name": "categories",
             "index": "web-content-production",
-            "type": "scvo-grant-charter",
-            "template": ">context.metaData.handlebars.queries.signatory-projects"
+            "type": "charter-signatory-digitalparticipation",
+            "template": ">context.metaData.handlebars.queries.signatory-category-aggs"
           }
         ]
       },
@@ -63,7 +68,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.signatories_signatory",
+              "body": ">context.metaData.handlebars.templates.signatories_signatory-search",
               "foot": ""
             },
             "contentType": "text/html"

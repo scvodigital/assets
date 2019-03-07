@@ -22,27 +22,6 @@
       </p>
       {{/if ~}}
 
-      {{#compare @root.data.supplimentaryResponses.projects.hits.total ">" 0 ~}}
-      <h4>
-        {{inflect @root.data.supplimentaryResponses.projects.hits.total "Funded" "Projects funded"}} via the <a href="/">Charter Fund</a>:
-      </h4>
-      {{#each @root.data.supplimentaryResponses.projects.hits.hits ~}}
-      {{#with _source ~}}
-      {{#if amount_awarded ~}}
-      <p>
-        &pound;{{addCommas amount_awarded}} for {{title}}
-        <a href="https://scvo.org/digital/participation/charter-fund/projects/{{slug}}">Read more</a>
-      </p>
-      {{else}}
-      <p>
-        {{title}}
-        <a href="https://scvo.org/digital/participation/charter-fund/projects/{{slug}}">Read more</a>
-      </p>
-      {{/if ~}}
-      {{/with ~}}
-      {{/each ~}}
-      {{/compare ~}}
-
       {{#if support_offered ~}}
       <h4>
         Support offered:

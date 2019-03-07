@@ -2,7 +2,6 @@
   "size": 1,
   "_source": [
     "Id",
-    "organisation_id",
     "title",
     "description",
     "files",

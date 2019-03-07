@@ -425,6 +425,9 @@ footer h3,
 .mdc-drawer__header {
   padding: 0 $unit !important;
   min-height: auto !important;
+  h3 {
+    margin-bottom: $unit;
+  }
 }
 .mdc-drawer--modal {
   top: 0;

@@ -44,6 +44,7 @@
     "organisation_facebook_url",
     "organisation_linkedin",
     "organisation_linkedin_url",
+    "organisation.field_of_work",
     "rendered.goodmoves_sponsor_logos",
     "rendered.goodmoves_downloads",
     "rendered.goodmoves_rss"

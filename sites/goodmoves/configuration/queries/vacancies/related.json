@@ -27,51 +27,37 @@
     "function_score": {
       "query": {
         "bool": {
-          "filter": [
-            {{>queries_vacancy_common_filters_open request.params.query}}
+          "must": [
+            {{>queries_vacancy_common_filters_open @root.request.params.query}}
           ],
-          {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
-          "should": [
-            {
-              "match": {
-                "remuneration_type" : {
-                  "query" : "{{@root.data.primaryResponse.hits.hits.[0]._source.remuneration_type}}",
-                  "operator" : "and",
-                  "zero_terms_query": "all"
-                }
-              }
-            },
-            {
-              "match": {
-                "title" : {
-                  "query" : "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
-                  "operator" : "and",
-                  "zero_terms_query": "all"
-                }
-              }
-            },
-            {
-              "terms": {
-                "sectors_slugs": {{{stringify (arrayify @root.data.primaryResponse.hits.hits.[0]._source.sectors_slugs)}}}
-              }
-            },
-            {
-              "terms": {
-                "roles_slugs": {{{stringify (arrayify @root.data.primaryResponse.hits.hits.[0]._source.roles_slugs)}}}
-              }
-            }
-          ],
-          {{/if ~}}
           "must_not": [
-            {
-              "term": {
-                "Id": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
-              }
-            }
+            {{>queries_term field="Id" term=@root.data.primaryResponse.hits.hits.[0]._source.Id}}
           ]
         }
-      }{{#if data.primaryResponse.hits.hits.[0]._source.salary_min ~}},
+      },
+      "boost": "5",
       "functions": [
+        {{#each @root.data.primaryResponse.hits.hits.[0]._source.sectors ~}}
+        {
+          "filter": {
+            "match": {
+              "sectors": "{{this}}"
+            }
+          },
+          "weight": 1
+        },
+        {{/each ~}}
+        {{#each @root.data.primaryResponse.hits.hits.[0]._source.roles ~}}
+        {
+          "filter": {
+            "match": {
+              "roles": "{{this}}"
+            }
+          },
+          "weight": 1
+        },
+        {{/each ~}}
+        {{#if @root.data.primaryResponse.hits.hits.[0]._source.salary_min ~}}
         {
           "gauss": {
             "salary_min": {
@@ -81,8 +67,57 @@
               "decay": 0.1
             }
           }
+        },
+        {{/if ~}}
+        {{#if @root.data.primaryResponse.hits.hits.[0]._source.remuneration_type ~}}
+        {
+          "filter": {
+            "match": {
+              "remuneration_type": "{{@root.data.primaryResponse.hits.hits.[0]._source.remuneration_type}}"
+            }
+          },
+          "weight": 1
+        },
+        {{/if ~}}
+        {{#if @root.data.primaryResponse.hits.hits.[0]._source.organisation.field_of_work ~}}
+        {
+          "filter": {
+            "match": {
+              "organisation.field_of_work": "{{@root.data.primaryResponse.hits.hits.[0]._source.organisation.field_of_work}}"
+            }
+          },
+          "weight": 8
+        },
+        {{/if ~}}
+        {{#if @root.data.primaryResponse.hits.hits.[0]._source.organisation.name ~}}
+        {
+          "filter": {
+            "more_like_this": {
+              "fields": ["organisation.name^2","text_bag"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.organisation.name}}",
+              "min_term_freq": 1,
+              "max_query_terms": 12
+            }
+          },
+          "weight": 2
+        },
+        {{/if ~}}
+        {
+          "filter": {
+            "more_like_this": {
+              "fields": ["title^5","text_bag"],
+              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
+              "min_term_freq": 1,
+              "max_query_terms": 12
+            }
+          },
+          "weight": 3
         }
-      ]{{/if ~}}
+      ],
+      "max_boost": 50,
+      "score_mode": "sum",
+      "boost_mode": "multiply",
+      "min_score" : 1
     }
   }
 }

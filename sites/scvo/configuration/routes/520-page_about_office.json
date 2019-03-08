@@ -4,7 +4,6 @@
     "index": "/about/offices",
     "section": "/about/offices/:slug"
   },
-  "debug": true,
   "tasks": [
     {
       "name": "bicycles",

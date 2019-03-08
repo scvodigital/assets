@@ -1,3 +1,9 @@
+{{#*inline "marker"}}
+<marker style="display:none;" data-map="fullMap" data-lat="{{lat}}" data-lng="{{lng}}" data-title="{{source.title}}">
+  {{>vacancy_map source}}
+</marker>
+{{/inline}}
+
 {{#if @root.data.search_data.map_results.pagination.totalResults ~}}
 <div id="detailed-results-container" class="container-content container-map">
   <div id="map-full" data-map-name="fullMap" data-map-clustered-options='{
@@ -15,20 +21,10 @@
         {{#each (arrayify _source.geo_vacancy_coords) ~}}
           {{#if @root.request.params.query.distance ~}}
             {{#compare (itemAt ../fields.distance @index) "<" @root.request.params.query.distance ~}}
-              <marker style="display:none;" data-map="fullMap"
-                data-lat="{{lat}}"
-                data-lng="{{lon}}"
-                data-title="{{../_source.title}}">
-                {{>vacancy_map ../_source}}
-              </marker>
+              {{> marker lat=lat lng=lon source=../_source index=@index}}
             {{/compare ~}}
           {{else}}
-            <marker style="display:none;" data-map="fullMap"
-              data-lat="{{lat}}"
-              data-lng="{{lon}}"
-              data-title="{{../_source.title}}">
-              {{>vacancy_map ../_source}}
-            </marker>
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
           {{/if ~}}
         {{/each ~}}
       {{/if ~}}

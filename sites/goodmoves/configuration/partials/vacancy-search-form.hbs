@@ -1,4 +1,5 @@
 {{#*inline "term_checkbox"}}
+  {{#if value.key ~}}
   <div class="mdc-form-field">
     <div class="mdc-checkbox">
       <input type="checkbox" class="mdc-checkbox__native-control" id="{{instance_id}}_{{field}}_{{slug}}" name="{{#compare field "===" "type"}}{{field}}{{else}}{{field}}[]{{/compare}}" value="{{slug}}"{{#if (contains (arrayify selected) slug)}} checked{{/if}} />
@@ -16,6 +17,7 @@
       {{{default value.key value}}}
     </label>
   </div>
+  {{/if ~}}
 {{/inline}}
 
 <div class="mdc-drawer__header">

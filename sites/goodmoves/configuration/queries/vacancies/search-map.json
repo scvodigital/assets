@@ -6,6 +6,7 @@
     "organisation.name",
     "organisation.logo",
     "geo_vacancy_coords",
+    "regions_scotland_slugs",
     "active",
     "closing_date",
     "start_at",

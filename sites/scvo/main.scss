@@ -245,6 +245,18 @@ primary-dark: #263238
       background-color: map-get($themeSelected, 'primary');
     }
   }
+  .support-digital {
+    .mdc-button--raised {
+      color: white;
+      border-color: map-get($themeSelected, 'primary-dark');
+      background-color: map-get($themeSelected, 'primary-dark');
+    }
+    .mdc-button--raised:hover {
+      color: white;
+      border-color: darken(map-get($themeSelected, 'primary-dark'), 10%);
+      background-color: darken(map-get($themeSelected, 'primary-dark'), 10%) !important;
+    }
+  }
   .splash-image {
     .mdc-button {
       border-color: white !important;

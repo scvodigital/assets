@@ -1,5 +1,5 @@
 {{#*inline "term_checkbox"}}
-  {{#if value.key ~}}
+  {{#if value ~}}
   <div class="mdc-form-field">
     <div class="mdc-checkbox">
       <input type="checkbox" class="mdc-checkbox__native-control" id="{{instance_id}}_{{field}}_{{slug}}" name="{{#compare field "===" "type"}}{{field}}{{else}}{{field}}[]{{/compare}}" value="{{slug}}"{{#if (contains (arrayify selected) slug)}} checked{{/if}} />
@@ -180,15 +180,17 @@
               {{/if ~}}
             {{/each ~}}
             {{/compare ~}}
-            {{#ifAny (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ~}}
+            {{#with @root.data.supplimentaryResponses.types.aggregations ~}}
+            {{#ifAny (compare (length various_locations.buckets) ">=" 1) (compare (length home_based.buckets) ">=" 1) ~}}
               <h3 class="mdc-typography--headline7 h-padding-full checkbox-collapse-element">Other</h3>
-              {{#compare (length @root.data.supplimentaryResponses.types.aggregations.various_locations.buckets) ">=" 1 ~}}
-                {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../instance_id value="Various locations"}}
+              {{#compare (length various_locations.buckets) ">=" 1 ~}}
+                {{> term_checkbox slug="true" field="various_locations" selected=@root.request.params.query.various_locations instance_id=../../instance_id value="Various locations"}}
               {{/compare ~}}
-              {{#compare (length @root.data.supplimentaryResponses.types.aggregations.home_based.buckets) ">=" 1 ~}}
-                {{> term_checkbox slug="true" field="home_based" selected=@root.request.params.query.home_based instance_id=../instance_id value="Home-based"}}
+              {{#compare (length home_based.buckets) ">=" 1 ~}}
+                {{> term_checkbox slug="true" field="home_based" selected=@root.request.params.query.home_based instance_id=../../instance_id value="Home-based"}}
               {{/compare ~}}
             {{/ifAny ~}}
+            {{/with ~}}
           {{else}}
             {{#each (getProperty @root.data.termsMaps (concat this ".all")) ~}}
               {{> term_checkbox slug=slug field=../this selected=(getProperty @root.request.params.query ../this) instance_id=../../instance_id value=term}}

@@ -1,6 +1,6 @@
 {{#*inline "marker"}}
 <marker style="display:none;" data-map="fullMap" data-lat="{{lat}}" data-lng="{{lng}}" data-title="{{source.title}}">
-  {{>vacancy_map source}}
+  {{>vacancy_map source postcode=(itemAt (arrayify source.postcodes) index)}}
 </marker>
 {{/inline}}
 

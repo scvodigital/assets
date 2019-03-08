@@ -15,6 +15,25 @@
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.shortlistData",
     {
+      "name": "location_data",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": [
+          {
+            "name": "la_results",
+            "index": "geo_lookup",
+            "type": "es_district",
+            "template": ">context.metaData.handlebars.queries.vacancies_local-authority-areas"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "search_data",
       "taskModule": "elasticsearch",
       "config": {

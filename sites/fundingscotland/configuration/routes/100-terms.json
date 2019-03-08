@@ -1,0 +1,37 @@
+{
+  "name": "terms",
+  "pattern": "/terms",
+  "metaData": {
+    "hideSearch": true
+  },
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.menus",
+    "context.metaData.commonTasks.supplimentaryResponses",
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_static-terms"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

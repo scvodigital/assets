@@ -5,30 +5,31 @@
 
     <br />
 
-    <div class="mdc-layout-grid equal-height support support-organisation support-digital">
+    <div class="mdc-layout-grid equal-height linked-cards support support-organisation support-digital">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <a href="/digital/about" class="mdc-button mdc-button--raised mdc-button--full">
+            <span class="far fa-envelope fa-fw fa-3x t-margin"></span><br />
             Sign up for our e:bulletin
           </a>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <a href="https://twitter.com/digiscot" class="mdc-button mdc-button--raised mdc-button--full">
+            <span class="fab fa-twitter fa-fw fa-3x t-margin"></span><br />
             Follow us on Twitter
-            <i class="fab fa-twitter fa-fw"></i>
           </a>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <a href="mailto:digital@scvo.org.uk" class="mdc-button mdc-button--raised mdc-button--full" target="_blank">
+            <span class="far fa-at fa-fw fa-3x t-margin"></span><br />
             Email us
-            <i class="fas fa-envelope fa-fw"></i>
           </a>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card participation">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/digital/new/participation"><img src="http://cms.scvo.org/wp-content/uploads/2019/03/participation_icon.png" />Participation</a>
+                <a href="/digital/new/participation"><span class="fal fa-fw fa-hand-paper fa-2x"> </span>Participation</a>
               </h1>
             </section>
             <section class="mdc-card__media"><a href="/digital/new/participation">&nbsp;</a></section>
@@ -47,7 +48,7 @@
             </section>
             <section class="mdc-card__media"><a href="/digital/new/evolution">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
-              Upgrade your organisation's digital awareness
+              Creating a digitally confident third sector in Scotland
             </section>
             <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/new/evolution">Find out more</a></section>
           </div>
@@ -140,36 +141,5 @@
       </div>
     </div>
   </div>
-
-  <div class="container-fluid logos">
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-          <h3>Our digital work delivered in partnership with</h3>
-        </div>
-      </div>
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="http://gov.scot">
-            <img src="https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/logos/scotgov.png" alt="The Scottish Government" />
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="https://www.gov.scot/policies/digital">
-            <img src="https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/logos/digiscot.png" alt="Digital Scotland" />
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="https://www.tnlcommunityfund.org.uk/">
-            <img src="https://onedigitaluk.com/wp-content/uploads/2019/01/NationalLotteryCommunityFundLogo.png" alt="National Lottery Community Fund" />
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="http://onedigitaluk.com">
-            <img src="https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/logos/onedigital.png" alt="OneDigital" />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+  {{> footer_digital}}
 </div>

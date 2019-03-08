@@ -881,7 +881,7 @@ primary-dark: #263238
 html {
   overflow-y: scroll;
   height: 100%;
-  font-size: 1.02rem;
+  font-size: 1.02rem !important;
   line-height: 1.45;
 }
 body {
@@ -1009,6 +1009,10 @@ iframe {
 figure {
   margin: $unit 0;
 }
+.mdc-layout-grid__inner {
+  grid-gap: $unit;
+}
+
 .mdc-textfield__input,
 .mdc-textfield__input:focus,
 .mdc-textfield__input:hover {
@@ -4446,7 +4450,7 @@ footer {
 
 @media screen and (max-width: 839px) {
   html {
-    font-size: 0.92rem;
+    font-size: 0.92rem !important;
     line-height: 1.25;
   }
   .home .splash-image.hello .container-fluid .mdc-layout-grid p.header-extra {

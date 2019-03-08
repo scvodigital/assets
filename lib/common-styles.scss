@@ -2786,6 +2786,24 @@ footer.mdc-layout__footer {
   .mdc-card .mdc-card__actions .mdc-card__action {
     margin-right: $unit/2;
   }
+
+  .mdc-button--large {
+    min-height: 40px;
+  }
+
+  .content-primary-search {
+    .head {
+      margin-bottom: 0;
+      .mdc-button.saved-search,
+      .mdc-button.filter-search,
+      .mdc-button.save-search,
+      .mdc-text-field,
+      .mdc-select {
+        margin: 0;
+      }
+    }
+  }
+
   footer.mdc-layout__footer {
     .mdc-layout-grid__inner {
       grid-gap: 0;

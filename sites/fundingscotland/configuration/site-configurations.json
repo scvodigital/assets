@@ -6,7 +6,7 @@
     "organisationContact": "fundingscotland@scvo.org.uk",
     "headingText": "Funding at your fingertips",
     "url": "https://test.fundingscotland.com",
-    "logo": "/assets/images/logos/scvo.png",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/scvo-inverse.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#68C53E",

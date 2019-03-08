@@ -8,4 +8,4 @@
 {{>pdf_key_value key="pageBreak" value=pageBreak comma=true}}
 {{>pdf_key_value key="pageOrientation" value=pageOrientation comma=true}}
 {{>pdf_key_value key="headlineLevel" value=headlineLevel comma=true}}
-{{>pdf_key_value key="margin" value=(if margin (split margin ",") else=null) comma=true}}
+{{#if margin}}  "margin": [{{margin}}],{{/if}}

@@ -1,7 +1,7 @@
 {{~#*inline "label_value"}}
   {{#>pdf_text}}
-    {{>pdf_text text=(concat ../label ": ") bold=true}},
-    {{>pdf_text text=(default ../text ../link) link=../link default=../default}}
+    {{>pdf_text text=(concat label ": ") bold=true}},
+    {{>pdf_text text=(default text (default link default)) link=link}}
   {{/pdf_text}}
 {{/inline~}}
 

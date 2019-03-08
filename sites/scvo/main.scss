@@ -245,6 +245,18 @@ primary-dark: #263238
       background-color: map-get($themeSelected, 'primary');
     }
   }
+  .support-digital {
+    .mdc-button--raised {
+      color: white;
+      border-color: map-get($themeSelected, 'primary-dark');
+      background-color: map-get($themeSelected, 'primary-dark');
+    }
+    .mdc-button--raised:hover {
+      color: white;
+      border-color: darken(map-get($themeSelected, 'primary-dark'), 10%);
+      background-color: darken(map-get($themeSelected, 'primary-dark'), 10%) !important;
+    }
+  }
   .splash-image {
     .mdc-button {
       border-color: white !important;
@@ -869,7 +881,7 @@ primary-dark: #263238
 html {
   overflow-y: scroll;
   height: 100%;
-  font-size: 1.02rem;
+  font-size: 1.02rem !important;
   line-height: 1.45;
 }
 body {
@@ -997,6 +1009,10 @@ iframe {
 figure {
   margin: $unit 0;
 }
+.mdc-layout-grid__inner {
+  grid-gap: $unit;
+}
+
 .mdc-textfield__input,
 .mdc-textfield__input:focus,
 .mdc-textfield__input:hover {
@@ -1588,6 +1604,9 @@ section.search {
   h3 {
     margin-bottom: $unit;
   }
+}
+.digital .page-related {
+  margin-bottom: 0;
 }
 .page-related {
   margin-top: 0;
@@ -2689,7 +2708,7 @@ body.i-love-charity main .page-info,
     h3 {
       font-weight: 100;
       font-family: $base-font-family;
-      margin-bottom: $unit*2;
+      margin-bottom: $unit;
       text-align: center;
     }
     img {
@@ -4431,7 +4450,7 @@ footer {
 
 @media screen and (max-width: 839px) {
   html {
-    font-size: 0.92rem;
+    font-size: 0.92rem !important;
     line-height: 1.25;
   }
   .home .splash-image.hello .container-fluid .mdc-layout-grid p.header-extra {

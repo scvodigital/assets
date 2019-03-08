@@ -20,6 +20,12 @@
       {{{salary}}}
     </div>
     {{/if ~}}
+    {{#if postcode ~}}
+    <div class="post-info-item post-info-postcode">
+      <span class="far fa-map-pin fa-fw" title="Postcode"></span>
+      {{{postcode}}}
+    </div>
+    {{/if ~}}
   </div>
   <div class="mdc-typography--body2">
     <a href="/vacancy/{{slug}}{{@root.request.url.search}}" class="mdc-card__action">Find out more</a>

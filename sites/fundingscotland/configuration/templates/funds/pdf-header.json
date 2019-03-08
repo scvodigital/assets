@@ -6,12 +6,13 @@
         "width": "*",
         "text": [
           {
-            "text": "${request.params.query.title}\n",
+            "text": {{>pdf_metadata_value key="title" default="Funding Scotland"}},
             "fontSize": 20,
             "bold": true
           },
+          "\n",
           {
-            "text": "${request.params.query.subtitle}",
+            "text": {{>pdf_metadata_value key="subtitle" default=""}},
             "fontSize": 16
           }
         ]

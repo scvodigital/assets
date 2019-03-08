@@ -22,14 +22,12 @@
     "columns": [
       {
         "width": "*",
-        "text": "Page: ${currentPage} of ${pageCount}",
+        "text": "Page: {{@root.currentPage}} of {{@root.pageCount}}",
         "fontSize": 10
       },
       {
         "width": "*",
-        "text": {
-          "_eval": "jsone.dateFormat('dddd, Do MMMM YYYY, HH:mm:ss')"
-        },
+        "text": "{{momentFormat (moment null 'X') 'dddd, Do MMMM YYYY, HH:mm:ss'}}",
         "fontSize": 10,
         "alignment": "right"
       }

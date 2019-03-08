@@ -1,30 +1,104 @@
-{{~#*inline "label_value"}}
-  {{#>pdf_text}}
-    {{>pdf_text text=(concat label ": ") bold=true}},
-    {{>pdf_text text=(default text (default link default)) link=link}}
-  {{/pdf_text}}
-{{/inline~}}
+{{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "asc")}}
+  {{>pdf_text text=name style="h1"}},
+  {{>pdf_text text="Summary" style="h2"}},
+  {{>pdf_text text=description}},
 
-{{>pdf_text text=name style="h1"}},
-{{>pdf_text text="Summary" style="h2"}},
-{{>pdf_text text=description}},
-{{#>pdf_stack pageBreak="after"}}
   {{>pdf_text text="Fund Details" style="h2"}},
-  {{>label_value label="Status" text=../fund_status default="No status"}},
-  {{>label_value label="Type" text=../type_of_funding default="No type provided"}},
-  {{>label_value label="Source" text=../source_of_fund default="No source provided"}},
-  {{>label_value label="When to apply" text=../when_to_apply default="No application date"}},
-  {{>label_value label="Next deadline" text=../next_deadline default="No deadline date"}},
-  {{>label_value label="Charities only" text=(if ../charities_only "Yes" else="No")}},
-  {{>label_value label="Website" text=../url link=../url default="No fund specific website"}},
-  {{>label_value label="Email" text=../fund_email_address link=(concat "mailto:" ../fund_email_address) default="No fund specific email"}},
-  {{>label_value label="Phone" text=../fund_telephone link=(concat "tel:" ../fund_telephone) default="No fund specific phone number"}},
-  {{>label_value label="How to apply" text=../how_to_apply default="No application information provided"}},
-  {{>label_value label="Exclusions" text=../fund_exclusion default="No exclusions given"}},
+  {
+    "layout": "noBorders",
+    "table": {
+      "widths": [100, "*"],
+      "body": [
+        [ 
+          {{>pdf_text text="Status" bold=true}}, 
+          {{>pdf_text text=fund_status default="No status"}} 
+        ],
+        [ 
+          {{>pdf_text text="Type" bold=true}}, 
+          {{>pdf_text text=type_of_funding default="No type provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Source" bold=true}}, 
+          {{>pdf_text text=source_of_fund default="No source provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="When to apply" bold=true}}, 
+          {{>pdf_text text=when_to_apply default="No application date"}} 
+        ],
+        [ 
+          {{>pdf_text text="Next deadline" bold=true}}, 
+          {{>pdf_text text=next_deadline default="No deadline date"}} 
+        ],
+        [ 
+          {{>pdf_text text="Charities only" bold=true}}, 
+          {{>pdf_text text=(if charities_only "Yes" else="No")}} 
+        ],
+        [ 
+          {{>pdf_text text="Website" bold=true}}, 
+          {{>pdf_text text=url link=../url default="No fund specific website"}} 
+        ],
+        [ 
+          {{>pdf_text text="Email" bold=true}}, 
+          {{>pdf_text text=fund_email_address link=(concat "mailto:" ../fund_email_address) default="No fund specific email"}} 
+        ],
+        [ 
+          {{>pdf_text text="Phone" bold=true}}, 
+          {{>pdf_text text=fund_telephone link=(concat "tel:" ../fund_telephone) default="No fund specific phone number"}} 
+        ],
+        [ 
+          {{>pdf_text text="How to apply" bold=true}}, 
+          {{>pdf_text text=how_to_apply default="No application information provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Exclusions" bold=true}}, 
+          {{>pdf_text text=fund_exclusion default="No exclusions given"}} 
+        ]
+      ]
+    }
+  },
+
   {{>pdf_text text="Funding Award Sizes" style="h2"}},
-  {{>label_value label="Minimum" text=../minimum_award_size default="No minimum provided"}},
-  {{>label_value label="Maximum" text=../maximum_award_size default="No maximum provided"}},
-  {{>label_value label="Average" text=../average_award_size default="No average provided"}},
-  {{>label_value label="Anually awarded" text=../annual_total default="No annual total provided"}},
-  {{>label_value label="Notes on award amounts" text=../notes_on_award_amounts default="No notes on award amounts"}}
-{{/pdf_stack}}
+  {
+    "layout": "noBorders",
+    "pageBreak": "after",
+    "table": {
+      "widths": [100, "*"],
+      "body": [
+        [ 
+          {{>pdf_text text="Minimum" bold=true}}, 
+          {{>pdf_text text=minimum_award_size default="No minimum provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Maximum" bold=true}}, 
+          {{>pdf_text text=maximum_award_size default="No maximum provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Average" bold=true}}, 
+          {{>pdf_text text=average_award_size default="No average provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Anually awarded" bold=true}}, 
+          {{>pdf_text text=annual_total default="No annual total provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Notes on award amounts" bold=true}}, 
+          {{>pdf_text text=notes_on_award_amounts default="No notes on award amounts"}} 
+        ]
+      ]
+    }
+  },
+    
+  {{#if notes ~}}
+    {{>pdf_text text="Your Notes" style="h2"}},
+    {{#each notes}}
+      {{#compare this.value.status "!==" (getProperty (itemAt ../notes (subtract @index 1)) "value.status")}}
+        {{>pdf_text text=this.value.status style="h3"}},
+      {{/compare}}
+      {{#>pdf_stack margin="10,5,0,5"}}
+        {{>pdf_text text=(momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm") bold=true}},
+        {{>pdf_markdown markdown=this.value.note}}
+      {{/pdf_stack}},
+    {{/each}}
+  {{/if}}
+  ""
+{{/withExtend}}

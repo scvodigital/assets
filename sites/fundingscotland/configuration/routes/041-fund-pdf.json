@@ -3,7 +3,10 @@
   "pattern": "/fund-pdf/:slug",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "pdf": {
+      "title": ">data.currentSite.title",
+      "subtitle": ">data.search_data.detailed_results.hits.hits.0._source.title"
+    }
   },
   "tasks": [
     "context.metaData.commonTasks.currentSite",

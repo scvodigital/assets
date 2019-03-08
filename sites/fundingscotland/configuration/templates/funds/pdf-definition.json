@@ -32,11 +32,11 @@
       "alignment": "center",
       "margin": [0, 15]
     },
-    {{>pdf_text fontSize=26 bold=true alignment="center" margin="0,15" text=@root.request.params.query.title default="No title"}},
-    {{>pdf_text fontSize=18 bold=true alignment="center" margin="0,15" pageBreak="after" text=@root.request.params.query.subtitle default=" "}},
-    {{#each @root.data.search_data.detailed_results.hits.hits}}
-      {{>fund_pdf _source}},
-    {{/each}}
+    {{>pdf_text fontSize=26 bold=true alignment="center" margin="0,15" text=@root.data.currentSite.title default="Funding Scotland"}},
+    {{>pdf_text fontSize=18 bold=true alignment="center" margin="0,15" pageBreak="after" text=@root.data.search_data.detailed_results.hits.hits.0._source.title default="No fund found"}},
+    {{#if (any @root.data.search_data.detailed_results.hits.hits)}}
+      {{>fund_pdf @root.data.search_data.detailed_results.hits.hits.[0]._source}},
+    {{/if}}
     {
       "columns": [
         {

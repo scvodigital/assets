@@ -34,9 +34,7 @@
     "taskModule": "generatePdf",
     "renderer": "handlebars",
     "config": {
-      "imagesTemplate": {
-        "logo": "http://fundingscotland.blob.core.windows.net/${request.params.query.subdomain}/logo"
-      },
+      "imagesTemplate": "{ \"logo\": {{{stringify (default @root.data.currentSite.logo '')}}} }",
       "definitionTemplate": ">context.metaData.handlebars.templates.funds_pdf-definition",
       "headerTemplate": ">context.metaData.handlebars.templates.funds_pdf-header",
       "footerTemplate": ">context.metaData.handlebars.templates.funds_pdf-footer"

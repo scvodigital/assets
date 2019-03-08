@@ -28,7 +28,7 @@
       "height": 150,
       "width": 150,
       "fit": [150, 150],
-      "image": {{{safeStringify (default images.logo "")}}},
+      "image": "logo",
       "alignment": "center",
       "margin": [0, 15]
     },

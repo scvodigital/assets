@@ -1,16 +1,18 @@
 {
-  {{>pdf_styles this}}
-  {{#if link}}
-    {{>pdf_key_value key="link" value=link}},
-  {{/if}}
-  {{#if linkToPage}}
-    {{>pdf_key_value key="linkToPage" value=linkToPage}},
-  {{/if}}
-  {{#if @partial-block}}
-    "text": [
-      {{> @partial-block}}
-    ]
-  {{else}}
-    {{>pdf_key_value key="text" value=(default text (default default ' '))}}
-  {{/if}}
+  {{>pdf_styles bold=bold italics=italics underline=underline strikethrough=strikethrough style=style alignment=alignment fontSize=fontSize pageBreak=pageBreak pageOrientation=pageOrientation headlineLevel=headlineLevel}}
+  {{#withExtend this bold=null italics=null underline=null strikethrough=null style=null alignment=null fontSize=null pageBreak=null pageOrientation=null headlineLevel=null}}
+    {{#if link}}
+      {{>pdf_key_value key="link" value=link}},
+    {{/if}}
+    {{#if linkToPage}}
+      {{>pdf_key_value key="linkToPage" value=linkToPage}},
+    {{/if}}
+    {{#if @partial-block}}
+      "text": [
+        {{> @partial-block}}
+      ]
+    {{else}}
+      {{>pdf_key_value key="text" value=(default text (default default ' '))}}
+    {{/if}}
+  {{/withExtend}}
 }

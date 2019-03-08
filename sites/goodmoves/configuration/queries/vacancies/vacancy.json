@@ -27,6 +27,7 @@
     "start_at",
     "end_at",
     "home_based",
+    "postcodes",
     "various_locations",
     "organisation.slug",
     "organisation.name",

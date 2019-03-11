@@ -11,7 +11,7 @@
       You can use lists to organise funds you are interested in. Lists can then be downloaded as a full report of each fund (including any notes you have made) as a PDF. You can also subscribe to receive email updates about any changes to funds in each of your lists.
   {{/help_box}}
 
-  <div class="mdc-list-group mdc-theme--secondary-border border rounded">
+  <div class="mdc-list-group mdc-theme--secondary-border border rounded b-margin-full">
     <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
       {{#if (any @root.data.shortlistPartitions.items.[0]) ~}}
       {{#each @root.data.shortlistPartitions.items.[0] ~}}
@@ -25,7 +25,7 @@
           </span>
           <span class="mdc-list-item__secondary-text">
             <span class="r-margin-full">
-              <a href="/download-list/{{partition}}">Download as PDF</a>
+              <a href="/list-pdf/{{partition}}">Download as PDF</a>
             </span>
             <span class="r-margin-full">
               <a class="mdc-theme--error pointer" role="button" data-delete-list="{{partition}}">Delete list</a>

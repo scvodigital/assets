@@ -1,0 +1,284 @@
+{{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "asc")}}
+  {{>pdf_text text=title style="h1"}},
+  {{>pdf_text text="Summary" style="h2"}},
+  {{>pdf_markdown markdown=description}},
+
+  {{>pdf_text text="Fund Details" style="h2"}},
+  {
+    "layout": "noBorders",
+    "table": {
+      "widths": [100, "*"],
+      "body": [
+        [ 
+          {{>pdf_text text="Status" bold=true}}, 
+          {{>pdf_text text=fund_status default="No status"}} 
+        ],
+        [ 
+          {{>pdf_text text="Type" bold=true}}, 
+          {{>pdf_text text=type_of_funding default="No type provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Source" bold=true}}, 
+          {{>pdf_text text=source_of_fund default="No source provided"}} 
+        ],
+        [
+          {{>pdf_text text="Activities" bold=true}}, 
+          {{>pdf_text text=(join (arrayify activities) ", ") default="No activities provided"}} 
+        ],
+        [
+          {{>pdf_text text="Beneficiaries" bold=true}}, 
+          {{>pdf_text text=(join (arrayify beneficiaries) ", ") default="No beneficiaries provided"}} 
+        ],
+        [
+          {{>pdf_text text="Geographical areas funded" bold=true}}, 
+          {{>pdf_text text=(join (arrayify geographical_areas_funded) ", ") default="No geographical areas provided"}} 
+        ]
+      ]
+    }
+  },
+
+  {{>pdf_text text="Application Information" style="h3"}},
+  {
+    "layout": "noBorders",
+    "table": {
+      "widths": [100, "*"],
+      "body": [
+        [ 
+          {{>pdf_text text="Who can apply" bold=true}}, 
+          {{>pdf_text text=who_can_apply default="No information on who can apply provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="Charities only" bold=true}}, 
+          {{>pdf_text text=(if charities_only "Available only to charities" else="Available to anyone")}} 
+        ],
+        [ 
+          {{>pdf_text text="How to apply" bold=true}}, 
+          {{>pdf_text text=how_to_apply default="No application information provided"}} 
+        ],
+        [ 
+          {{>pdf_text text="When to apply" bold=true}}, 
+          {{>pdf_text text=when_to_apply default="No application date"}} 
+        ],
+        [ 
+          {{>pdf_text text="Next deadline" bold=true}}, 
+          {{>pdf_text text=next_deadline default="No deadline date"}} 
+        ],
+        [ 
+          {{>pdf_text text="Exclusions" bold=true}}, 
+          {{>pdf_text text=fund_exclusion default="No exclusions given"}} 
+        ],
+        {{#ifAny annual_income_min annual_income_max}}
+        [ 
+          {{>pdf_text text="Minimum annual income" bold=true}}, 
+          {{>pdf_text text=(numberFormat annual_income_min "en-GB" 2) default="No minimum given"}} 
+        ],
+        [ 
+          {{>pdf_text text="Maximum annual income" bold=true}}, 
+          {{>pdf_text text=(numberFormat annual_income_max "en-GB" 2) default="No maximum given"}} 
+        ]
+        {{else}}
+        [
+          {{>pdf_text text="Annual income brackets" bold=true}},
+          {{>pdf_text text="No annual income brackets specified"}}
+        ]
+        {{/ifAny}}
+      ]
+    }
+  },
+
+  {{>pdf_text text="Funding Award Sizes" style="h3"}},
+  {{#ifAny minimum_award_size maximum_award_size average_award_size annual_total notes_on_award_amounts}}
+    {
+      "layout": "noBorders",
+      "table": {
+        "widths": [100, "*"],
+        "body": [
+          [
+            {{#ifAll minimum_award_size maximum_award_size}}
+              {{>pdf_text text="Award range" bold=true}}, 
+              {{>pdf_text text=(concat 
+                "From: " (numberFormat minimum_award_size "en-GB" 2)
+                "To: " (numberFormat maximum_award_size "en-GB" 2)
+              )}} 
+            {{else}}
+              {{#if minimum_award_size}}
+                {{>pdf_text text="Minimum award size" bold=true}}, 
+                {{>pdf_text text=(numberFormat minimum_award_size "en-GB" 2)}} 
+              {{else}}
+                {{#if maximum_award_size}}
+                  {{>pdf_text text="Maximum award size" bold=true}}, 
+                  {{>pdf_text text=(numberFormat maximum_award_size "en-GB" 2)}}
+                {{else}}
+                  {{>pdf_text text="Award range" bold=true}}, 
+                  {{>pdf_text text="No award range specified"}}
+                {{/if}}
+              {{/if}}
+            {{/ifAll}}
+          ],
+          {{#if average_award_size}}
+            [ 
+              {{>pdf_text text="Average" bold=true}}, 
+              {{>pdf_text text=(numberFormat average_award_size "en-GB" 2)}} 
+            ],
+          {{/if}}
+          {{#if annual_total}}
+            [ 
+              {{>pdf_text text="Anually awarded" bold=true}}, 
+              {{>pdf_text text=(numberFormat annual_total "en-GB" 2) default="No annual total provided"}} 
+            ],
+          {{/if}}
+          {{#if notes_on_award_amounts}}
+            [ 
+              {{>pdf_text text="Notes on award amounts" bold=true}}, 
+              {{>pdf_text text=notes_on_award_amounts default="No notes on award amounts"}} 
+            ],
+          {{/if}}
+          ["", ""]
+        ]
+      }
+    },
+  {{else}}
+    {{>pdf_text text="No fund award information available"}},
+  {{/ifAny}}
+
+  {{>pdf_text text="Fund Contact and Link Information" style="h3"}},
+  {{#ifAny website email phone}}
+    {
+      "layout": "noBorders",
+      "table": {
+        "widths": [100, "*"],
+        "body": [
+          {{#if website}}
+          [ 
+            {{>pdf_text text="Website" bold=true}}, 
+            {{>pdf_text text=website link=website}} 
+          ],
+          {{/if}}
+          {{#if email}}
+          [ 
+            {{>pdf_text text="Email" bold=true}}, 
+            {{>pdf_text text=email link=(concat "mailto:" email)}} 
+          ],
+          {{/if}}
+          {{#if phone}}
+          [ 
+            {{>pdf_text text="Phone" bold=true}}, 
+            {{>pdf_text text=phone link=(concat "tel:" phone)}} 
+          ],
+          {{/if}}
+          ["", ""]
+        ]
+      }
+    },
+  {{else}}
+    {{>pdf_text text="No fund specific contact or link information"}},
+  {{/ifAny}}
+  
+  {{>pdf_text text="Funder Details" style="h2"}},
+  {
+    "layout": "noBorders",
+    "table": {
+      "widths": [100, "*"],
+      "body": [
+        [ 
+          {{>pdf_text text="Funder" bold=true}}, 
+          {{>pdf_text text=funder_organisation.name}} 
+        ],
+        {{#ifAll funder_organisation.charity_number (compare funder_organisation.charity_number "!==" "not a charity")}}
+        [ 
+          {{>pdf_text text="Charity number" bold=true}}, 
+          {{>pdf_text text=funder_organisation.charity_number}} 
+        ],
+        {{/ifAll}}
+        {{#if funder_organisation.address}}
+        [ 
+          {{>pdf_text text="Address" bold=true}}, 
+          {{>pdf_text text=funder_organisation.address}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.telephone}}
+        [ 
+          {{>pdf_text text="Phone" bold=true}}, 
+          {{>pdf_text text=funder_organisation.telephone link=(concat "tel:" funder_organisation.telephone)}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.email}}
+        [ 
+          {{>pdf_text text="Email" bold=true}}, 
+          {{>pdf_text text=funder_organisation.email link=(concat "mailto:" funder_organisation.email)}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.website}}
+        [ 
+          {{>pdf_text text="Website" bold=true}}, 
+          {{>pdf_text text=funder_organisation.website link=funder_organisation.website}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.twitter}}
+        [ 
+          {{>pdf_text text="Twitter" bold=true}}, 
+          {{>pdf_text text=funder_organisation.twitter link=funder_organisation.twitter}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.facebook}}
+        [ 
+          {{>pdf_text text="Facebook" bold=true}}, 
+          {{>pdf_text text=funder_organisation.facebook link=funder_organisation.facebook}} 
+        ],
+        {{/if}}
+        {{#if funder_organisation.linkedin}}
+        [ 
+          {{>pdf_text text="LinkedIn" bold=true}}, 
+          {{>pdf_text text=funder_organisation.linkedin link=funder_organisation.linkedin}} 
+        ],
+        {{/if}}
+        ["", ""]
+      ]
+    }
+  },
+    
+  {{#if (any notes) ~}}
+    {{>pdf_text text="Your Notes" style="h2"}},
+    {{#each notes}}
+      {{#compare this.value.status "!==" (getProperty (itemAt ../notes (subtract @index 1)) "value.status")}}
+        {{>pdf_text text=this.value.status style="h3"}},
+      {{/compare}}
+      {
+        "margin": [5, 0, 0, 0],
+        "table": {
+          "widths": ["*"],
+          "dontBreakRows": true,
+          "body": [
+            [
+              {
+                "border": [true, false, false, false],
+                "margin": [5, 10, 0, 10],
+                "layout": {
+                  "hLineColor": "#cccccc",
+                  "vLineColor": "#cccccc"
+                },
+                "table": {
+                  "widths": ["*"],
+                  "body": [
+                    [
+                      { 
+                        "fillColor": "#ededed",
+                        "margin": [10, 10, 10, 10],
+                        "stack": [
+                          { "text": {{{stringify (momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm")}}}, "bold": true },
+                          { "stack": [{{>pdf_markdown markdown=this.value.note}} ] }
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              }
+            ]
+          ]
+        }
+      },
+    {{/each}}
+  {{/if}}
+  
+  {{>pdf_text text="" pageBreak="after"}}
+{{/withExtend}}

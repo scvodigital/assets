@@ -21,7 +21,8 @@
     },
     "h3": {
       "fontSize": 14,
-      "bold": true
+      "bold": true,
+      "margin": [0, 10, 0, 5]
     }
   },
   "content": [{

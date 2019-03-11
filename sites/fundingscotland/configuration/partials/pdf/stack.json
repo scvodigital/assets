@@ -1,8 +1,7 @@
 {
-  {{>pdf_styles bold=bold italics=italics underline=underline strikethrough=strikethrough style=style alignment=alignment fontSize=fontSize pageBreak=pageBreak pageOrientation=pageOrientation headlineLevel=headlineLevel}}
-  {{#withExtend this bold=null italics=null underline=null strikethrough=null style=null alignment=null fontSize=null pageBreak=null pageOrientation=null headlineLevel=null}}
+  {{~#>pdf_styles bold=bold italics=italics underline=underline strikethrough=strikethrough style=style alignment=alignment fontSize=fontSize pageBreak=pageBreak pageOrientation=pageOrientation headlineLevel=headlineLevel margin=margin padding=padding~}}
     "stack": [
       {{> @partial-block}}
     ]
-  {{/withExtend}}
+  {{~/pdf_styles~}}
 }

@@ -12,6 +12,15 @@
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.shortlistData",
     {
+      "name": "md",
+      "taskModule": "render",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.md",
+        "output": "data"
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "shortlistPartitions",
       "taskModule": "mysql",
       "config": {

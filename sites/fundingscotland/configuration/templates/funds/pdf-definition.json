@@ -10,17 +10,27 @@
       "fontSize": 16
     },
     "h1": {
-      "fontSize": 18,
+      "fontSize": 20,
       "bold": true,
       "margin": [0, 10, 0, 5]
     },
     "h2": {
-      "fontSize": 16,
+      "fontSize": 18,
       "bold": true,
       "margin": [0, 10, 0, 5]
     },
     "h3": {
+      "fontSize": 16,
+      "bold": true,
+      "margin": [0, 10, 0, 5]
+    },
+    "h4": {
       "fontSize": 14,
+      "bold": true,
+      "margin": [0, 10, 0, 5]
+    },
+    "h5": {
+      "fontSize": 13,
       "bold": true,
       "margin": [0, 10, 0, 5]
     }

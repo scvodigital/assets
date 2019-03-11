@@ -266,7 +266,7 @@
                         "margin": [10, 10, 10, 10],
                         "stack": [
                           { "text": {{{stringify (momentFormat (moment this.key "x") "Do MMMM YYYY HH:mm")}}}, "bold": true },
-                          { "stack": [{{>pdf_markdown markdown=this.value.note}} ] }
+                          { "stack": [{{>pdf_markdown markdown=this.value.note headerOffset=3}} ] }
                         ]
                       }
                     ]

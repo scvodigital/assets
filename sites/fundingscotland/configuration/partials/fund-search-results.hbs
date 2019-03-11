@@ -29,7 +29,7 @@
         onText="Get email updates on this search"
         offText="Get email updates on this search"
         iconClasses="far fa-envelope"
-        on=partitionActive
+        on=(ifAny partitionActive (compare partitionActive "===" 1) true else=false)
       }}
       {
         "extraAttributes": "data-saved-search-name=\"{{../savedSearch.partition}}\"",

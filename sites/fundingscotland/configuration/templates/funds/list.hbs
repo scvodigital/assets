@@ -41,7 +41,7 @@
   {{/with}}
 
   {{#each @root.data.primaryResponse.hits.hits ~}}
-    {{> fund_search_result _source sort=sort actions="more-fund,lists,hide-fund"}}
+    {{> fund_search_result _source sort=sort actions="more-fund"}}
   {{/each ~}}
 
   {{else}}

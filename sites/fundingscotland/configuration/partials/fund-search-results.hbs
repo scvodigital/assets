@@ -21,7 +21,7 @@
 {{>localised_site_banner @root.request.params.querystring}}
 
 {{#if savedSearch}}
-  <h1 class="mdc-typography--headline3">
+  <h3 class="mdc-typography--headline6">
     <div class="pull-right">
       {{#> ajax_chip
         onUrl=(concat "/toggle-subscription?name=" (urlencode savedSearch.partition))
@@ -42,9 +42,11 @@
       }
       {{/ajax_chip}}
     </div>
-    <a href="/searches">Saved search</a>:
-    {{{savedSearch.partition}}}
-  </h1>
+    Your search&ensp;
+    <span class="mdc-typography--body1">
+      {{{savedSearch.partition}}}
+    </span>
+  </h3>
 {{/if}}
 
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}

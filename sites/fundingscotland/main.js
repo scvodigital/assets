@@ -118,7 +118,7 @@ export class FundingScotland {
         }
         const nameParts = [];
         if (query.keywords) {
-          nameParts.push('Keywords: ' + keywords);
+          nameParts.push('Keywords: ' + query.keywords);
         }
         for (const [field, terms] of Object.entries(selected)) {
           if (terms.length > 2) {

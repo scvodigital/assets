@@ -3456,6 +3456,19 @@ body.post.author main {
         margin-right: $unit/5;
       }
     }
+    table {
+      th,
+      td {
+        padding-bottom: $unit/2;
+        padding-right: $unit/2;
+        vertical-align: top;
+        text-align: left;
+      }
+      th:last-child,
+      td:last-child {
+        padding-right: 0;
+      }
+    }
     .fa-ul {
       margin-left: $unit*1.5;
       a {

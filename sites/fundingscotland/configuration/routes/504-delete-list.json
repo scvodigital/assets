@@ -1,5 +1,5 @@
 {
-  "name": "delete-list",
+  "name": "delete_list",
   "pattern": "/delete-list",
   "debug": true,
   "acceptedVerbs": ["POST"],

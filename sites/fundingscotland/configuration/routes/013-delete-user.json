@@ -1,5 +1,5 @@
 {
-  "name": "delete-user",
+  "name": "delete_user",
   "pattern": "/delete-user",
   "metaData": {
     "hideSearch": true

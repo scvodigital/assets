@@ -1,5 +1,5 @@
 {
-  "name": "hidden-funds",
+  "name": "hidden_funds",
   "pattern": "/hidden-funds",
   "debug": true,
   "metaData": {

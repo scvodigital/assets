@@ -1,5 +1,5 @@
 {
-  "name": "save-search",
+  "name": "save_search",
   "pattern": "/save-search",
   "debug": true,
   "tasks": [

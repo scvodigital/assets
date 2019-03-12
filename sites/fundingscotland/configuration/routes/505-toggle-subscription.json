@@ -1,5 +1,5 @@
 {
-  "name": "toggle-subscription",
+  "name": "toggle_subscription",
   "pattern": "/toggle-subscription",
   "acceptedVerbs": "GET",
   "debug": true,

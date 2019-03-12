@@ -1,5 +1,5 @@
 {
-  "name": "premium-toggle",
+  "name": "premium_toggle",
   "pattern": "/premium-toggle",
   "debug": true,
   "tasks": [

@@ -632,10 +632,14 @@ a.mdc-drawer__content-heading {
   color: $mdc-theme-error;
 }
 
+.last-modified {
+  color: darken($mdc-theme-surface-dark, 10%);
+  line-height: 1.5rem;
+}
+
 .report {
   opacity: 0.85;
   font-size: 85%;
-  margin-top: $unit/2;
 }
 
 .mdc-card__action--hide-fund .far,

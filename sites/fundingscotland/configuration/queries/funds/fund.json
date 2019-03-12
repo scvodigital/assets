@@ -33,6 +33,7 @@
     "annual_total",
     "notes_on_award_amounts",
     "date_next_deadline",
+    "date_last_checked",
     "type_of_cost",
     "date_reopens",
     "date_due_to_open",

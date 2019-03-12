@@ -703,6 +703,9 @@ primary-dark: #263238
       color: map-get($themeDefault, 'primary') !important;
     }
   }
+  .setting-up-a-charity .footer-image {
+    background-color: map-get($themeDefault, 'primary');
+  }
   .running-your-organisation .footer-image {
     background-color: map-get($themeDefault, 'primary');
     // background-image: linear-gradient(
@@ -3451,6 +3454,19 @@ body.post.author main {
       span {
         margin-left: $unit/5;
         margin-right: $unit/5;
+      }
+    }
+    table {
+      th,
+      td {
+        padding-bottom: $unit/2;
+        padding-right: $unit/2;
+        vertical-align: top;
+        text-align: left;
+      }
+      th:last-child,
+      td:last-child {
+        padding-right: 0;
       }
     }
     .fa-ul {

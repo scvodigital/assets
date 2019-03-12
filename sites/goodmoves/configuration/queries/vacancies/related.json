@@ -86,7 +86,7 @@
               "organisation.field_of_work": "{{@root.data.primaryResponse.hits.hits.[0]._source.organisation.field_of_work}}"
             }
           },
-          "weight": 8
+          "weight": 5
         },
         {{/if ~}}
         {{#if @root.data.primaryResponse.hits.hits.[0]._source.organisation.name ~}}
@@ -102,6 +102,18 @@
           "weight": 2
         },
         {{/if ~}}
+        {{#each @root.data.primaryResponse.hits.hits.[0]._source.geo_vacancy_coords ~}}
+        {
+          "gauss": {
+            "geo_vacancy_coords": {
+              "origin": { "lat": {{lat}}, "lon": {{lon}} },
+              "offset": "2km",
+              "scale":  "10km"
+            }
+          },
+          "weight": 2
+        },
+        {{/each ~}}
         {
           "filter": {
             "more_like_this": {

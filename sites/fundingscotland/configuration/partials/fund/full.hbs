@@ -148,9 +148,14 @@
     </div>
     {{/ifAny ~}}
 
-    <div class="mdc-typography--body1 report">
+    <div class="mdc-typography--body1 report t-margin pull-right">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>
       <a href="mailto:fundingscotland@scvo.org.uk?subject=Report%20inaccuracy:%20{{urlencode title}}%20-%20{{urlencode funder_organisation.name}}">Report inaccuracy</a>
+    </div>
+
+    <div class="mdc-typography--body2 last-modified t-margin">
+      <span class="far fa-calendar-alt" aria-hidden="true"></span>
+      Last reviewed on {{momentFormat (moment date_last_checked "x") "YYYY-MM-DD"}}
     </div>
     {{else}}
     {{#if description ~}}

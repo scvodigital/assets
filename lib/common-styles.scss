@@ -1038,6 +1038,13 @@ a {
     .mdc-card__action--icon {
       line-height: 1;
       margin-right: 0 !important;
+      .fab,
+      .fas,
+      .far,
+      .fal {
+        width: 24px;
+        text-align: center;
+      }
     }
   }
 }

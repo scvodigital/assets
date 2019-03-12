@@ -58,12 +58,12 @@
     {{#if @root.request.params.query.sort ~}}
     {{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}
     {
-      "maximum_award_size": "asc"
+      "award_size_max": "asc"
     }
     {{else}}
     {{#compare @root.request.params.query.sort "===" "max_funded_desc" ~}}
     {
-      "maximum_award_size": "desc"
+      "award_size_max": "desc"
     }
     {{else}}
     {{#compare @root.request.params.query.sort "===" "deadline_date_asc" ~}}

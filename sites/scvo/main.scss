@@ -703,6 +703,9 @@ primary-dark: #263238
       color: map-get($themeDefault, 'primary') !important;
     }
   }
+  .setting-up-a-charity .footer-image {
+    background-color: map-get($themeDefault, 'primary');
+  }
   .running-your-organisation .footer-image {
     background-color: map-get($themeDefault, 'primary');
     // background-image: linear-gradient(

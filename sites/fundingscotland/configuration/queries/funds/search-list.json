@@ -34,20 +34,38 @@
       "must": [
         {{>queries_fund_search_must @root.request.params.query}}
       ],
+      {{#if (contains @root.request.params.query.miscellaneous "hide-open-funds") ~}}
+      "must_not": [
+        {{>queries_term field="fund_status_slug" term="open"}}
+      ],
+      {{/if ~}}
       "should": [
+        {{#unless (contains @root.request.params.query.miscellaneous "hide-open-funds") ~}}
         {{>queries_term field="fund_status_slug" term="open"}},
+        {{/unless ~}}
         {{#if (contains @root.request.params.query.miscellaneous "show-opening-soon-funds")}}
         {
           "bool": {
             "filter": [
-              {{>queries_term field="fund_status_slug" term="currently-closed"}},
-              {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+              {{>queries_term field="fund_status_slug" term="currently-closed"}}
+            ],
+            "must": [
+              {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
             ]
           }
         },
         {{/if}}
         {{#if (contains @root.request.params.query.miscellaneous "show-closed-funds")}}
-          {{>queries_term field="fund_status_slug" term="currently-closed"}},
+        {
+          "bool": {
+            "filter": [
+              {{>queries_term field="fund_status_slug" term="currently-closed"}}
+            ],
+            "must_not": [
+              {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+            ]
+          }
+        },
         {{/if}}
         {{>queries_do_nothing}}
       ],

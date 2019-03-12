@@ -646,12 +646,16 @@
             "textBag": "for charities charity only"
           },
           "show-opening-soon-funds": {
-            "label": "Include funds opening soon",
+            "label": "Show funds opening soon",
             "textBag": "funds opening soon"
           },
           "show-closed-funds": {
-            "label": "Include currently closed funds",
+            "label": "Show closed funds",
             "textBag": "currently closed funds"
+          },
+          "hide-open-funds": {
+            "label": "Hide open funds",
+            "textBag": "funds open"
           }
         }
       }

@@ -1,5 +1,5 @@
 {
-  "name": "delete-search",
+  "name": "delete_search",
   "pattern": "/delete-search",
   "debug": true,
   "acceptedVerbs": "POST",

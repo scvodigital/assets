@@ -1,0 +1,6 @@
+{{{stringify (concat @root.data.currentSite.title " URL")}}},"Fund title","Funder","Description","Fund status","Activities","Beneficiaries","Geographical areas funded","Source of fund","Type of cost","Type of funding","Who can apply","Exclusions","When to apply"
+{{#each @root.data.search_data.detailed_results.hits.hits ~}}
+{{#with _source ~}}
+{{@root.data.currentSite.url}}/fund/{{slug}},{{{stringify title}}},{{{stringify funder_organisation.name}}}{{{stringify description}}},{{{stringify fund_status}}},{{{stringify (momentFormat (moment date_reopens "x") "YYYY-MM-DD")}}},"{{#each activities}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}","{{#each beneficiaries}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}","{{#each geographical_areas_funded}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}","{{#each source_of_fund}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}","{{#each type_of_cost}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}","{{#each type_of_funding}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}",{{{stringify when_to_apply}}},{{{stringify exclusions}}},{{{stringify who_can_apply}}}
+{{/with ~}}
+{{/each ~}}

@@ -1,5 +1,5 @@
 {
-  "name": "home-authenticated",
+  "name": "home_authenticated",
   "pattern": "/",
   "debug": true,
   "metaData": {

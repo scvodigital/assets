@@ -1,5 +1,5 @@
 {
-  "name": "unhide-fund",
+  "name": "unhide_fund",
   "pattern": "/unhide-fund/:fundId",
   "acceptedVerbs": "GET",
   "debug": true,

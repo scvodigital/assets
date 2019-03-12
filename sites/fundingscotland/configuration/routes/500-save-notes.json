@@ -1,5 +1,5 @@
 {
-  "name": "save-notes",
+  "name": "save_notes",
   "pattern": "/save-notes",
   "acceptedVerbs": "POST",
   "debug": true,

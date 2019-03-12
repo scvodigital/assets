@@ -1,5 +1,5 @@
 {
-  "name": "remove-fund",
+  "name": "remove_fund",
   "pattern": "/remove-fund",
   "debug": true,
   "defaultParams": {
@@ -25,7 +25,7 @@
       "renderer": "handlebars",
       "config": {
         "template": "done",
-        "output": "body"        
+        "output": "body"
       }
     }
   ]

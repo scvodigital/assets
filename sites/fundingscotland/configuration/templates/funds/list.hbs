@@ -35,7 +35,10 @@
         <a class="mdc-theme--error pointer" data-delete-list="{{partition}}">Delete list</a>
       </span>
       <span class="r-margin-full">
-        <a href="/list-pdf/{{partition}}" data-delete-list="{{partition}}">Download as PDF</a>
+        <a href="/list-pdf/{{partition}}" download>Download as PDF</a>
+      </span>
+      <span class="r-margin-full">
+        <a href="/list-csv/{{partition}}" download>Download as CSV</a>
       </span>
     </p>
   {{/with}}

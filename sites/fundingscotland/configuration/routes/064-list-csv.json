@@ -1,6 +1,6 @@
 {
-  "name": "list_pdf",
-  "pattern": "/list-pdf/:name",
+  "name": "list_csv",
+  "pattern": "/list-csv/:name",
   "debug": true,
   "metaData": {
     "pdf": {
@@ -46,24 +46,25 @@
       "renderer": "handlebars"
     },
     {
-      "name": "headings",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "template": "{ \"subtitle\": {{{stringify (concat \"List - \" (default @root.request.params.name \"Shortlist\"))}}} }",
-        "output": "data",
-        "parseJson": true
-      }
-    },
-    {
       "name": "destination",
-      "taskModule": "generatePdf",
+      "taskModule": "renderLayout",
       "renderer": "handlebars",
       "config": {
-        "imagesTemplate": "{ \"logo\": {{{stringify (default @root.data.currentSite.logo '')}}} }",
-        "definitionTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-definition",
-        "headerTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-header",
-        "footerTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-footer"
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.data",
+            "parts": {
+              "content": ">context.metaData.handlebars.templates.funds_list-csv"
+            },
+            "contentType": "text/csv"
+          }
+        }
       }
     }
   ]

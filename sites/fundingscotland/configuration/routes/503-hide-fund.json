@@ -1,5 +1,5 @@
 {
-  "name": "hide-fund",
+  "name": "hide_fund",
   "pattern": "/hide-fund",
   "acceptedVerbs": "POST",
   "debug": true,

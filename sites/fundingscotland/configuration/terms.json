@@ -25,9 +25,9 @@
             "label": "Campaigning",
             "textBag": "Campaigning"
           },
-          "justice-and-law": {
-            "label": "Justice & law",
-            "textBag": "Justice law"
+          "justice-equality-and-law": {
+            "label": "Justice, equality & law",
+            "textBag": "justice equality law"
           }
         }
       },

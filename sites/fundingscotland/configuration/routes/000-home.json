@@ -14,8 +14,8 @@
       "config": {
         "if": [
           { "missing": ["data.auth.uid"] },
-          "home-not-authenticated",
-          "home-authenticated"
+          "home_not_authenticated",
+          "home_authenticated"
         ]
       }
     }

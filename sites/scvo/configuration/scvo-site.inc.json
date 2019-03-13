@@ -1,9 +1,9 @@
 {
   "domains": [
+    "127.0.0.1",
     "localhost",
     "scvo.local",
     "amp.scvo.local",
-    "127.0.0.1",
     "scvo.net",
     "scvo.org.uk",
     "scvo.org",

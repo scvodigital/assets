@@ -1,8 +1,6 @@
 {
   "domains": [
-    "localhost",
     "scotlandforeurope.local",
-    "127.0.0.1",
     "test.scotlandforeurope.scot",
     "scotlandforeurope.scot",
     "www.scotlandforeurope.scot"

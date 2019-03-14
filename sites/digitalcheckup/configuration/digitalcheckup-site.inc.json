@@ -1,17 +1,18 @@
 {
   "domains": [
-    "humanrightsdeclaration.local",
-    "test.humanrightsdeclaration.scot",
-    "humanrightsdeclaration.scot",
-    "www.humanrightsdeclaration.scot"
+    "digitalcheckup.local",
+    "test.digitalcheckup.com",
+    "digitalcheckup.com"
   ],
   "routes": [
     "{:./routes/*.json}"
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/humanrightsdeclaration/",
-    "menus": "{:./humanrightsdeclaration-menus.json}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalcheckup/",
+    "title": "Digital Checkup",
+    "menus": "{:./digitalcheckup-menus.json}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

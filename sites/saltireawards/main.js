@@ -2,17 +2,14 @@ import "@babel/polyfill";
 import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
-import { Auth } from '../../lib/firebase-auth';
 import * as querystring from 'querystring';
-import 'leaflet';
-import 'mapbox.js';
 
 import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
-export class SCVO {
+export class SaltireAwards {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
-    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'cjs_cookie');
+    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
 
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
@@ -32,31 +29,15 @@ export class SCVO {
       };
     });
 
-    window.addEventListener("message", (event) => {
-      if (event.data.hasOwnProperty('event')) {
-        console.log('Post Message Event', event.data);
-        switch (event.data.event) {
-          case ('resize'):
-              document.querySelector('iframe[src*="' + event.origin + '"]').style.height = (30+event.data.height) + 'px';
-              window.scrollTo(0, 0);
-            break;
-          case ('redirect'):
-            var url = event.data.url;
-            ngRouter.navigateByUrl(url);
-            break;
-        }
-      }
-    }, false);
-
     $(window).on('resize', () => {
       this.windowResized();
     });
     this.windowResized();
 
     // Headroom
-    var header = document.querySelector("header.mdc-toolbar");
+    var header = document.querySelector("header.top-bar-stuck");
     var headroom  = new Headroom(header, {
-      "offset": 138,
+      "offset": 100,
       "tolerance": 5
     });
     headroom.init();
@@ -65,15 +46,30 @@ export class SCVO {
     ci.options.message = "We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.";
     ci.options.fontFamily = "'Open Sans',Helvetica,Arial,sans-serif";
     ci.options.bg = "#fff";
-    ci.options.link = "#c2185b";
+    ci.options.link = "#448532";
     ci.options.divlink = "#fff";
-    ci.options.divlinkbg = "#c2185b";
+    ci.options.divlinkbg = "#448532";
     ci.options.position = "bottom";
     ci.options.acceptOnScroll = "true";
     ci.options.moreinfo = "/cookies";
     ci.options.cookie = "CookieInfoScript";
     ci.options.textAlign = "left";
     ci.run();
+  }
+
+  windowResized() {
+    var width = $(window).width();
+    var newDisplayMode = null;
+    this.displayModes.forEach(function(mode) {
+      if (width >= mode.min && width < mode.max) {
+        newDisplayMode = mode.name;
+      }
+    });
+    if (newDisplayMode !== this.displayMode) {
+      this.displayMode = newDisplayMode;
+      this.displayModeChanged();
+    }
+    this.fie();
   }
 
   displayModeChanged() {
@@ -94,19 +90,34 @@ export class SCVO {
     });
   }
 
-  windowResized() {
-    var width = $(window).width();
-    var newDisplayMode = null;
-    this.displayModes.forEach(function(mode) {
-      if (width >= mode.min && width < mode.max) {
-        newDisplayMode = mode.name;
+  helpBoxes() {
+    this.$helpBoxes = $('[data-help-box-id]').each((i, o) => {
+      const $helpBox = $(o);
+      const id = $helpBox.data('help-box-id');
+      const $dismissButton = $helpBox.find('.help-box__dismiss-button');
+      $dismissButton.on('click', (evt) => {
+        $helpBox.addClass('help-box--dismissed');
+        const dismissedCookie = this.getCookie('fs_dismissed') || '';
+        const dismissedList = dismissedCookie.substr(1, dismissedCookie.length - 2).split('][');
+        if (dismissedList.indexOf(id) === -1) {
+          dismissedList.push(id);
+        }
+        const newCookie = '[' + dismissedList.join('][') + ']';
+        this.setCookie('fs_dismissed', newCookie);
+      });
+    });
+
+    this.$helpBoxToggles = $('[data-help-box-toggle]').click(evt => {
+      const $helpBoxToggle = $(evt.currentTarget);
+      const id = $helpBoxToggle.data('help-box-toggle');
+      const $helpBox = $('[data-help-box-id="' + id + '"]');
+
+      if ($helpBox.hasClass('help-box--dismissed')) {
+        $helpBox.removeClass('help-box--dismissed');
+      } else {
+        $helpBox.addClass('help-box--flash').fadeOut(50).fadeIn(250);
       }
     });
-    if (newDisplayMode !== this.displayMode) {
-      this.displayMode = newDisplayMode;
-      this.displayModeChanged();
-    }
-    this.fie();
   }
 
   fie() {
@@ -132,5 +143,14 @@ export class SCVO {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+
+  disable(elements, disable) {
+    disable = typeof disable === 'undefined' ? true : disable;
+    for (var e = 0; e < elements.length; ++e) {
+      var element = elements[e];
+      var opacity = disable ? 0.5 : 1;
+      $(element).prop('disabled', disable).css('opacity', opacity);
+    }
   }
 }

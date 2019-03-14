@@ -1,17 +1,20 @@
 {
   "domains": [
-    "humanrightsdeclaration.local",
-    "test.humanrightsdeclaration.scot",
-    "humanrightsdeclaration.scot",
-    "www.humanrightsdeclaration.scot"
+    "saltireawards.local",
+    "test.saltireawards.scot",
+    "saltireawards.scot",
+    "test.saltireawards.org.uk",
+    "saltireawards.org.uk"
   ],
   "routes": [
     "{:./routes/*.json}"
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/humanrightsdeclaration/",
-    "menus": "{:./humanrightsdeclaration-menus.json}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/saltireawards/",
+    "title": "Saltire Awards",
+    "menus": "{:./saltireawards-menus.json}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

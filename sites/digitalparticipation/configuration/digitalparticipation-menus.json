@@ -8,23 +8,6 @@
     {
       "children": [
         {
-          "label": "Toolkit",
-          "path": "/skill-up/toolkit",
-          "route": "^/skill-up/toolkit"
-        },
-        {
-          "label": "Stories",
-          "path": "/skill-up/stories",
-          "route": "^/skill-up/stories"
-        }
-      ],
-      "label": "Skill up",
-      "path": "/skill-up",
-      "route": "^/skill-up$"
-    },
-    {
-      "children": [
-        {
           "label": "Sign up",
           "path": "/sign-up",
           "route": "^/sign-up"
@@ -38,6 +21,23 @@
       "label": "The Charter",
       "path": "/charter",
       "route": "^/charter$"
+    },
+    {
+      "children": [
+        {
+          "label": "Toolkit",
+          "path": "/skill-up/toolkit",
+          "route": "^/skill-up/toolkit"
+        },
+        {
+          "label": "Stories",
+          "path": "/skill-up/stories",
+          "route": "^/skill-up/stories"
+        }
+      ],
+      "label": "Skill up",
+      "path": "/skill-up",
+      "route": "^/skill-up$"
     },
     {
       "label": "Resources",

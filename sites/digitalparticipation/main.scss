@@ -94,8 +94,43 @@ h4 a {
   width: 100%;
   margin: 0 auto;
 }
+header .container-fluid {
+  overflow: visible;
+}
 .centre {
   text-align: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin: -.2rem 0 0 .4rem;
+  padding: 0;
+  border: $unit/5 solid $brand-typography;
+  background-color: white;
+  z-index: 100;
+  li {
+    list-style-type: none;
+    .mdc-tab {
+      min-width: 160px;
+      display: block;
+      text-align: left;
+      margin: 0 !important;
+    }
+    .mdc-tab--active,
+    .mdc-tab:hover {
+      border-color: white !important;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 hr {

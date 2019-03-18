@@ -6,34 +6,43 @@
       "route": "^/$"
     },
     {
-      "label": "Sign up",
-      "path": "/sign-up",
-      "route": "^/sign-up"
-    },
-    {
+      "children": [
+        {
+          "label": "Toolkit",
+          "path": "/skill-up/toolkit",
+          "route": "^/skill-up/toolkit"
+        },
+        {
+          "label": "Stories",
+          "path": "/skill-up/stories",
+          "route": "^/skill-up/stories"
+        }
+      ],
       "label": "Skill up",
       "path": "/skill-up",
-      "route": "^/skill-up"
+      "route": "^/skill-up$"
     },
     {
+      "children": [
+        {
+          "label": "Sign up",
+          "path": "/sign-up",
+          "route": "^/sign-up"
+        },
+        {
+          "label": "Signatories",
+          "path": "/charter/signatories",
+          "route": "^/charter/signatories"
+        }
+      ],
       "label": "The Charter",
-      "path": "/the-charter",
-      "route": "^/the-charter"
-    },
-    {
-      "label": "Stories",
-      "path": "/stories",
-      "route": "^/stories"
-    },
-    {
-      "label": "Signatories",
-      "path": "/signatories",
-      "route": "^(/signatories)(/|\\?)?(.*)"
+      "path": "/charter",
+      "route": "^/charter$"
     },
     {
       "label": "Resources",
       "path": "/resources",
-      "route": "^/resources"
+      "route": "^/resources$"
     }
   ]
 }

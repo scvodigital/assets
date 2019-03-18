@@ -1,6 +1,9 @@
 {
   "name": "sign_up_stage_2",
-  "pattern": "/sign-up/continue",
+  "pattern": {
+    "new": "/charter/sign-up/continue",
+    "old": "/sign-up/continue"
+  },
   "metaData": {
     "title": "Sign up – Scotland's Digital Participation Charter"
   },
@@ -21,7 +24,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.sign-up_form-stage-2",
+              "body": ">context.metaData.handlebars.templates.charter_sign-up_form-stage-2",
               "foot": ""
             },
             "contentType": "text/html"

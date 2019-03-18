@@ -1,9 +1,5 @@
-<div class="container-fluid">
-  <div class="container-content">
-    {{#if @root.request.params.section ~}}
-    {{> checkup_section section=@root.request.params.section}}
-    {{else}}
-    {{> checkup_section section="section-1"}}
-    {{/if ~}}
-  </div>
-</div>
+{{#if @root.request.params.section ~}}
+{{> checkup_section section=@root.request.params.section}}
+{{else}}
+{{> checkup_section section="section-1"}}
+{{/if ~}}

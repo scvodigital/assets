@@ -1,32 +1,33 @@
 {
   "section-1": {
     "name": "Section 1",
-    "title": "Leadership, culture, and skills",
-    "description": "Bacon ipsum dolor amet pork loin beef tri-tip fatback strip steak ribeye. Hamburger salami venison pork chop prosciutto doner strip steak shank cow ham jerky.",
+    "title": "Leadership, culture, & skills",
+    "description": "Digital isn’t a list of things to do. It’s about how you think, how you behave, what you value, and what drives decisions in your organisation.",
+    "progress": 12,
     "questions": [
       {
         "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world?",
         "type": "select-one",
         "options": [
           {
-            "value": "Digital is not recognised as important and is not often discussed at a senior level",
-            "score": 0
+            "answer": "Digital is not recognised as important and is not often discussed at a senior level",
+            "score": -2
           },
           {
-            "value": "Digital is recognised as important to our future but progress just doesn't happen",
+            "answer": "Digital is recognised as important to our future but progress just doesn't happen",
             "score": 1
           },
           {
-            "value": "There is a good level of senior engagement, we are slowly improving our digital services",
+            "answer": "There is a good level of senior engagement, we are slowly improving our digital services",
             "score": 2
           },
           {
-            "value": "Digital is a strategic priority, enabled by leadership, digital progress is happening",
+            "answer": "Digital is a strategic priority, enabled by leadership, digital progress is happening",
             "score": 3
           },
           {
-            "value": "Digital is embedded into what we do – it cuts across all areas and is part of our daily practices",
-            "score": 4
+            "answer": "Digital is embedded into what we do – it cuts across all areas and is part of our daily practices",
+            "score": 5
           }
         ]
       },
@@ -35,28 +36,50 @@
         "type": "select-many",
         "options": [
           {
-            "value": "Be curious",
+            "answer": "Be curious",
             "score": 1
           },
           {
-            "value": "Be proactive",
+            "answer": "Be proactive",
             "score": 1
           },
           {
-            "value": "Be open and transparent",
+            "answer": "Be open and transparent",
             "score": 1
           },
           {
-            "value": "Collaborate across teams",
-            "score": 1
+            "answer": "Collaborate across teams",
+            "score": 2
           },
           {
-            "value": "Test new ideas",
-            "score": 1
+            "answer": "Test new ideas",
+            "score": 2
           },
           {
-            "value": "Learn from failure",
-            "score": 1
+            "answer": "Learn from failure",
+            "score": 3
+          }
+        ]
+      },
+      {
+        "title": "How well do you understand the digital skills of your staff and/or volunteers?",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We don’t know what digital skills or gaps exist in our workforce",
+            "score": -2
+          },
+          {
+            "answer": "We believe that our staff have the basic skills necessary to perform their roles",
+            "score": 0
+          },
+          {
+            "answer": "We have a good understanding of our staff’s skills – but no training offer to develop further",
+            "score": 2
+          },
+          {
+            "answer": "We have an active digital skills assessment and development programme",
+            "score": 5
           }
         ]
       }
@@ -65,8 +88,446 @@
   },
   "section-2": {
     "name": "Section 2",
-    "title": "Tools and equipment",
-    "description": "Bacon ipsum dolor amet pork loin beef tri-tip fatback strip steak ribeye. Hamburger salami venison pork chop prosciutto doner strip steak shank cow ham jerky.",
+    "title": "Tools & equipment",
+    "description": "Which digital tools are your charity making use of? With a host of online tools and platforms out there, it's never been easier to try new solutions",
+    "progress": 25,
+    "questions": [
+      {
+        "title": "Which of these technologies does your organisation use? (Tick all that apply)",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Company website",
+            "score": 1
+          },
+          {
+            "answer": "Content Management System (e.g. Wordpress, Umbraco)",
+            "score": 1
+          },
+          {
+            "answer": "Email (e.g. Outlook, Gmail)",
+            "score": 1
+          },
+          {
+            "answer": "Email campaign management (e.g. MailChimp, Campaign Monitor)",
+            "score": 2
+          },
+          {
+            "answer": "Website usage data (e.g. Google Analytics)",
+            "score": 2
+          },
+          {
+            "answer": "Social Media Management tools (e.g. Hootsuite, Sprout Social)",
+            "score": 2
+          },
+          {
+            "answer": "Online donations or payments (e.g. WorldPay, NetBanx)",
+            "score": 2
+          },
+          {
+            "answer": "Online shop (e.g. Ecommerce)",
+            "score": 2
+          },
+          {
+            "answer": "Messaging and/or collaboration tools (e.g. Slack, Yammer)",
+            "score": 3
+          },
+          {
+            "answer": "Project management tools (e.g. Microsoft Project, Basecamp)",
+            "score": 3
+          },
+          {
+            "answer": "CRM - Customer Relationship Management (e.g. Salesforce, Dynamics)",
+            "score": 3
+          },
+          {
+            "answer": "Cloud computing/storage (e.g. Sharepoint, Google Docs)",
+            "score": 3
+          }
+        ]
+      },
+      {
+        "title": "Do you find your IT provision (technical support, hardware setup, internet access) to be...",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "a regular headache which affects our confidence in trying new things",
+            "score": -2
+          },
+          {
+            "answer": "sufficient for where we are currently, but improving systems would cause issues",
+            "score": 1
+          },
+          {
+            "answer": "well managed and the occasional hiccup aside, is not a barrier to our development",
+            "score": 3
+          },
+          {
+            "answer": "excellent, we are confident that our needs will be met in most circumstances",
+            "score": 5
+          }
+        ]
+      },
+      {
+        "title": "Roughly what percentage of your income/fundraising is paid in using online payments as opposed to offline transactions?",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "0-20%",
+            "score": 0
+          },
+          {
+            "answer": "21-40%",
+            "score": 1
+          },
+          {
+            "answer": "41-60%",
+            "score": 2
+          },
+          {
+            "answer": "61-80%",
+            "score": 3
+          },
+          {
+            "answer": "81-100%",
+            "score": 5
+          }
+        ]
+      }
+    ],
     "next_section": "section-3"
+  },
+  "section-3": {
+    "name": "Section 3",
+    "title": "Content & Marketing",
+    "description": "Digital tools and approaches make it dramatically easier to reach thousands of people, and more importantly, to hear about their needs and priorities.",
+    "progress": 37,
+    "questions": [
+      {
+        "title": "Which of the following content types do you use within your organisation?",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Web news and updates",
+            "score": 1
+          },
+          {
+            "answer": "Blogging (opinions, thought leadership)",
+            "score": 1
+          },
+          {
+            "answer": "Webinars or live video",
+            "score": 3
+          },
+          {
+            "answer": "Hosted video (YouTube)",
+            "score": 2
+          },
+          {
+            "answer": "Campaign / promotion emails",
+            "score": 2
+          },
+          {
+            "answer": "E-newsletter or regular bulletin",
+            "score": 2
+          },
+          {
+            "answer": "Information downloads (PDFs)",
+            "score": 1
+          },
+          {
+            "answer": "Surveys or voting",
+            "score": 3
+          },
+          {
+            "answer": "Social Media content",
+            "score": 2
+          },
+          {
+            "answer": "Mobile apps (iPhone, Android)",
+            "score": 5
+          }
+        ]
+      },
+      {
+        "title": "Which of the following approaches do you use to understand the needs of your users in developing or improving your services?",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Analysis of website analytics",
+            "score": 2
+          },
+          {
+            "answer": "Focus groups / face to face workshops",
+            "score": 2
+          },
+          {
+            "answer": "Online feedback surveys",
+            "score": 2
+          },
+          {
+            "answer": "Controlled testing (A/B, split testing)",
+            "score": 2
+          },
+          {
+            "answer": "Social media usage data (Facebook insights/Twitter stats)",
+            "score": 2
+          },
+          {
+            "answer": "Social media engagements (comments, posts, direct messages)",
+            "score": 2
+          },
+          {
+            "answer": "Co-design or coproduction of services",
+            "score": 4
+          },
+          {
+            "answer": "Development of user personas",
+            "score": 4
+          },
+          {
+            "answer": "User experience mapping",
+            "score": 4
+          }
+        ]
+      }
+    ],
+    "next_section": "section-4"
+  },
+  "section-4": {
+    "name": "Section 4",
+    "title": "Data management",
+    "description": "Using digital tools means charities can access large amounts of real-time data. But you need a strategic approach to make the most of it.",
+    "progress": 50,
+    "questions": [
+      {
+        "title": "Data collection",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We don’t collect any user data at all",
+            "score": -2
+          },
+          {
+            "answer": "We collect basic data such as name and contact details",
+            "score": 2
+          },
+          {
+            "answer": "We collect a lot of user data (preferences, service use, etc.)",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "title": "Decision making",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We don’t analyse any data to make decisions",
+            "score": -2
+          },
+          {
+            "answer": "We analyse data as-and-when we need to",
+            "score": 2
+          },
+          {
+            "answer": "We have a reporting framework and analyse our data it to make decisions",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "title": "Data storage",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We don’t know if we store and use data appropriately",
+            "score": -2
+          },
+          {
+            "answer": "We hold data in several places (databases, 3rd party systems) some of which we don’t manage",
+            "score": 2
+          },
+          {
+            "answer": "We are confident that our data is held securely and used appropriately; by us and/or 3rd party systems",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "title": "Risk management",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We do not know if our data collection and management is a risk to our organisation",
+            "score": -2
+          },
+          {
+            "answer": "We understand our data collection and management is a risk, steps need to be taken",
+            "score": 2
+          },
+          {
+            "answer": "We have assessed the risks and are confident of how we collect and manage data",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "title": "GDPR - General Data Protection Regulation",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We are unaware of GDPR or are unaware of the implications for us",
+            "score": -2
+          },
+          {
+            "answer": "We have some understanding of how it affects us",
+            "score": 2
+          },
+          {
+            "answer": "We feel confident of the processes we have in place to ensure a good level of compliance",
+            "score": 4
+          }
+        ]
+      }
+    ],
+    "next_section": "section-5"
+  },
+  "section-5": {
+    "name": "Section 5",
+    "title": "Cyber resilience & online threats",
+    "description": "Putting more information online, and digitising transactions can mean you are more vulnerable to cyber attack. So cyber resilience is more important than ever.",
+    "progress": 62,
+    "questions": [
+      {
+        "title": "Which statement best describes your organisation's approach to Cyber Security?",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "We do not have enough knowledge to discuss cyber threats or security at a senior level",
+            "score": -2
+          },
+          {
+            "answer": "Cyber security has been discussed but it is not seen as a business priority",
+            "score": 0
+          },
+          {
+            "answer": "Discussions have taken place and we have a plan that is still in progress or still to happen",
+            "score": 2
+          },
+          {
+            "answer": "Online threats have been assessed and feature highly alongside other business risks and priorities",
+            "score": 5
+          }
+        ]
+      },
+      {
+        "title": "Has training been delivered to staff in any of the following areas?",
+        "type": "select-many",
+        "options": [
+          {
+            "answer": "Password security",
+            "score": 2
+          },
+          {
+            "answer": "Phishing scams and email security",
+            "score": 2
+          },
+          {
+            "answer": "Hardware security (USB pens, Laptops, tablets & phones)",
+            "score": 2
+          },
+          {
+            "answer": "Data handling",
+            "score": 2
+          },
+          {
+            "answer": "Viruses and malware",
+            "score": 2
+          }
+        ]
+      }
+    ],
+    "next_section": "section-6"
+  },
+  "section-6": {
+    "name": "Section 6",
+    "title": "Your organisation size and priorities",
+    "progress": 75,
+    "questions": [
+      {
+        "title": "Estimated annual turnover *",
+        "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Below £100,000",
+            "value": "<100000"
+          },
+          {
+            "answer": "£100,000 - £1m",
+            "value": "<1000000"
+          },
+          {
+            "answer": "£1m - £10m",
+            "value": "<10000000"
+          },
+          {
+            "answer": "Over £10m",
+            "value": ">10000001"
+          },
+          {
+            "answer": "Unknown / Prefer not to say",
+            "value": ""
+          }
+        ]
+      },
+      {
+        "title": "Choose your area of highest priority *",
+        "description": "Which of the sections you have just completed is your highest or most immediate priority?",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Leaderhip & culture",
+            "value": "leadership"
+          },
+          {
+            "answer": "Tools & equipment",
+            "value": "tools"
+          },
+          {
+            "answer": "Content, marketing & data",
+            "value": "content"
+          },
+          {
+            "answer": "Cyber security",
+            "value": "cyber"
+          }
+        ]
+      }
+    ],
+    "next_section": "confirmation"
+  },
+  "confirmation": {
+    "title": "Confirmation",
+    "progress": 87,
+    "questions": [
+      {
+        "title": "Would you like additional support from the SCVO Digital team based on your responses? *",
+        "description": "This could be funding, events, training and 1:1 support",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Yes please - I'd like support to help put this into action",
+            "value": true
+          },
+          {
+            "answer": "No thanks!",
+            "value": false
+          }
+        ]
+      }
+    ],
+    "next_section": "results"
   }
 }

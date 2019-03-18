@@ -106,7 +106,7 @@
     {{else}}
     {{#compare @root.request.params.query.sort "===" "date_last_reviewed" ~}}
     {
-      "date_last_important_activity": "asc"
+      "date_last_modified": "desc"
     }
     {{else}}
     {{#compare @root.request.params.query.sort "===" "relevance" ~}}

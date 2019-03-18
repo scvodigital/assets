@@ -146,6 +146,68 @@ header {
   text-align: center;
 }
 
+.checkup-section-header {
+  margin-top: $unit*4;
+  padding: $unit*3 0 $unit*2;
+  .progress-bar {
+    transform: skew(-10deg,0deg);
+    position: absolute;
+    width: 100%;
+    // background-image: url('/assets/images/dot.png');
+    background-repeat: repeat-x;
+    background-position: center center;
+    background-color: #E2E4E5;
+    border: $unit/5 solid white;
+    top: -4.55rem;
+    height: $unit*2.5;
+    line-height: $unit*2.5;
+    padding: 0;
+    .progress-label {
+      background-color: $mdc-theme-blue;
+      color: white;
+      font-size: 0.95rem;
+      text-align: center;
+      .progress-label-text {
+        transform: skew(10deg,0deg);
+      }
+    }
+  }
+  .mdc-typography--body1,
+  .mdc-typography--body2,
+  .mdc-typography--headline3 {
+    color: white;
+  }
+  .mdc-typography--body2 {
+    text-transform: uppercase;
+  }
+  .mdc-typography--headline3 {
+    margin: $unit/4 0 !important;
+  }
+}
+#checkup-section-1 .checkup-section-header {
+  background-color: $mdc-theme-purple;
+}
+#checkup-section-2 .checkup-section-header {
+  background-color: $mdc-theme-blue;
+}
+#checkup-section-3 .checkup-section-header {
+  background-color: $mdc-theme-green;
+}
+#checkup-section-4 .checkup-section-header {
+  background-color: $mdc-theme-green;
+}
+#checkup-section-5 .checkup-section-header {
+  background-color: $mdc-theme-pink;
+}
+#checkup-confirmation .checkup-section-header,
+#checkup-section-6 .checkup-section-header {
+  .mdc-typography--body1,
+  .mdc-typography--body2,
+  .mdc-typography--headline3 {
+    color: inherit;
+  }
+}
+
 :focus {
   outline: none;
 }

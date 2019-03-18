@@ -1,6 +1,9 @@
 {
   "name": "sign_up_essential",
-  "pattern": "/sign-up/essential",
+  "pattern": {
+    "new": "/charter/sign-up/essential",
+    "old": "/sign-up/essential"
+  },
   "metaData": {
     "title": "Sign up for the Essential Digital Skills for Scotland project"
   },
@@ -21,7 +24,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.sign-up_form-essential",
+              "body": ">context.metaData.handlebars.templates.charter_sign-up_form-essential",
               "foot": ""
             },
             "contentType": "text/html"

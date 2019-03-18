@@ -101,108 +101,37 @@
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--logo">
-              <a href="https://scvo.org">
-                <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
-              </a>
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-              <a href="/" class="mdc-top-app-bar__title">
-                {{@root.data.currentSite.title}}
+              <a href="/">
+                <img src="{{~>asset_url url='images/logos/digitalcheckup.png'~}}" alt="Digital Checkup" />
+                Digital Checkup
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              {{#unless @root.route.metaData.hideSearch ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
-                <span class="far fa-fw fa-2x fa-search"></span>
-              </button>
-              {{/unless ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
-          <!-- </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
-              {{#> components_tab_bar
-                   extraClasses="mdc-tab-bar__auto-width"
-                   id="main-tab-bar"}}
-               {{> components_tab
-                   url="/"
-                   labelClasses="mdc-theme--on-primary"
-                   active=(regexMatch @root.request.url.pathname "^/" "gi")
-                   label="Home"}}
-              {{/components_tab_bar}}
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
-              {{#if @root.data.auth ~}}
-                {{#>components_anchored_menu
-                    buttonClasses="mdc-theme--on-primary"
-                    imageUrl=(default @root.data.auth.photoURL false)
-                    imageClasses="far fa-fw user-avatar"
-                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
-                    buttonLabel=@root.data.auth.email
-                    arrowClasses="far fa-fw fa-angle-down"}}
-                  {{!-- #each @root.context.metaData.menus.user-signed-in ~}}
-                    <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
-                      {{#if icon ~}}
-                      <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-                      {{/if ~}}
-                      {{{label}}}
-                    </a>
-                  {{/each ~--}}
-                {{/components_anchored_menu}}
-              {{else}}
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end hide-md hide-sm">
                 {{#>components_tab_bar
                     extraClasses="mdc-tab-bar__auto-width"
-                    id="user-not-signed-in-tab-bar"}}
-                  {{!--#each @root.context.metaData.menus.user-not-signed-in ~}}
+                    id="main-tab-bar"}}
+                  {{#each @root.context.metaData.menus.main ~}}
                     {{>components_tab
                         url=(stripTrailingSlash path)
-                        labelClasses="mdc-theme--on-primary"
+                        labelClasses=""
                         active=(regexMatch @root.request.url.pathname route "gi")
                         label=label}}
-                  {{/each--}}
+                  {{/each ~}}
                 {{/components_tab_bar}}
-              {{/if ~}}
             </section>
           </div>
         </div>
       </header>
 
-      <div class="header-banner mdc-top-app-bar-fixed-adjust" style="background-image:url('{{@root.data.currentSite.headerImage}}')">
-        {{#compare @root.data.currentSite.name "!==" "default" ~}}
-        <div class="site-brand rounded mdc-elevation--z2">
-          <a href="/" class="site-brand--organisation">
-            <img src="{{@root.data.currentSite.logo}}" alt="{{@root.data.currentSite.organisationName}}" />
-          </a>
-          <a href="https://digitalcheckup.com" class="site-brand--digitalcheckup">
-            Digital Checkup
-          </a>
-        </div>
-        {{/compare ~}}
-      </div>
-
       <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
         <div class="mdc-drawer__content">
           <nav class="mdc-list">
-            <a class="mdc-list-item {{#compare @root.request.url.pathname "/"}} mdc-list-item--activated{{/compare}}"
-               href="/" aria-selected="true" tabindex="1">
-              <span class="far fa-home mdc-list-item__graphic" aria-hidden="true"></span>
-              Home
-            </a>
-
-            <div role="separator" class="mdc-list-divider"></div>
-
-            {{#if @root.data.auth ~}}
-            <a class="mdc-list-item mdc-list-item__user" href="#">
-              <span class="mdc-list-item__graphic" aria-hidden="true">
-                <img src="{{@root.data.auth.photoURL}}" />
-              </span>
-              <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
-            </a>
-            {{!--#each @root.context.metaData.menus.user-signed-in ~}}
-            {{#compare path "===" "/" ~}}
-            {{else}}
+            {{#each @root.context.metaData.menus.main ~}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
                href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
               {{#if icon ~}}
@@ -210,26 +139,14 @@
               {{/if ~}}
               {{{label}}}
             </a>
-            {{/compare ~}}
             {{/each ~}}
-            {{else}}
-            {{#each @root.context.metaData.menus.user-not-signed-in ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
-            {{/each ~--}}
-            {{/if ~}}
           </nav>
         </div>
       </aside>
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--primary-light-bg main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+      <main class="main-body mdc-toolbar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
         {{#if layoutParts.sidebar }}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
@@ -249,36 +166,44 @@
                   <ul class="fa-ul">
                     <li>
                       <span class="fa-li"><span class="fas fa-envelope"></span></span>
-                      <a href="mailto:{{@root.data.currentSite.organisationContact}}">{{@root.data.currentSite.organisationContact}}</a>
+                      <a href="mailto:onedigital@scvo.org.uk">onedigital@scvo.org.uk</a>
                     </li>
                     <li>
                       <span class="fa-li"><span class="fas fa-phone"></span></span>
                       <a href="tel:+448001690022">0800 169 0022</a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <span class="fa-li"><span class="fab fa-twitter"></span></span>
                       <a href="https://twitter.com/digitalcheckup" target="_blank">Twitter</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
                   <h3>Information</h3>
                   <ul class="mdc-list">
-                    {{!--#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="/about">About</a>
                     </li>
-                    {{/each ~--}}
+                    <li class="mdc-list-item">
+                      <a href="/contact-us">Contact us</a>
+                    </li>
+                    <li class="mdc-list-item">
+                      <a href="/faqs">FAQs</a>
+                    </li>
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone info">
                   <h3>Help</h3>
                   <ul class="mdc-list">
-                    {{!--#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-help") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="/privacy">Privacy</a>
                     </li>
-                    {{/each ~--}}
+                    <li class="mdc-list-item">
+                      <a href="/cookies">Cookies</a>
+                    </li>
+                    <li class="mdc-list-item">
+                      <a href="/terms">Terms & conditions</a>
+                    </li>
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
@@ -337,12 +262,12 @@
     var digitalcheckup = null; readyListeners = [];
     $(document).ready(function() {
       digitalcheckup = new DigitalCheckup.DigitalCheckup({
-        apiKey: "AIzaSyAdecxsam31jfcXk5riBTKFjjZN6H68FMI",
-        authDomain: "auth.digitalcheckup.com",
-        databaseURL: "https://scvo-auth-fs.firebaseio.com",
-        projectId: "scvo-auth-fs",
-        storageBucket: "scvo-auth-fs.appspot.com",
-        messagingSenderId: "35877130739"
+        apiKey: "AIzaSyCTxxmjOOLDr_ctLpQIxXSTaLyPT6AUmY4",
+        authDomain: "digital-checkup.firebaseapp.com",
+        databaseURL: "https://digital-checkup.firebaseio.com",
+        projectId: "digital-checkup.appspot.com",
+        storageBucket: "",
+        messagingSenderId: "271898292006"
       });
       ready = true;
       readyListeners.forEach(function(listener) {

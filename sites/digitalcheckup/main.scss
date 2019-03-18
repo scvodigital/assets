@@ -1,11 +1,25 @@
-@import "./node_modules/material-components-web/material-components-web.scss";
+$mdc-theme-orange: #D4431F;
+$mdc-theme-purple: #754AA5;
+$mdc-theme-green: #588223;
+$mdc-theme-pink: #D21262;
+$mdc-theme-blue: #1377CD;
+$mdc-theme-darkgrey: #2A2A2A;
+$mdc-theme-mediumgrey: #585858;
+$mdc-theme-lightgrey: #F6F6F6;
 
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400,600');
+$mdc-theme-primary: $mdc-theme-orange;
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
+$mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
+
+$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer-light: #E1E3E4;
+$mdc-theme-footer-dark: #263238; // Blue Gray 900
 
 $unit: 1rem;
+$header-height: 84px;
 
-
-
+@import "./node_modules/material-components-web/material-components-web.scss";
+@import "./lib/common-styles.scss";
 
 :root {
   --mdc-layout-grid-margin-desktop: 0;
@@ -21,6 +35,115 @@ html, body {
 }
 html {
   overflow-y: scroll;
+}
+body {
+  background-color: $mdc-theme-footer-dark;
+}
+.mdc-top-app-bar {
+  background-color: white;
+}
+.main-body {
+  background-color: $mdc-theme-lightgrey;
+}
+
+.mdc-toolbar-fixed-adjust {
+  padding-top: $header-height;
+}
+
+.container-fluid {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  .container-content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: $unit;
+    padding-right: $unit;
+  }
+  .container-home {
+    max-width: 1180px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+header {
+  .mdc-top-app-bar__section--logo {
+    a {
+      color: $mdc-theme-blue;
+      text-transform: uppercase;
+      font-size: 1.45rem;
+      letter-spacing: -0.05rem;
+      font-weight: 800;
+      display: block;
+      line-height: $header-height;
+      img {
+        vertical-align: middle;
+      }
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .container-fluid .mdc-top-app-bar__row.mdc-top-app-bar__upper,
+  #main-tab-bar {
+    height: $header-height;
+  }
+  #main-tab-bar {
+    .mdc-tab {
+      min-height: $header-height;
+      height: $header-height;
+      .mdc-tab__text-label {
+        line-height: $header-height - 17px;
+        height: $header-height - 17px;
+        font-size: 1.5rem;
+        font-weight: 100;
+        color: $mdc-theme-mediumgrey;
+        border-bottom-width: 5px;
+        border-top-width: 12px;
+      }
+    }
+    .mdc-tab--active .mdc-tab__text-label,
+    .mdc-tab:hover .mdc-tab__text-label {
+      border-bottom-color: $mdc-theme-mediumgrey;
+    }
+  }
+}
+
+.mdc-typography--headline3,
+.mdc-typography--headline4,
+.mdc-typography--headline5,
+.mdc-typography--headline6 {
+  color: $mdc-theme-mediumgrey;
+  font-weight: 100;
+}
+
+.container-home {
+  hr {
+    height: 8px;
+    background-image: url('/assets/images/hr.png');
+    background-repeat: repeat-x;
+    background-position: center center;
+  }
+  .cta {
+    .mdc-button {
+      height: $header-height / 2;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.container-home-pull {
+  background-color: $mdc-theme-darkgrey;
+  color: white;
+  .mdc-typography--body1,
+  .mdc-typography--headline4 {
+    color: white;
+  }
+}
+.text-center {
+  text-align: center;
 }
 
 :focus {
@@ -39,11 +162,45 @@ html {
   background: black;
 }
 ::-webkit-input-placeholder {
-  color: #777;
+  color: $mdc-theme-mediumgrey;
 }
 ::-ms-input-placeholder {
-  color: #777;
+  color: $mdc-theme-mediumgrey;
 }
 ::-moz-placeholder {
-  color: #777;
+  color: $mdc-theme-mediumgrey;
+}
+
+// Footer ======================================================================
+
+footer.mdc-layout__footer {
+  border-top: none;
+  background-color: $mdc-theme-footer-light;
+  box-shadow: none;
+  h3 {
+    color: $mdc-theme-footer;
+    border-bottom: none;
+  }
+  a,
+  a:hover,
+  .about a,
+  .about a:hover,
+  .mdc-layout-grid p {
+    color: $mdc-theme-footer;
+  }
+  .fa-ul {
+    .fa-li {
+      .fas, .fal, .far, .fab {
+        color: $mdc-theme-footer;
+      }
+    }
+  }
+  .footer-copyright {
+    background-color: $mdc-theme-footer-dark;
+    p,
+    a,
+    a:hover {
+      color: white;
+    }
+  }
 }

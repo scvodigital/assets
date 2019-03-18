@@ -1,6 +1,9 @@
 {
   "name": "sign_up_review",
-  "pattern": "/sign-up/review",
+  "pattern": {
+    "new": "/charter/sign-up/review",
+    "old": "/sign-up/review"
+  },
   "metaData": {
     "title": "Sign up for the Essential Digital Skills for Scotland project"
   },
@@ -21,7 +24,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.sign-up_form-annual",
+              "body": ">context.metaData.handlebars.templates.charter_sign-up_form-annual",
               "foot": ""
             },
             "contentType": "text/html"

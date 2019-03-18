@@ -9,7 +9,7 @@ import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 export class DigitalCheckup {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
-    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
+    // this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
 
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();

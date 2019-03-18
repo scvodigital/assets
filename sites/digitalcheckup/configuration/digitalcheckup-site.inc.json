@@ -1,8 +1,7 @@
 {
   "domains": [
     "digitalcheckup.local",
-    "test.digitalcheckup.com",
-    "digitalcheckup.com"
+    "digitalcheckup.org"
   ],
   "routes": [
     "{:./routes/*.json}"

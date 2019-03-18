@@ -1,7 +1,6 @@
 {
   "name": "signatory",
-  "pattern": "/signatories/:slug",
-  "debug": true,
+  "pattern": "/charter/signatories/:slug",
   "metaData": {
     "title": "Signatory – Scotland's Digital Participation Charter"
   },
@@ -63,7 +62,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.signatories_signatory",
+              "body": ">context.metaData.handlebars.templates.charter_signatories_signatory",
               "foot": ""
             },
             "contentType": "text/html"

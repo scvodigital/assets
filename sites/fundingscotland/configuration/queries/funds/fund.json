@@ -49,7 +49,8 @@
     "funder_organisation.linkedin",
     "funder_organisation.charity_number",
     "applicant_success_rate",
-    "rendered.json_ld"
+    "rendered.json_ld",
+    "date_last_modified"
   ],
   "query": {{#>queries_fund_common}}
     "term": {

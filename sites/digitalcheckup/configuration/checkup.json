@@ -1,0 +1,72 @@
+{
+  "section-1": {
+    "name": "Section 1",
+    "title": "Leadership, culture, and skills",
+    "description": "Bacon ipsum dolor amet pork loin beef tri-tip fatback strip steak ribeye. Hamburger salami venison pork chop prosciutto doner strip steak shank cow ham jerky.",
+    "questions": [
+      {
+        "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world?",
+        "type": "select-one",
+        "options": [
+          {
+            "value": "Digital is not recognised as important and is not often discussed at a senior level",
+            "score": 0
+          },
+          {
+            "value": "Digital is recognised as important to our future but progress just doesn't happen",
+            "score": 1
+          },
+          {
+            "value": "There is a good level of senior engagement, we are slowly improving our digital services",
+            "score": 2
+          },
+          {
+            "value": "Digital is a strategic priority, enabled by leadership, digital progress is happening",
+            "score": 3
+          },
+          {
+            "value": "Digital is embedded into what we do – it cuts across all areas and is part of our daily practices",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "title": "In the workplace, staff are encouraged and empowered to... (tick all that apply)",
+        "type": "select-many",
+        "options": [
+          {
+            "value": "Be curious",
+            "score": 1
+          },
+          {
+            "value": "Be proactive",
+            "score": 1
+          },
+          {
+            "value": "Be open and transparent",
+            "score": 1
+          },
+          {
+            "value": "Collaborate across teams",
+            "score": 1
+          },
+          {
+            "value": "Test new ideas",
+            "score": 1
+          },
+          {
+            "value": "Learn from failure",
+            "score": 1
+          }
+        ]
+      }
+    ],
+    "next_section": "section-2"
+  },
+  "section-2": {
+    "name": "Section 2",
+    "title": "Tools and equipment",
+    "description": "Bacon ipsum dolor amet pork loin beef tri-tip fatback strip steak ribeye. Hamburger salami venison pork chop prosciutto doner strip steak shank cow ham jerky.",
+    "next_section": "section-3"
+  }
+}

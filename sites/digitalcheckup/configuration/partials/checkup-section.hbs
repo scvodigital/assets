@@ -1,0 +1,22 @@
+{{#with (getProperty @root.context.metaData.checkup section)}}
+<div class="checkup-{{section}}">
+  <div class="mdc-typography--body2">{{{name}}}</div>
+  <h1 class="mdc-typography--headline3">{{{title}}}</h1>
+  <div class="mdc-typography--body1">{{{description}}}</div>
+</div>
+{{#each questions ~}}
+<div class="question">
+  <h2 class="mdc-typography--headline5">{{{title}}}</h2>
+  {{#ifAny (compare type "select-one") (compare type "select-many") ~}}
+  <ul>
+    {{#each options ~}}
+    <li>{{{value}}}</li>
+    {{/each ~}}
+  </ul>
+  {{/ifAny ~}}
+</div>
+{{/each ~}}
+<div class="cta v-padding-full">
+  <a href="/checkup/{{next_section}}" class="mdc-button mdc-button--raised">Next section</a>
+</div>
+{{/with ~}}

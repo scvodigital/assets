@@ -2,12 +2,13 @@
   "section-1": {
     "name": "Section 1",
     "title": "Leadership, culture, & skills",
-    "description": "Digital isn’t a list of things to do. It’s about how you think, how you behave, what you value, and what drives decisions in your organisation.",
+    "description": "Digital isn't a list of things to do. It's about how you think, how you behave, what you value, and what drives decisions in your organisation.",
     "icon": "leadership",
     "progress": 12,
     "questions": [
       {
         "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world?",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -33,7 +34,7 @@
         ]
       },
       {
-        "title": "In the workplace, staff are encouraged and empowered to... (tick all that apply)",
+        "title": "In the workplace, staff are encouraged and empowered to... (tick all that apply) *",
         "type": "select-many",
         "options": [
           {
@@ -63,11 +64,12 @@
         ]
       },
       {
-        "title": "How well do you understand the digital skills of your staff and/or volunteers?",
+        "title": "How well do you understand the digital skills of your staff and/or volunteers? *",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
-            "answer": "We don’t know what digital skills or gaps exist in our workforce",
+            "answer": "We don't know what digital skills or gaps exist in our workforce",
             "score": -2
           },
           {
@@ -75,7 +77,7 @@
             "score": 0
           },
           {
-            "answer": "We have a good understanding of our staff’s skills – but no training offer to develop further",
+            "answer": "We have a good understanding of our staff's skills – but no training offer to develop further",
             "score": 2
           },
           {
@@ -95,7 +97,7 @@
     "progress": 25,
     "questions": [
       {
-        "title": "Which of these technologies does your organisation use? (Tick all that apply)",
+        "title": "Which of these technologies does your organisation use? (Tick all that apply) *",
         "type": "select-many",
         "options": [
           {
@@ -149,7 +151,8 @@
         ]
       },
       {
-        "title": "Do you find your IT provision (technical support, hardware setup, internet access) to be...",
+        "title": "Do you find your IT provision (technical support, hardware setup, internet access) to be... *",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -171,7 +174,8 @@
         ]
       },
       {
-        "title": "Roughly what percentage of your income/fundraising is paid in using online payments as opposed to offline transactions?",
+        "title": "Roughly what percentage of your income/fundraising is paid in using online payments as opposed to offline transactions? *",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
@@ -207,7 +211,7 @@
     "progress": 37,
     "questions": [
       {
-        "title": "Which of the following content types do you use within your organisation?",
+        "title": "Which of the following content types do you use within your organisation? *",
         "type": "select-many",
         "options": [
           {
@@ -253,7 +257,7 @@
         ]
       },
       {
-        "title": "Which of the following approaches do you use to understand the needs of your users in developing or improving your services?",
+        "title": "Which of the following approaches do you use to understand the needs of your users in developing or improving your services? *",
         "type": "select-many",
         "options": [
           {
@@ -305,11 +309,12 @@
     "progress": 50,
     "questions": [
       {
-        "title": "Data collection",
+        "title": "Data collection *",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
-            "answer": "We don’t collect any user data at all",
+            "answer": "We don't collect any user data at all",
             "score": -2
           },
           {
@@ -323,11 +328,12 @@
         ]
       },
       {
-        "title": "Decision making",
+        "title": "Decision making *",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
-            "answer": "We don’t analyse any data to make decisions",
+            "answer": "We don't analyse any data to make decisions",
             "score": -2
           },
           {
@@ -341,15 +347,16 @@
         ]
       },
       {
-        "title": "Data storage",
+        "title": "Data storage *",
+        "value": "q3",
         "type": "select-one",
         "options": [
           {
-            "answer": "We don’t know if we store and use data appropriately",
+            "answer": "We don't know if we store and use data appropriately",
             "score": -2
           },
           {
-            "answer": "We hold data in several places (databases, 3rd party systems) some of which we don’t manage",
+            "answer": "We hold data in several places (databases, 3rd party systems) some of which we don't manage",
             "score": 2
           },
           {
@@ -359,7 +366,8 @@
         ]
       },
       {
-        "title": "Risk management",
+        "title": "Risk management *",
+        "value": "q4",
         "type": "select-one",
         "options": [
           {
@@ -377,7 +385,8 @@
         ]
       },
       {
-        "title": "GDPR - General Data Protection Regulation",
+        "title": "GDPR - General Data Protection Regulation *",
+        "value": "q5",
         "type": "select-one",
         "options": [
           {
@@ -405,7 +414,8 @@
     "progress": 62,
     "questions": [
       {
-        "title": "Which statement best describes your organisation's approach to Cyber Security?",
+        "title": "Which statement best describes your organisation's approach to Cyber Security? *",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -427,7 +437,7 @@
         ]
       },
       {
-        "title": "Has training been delivered to staff in any of the following areas?",
+        "title": "Has training been delivered to staff in any of the following areas? *",
         "type": "select-many",
         "options": [
           {
@@ -464,6 +474,7 @@
       {
         "title": "Estimated annual turnover *",
         "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
+        "value": "turnover",
         "type": "select-one",
         "options": [
           {
@@ -491,6 +502,7 @@
       {
         "title": "Choose your area of highest priority *",
         "description": "Which of the sections you have just completed is your highest or most immediate priority?",
+        "value": "priority",
         "type": "select-one",
         "options": [
           {

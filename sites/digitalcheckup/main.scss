@@ -13,6 +13,10 @@ $mdc-theme-primary: $mdc-theme-orange;
 $mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 $mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
 
+$mdc-theme-secondary: $mdc-theme-blue;
+$mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
+$mdc-theme-secondary-light: lighten($mdc-theme-secondary, 15%);
+
 $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
@@ -129,12 +133,25 @@ header {
   font-weight: 100;
 }
 
+.cta {
+  .mdc-button {
+    background-color: $mdc-theme-blue;
+    height: $header-height / 2;
+    text-transform: uppercase;
+  }
+}
+
 .container-home {
   hr {
     height: 8px;
     background-image: url('/assets/images/hr.png');
     background-repeat: repeat-x;
     background-position: center center;
+  }
+  .cta {
+    .mdc-button {
+      background-color: $mdc-theme-orange;
+    }
   }
   .trapezoid {
     padding: $unit 0;
@@ -168,13 +185,6 @@ header {
   text-align: center;
 }
 
-.cta {
-  .mdc-button {
-    height: $header-height / 2;
-    text-transform: uppercase;
-  }
-}
-
 .trapezoid {
   transform: skew(-10deg,0deg);
   .trapezoid-content {
@@ -184,14 +194,14 @@ header {
 
 .checkup-section-header {
   margin-top: $unit*4;
-  padding: 0 0 $unit*2;
+  padding: 0 0 $unit;
   .progress-bar {
     position: relative;
     width: 100%;
     border-radius: $border-radius;
-    // background-image: url('/assets/images/dot.png');
-    background-repeat: repeat-x;
-    background-position: center center;
+    // background-image: url('/assets/images/dots.png');
+    // background-repeat: no-repeat;
+    // background-position: center center;
     background-color: #E2E4E5;
     border: $unit/5 solid white;
     border-top-width: $unit/5;
@@ -207,7 +217,9 @@ header {
       background-color: $mdc-theme-blue;
       color: white;
       font-size: 0.95rem;
-      text-align: center;
+      .progress-label-text {
+        padding: 0 $unit;
+      }
     }
   }
   .icon {
@@ -228,10 +240,11 @@ header {
 
 .question-block {
   background-color: white;
-  margin: $unit*2 0;
+  margin: $unit 0 $unit*2;
   border-left: $unit/2 solid $mdc-theme-blue;
   border-radius: $border-radius;
   .question {
+    border-radius: 0 $border-radius 0 0;
     padding: $unit $unit*2;
     margin: 0;
     .question-title,
@@ -242,6 +255,9 @@ header {
     .question-description {
       margin: $unit 0 0;
     }
+  }
+  .answer-block-freetext {
+    padding: $unit $unit*2;
   }
   .answer-block {
     padding: $unit $unit*2 $unit/2 $unit*1.25;
@@ -254,7 +270,8 @@ header {
 
 #checkup-section-1 {
   .checkup-section-header,
-  .question-block .question {
+  .question-block .question,
+  .cta .mdc-button {
     background-color: $mdc-theme-purple;
   }
   .question-block {
@@ -263,7 +280,8 @@ header {
 }
 #checkup-section-2 {
   .checkup-section-header,
-  .question-block .question {
+  .question-block .question,
+  .cta .mdc-button {
     background-color: $mdc-theme-lightblue;
   }
   .question-block {
@@ -272,7 +290,8 @@ header {
 }
 #checkup-section-3 {
   .checkup-section-header,
-  .question-block .question {
+  .question-block .question,
+  .cta .mdc-button {
     background-color: $mdc-theme-green;
   }
   .question-block {
@@ -281,7 +300,8 @@ header {
 }
 #checkup-section-4 {
   .checkup-section-header,
-  .question-block .question {
+  .question-block .question,
+  .cta .mdc-button {
     background-color: $mdc-theme-darkgreen;
   }
   .question-block {
@@ -290,7 +310,8 @@ header {
 }
 #checkup-section-5  {
   .checkup-section-header,
-  .question-block .question {
+  .question-block .question,
+  .cta .mdc-button {
     background-color: $mdc-theme-pink;
   }
   .question-block {
@@ -301,15 +322,16 @@ header {
 #checkup-details,
 #checkup-confirmation,
 #checkup-results {
-  .answer-block {
-    padding-top: 0;
-  }
+  // .answer-block {
+  //   padding-top: 0;
+  // }
   .checkup-section-header .mdc-typography--body1,
   .checkup-section-header .mdc-typography--body2,
-  .checkup-section-header .mdc-typography--headline3,
-  .question-block .question .question-title,
-  .question-block .question .question-description {
+  .checkup-section-header .mdc-typography--headline3 {
     color: inherit;
+  }
+  .question-block .question {
+    background-color: $mdc-theme-blue;
   }
 }
 

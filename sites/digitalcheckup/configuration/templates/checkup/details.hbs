@@ -1,4 +1,6 @@
-<div class="checkup-section b-padding-full" id="checkup-details">
+<form action="/checkup/confirmation" method="post" class="checkup-section b-padding-full" id="checkup-details">
+  {{> checkup_scores section=@root.request.body.score-section}}
+  <input type="hidden" name="score-section" value="details" />
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">
@@ -19,10 +21,54 @@
   </div>
   <div class="container-fluid">
     <div class="container-content">
-      Personal details
+      <div class="mdc-typography--body2">
+        * required information
+      </div>
+
+      <div class="question-block mdc-elevation--z3">
+        <div class="question">
+          <h2 class="mdc-typography--headline5 question-title">Personal details</h2>
+        </div>
+        <div class="mdc-layout-grid answer-block-freetext">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              Your name
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              Email address
+            </div>
+          </div>
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              Your organisation name
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              <div class="mdc-typography--body1">
+                Your email address will only be used to send you information regarding this survey. If you ask for additional support we will email you in the first instance. We will not share your information with any third parties unless you ask us to do so.<br />
+                You can read our <a href="/privacy" target="_blank">privacy notice</a> for more information.
+              </div>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+              <div class="mdc-typography--headline6">
+                Where is your organisation based?
+              </div>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              Country
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+              Postcode
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="cta b-padding-full">
-        <a href="/checkup/confirmation" class="mdc-button mdc-button--raised">Next section</a>
+        <button type="submit" class="mdc-button mdc-button--raised">Next section</button>
       </div>
     </div>
   </div>

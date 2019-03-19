@@ -474,35 +474,35 @@
       {
         "title": "Estimated annual turnover *",
         "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
-        "value": "turnover",
+        "value": "income_band",
         "type": "select-one",
         "options": [
           {
             "answer": "Below £100,000",
-            "value": "<100000"
+            "value": "100000"
           },
           {
             "answer": "£100,000 - £1m",
-            "value": "<1000000"
+            "value": "1000000"
           },
           {
             "answer": "£1m - £10m",
-            "value": "<10000000"
+            "value": "10000000"
           },
           {
             "answer": "Over £10m",
-            "value": ">10000001"
+            "value": "10000001"
           },
           {
             "answer": "Unknown / Prefer not to say",
-            "value": ""
+            "value": "0"
           }
         ]
       },
       {
         "title": "Choose your area of highest priority *",
         "description": "Which of the sections you have just completed is your highest or most immediate priority?",
-        "value": "priority",
+        "value": "topic",
         "type": "select-one",
         "options": [
           {

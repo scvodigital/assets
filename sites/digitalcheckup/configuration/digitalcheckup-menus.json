@@ -8,17 +8,17 @@
     {
       "label": "Take the checkup",
       "path": "/checkup",
-      "route": "^/checkup$"
+      "route": "^/checkup"
     },
     {
       "label": "Blog",
       "path": "/blog",
-      "route": "^/blog$"
+      "route": "^/blog"
     },
     {
       "label": "About",
       "path": "/about",
-      "route": "^/about$"
+      "route": "^/about"
     }
   ]
 }

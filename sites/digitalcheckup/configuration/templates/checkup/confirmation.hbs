@@ -1,6 +1,5 @@
 <form action="/checkup/results" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
   {{> checkup_scores section=@root.request.body.score-section}}
-  <input type="hidden" name="score-section" value="confirmation" />
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">
@@ -21,11 +20,28 @@
   </div>
   <div class="container-fluid">
     <div class="container-content">
-      Would you like additional support from the SCVO Digital team based on your responses? *
+      <div class="mdc-typography--body2">
+        * required information
+      </div>
+
+      {{#compare @root.request.body.country "===" "scotland" ~}}
+      <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{@root.request.body.section-1-score}}&s2={{@root.request.body.section-2-score}}&s3={{add @root.request.body.section-3-score @root.request.body.section-4-score}}&s4={{@root.request.body.section-5-score}}&overall={{add (add (add @root.request.body.section-1-score @root.request.body.section-2-score) (add @root.request.body.section-3-score @root.request.body.section-4-score)) @root.request.body.section-5-score}}&income_band={{@root.request.body.income_band}}&topic={{@root.request.body.topic}}&name={{@root.request.body.name}}&email={{@root.request.body.email}}&web_organisation={{@root.request.body.organisation}}&__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
+      {{else}}
+      <div class="question-block mdc-elevation--z3">
+        <div class="question">
+          <h2 class="mdc-typography--headline5 question-title">Would you like additional support from {{#switch @root.request.body.country}}{{#case "Scotland"}}the SCVO Digital team{{/case}}{{#case "England"}}a local infrastructure organisation{{/case}}{{#case "Wales"}}a local infrastructure organisation{{/case}}{{#case "Northern Ireland"}}a local infrastructure organisation{{/case}}{{/switch}} based on your responses? *</h2>
+          <div class="mdc-typography--body1 question-description">This could be funding, events, training and 1:1 support</div>
+        </div>
+        <ul class="answer-block">
+          <li class="answer">{{> components_radio_button label="Yes please - I'd like support to help put this into action" id="yes" name="support" value="yes"}}</li>
+          <li class="answer">{{> components_radio_button label="No thanks!" id="no" name="support" value="no"}}</li>
+        </ul>
+      </div>
 
       <div class="cta b-padding-full">
         <button type="submit" class="mdc-button mdc-button--raised">Submit</button>
       </div>
+      {{/compare ~}}
     </div>
   </div>
 </div>

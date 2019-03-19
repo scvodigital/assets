@@ -32,15 +32,33 @@
         <div class="mdc-layout-grid answer-block-freetext">
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-              Your name
+              <div class="mdc-text-field mdc-text-field--box mdc-ripple-upgraded" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="name" name="name" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
+                <label class="mdc-floating-label" for="name">
+                  Your name
+                </label>
+                <div class="mdc-line-ripple"></div>
+              </div>
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-              Email address
+              <div class="mdc-text-field mdc-text-field--box mdc-ripple-upgraded" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="email" name="email" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
+                <label class="mdc-floating-label" for="email">
+                  Email address
+                </label>
+                <div class="mdc-line-ripple"></div>
+              </div>
             </div>
           </div>
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-              Your organisation name
+              <div class="mdc-text-field mdc-text-field--box mdc-ripple-upgraded" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="organisation" name="organisation" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
+                <label class="mdc-floating-label" for="organisation">
+                  Your organisation name
+                </label>
+                <div class="mdc-line-ripple"></div>
+              </div>
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
               <div class="mdc-typography--body1">
@@ -51,17 +69,35 @@
           </div>
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-              <div class="mdc-typography--headline6">
+              <div class="mdc-typography--headline6 v-margin">
                 Where is your organisation based?
               </div>
             </div>
           </div>
           <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-              Country
+              <div class="mdc-select mdc-ripple-upgraded" data-mdc-auto-init="MDCSelect">
+                <span class="mdc-select__dropdown-icon"></span>
+                <select class="mdc-select__native-control" id="country" name="country">
+                  <option value="england" disabled="disabled">England</option>
+                  <option value="northern-ireland" disabled="disabled">Northern Ireland</option>
+                  <option value="scotland">Scotland</option>
+                  <option value="wales" disabled="disabled">Wales</option>
+                </select>
+                <label class="mdc-floating-label mdc-select__label--float-above mdc-floating-label--float-above" for="country">
+                  Country
+                </label>
+                <div class="mdc-line-ripple"></div>
+              </div>
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-              Postcode
+              <div class="mdc-text-field mdc-text-field--box mdc-ripple-upgraded" data-mdc-auto-init="MDCTextField">
+                <input type="text" id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
+                <label class="mdc-floating-label" for="postcode">
+                  Postcode
+                </label>
+                <div class="mdc-line-ripple"></div>
+              </div>
             </div>
           </div>
         </div>

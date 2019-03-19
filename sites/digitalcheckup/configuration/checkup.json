@@ -3,6 +3,7 @@
     "name": "Section 1",
     "title": "Leadership, culture, & skills",
     "description": "Digital isn’t a list of things to do. It’s about how you think, how you behave, what you value, and what drives decisions in your organisation.",
+    "icon": "leadership",
     "progress": 12,
     "questions": [
       {
@@ -90,6 +91,7 @@
     "name": "Section 2",
     "title": "Tools & equipment",
     "description": "Which digital tools are your charity making use of? With a host of online tools and platforms out there, it's never been easier to try new solutions",
+    "icon": "tools",
     "progress": 25,
     "questions": [
       {
@@ -201,6 +203,7 @@
     "name": "Section 3",
     "title": "Content & Marketing",
     "description": "Digital tools and approaches make it dramatically easier to reach thousands of people, and more importantly, to hear about their needs and priorities.",
+    "icon": "marketing",
     "progress": 37,
     "questions": [
       {
@@ -298,6 +301,7 @@
     "name": "Section 4",
     "title": "Data management",
     "description": "Using digital tools means charities can access large amounts of real-time data. But you need a strategic approach to make the most of it.",
+    "icon": "data",
     "progress": 50,
     "questions": [
       {
@@ -397,6 +401,7 @@
     "name": "Section 5",
     "title": "Cyber resilience & online threats",
     "description": "Putting more information online, and digitising transactions can mean you are more vulnerable to cyber attack. So cyber resilience is more important than ever.",
+    "icon": "cyber",
     "progress": 62,
     "questions": [
       {
@@ -453,6 +458,7 @@
   "section-6": {
     "name": "Section 6",
     "title": "Your organisation size and priorities",
+    "icon": "organisation",
     "progress": 75,
     "questions": [
       {
@@ -506,28 +512,6 @@
         ]
       }
     ],
-    "next_section": "confirmation"
-  },
-  "confirmation": {
-    "title": "Confirmation",
-    "progress": 87,
-    "questions": [
-      {
-        "title": "Would you like additional support from the SCVO Digital team based on your responses? *",
-        "description": "This could be funding, events, training and 1:1 support",
-        "type": "select-one",
-        "options": [
-          {
-            "answer": "Yes please - I'd like support to help put this into action",
-            "value": true
-          },
-          {
-            "answer": "No thanks!",
-            "value": false
-          }
-        ]
-      }
-    ],
-    "next_section": "results"
+    "next_section": "details"
   }
 }

@@ -83,12 +83,15 @@ a:focus {
 }
 
 header {
+  .container-fluid .mdc-top-app-bar__section--align-end {
+    padding-right: 0 !important;
+  }
   .mdc-top-app-bar__section--logo {
     a {
       color: $mdc-theme-blue;
       text-transform: uppercase;
-      font-size: 1.45rem;
-      letter-spacing: -0.05rem;
+      font-size: 1.85rem;
+      letter-spacing: -0.07rem;
       font-weight: 800;
       display: block;
       line-height: $header-height;
@@ -108,6 +111,7 @@ header {
     .mdc-tab {
       min-height: $header-height;
       height: $header-height;
+      padding: 0 $unit*1.5;
       .mdc-tab__text-label {
         line-height: $header-height - 17px;
         height: $header-height - 17px;
@@ -117,6 +121,9 @@ header {
         border-bottom-width: 5px;
         border-top-width: 12px;
       }
+    }
+    .mdc-tab:last-child {
+      padding-right: 0;
     }
     .mdc-tab--active .mdc-tab__text-label,
     .mdc-tab:hover .mdc-tab__text-label {

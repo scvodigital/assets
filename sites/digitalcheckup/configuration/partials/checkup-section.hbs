@@ -6,40 +6,53 @@
         {{#if progress ~}}
         {{> checkup_progress progress=progress}}
         {{/if ~}}
-        {{#if name ~}}
-        <div class="mdc-typography--body2">{{{name}}}</div>
-        {{/if ~}}
-        {{#if title ~}}
-        <h1 class="mdc-typography--headline3">{{{title}}}</h1>
-        {{/if ~}}
-        {{#if description ~}}
-        <div class="mdc-typography--body1">{{{description}}}</div>
-        {{/if ~}}
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              {{#ifAll icon title ~}}
+              <img src="/assets/images/icons/{{icon}}.png" title="{{title}}" class="icon" />
+              {{/ifAll ~}}
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              {{#if name ~}}
+              <div class="mdc-typography--body2">{{{name}}}</div>
+              {{/if ~}}
+              {{#if title ~}}
+              <h1 class="mdc-typography--headline3">{{{title}}}</h1>
+              {{/if ~}}
+              {{#if description ~}}
+              <div class="mdc-typography--body1">{{{description}}}</div>
+              {{/if ~}}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="container-fluid">
     <div class="container-content">
       {{#each questions ~}}
-      <div class="question">
-        {{#if title ~}}
-        <h2 class="mdc-typography--headline5">{{{title}}}</h2>
-        {{/if ~}}
-        {{#if description ~}}
-        <div class="mdc-typography--body1">{{{description}}}</div>
-        {{/if ~}}
+      <div class="question-block mdc-elevation--z3">
+        <div class="question">
+          {{#if title ~}}
+          <h2 class="mdc-typography--headline5 question-title">{{{title}}}</h2>
+          {{/if ~}}
+          {{#if description ~}}
+          <div class="mdc-typography--body1 question-description">{{{description}}}</div>
+          {{/if ~}}
+        </div>
         {{#ifAny (compare type "select-one") (compare type "select-many") ~}}
-        <ul>
+        <ul class="answer-block">
           {{#each options ~}}
           {{#switch ../type ~}}
           {{#case "select-one" ~}}
           {{#if answer ~}}
-          <li>* {{{answer}}}</li>
+          <li class="answer">{{> components_radio_button label=answer id=(slugify answer) name=(slugify ../title)}}</li>
           {{/if ~}}
           {{/case ~}}
           {{#case "select-many" ~}}
           {{#if answer ~}}
-          <li>[ ] {{{answer}}}</li>
+          <li class="answer">{{> components_checkbox label=answer id=(slugify answer) name=(slugify ../title)}}</li>
           {{/if ~}}
           {{/case ~}}
           {{/switch ~}}
@@ -48,7 +61,7 @@
         {{/ifAny ~}}
       </div>
       {{/each ~}}
-      <div class="cta v-padding-full">
+      <div class="cta b-padding-full">
         <a href="/checkup/{{next_section}}" class="mdc-button mdc-button--raised">Next section</a>
       </div>
     </div>

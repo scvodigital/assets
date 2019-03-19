@@ -1,8 +1,10 @@
 $mdc-theme-orange: #D4431F;
 $mdc-theme-purple: #754AA5;
 $mdc-theme-green: #588223;
+$mdc-theme-darkgreen: #6B7D23;
 $mdc-theme-pink: #D21262;
 $mdc-theme-blue: #1377CD;
+$mdc-theme-lightblue: #107FA6;
 $mdc-theme-darkgrey: #2A2A2A;
 $mdc-theme-mediumgrey: #585858;
 $mdc-theme-lightgrey: #F6F6F6;
@@ -17,6 +19,7 @@ $mdc-theme-footer-dark: #263238; // Blue Gray 900
 
 $unit: 1rem;
 $header-height: 84px;
+$border-radius: $unit/5;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import "./lib/common-styles.scss";
@@ -44,6 +47,13 @@ body {
 }
 .main-body {
   background-color: $mdc-theme-lightgrey;
+}
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: $mdc-theme-primary;
 }
 
 .mdc-toolbar-fixed-adjust {
@@ -126,19 +136,31 @@ header {
     background-repeat: repeat-x;
     background-position: center center;
   }
-  .cta {
-    .mdc-button {
-      height: $header-height / 2;
-      text-transform: uppercase;
+  .trapezoid {
+    padding: $unit 0;
+    margin: 0 $unit*2 $unit;
+    .icon {
+      max-width: 50%;
     }
+  }
+  .leadership.trapezoid {
+    background-color: $mdc-theme-purple;
+  }
+  .tools.trapezoid {
+    background-color: $mdc-theme-lightblue;
+  }
+  .content.trapezoid {
+    background-color: $mdc-theme-green;
+  }
+  .cyber.trapezoid {
+    background-color: $mdc-theme-pink;
   }
 }
 
 .container-home-pull {
   background-color: $mdc-theme-darkgrey;
-  color: white;
   .mdc-typography--body1,
-  .mdc-typography--headline4 {
+  .mdc-typography--headline5 {
     color: white;
   }
 }
@@ -146,31 +168,50 @@ header {
   text-align: center;
 }
 
+.cta {
+  .mdc-button {
+    height: $header-height / 2;
+    text-transform: uppercase;
+  }
+}
+
+.trapezoid {
+  transform: skew(-10deg,0deg);
+  .trapezoid-content {
+    transform: skew(10deg,0deg);
+  }
+}
+
 .checkup-section-header {
   margin-top: $unit*4;
-  padding: $unit*3 0 $unit*2;
+  padding: 0 0 $unit*2;
   .progress-bar {
-    transform: skew(-10deg,0deg);
-    position: absolute;
+    position: relative;
     width: 100%;
+    border-radius: $border-radius;
     // background-image: url('/assets/images/dot.png');
     background-repeat: repeat-x;
     background-position: center center;
     background-color: #E2E4E5;
     border: $unit/5 solid white;
-    top: -4.55rem;
+    border-top-width: $unit/5;
+    border-right-width: $unit/4;
+    border-bottom-width: $unit/5;
+    border-left-width: $unit/4;
+    top: -1.5rem;
     height: $unit*2.5;
     line-height: $unit*2.5;
     padding: 0;
     .progress-label {
+      border-radius: $border-radius 0 0 $border-radius;
       background-color: $mdc-theme-blue;
       color: white;
       font-size: 0.95rem;
       text-align: center;
-      .progress-label-text {
-        transform: skew(10deg,0deg);
-      }
     }
+  }
+  .icon {
+    max-width: 85%;
   }
   .mdc-typography--body1,
   .mdc-typography--body2,
@@ -184,26 +225,90 @@ header {
     margin: $unit/4 0 !important;
   }
 }
-#checkup-section-1 .checkup-section-header {
-  background-color: $mdc-theme-purple;
+
+.question-block {
+  background-color: white;
+  margin: $unit*2 0;
+  border-left: $unit/2 solid $mdc-theme-blue;
+  border-radius: $border-radius;
+  .question {
+    padding: $unit $unit*2;
+    margin: 0;
+    .question-title,
+    .question-description {
+      color: white;
+      margin: 0;
+    }
+    .question-description {
+      margin: $unit 0 0;
+    }
+  }
+  .answer-block {
+    padding: $unit $unit*2 $unit/2 $unit*1.25;
+    margin: 0;
+    .answer {
+      list-style-type: none;
+    }
+  }
 }
-#checkup-section-2 .checkup-section-header {
-  background-color: $mdc-theme-blue;
+
+#checkup-section-1 {
+  .checkup-section-header,
+  .question-block .question {
+    background-color: $mdc-theme-purple;
+  }
+  .question-block {
+    border-left-color: $mdc-theme-purple;
+  }
 }
-#checkup-section-3 .checkup-section-header {
-  background-color: $mdc-theme-green;
+#checkup-section-2 {
+  .checkup-section-header,
+  .question-block .question {
+    background-color: $mdc-theme-lightblue;
+  }
+  .question-block {
+    border-left-color: $mdc-theme-lightblue;
+  }
 }
-#checkup-section-4 .checkup-section-header {
-  background-color: $mdc-theme-green;
+#checkup-section-3 {
+  .checkup-section-header,
+  .question-block .question {
+    background-color: $mdc-theme-green;
+  }
+  .question-block {
+    border-left-color: $mdc-theme-green;
+  }
 }
-#checkup-section-5 .checkup-section-header {
-  background-color: $mdc-theme-pink;
+#checkup-section-4 {
+  .checkup-section-header,
+  .question-block .question {
+    background-color: $mdc-theme-darkgreen;
+  }
+  .question-block {
+    border-left-color: $mdc-theme-darkgreen;
+  }
 }
-#checkup-confirmation .checkup-section-header,
-#checkup-section-6 .checkup-section-header {
-  .mdc-typography--body1,
-  .mdc-typography--body2,
-  .mdc-typography--headline3 {
+#checkup-section-5  {
+  .checkup-section-header,
+  .question-block .question {
+    background-color: $mdc-theme-pink;
+  }
+  .question-block {
+    border-left-color: $mdc-theme-pink;
+  }
+}
+#checkup-section-6,
+#checkup-details,
+#checkup-confirmation,
+#checkup-results {
+  .answer-block {
+    padding-top: 0;
+  }
+  .checkup-section-header .mdc-typography--body1,
+  .checkup-section-header .mdc-typography--body2,
+  .checkup-section-header .mdc-typography--headline3,
+  .question-block .question .question-title,
+  .question-block .question .question-description {
     color: inherit;
   }
 }

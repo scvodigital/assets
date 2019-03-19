@@ -204,6 +204,8 @@ header {
   padding: 0 0 $unit;
   .progress-bar {
     position: relative;
+    top: -1.5rem;
+    left: -.2rem;
     width: 100%;
     border-radius: $border-radius;
     // background-image: url('/assets/images/dots.png');
@@ -215,7 +217,6 @@ header {
     border-right-width: $unit/4;
     border-bottom-width: $unit/5;
     border-left-width: $unit/4;
-    top: -1.5rem;
     height: $unit*2.5;
     line-height: $unit*2.5;
     padding: 0;

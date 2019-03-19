@@ -29,3 +29,6 @@
 {{/if ~}}
 {{/compare ~}}
 {{/if ~}}
+{{#if @root.request.body.web_organisation ~}}
+<input type="hidden" name="web_organisation" value="{{@root.request.body.web_organisation}}" />
+{{/if ~}}

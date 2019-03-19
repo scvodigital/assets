@@ -9,7 +9,7 @@ $mdc-theme-darkgrey: #2A2A2A;
 $mdc-theme-mediumgrey: #585858;
 $mdc-theme-lightgrey: #F6F6F6;
 
-$mdc-theme-primary: $mdc-theme-orange;
+$mdc-theme-primary: $mdc-theme-blue;
 $mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 $mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
 
@@ -57,7 +57,7 @@ a:visited,
 a:hover,
 a:active,
 a:focus {
-  color: $mdc-theme-primary;
+  color: $mdc-theme-orange;
 }
 
 .mdc-toolbar-fixed-adjust {

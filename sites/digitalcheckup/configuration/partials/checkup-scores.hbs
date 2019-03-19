@@ -18,14 +18,14 @@
 <input type="hidden" name="{{section}}-score" value="{{add (sumArray (arrayify @root.request.body.scores)) (sumArray (arrayify @root.request.body.scores-q1)) (sumArray (arrayify @root.request.body.scores-q2)) (sumArray (arrayify @root.request.body.scores-q3)) (sumArray (arrayify @root.request.body.scores-q4)) (sumArray (arrayify @root.request.body.scores-q5))}}" />
 {{/ifAny ~}}
 {{#compare section "section-6" ~}}
-<input type="hidden" name="turnover" value="{{@root.request.body.scores-turnover}}" />
-<input type="hidden" name="priority" value="{{@root.request.body.scores-priority}}" />
+<input type="hidden" name="income_band" value="{{@root.request.body.scores-income_band}}" />
+<input type="hidden" name="topic" value="{{@root.request.body.scores-topic}}" />
 {{else}}
-{{#if @root.request.body.turnover ~}}
-<input type="hidden" name="turnover" value="{{@root.request.body.turnover}}" />
+{{#if @root.request.body.income_band ~}}
+<input type="hidden" name="income_band" value="{{@root.request.body.income_band}}" />
 {{/if ~}}
-{{#if @root.request.body.priority ~}}
-<input type="hidden" name="priority" value="{{@root.request.body.priority}}" />
+{{#if @root.request.body.topic ~}}
+<input type="hidden" name="topic" value="{{@root.request.body.topic}}" />
 {{/if ~}}
 {{/compare ~}}
 {{/if ~}}

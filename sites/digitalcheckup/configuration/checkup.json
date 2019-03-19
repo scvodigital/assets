@@ -474,7 +474,7 @@
       {
         "title": "Estimated annual turnover *",
         "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
-        "value": "turnover",
+        "value": "income_band",
         "type": "select-one",
         "options": [
           {
@@ -502,7 +502,7 @@
       {
         "title": "Choose your area of highest priority *",
         "description": "Which of the sections you have just completed is your highest or most immediate priority?",
-        "value": "priority",
+        "value": "topic",
         "type": "select-one",
         "options": [
           {

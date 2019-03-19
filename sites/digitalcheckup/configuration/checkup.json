@@ -479,23 +479,23 @@
         "options": [
           {
             "answer": "Below £100,000",
-            "value": "<100000"
+            "value": "100000"
           },
           {
             "answer": "£100,000 - £1m",
-            "value": "<1000000"
+            "value": "1000000"
           },
           {
             "answer": "£1m - £10m",
-            "value": "<10000000"
+            "value": "10000000"
           },
           {
             "answer": "Over £10m",
-            "value": ">10000001"
+            "value": "10000001"
           },
           {
             "answer": "Unknown / Prefer not to say",
-            "value": ""
+            "value": "0"
           }
         ]
       },

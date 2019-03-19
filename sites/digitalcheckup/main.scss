@@ -13,6 +13,10 @@ $mdc-theme-primary: $mdc-theme-orange;
 $mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 $mdc-theme-primary-light: lighten($mdc-theme-primary, 15%);
 
+$mdc-theme-secondary: $mdc-theme-blue;
+$mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
+$mdc-theme-secondary-light: lighten($mdc-theme-secondary, 15%);
+
 $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
@@ -189,9 +193,9 @@ header {
     position: relative;
     width: 100%;
     border-radius: $border-radius;
-    // background-image: url('/assets/images/dot.png');
-    background-repeat: repeat-x;
-    background-position: center center;
+    // background-image: url('/assets/images/dots.png');
+    // background-repeat: no-repeat;
+    // background-position: center center;
     background-color: #E2E4E5;
     border: $unit/5 solid white;
     border-top-width: $unit/5;

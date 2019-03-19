@@ -1,4 +1,6 @@
-<div class="checkup-section b-padding-full" id="checkup-details">
+<form action="/checkup/confirmation" method="post" class="checkup-section b-padding-full" id="checkup-details">
+  {{> checkup_scores section=@root.request.body.score-section}}
+  <input type="hidden" name="score-section" value="details" />
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">
@@ -22,7 +24,7 @@
       Personal details
 
       <div class="cta b-padding-full">
-        <a href="/checkup/confirmation" class="mdc-button mdc-button--raised">Next section</a>
+        <button type="submit" class="mdc-button mdc-button--raised">Next section</button>
       </div>
     </div>
   </div>

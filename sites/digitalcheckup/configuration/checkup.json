@@ -8,6 +8,7 @@
     "questions": [
       {
         "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world?",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -64,6 +65,7 @@
       },
       {
         "title": "How well do you understand the digital skills of your staff and/or volunteers?",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
@@ -150,6 +152,7 @@
       },
       {
         "title": "Do you find your IT provision (technical support, hardware setup, internet access) to be...",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -172,6 +175,7 @@
       },
       {
         "title": "Roughly what percentage of your income/fundraising is paid in using online payments as opposed to offline transactions?",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
@@ -306,6 +310,7 @@
     "questions": [
       {
         "title": "Data collection",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -324,6 +329,7 @@
       },
       {
         "title": "Decision making",
+        "value": "q2",
         "type": "select-one",
         "options": [
           {
@@ -342,6 +348,7 @@
       },
       {
         "title": "Data storage",
+        "value": "q3",
         "type": "select-one",
         "options": [
           {
@@ -360,6 +367,7 @@
       },
       {
         "title": "Risk management",
+        "value": "q4",
         "type": "select-one",
         "options": [
           {
@@ -378,6 +386,7 @@
       },
       {
         "title": "GDPR - General Data Protection Regulation",
+        "value": "q5",
         "type": "select-one",
         "options": [
           {
@@ -406,6 +415,7 @@
     "questions": [
       {
         "title": "Which statement best describes your organisation's approach to Cyber Security?",
+        "value": "q1",
         "type": "select-one",
         "options": [
           {
@@ -464,6 +474,7 @@
       {
         "title": "Estimated annual turnover *",
         "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
+        "value": "turnover",
         "type": "select-one",
         "options": [
           {
@@ -491,6 +502,7 @@
       {
         "title": "Choose your area of highest priority *",
         "description": "Which of the sections you have just completed is your highest or most immediate priority?",
+        "value": "priority",
         "type": "select-one",
         "options": [
           {

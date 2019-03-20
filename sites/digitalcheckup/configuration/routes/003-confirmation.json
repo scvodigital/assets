@@ -7,27 +7,20 @@
   },
   "tasks": [
     {
-      "name": "destination",
-      "taskModule": "renderLayout",
+      "name": "generate_url",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
-        "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.checkup_confirmation",
-              "foot": ""
-            },
-            "contentType": "text/html"
-          }
-        }
+        "output": "data",
+        "template": "/checkup/confirmation-{{#compare request.body.country 'scotland'}}scotland{{else}}ruk{{/compare}}?s1={{@root.request.body.section-1-score}}&s2={{@root.request.body.section-2-score}}&s3={{add @root.request.body.section-3-score @root.request.body.section-4-score}}&s4={{@root.request.body.section-5-score}}&overall={{add (add (add @root.request.body.section-1-score @root.request.body.section-2-score) (add @root.request.body.section-3-score @root.request.body.section-4-score)) @root.request.body.section-5-score}}&income_band={{@root.request.body.income_band}}&topic={{@root.request.body.topic}}&name={{@root.request.body.name}}&email={{@root.request.body.email}}&web_organisation={{@root.request.body.web_organisation}}&country={{@root.request.body.country}}&postcode={{@root.request.body.postcode}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": ">data.generate_url",
+        "statusCode": 302
       }
     }
   ]

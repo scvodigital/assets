@@ -15,7 +15,7 @@
 <input type="hidden" name="section-5-score" value="{{@root.request.body.section-5-score}}" />
 {{/if ~}}
 {{#ifAny @root.request.body.scores @root.request.body.scores-q1 ~}}
-<input type="hidden" name="{{section}}-score" value="{{add (sumArray (arrayify @root.request.body.scores)) (sumArray (arrayify @root.request.body.scores-q1)) (sumArray (arrayify @root.request.body.scores-q2)) (sumArray (arrayify @root.request.body.scores-q3)) (sumArray (arrayify @root.request.body.scores-q4)) (sumArray (arrayify @root.request.body.scores-q5))}}" />
+<input type="text" name="{{section}}-score" value="{{add (add (add (sumArray (arrayify @root.request.body.scores)) (sumArray (arrayify @root.request.body.scores-q1))) (add (sumArray (arrayify @root.request.body.scores-q2)) (sumArray (arrayify @root.request.body.scores-q3)))) (add (sumArray (arrayify @root.request.body.scores-q4)) (sumArray (arrayify @root.request.body.scores-q5)))}}" />
 {{/ifAny ~}}
 {{#compare section "section-6" ~}}
 <input type="hidden" name="income_band" value="{{@root.request.body.scores-income_band}}" />
@@ -28,7 +28,4 @@
 <input type="hidden" name="topic" value="{{@root.request.body.topic}}" />
 {{/if ~}}
 {{/compare ~}}
-{{/if ~}}
-{{#if @root.request.body.web_organisation ~}}
-<input type="hidden" name="web_organisation" value="{{@root.request.body.web_organisation}}" />
 {{/if ~}}

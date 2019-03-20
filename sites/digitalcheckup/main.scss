@@ -83,12 +83,15 @@ a:focus {
 }
 
 header {
+  .container-fluid .mdc-top-app-bar__section--align-end {
+    padding-right: 0 !important;
+  }
   .mdc-top-app-bar__section--logo {
     a {
       color: $mdc-theme-blue;
       text-transform: uppercase;
-      font-size: 1.45rem;
-      letter-spacing: -0.05rem;
+      font-size: 1.85rem;
+      letter-spacing: -0.07rem;
       font-weight: 800;
       display: block;
       line-height: $header-height;
@@ -108,6 +111,7 @@ header {
     .mdc-tab {
       min-height: $header-height;
       height: $header-height;
+      padding: 0 $unit*1.5;
       .mdc-tab__text-label {
         line-height: $header-height - 17px;
         height: $header-height - 17px;
@@ -118,6 +122,9 @@ header {
         border-top-width: 12px;
       }
     }
+    .mdc-tab:last-child {
+      padding-right: 0;
+    }
     .mdc-tab--active .mdc-tab__text-label,
     .mdc-tab:hover .mdc-tab__text-label {
       border-bottom-color: $mdc-theme-mediumgrey;
@@ -125,12 +132,20 @@ header {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+.score,
 .mdc-typography--headline3,
 .mdc-typography--headline4,
 .mdc-typography--headline5,
 .mdc-typography--headline6 {
   color: $mdc-theme-mediumgrey;
-  font-weight: 100;
+  font-weight: 600;
+}
+.mdc-typography--headline6 {
+  font-weight: 400;
 }
 
 .cta {
@@ -138,6 +153,7 @@ header {
     background-color: $mdc-theme-blue;
     height: $header-height / 2;
     text-transform: uppercase;
+    padding: 0 $unit*1.33;
   }
 }
 
@@ -197,6 +213,8 @@ header {
   padding: 0 0 $unit;
   .progress-bar {
     position: relative;
+    top: -1.5rem;
+    left: -.2rem;
     width: 100%;
     border-radius: $border-radius;
     // background-image: url('/assets/images/dots.png');
@@ -208,7 +226,6 @@ header {
     border-right-width: $unit/4;
     border-bottom-width: $unit/5;
     border-left-width: $unit/4;
-    top: -1.5rem;
     height: $unit*2.5;
     line-height: $unit*2.5;
     padding: 0;
@@ -256,6 +273,7 @@ header {
       margin: $unit 0 0;
     }
   }
+  .results-block,
   .answer-block-freetext {
     padding: $unit $unit*2;
   }
@@ -328,10 +346,17 @@ header {
   .checkup-section-header .mdc-typography--body1,
   .checkup-section-header .mdc-typography--body2,
   .checkup-section-header .mdc-typography--headline3 {
-    color: inherit;
+    color: $mdc-theme-mediumgrey;
   }
   .question-block .question {
     background-color: $mdc-theme-blue;
+  }
+}
+
+.result {
+  .score {
+    font-size: 4rem;
+    font-weight: 400;
   }
 }
 

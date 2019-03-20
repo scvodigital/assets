@@ -1,6 +1,6 @@
 {
-  "name": "checkup_results",
-  "pattern": "/checkup/results",
+  "name": "checkup_confirmation_ruk",
+  "pattern": "/checkup/confirmation-ruk",
   "debug": true,
   "metaData": {
     "title": "Digital Checkup"
@@ -22,7 +22,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.checkup_results",
+              "body": ">context.metaData.handlebars.templates.checkup_confirmation-ruk",
               "foot": ""
             },
             "contentType": "text/html"

@@ -132,12 +132,20 @@ header {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+.score,
 .mdc-typography--headline3,
 .mdc-typography--headline4,
 .mdc-typography--headline5,
 .mdc-typography--headline6 {
   color: $mdc-theme-mediumgrey;
-  font-weight: 100;
+  font-weight: 600;
+}
+.mdc-typography--headline6 {
+  font-weight: 400;
 }
 
 .cta {
@@ -145,6 +153,7 @@ header {
     background-color: $mdc-theme-blue;
     height: $header-height / 2;
     text-transform: uppercase;
+    padding: 0 $unit*1.33;
   }
 }
 
@@ -337,7 +346,7 @@ header {
   .checkup-section-header .mdc-typography--body1,
   .checkup-section-header .mdc-typography--body2,
   .checkup-section-header .mdc-typography--headline3 {
-    color: inherit;
+    color: $mdc-theme-mediumgrey;
   }
   .question-block .question {
     background-color: $mdc-theme-blue;

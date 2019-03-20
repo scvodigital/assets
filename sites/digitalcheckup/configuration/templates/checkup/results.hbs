@@ -186,7 +186,7 @@
         The area that you selected as your highest priority was cyber resilience and online threats
       </h3>
       <p>
-        You scored {{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
+        You scored {{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
       </p>
       <h4>Board level responsibility</h4>
       <p>
@@ -594,7 +594,7 @@ var data = [
     },
     {
       axis:"Cyber",
-      value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}/100
+      value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}/100
     }
   ]
 ];

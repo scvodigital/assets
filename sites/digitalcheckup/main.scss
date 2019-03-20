@@ -264,6 +264,7 @@ header {
       margin: $unit 0 0;
     }
   }
+  .results-block,
   .answer-block-freetext {
     padding: $unit $unit*2;
   }
@@ -340,6 +341,13 @@ header {
   }
   .question-block .question {
     background-color: $mdc-theme-blue;
+  }
+}
+
+.result {
+  .score {
+    font-size: 4rem;
+    font-weight: 400;
   }
 }
 

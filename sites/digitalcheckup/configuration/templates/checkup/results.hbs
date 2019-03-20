@@ -162,15 +162,25 @@
 
   {{#if @root.request.params.query.topic ~}}
   {{#compare @root.request.params.query.topic "===" "leadership" ~}}
-  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
     <div class="container-fluid">
       <div class="container-content">
-        <h3>
-          The area that you selected as your highest priority was leadership, culture, and skills
-        </h3>
-        <p>
-          You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
-        </p>
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url='images/icons/leadership.png'~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Leaderhip & culture
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -201,15 +211,25 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "tools" ~}}
-  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
     <div class="container-fluid">
       <div class="container-content">
-        <h3>
-          The area that you selected as your highest priority was ICT (tools and equipment)
-        </h3>
-        <p>
-          You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
-        </p>
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url='images/icons/tools.png'~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Tools & equipment
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -230,15 +250,25 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "data" ~}}
-  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
     <div class="container-fluid">
       <div class="container-content">
-        <h3>
-          The area that you selected as your highest priority was content, marketing, and data
-        </h3>
-        <p>
-          You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
-        </p>
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url='images/icons/content.png'~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Content, marketing & data
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -291,15 +321,25 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "cyber" ~}}
-  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
     <div class="container-fluid">
       <div class="container-content">
-        <h3>
-          The area that you selected as your highest priority was cyber resilience and online threats
-        </h3>
-        <p>
-          You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
-        </p>
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url='images/icons/cyber.png'~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Cyber security
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -559,42 +599,42 @@ function RadarChart(id, data, options) {
   //////// Append invisible circles for tooltip ///////////
   /////////////////////////////////////////////////////////
 
-  //Wrapper for the invisible circles on top
-  var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
-  .data(data)
-  .enter().append("g")
-  .attr("class", "radarCircleWrapper");
-
-  //Append a set of invisible circles on top for the mouseover pop-up
-  blobCircleWrapper.selectAll(".radarInvisibleCircle")
-  .data(function(d,i) { return d; })
-  .enter().append("circle")
-  .attr("class", "radarInvisibleCircle")
-  .attr("r", cfg.dotRadius*1.5)
-  .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
-  .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-  .style("fill", "none")
-  .style("pointer-events", "all")
-  .on("mouseover", function(d,i) {
-    newX =  parseFloat(d3.select(this).attr('cx')) - 14;
-    newY =  parseFloat(d3.select(this).attr('cy')) - 18;
-
-    tooltip
-    .attr('x', newX)
-    .attr('y', newY)
-    .text(Format(d.value))
-    .transition().duration(200)
-    .style('opacity', 1);
-  })
-  .on("mouseout", function(){
-    tooltip.transition().duration(200)
-    .style("opacity", 0);
-  });
-
-  //Set up the small tooltip for when you hover over a circle
-  var tooltip = g.append("text")
-  .attr("class", "tooltip")
-  .style("opacity", 0);
+  // //Wrapper for the invisible circles on top
+  // var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
+  // .data(data)
+  // .enter().append("g")
+  // .attr("class", "radarCircleWrapper");
+  //
+  // //Append a set of invisible circles on top for the mouseover pop-up
+  // blobCircleWrapper.selectAll(".radarInvisibleCircle")
+  // .data(function(d,i) { return d; })
+  // .enter().append("circle")
+  // .attr("class", "radarInvisibleCircle")
+  // .attr("r", cfg.dotRadius*1.5)
+  // .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+  // .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+  // .style("fill", "none")
+  // .style("pointer-events", "all")
+  // .on("mouseover", function(d,i) {
+  //   newX =  parseFloat(d3.select(this).attr('cx')) - 14;
+  //   newY =  parseFloat(d3.select(this).attr('cy')) - 18;
+  //
+  //   tooltip
+  //   .attr('x', newX)
+  //   .attr('y', newY)
+  //   .text(Format(d.value))
+  //   .transition().duration(200)
+  //   .style('opacity', 1);
+  // })
+  // .on("mouseout", function(){
+  //   tooltip.transition().duration(200)
+  //   .style("opacity", 0);
+  // });
+  //
+  // //Set up the small tooltip for when you hover over a circle
+  // var tooltip = g.append("text")
+  // .attr("class", "tooltip")
+  // .style("opacity", 0);
 
   /////////////////////////////////////////////////////////
   /////////////////// Helper Function /////////////////////

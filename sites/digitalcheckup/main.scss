@@ -144,8 +144,21 @@ h4,
   color: $mdc-theme-mediumgrey;
   font-weight: 600;
 }
+.score-respondent {
+  color: $mdc-theme-blue !important;
+}
 .mdc-typography--headline6 {
   font-weight: 400;
+}
+.scores.mdc-typography--caption {
+  display: block;
+  margin: $unit*(2/3) 0 $unit*1.5;
+  .score {
+    font-size: 1.75rem;
+    font-weight: 400;
+    padding-right: $unit;
+    color: lighten($mdc-theme-mediumgrey, 25%);
+  }
 }
 
 .cta {

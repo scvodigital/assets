@@ -1,4 +1,25 @@
-{{#*inline "to_percentage"}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{/inline}}
+{{~#*inline "to_percentage"~}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{~/inline~}}
+
+{{~#*inline "score_respondent_overall"~}}{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s1"~}}{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s2"~}}{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s3"~}}{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s4"~}}{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}{{~/inline~}}
+
+{{~#*inline "score_average_overall"~}}{{~#compare @root.request.params.query.income_band "===" "0"~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets~}}{{~#compare this.key "===" @root.request.params.query.income_band~}}{{round this.total_stats.avg "up"}}{{~/compare~}}{{~/each~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s1"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.leadership_culture_and_skills_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s2"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.tools_and_equipment_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s3"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.content_marketing_and_data_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s4"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.cyber_resilience_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
 <div class="checkup-section b-padding-full" id="checkup-results">
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
@@ -24,8 +45,8 @@
                 <div class="mdc-typography--headline6">
                   Your overall score
                 </div>
-                <div class="score">
-                  {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}%
+                <div class="score score-respondent">
+                  {{> score_respondent_overall}}%
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone result result-average">
@@ -33,12 +54,10 @@
                   Average score
                 </div>
                 <div class="score">
-                  {{#compare @root.request.params.query.income_band "===" "0" ~}}
-                  {{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}%
-                  {{else}}
+                  {{> score_average_overall}}%
+                  {{#compare @root.request.params.query.income_band "!==" "0" ~}}
                   {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                   {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                  {{round this.total_stats.avg "up"}}%
                   <span class="mdc-typography--body2">
                     (compared with {{this.doc_count}} organisations in the same income bracket)
                   </span>
@@ -62,6 +81,51 @@
                     <li class="key-your">Your scores</li>
                     <li class="key-average">Average scores</li>
                   </ul>
+
+                  <div class="mdc-typography--body1">
+                    Leadership, culture and skills
+                    <div class="scores mdc-typography--caption">
+                      <span class="score score-respondent">
+                        {{> score_respondent_s1}}%
+                      </span>
+                      <span class="score">
+                        {{> score_average_s1}}%
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mdc-typography--body1">
+                    Tools and equipment
+                    <div class="scores mdc-typography--caption">
+                      <span class="score score-respondent">
+                        {{> score_respondent_s2}}%
+                      </span>
+                      <span class="score">
+                        {{> score_average_s2}}%
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mdc-typography--body1">
+                    Content, marketing and data
+                    <div class="scores mdc-typography--caption">
+                      <span class="score score-respondent">
+                        {{> score_respondent_s3}}%
+                      </span>
+                      <span class="score">
+                        {{> score_average_s3}}%
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mdc-typography--body1">
+                    Cyber resilience
+                    <div class="scores mdc-typography--caption">
+                      <span class="score score-respondent">
+                        {{> score_respondent_s4}}%
+                      </span>
+                      <span class="score">
+                        {{> score_average_s4}}%
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -83,8 +147,11 @@
       <h3>
         The area that you selected as your highest priority was leadership, culture, and skills
       </h3>
+
+    </span>
+    <span class="score">
       <p>
-        You scored {{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
+        You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
       </p>
       <p>
         "Digitally mature" organisations are those who recognise the value of digital technology and embedded it throughout their organisation, including; their overall strategy, their board of trustees; a digitally engaged leadership team and a digitally confident staff team.
@@ -114,7 +181,7 @@
         The area that you selected as your highest priority was ICT (tools and equipment)
       </h3>
       <p>
-        You scored {{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
+        You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
       </p>
       <p>
         IT tools and systems are a key part of digital change. Ideally you want them to be a positive enabler rather than a barrier. If your tools and systems are making you say 'no' to new ways of working, you may be using the wrong tools. Cloud based services and open standards mean that many more solutions are available at low or no cost. A great starting point is the <a href="https://charitycatalogue.com/">Charity Catalogue</a> which lists helpful tools and platforms suitable for charities of all sizes.
@@ -134,7 +201,7 @@
         The area that you selected as your highest priority was content, marketing, and data
       </h3>
       <p>
-        You scored {{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
+        You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
       </p>
       <p>
         This section focuses on three elements; how you understand your audiences, how you communicate with your audiences, and the management of the data you collect.
@@ -186,7 +253,7 @@
         The area that you selected as your highest priority was cyber resilience and online threats
       </h3>
       <p>
-        You scored {{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
+        You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
       </p>
       <h4>Board level responsibility</h4>
       <p>
@@ -528,73 +595,46 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 var data = [
   [//Average scores
-    {{#compare @root.request.params.query.income_band "===" "0" ~}}
     {
       axis:"Overall",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}/100
+      value:{{> score_average_overall}}/100
     },
     {
       axis:"Leadership",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}/100
+      value:{{> score_average_s1}}/100
     },
     {
       axis:"Tools",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}/100
+      value:{{> score_average_s2}}/100
     },
     {
       axis:"Data",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}/100
+      value:{{> score_average_s3}}/100
     },
     {
       axis:"Cyber",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}/100
+      value:{{> score_average_s4}}/100
     }
-    {{else}}
-    {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-    {{#compare this.key "===" @root.request.params.query.income_band ~}}
-    {
-      axis:"Overall",
-      value:{{round this.total_stats.avg "up"}}/100
-    },
-    {
-      axis:"Leadership",
-      value:{{round this.leadership_culture_and_skills_stats.avg "up"}}/100
-    },
-    {
-      axis:"Tools",
-      value:{{round this.tools_and_equipment_stats.avg "up"}}/100
-    },
-    {
-      axis:"Data",
-      value:{{round this.content_marketing_and_data_stats.avg "up"}}/100
-    },
-    {
-      axis:"Cyber",
-      value:{{round this.cyber_resilience_stats.avg "up"}}/100
-    }
-    {{/compare ~}}
-    {{/each ~}}
-    {{/compare ~}}
   ],[//Your scores
     {
       axis:"Overall",
-      value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}/100
+      value:{{> score_respondent_overall}}/100
     },
     {
       axis:"Leadership",
-      value:{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}/100
+      value:{{> score_respondent_s1}}/100
     },
     {
       axis:"Tools",
-      value:{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}/100
+      value:{{> score_respondent_s2}}/100
     },
     {
       axis:"Data",
-      value:{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}/100
+      value:{{> score_respondent_s3}}/100
     },
     {
       axis:"Cyber",
-      value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}/100
+      value:{{> score_respondent_s4}}/100
     }
   ]
 ];

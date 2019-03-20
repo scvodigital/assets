@@ -2,7 +2,7 @@
   "section-1": {
     "name": "Section 1",
     "title": "Leadership, culture, & skills",
-    "description": "Digital isn't a list of things to do. It's about how you think, how you behave, what you value, and what drives decisions in your organisation.",
+    "description": "Digital isn't a list of things to do. It's about how you think, how you behave, what you value, and what drives decisions in your organisation",
     "icon": "leadership",
     "progress": 12,
     "questions": [
@@ -206,7 +206,7 @@
   "section-3": {
     "name": "Section 3",
     "title": "Content & Marketing",
-    "description": "Digital tools and approaches make it dramatically easier to reach thousands of people, and more importantly, to hear about their needs and priorities.",
+    "description": "Digital tools and approaches make it dramatically easier to reach thousands of people, and more importantly, to hear about their needs and priorities",
     "icon": "marketing",
     "progress": 37,
     "questions": [
@@ -304,7 +304,7 @@
   "section-4": {
     "name": "Section 4",
     "title": "Data management",
-    "description": "Using digital tools means charities can access large amounts of real-time data. But you need a strategic approach to make the most of it.",
+    "description": "Using digital tools means charities can access large amounts of real-time data. But you need a strategic approach to make the most of it",
     "icon": "data",
     "progress": 50,
     "questions": [
@@ -409,7 +409,7 @@
   "section-5": {
     "name": "Section 5",
     "title": "Cyber resilience & online threats",
-    "description": "Putting more information online, and digitising transactions can mean you are more vulnerable to cyber attack. So cyber resilience is more important than ever.",
+    "description": "Putting more information online, and digitising transactions can mean you are more vulnerable to cyber attack. So cyber resilience is more important than ever",
     "icon": "cyber",
     "progress": 62,
     "questions": [
@@ -473,7 +473,7 @@
     "questions": [
       {
         "title": "Estimated annual turnover *",
-        "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup.",
+        "description": "This information enables us to compare your results to organisations of a similar size. If you prefer not to submit this information, you result will be compared to the average of all organisations who have completed the checkup",
         "value": "income_band",
         "type": "select-one",
         "options": [
@@ -515,7 +515,7 @@
           },
           {
             "answer": "Content, marketing & data",
-            "value": "content"
+            "value": "data"
           },
           {
             "answer": "Cyber security",

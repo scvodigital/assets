@@ -176,7 +176,14 @@
                 Leaderhip & culture
               </div>
               <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
+                You scored {{> score_respondent_s1}}% - the average is {{> score_average_s1}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
               </div>
             </div>
           </div>
@@ -225,7 +232,14 @@
                 Tools & equipment
               </div>
               <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
+                You scored {{> score_respondent_s2}}% - the average is {{> score_average_s2}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
               </div>
             </div>
           </div>
@@ -264,7 +278,14 @@
                 Content, marketing & data
               </div>
               <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
+                You scored {{> score_respondent_s3}}% - the average is {{> score_average_s3}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
               </div>
             </div>
           </div>
@@ -335,7 +356,14 @@
                 Cyber security
               </div>
               <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
+                You scored {{> score_respondent_s4}}% - the average is {{> score_average_s4}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
               </div>
             </div>
           </div>

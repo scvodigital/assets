@@ -25,7 +25,7 @@
                   Your overall score
                 </div>
                 <div class="score">
-                  {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}%
+                  {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}%
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone result result-average">
@@ -578,7 +578,7 @@ var data = [
   ],[//Your scores
     {
       axis:"Overall",
-      value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}/100
+      value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}/100
     },
     {
       axis:"Leadership",

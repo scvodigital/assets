@@ -39,7 +39,7 @@
     <div class="container-content">
       <div class="question-block mdc-elevation--z3">
         <div class="results-block">
-          <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid t-margin-full">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone result result-overall">
                 <div class="mdc-typography--headline6">
@@ -74,6 +74,10 @@
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="radarChart"></div>
+
+                <div class="t-margin-full t-padding-full mdc-typography--headline5">
+                  Congratulations for scoring above the average but please don't let that make you complacent.
+                </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="key">
@@ -81,50 +85,50 @@
                     <li class="key-your">Your scores</li>
                     <li class="key-average">Average scores</li>
                   </ul>
+                </div>
 
-                  <div class="mdc-typography--body1">
-                    Leadership, culture and skills
-                    <div class="scores mdc-typography--caption">
-                      <span class="score score-respondent">
-                        {{> score_respondent_s1}}%
-                      </span>
-                      <span class="score">
-                        {{> score_average_s1}}%
-                      </span>
-                    </div>
+                <div class="mdc-typography--body1">
+                  Leadership, culture and skills
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s1}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s1}}%
+                    </span>
                   </div>
-                  <div class="mdc-typography--body1">
-                    Tools and equipment
-                    <div class="scores mdc-typography--caption">
-                      <span class="score score-respondent">
-                        {{> score_respondent_s2}}%
-                      </span>
-                      <span class="score">
-                        {{> score_average_s2}}%
-                      </span>
-                    </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Tools and equipment
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s2}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s2}}%
+                    </span>
                   </div>
-                  <div class="mdc-typography--body1">
-                    Content, marketing and data
-                    <div class="scores mdc-typography--caption">
-                      <span class="score score-respondent">
-                        {{> score_respondent_s3}}%
-                      </span>
-                      <span class="score">
-                        {{> score_average_s3}}%
-                      </span>
-                    </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Content, marketing and data
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s3}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s3}}%
+                    </span>
                   </div>
-                  <div class="mdc-typography--body1">
-                    Cyber resilience
-                    <div class="scores mdc-typography--caption">
-                      <span class="score score-respondent">
-                        {{> score_respondent_s4}}%
-                      </span>
-                      <span class="score">
-                        {{> score_average_s4}}%
-                      </span>
-                    </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Cyber resilience
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s4}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s4}}%
+                    </span>
                   </div>
                 </div>
               </div>
@@ -134,25 +138,44 @@
         </div>
       </div>
 
-      <h3>
-        Book a follow-up call to review your results and explore next steps
-      </h3>
-      <!-- Calendly inline widget begin -->
+      <div class="v-padding-full">
+        <div class="v-margin-full b-padding-full">
+          <h3 class="mdc-typography--headline4 v-margin b-padding-full">
+            We would love to discuss your results and next steps
+          </h3>
+
+          <div class="cta">
+            <a href="https://calendly.com/john-fitzgerald/check-up" class="mdc-button mdc-button--raised">
+              <span class="fas fa-phone fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+              Book a follow-up call
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendly inline widget begin - ->
       <div class="calendly-inline-widget" data-url="https://calendly.com/john-fitzgerald/check-up" style="width:100%;height:620px;"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-      <!-- Calendly inline widget end -->
+      <!- - Calendly inline widget end -->
+    </div>
+  </div>
 
-      {{#if @root.request.params.query.topic ~}}
-      {{#compare @root.request.params.query.topic "===" "leadership" ~}}
-      <h3>
-        The area that you selected as your highest priority was leadership, culture, and skills
-      </h3>
-
-    </span>
-    <span class="score">
-      <p>
-        You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
+  {{#if @root.request.params.query.topic ~}}
+  {{#compare @root.request.params.query.topic "===" "leadership" ~}}
+  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <h3>
+          The area that you selected as your highest priority was leadership, culture, and skills
+        </h3>
+        <p>
+          You scored {{> score_respondent_s1}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-content">
       <p>
         "Digitally mature" organisations are those who recognise the value of digital technology and embedded it throughout their organisation, including; their overall strategy, their board of trustees; a digitally engaged leadership team and a digitally confident staff team.
       </p>
@@ -174,15 +197,24 @@
         <li><a href="https://digileaders.com/7-digital-skills-charity-leader-needs">The 7 digital skills every charity leader needs</a> The New Reality – Report</li>
         <li><a href="http://micro.skillsplatform.org/charitydigitaltoolkit-chapter2/">Charity Digital Toolkit - chapter 2</a> – Leadership</li>
       </ul>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "tools" ~}}
-      <h3>
-        The area that you selected as your highest priority was ICT (tools and equipment)
-      </h3>
-      <p>
-        You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "tools" ~}}
+  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <h3>
+          The area that you selected as your highest priority was ICT (tools and equipment)
+        </h3>
+        <p>
+          You scored {{> score_respondent_s2}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-content">
       <p>
         IT tools and systems are a key part of digital change. Ideally you want them to be a positive enabler rather than a barrier. If your tools and systems are making you say 'no' to new ways of working, you may be using the wrong tools. Cloud based services and open standards mean that many more solutions are available at low or no cost. A great starting point is the <a href="https://charitycatalogue.com/">Charity Catalogue</a> which lists helpful tools and platforms suitable for charities of all sizes.
       </p>
@@ -194,15 +226,24 @@
         </li>
         <li><strong>Online giving: </strong>According to Blackbaud's 2016 Charitable Giving Report, only 7.2% of all individual donations to charities in the UK were made online. But about 50% of potential donors would prefer to give online. See <a href="https://fundraising.co.uk/2018/02/09/round-up-low-cost-no-cost-fundraising-platforms/#.W4O3HuhKi70">UK Fundraising for a roundup of free or low cost online fundraising tools</a>.</li>
       </ol>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "data" ~}}
-      <h3>
-        The area that you selected as your highest priority was content, marketing, and data
-      </h3>
-      <p>
-        You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "data" ~}}
+  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <h3>
+          The area that you selected as your highest priority was content, marketing, and data
+        </h3>
+        <p>
+          You scored {{> score_respondent_s3}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-content">
       <p>
         This section focuses on three elements; how you understand your audiences, how you communicate with your audiences, and the management of the data you collect.
       </p>
@@ -246,15 +287,24 @@
         <li>An article in the Stanford Social Innovation Review on<a href="https://ssir.org/articles/entry/the_power_of_lean_data"> using 'lean data' to measure social impact more effectively</a>.</li>
         <li>A report on how charities are increasingly <a href="https://www.thinknpc.org/publications/global-innovations-in-measurement-and-evaluation/">using digital tools to improve their evaluation</a>.</li>
       </ul>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "cyber" ~}}
-      <h3>
-        The area that you selected as your highest priority was cyber resilience and online threats
-      </h3>
-      <p>
-        You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "cyber" ~}}
+  <div class="checkup-section-header checkup-section-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <h3>
+          The area that you selected as your highest priority was cyber resilience and online threats
+        </h3>
+        <p>
+          You scored {{> score_respondent_s4}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container-content">
       <h4>Board level responsibility</h4>
       <p>
         Protecting the organisation’s online security is as much the board’s responsibility as ensuring that staff, finances and possessions are kept safe in an office environment. The risks should be assessed and Pro-active management of the cyber risk at Board level is critical. Further information can be found at <a href="https://www.ncsc.gov.uk/guidance/10-steps-board-level-responsibility">10 Steps: A Board Level Responsibility</a>
@@ -280,15 +330,17 @@
         <li>Consider providing regular training for staff on basic digital skills, information security and data protection.</li>
         <li>Consider external accreditation, such as Cyber Essentials, to assess your defence against cyber threats.</li>
       </ul>
-
-      {{else}}
-      <!-- Could not determine topic -->
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/if ~}}
-
+    </div>
+  </div>
+  {{else}}
+  <!-- Could not determine topic -->
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/if ~}}
+  <div class="container-fluid">
+    <div class="container-content">
       <h3>Next steps</h3>
       <p>
         <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
@@ -498,6 +550,7 @@ function RadarChart(id, data, options) {
   .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
   .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
   .style("stroke-width", cfg.strokeWidth + "px")
+  .style("stroke-dasharray", function(d,i,j) { return cfg.strokeStyle(j); })
   .style("stroke", function(d,i,j) { return cfg.color(j); })
   .style("fill", function(d,i,j) { return cfg.dotColor(j); })
   .style("fill-opacity", 1);

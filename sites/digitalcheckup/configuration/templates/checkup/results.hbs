@@ -20,6 +20,8 @@
 
 {{~#*inline "score_average_s4"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.cyber_resilience_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
 
+{{~#*inline "topic"~}}{{~#switch slug~}}{{~#case "leadership"~}}leadership{{~/case~}}{{~#case "culture"~}}leadership{{~/case~}}{{~#case "skills"~}}leadership{{~/case~}}{{~#case "tools-equipment"~}}tools{{~/case~}}{{~#case "content-marketing-data"~}}data{{~/case~}}{{~#case "cyber"~}}cyber{{~/case~}}{{~/switch~}}{{~/inline~}}
+
 <div class="checkup-section b-padding-full" id="checkup-results">
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
@@ -27,7 +29,7 @@
         {{> checkup_progress progress=100}}
         <h1 class="mdc-typography--headline3">
           {{#if @root.request.params.query.web_organisation ~}}
-          Checkup results for {{@root.request.params.query.web_organisation}}
+          Checkup results for {{{@root.request.params.query.web_organisation}}}
           {{else}}
           Your checkup results
           {{/if ~}}
@@ -157,6 +159,13 @@
             <div class="mdc-typography--body1 t-margin-full">
               <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
             </div>
+
+            <script>
+              window.intercomSettings = {
+                app_id: "t67hvr75"
+              };
+            </script>
+            <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t67hvr75';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
             {{/compare ~}}
           </div>
         </div>
@@ -300,14 +309,15 @@
   {{/compare ~}}
   {{/compare ~}}
   {{/if ~}}
+
   {{#compare @root.data.supplimentaryResponses.resources.hits.total ">" 0 ~}}
   <div class="container-fluid v-margin-full v-padding-full">
     <div class="container-content">
-      <div class="mdc-layout-grid equal-height checkup-topic-resources-{{@root.request.params.query.topic}}">
+      <div class="mdc-layout-grid equal-height">
         <div class="mdc-layout-grid__inner">
           {{#each @root.data.supplimentaryResponses.resources.hits.hits ~}}
-          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-            {{#with _source ~}}
+          {{#with _source ~}}
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone checkup-topic-resources-{{> topic slug=post_tags_slug.[0]}}">
             <div class="mdc-card mdc-elevation--z3 x-padding-full">
               <div class="mdc-card__title">
                 <div class="mdc-typography--headline5">
@@ -323,10 +333,13 @@
                 <a href="{{link}}" class="mdc-card__action">Read more</a>
               </div>
             </div>
-            {{/with ~}}
           </div>
+          {{/with ~}}
           {{/each ~}}
         </div>
+      </div>
+      <div class="mdc-typography--body1 t-margin-full">
+        <a href="/checkup/resources">Resources for other topic areas</a>
       </div>
     </div>
   </div>

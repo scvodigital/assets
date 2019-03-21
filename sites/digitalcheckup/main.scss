@@ -40,9 +40,6 @@ $border-radius: $unit/5;
 html, body {
   height: 100%;
 }
-html {
-  overflow-y: scroll;
-}
 body {
   background-color: $mdc-theme-footer-dark;
 }
@@ -58,6 +55,21 @@ a:hover,
 a:active,
 a:focus {
   color: $mdc-theme-orange;
+}
+
+.post {
+  .post-info-categories {
+    display: none !important;
+  }
+  .photo-wee {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+    border-radius: 50%;
+    margin-right: $unit/2;
+    vertical-align: text-bottom;
+    float: left;
+    margin-top: -0.15rem;
+  }
 }
 
 .mdc-toolbar-fixed-adjust {
@@ -436,6 +448,7 @@ h4,
 }
 
 .mdc-card {
+  width: 100%;
   .mdc-card__primary {
     flex: 1 1 auto
   }

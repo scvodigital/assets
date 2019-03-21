@@ -1,0 +1,33 @@
+{{~#*inline "topic"~}}{{~#switch slug~}}{{~#case "leadership"~}}leadership{{~/case~}}{{~#case "culture"~}}leadership{{~/case~}}{{~#case "skills"~}}leadership{{~/case~}}{{~#case "tools-equipment"~}}tools{{~/case~}}{{~#case "content-marketing-data"~}}data{{~/case~}}{{~#case "cyber"~}}cyber{{~/case~}}{{~/switch~}}{{~/inline~}}
+<div class="container-fluid">
+  <div class="container-content">
+    <h1 class="mdc-typography--headline3">Resources</h1>
+    {{#compare @root.data.supplimentaryResponses.resources.hits.total ">" 0 ~}}
+    <div class="mdc-layout-grid equal-height v-margin-full">
+      <div class="mdc-layout-grid__inner">
+        {{#each @root.data.supplimentaryResponses.resources.hits.hits ~}}
+        {{#with _source ~}}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone checkup-topic-resources-{{> topic slug=post_tags_slug.[0]}}">
+          <div class="mdc-card mdc-elevation--z3 x-padding-full">
+            <div class="mdc-card__title">
+              <div class="mdc-typography--headline5">
+                <a href="{{link}}">{{{title}}}</a>
+              </div>
+            </div>
+            <div class="mdc-card__primary">
+              <div class="mdc-typography--body1">
+                {{{content}}}
+              </div>
+            </div>
+            <div class="mdc-card__actions">
+              <a href="{{link}}" class="mdc-card__action">Read more</a>
+            </div>
+          </div>
+        </div>
+        {{/with ~}}
+        {{/each ~}}
+      </div>
+    </div>
+    {{/compare ~}}
+  </div>
+</div>

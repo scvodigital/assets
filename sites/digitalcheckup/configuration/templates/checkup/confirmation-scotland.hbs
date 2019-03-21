@@ -1,3 +1,4 @@
+{{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 @root.request.params.query.income_band  @root.request.params.query.topic @root.request.params.query.area ~}}
 <form action="/checkup/results" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
   {{> checkup_scores section=@root.request.body.score-section}}
   <div class="checkup-section-header b-padding-full v-margin-full">
@@ -24,7 +25,10 @@
         * required information
       </div>
 
-      <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{@root.request.body.s1}}&s2={{@root.request.body.s2}}&s3={{@root.request.body.s3}}&s4={{@root.request.body.s4}}&overall={{@root.request.body.overall}}&income_band={{@root.request.body.income_band}}&topic={{@root.request.body.topic}}&name={{@root.request.body.name}}&email={{@root.request.body.email}}&web_organisation={{@root.request.body.web_organisation}}&country={{@root.request.body.country}}&postcode={{@root.request.body.postcode}}&__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
+      <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{@root.request.body.s1}}&s2={{@root.request.body.s2}}&s3={{@root.request.body.s3}}&s4={{@root.request.body.s4}}&overall={{@root.request.body.overall}}&income_band={{@root.request.body.income_band}}&topic={{@root.request.body.topic}}&name={{@root.request.body.name}}&email={{@root.request.body.email}}&web_organisation={{@root.request.body.web_organisation}}&area={{@root.request.body.area}}&postcode={{@root.request.body.postcode}}&__output=embedjs&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
     </div>
   </div>
 </div>
+{{else}}
+{{> checkup_error}}
+{{/ifAll}}

@@ -1,0 +1,21 @@
+{
+  "size": 1,
+  "_source": [
+    "title",
+    "sub_title",
+    "og_title",
+    "og_image",
+    "og_summary",
+    "author_name_full",
+    "author_job_title",
+    "author_organisation_name",
+    "author_slug",
+    "content",
+    "publish_on"
+  ],
+  "query": {
+    "term": {
+      "slug": "{{@root.request.params.path}}"
+    }
+  }
+}

@@ -1,3 +1,4 @@
+{{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 @root.request.params.query.income_band  @root.request.params.query.topic @root.request.params.query.area ~}}
 <form action="/checkup/results" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
   {{> checkup_scores section=@root.request.body.score-section}}
   <div class="checkup-section-header b-padding-full v-margin-full">
@@ -26,12 +27,12 @@
 
       <div class="question-block mdc-elevation--z3">
         <div class="question">
-          <h2 class="mdc-typography--headline5 question-title">Would you like additional support from {{#switch @root.request.body.country}}{{#case "England"}}a local infrastructure organisation in England{{/case}}{{#case "Wales"}}a local infrastructure organisation in Wales{{/case}}{{#case "Northern Ireland"}}a local infrastructure organisation{{/case}}{{/switch}} based on your responses? *</h2>
+          <h2 class="mdc-typography--headline5 question-title">Would you like additional support from a local infrastructure organisation in {{@root.request.body.area}} based on your responses? *</h2>
           <div class="mdc-typography--body1 question-description">This could be funding, events, training and 1:1 support</div>
         </div>
         <ul class="answer-block">
-          <li class="answer">{{> components_radio_button label="Yes please - I'd like support to help put this into action" id="yes" name="support" value="yes"}}</li>
-          <li class="answer">{{> components_radio_button label="No thanks!" id="no" name="support" value="no"}}</li>
+          <li class="answer">{{> components_radio_button label="Yes please - I'd like support to help put this into action" id="yes" name="support" value="true"}}</li>
+          <li class="answer">{{> components_radio_button label="No thanks!" id="no" name="support" value="false"}}</li>
         </ul>
       </div>
 
@@ -41,3 +42,6 @@
     </div>
   </div>
 </div>
+{{else}}
+{{> checkup_error}}
+{{/ifAll}}

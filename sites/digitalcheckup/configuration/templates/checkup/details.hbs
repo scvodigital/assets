@@ -1,3 +1,4 @@
+{{#ifAll @root.request.body.section-1-score @root.request.body.section-2-score @root.request.body.section-3-score @root.request.body.section-4-score @root.request.body.section-5-score @root.request.body.scores-income_band  @root.request.body.scores-topic ~}}
 <form action="/checkup/confirmation" method="post" class="checkup-section b-padding-full" id="checkup-details">
   {{> checkup_scores section=@root.request.body.score-section}}
   <input type="hidden" name="score-section" value="details" />
@@ -67,25 +68,33 @@
               </div>
             </div>
           </div>
-          <div class="mdc-layout-grid__inner">
+          <!-- <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
               <div class="mdc-typography--headline6 v-margin">
                 Where is your organisation based?
               </div>
             </div>
-          </div>
-          <div class="mdc-layout-grid__inner">
+          </div> -->
+          <div class="mdc-layout-grid__inner t-margin-full">
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
               <div class="mdc-select mdc-ripple-upgraded" data-mdc-auto-init="MDCSelect">
                 <span class="mdc-select__dropdown-icon"></span>
-                <select class="mdc-select__native-control" id="country" name="country">
-                  <option value="england" disabled="disabled">England</option>
-                  <option value="northern-ireland" disabled="disabled">Northern Ireland</option>
+                <select class="mdc-select__native-control" id="area" name="area">
                   <option value="scotland">Scotland</option>
-                  <option value="wales" disabled="disabled">Wales</option>
+                  <option value="northern-ireland">Northern Ireland</option>
+                  <option value="wales">Wales</option>
+                  <option value="england-south-east">South East</option>
+                  <option value="england-london">London</option>
+                  <option value="england-north-west">North West</option>
+                  <option value="england-east">East of England</option>
+                  <option value="england-west-midlands">West Midlands</option>
+                  <option value="england-south-west">South West</option>
+                  <option value="england-yorkshire">Yorkshire and the Humber</option>
+                  <option value="england-east-midlands">East Midlands</option>
+                  <option value="england-north-east">North East</option>
                 </select>
-                <label class="mdc-floating-label mdc-select__label--float-above mdc-floating-label--float-above" for="country">
-                  Country
+                <label class="mdc-floating-label mdc-select__label--float-above mdc-floating-label--float-above" for="area">
+                  Where is your organisation based?
                 </label>
                 <div class="mdc-line-ripple"></div>
               </div>
@@ -109,3 +118,6 @@
     </div>
   </div>
 </div>
+{{else}}
+{{> checkup_error}}
+{{/ifAll}}

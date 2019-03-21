@@ -20,8 +20,6 @@
 
 {{~#*inline "score_average_s4"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.cyber_resilience_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
 
-{{~#*inline "topic"~}}{{~#switch slug~}}{{~#case "leadership"~}}leadership{{~/case~}}{{~#case "culture"~}}leadership{{~/case~}}{{~#case "skills"~}}leadership{{~/case~}}{{~#case "tools-equipment"~}}tools{{~/case~}}{{~#case "content-marketing-data"~}}data{{~/case~}}{{~#case "cyber"~}}cyber{{~/case~}}{{~/switch~}}{{~/inline~}}
-
 <div class="checkup-section b-padding-full" id="checkup-results">
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">

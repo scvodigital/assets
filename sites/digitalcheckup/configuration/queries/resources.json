@@ -55,7 +55,7 @@
             {{#case "cyber" ~}}
             {
               "term": {
-                "post_tags_slug": "cyber"
+                "post_tags_slug": "cyber-resilience"
               }
             },
             {{/case ~}}

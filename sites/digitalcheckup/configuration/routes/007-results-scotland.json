@@ -19,7 +19,13 @@
             "name": "data_averages",
             "index": "web-content-production",
             "type": "scvo-checkup-onedigital",
-            "template": ">context.metaData.handlebars.queries.data_checkup-onedigital"
+            "template": ">context.metaData.handlebars.queries.data-averages"
+          },
+          {
+            "name": "resources",
+            "index": "web-content-production",
+            "type": "scvo-cms-resource",
+            "template": ">context.metaData.handlebars.queries.resources"
           }
         ]
       },

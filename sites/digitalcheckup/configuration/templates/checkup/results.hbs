@@ -1,4 +1,25 @@
-{{#*inline "to_percentage"}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{/inline}}
+{{~#*inline "to_percentage"~}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{~/inline~}}
+
+{{~#*inline "score_respondent_overall"~}}{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=136}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s1"~}}{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s2"~}}{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s3"~}}{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}{{~/inline~}}
+
+{{~#*inline "score_respondent_s4"~}}{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}{{~/inline~}}
+
+{{~#*inline "score_average_overall"~}}{{~#compare @root.request.params.query.income_band "===" "0"~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets~}}{{~#compare this.key "===" @root.request.params.query.income_band~}}{{round this.total_stats.avg "up"}}{{~/compare~}}{{~/each~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s1"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.leadership_culture_and_skills_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s2"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.tools_and_equipment_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s3"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.content_marketing_and_data_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
+{{~#*inline "score_average_s4"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.cyber_resilience_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
+
 <div class="checkup-section b-padding-full" id="checkup-results">
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
@@ -18,14 +39,14 @@
     <div class="container-content">
       <div class="question-block mdc-elevation--z3">
         <div class="results-block">
-          <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid t-margin-full">
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone result result-overall">
                 <div class="mdc-typography--headline6">
                   Your overall score
                 </div>
-                <div class="score">
-                  {{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}%
+                <div class="score score-respondent">
+                  {{> score_respondent_overall}}%
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone result result-average">
@@ -33,12 +54,10 @@
                   Average score
                 </div>
                 <div class="score">
-                  {{#compare @root.request.params.query.income_band "===" "0" ~}}
-                  {{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}%
-                  {{else}}
+                  {{> score_average_overall}}%
+                  {{#compare @root.request.params.query.income_band "!==" "0" ~}}
                   {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                   {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                  {{round this.total_stats.avg "up"}}%
                   <span class="mdc-typography--body2">
                     (compared with {{this.doc_count}} organisations in the same income bracket)
                   </span>
@@ -55,6 +74,10 @@
             <div class="mdc-layout-grid__inner">
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="radarChart"></div>
+
+                <div class="t-margin-full t-padding-full mdc-typography--headline5">
+                  Congratulations for scoring above the average but please don't let that make you complacent.
+                </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="key">
@@ -63,6 +86,51 @@
                     <li class="key-average">Average scores</li>
                   </ul>
                 </div>
+
+                <div class="mdc-typography--body1">
+                  Leadership, culture and skills
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s1}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s1}}%
+                    </span>
+                  </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Tools and equipment
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s2}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s2}}%
+                    </span>
+                  </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Content, marketing and data
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s3}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s3}}%
+                    </span>
+                  </div>
+                </div>
+                <div class="mdc-typography--body1">
+                  Cyber resilience
+                  <div class="scores mdc-typography--caption">
+                    <span class="score score-respondent">
+                      {{> score_respondent_s4}}%
+                    </span>
+                    <span class="score">
+                      {{> score_average_s4}}%
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -70,164 +138,199 @@
         </div>
       </div>
 
-      <h3>
-        Book a follow-up call to review your results and explore next steps
-      </h3>
-      <!-- Calendly inline widget begin -->
+      <div class="v-padding-full">
+        <div class="v-margin-full b-padding-full">
+          <h3 class="mdc-typography--headline4 v-margin b-padding-full">
+            We would love to discuss your results and next steps
+          </h3>
+
+          <div class="cta">
+            <!-- Calendly link widget begin -->
+            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+            <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/john-fitzgerald/check-up');return false;" class="mdc-button mdc-button--raised">
+              <span class="fas fa-phone fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+              Book a follow-up call
+            </a>
+            <!-- Calendly link widget end -->
+            {{#compare @root.route.name "checkup_results_scotland" ~}}
+            <div class="mdc-typography--body1 t-margin-full">
+              <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
+            </div>
+            {{/compare ~}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendly inline widget begin - ->
       <div class="calendly-inline-widget" data-url="https://calendly.com/john-fitzgerald/check-up" style="width:100%;height:620px;"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-      <!-- Calendly inline widget end -->
-
-      {{#if @root.request.params.query.topic ~}}
-      {{#compare @root.request.params.query.topic "===" "leadership" ~}}
-      <h3>
-        The area that you selected as your highest priority was leadership, culture, and skills
-      </h3>
-      <p>
-        You scored {{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
-      <p>
-        "Digitally mature" organisations are those who recognise the value of digital technology and embedded it throughout their organisation, including; their overall strategy, their board of trustees; a digitally engaged leadership team and a digitally confident staff team.
-      </p>
-      <p>
-        The 2018 Charity Digital Skills Report reveals that <a href="https://www.skillsplatform.org/content/charity-digital-skills-report">45% of charities who took part did not have a digital strategy</a>. Developing a Digital Strategy is good way to start embracing the strategic advantages that digital offers. But digital technologies are an enabler for the whole of your organisation, not just your digital or communications function. So an important further step is to embed digital throughout your overall strategy.
-      </p>
-      <ol>
-        <li><strong>Cultivate a culture that is receptive to new ways of working</strong>
-          Leaders from across Scotland's third sector have drawn up a manifesto; <a href="https://scvo.org/news-campaigns-and-policy/research/digital-call-to-action/">"Creating a digitally confident third sector in Scotland: a call to action"</a> to commit to seizing the opportunities presented by new technology and the internet. Join us on 23rd October for a followup event – <a href="https://scvo.org/digital/events/a1v0n000008dp5eqau-digitally-confident-scotland">"Digitally Confident Scotland – making it happen"</a>
-        </li>
-        <li><strong>Understand and improve the skills in your organisation</strong>
-          Increased digital skills and confidence are not just useful for you as an organisation, but also for you staff team in their personal and professional lives.
-
-          Use the <a href="https://scvo.org/digital/participation/basic-digital-skills/">basic digital skills framework</a> and questionnaire to assess your staff and/or volunteers across 5 key areas: Managing information; Communicating; Transacting; Problem solving; and Creating. If you're interested in boosting the digital skills of people and communities you work with, check out our <a href="https://scvo.org/digital/participation/champions">Digital Champions Training</a>.
-        </li>
-        <li><strong>Further reading on Digital Leadership and Culture:</strong></li>
-      </ol>
-      <ul>
-        <li><a href="https://digileaders.com/7-digital-skills-charity-leader-needs">The 7 digital skills every charity leader needs</a> The New Reality – Report</li>
-        <li><a href="http://micro.skillsplatform.org/charitydigitaltoolkit-chapter2/">Charity Digital Toolkit - chapter 2</a> – Leadership</li>
-      </ul>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "tools" ~}}
-      <h3>
-        The area that you selected as your highest priority was ICT (tools and equipment)
-      </h3>
-      <p>
-        You scored {{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
-      <p>
-        IT tools and systems are a key part of digital change. Ideally you want them to be a positive enabler rather than a barrier. If your tools and systems are making you say 'no' to new ways of working, you may be using the wrong tools. Cloud based services and open standards mean that many more solutions are available at low or no cost. A great starting point is the <a href="https://charitycatalogue.com/">Charity Catalogue</a> which lists helpful tools and platforms suitable for charities of all sizes.
-      </p>
-      <ol>
-        <li><strong>Cloud Computing</strong>: If you're not already using cloud-based services, this is a quick win. Moving to the cloud <a href="https://scvo.org/post/2017/07/03/office-365-and-g-suite-for-not-for-profits">offers many benefits for charities</a>, including reduced costs, ease of access, easily scalable and increased security. The NCVO guide: <a href="https://knowhownonprofit.org/how-to/how-to-move-to-the-cloud">How to move to the cloud</a> is an excellent starting point. Also check out the Tech Trust for comparisons and discounted software for charities.</li>
-        <li><strong>Talk to your IT provider:</strong> Discussing your issues and describing the experience you want with your provider can make a big difference to the service you are provided.
-        </li>
-        <li><strong>Talk to someone else:</strong> Getting a second opinion and even looking for a new provider could help solve your issues. The SCVO IT team can provide some advice and also <a href="https://scvo.org.uk/services/managed-it">offer a managed IT service to Scottish charities</a>, including: specialised advice on cloud services such as Office 365, support to find and buy the best equipment and software, help with switching to new computers and systems.
-        </li>
-        <li><strong>Online giving: </strong>According to Blackbaud's 2016 Charitable Giving Report, only 7.2% of all individual donations to charities in the UK were made online. But about 50% of potential donors would prefer to give online. See <a href="https://fundraising.co.uk/2018/02/09/round-up-low-cost-no-cost-fundraising-platforms/#.W4O3HuhKi70">UK Fundraising for a roundup of free or low cost online fundraising tools</a>.</li>
-      </ol>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "data" ~}}
-      <h3>
-        The area that you selected as your highest priority was content, marketing, and data
-      </h3>
-      <p>
-        You scored {{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
-      <p>
-        This section focuses on three elements; how you understand your audiences, how you communicate with your audiences, and the management of the data you collect.
-      </p>
-      <h4>Content types</h4>
-      <p>
-        Social media allows you to reach thousands of people online, and inspire conversations amongst your supporters. But to do this well, you need engaging content. The Business Gateway's <a href="https://www.bgateway.com/documents/guides/Business_Gateway_Digital_Boost_%E2%80%93_PEC_Guide-18June2017.pdf">"Creating Engaging Content Guide"</a> can help you to understand the needs of your users and how you could add to what you already do.
-      </p>
-      <h4>Marketing</h4>
-      <p>
-        There are lots of free resources on marketing in the <a href="https://www.charitycomms.org.uk/category/marketing">Charity Comms knowledge hub</a>. See also a useful introduction <a href="https://www.charitychoice.co.uk/the-fundraiser/how-to-conduct-basic-audience-insight-research-for-fundraisi/634">to harnessing audience insight for effective fundraising</a> on Charity Choice.
-      </p>
-      <h4>Service design</h4>
-      <p>
-        If you're building an online service to help your beneficiaries, you might want to check out Better Digital's <a href="https://betterdigital.services/principles/">service design principles</a>.
-      </p>
-      <h4>Explore the Charity Catalogue for new tools</h4>
-      <p>
-        A great starting point is the <a href="https://charitycatalogue.com/">Charity Catalogue</a> which lists helpful tools and platforms suitable for charities of all sizes.
-      </p>
-      <h4>Our top 10 tools</h4>
-      <ol>
-        <li>Salesforce: An enterprise-level CRM, available free to charities for up to 10 users. Complex to set up though.</li>
-        <li>Slack: A multi-platform messaging systems, replaces email with in our team</li>
-        <li>Trello: A very powerful collaborative planning tool</li>
-        <li>Canva: A very handy online graphics editor, ideal for social media images</li>
-        <li>Zoom: Simple, flexible and reliable video conferencing.</li>
-        <li>Mailchimp: Email campaign system. Free for small lists</li>
-        <li>Tweetdeck: Powerful Twitter management and scheduling tool</li>
-        <li>Cloud storage: (Microsoft 365 or G Suite). If you're not in the cloud you should be.</li>
-        <li>Google Analytics: Worth getting this set up and running to help understand how users are interacting with your content.</li>
-        <li>Lastpass: Secure password management across all your devices. Teams version also available.</li>
-      </ol>
-      <h4>Data collection, storage and use</h4>
-      <p>
-        If you'd like more information on Data collection, storage and use and on the changes to regulation under GDPR, you should start with the blogs, training videos, tools, checklists relating at the ICO website.
-      </p>
-      <h4>How are charities using data?</h4>
-      <ul>
-        <li>Blog about <a href="http://www.datadrivennonprofits.com/blog/2016/9/18/more-data-driven-goodness">how to use data for good</a> from Steve Maclaughlin, the author of The Data Driven Nonprofit.</li>
-        <li>A free (registration required) report on <a href="https://pages.justgiving.com/whats-data-got-to-do-with-it">how organisations are using data to improve their fundraising</a> from Just Giving.</li>
-        <li>An article in the Stanford Social Innovation Review on<a href="https://ssir.org/articles/entry/the_power_of_lean_data"> using 'lean data' to measure social impact more effectively</a>.</li>
-        <li>A report on how charities are increasingly <a href="https://www.thinknpc.org/publications/global-innovations-in-measurement-and-evaluation/">using digital tools to improve their evaluation</a>.</li>
-      </ul>
-
-      {{else}}
-      {{#compare @root.request.params.query.topic "===" "cyber" ~}}
-      <h3>
-        The area that you selected as your highest priority was cyber resilience and online threats
-      </h3>
-      <p>
-        You scored {{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}% compared to an average of {{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}% for all organisations who have completed the checkup.
-      </p>
-      <h4>Board level responsibility</h4>
-      <p>
-        Protecting the organisation’s online security is as much the board’s responsibility as ensuring that staff, finances and possessions are kept safe in an office environment. The risks should be assessed and Pro-active management of the cyber risk at Board level is critical. Further information can be found at <a href="https://www.ncsc.gov.uk/guidance/10-steps-board-level-responsibility">10 Steps: A Board Level Responsibility</a>
-      </p>
-      <h4>What should you do now to protect yourselves?</h4>
-      <p>
-        The National Cyber Security Centre has produced guidance <a href="https://www.ncsc.gov.uk/charity">'Cyber Security: Small Charity Guide'</a> as well as their threat report <a href="https://www.ncsc.gov.uk/guidance/cyber-threat-assessment-uk-charity-sector">'Charity Sector Threat Assessment'</a> to help charities be aware of the threats and take appropriate actions to protect themselves.
-      </p>
-      <p>
-        Follow the advice of the <a href="https://www.ncsc.gov.uk/">National Cyber Security Centre</a> to reduce the risks to your organisation by:
-      </p>
-      <ul>
-        <li>Keeping your organisation’s software patches up to date</li>
-        <li>Using proper antivirus software services</li>
-        <li>Educate and train your staff to be cyber-aware</li>
-      </ul>
-      <h4>What should you do in the longer term?</h4>
-      <p>
-        Cyber-attacks are as great a risk as other forms of crime. Therefore third sector organisations should:
-      </p>
-      <ul>
-        <li>Ensure your information security and cyber threats are included on your risk register and monitored at Board level. Trustees should be asking: Do you we have adequate controls to defend against cyber-attacks? Are we confident in our ability to recover quickly should the worst happen?</li>
-        <li>Consider providing regular training for staff on basic digital skills, information security and data protection.</li>
-        <li>Consider external accreditation, such as Cyber Essentials, to assess your defence against cyber threats.</li>
-      </ul>
-
-      {{else}}
-      <!-- Could not determine topic -->
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/compare ~}}
-      {{/if ~}}
-
-      <h3>Next steps</h3>
-      <p>
-        <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
-      </p>
+      <!- - Calendly inline widget end -->
     </div>
   </div>
+
+  {{#if @root.request.params.query.topic ~}}
+  {{#compare @root.request.params.query.topic "===" "leadership" ~}}
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url=(concat 'images/icons/' @root.request.params.query.topic '.png')~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Leaderhip & culture
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s1}}% - the average is {{> score_average_s1}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "tools" ~}}
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url=(concat 'images/icons/' @root.request.params.query.topic '.png')~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Tools & equipment
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s2}}% - the average is {{> score_average_s2}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "data" ~}}
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url='images/icons/content.png'~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Content, marketing & data
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s3}}% - the average is {{> score_average_s3}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  {{#compare @root.request.params.query.topic "===" "cyber" ~}}
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+    <div class="container-fluid">
+      <div class="container-content">
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+              <img src="{{~>asset_url url=(concat 'images/icons/' @root.request.params.query.topic '.png')~}}" class="icon" />
+            </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+              <div class="mdc-typography--body2">Focus on</div>
+              <div class="mdc-typography--headline3">
+                Cyber security
+              </div>
+              <div class="mdc-typography--body1">
+                You scored {{> score_respondent_s4}}% - the average is {{> score_average_s4}}%
+                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
+                {{#compare this.key "===" @root.request.params.query.income_band ~}}
+                (based on {{this.doc_count}} organisations in the same income bracket)
+                {{/compare ~}}
+                {{/each ~}}
+                {{/compare ~}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <!-- Could not determine topic -->
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/compare ~}}
+  {{/if ~}}
+  {{#compare @root.data.supplimentaryResponses.resources.hits.total ">" 0 ~}}
+  <div class="container-fluid v-margin-full v-padding-full">
+    <div class="container-content">
+      <div class="mdc-layout-grid equal-height checkup-topic-resources-{{@root.request.params.query.topic}}">
+        <div class="mdc-layout-grid__inner">
+          {{#each @root.data.supplimentaryResponses.resources.hits.hits ~}}
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+            {{#with _source ~}}
+            <div class="mdc-card mdc-elevation--z3 x-padding-full">
+              <div class="mdc-card__title">
+                <div class="mdc-typography--headline5">
+                  <a href="{{link}}">{{{title}}}</a>
+                </div>
+              </div>
+              <div class="mdc-card__primary">
+                <div class="mdc-typography--body1">
+                  {{{content}}}
+                </div>
+              </div>
+              <div class="mdc-card__actions">
+                <a href="{{link}}" class="mdc-card__action">Read more</a>
+              </div>
+            </div>
+            {{/with ~}}
+          </div>
+          {{/each ~}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/compare ~}}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
@@ -431,6 +534,7 @@ function RadarChart(id, data, options) {
   .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
   .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
   .style("stroke-width", cfg.strokeWidth + "px")
+  .style("stroke-dasharray", function(d,i,j) { return cfg.strokeStyle(j); })
   .style("stroke", function(d,i,j) { return cfg.color(j); })
   .style("fill", function(d,i,j) { return cfg.dotColor(j); })
   .style("fill-opacity", 1);
@@ -439,42 +543,42 @@ function RadarChart(id, data, options) {
   //////// Append invisible circles for tooltip ///////////
   /////////////////////////////////////////////////////////
 
-  //Wrapper for the invisible circles on top
-  var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
-  .data(data)
-  .enter().append("g")
-  .attr("class", "radarCircleWrapper");
-
-  //Append a set of invisible circles on top for the mouseover pop-up
-  blobCircleWrapper.selectAll(".radarInvisibleCircle")
-  .data(function(d,i) { return d; })
-  .enter().append("circle")
-  .attr("class", "radarInvisibleCircle")
-  .attr("r", cfg.dotRadius*1.5)
-  .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
-  .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
-  .style("fill", "none")
-  .style("pointer-events", "all")
-  .on("mouseover", function(d,i) {
-    newX =  parseFloat(d3.select(this).attr('cx')) - 14;
-    newY =  parseFloat(d3.select(this).attr('cy')) - 18;
-
-    tooltip
-    .attr('x', newX)
-    .attr('y', newY)
-    .text(Format(d.value))
-    .transition().duration(200)
-    .style('opacity', 1);
-  })
-  .on("mouseout", function(){
-    tooltip.transition().duration(200)
-    .style("opacity", 0);
-  });
-
-  //Set up the small tooltip for when you hover over a circle
-  var tooltip = g.append("text")
-  .attr("class", "tooltip")
-  .style("opacity", 0);
+  // //Wrapper for the invisible circles on top
+  // var blobCircleWrapper = g.selectAll(".radarCircleWrapper")
+  // .data(data)
+  // .enter().append("g")
+  // .attr("class", "radarCircleWrapper");
+  //
+  // //Append a set of invisible circles on top for the mouseover pop-up
+  // blobCircleWrapper.selectAll(".radarInvisibleCircle")
+  // .data(function(d,i) { return d; })
+  // .enter().append("circle")
+  // .attr("class", "radarInvisibleCircle")
+  // .attr("r", cfg.dotRadius*1.5)
+  // .attr("cx", function(d,i){ return rScale(d.value) * Math.cos(angleSlice*i - Math.PI/2); })
+  // .attr("cy", function(d,i){ return rScale(d.value) * Math.sin(angleSlice*i - Math.PI/2); })
+  // .style("fill", "none")
+  // .style("pointer-events", "all")
+  // .on("mouseover", function(d,i) {
+  //   newX =  parseFloat(d3.select(this).attr('cx')) - 14;
+  //   newY =  parseFloat(d3.select(this).attr('cy')) - 18;
+  //
+  //   tooltip
+  //   .attr('x', newX)
+  //   .attr('y', newY)
+  //   .text(Format(d.value))
+  //   .transition().duration(200)
+  //   .style('opacity', 1);
+  // })
+  // .on("mouseout", function(){
+  //   tooltip.transition().duration(200)
+  //   .style("opacity", 0);
+  // });
+  //
+  // //Set up the small tooltip for when you hover over a circle
+  // var tooltip = g.append("text")
+  // .attr("class", "tooltip")
+  // .style("opacity", 0);
 
   /////////////////////////////////////////////////////////
   /////////////////// Helper Function /////////////////////
@@ -528,73 +632,46 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 var data = [
   [//Average scores
-    {{#compare @root.request.params.query.income_band "===" "0" ~}}
     {
       axis:"Overall",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}/100
+      value:{{> score_average_overall}}/100
     },
     {
       axis:"Leadership",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}/100
+      value:{{> score_average_s1}}/100
     },
     {
       axis:"Tools",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}/100
+      value:{{> score_average_s2}}/100
     },
     {
       axis:"Data",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}/100
+      value:{{> score_average_s3}}/100
     },
     {
       axis:"Cyber",
-      value:{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}/100
+      value:{{> score_average_s4}}/100
     }
-    {{else}}
-    {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-    {{#compare this.key "===" @root.request.params.query.income_band ~}}
-    {
-      axis:"Overall",
-      value:{{round this.total_stats.avg "up"}}/100
-    },
-    {
-      axis:"Leadership",
-      value:{{round this.leadership_culture_and_skills_stats.avg "up"}}/100
-    },
-    {
-      axis:"Tools",
-      value:{{round this.tools_and_equipment_stats.avg "up"}}/100
-    },
-    {
-      axis:"Data",
-      value:{{round this.content_marketing_and_data_stats.avg "up"}}/100
-    },
-    {
-      axis:"Cyber",
-      value:{{round this.cyber_resilience_stats.avg "up"}}/100
-    }
-    {{/compare ~}}
-    {{/each ~}}
-    {{/compare ~}}
   ],[//Your scores
     {
       axis:"Overall",
-      value:{{> to_percentage score=@root.request.params.query.overall lower=-18 upper=138}}/100
+      value:{{> score_respondent_overall}}/100
     },
     {
       axis:"Leadership",
-      value:{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}/100
+      value:{{> score_respondent_s1}}/100
     },
     {
       axis:"Tools",
-      value:{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}/100
+      value:{{> score_respondent_s2}}/100
     },
     {
       axis:"Data",
-      value:{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}/100
+      value:{{> score_respondent_s3}}/100
     },
     {
       axis:"Cyber",
-      value:{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=17}}/100
+      value:{{> score_respondent_s4}}/100
     }
   ]
 ];

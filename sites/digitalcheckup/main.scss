@@ -322,6 +322,9 @@ h4,
 .checkup-topic-header-leadership {
   background-color: $mdc-theme-purple;
 }
+.checkup-topic-resources-leadership a {
+  color: $mdc-theme-purple;
+}
 #checkup-section-2 {
   .checkup-section-header,
   .question-block .question,
@@ -335,6 +338,9 @@ h4,
 .checkup-topic-header-tools {
   background-color: $mdc-theme-lightblue;
 }
+.checkup-topic-resources-tools a {
+  color: $mdc-theme-lightblue;
+}
 #checkup-section-3 {
   .checkup-section-header,
   .question-block .question,
@@ -347,6 +353,9 @@ h4,
 }
 .checkup-topic-header-data {
   background-color: $mdc-theme-green;
+}
+.checkup-topic-resources-data a {
+  color: $mdc-theme-green;
 }
 #checkup-section-4 {
   .checkup-section-header,
@@ -370,6 +379,9 @@ h4,
 }
 .checkup-topic-header-cyber {
   background-color: $mdc-theme-pink;
+}
+.checkup-topic-resources-cyber a {
+  color: $mdc-theme-pink;
 }
 #checkup-section-6,
 #checkup-details,
@@ -423,6 +435,19 @@ h4,
   }
 }
 
+.mdc-card {
+  .mdc-card__primary {
+    flex: 1 1 auto
+  }
+  .mdc-card__actions {
+    padding: 0;
+    margin-top: $unit;
+    .mdc-card__action {
+      text-transform: uppercase;
+    }
+  }
+}
+
 :focus {
   outline: none;
 }
@@ -471,6 +496,14 @@ footer.mdc-layout__footer {
         color: $mdc-theme-footer;
       }
     }
+  }
+  .brand-logo {
+    margin-left: $unit*1.5;
+    vertical-align: top;
+    display: inline-block;
+  }
+  .brand-logo:first-child {
+    margin-left: 0;
   }
   .footer-copyright {
     background-color: $mdc-theme-footer-dark;

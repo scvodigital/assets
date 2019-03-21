@@ -1,10 +1,7 @@
 {
-  "name": "blog",
-  "pattern": "/blog",
+  "name": "post",
+  "pattern": "/post/*path",
   "debug": true,
-  "metaData": {
-    "title": "Blog – Digital Checkup"
-  },
   "tasks": [
     {
       "name": "primaryResponse",
@@ -17,7 +14,8 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-cms-post",
-          "template": ">context.metaData.handlebars.queries.blog-posts"
+          "template": ">context.metaData.handlebars.queries.blog-post",
+          "noResultsRoute": "four_oh_four"
         }
       },
       "renderer": "handlebars"
@@ -38,7 +36,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.blog_blog",
+              "body": ">context.metaData.handlebars.templates.blog_post",
               "foot": ""
             },
             "contentType": "text/html"

@@ -18,6 +18,7 @@
     "salary",
     "salary_info",
     "salary_min",
+    "salary_max",
     "remuneration_type",
     "benefits",
     "reference_number",

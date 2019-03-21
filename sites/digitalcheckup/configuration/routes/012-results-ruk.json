@@ -7,6 +7,31 @@
   },
   "tasks": [
     {
+      "name": "supplimentaryResponses",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": [
+          {
+            "name": "data_averages",
+            "index": "web-content-production",
+            "type": "cast-checkup-onedigital",
+            "template": ">context.metaData.handlebars.queries.data-averages"
+          },
+          {
+            "name": "resources",
+            "index": "web-content-production",
+            "type": "scvo-cms-resource",
+            "template": ">context.metaData.handlebars.queries.resources"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

@@ -40,9 +40,6 @@ $border-radius: $unit/5;
 html, body {
   height: 100%;
 }
-html {
-  overflow-y: scroll;
-}
 body {
   background-color: $mdc-theme-footer-dark;
 }
@@ -436,6 +433,7 @@ h4,
 }
 
 .mdc-card {
+  width: 100%;
   .mdc-card__primary {
     flex: 1 1 auto
   }

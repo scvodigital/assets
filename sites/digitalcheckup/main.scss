@@ -5,6 +5,7 @@ $mdc-theme-darkgreen: #6B7D23;
 $mdc-theme-pink: #D21262;
 $mdc-theme-blue: #1377CD;
 $mdc-theme-lightblue: #107FA6;
+$mdc-theme-darkblue: #00519f;
 $mdc-theme-darkgrey: #2A2A2A;
 $mdc-theme-mediumgrey: #585858;
 $mdc-theme-lightgrey: #F6F6F6;
@@ -149,6 +150,7 @@ h2,
 h3,
 h4,
 .score,
+.mdc-typography--headline2,
 .mdc-typography--headline3,
 .mdc-typography--headline4,
 .mdc-typography--headline5,
@@ -187,6 +189,8 @@ h4,
   .cta {
     .mdc-button {
       background-color: $mdc-theme-orange;
+      font-size: 1.2rem;
+      height: 52px;
     }
   }
 }
@@ -271,6 +275,27 @@ h4,
         padding: 0 $unit;
       }
     }
+  }
+}
+.container-home-hero {
+  background: $mdc-theme-darkblue;
+  .mdc-typography--body1,
+  .mdc-typography--body2,
+  .mdc-typography--headline2,
+  .mdc-typography--headline5 {
+    color: white;
+  }
+  .mdc-typography--headline2 {
+    letter-spacing: -0.2rem;
+  }
+  .mdc-typography--headline5 {
+    font-weight: 400;
+  }
+  a {
+    color: white;
+  }
+  img {
+    margin-top: $unit*4;
   }
 }
 .checkup-section-header,

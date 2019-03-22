@@ -449,6 +449,7 @@ h4,
 
 .mdc-card {
   width: 100%;
+  background-color: white;
   .mdc-card__primary {
     flex: 1 1 auto
   }
@@ -460,6 +461,39 @@ h4,
     }
   }
 }
+
+// Pagination ==================================================================
+
+.pagination {
+  li {
+    a {
+      color: $mdc-theme-secondary-dark;
+    }
+    a.pagination-arrow {
+      color: $mdc-theme-secondary-dark;
+    }
+  }
+  li.disabled a.pagination-arrow {
+    color: $mdc-theme-secondary-dark;
+  }
+  li.current-page {
+    background-color: $mdc-theme-primary-dark;
+    a {
+      color: white;
+    }
+  }
+  li:hover,
+  li.current-page:hover {
+    background-color: $mdc-theme-primary-dark;
+    a {
+      color: white;
+    }
+  }
+  li.disabled:hover {
+    background-color: inherit !important;
+  }
+}
+
 
 :focus {
   outline: none;

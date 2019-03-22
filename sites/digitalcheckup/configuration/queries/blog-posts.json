@@ -4,10 +4,8 @@
   "_source": [
     "title",
     "description_truncated",
+    "publish_on",
     "author_name_full",
-    "author_job_title",
-    "author_organisation_name",
-    "author_slug",
     "slug"
   ],
   "query": {
@@ -26,6 +24,14 @@
         {
           "term": {
             "is_press_release": true
+          }
+        },
+        {
+          "terms": {
+            "categories_slug": [
+              "scvo",
+              "goodhq"
+            ]
           }
         }
       ],

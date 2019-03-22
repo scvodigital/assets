@@ -3,10 +3,20 @@
     <h1 class="mdc-typography--headline3">Blog</h1>
     {{#each @root.data.primaryResponse.hits.hits ~}}
     {{#with _source ~}}
-    <div class="mdc-typography--headline5">
-      <a href="{{replace slug "_" "/"}}">{{{title}}}</a>
+    <div class="mdc-card mdc-elevation--z3 x-padding-full t-margin-full">
+      <div class="mdc-typography--headline5">
+        <a href="{{replace slug "_" "/"}}">{{{title}}}</a>
+      </div>
+      <div class="mdc-typography--body2 b-margin">
+        By {{{author_name_full}}} on {{momentFormat (moment publish_on "x") "Do MMM YYYY"}}
+      </div>
+      <div class="mdc-typography--body1">
+        {{{description_truncated}}} <a href="{{replace slug "_" "/"}}">Read more</a>
+      </div>
     </div>
     {{/with ~}}
     {{/each ~}}
+
+    {{> pagination firstLastNavigation=true paging=@root.data.primaryResponse.pagination}}
   </div>
 </div>

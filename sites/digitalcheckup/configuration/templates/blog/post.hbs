@@ -3,6 +3,9 @@
     {{#each @root.data.primaryResponse.hits.hits ~}}
     {{#with _source ~}}
     <h1 class="mdc-typography--headline3">{{{title}}}</h1>
+    <div class="mdc-typography--body2 b-margin">
+      By {{{author_name_full}}} {{#ifAll author_job_title author_organisation_name}}({{author_job_title}}, {{author_organisation_name}}){{/ifAll}} on {{momentFormat (moment publish_on "x") "Do MMM YYYY"}}
+    </div>
     <div class="mdc-typography--body1">
       {{{content}}}
     </div>

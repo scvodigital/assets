@@ -207,7 +207,7 @@
     "name": "Section 3",
     "title": "Content & Marketing",
     "description": "Digital tools and approaches make it dramatically easier to reach thousands of people, and more importantly, to hear about their needs and priorities",
-    "icon": "marketing",
+    "icon": "content-marketing",
     "progress": 37,
     "questions": [
       {
@@ -410,7 +410,7 @@
     "name": "Section 5",
     "title": "Cyber resilience & online threats",
     "description": "Putting more information online, and digitising transactions can mean you are more vulnerable to cyber attack. So cyber resilience is more important than ever",
-    "icon": "cyber",
+    "icon": "resilience",
     "progress": 62,
     "questions": [
       {

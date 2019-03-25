@@ -28,4 +28,6 @@
 <input type="hidden" name="topic" value="{{@root.request.body.topic}}" />
 {{/if ~}}
 {{/compare ~}}
+{{else}}
+<input type="hidden" name="{{section}}-score" value="0" />
 {{/if ~}}

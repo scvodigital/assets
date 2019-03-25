@@ -52,7 +52,7 @@
           {{#switch ../type ~}}
           {{#case "select-one" ~}}
           {{#if answer ~}}
-          <li class="answer">{{> components_radio_button label=answer id=(slugify answer) name=(if (compare ../../section "===" "section-6") ../value else=(concat "scores-" ../value)) value=(default score value)}}</li>
+          <li class="answer">{{> components_radio_button label=answer id=(slugify answer) name=(if (compare ../../section "===" "section-6") ../value else=(concat "scores-" ../value)) value=(default score value) required="true"}}</li>
           {{/if ~}}
           {{/case ~}}
           {{#case "select-many" ~}}

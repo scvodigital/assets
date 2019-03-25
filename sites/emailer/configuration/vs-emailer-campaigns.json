@@ -1,7 +1,7 @@
 {
   "vs-saved-searches": {
     "mailgunConnection": "mg_volunteerscotland_net",
-    "from": "Goodmoves <no-reply@volunteerscotland.net>",
+    "from": "Volunteer Scotland <no-reply@volunteerscotland.net>",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_volunteerscotland_saved_searches",
     "bodyPartial": "bodies_volunteerscotland_saved_searches",
@@ -10,7 +10,7 @@
   },
   "vs-favourites": {
     "mailgunConnection": "mg_volunteerscotland_net",
-    "from": "Goodmoves <no-reply@volunteerscotland.net>",
+    "from": "Volunteer Scotland <no-reply@volunteerscotland.net>",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_volunteerscotland_favourites",
     "bodyPartial": "bodies_volunteerscotland_favourites",

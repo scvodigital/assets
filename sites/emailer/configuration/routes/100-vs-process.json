@@ -1,6 +1,7 @@
 {
   "name": "vs-process",
   "pattern": "/vs-process",
+  "debug" : true,
   "tasks": [
     {
       "name": "notifications",

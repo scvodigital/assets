@@ -43,7 +43,7 @@
       "config": {
         "output": "data",
         "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.process_email-data"
+        "template": ">context.metaData.handlebars.templates.process_vs-email-data"
       }
     },
     {

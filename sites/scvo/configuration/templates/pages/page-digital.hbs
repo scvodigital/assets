@@ -8,51 +8,34 @@
     <div class="mdc-layout-grid equal-height linked-cards support support-organisation support-digital">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="/digital/about" class="mdc-button mdc-button--raised mdc-button--full">
-            <span class="fal fa-envelope fa-fw fa-3x t-margin"></span><br />
-            Sign up for our e:bulletin
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="https://twitter.com/digiscot" class="mdc-button mdc-button--raised mdc-button--full">
-            <span class="fab fa-twitter fa-fw fa-3x t-margin"></span><br />
-            Follow us on Twitter
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="mailto:digital@scvo.org.uk" class="mdc-button mdc-button--raised mdc-button--full" target="_blank">
-            <span class="fal fa-at fa-fw fa-3x t-margin"></span><br />
-            Email us
-          </a>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card participation">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/digital/new/participation"><span class="fal fa-fw fa-hand-paper fa-2x"> </span>Participation</a>
+                <a href="/digital/participation"><span class="fal fa-fw fa-hand-paper fa-2x"> </span>Participation</a>
               </h1>
             </section>
-            <section class="mdc-card__media"><a href="/digital/new/participation">&nbsp;</a></section>
+            <section class="mdc-card__media"><a href="/digital/participation">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
               Skill up, get involved and help others
             </section>
-            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/new/participation">Find out more</a></section>
+            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/participation">Find out more</a></section>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card evolution">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/digital/new/evolution"><span class="fal fa-fw fa-lightbulb-on fa-2x"> </span>Evolution</a>
+                <a href="/digital/evolution"><span class="fal fa-fw fa-lightbulb-on fa-2x"> </span>Evolution</a>
               </h1>
             </section>
-            <section class="mdc-card__media"><a href="/digital/new/evolution">&nbsp;</a></section>
+            <section class="mdc-card__media"><a href="/digital/evolution">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
               Creating a digitally confident third sector in Scotland
             </section>
-            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/new/evolution">Find out more</a></section>
+            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/evolution">Find out more</a></section>
           </div>
         </div>
+        {{#compare @root.data.supplimentaryResponses.related_events.hits.total ">" 0 ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           {{#with @root.data.supplimentaryResponses.related_events.hits ~}}
             {{#compare total ">" 0 ~}}
@@ -72,7 +55,9 @@
                   {{/compare}}
                 </section>
                 <section class="mdc-card__actions">
+                  {{#compare total ">" 1 ~}}
                   <a class="mdc-card__action" href="/digital/events">See more upcoming events</a>
+                  {{/compare ~}}
                 </section>
               </div>
             {{else}}
@@ -93,12 +78,13 @@
             {{/compare ~}}
           {{/with ~}}
         </div>
+        {{/compare ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card funding">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
                 <a href="/funding">
-                  <span class="fas fa-money-bill-wave fa-fw fa-2x"> </span>
+                  <span class="fal fa-chart-bar fa-fw fa-2x"> </span>
                   Funding</a>
               </h1>
             </section>
@@ -130,9 +116,14 @@
                 <a href="/digital/blogs"><span class="fal fa-fw fa-comments fa-2x"> </span>Latest blog</a>
               </h1>
             </section>
+            {{#with @root.data.supplimentaryResponses.related_posts.hits.hits.0._source ~}}
             <section class="mdc-card__supporting-text">
-              {{{@root.data.supplimentaryResponses.related_posts.hits.hits.0._source.rendered.scvo_gist}}}
+              {{{rendered.scvo_gist}}}
             </section>
+            <section class="mdc-card__supporting-text">
+              {{{truncate description "162"}}}
+            </section>
+            {{/with ~}}
             <section class="mdc-card__actions">
               <a class="mdc-card__action" href="/digital/blogs">Read more blog posts</a>
             </section>

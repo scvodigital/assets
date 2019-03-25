@@ -6,8 +6,6 @@
     "hideSearch": true
   },
   "tasks": [
-    "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "not_found",
       "taskModule": "elasticsearch",
@@ -18,8 +16,8 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "fundingscotland-page",
-          "template": ">context.metaData.handlebars.queries.errors_404"
+          "type": "digitalcheckup-page",
+          "template": ">context.metaData.handlebars.queries.pages_404"
         }
       },
       "renderer": "handlebars"
@@ -39,8 +37,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.errors_404",
+              "head": ">context.metaData.handlebars.templates.head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_404",
               "foot": ""
             },
             "contentType": "text/html"

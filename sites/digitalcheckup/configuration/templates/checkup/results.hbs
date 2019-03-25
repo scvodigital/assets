@@ -147,6 +147,13 @@
                     </span>
                   </div>
                 </div>
+
+                <div class="cta t-margin-full t-padding-full">
+                  <a href="" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'});" class="mdc-button mdc-button--raised">
+                    <span class="fas fa-file-alt fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+                    Read resources
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -189,7 +196,7 @@
 
   {{#if @root.request.params.query.topic ~}}
   {{#compare @root.request.params.query.topic "===" "leadership" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
     <div class="container-fluid">
       <div class="container-content">
         <div class="mdc-layout-grid">
@@ -222,7 +229,7 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "tools" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
     <div class="container-fluid">
       <div class="container-content">
         <div class="mdc-layout-grid">
@@ -255,7 +262,7 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "data" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
     <div class="container-fluid">
       <div class="container-content">
         <div class="mdc-layout-grid">
@@ -288,7 +295,7 @@
   </div>
   {{else}}
   {{#compare @root.request.params.query.topic "===" "cyber" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}">
+  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
     <div class="container-fluid">
       <div class="container-content">
         <div class="mdc-layout-grid">

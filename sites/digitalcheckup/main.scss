@@ -43,6 +43,7 @@ html, body {
 }
 body {
   background-color: $mdc-theme-footer-dark;
+  overflow: visible !important;
 }
 .mdc-top-app-bar {
   background-color: white;
@@ -87,6 +88,7 @@ a:focus {
     margin: 0 auto;
     padding-left: $unit;
     padding-right: $unit;
+    box-sizing: border-box;
   }
   .container-home {
     max-width: 1180px;
@@ -189,7 +191,7 @@ h4,
   .cta {
     .mdc-button {
       background-color: $mdc-theme-orange;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       height: 52px;
     }
   }

@@ -111,6 +111,7 @@ header {
     padding-right: 0 !important;
   }
   .mdc-top-app-bar__section--logo {
+    font-weight: 800;
     a {
       color: $mdc-theme-blue;
       text-transform: uppercase;
@@ -133,6 +134,9 @@ header {
   .container-fluid .mdc-top-app-bar__row.mdc-top-app-bar__upper,
   #main-tab-bar {
     height: $header-height;
+  }
+  .mdc-tab .mdc-tab__text-label {
+    transition: none;
   }
   #main-tab-bar {
     .mdc-tab {

@@ -3,7 +3,7 @@
   "_source": [
     "title",
     "content",
-    "author-attribution",
+    "author_attribution",
     "link",
     "post_tags_slug"
   ],

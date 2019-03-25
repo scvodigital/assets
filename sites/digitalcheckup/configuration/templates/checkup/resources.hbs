@@ -14,6 +14,11 @@
               </div>
             </div>
             <div class="mdc-card__primary">
+              {{#compare author_attribution "!==" title ~}}
+              <div class="mdc-typography--body1 b-margin">
+                <strong>{{{author_attribution}}}</strong>
+              </div>
+              {{/compare ~}}
               <div class="mdc-typography--body1">
                 {{{content}}}
               </div>

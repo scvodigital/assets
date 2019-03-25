@@ -17,22 +17,34 @@
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                   <div class="mdc-form-field">
-                    <select class="mdc-select" role="listbox" id="department" name="department" onchange="this.form.submit();">
-                      <option value="" {{#if request.params.query.department}}{{else}}selected{{/if}}>All departments</option>
-                      {{#each @root.data.supplimentaryResponses.departments.aggregations.departments.buckets ~}}
-                      <option value="{{slugify key}}" {{#compare ../request.params.query.department "===" (slugify key)}}selected{{/compare}}>{{key}}</option>
-                      {{/each ~}}
-                    </select>
+                    <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                      <span class="mdc-select__dropdown-icon"></span>
+                      <select class="mdc-select__native-control" id="department" name="department" onchange="this.form.submit();">
+                        <option value="all"{{#if @root.request.params.query.department}}{{else}} selected{{/if}}>All departments</option>
+                        {{#each @root.data.supplimentaryResponses.departments.aggregations.departments.buckets ~}}
+                        {{#if key ~}}
+                        <option value="{{slugify key}}" {{#compare ../request.params.query.department "===" (slugify key)}}selected{{/compare}}>{{key}}</option>
+                        {{/if ~}}
+                        {{/each ~}}
+                      </select>
+                      <label class="mdc-floating-label mdc-floating-label--float-above" for="location">Department</label>
+                      <div class="mdc-line-ripple"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                   <div class="mdc-form-field">
-                    <select class="mdc-select" role="listbox" id="city" name="city" onchange="this.form.submit();">
-                      <option value="" {{#if request.params.query.city}}{{else}}selected{{/if}}>All cities</option>
-                      {{#each @root.data.supplimentaryResponses.departments.aggregations.cities.buckets ~}}
-                      <option value="{{slugify key}}" {{#compare ../request.params.query.city "===" (slugify key)}}selected{{/compare}}>{{key}}</option>
-                      {{/each ~}}
-                    </select>
+                    <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                      <span class="mdc-select__dropdown-icon"></span>
+                      <select class="mdc-select__native-control" id="city" name="city" onchange="this.form.submit();">
+                        <option value="all"{{#if @root.request.params.query.city}}{{else}} selected{{/if}}>All cities</option>
+                        {{#each @root.data.supplimentaryResponses.departments.aggregations.cities.buckets ~}}
+                        <option value="{{slugify key}}" {{#compare ../request.params.query.city "===" (slugify key)}}selected{{/compare}}>{{key}}</option>
+                        {{/each ~}}
+                      </select>
+                      <label class="mdc-floating-label mdc-floating-label--float-above" for="location">City</label>
+                      <div class="mdc-line-ripple"></div>
+                    </div>
                   </div>
                 </div>
               </div>

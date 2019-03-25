@@ -35,6 +35,7 @@
             <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/evolution">Find out more</a></section>
           </div>
         </div>
+        {{#compare @root.data.supplimentaryResponses.related_events.hits.total ">" 0 ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           {{#with @root.data.supplimentaryResponses.related_events.hits ~}}
             {{#compare total ">" 0 ~}}
@@ -54,7 +55,9 @@
                   {{/compare}}
                 </section>
                 <section class="mdc-card__actions">
+                  {{#compare total ">" 1 ~}}
                   <a class="mdc-card__action" href="/digital/events">See more upcoming events</a>
+                  {{/compare ~}}
                 </section>
               </div>
             {{else}}
@@ -75,6 +78,7 @@
             {{/compare ~}}
           {{/with ~}}
         </div>
+        {{/compare ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card funding">
             <section class="mdc-card__primary">

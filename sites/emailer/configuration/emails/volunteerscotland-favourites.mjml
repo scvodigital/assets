@@ -24,7 +24,7 @@
         <mj-column padding="0px">
           <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
             <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
-              with {{{_source.organisation_name}}} will close on {{momentFormat _source.end_date "Do \o\f MMMM"}}</p>
+              with {{{_source.organisation_name}}} will close on {{momentFormat (moment _source.end_date) "Do \o\f MMMM"}}</p>
           </mj-text>
         </mj-column>
       </mj-section>

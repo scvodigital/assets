@@ -50,6 +50,7 @@ body {
 }
 .main-body {
   background-color: $mdc-theme-lightgrey;
+  padding-bottom: 1px;
 }
 a:link,
 a:visited,
@@ -73,6 +74,10 @@ a:focus {
     margin-top: -0.15rem;
   }
 }
+figure,
+.wp-block-image {
+  margin: 0;
+}
 
 .mdc-toolbar-fixed-adjust {
   padding-top: $header-height;
@@ -82,12 +87,13 @@ a:focus {
   max-width: 1380px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 $unit/2;
+  box-sizing: border-box;
   .container-content {
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding-left: $unit;
-    padding-right: $unit;
+    padding: 0 !important;
     box-sizing: border-box;
   }
   .container-home {
@@ -98,6 +104,9 @@ a:focus {
 }
 
 header {
+  .container-fluid {
+    padding: 0 $unit/2;
+  }
   .container-fluid .mdc-top-app-bar__section--align-end {
     padding-right: 0 !important;
   }
@@ -117,6 +126,9 @@ header {
     a:hover {
       text-decoration: none;
     }
+  }
+  .mdc-top-app-bar__navigation-icon {
+    color: $mdc-theme-blue !important;
   }
   .container-fluid .mdc-top-app-bar__row.mdc-top-app-bar__upper,
   #main-tab-bar {
@@ -251,7 +263,9 @@ h4,
   margin-top: $unit*4;
   padding: 0 0 $unit;
   .progress-bar {
+    box-sizing: border-box;
     position: relative;
+    overflow: hidden;
     top: -1.5rem;
     left: -.2rem;
     width: 100%;
@@ -275,6 +289,7 @@ h4,
       font-size: 0.95rem;
       .progress-label-text {
         padding: 0 $unit;
+        line-height: 35px;
       }
     }
   }
@@ -586,5 +601,30 @@ footer.mdc-layout__footer {
     a:hover {
       color: white;
     }
+  }
+}
+
+@media screen and (max-width: $mobile-landscape-breakpoint) {
+  .mdc-typography--headline2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-top: $unit/2;
+  }
+}
+@media screen and (max-width: $mobile-breakpoint) {
+  .mdc-typography--headline2 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 0;
+  }
+  .mdc-typography--headline5 {
+    font-size: 1.15rem;
+    line-height: 1.25rem;
+  }
+  .mdc-typography--body1 {
+    line-height: 1.15rem;
+  }
+  .cta {
+    text-align: center;
   }
 }

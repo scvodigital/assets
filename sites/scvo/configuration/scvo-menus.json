@@ -196,10 +196,16 @@
 	}],
 	"digital-evolution": [{
 		"children": [{
-			"children": [{
-					"label": "Senior Leaders Programme 2019",
-					"path": "/digital/evolution/senior-leaders",
-					"route": "^/digital/evolution/senior-leaders$"
+			"children": [
+				{
+					"label": "Digital Check-up",
+					"path": "/digital/evolution/check-up",
+					"route": "^/digital/evolution/check-up"
+				},
+				{
+					"label": "Digitally Confident Scotland",
+					"path": "/digital/evolution/creating-a-digitally-confident-third-sector-in-scotland-what-next",
+					"route": "^/digital/evolution/creating-a-digitally-confident-third-sector-in-scotland-what-next"
 				},
 				{
 					"label": "Cyber resilience",
@@ -207,19 +213,14 @@
 					"route": "^/digital/evolution/cyber-resilience$"
 				},
 				{
-					"label": "Digital Check-up",
-					"path": "/digital/evolution/check-up",
-					"route": "^/digital/evolution/check-up"
+					"label": "Senior Leaders Programme 2019",
+					"path": "/digital/evolution/senior-leaders",
+					"route": "^/digital/evolution/senior-leaders$"
 				},
 				{
 					"label": "Digital Pioneers",
 					"path": "/digital/evolution/digital-pioneers",
 					"route": "^/digital/evolution/digital-pioneers$"
-				},
-				{
-					"label": "Digitally Confident Scotland",
-					"path": "/digital/evolution/creating-a-digitally-confident-third-sector-in-scotland-what-next",
-					"route": "^/digital/evolution/creating-a-digitally-confident-third-sector-in-scotland-what-next"
 				}
 			],
 			"label": "Evolution",
@@ -252,15 +253,16 @@
 	}],
 	"digital-participation": [{
 		"children": [{
-			"children": [{
+			"children": [
+				{
+					"label": "Essential digital skills",
+					"path": "/digital/participation/skills",
+					"route": "^/digital/participation/skills$"
+				},
+				{
 					"label": "Charter fund",
 					"path": "/digital/participation/charter-fund",
 					"route": "^/digital/participation/charter-fund$"
-				},
-				{
-					"label": "Events",
-					"path": "/digital/participation/events",
-					"route": "^/digital/participation/events$"
 				},
 				{
 					"label": "Digital Champions - training",
@@ -273,14 +275,14 @@
 					"route": "^/digital/participation/digital-champions-in-social-housing$"
 				},
 				{
+					"label": "Events",
+					"path": "/digital/participation/events",
+					"route": "^/digital/participation/events$"
+				},
+				{
 					"label": "Research",
 					"path": "/digital/participation/reports",
 					"route": "^/digital/participation/reports$"
-				},
-				{
-					"label": "Essential digital skills",
-					"path": "/digital/participation/skills",
-					"route": "^/digital/participation/skills$"
 				}
 			],
 			"label": "Participation",

@@ -224,7 +224,7 @@
                                       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                                         <tr>
                                           <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
-                                            <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;">
+                                            <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;text-align:left;color:#000000;">
                                               <p>
                                                 <strong>{{inflect hits.total "opportunity" "opportunities" true}}</strong> in your <a href="https://search.volunteerscotland.net/favourites">favourites</a> list will close soon. </p>
                                             </div>
@@ -273,7 +273,7 @@
                       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
                         <tbody>
                           <tr>
-                            <td style="direction:ltr;font-size:0px;padding:5px 0px;text-align:center;vertical-align:top;">
+                            <td style="direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;">
                               <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 
@@ -291,8 +291,8 @@
                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
-                                              <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#000000;">
-                                                <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a> with {{{_source.organisation_name}}} will close on {{momentFormat _source.end_date "Do \o\f MMMM"}}</p>
+                                              <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;text-align:left;color:#000000;">
+                                                <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a> with {{{_source.organisation_name}}} will close on {{momentFormat (moment _source.end_date "") "Do \o\f MMMM"}}</p>
                                               </div>
                                             </td>
                                           </tr>

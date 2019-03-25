@@ -11,20 +11,20 @@
         {{#if hits.hits.[0]}}</mj-raw>
           <mj-section>
             <mj-column padding="0px">
-              <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+              <mj-text font-size="16px" padding="0px" line-height="20px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
                 <p>
-                  <strong>{{inflect hits.total "opportunity" "opportunities" true}}</strong> matching your <a href="https://search.volunteerscotland.net//searches">saved-searches</a> {{inflect hits.total "was" "were"}} added to Volunteer Scotland Search since the {{momentFormat (moment ../subscription.lastSent "") "Do \o\f MMMM"}}. See below:
+                  <strong>{{inflect hits.total "opportunity" "opportunities" true}}</strong> matching your <a href="https://search.volunteerscotland.net/searches">saved-searches</a> {{inflect hits.total "was" "were"}} added to Volunteer Scotland Search since the {{momentFormat (moment ../subscription.lastSent "") "Do \o\f MMMM"}}. See below:
                 </p>
               </mj-text>
             </mj-column>
           </mj-section>
 
           <mj-raw>{{#each hits.hits}}</mj-raw>
-          <mj-section padding="5px 0px">
+          <mj-section padding="0px">
             <mj-column padding="0px">
-              <mj-text font-size="16px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+              <mj-text font-size="16px" line-height="20px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
                 <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
-                  with {{{_source.organisation_name}}} published on {{momentFormat (moment _source.publish_start_date) "Do \o\f MMMM"}}</p>
+                  with {{{_source.organisation_name}}} published on {{momentFormat (moment _source.publish_start_date "") "Do \o\f MMMM"}}</p>
               </mj-text>
             </mj-column>
           </mj-section>

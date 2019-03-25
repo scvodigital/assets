@@ -2,7 +2,6 @@
   "name": "humans",
   "pattern": "/humans.txt",
   "tasks": [
-    "context.metaData.commonTasks.currentSite",
     {
       "name": "destination",
       "taskModule": "renderLayout",

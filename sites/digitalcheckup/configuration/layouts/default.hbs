@@ -36,7 +36,7 @@
   <meta name="msapplication-TileColor" content="#3c7524">
   <meta name="msapplication-TileImage" content="{{~>asset_url url='images/icons/ms-icon-144x144.png'~}}">
   <meta name="theme-color" content="#3c7524">
-  <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Digital Checkup" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://digitalcheckup.com{{request.params.uri.pathname}}" /> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-34"></script>
@@ -145,13 +145,13 @@
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="main-body mdc-toolbar-fixed-adjust {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
-        {{#if layoutParts.sidebar }}
+      <main class="main-body mdc-toolbar-fixed-adjust{{#if layoutParts.sidebar}} drawer-container-permanent{{else}} drawer-container-temporary{{/if}}">
+        {{#if layoutParts.sidebar ~}}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
         </aside>
         <div class="mdc-drawer-scrim"></div>
-        {{/if}}
+        {{/if ~}}
         {{{layoutParts.body}}}
       </main>
 

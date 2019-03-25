@@ -1,6 +1,6 @@
 {
   "name": "page_digital",
-  "pattern": "/digital/new",
+  "pattern": "/digital",
   "tasks": [
     {
       "name": "primaryResponse",

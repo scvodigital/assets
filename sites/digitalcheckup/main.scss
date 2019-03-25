@@ -43,6 +43,7 @@ html, body {
 }
 body {
   background-color: $mdc-theme-footer-dark;
+  overflow: visible !important;
 }
 .mdc-top-app-bar {
   background-color: white;

@@ -148,8 +148,13 @@
                   </div>
                 </div>
 
-                <div class="cta t-margin-full t-padding-full">
-                  <a href="" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'});" class="mdc-button mdc-button--raised">
+                <div class="cta t-margin-full v-padding-full">
+                  <script type="text/javascript">
+                  function scrollToResources() {
+                    document.querySelector('#resources').scrollIntoView({behavior: 'smooth', block: 'start'});
+                  }
+                  </script>
+                  <a href="javascript: scrollToResources();" class="mdc-button mdc-button--raised">
                     <span class="fas fa-file-alt fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
                     Read resources
                   </a>

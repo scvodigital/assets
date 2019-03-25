@@ -36,7 +36,7 @@
   <meta name="msapplication-TileColor" content="#3c7524">
   <meta name="msapplication-TileImage" content="{{~>asset_url url='images/icons/ms-icon-144x144.png'~}}">
   <meta name="theme-color" content="#3c7524">
-  <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
+  <link rel="search" type="application/opensearchdescription+xml" title="Saltire Awards" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://saltireawards.org.uk{{request.params.uri.pathname}}" /> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-12"></script>
@@ -107,7 +107,7 @@
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
               <a href="/" class="mdc-top-app-bar__title">
-                {{@root.data.currentSite.title}}
+                Saltire Awards
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
@@ -168,19 +168,6 @@
           </div>
         </div>
       </header>
-
-      <div class="header-banner mdc-top-app-bar-fixed-adjust" style="background-image:url('{{@root.data.currentSite.headerImage}}')">
-        {{#compare @root.data.currentSite.name "!==" "default" ~}}
-        <div class="site-brand rounded mdc-elevation--z2">
-          <a href="/" class="site-brand--organisation">
-            <img src="{{@root.data.currentSite.logo}}" alt="{{@root.data.currentSite.organisationName}}" />
-          </a>
-          <a href="https://saltireawards.org.uk" class="site-brand--saltireawards">
-            Saltire Awards
-          </a>
-        </div>
-        {{/compare ~}}
-      </div>
 
       <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
         <div class="mdc-drawer__content">
@@ -249,7 +236,7 @@
                   <ul class="fa-ul">
                     <li>
                       <span class="fa-li"><span class="fas fa-envelope"></span></span>
-                      <a href="mailto:{{@root.data.currentSite.organisationContact}}">{{@root.data.currentSite.organisationContact}}</a>
+                      <a href="mailto:info@saltireawards.org.uk">info@saltireawards.org.uk</a>
                     </li>
                     <li>
                       <span class="fa-li"><span class="fas fa-phone"></span></span>

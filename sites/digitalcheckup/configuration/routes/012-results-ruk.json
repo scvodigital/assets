@@ -1,7 +1,6 @@
 {
   "name": "checkup_results_ruk",
   "pattern": "/checkup/results-ruk",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

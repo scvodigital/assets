@@ -2,7 +2,6 @@
   "name": "toggle_subscription",
   "pattern": "/toggle-subscription",
   "acceptedVerbs": "GET",
-  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",

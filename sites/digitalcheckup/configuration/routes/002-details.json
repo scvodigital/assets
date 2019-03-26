@@ -1,7 +1,6 @@
 {
   "name": "checkup_details",
   "pattern": "/checkup/details",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

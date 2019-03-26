@@ -1,7 +1,6 @@
 {
   "name": "checkup_confirmation_scotland",
   "pattern": "/checkup/confirmation-scotland",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

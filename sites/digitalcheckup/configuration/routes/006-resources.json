@@ -1,7 +1,6 @@
 {
   "name": "checkup_resources",
   "pattern": "/checkup/resources",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

@@ -1,7 +1,6 @@
 {
   "name": "post",
   "pattern": "/post/*path",
-  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

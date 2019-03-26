@@ -1,7 +1,6 @@
 {
   "name": "list_csv",
   "pattern": "/list-csv/:name",
-  "debug": true,
   "metaData": {
     "pdf": {
       "title": ">data.currentSite.title",

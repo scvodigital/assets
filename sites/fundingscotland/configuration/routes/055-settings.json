@@ -1,7 +1,6 @@
 {
   "name": "settings",
   "pattern": "/settings",
-  "debug": true,
   "metaData": {
     "hideSearch": true,
     "sidebarButton": {

@@ -2,7 +2,6 @@
   "name": "hide_fund",
   "pattern": "/hide-fund",
   "acceptedVerbs": "POST",
-  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",

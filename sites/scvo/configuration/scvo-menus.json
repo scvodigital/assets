@@ -42,11 +42,6 @@
 	}],
 	"charity-awards": [{
 		"children": [{
-				"label": "Apply now",
-				"path": "/scottish-charity-awards/apply-2019",
-				"route": "^/scottish-charity-awards/apply-2019"
-			},
-			{
 				"label": "2018 winners",
 				"path": "/scottish-charity-awards/winners-2018",
 				"route": "^/scottish-charity-awards/winners-2018"

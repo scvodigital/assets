@@ -1,7 +1,6 @@
 {
   "name": "notes",
   "pattern": "/notes",
-  "debug": true,
   "metaData": {
     "hideSearch": true,
     "sidebarButton": {

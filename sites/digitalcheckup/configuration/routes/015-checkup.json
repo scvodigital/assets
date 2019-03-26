@@ -4,7 +4,6 @@
     "home": "/checkup",
     "section": "/checkup/:section"
   },
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

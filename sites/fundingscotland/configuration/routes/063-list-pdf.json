@@ -1,7 +1,6 @@
 {
   "name": "list_pdf",
   "pattern": "/list-pdf/:name",
-  "debug": true,
   "metaData": {
     "pdf": {
       "title": ">data.currentSite.title",

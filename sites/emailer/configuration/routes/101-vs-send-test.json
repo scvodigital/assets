@@ -1,7 +1,6 @@
 {
   "name": "vs-send-test",
   "pattern": "/vs-send-test/:campaign/:email",
-  "debug": true,
   "tasks": [
     {
       "name": "notifications",

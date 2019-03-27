@@ -17,7 +17,7 @@
           {
             "name": "data_averages",
             "index": "web-content-production",
-            "type": "cast-checkup-onedigital",
+            "type": "cast-checkup-onedigital,scvo-checkup-onedigital",
             "template": ">context.metaData.handlebars.queries.data-averages"
           },
           {

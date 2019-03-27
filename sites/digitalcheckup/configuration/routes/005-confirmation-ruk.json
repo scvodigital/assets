@@ -1,7 +1,6 @@
 {
   "name": "checkup_confirmation_ruk",
   "pattern": "/checkup/confirmation-ruk",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

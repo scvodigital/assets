@@ -1,7 +1,6 @@
 {
   "name": "checkup_confirmation",
   "pattern": "/checkup/confirmation",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

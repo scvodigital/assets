@@ -1,7 +1,6 @@
 {
   "name": "blog",
   "pattern": "/blog",
-  "debug": true,
   "metaData": {
     "title": "Blog – Digital Checkup"
   },

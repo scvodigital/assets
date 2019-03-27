@@ -1,6 +1,5 @@
 {
   "name": "fund_search",
-  "debug": true,
   "pattern": {
     "search": "/search"
   },

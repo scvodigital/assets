@@ -1,7 +1,6 @@
 {
   "name": "premium_toggle",
   "pattern": "/premium-toggle",
-  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",

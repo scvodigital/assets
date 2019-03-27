@@ -1,7 +1,7 @@
 {
   "name": "analytics-importer",
   "pattern": "/analytics-importer",
-  "debug": true,
+  "debug": false,
   "tasks": [
     {
       "name": "dates",
@@ -18,7 +18,7 @@
       "taskModule": "gaGet",
       "config": {
         "connection": "goodmoves",
-        "parameters": ">context.metaData.handlebars.templates.utility_ga-goodmoves-params" 
+        "parameters": ">context.metaData.handlebars.templates.utility_ga-goodmoves-params"
       },
       "renderer": "handlebars"
     },

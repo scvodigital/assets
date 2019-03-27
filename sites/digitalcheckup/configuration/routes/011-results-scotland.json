@@ -1,7 +1,6 @@
 {
   "name": "checkup_results_scotland",
   "pattern": "/checkup/results-scotland",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

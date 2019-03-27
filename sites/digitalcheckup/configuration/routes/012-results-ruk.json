@@ -1,7 +1,6 @@
 {
   "name": "checkup_results_ruk",
   "pattern": "/checkup/results-ruk",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },
@@ -18,7 +17,7 @@
           {
             "name": "data_averages",
             "index": "web-content-production",
-            "type": "cast-checkup-onedigital",
+            "type": "cast-checkup-onedigital,scvo-checkup-onedigital",
             "template": ">context.metaData.handlebars.queries.data-averages"
           },
           {

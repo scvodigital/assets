@@ -1,7 +1,6 @@
 {
   "name": "delete_list",
   "pattern": "/delete-list",
-  "debug": true,
   "acceptedVerbs": ["POST"],
   "defaultParams": {
     "context": "detail"

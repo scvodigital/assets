@@ -2,7 +2,6 @@
   "name": "delete_note",
   "pattern": "/delete-note",
   "acceptedVerbs": "POST",
-  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",

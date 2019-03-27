@@ -298,10 +298,10 @@
                                                 <p>
                                                   <strong>Organisation:</strong>
                                                   <a href="https://search.volunteerscotland.net/organisation/{{_source.organisation_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.organisation_name}}}</a><br />
-                                                  <strong>Salary:</strong>
-                                                  {{{_source.salary}}}<br />
-                                                  <strong>Location:</strong>
-                                                  {{{_source.location}}} </p>
+                                                  {{#if _source.postcode}}
+                                                    <strong>Postcode:</strong>
+                                                    {{{_source.postcode}}} {{/if}}
+                                                </p>
                                                 <p>
                                                   {{{truncate (stripTags _source.description) 250}}} <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">Find out more</a>
                                                 </p>

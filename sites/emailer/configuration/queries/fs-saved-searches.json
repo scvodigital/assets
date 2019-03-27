@@ -1,0 +1,89 @@
+{
+  "size": 1000,
+  "_source": [
+    "title", "og_title", "description", "updated", "date_last_modified", "funder_organisation.name", "funder_organisation.slug", "categories_slug"
+  ], 
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "_type": {
+                    "value": "scvo-cms-post" 
+                  }
+                }
+              },
+              {
+                "range": {
+                  "updated": {
+                    "gte": "now-7d/d"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "_type": {
+                    "value": "fundingscotland-fund" 
+                  }
+                }
+              }
+            ],
+            "should": [
+              {
+                "bool": {
+                  "filter": [
+                    {
+                      "term": {
+                        "fund_status_slug": {
+                          "value": "open" 
+                        }
+                      }
+                    },
+                    {
+                      "range": {
+                        "date_last_modified": {
+                          "gte": "now-7d/d"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "filter": [
+                    {
+                      "term": {
+                        "fund_status_slug": {
+                          "value": "currently-closed" 
+                        }
+                      }
+                    },
+                    {
+                      "range": {
+                        "date_reopens": {
+                          "gte": "now+7d/d"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "minimum_should_match": 1
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}

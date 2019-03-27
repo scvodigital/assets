@@ -52,8 +52,8 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{ {{#if @root.route.debug}} \"notifications\": {{{stringify @root.data.notifications}}}, \"search_task\": {{{stringify @root.data.generate_es_task}}}, \"search_data\": {{{stringify (default @root.data.search_data \"none\")}}}, \"mysql_task\": {{{stringify @root.data.generate_mysql_task}}}, \"email_data\": {{{stringify @root.data.send_emails}}} {{/if}} }",
-        "parseJson": false
+        "template": "{ {{#if @root.route.debug}} \"notifications\": {{{stringify (default @root.data.notifications \"none\")}}}, \"search_task\": {{{stringify (default @root.data.generate_es_task \"none\")}}}, \"search_data\": {{{stringify (default @root.data.search_data \"none\")}}}, \"mysql_task\": {{{stringify (default @root.data.generate_mysql_task \"none\")}}}, \"email_data\": {{{stringify (default @root.data.send_emails \"none\")}}}, \"errors\": {{{stringify (default @root.errors \"none\")}}} {{/if}} }",
+        "parseJson": true
       }
     }
   ]

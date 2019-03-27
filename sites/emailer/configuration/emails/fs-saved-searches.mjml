@@ -1,0 +1,116 @@
+<mjml>
+  <mj-body background-color="#F5F5F5">
+    <mj-wrapper background-color="#ffffff" padding="10px">
+      <mj-section background-color="{{campaignConfig.metaData.primaryColour}}" padding="10px">
+        <mj-column padding="0px">
+          <mj-image src="https://storage.googleapis.com/scvo-assets/emailer/goodmoves-logo-white.png" width="352px" align="left" padding="0px"></mj-image>
+        </mj-column>
+      </mj-section>
+
+      <mj-raw>
+        {{#*inline "section"}}
+          {{#ifAny items alwaysShow (if expression false else=true)}}
+      </mj-raw>
+        <mj-section padding="15px 0px 5px 0px">
+          <mj-column padding="0px">
+            <mj-raw>{{#if title}}</mj-raw>
+              <mj-text font-size="20px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
+                {{{title}}}
+              </mj-text>
+            <mj-raw>{{/if}}</mj-raw>
+            <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
+              <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+                {{{if items headerBlock else=(default headerBlockNoItems headerBlock)}}}
+              </mj-text>
+            <mj-raw>{{/ifAny}}</mj-raw>
+          </mj-column>
+        </mj-section>
+      <mj-raw>
+          {{/ifAny}}
+          {{#each items}}
+            {{#compare _type "fundingscotland-fund"}}
+              {{>fund this}}
+            {{else}}
+              {{>post this}}
+            {{/compare}}
+          {{/each}}
+          {{#ifAny items alwaysShow (if expression false else=true)}}
+      </mj-raw>
+        <mj-section padding="5px 0px 15px 0px">
+          <mj-column padding="0px">
+            <mj-raw>{{#ifAny footerBlock footerBlockNoItems}}</mj-raw>
+              <mj-text font-size="14px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+                {{{if items footerBlock else=(default footerBlockNoItems footerBlock)}}}
+              </mj-text>
+            <mj-raw>{{/ifAny}}</mj-raw>
+          </mj-column>
+        </mj-section>
+      <mj-raw>
+          {{/ifAny}}
+        {{/inline}}
+        {{#*inline "post"}}
+      </mj-raw>
+      <mj-section padding="10px 0px 10px 0px">
+        <mj-column padding="0px">
+          <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <a href="https://fundingscotland.com/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.og_title}}}</a>
+          </mj-text>
+          <mj-text font-size="14px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            {{{truncate (stripTags _source.description) 250}}}
+            <a href="https://fundingscotland.com/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">Find out more</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        {{/inline}}
+        {{#*inline "fund"}}
+      </mj-raw>
+      <mj-section padding="10px 0px 10px 0px">
+        <mj-column padding="0px">
+          <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <a href="https://fundingscotland.com/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
+          </mj-text>
+          <mj-text font-size="14px" padding="5px" container-background-color="#42842A" color="#ffffff" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <strong>Organisation:</strong>
+            <a href="https://fundingscotland.com/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
+          </mj-text>
+          <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            {{{truncate (stripTags _source.description) 250}}}
+            <a href="https://fundingscotland.com/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">Find out more</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-raw>
+        {{/inline}}
+      </mj-raw>
+
+      <mj-raw>
+        {{#each campaignConfig.metaData.sections}}
+          {{>section this items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
+        {{/each}} 
+      </mj-raw>
+
+      <mj-section background-color="#E1E3E4" padding="0px">
+        <mj-column padding="10px">
+          <mj-text font-size="16px" color="#37474F" font-family="Montserrat, helvetica, Arial, sans-serif" padding="0px">
+            <p style="margin:0px;">
+              <a href="https://goodmoves.com/searches" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">Change your alert preferences</a> or <a href="%unsubscribe_url%" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">unsubscribe</a>
+            </p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section background-color="#263238" padding="0px">
+        <mj-column padding="10px">
+          <mj-text font-size="14px" color="#ffffff" font-family="Montserrat, helvetica, Arial, sans-serif" padding="0px 0px 15px">
+            <p style="margin:0px;">
+              &#169; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland SC003558. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB.
+            </p>
+          </mj-text>
+
+          <mj-image src="https://storage.googleapis.com/scvo-assets/emailer/scvo-logo.png" align="center" width="125px" padding="0px"></mj-image>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>

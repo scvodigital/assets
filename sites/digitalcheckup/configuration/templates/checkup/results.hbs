@@ -68,7 +68,7 @@
                   {{#compare this.key "===" @root.request.params.query.income_band ~}}
                   <span class="mdc-typography--body2">
                     (compared with {{this.doc_count}} organisations across
-                    {{#compare @root.request.params.query.area "scotland"}} Scotland {{else}} the UK {{/compare}}
+                    {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
                     in the same income bracket)
                   </span>
                   {{/compare ~}}
@@ -223,7 +223,7 @@
                 {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                 {{#compare this.key "===" @root.request.params.query.income_band ~}}
                 (based on {{this.doc_count}} organisations across
-                {{#compare @root.request.params.query.area "scotland"}} Scotland {{else}} the UK {{/compare}}
+                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
                 in the same income bracket)
                 {{/compare ~}}
                 {{/each ~}}
@@ -258,7 +258,7 @@
                 {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                 {{#compare this.key "===" @root.request.params.query.income_band ~}}
                 (based on {{this.doc_count}} organisations across
-                {{#compare @root.request.params.query.area "scotland"}} Scotland {{else}} the UK {{/compare}}
+                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
                 in the same income bracket)
                 {{/compare ~}}
                 {{/each ~}}
@@ -293,7 +293,7 @@
                 {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                 {{#compare this.key "===" @root.request.params.query.income_band ~}}
                 (based on {{this.doc_count}} organisations across
-                {{#compare @root.request.params.query.area "scotland"}} Scotland {{else}} the UK {{/compare}}
+                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
                 in the same income bracket)
                 {{/compare ~}}
                 {{/each ~}}
@@ -328,7 +328,7 @@
                 {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
                 {{#compare this.key "===" @root.request.params.query.income_band ~}}
                 (based on {{this.doc_count}} organisations across
-                {{#compare @root.request.params.query.area "scotland"}} Scotland {{else}} the UK {{/compare}}
+                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
                 in the same income bracket)
                 {{/compare ~}}
                 {{/each ~}}

@@ -1,6 +1,6 @@
 {{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 @root.request.params.query.income_band  @root.request.params.query.topic @root.request.params.query.area ~}}
-<form action="/checkup/results" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
-  {{> checkup_scores section=@root.request.body.score-section}}
+<form action="/checkup/results-ruk" method="get" class="checkup-section b-padding-full" id="checkup-confirmation">
+  {{> checkup_scores query_params=@root.request.params.query}}
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">
@@ -27,7 +27,25 @@
 
       <div class="question-block mdc-elevation--z3">
         <div class="question">
-          <h2 class="mdc-typography--headline5 question-title">Would you like additional support from a local infrastructure organisation in {{@root.request.body.area}} based on your responses? *</h2>
+          <h2 class="mdc-typography--headline5 question-title">If you could tackle one digital project in the next three months, what would that be?</h2>
+        </div>
+        <div class="answer-block">
+          <textarea name="next_project"></textarea>
+        </div>
+      </div>
+
+      <div class="question-block mdc-elevation--z3">
+        <div class="question">
+          <h2 class="mdc-typography--headline5 question-title">What are the top barriers to digital change in your organisation?</h2>
+        </div>
+        <div class="answer-block">
+          <textarea name="barriers"></textarea>
+        </div>
+      </div>
+
+      <div class="question-block mdc-elevation--z3">
+        <div class="question">
+          <h2 class="mdc-typography--headline5 question-title">Would you like additional support from a local infrastructure organisation based on your responses? *</h2>
           <div class="mdc-typography--body1 question-description">This could be funding, events, training and 1:1 support</div>
         </div>
         <ul class="answer-block">
@@ -41,7 +59,7 @@
       </div>
     </div>
   </div>
-</div>
+</form>
 {{else}}
 {{> checkup_error}}
 {{/ifAll}}

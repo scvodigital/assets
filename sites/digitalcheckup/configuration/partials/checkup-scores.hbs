@@ -1,3 +1,8 @@
+{{#if query_params ~}}
+{{#each query_params ~}}
+<input type="hidden" name="{{@key}}" value="{{this}}" />
+{{/each ~}}
+{{else}}
 {{#if @root.request.body ~}}
 {{#if @root.request.body.section-1-score ~}}
 <input type="hidden" name="section-1-score" value="{{@root.request.body.section-1-score}}" />
@@ -32,4 +37,5 @@
 {{/compare ~}}
 {{else}}
 <input type="hidden" name="{{section}}-score" value="0" />
+{{/if ~}}
 {{/if ~}}

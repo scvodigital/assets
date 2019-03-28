@@ -252,7 +252,7 @@
 				{
 					"label": "Essential digital skills",
 					"path": "/digital/participation/skills",
-					"route": "^/digital/participation/skills$"
+					"route": "^/digital/participation/skills"
 				},
 				{
 					"label": "Charter fund",
@@ -262,22 +262,22 @@
 				{
 					"label": "Digital Champions - training",
 					"path": "/digital/participation/champions",
-					"route": "^/digital/participation/champions$"
+					"route": "^/digital/participation/champions"
 				},
 				{
 					"label": "Digital Champions - housing",
 					"path": "/digital/participation/digital-champions-in-social-housing",
-					"route": "^/digital/participation/digital-champions-in-social-housing$"
+					"route": "^/digital/participation/digital-champions-in-social-housing"
 				},
 				{
 					"label": "Events",
 					"path": "/digital/participation/events",
-					"route": "^/digital/participation/events$"
+					"route": "^/digital/participation/events"
 				},
 				{
 					"label": "Research",
 					"path": "/digital/participation/reports",
-					"route": "^/digital/participation/reports$"
+					"route": "^/digital/participation/reports"
 				}
 			],
 			"label": "Participation",

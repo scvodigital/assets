@@ -59,6 +59,7 @@ html {
 
 body {
   font-family: $base-font-family;
+  font-display: auto;
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
@@ -67,6 +68,7 @@ body {
 
 h1, h2, h3, h4, h5, strong {
   font-family: $heading-font-family;
+  font-display: auto;
   font-weight: $heading-font-weight;
 }
 
@@ -173,6 +175,7 @@ html {
 }
 body {
   font-family: $base-font-family;
+  font-display: auto;
   font-size: $base-font-size;
   font-weight: $base-font-weight;
   color: $brand-typography;
@@ -238,6 +241,7 @@ a {
       letter-spacing: -0.06rem;
       font-weight: $heading-font-weight;
       font-family: $heading-font-family;
+      font-display: auto;
       text-decoration: none;
       text-transform: uppercase;
       color: $brand-typography;
@@ -570,6 +574,7 @@ main {
       display: block;
       text-align: center;
       font-family: $heading-font-family;
+      font-display: auto;
       font-weight: $heading-font-weight;
       font-size: 1.6rem;
       line-height: normal;
@@ -878,6 +883,7 @@ h2,
 h3,
 h4 {
   font-family: $heading-font-family;
+  font-display: auto;
   font-weight: $heading-font-weight;
   color: $brand-typography;
 }
@@ -889,6 +895,7 @@ a {
 
 p, li, div {
   font-family: $base-font-family;
+  font-display: auto;
   font-weight: $base-font-weight;
   font-size: $base-font-size;
 }
@@ -1112,12 +1119,14 @@ footer {
   background-color: $mdc-theme-footer-dark;
   p, li, div {
     font-family: $footer-font-family;
+    font-display: auto;
     font-weight: $footer-font-weight;
     color: $mdc-theme-footer;
     font-size: 1.05rem;
   }
   h3, a, strong {
     font-family: $footer-font-family;
+    font-display: auto;
     font-weight: 600;
   }
   .container-fluid {

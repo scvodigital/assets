@@ -506,7 +506,7 @@
         "type": "select-one",
         "options": [
           {
-            "answer": "Leaderhip & culture",
+            "answer": "Leadership & culture",
             "value": "leadership"
           },
           {

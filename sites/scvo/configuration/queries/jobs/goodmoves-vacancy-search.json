@@ -2,7 +2,13 @@
   "size": 10,
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 10}},
   "_source": [
-    "rendered.scvo_search_result"
+    "title",
+    "closing_date",
+    "location",
+    "description_short",
+    "organisation.slug",
+    "organisation.name",
+    "slug"
   ],
   "query": {
     "bool": {

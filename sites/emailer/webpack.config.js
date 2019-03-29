@@ -35,7 +35,9 @@ function getConfig(site, library) {
 
   const config = {
     watchOptions: {
-      ignored: ['node_modules', 'build'],
+      ignored: [function(path) {
+        return path.indexOf('/lib/') === -1 && path.indexOf('/emailer/') === -1;
+      }],
       aggregateTimeout: 300
     },
     entry: [

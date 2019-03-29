@@ -22,6 +22,16 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-renfrewshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
     "pageLimit": 5,
     "enablePremiumFeatures": false
   },

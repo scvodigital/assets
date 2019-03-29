@@ -31,6 +31,16 @@
       "renderer": "handlebars"
     },
     {
+      "name": "results",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.checkup_results-formatter",
+        "parseJson": true
+      }
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

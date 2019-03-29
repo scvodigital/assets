@@ -129,8 +129,8 @@
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-              <div style="background:#42842A;background-color:#42842A;Margin:0px auto;max-width:580px;">
-                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#42842A;background-color:#42842A;width:100%;">
+              <div style="background:{{campaignConfig.metaData.primaryColour}};background-color:{{campaignConfig.metaData.primaryColour}};Margin:0px auto;max-width:580px;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{campaignConfig.metaData.primaryColour}};background-color:{{campaignConfig.metaData.primaryColour}};width:100%;">
                   <tbody>
                     <tr>
                       <td style="direction:ltr;font-size:0px;padding:10px;text-align:center;vertical-align:top;">
@@ -155,7 +155,7 @@
                                           <tbody>
                                             <tr>
                                               <td style="width:352px;">
-                                                <img height="auto" src="https://storage.googleapis.com/scvo-assets/emailer/goodmoves-logo-white.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;" width="352" />
+                                                <img height="auto" src="{{campaignConfig.metaData.logoUrl}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;" width="352" />
                                               </td>
                                             </tr>
                                           </tbody>
@@ -189,7 +189,7 @@
             </tr>
           <![endif]-->
               {{#*inline "section"}}
-                {{#ifAny items alwaysShow (if expression false else=true)}}
+                {{#ifAny (any items) alwaysShow}}
                   <!--[if mso | IE]>
             <tr>
               <td
@@ -226,14 +226,14 @@
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
                                               <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:20px;font-weight:700;line-height:1;text-align:left;color:#000000;">
-                                                {{{title}}} </div>
+                                                {{{replace title '%item_count%' (length items)}}} </div>
                                             </td>
                                           </tr>
                                         {{/if}}{{#ifAny headerBlock headerBlockNoItems}}
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:5px 0px 0px 0px;word-break:break-word;">
                                               <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
-                                                {{{if items headerBlock else=(default headerBlockNoItems headerBlock)}}} </div>
+                                                {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}} </div>
                                             </td>
                                           </tr>
                                         {{/ifAny}}
@@ -266,79 +266,14 @@
                 {{/ifAny}}
                 {{#each items}}
                   {{#compare _type "fundingscotland-fund"}}
-                    {{>fund this}}
+                    {{>fund this campaignConfig=../campaignConfig}}
                 {{else}}
-                  {{>post this}}
+                  {{>post this campaignConfig=../campaignConfig}}
                   {{/compare}}
                 {{/each}}
-                {{#ifAny items alwaysShow}}
-                  <!--[if mso | IE]>
-            <tr>
-              <td
-                 class="" width="600px"
-              >
-          
-      <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
-      >
-        <tr>
-          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-      <![endif]-->
-                  <div style="Margin:0px auto;max-width:580px;">
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
-                      <tbody>
-                        <tr>
-                          <td style="direction:ltr;font-size:0px;padding:5px 0px 15px 0px;text-align:center;vertical-align:top;">
-                            <!--[if mso | IE]>
-                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
-        <tr>
-      
-            <td
-               class="" style="vertical-align:top;width:580px;"
-            >
-          <![endif]-->
-                            <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                                <tbody>
-                                  <tr>
-                                    <td style="vertical-align:top;padding:0px;">
-                                      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
-                                        {{#ifAny footerBlock footerBlockNoItems}}
-                                          <tr>
-                                            <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
-                                              <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
-                                                {{{if items footerBlock else=(default footerBlockNoItems footerBlock)}}} </div>
-                                            </td>
-                                          </tr>
-                                        {{/ifAny}}
-                                      </table>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <!--[if mso | IE]>
-            </td>
-          
-        </tr>
-      
-                  </table>
-                <![endif]-->
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <!--[if mso | IE]>
-          </td>
-        </tr>
-      </table>
-      
-              </td>
-            </tr>
-          <![endif]-->
-                {{/ifAny}}
+                {{#ifAll (if (any items) false else=true) alwaysShow}}
+                  <mj-spacer height="10px" />
+                {{/ifAll}}
                 {{/inline}}
                 {{#*inline "post"}}
                   <!--[if mso | IE]>
@@ -376,14 +311,14 @@
                                         <tr>
                                           <td align="left" style="font-size:0px;padding:0px 0px 5px 0px;word-break:break-word;">
                                             <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:17px;line-height:1;text-align:left;color:#000000;">
-                                              <a href="https://fundingscotland.com/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.og_title}}}</a>
+                                              <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">{{{_source.og_title}}}</a>
                                             </div>
                                           </td>
                                         </tr>
                                         <tr>
                                           <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
                                             <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
-                                              {{{truncate (stripTags _source.description) 250}}} <a href="https://fundingscotland.com/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">Find out more</a>
+                                              {{{truncate (stripTags _source.description) 250}}} <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">Find out more</a>
                                             </div>
                                           </td>
                                         </tr>
@@ -450,22 +385,22 @@
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:0px 0px 5px 0px;word-break:break-word;">
                                               <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:17px;line-height:1;text-align:left;color:#000000;">
-                                                <a href="https://fundingscotland.com/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
+                                                <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">{{{_source.title}}}</a>
                                               </div>
                                             </td>
                                           </tr>
                                           <tr>
-                                            <td align="left" style="background:#42842A;font-size:0px;padding:5px;word-break:break-word;">
+                                            <td align="left" style="background:{{campaignConfig.metaData.primaryColour}};font-size:0px;padding:5px;word-break:break-word;">
                                               <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#ffffff;">
                                                 <strong>Organisation:</strong>
-                                                <a href="https://fundingscotland.com/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
+                                                <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
                                               </div>
                                             </td>
                                           </tr>
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:5px 0px 0px 0px;word-break:break-word;">
                                               <div style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;">
-                                                {{{truncate (stripTags _source.description) 250}}} <a href="https://fundingscotland.com/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">Find out more</a>
+                                                {{{truncate (stripTags _source.description) 250}}} <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">Find out more</a>
                                               </div>
                                             </td>
                                           </tr>
@@ -496,7 +431,7 @@
             </tr>
           <![endif]-->
                     {{/inline}}{{#each campaignConfig.metaData.sections}}
-                      {{>section this items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
+                      {{>section this campaignConfig=../campaignConfig items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
                     {{/each}}
                     <!--[if mso | IE]>
             <tr>
@@ -534,7 +469,7 @@
                                             <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
                                               <div style="font-family:Montserrat, helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#37474F;">
                                                 <p style="margin:0px;">
-                                                  <a href="https://goodmoves.com/searches" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">Change your alert preferences</a> or <a href="%unsubscribe_url%" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">unsubscribe</a>
+                                                  <a href="%unsubscribe_url%" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">Unsubscribe from these emails</a>
                                                 </p>
                                               </div>
                                             </td>
@@ -598,9 +533,7 @@
                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
                                           <tr>
                                             <td align="left" style="font-size:0px;padding:0px 0px 15px;word-break:break-word;">
-                                              <div style="font-family:Montserrat, helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#ffffff;">
-                                                <p style="margin:0px;"> &#169; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland SC003558. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB. </p>
-                                              </div>
+                                              <div style="font-family:Montserrat, helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#ffffff;"> &#169; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland SC003558. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB. </div>
                                             </td>
                                           </tr>
                                           <tr>

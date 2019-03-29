@@ -1,0 +1,55 @@
+{
+  "size": 1000,
+  "_source": [
+    "title", "og_title", "description", "updated", "date_last_modified", "funder_organisation.name", "funder_organisation.slug", "categories_slug"
+  ], 
+  "query": { 
+    "bool": {
+      "should": [
+        {
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "_type": {
+                    "value": "scvo-cms-post" 
+                  }
+                }
+              },
+              {
+                "range": {
+                  "updated": {
+                    {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                    "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+                    {{else}}
+                    "gte": "now-1w/d"
+                    {{/ifAny}}
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {{#>queries_fund_fixed_filters fixedFilters=fixedFilters}}
+          "bool": {
+            "filter": [
+              {
+                "term": {
+                  "_type": {
+                    "value": "fundingscotland-fund" 
+                  }
+                }
+              },
+              {{> @partial-block}}
+            ]
+          }
+        {{/queries_fund_fixed_filters}}
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "sort": [
+    { "date_last_modified": "desc" },
+    { "updated": "desc" }
+  ]
+}

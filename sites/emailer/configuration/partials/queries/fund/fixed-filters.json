@@ -1,0 +1,41 @@
+{
+  "function_score": {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "filter": [
+                {{#if fixedFilters.type_of_cost ~}}
+                  {{>queries_terms field="type_of_cost_slug" terms=fixedFilters.type_of_cost}},
+                {{/if ~}}
+                {{#if fixedFilters.type_of_funding ~}}
+                  {{>queries_terms field="type_of_funding_slug" terms=fixedFilters.type_of_funding}},
+                {{/if ~}}
+                {{#if fixedFilters.source_of_fund ~}}
+                  {{>queries_terms field="source_of_fund_slug" terms=fixedFilters.source_of_fund}},
+                {{/if ~}}
+                {{#if fixedFilters.activities ~}}
+                  {{>queries_terms field="activities_slugs" terms=fixedFilters.activities}},
+                {{/if}}
+                {{#if fixedFilters.beneficiaries ~}}
+                  {{>queries_terms field="beneficiaries_slugs" terms=fixedFilters.beneficiaries}},
+                {{/if}}
+                {{#if fixedFilters.geographical_areas_funded ~}}
+                  {{>queries_terms field="geographical_areas_funded_slugs" terms=fixedFilters.geographical_areas_funded}},
+                {{/if ~}}
+                {{#if fixedFilters.region_group ~}}
+                  {{>queries_terms field="region_group_slug" terms=fixedFilters.region_group}},
+                {{/if ~}}
+                {{>queries_do_nothing}}
+              ]
+            }
+          },
+          {
+            {{> @partial-block}}
+          }
+        ]
+      }
+    }
+  }
+}

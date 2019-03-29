@@ -27,6 +27,7 @@
       <li><a href="/jobs/community-jobs-scotland/vacancies">Vacancies</a></li>
       <li>{{#compare @root.request.params.phase "===" "p19v"}}16–29 year olds{{else}}16–29 year olds with a disability{{/compare}}</li>
     </ul>
+    {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
     <div class="mdc-layout-grid full">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content">
@@ -204,5 +205,10 @@
         {{> footer_cjs}}
       </div>
     </div>
+    {{else}}
+    <h4 class="mdc-typography--headline5 t-margin-full t-padding-full">
+      Sorry, we have no CJS vacancies available at the moment - please check back soon
+    </h4>
+    {{/compare}}
   </div>
 </div>

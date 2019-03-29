@@ -6,11 +6,6 @@
       "must": [
         {
           "term": {
-            "country_slug": "scotland"
-          }
-        },
-        {
-          "term": {
             "active": true
           }
         },

@@ -22,7 +22,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "{{{default @root.request.headers.referer '/'}}}"
+        "template": "/"
       }
     },
     {

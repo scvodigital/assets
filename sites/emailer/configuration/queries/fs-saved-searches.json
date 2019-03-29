@@ -1,0 +1,5 @@
+{{#>queries_fund_wrapper fixedFilters=templateMetaData.config.metaData.siteConfiguration.fixedFilters templateMetaData=templateMetaData}}
+  {{#eachJoin (split templateMetaData.querystrings "&&") ","}}
+    {{>queries_fund_saved_search query=(querystring this)}}
+  {{/eachJoin}}
+{{/queries_fund_wrapper}}

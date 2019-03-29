@@ -1,0 +1,53 @@
+{
+  "bool": {
+    "filter": [
+      {
+        "term": {
+          "_type": {
+            "value": "fundingscotland-fund" 
+          }
+        }
+      },
+      {{>queries_fund_search_filters query}}
+    ],
+    "must": [
+      {{>queries_fund_search_must query}}
+    ],
+    {{#if (contains query.miscellaneous "hide-open-funds") ~}}
+    "must_not": [
+      {{>queries_term field="fund_status_slug" term="open"}}
+    ],
+    {{/if ~}}
+    "should": [
+      {{#unless (contains query.miscellaneous "hide-open-funds") ~}}
+      {{>queries_term field="fund_status_slug" term="open"}},
+      {{/unless ~}}
+      {{#if (contains query.miscellaneous "show-opening-soon-funds")}}
+      {
+        "bool": {
+          "filter": [
+            {{>queries_term field="fund_status_slug" term="currently-closed"}}
+          ],
+          "must": [
+            {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+          ]
+        }
+      },
+      {{/if}}
+      {{#if (contains query.miscellaneous "show-closed-funds")}}
+      {
+        "bool": {
+          "filter": [
+            {{>queries_term field="fund_status_slug" term="currently-closed"}}
+          ],
+          "must_not": [
+            {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+          ]
+        }
+      },
+      {{/if}}
+      {{>queries_do_nothing}}
+    ],
+    "minimum_should_match": 2
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "size": 9,
+  "_source": [
+    "title",
+    "content",
+    "author_attribution",
+    "link",
+    "post_tags_slug"
+  ],
+  "query": {
+    "bool": {
+      "must_not": [
+        {{#if @root.request.params.query.topic ~}}
+        {{#switch @root.request.params.query.topic ~}}
+        {{#case "leadership" ~}}
+        {
+          "bool": {
+            "should": [
+              {
+                "term": {
+                  "post_tags_slug": "leadership"
+                }
+              },
+              {
+                "term": {
+                  "post_tags_slug": "culture"
+                }
+              },
+              {
+                "term": {
+                  "post_tags_slug": "skills"
+                }
+              }
+            ],
+            "minimum_should_match": 1
+          }
+        },
+        {{/case ~}}
+        {{#case "tools" ~}}
+        {
+          "term": {
+            "post_tags_slug": "tools-equipment"
+          }
+        },
+        {{/case ~}}
+        {{#case "data" ~}}
+        {
+          "term": {
+            "post_tags_slug": "content-marketing-data"
+          }
+        },
+        {{/case ~}}
+        {{#case "cyber" ~}}
+        {
+          "term": {
+            "post_tags_slug": "cyber-resilience"
+          }
+        },
+        {{/case ~}}
+        {{/switch ~}}
+        {{/if ~}}
+        {
+          "term": {
+            "categories_slug": "digital-evolution"
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "weight": "desc"
+  }
+}

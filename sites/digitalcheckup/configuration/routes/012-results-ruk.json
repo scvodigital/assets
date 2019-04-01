@@ -21,10 +21,16 @@
             "template": ">context.metaData.handlebars.queries.data-averages"
           },
           {
-            "name": "resources",
+            "name": "resources_relevant",
             "index": "web-content-production",
             "type": "scvo-cms-resource",
-            "template": ">context.metaData.handlebars.queries.resources"
+            "template": ">context.metaData.handlebars.queries.resources-relevant"
+          },
+          {
+            "name": "resources_focus",
+            "index": "web-content-production",
+            "type": "scvo-cms-resource",
+            "template": ">context.metaData.handlebars.queries.resources-focus"
           }
         ]
       },

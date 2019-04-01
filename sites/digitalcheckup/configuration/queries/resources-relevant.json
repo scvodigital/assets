@@ -66,6 +66,14 @@
       "boost": "5",
       "functions": [
         {
+          "field_value_factor": {
+            "field": "weight",
+            "factor": 10,
+            "modifier": "square",
+            "missing": 1
+          }
+        },
+        {
           "filter": {
             "terms": {
               "post_tags_slug": [

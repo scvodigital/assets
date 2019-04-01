@@ -1,7 +1,6 @@
 {
   "name": "checkup_submit",
   "pattern": "/checkup/submit",
-  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },

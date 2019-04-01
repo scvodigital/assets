@@ -11,7 +11,7 @@
       "renderer": "handlebars",
       "config": {
         "appName": "digital-checkup",
-        "pathTemplate": "/submissions/{{moment}}-{{hash @root.request.body.email}}/",
+        "pathTemplate": "/submissions/{{moment null \"X\"}}-{{hash @root.request.body.email}}/",
         "setOrUpdate": "set",
         "dataTemplate": ">context.metaData.handlebars.templates.checkup_firebase-data"
       }

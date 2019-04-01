@@ -1,19 +1,28 @@
+{{~#*inline "to_percentage"~}}
+  {{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}
+{{~/inline~}}
 {{~#with @root.request.body~}}
 {
-  "area" : {{{safeStringify area}}},
-  "barriers" : {{{safeStringify barriers}}},
   "email" : {{{safeStringify (if (compare area "!==" "scotland") email else="[redacted]")}}},
-  "income_band" : {{{safeStringify income_band}}},
   "name" : {{{safeStringify (if (compare area "!==" "scotland") name else="[redacted]")}}},
-  "next_project" : {{{safeStringify next_project}}},
+  "organisation" : {{{safeStringify (if (compare area "!==" "scotland") web_organisation else="[redacted]")}}}
   "postcode" : {{{safeStringify (if (compare area "!==" "scotland") postcode else="[redacted]")}}},
-  "score-section" : {{{safeStringify (num score-section)}}},
-  "section-1-score" : {{{safeStringify (num section-1-score)}}},
-  "section-2-score" : {{{safeStringify (num section-2-score)}}},
-  "section-3-score" : {{{safeStringify (add section-3-score section-4-score)}}},
-  "section-4-score" : {{{safeStringify (num section-5-score)}}},
-  "support" : {{{default (compare support "true") "false"}}},
+  "income_band" : {{{safeStringify income_band}}},
+  "area" : {{{safeStringify area}}},
+  "next_project" : {{{safeStringify next_project}}},
+  "barriers" : {{{safeStringify barriers}}},
   "topic" : {{{safeStringify topic}}},
-  "web_organisation" : {{{safeStringify (if (compare area "!==" "scotland") web_organisation else="[redacted]")}}}
+  "support" : {{{default (compare support "true") "false"}}},
+  "date_last_modified": {{{safeStringify (moment null "X")}}},
+  "score_total" : {{{safeStringify (sumArray (split (concat section-1-score "," section-2-score "," section-3-score "," section-4-score "," section-5-score) ","))}}},
+  "score_leadership_culture_and_skills" : {{{safeStringify (num section-1-score)}}},
+  "score_tools_and_equipment" : {{{safeStringify (num section-2-score)}}},
+  "score_content_marketing_and_data" : {{{safeStringify (add section-3-score section-4-score)}}},
+  "score_cyber_resilience" : {{{safeStringify (num section-5-score)}}},
+  "percentage_total": {{>to_percentage score=(sumArray (split (concat section-1-score "," section-2-score "," section-3-score "," section-4-score "," section-5-score) ",")) lower=-18 upper=136}}
+  "percentage_leadership_culture_and_skills" : {{{>to_percentage score=(num section-1-score) lower=-4 upper=20}},
+  "percentage_tools_and_equipment" : {{>to_percentage score=(num section-2-score) lower=-2 upper=35}},
+  "percentage_content_marketing_and_data" : {{>to_percentage score=(add section-3-score section-4-score) lower=-10 upper=66}},
+  "percentage_cyber_resilience" : {{>to_percentage score=(num section-5-score) lower=-2 upper=15}}
 }
 {{~/with~}}

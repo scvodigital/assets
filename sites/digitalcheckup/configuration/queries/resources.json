@@ -1,0 +1,24 @@
+{
+  "size": 100,
+  "_source": [
+    "title",
+    "content",
+    "author_attribution",
+    "link",
+    "post_tags_slug"
+  ],
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "categories_slug": "digital-evolution"
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "weight": "desc"
+  }
+}

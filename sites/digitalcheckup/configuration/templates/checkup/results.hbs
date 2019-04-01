@@ -170,15 +170,17 @@
               {{/each ~}}
             </div>
           </div>
+          {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total "===" 0 ~}}
           <div class="mdc-typography--body1 t-margin-full">
             <a href="/checkup/resources">Resources for other topic areas</a>
           </div>
+          {{/compare ~}}
         </div>
       </div>
     {{/compare ~}}
 
     {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
-    <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
+    <div class="checkup-topic-header t-margin-full" id="resources">
       <div class="container-fluid">
         <div class="container-content">
           <div class="mdc-typography--body2">Relevant</div>

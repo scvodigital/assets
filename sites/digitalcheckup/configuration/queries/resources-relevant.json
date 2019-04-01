@@ -61,6 +61,13 @@
         {{/if ~}}
         {
           "term": {
+            "categories_slug": "test"
+          }
+        }
+      ],
+      "must": [
+        {
+          "term": {
             "categories_slug": "digital-evolution"
           }
         }

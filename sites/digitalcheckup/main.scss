@@ -319,6 +319,12 @@ h4,
     margin-top: $unit*4;
   }
 }
+
+.checkup-topic-header {
+  background-color: $mdc-theme-blue;
+  padding: $unit*2 0;
+}
+
 .checkup-section-header,
 .checkup-topic-header {
   .mdc-typography--body1,
@@ -456,10 +462,6 @@ h4,
   .question-block .question {
     background-color: $mdc-theme-blue;
   }
-}
-
-.checkup-topic-header {
-  padding: $unit*2 0;
 }
 
 .result {

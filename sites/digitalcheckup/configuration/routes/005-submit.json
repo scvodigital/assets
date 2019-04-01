@@ -1,6 +1,7 @@
 {
   "name": "checkup_submit",
   "pattern": "/checkup/submit",
+  "debug": true,
   "metaData": {
     "title": "Digital Checkup"
   },
@@ -11,9 +12,9 @@
       "renderer": "handlebars",
       "config": {
         "appName": "digital-checkup",
-        "pathTemplate": "/submissions/{{moment}}-{{hash @root.request.body.email}}/",
+        "pathTemplate": "/submissions/{{moment null \"X\"}}-{{hash @root.request.body.email}}/",
         "setOrUpdate": "set",
-        "dataTemplate": "{{{safeStringify @root.request.body}}}"
+        "dataTemplate": ">context.metaData.handlebars.templates.checkup_firebase-data"
       }
     },
     {

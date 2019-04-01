@@ -1,5 +1,18 @@
 {
   "size": 0,
+  "query": {
+    {{#if @root.request.params.query.area}}
+    {{#compare @root.request.params.query.area "scotland"}}
+    "term": {
+      "area": "{{@root.request.params.query.area}}"
+    }
+    {{else}}
+    "match_all": {}
+    {{/compare}}
+    {{else}}
+    "match_all": {}
+    {{/if}}
+  },
   "aggs": {
     "total_stats": {
       "extended_stats": {

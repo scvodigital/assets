@@ -1,5 +1,9 @@
 {{#withExtend this
     body=@root.request.body
+    s1=@root.request.body.section-1-score
+    s2=@root.request.body.section-2-score
+    s3=(add @root.request.body.section-3-score @root.request.body.section-4-score)
+    s4=@root.request.body.section-5-score
     overall=(sumArray (split (concat @root.request.body.section-1-score "," @root.request.body.section-2-score "," @root.request.body.section-3-score "," @root.request.body.section-4-score "," @root.request.body.section-5-score) ","))}}
   <div class="checkup-section b-padding-full" id="checkup-confirmation">
     <div class="checkup-section-header b-padding-full v-margin-full">
@@ -12,8 +16,11 @@
                 <img src="{{~>asset_url url='images/icon-confirm@2x.png'~}}" title="Submitting" class="icon" />
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
-                <h1 class="mdc-typography--headline3">Submitting</h1>
-                <div class="mdc-typography--body1">Please wait...</div>
+                <h1 class="mdc-typography--headline3">Please wait</h1>
+                <div class="mdc-typography--body1">
+                  Processing your answers...
+                  <span class="fas fa-fw fa-spinner fa-spin"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -23,7 +30,7 @@
     <div class="container-fluid">
       <div class="container-content">
         {{#compare @root.request.body.area "scotland"}}
-          <iframe src="https://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&name={{urlencode body.name}}&email={{urlencode body.email}}&web_organisation={{urlencode body.web_organisation}}&area={{body.area}}&postcode={{urlencode body.postcode}}&next_project={{urlencode body.next_project}}&barriers={{urlencode body.barriers}}&support={{body.support}}" frameborder="0" width="700" height="10" style="overflow:hidden;visibility:hidden;"></iframe>
+          <iframe src="https://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{s1}}&s2={{s2}}&s3={{s3}}&s4={{s4}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&name={{urlencode body.name}}&email={{urlencode body.email}}&web_organisation={{urlencode body.web_organisation}}&area={{body.area}}&postcode={{urlencode body.postcode}}&next_project={{urlencode body.next_project}}&barriers={{urlencode body.barriers}}&support={{body.support}}" frameborder="0" width="700" height="10" style="overflow:hidden;visibility:hidden;"></iframe>
           <script>
             window.addEventListener("message", (event) => {
               if (event.data.hasOwnProperty('event')) {
@@ -40,7 +47,7 @@
           <script>
             window.setTimeout(function() {
               goToResults();
-            }, 4000);
+            }, 3000);
           </script>
         {{/compare}}
       </div>
@@ -48,7 +55,7 @@
   </div>
   <script>
     function goToResults() {
-      window.location.href = '/checkup/results?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&area={{body.area}}&income_band={{body.income_band}}&topic={{body.topic}}';
+      window.location.href = '/checkup/results?s1={{s1}}&s2={{s2}}&s3={{s3}}&s4={{s4}}&area={{body.area}}&income_band={{body.income_band}}&topic={{body.topic}}';
     }
   </script>
 {{/withExtend}}

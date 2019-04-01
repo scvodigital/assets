@@ -65,7 +65,7 @@
                     </ul>
                   </div>
 
-                  {{#each @root.data.results.sections}}
+                  {{#each @root.data.results.sections ~}}
                     <div class="mdc-typography--body1">
                       {{title}}
                       <div class="scores mdc-typography--caption">
@@ -77,7 +77,7 @@
                         </span>
                       </div>
                     </div>
-                  {{/each}}
+                  {{/each ~}}
 
                   <div class="cta t-margin-full v-padding-full">
                     <a href="javascript: scrollToResources();" class="mdc-button mdc-button--raised">
@@ -99,7 +99,7 @@
           </h3>
 
           <div class="cta">
-            {{#compare @root.route.name "checkup_results_scotland" ~}}
+            {{#compare @root.request.params.query.area "scotland" ~}}
               <!-- Calendly link widget begin -->
               <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
               <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>

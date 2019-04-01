@@ -1,0 +1,50 @@
+{
+  "scotland": {
+    "short": "Scotland",
+    "full": "Scotland"
+  },
+  "northern-ireland": {
+    "short": "Northern Ireland",
+    "full": "Northern Ireland"
+  },
+  "wales": {
+    "short": "Wales",
+    "full": "Wales"
+  },
+  "england-south-east": {
+    "short": "South East",
+    "full": "the South East of England"
+  },
+  "england-london": {
+    "short": "London",
+    "full": "London"
+  },
+  "england-north-west": {
+    "short": "North West",
+    "full": "the North West of England"
+  },
+  "england-east": {
+    "short": "East of England",
+    "full": "the East of England"
+  },
+  "england-west-midlands": {
+    "short": "West Midlands",
+    "full": "the West Midlands of England"
+  },
+  "england-south-west": {
+    "short": "South West",
+    "full": "the South West of England"
+  },
+  "england-yorkshire": {
+    "short": "Yorkshire and the Humber",
+    "full": "Yorkshire and the Humber"
+  },
+  "england-east-midlands": {
+    "short": "East Midlands",
+    "full": "the East Midlands of England"
+  },
+  "england-north-east": {
+    "short": "North East",
+    "full": "the North East of England"
+  }
+}

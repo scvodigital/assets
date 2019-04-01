@@ -50,6 +50,6 @@
       }
     },
     "totalRespondents": {{default (getProperty (firstItem (filter dataAverages.grouped_by_income_band.buckets "key" "===" query.income_band)) "doc_count") ""}},
-    "where": "{{#compare @root.route.name "checkup_results_scotland"}}Scotland{{else}}the UK{{/compare}}"
+    "where": "{{default (getProperty @root.context.metaData.areas (concat @root.request.params.query.area ".full")) "the UK"}}"
   }
 {{/withExtend}}

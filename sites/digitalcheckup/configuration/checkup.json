@@ -7,7 +7,7 @@
     "progress": 12,
     "questions": [
       {
-        "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world?",
+        "title": "Do your senior leaders (senior management, board and trustees) understand the need to adapt to a digital world? *",
         "value": "q1",
         "type": "select-one",
         "options": [

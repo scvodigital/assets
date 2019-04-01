@@ -12,6 +12,7 @@
     "title": "Digital Checkup",
     "menus": "{:./digitalcheckup-menus.json}",
     "checkup": "{:./checkup.json}",
+    "areas": "{:./areas.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "handlebars": {
       "partials": {

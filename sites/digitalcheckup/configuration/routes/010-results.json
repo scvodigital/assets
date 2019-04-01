@@ -1,10 +1,37 @@
 {
   "name": "checkup_results",
+  "debug": true,
   "pattern": "/checkup/results",
   "metaData": {
     "title": "Digital Checkup"
   },
   "tasks": [
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "digitalcheckup-response,digitalcheckup-response-legacy",
+          "template": ">context.metaData.handlebars.queries.data-averages"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "results",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.checkup_results-formatter",
+        "parseJson": true
+      }
+    },
     {
       "name": "supplimentaryResponses",
       "taskModule": "elasticsearch",
@@ -14,12 +41,6 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": [
-          {
-            "name": "data_averages",
-            "index": "web-content-production",
-            "type": "digitalcheckup-response,digitalcheckup-response-legacy",
-            "template": ">context.metaData.handlebars.queries.data-averages"
-          },
           {
             "name": "resources_relevant",
             "index": "web-content-production",
@@ -35,16 +56,6 @@
         ]
       },
       "renderer": "handlebars"
-    },
-    {
-      "name": "results",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.checkup_results-formatter",
-        "parseJson": true
-      }
     },
     {
       "name": "destination",

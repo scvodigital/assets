@@ -60,14 +60,19 @@
                 "categories_slug": "digital-evolution"
               }
             }
-          ],
-          "should": [
-
           ]
         }
       },
       "boost": "5",
       "functions": [
+        {
+          "field_value_factor": {
+            "field": "weight",
+            "factor": 10,
+            "modifier": "reciprocal",
+            "missing": 1
+          }
+        },
         {
           "filter": {
             "terms": {
@@ -78,6 +83,7 @@
               ]
             }
           },
+          "random_score": {},
           "weight": {{subtract 100 @root.data.results.sections.leadership.respondent}}
         },
         {
@@ -86,6 +92,7 @@
               "post_tags_slug": "tools-equipment"
             }
           },
+          "random_score": {},
           "weight": {{subtract 100 @root.data.results.sections.tools.respondent}}
         },
         {
@@ -94,6 +101,7 @@
               "post_tags_slug": "content-marketing-data"
             }
           },
+          "random_score": {},
           "weight": {{subtract 100 @root.data.results.sections.data.respondent}}
         },
         {
@@ -102,6 +110,7 @@
               "post_tags_slug": "cyber-resilience"
             }
           },
+          "random_score": {},
           "weight": {{subtract 100 @root.data.results.sections.cyber.respondent}}
         }
       ],

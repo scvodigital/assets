@@ -63,7 +63,7 @@
     </div>
     <script>
       function goToResults() {
-        window.location.href = '/checkup/results-{{#compare request.body.area 'scotland'}}scotland{{else}}ruk{{/compare}}?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&area={{body.area}}';
+        window.location.href = '/checkup/results?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&area={{body.area}}';
       }
     </script>
   {{else}}

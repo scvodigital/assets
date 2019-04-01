@@ -8,73 +8,107 @@
     "post_tags_slug"
   ],
   "query": {
-    "bool": {
-      "must_not": [
-        {{#if @root.request.params.query.topic ~}}
-        {{#switch @root.request.params.query.topic ~}}
-        {{#case "leadership" ~}}
-        {
-          "bool": {
-            "should": [
-              {
-                "term": {
-                  "post_tags_slug": "leadership"
-                }
-              },
-              {
-                "term": {
-                  "post_tags_slug": "culture"
-                }
-              },
-              {
-                "term": {
-                  "post_tags_slug": "skills"
-                }
+    "function_score": {
+      "query": {
+        "bool": {
+          "must_not": [
+            {{#if @root.request.params.query.topic ~}}
+            {{#switch @root.request.params.query.topic ~}}
+            {{#case "leadership" ~}}
+            {
+              "terms": {
+                "post_tags_slug": [
+                  "leadership",
+                  "culture",
+                  "skills"
+                ]
               }
-            ],
-            "minimum_should_match": 1
-          }
-        },
-        {{/case ~}}
-        {{#case "tools" ~}}
+            },
+            {{/case ~}}
+            {{#case "tools" ~}}
+            {
+              "term": {
+                "post_tags_slug": "tools-equipment"
+              }
+            },
+            {{/case ~}}
+            {{#case "data" ~}}
+            {
+              "term": {
+                "post_tags_slug": "content-marketing-data"
+              }
+            },
+            {{/case ~}}
+            {{#case "cyber" ~}}
+            {
+              "term": {
+                "post_tags_slug": "cyber-resilience"
+              }
+            },
+            {{/case ~}}
+            {{/switch ~}}
+            {{/if ~}}
+            {
+              "term": {
+                "categories_slug": "test"
+              }
+            }
+          ],
+          "must": [
+            {
+              "term": {
+                "categories_slug": "digital-evolution"
+              }
+            }
+          ],
+          "should": [
+
+          ]
+        }
+      },
+      "boost": "5",
+      "functions": [
         {
-          "term": {
-            "post_tags_slug": "tools-equipment"
-          }
+          "filter": {
+            "terms": {
+              "post_tags_slug": [
+                "leadership",
+                "culture",
+                "skills"
+              ]
+            }
+          },
+          "weight": {{subtract 100 @root.data.results.sections.leadership.respondent}}
         },
-        {{/case ~}}
-        {{#case "data" ~}}
         {
-          "term": {
-            "post_tags_slug": "content-marketing-data"
-          }
+          "filter": {
+            "term": {
+              "post_tags_slug": "tools-equipment"
+            }
+          },
+          "weight": {{subtract 100 @root.data.results.sections.tools.respondent}}
         },
-        {{/case ~}}
-        {{#case "cyber" ~}}
         {
-          "term": {
-            "post_tags_slug": "cyber-resilience"
-          }
+          "filter": {
+            "term": {
+              "post_tags_slug": "content-marketing-data"
+            }
+          },
+          "weight": {{subtract 100 @root.data.results.sections.data.respondent}}
         },
-        {{/case ~}}
-        {{/switch ~}}
-        {{/if ~}}
         {
-          "term": {
-            "categories_slug": "test"
-          }
+          "filter": {
+            "term": {
+              "post_tags_slug": "cyber-resilience"
+            }
+          },
+          "weight": {{subtract 100 @root.data.results.sections.cyber.respondent}}
         }
       ],
-      "must": [
-        {
-          "term": {
-            "categories_slug": "digital-evolution"
-          }
-        }
-      ]
+      "max_boost": 100,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 0
     }
-  },
-  "sort": {
-    "weight": "desc"
   }
 }

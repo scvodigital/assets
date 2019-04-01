@@ -14,25 +14,12 @@
         {{#switch @root.request.params.query.topic ~}}
         {{#case "leadership" ~}}
         {
-          "bool": {
-            "should": [
-              {
-                "term": {
-                  "post_tags_slug": "leadership"
-                }
-              },
-              {
-                "term": {
-                  "post_tags_slug": "culture"
-                }
-              },
-              {
-                "term": {
-                  "post_tags_slug": "skills"
-                }
-              }
-            ],
-            "minimum_should_match": 1
+          "terms": {
+            "post_tags_slug": [
+              "leadership",
+              "culture",
+              "skills"
+            ]
           }
         },
         {{/case ~}}

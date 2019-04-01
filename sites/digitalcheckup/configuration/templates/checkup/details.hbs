@@ -1,4 +1,3 @@
-{{#ifAll @root.request.body.section-1-score @root.request.body.section-2-score @root.request.body.section-3-score @root.request.body.section-4-score @root.request.body.section-5-score @root.request.body.scores-income_band  @root.request.body.scores-topic ~}}
 <form action="/checkup/confirmation" method="post" class="checkup-section b-padding-full" id="checkup-details">
   {{> checkup_scores section=@root.request.body.score-section}}
   <input type="hidden" name="score-section" value="details" />
@@ -109,6 +108,3 @@
     </div>
   </div>
 </div>
-{{else}}
-{{> checkup_error}}
-{{/ifAll}}

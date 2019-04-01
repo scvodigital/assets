@@ -1,6 +1,5 @@
-{{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 @root.request.params.query.income_band  @root.request.params.query.topic @root.request.params.query.area ~}}
-<form action="/checkup/results-ruk" method="get" class="checkup-section b-padding-full" id="checkup-confirmation">
-  {{> checkup_scores query_params=@root.request.params.query}}
+<form action="/checkup/submit" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
+  {{> checkup_scores query_params=@root.request.body}}
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">
@@ -30,7 +29,10 @@
           <h2 class="mdc-typography--headline5 question-title">If you could tackle one digital project in the next three months, what would that be?</h2>
         </div>
         <div class="answer-block">
-          <textarea name="next_project"></textarea>
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+            <textarea id="next_project" name="next_project" class="mdc-text-field__input" rows="10"></textarea>
+            <label for="next_project" class="mdc-floating-label"></label>
+          </div>
         </div>
       </div>
 
@@ -39,7 +41,10 @@
           <h2 class="mdc-typography--headline5 question-title">What are the top barriers to digital change in your organisation?</h2>
         </div>
         <div class="answer-block">
-          <textarea name="barriers"></textarea>
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+            <textarea id="barriers" name="barriers" class="mdc-text-field__input" rows="10"></textarea>
+            <label for="barriers" class="mdc-floating-label"></label>
+          </div>
         </div>
       </div>
 
@@ -60,6 +65,3 @@
     </div>
   </div>
 </form>
-{{else}}
-{{> checkup_error}}
-{{/ifAll}}

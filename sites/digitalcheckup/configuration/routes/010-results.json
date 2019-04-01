@@ -1,10 +1,36 @@
 {
-  "name": "checkup_results_scotland",
-  "pattern": "/checkup/results-scotland",
+  "name": "checkup_results",
+  "pattern": "/checkup/results",
   "metaData": {
     "title": "Digital Checkup"
   },
   "tasks": [
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "digitalcheckup-response,digitalcheckup-response-legacy",
+          "template": ">context.metaData.handlebars.queries.data-averages"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "results",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.checkup_results-formatter",
+        "parseJson": true
+      }
+    },
     {
       "name": "supplimentaryResponses",
       "taskModule": "elasticsearch",
@@ -15,16 +41,16 @@
         },
         "queryTemplates": [
           {
-            "name": "data_averages",
-            "index": "web-content-production",
-            "type": "scvo-checkup-onedigital",
-            "template": ">context.metaData.handlebars.queries.data-averages"
-          },
-          {
-            "name": "resources",
+            "name": "resources_relevant",
             "index": "web-content-production",
             "type": "scvo-cms-resource",
-            "template": ">context.metaData.handlebars.queries.resources"
+            "template": ">context.metaData.handlebars.queries.resources-relevant"
+          },
+          {
+            "name": "resources_focus",
+            "index": "web-content-production",
+            "type": "scvo-cms-resource",
+            "template": ">context.metaData.handlebars.queries.resources-focus"
           }
         ]
       },

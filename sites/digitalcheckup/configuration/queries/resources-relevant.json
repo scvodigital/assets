@@ -1,0 +1,123 @@
+{
+  "size": 9,
+  "_source": [
+    "title",
+    "content",
+    "author_attribution",
+    "link",
+    "post_tags_slug"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "must_not": [
+            {{#if @root.request.params.query.topic ~}}
+            {{#switch @root.request.params.query.topic ~}}
+            {{#case "leadership" ~}}
+            {
+              "terms": {
+                "post_tags_slug": [
+                  "leadership",
+                  "culture",
+                  "skills"
+                ]
+              }
+            },
+            {{/case ~}}
+            {{#case "tools" ~}}
+            {
+              "term": {
+                "post_tags_slug": "tools-equipment"
+              }
+            },
+            {{/case ~}}
+            {{#case "data" ~}}
+            {
+              "term": {
+                "post_tags_slug": "content-marketing-data"
+              }
+            },
+            {{/case ~}}
+            {{#case "cyber" ~}}
+            {
+              "term": {
+                "post_tags_slug": "cyber-resilience"
+              }
+            },
+            {{/case ~}}
+            {{/switch ~}}
+            {{/if ~}}
+            {
+              "term": {
+                "categories_slug": "test"
+              }
+            }
+          ],
+          "must": [
+            {
+              "term": {
+                "categories_slug": "digital-evolution"
+              }
+            }
+          ]
+        }
+      },
+      "boost": "5",
+      "functions": [
+        {
+          "field_value_factor": {
+            "field": "weight",
+            "factor": 10,
+            "modifier": "reciprocal",
+            "missing": 1
+          }
+        },
+        {
+          "filter": {
+            "terms": {
+              "post_tags_slug": [
+                "leadership",
+                "culture",
+                "skills"
+              ]
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 100 @root.data.results.sections.leadership.respondent}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "tools-equipment"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 100 @root.data.results.sections.tools.respondent}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "content-marketing-data"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 100 @root.data.results.sections.data.respondent}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "cyber-resilience"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 100 @root.data.results.sections.cyber.respondent}}
+        }
+      ],
+      "max_boost": 100,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 0
+    }
+  }
+}

@@ -1,6 +1,20 @@
-{{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 @root.request.params.query.income_band  @root.request.params.query.topic @root.request.params.query.area ~}}
-<form action="/checkup/results-ruk" method="get" class="checkup-section b-padding-full" id="checkup-confirmation">
-  {{> checkup_scores query_params=@root.request.params.query}}
+{{#ifAll 
+    @root.request.body.section-1-score
+    @root.request.body.section-2-score
+    @root.request.body.section-3-score
+    @root.request.body.section-4-score
+    @root.request.body.section-5-score
+    @root.request.body.section-6-score
+    @root.request.body.income_band
+    @root.request.body.topic
+    @root.request.body.score-section
+    @root.request.body.name
+    @root.request.body.email
+    @root.request.body.web_organisation
+    @root.request.body.area
+    @root.request.body.postcode}}
+<form action="/checkup/submit" method="post" class="checkup-section b-padding-full" id="checkup-confirmation">
+  {{> checkup_scores query_params=@root.request.body}}
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
       <div class="container-content">

@@ -1,33 +1,3 @@
-{{~#*inline "to_percentage"~}}{{round (multiply (divide (subtract score lower) (subtract upper lower)) 100) "up"}}{{~/inline~}}
-
-{{~#*inline "score_respondent_overall"~}}{{> to_percentage score=(add (add @root.request.params.query.s1 @root.request.params.query.s2) (add @root.request.params.query.s3 @root.request.params.query.s4)) lower=-18 upper=136}}{{~/inline~}}
-
-{{~#*inline "score_respondent_s1"~}}{{> to_percentage score=@root.request.params.query.s1 lower=-4 upper=20}}{{~/inline~}}
-
-{{~#*inline "score_respondent_s2"~}}{{> to_percentage score=@root.request.params.query.s2 lower=-2 upper=35}}{{~/inline~}}
-
-{{~#*inline "score_respondent_s3"~}}{{> to_percentage score=@root.request.params.query.s3 lower=-10 upper=66}}{{~/inline~}}
-
-{{~#*inline "score_respondent_s4"~}}{{> to_percentage score=@root.request.params.query.s4 lower=-2 upper=15}}{{~/inline~}}
-
-{{~#*inline "score_average_overall"~}}{{~#compare @root.request.params.query.income_band "===" "0"~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets~}}{{~#compare this.key "===" @root.request.params.query.income_band~}}{{round this.total_stats.avg "up"}}{{~/compare~}}{{~/each~}}{{~/compare~}}{{~/inline~}}
-
-{{~#*inline "score_average_s1"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.leadership_culture_and_skills_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.leadership_culture_and_skills_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
-
-{{~#*inline "score_average_s2"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.tools_and_equipment_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.tools_and_equipment_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
-
-{{~#*inline "score_average_s3"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.content_marketing_and_data_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.content_marketing_and_data_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
-
-{{~#*inline "score_average_s4"~}}{{~#compare @root.request.params.query.income_band "===" "0" ~}}{{round @root.data.supplimentaryResponses.data_averages.aggregations.cyber_resilience_stats.avg "up"}}{{else}}{{~#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}{{~#compare this.key "===" @root.request.params.query.income_band ~}}{{round this.cyber_resilience_stats.avg "up"}}{{~/compare ~}}{{~/each ~}}{{~/compare~}}{{~/inline~}}
-
-{{#*inline "congrats"~}}
-{{#compare score ">" average ~}}
-<div class="t-margin-full t-padding-full mdc-typography--headline5">
-  Congratulations for scoring above the average but please don't let that make you complacent.
-</div>
-{{/compare ~}}
-{{/inline~}}
-
 <div class="checkup-section b-padding-full" id="checkup-results">
   <div class="checkup-section-header b-padding-full v-margin-full">
     <div class="container-fluid">
@@ -35,9 +5,9 @@
         {{> checkup_progress progress=100}}
         <h1 class="mdc-typography--headline3">
           {{#if @root.request.params.query.web_organisation ~}}
-          Checkup results for {{{@root.request.params.query.web_organisation}}}
+            Checkup results for {{{@root.request.params.query.web_organisation}}}
           {{else}}
-          Your checkup results
+            Your checkup results
           {{/if ~}}
         </h1>
       </div>
@@ -54,7 +24,7 @@
                   Your overall score
                 </div>
                 <div class="score score-respondent">
-                  {{> score_respondent_overall}}%
+                  {{@root.data.results.overall.respondent}}%
                 </div>
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone result result-average">
@@ -62,17 +32,13 @@
                   Average score
                 </div>
                 <div class="score">
-                  {{> score_average_overall}}%
+                  {{@root.data.results.overall.average}}%
                   {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                  {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                  {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                  <span class="mdc-typography--body2">
-                    (compared with {{this.doc_count}} organisations across
-                    {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
-                    in the same income bracket)
-                  </span>
-                  {{/compare ~}}
-                  {{/each ~}}
+                    <span class="mdc-typography--body2">
+                      (compared with {{@root.data.results.totalRespondents}} organisations across
+                      {{@root.data.results.where}}
+                      in the same income bracket)
+                    </span>
                   {{/compare ~}}
                 </div>
               </div>
@@ -80,90 +46,48 @@
           </div>
 
           {{#ifAll @root.request.params.query.s1 @root.request.params.query.s2 @root.request.params.query.s3 @root.request.params.query.s4 ~}}
-          <div class="mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                <div class="radarChart"></div>
+            <div class="mdc-layout-grid">
+              <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+                  <div class="radarChart"></div>
 
-                {{#compare @root.request.params.query.income_band "===" "0" ~}}
-                {{> congrats score=(add (add @root.request.params.query.s1 @root.request.params.query.s2) (add @root.request.params.query.s3 @root.request.params.query.s4)) average=@root.data.supplimentaryResponses.data_averages.aggregations.total_stats.avg}}
-                {{else}}
-                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                {{> congrats score=(add (add @root.request.params.query.s1 @root.request.params.query.s2) (add @root.request.params.query.s3 @root.request.params.query.s4)) average=this.total_stats.avg}}
-                {{/compare ~}}
-                {{/each ~}}
-                {{/compare ~}}
+                  {{#compare @root.data.results.overall.respondent ">" @root.data.results.overall.average ~}}
+                    <div class="t-margin-full t-padding-full mdc-typography--headline5">
+                      Congratulations for scoring above the average but please don't let that make you complacent.
+                    </div>
+                  {{/compare ~}}
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+                  <div class="key">
+                    <ul>
+                      <li class="key-your">Your scores</li>
+                      <li class="key-average">Average scores</li>
+                    </ul>
+                  </div>
 
-                {{> congrats}}
-              </div>
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                <div class="key">
-                  <ul>
-                    <li class="key-your">Your scores</li>
-                    <li class="key-average">Average scores</li>
-                  </ul>
-                </div>
+                  {{#each @root.data.results.sections}}
+                    <div class="mdc-typography--body1">
+                      {{title}}
+                      <div class="scores mdc-typography--caption">
+                        <span class="score score-respondent">
+                          {{respondent}}%
+                        </span>
+                        <span class="score">
+                          {{average}}%
+                        </span>
+                      </div>
+                    </div>
+                  {{/each}}
 
-                <div class="mdc-typography--body1">
-                  Leadership, culture and skills
-                  <div class="scores mdc-typography--caption">
-                    <span class="score score-respondent">
-                      {{> score_respondent_s1}}%
-                    </span>
-                    <span class="score">
-                      {{> score_average_s1}}%
-                    </span>
+                  <div class="cta t-margin-full v-padding-full">
+                    <a href="javascript: scrollToResources();" class="mdc-button mdc-button--raised">
+                      <span class="fas fa-file-alt fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+                      Read resources
+                    </a>
                   </div>
-                </div>
-                <div class="mdc-typography--body1">
-                  Tools and equipment
-                  <div class="scores mdc-typography--caption">
-                    <span class="score score-respondent">
-                      {{> score_respondent_s2}}%
-                    </span>
-                    <span class="score">
-                      {{> score_average_s2}}%
-                    </span>
-                  </div>
-                </div>
-                <div class="mdc-typography--body1">
-                  Content, marketing and data
-                  <div class="scores mdc-typography--caption">
-                    <span class="score score-respondent">
-                      {{> score_respondent_s3}}%
-                    </span>
-                    <span class="score">
-                      {{> score_average_s3}}%
-                    </span>
-                  </div>
-                </div>
-                <div class="mdc-typography--body1">
-                  Cyber resilience
-                  <div class="scores mdc-typography--caption">
-                    <span class="score score-respondent">
-                      {{> score_respondent_s4}}%
-                    </span>
-                    <span class="score">
-                      {{> score_average_s4}}%
-                    </span>
-                  </div>
-                </div>
-
-                <div class="cta t-margin-full v-padding-full">
-                  <script type="text/javascript">
-                  function scrollToResources() {
-                    document.querySelector('#resources_focus').scrollIntoView({behavior: 'smooth', block: 'start'});
-                  }
-                  </script>
-                  <a href="javascript: scrollToResources();" class="mdc-button mdc-button--raised">
-                    <span class="fas fa-file-alt fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
-                    Read resources
-                  </a>
                 </div>
               </div>
             </div>
-          </div>
           {{/ifAll ~}}
         </div>
       </div>
@@ -176,24 +100,24 @@
 
           <div class="cta">
             {{#compare @root.route.name "checkup_results_scotland" ~}}
-            <!-- Calendly link widget begin -->
-            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-            <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/john-fitzgerald/check-up');return false;" class="mdc-button mdc-button--raised">
-              <span class="fas fa-phone fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
-              Book a follow-up call
-            </a>
-            <!-- Calendly link widget end -->
-            <div class="mdc-typography--body1 t-margin-full">
-              <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
-            </div>
-            <!-- Intercom livechat -->
-            <script>
-              window.intercomSettings = {
-                app_id: "t67hvr75"
-              };
-            </script>
-            <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t67hvr75';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+              <!-- Calendly link widget begin -->
+              <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+              <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+              <a href="" onclick="Calendly.showPopupWidget('https://calendly.com/john-fitzgerald/check-up');return false;" class="mdc-button mdc-button--raised">
+                <span class="fas fa-phone fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+                Book a follow-up call
+              </a>
+              <!-- Calendly link widget end -->
+              <div class="mdc-typography--body1 t-margin-full">
+                <a href="https://scvo.org/digital/about">Sign up to our e-bulletin</a> to get details of our events, training and other support for digital change.
+              </div>
+              <!-- Intercom livechat -->
+              <script>
+                window.intercomSettings = {
+                  app_id: "t67hvr75"
+                };
+              </script>
+              <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/t67hvr75';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
             {{/compare ~}}
           </div>
         </div>
@@ -202,202 +126,94 @@
   </div>
 
   {{#if @root.request.params.query.topic ~}}
-  {{#compare @root.request.params.query.topic "===" "leadership" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources_focus">
-    <div class="container-fluid">
-      <div class="container-content">
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
-              <img src="{{~>asset_url url='images/icon-leadership@2x.png'~}}" class="icon" />
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
-              <div class="mdc-typography--body2">Focus on</div>
-              <div class="mdc-typography--headline3">
-                Leadership & culture
+    {{#with (getProperty @root.data.results.sections @root.request.params.query.topic)}}
+      <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
+        <div class="container-fluid">
+          <div class="container-content">
+            <div class="mdc-layout-grid">
+              <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+                  <img src="{{~>asset_url url=(concat 'images/icon-' icon '@2x.png')~}}" class="icon" />
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+                  <div class="mdc-typography--body2">Focus on</div>
+                  <div class="mdc-typography--headline3">
+                    {{title}}
+                  </div>
+                  {{#if respondent~}}
+                    <div class="mdc-typography--body1">
+                      You scored {{respondent}}% - the average is {{average}}%
+                      {{#compare @root.request.params.query.income_band "!==" "0" ~}}
+                        (compared with {{@root.data.results.totalRespondents}} organisations across
+                        {{@root.data.results.where}}
+                        in the same income bracket)
+                      {{/compare ~}}
+                    </div>
+                  {{/if}}
+                </div>
               </div>
-              {{#if @root.request.params.query.s1 ~}}
-              <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s1}}% - the average is {{> score_average_s1}}%
-                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                (based on {{this.doc_count}} organisations across
-                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
-                in the same income bracket)
-                {{/compare ~}}
-                {{/each ~}}
-                {{/compare ~}}
-              </div>
-              {{/if ~}}
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  {{else}}
-  {{#compare @root.request.params.query.topic "===" "tools" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
-    <div class="container-fluid">
-      <div class="container-content">
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
-              <img src="{{~>asset_url url='images/icon-tools@2x.png'~}}" class="icon" />
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
-              <div class="mdc-typography--body2">Focus on</div>
-              <div class="mdc-typography--headline3">
-                Tools & equipment
-              </div>
-              {{#if @root.request.params.query.s2 ~}}
-              <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s2}}% - the average is {{> score_average_s2}}%
-                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                (based on {{this.doc_count}} organisations across
-                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
-                in the same income bracket)
-                {{/compare ~}}
-                {{/each ~}}
-                {{/compare ~}}
-              </div>
-              {{/if ~}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{else}}
-  {{#compare @root.request.params.query.topic "===" "data" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
-    <div class="container-fluid">
-      <div class="container-content">
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
-              <img src="{{~>asset_url url='images/icon-content-marketing-data@2x.png'~}}" class="icon" />
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
-              <div class="mdc-typography--body2">Focus on</div>
-              <div class="mdc-typography--headline3">
-                Content, marketing & data
-              </div>
-              {{#if @root.request.params.query.s3 ~}}
-              <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s3}}% - the average is {{> score_average_s3}}%
-                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                (based on {{this.doc_count}} organisations across
-                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
-                in the same income bracket)
-                {{/compare ~}}
-                {{/each ~}}
-                {{/compare ~}}
-              </div>
-              {{/if ~}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{else}}
-  {{#compare @root.request.params.query.topic "===" "cyber" ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
-    <div class="container-fluid">
-      <div class="container-content">
-        <div class="mdc-layout-grid">
-          <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
-              <img src="{{~>asset_url url='images/icon-resilience@2x.png'~}}" class="icon" />
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
-              <div class="mdc-typography--body2">Focus on</div>
-              <div class="mdc-typography--headline3">
-                Cyber security
-              </div>
-              {{#if @root.request.params.query.s4 ~}}
-              <div class="mdc-typography--body1">
-                You scored {{> score_respondent_s4}}% - the average is {{> score_average_s4}}%
-                {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                {{#each @root.data.supplimentaryResponses.data_averages.aggregations.grouped_by_income_band.buckets ~}}
-                {{#compare this.key "===" @root.request.params.query.income_band ~}}
-                (based on {{this.doc_count}} organisations across
-                {{#compare @root.route.name "checkup_results_scotland"}} Scotland {{else}} the UK {{/compare}}
-                in the same income bracket)
-                {{/compare ~}}
-                {{/each ~}}
-                {{/compare ~}}
-              </div>
-              {{/if ~}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{else}}
-  <!-- Could not determine topic -->
-  {{/compare ~}}
-  {{/compare ~}}
-  {{/compare ~}}
-  {{/compare ~}}
+    {{/with}}
 
-  {{#compare @root.data.supplimentaryResponses.resources_focus.hits.total ">" 0 ~}}
-  <div class="container-fluid v-margin-full v-padding-full">
-    <div class="container-content">
-      <div class="mdc-layout-grid equal-height t-padding-full">
-        <div class="mdc-layout-grid__inner">
-          {{#each @root.data.supplimentaryResponses.resources_focus.hits.hits ~}}
-          {{#with _source ~}}
-          {{> resource slug=post_tags_slug.[0] link=link title=title author=author_attribution content=content}}
-          {{/with ~}}
-          {{/each ~}}
+    {{#compare @root.data.supplimentaryResponses.resources_focus.hits.total ">" 0 ~}}
+      <div class="container-fluid v-margin-full v-padding-full">
+        <div class="container-content">
+          <div class="mdc-layout-grid equal-height t-padding-full">
+            <div class="mdc-layout-grid__inner">
+              {{#each @root.data.supplimentaryResponses.resources_focus.hits.hits ~}}
+                {{#with _source ~}}
+                  {{> resource slug=post_tags_slug.[0] link=link title=title author=author_attribution content=content}}
+                {{/with ~}}
+              {{/each ~}}
+            </div>
+          </div>
+          <div class="mdc-typography--body1 t-margin-full">
+            <a href="/checkup/resources">Resources for other topic areas</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  {{/compare ~}}
+    {{/compare ~}}
 
-  {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
-  <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
-    <div class="container-fluid">
+    {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
+    <div class="checkup-topic-header checkup-topic-header-{{@root.request.params.query.topic}}" id="resources">
+      <div class="container-fluid">
+        <div class="container-content">
+          <div class="mdc-typography--body2">Relevant</div>
+          <div class="mdc-typography--body1">
+            More resources based on your scores
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid v-margin-full v-padding-full">
       <div class="container-content">
-        <div class="mdc-typography--body2">Relevant</div>
-        <div class="mdc-typography--body1">
-          More resources based on your scores
+        <div class="mdc-layout-grid equal-height t-padding-full">
+          <div class="mdc-layout-grid__inner">
+            {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}
+            {{#with _source ~}}
+            {{> resource slug=post_tags_slug.[0] link=link title=title author=author_attribution content=content}}
+            {{/with ~}}
+            {{/each ~}}
+          </div>
+        </div>
+        <div class="mdc-typography--body1 t-margin-full">
+          <a href="/checkup/resources">List all resources</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-fluid v-margin-full v-padding-full">
-    <div class="container-content">
-      <div class="mdc-layout-grid equal-height t-padding-full">
-        <div class="mdc-layout-grid__inner">
-          {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}
-          {{#with _source ~}}
-          {{> resource slug=post_tags_slug.[0] link=link title=title author=author_attribution content=content}}
-          {{/with ~}}
-          {{/each ~}}
-        </div>
-      </div>
-      <div class="mdc-typography--body1 t-margin-full">
-        <a href="/checkup/resources">List all resources</a>
-      </div>
-    </div>
-  </div>
-  {{/compare ~}}
+    {{/compare ~}}
+
   {{/if ~}}
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 <script>
-
+  function scrollToResources() {
+    document.querySelector('#resources').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 /////////////////////////////////////////////////////////
 /////////////// The Radar Chart Function ////////////////
 /////////////// Written by Nadieh Bremer ////////////////
@@ -599,44 +415,44 @@ var data = [
   [//Average scores
     {
       axis:"Overall",
-      value:{{> score_average_overall}}/100
+      value:{{@root.data.results.overall.average}}/100
     },
     {
       axis:"Leadership",
-      value:{{> score_average_s1}}/100
+      value:{{@root.data.results.sections.leadership.average}}/100
     },
     {
       axis:"Tools",
-      value:{{> score_average_s2}}/100
+      value:{{@root.data.results.sections.tools.average}}/100
     },
     {
       axis:"Data",
-      value:{{> score_average_s3}}/100
+      value:{{@root.data.results.sections.data.average}}/100
     },
     {
       axis:"Cyber",
-      value:{{> score_average_s4}}/100
+      value:{{@root.data.results.sections.cyber.average}}/100
     }
   ],[//Your scores
     {
       axis:"Overall",
-      value:{{> score_respondent_overall}}/100
+      value:{{@root.data.results.overall.respondent}}/100
     },
     {
       axis:"Leadership",
-      value:{{> score_respondent_s1}}/100
+      value:{{@root.data.results.sections.leadership.respondent}}/100
     },
     {
       axis:"Tools",
-      value:{{> score_respondent_s2}}/100
+      value:{{@root.data.results.sections.tools.respondent}}/100
     },
     {
       axis:"Data",
-      value:{{> score_respondent_s3}}/100
+      value:{{@root.data.results.sections.data.respondent}}/100
     },
     {
       axis:"Cyber",
-      value:{{> score_respondent_s4}}/100
+      value:{{@root.data.results.sections.cyber.respondent}}/100
     }
   ]
 ];

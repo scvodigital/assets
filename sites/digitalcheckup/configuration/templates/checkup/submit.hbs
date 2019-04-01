@@ -1,0 +1,72 @@
+{{#withExtend this 
+    body=@root.request.body 
+    overall=(sumArray (split (concat @root.request.body.section-1-score "," @root.request.body.section-2-score "," @root.request.body.section-3-score "," @root.request.body.section-4-score "," @root.request.body.section-5-score) ","))}}
+  {{#ifAll 
+      body.section-1-score
+      body.section-2-score
+      body.section-3-score
+      body.section-4-score
+      body.section-5-score
+      body.section-6-score
+      body.income_band
+      body.topic
+      body.score-section
+      body.name
+      body.email
+      body.web_organisation
+      body.area
+      body.postcode}}
+    <div class="checkup-section b-padding-full" id="checkup-confirmation">
+      <div class="checkup-section-header b-padding-full v-margin-full">
+        <div class="container-fluid">
+          <div class="container-content">
+            {{> checkup_progress progress=100}}
+            <div class="mdc-layout-grid">
+              <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
+                  <img src="{{~>asset_url url='images/icon-confirm@2x.png'~}}" title="Submitting" class="icon" />
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">
+                  <h1 class="mdc-typography--headline3">Submitting</h1>
+                  <div class="mdc-typography--body1">Please wait...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="container-content">
+          {{#compare @root.request.body.area "scotland"}}
+            <iframe src="https://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{body.section-3-score}}&s4={{body.section-4-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&name={{body.name}}&email={{body.email}}&web_organisation={{body.web_organisation}}&area={{body.area}}&postcode={{body.postcode}}&next_project={{body.next_project}}&barriers={{body.barriers}}&support={{body.support}}" frameborder="0" width="700" height="10" style="overflow:hidden;visibility:hidden;"></iframe>
+            <script>
+              window.addEventListener("message", (event) => {
+                if (event.data.hasOwnProperty('event')) {
+                  console.log('Post Message Event', event.data);
+                  switch (event.data.event) {
+                    case ('goToResults'):
+                      goToResults();
+                      break;
+                  }
+                }
+              }, false);
+            </script>
+          {{else}}
+            <script>
+              window.setTimeout(function() {
+                goToResults();
+              }, 5000);
+            </script>
+          {{/compare}}
+        </div>
+      </div>
+    </div>
+    <script>
+      function goToResults() {
+        window.location.href = '/checkup/results-{{#compare request.body.area 'scotland'}}scotland{{else}}ruk{{/compare}}?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&area={{body.area}}';
+      }
+    </script>
+  {{else}}
+    {{> checkup_error}}
+  {{/ifAll}}
+{{/withExtend}}

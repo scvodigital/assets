@@ -1,10 +1,21 @@
 {
-  "name": "checkup_confirmation_scotland",
-  "pattern": "/checkup/confirmation-scotland",
+  "name": "checkup_submit",
+  "pattern": "/checkup/submit",
   "metaData": {
     "title": "Digital Checkup"
   },
   "tasks": [
+    {
+      "name": "save_data",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "digital-checkup",
+        "pathTemplate": "/submissions/{{hash @root.request.body.email}}/",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{safeStringify @root.request.body}}}"
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -21,7 +32,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.checkup_confirmation-scotland",
+              "body": ">context.metaData.handlebars.templates.checkup_submit",
               "foot": ""
             },
             "contentType": "text/html"

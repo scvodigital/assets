@@ -64,7 +64,7 @@
     {{#if description ~}}
     <h4 class="mdc-typography--headline7">Summary</h4>
     <div class="mdc-typography--body1">
-      {{{markdown description}}}
+      {{{markdown (removeEntities description)}}}
     </div>
     {{/if ~}}
 

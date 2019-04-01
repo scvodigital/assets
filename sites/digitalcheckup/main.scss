@@ -227,6 +227,7 @@ h4,
   .trapezoid {
     padding: $unit 0;
     margin: 0 $unit*2 $unit;
+    border-radius: $unit/2;
     .icon {
       max-width: 50%;
     }
@@ -273,10 +274,7 @@ h4,
     top: -1.5rem;
     left: -.2rem;
     width: 100%;
-    border-radius: $border-radius;
-    // background-image: url('/assets/images/dots.png');
-    // background-repeat: no-repeat;
-    // background-position: center center;
+    border-radius: $unit/3;
     background-color: #E2E4E5;
     border: $unit/5 solid white;
     border-top-width: $unit/5;

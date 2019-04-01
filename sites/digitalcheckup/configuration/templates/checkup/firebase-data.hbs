@@ -1,0 +1,19 @@
+{{~#with @root.request.body~}}
+{
+  "area" : {{{safeStringify area}}},
+  "barriers" : {{{safeStringify barriers}}},
+  "email" : {{{safeStringify (if (compare area "!==" "scotland") email else="[redacted]")}}},
+  "income_band" : {{{safeStringify income_band}}},
+  "name" : {{{safeStringify (if (compare area "!==" "scotland") name else="[redacted]")}}},
+  "next_project" : {{{safeStringify next_project}}},
+  "postcode" : {{{safeStringify (if (compare area "!==" "scotland") postcode else="[redacted]")}}},
+  "score-section" : {{{safeStringify (num score-section)}}},
+  "section-1-score" : {{{safeStringify (num section-1-score)}}},
+  "section-2-score" : {{{safeStringify (num section-2-score)}}},
+  "section-3-score" : {{{safeStringify (add section-3-score section-4-score)}}},
+  "section-4-score" : {{{safeStringify (num section-5-score)}}},
+  "support" : {{{default (compare support "true") "false"}}},
+  "topic" : {{{safeStringify topic}}},
+  "web_organisation" : {{{safeStringify (if (compare area "!==" "scotland") web_organisation else="[redacted]")}}}
+}
+{{~/with~}}

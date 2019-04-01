@@ -13,7 +13,7 @@
         "appName": "digital-checkup",
         "pathTemplate": "/submissions/{{moment}}-{{hash @root.request.body.email}}/",
         "setOrUpdate": "set",
-        "dataTemplate": "{{{safeStringify @root.request.body}}}"
+        "dataTemplate": ">context.metaData.handlebars.templates.checkup_firebase-data"
       }
     },
     {

@@ -5,21 +5,21 @@
   {{~#compare query.income_band "===" "0"~}}
     {{round (getProperty dataAverages aggregation) "up"}}
   {{else}}
-    {{round 
-      (getProperty 
-        (firstItem (filter dataAverages.grouped_by_income_band.buckets "key" "===" query.income_band)) 
+    {{round
+      (getProperty
+        (firstItem (filter dataAverages.grouped_by_income_band.buckets "key" "===" query.income_band))
         aggregation
       ) "up"}}
   {{~/compare~}}
 {{~/inline~}}
-{{#withExtend this 
-  dataAverages=@root.data.supplimentaryResponses.data_averages.aggregations
+{{#withExtend this
+  dataAverages=@root.data.primaryResponse.aggregations
   query=@root.request.params.query}}
   {
     "overall": {
-      "respondent": {{>to_percentage 
+      "respondent": {{>to_percentage
           arr=(concat query.s1 "," query.s2 "," query.s3 "," query.s4)
-          score=(sumArray (split (concat query.s1 "," query.s2 "," query.s3 "," query.s4) ",")) 
+          score=(sumArray (split (concat query.s1 "," query.s2 "," query.s3 "," query.s4) ","))
           lower=-18 upper=136~}},
       "average": {{>get_average aggregation="total_stats.avg"}}
     },

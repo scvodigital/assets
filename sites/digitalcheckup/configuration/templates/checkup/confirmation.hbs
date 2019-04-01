@@ -1,4 +1,4 @@
-{{#ifAll 
+{{#ifAll
     @root.request.body.section-1-score
     @root.request.body.section-2-score
     @root.request.body.section-3-score
@@ -44,7 +44,10 @@
           <h2 class="mdc-typography--headline5 question-title">If you could tackle one digital project in the next three months, what would that be?</h2>
         </div>
         <div class="answer-block">
-          <textarea name="next_project"></textarea>
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+            <textarea id="next_project" name="json" class="mdc-text-field__input" rows="10"></textarea>
+            <label for="next_project" class="mdc-floating-label"></label>
+          </div>
         </div>
       </div>
 
@@ -53,7 +56,10 @@
           <h2 class="mdc-typography--headline5 question-title">What are the top barriers to digital change in your organisation?</h2>
         </div>
         <div class="answer-block">
-          <textarea name="barriers"></textarea>
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+            <textarea id="barriers" name="json" class="mdc-text-field__input" rows="10"></textarea>
+            <label for="barriers" class="mdc-floating-label"></label>
+          </div>
         </div>
       </div>
 

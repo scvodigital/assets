@@ -1,7 +1,7 @@
-{{#withExtend this 
-    body=@root.request.body 
+{{#withExtend this
+    body=@root.request.body
     overall=(sumArray (split (concat @root.request.body.section-1-score "," @root.request.body.section-2-score "," @root.request.body.section-3-score "," @root.request.body.section-4-score "," @root.request.body.section-5-score) ","))}}
-  {{#ifAll 
+  {{#ifAll
       body.section-1-score
       body.section-2-score
       body.section-3-score
@@ -20,7 +20,7 @@
       <div class="checkup-section-header b-padding-full v-margin-full">
         <div class="container-fluid">
           <div class="container-content">
-            {{> checkup_progress progress=100}}
+            {{> checkup_progress progress=99}}
             <div class="mdc-layout-grid">
               <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone">
@@ -55,7 +55,7 @@
             <script>
               window.setTimeout(function() {
                 goToResults();
-              }, 5000);
+              }, 4000);
             </script>
           {{/compare}}
         </div>

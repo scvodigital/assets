@@ -23,11 +23,11 @@
     <div class="container-fluid">
       <div class="container-content">
         {{#compare @root.request.body.area "scotland"}}
-          <iframe src="https://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{body.section-3-score}}&s4={{body.section-4-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&name={{body.name}}&email={{body.email}}&web_organisation={{body.web_organisation}}&area={{body.area}}&postcode={{body.postcode}}&next_project={{body.next_project}}&barriers={{body.barriers}}&support={{body.support}}" frameborder="0" width="700" height="10" style="overflow:hidden;visibility:hidden;"></iframe>
+          <iframe src="https://www.surveygizmo.eu/s3/90133620/SCVO-Digital-Checkup?__no_style=true&s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&name={}{urlencode body.name}}&email={{urlencode body.email}}&web_organisation={{urlencode body.web_organisation}}&area={{body.area}}&postcode={{urlencode body.postcode}}&next_project={{urlencode body.next_project}}&barriers={{urlencode body.barriers}}" frameborder="0" width="700" height="10" style="overflow:hidden;visibility:hidden;"></iframe>
           <script>
             window.addEventListener("message", (event) => {
               if (event.data.hasOwnProperty('event')) {
-                console.log('Post Message Event', event.data);
+                // console.log('Post Message Event', event.data);
                 switch (event.data.event) {
                   case ('goToResults'):
                     goToResults();
@@ -48,7 +48,7 @@
   </div>
   <script>
     function goToResults() {
-      // window.location.href = '/checkup/results?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}}&overall={{overall}}&income_band={{body.income_band}}&topic={{body.topic}}&area={{body.area}}';
+      window.location.href = '/checkup/results?s1={{body.section-1-score}}&s2={{body.section-2-score}}&s3={{add body.section-3-score body.section-4-score}}&s4={{body.section-5-score}&area={{body.area}}&income_band={{body.income_band}}&topic={{body.topic}}';
     }
   </script>
 {{/withExtend}}

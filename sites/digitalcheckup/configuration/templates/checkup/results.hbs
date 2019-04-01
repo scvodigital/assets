@@ -144,9 +144,9 @@
                     <div class="mdc-typography--body1">
                       You scored {{respondent}}% - the average is {{average}}%
                       {{#compare @root.request.params.query.income_band "!==" "0" ~}}
-                        (compared with {{@root.data.results.totalRespondents}} organisations across
+                        for {{@root.data.results.totalRespondents}} other organisations across
                         {{@root.data.results.where}}
-                        in the same income bracket)
+                        in the same income bracket
                       {{/compare ~}}
                     </div>
                   {{/if}}

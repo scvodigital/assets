@@ -50,6 +50,6 @@
       }
     },
     "totalRespondents": {{default (getProperty (firstItem (filter dataAverages.grouped_by_income_band.buckets "key" "===" query.income_band)) "doc_count") ""}},
-    "where": "{{default (getProperty @root.context.metaData.areas (concat @root.request.params.query.area ".full")) "the UK"}}"
+    "where": "{{default (getProperty @root.context.metaData.areas (concat @root.request.params.query.area ".long")) "the UK"}}"
   }
 {{/withExtend}}

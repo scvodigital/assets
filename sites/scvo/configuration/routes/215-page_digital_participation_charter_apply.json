@@ -32,7 +32,7 @@
             "name": "related_posts",
             "index": "web-content-production",
             "type": "scvo-cms-post",
-            "template": ">context.metaData.handlebars.queries.pages_page-posts-related-random"
+            "template": ">context.metaData.handlebars.queries.pages_posts-related-random"
           },
           {
             "name": "splash",
@@ -59,8 +59,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page-digital-participation-charter-fund-apply",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_digital_participation-charter-fund-apply",
               "foot": ""
             },
             "contentType": "text/html"

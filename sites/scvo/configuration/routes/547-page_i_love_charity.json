@@ -56,8 +56,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page-i-love-charity",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_i-love-charity",
               "foot": ""
             },
             "contentType": "text/html"

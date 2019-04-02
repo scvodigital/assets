@@ -13,7 +13,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-cms-post",
-          "template": ">context.metaData.handlebars.queries.posts_post-briefings",
+          "template": ">context.metaData.handlebars.queries.posts_briefings",
           "noResultsRoute": "four_oh_four"
         }
       },
@@ -53,8 +53,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.posts_post-category",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.posts_category",
               "foot": ""
             },
             "contentType": "text/html"

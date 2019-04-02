@@ -1,7 +1,6 @@
 {
   "name": "analytics-importer",
   "pattern": "/analytics-importer",
-  "debug": true,
   "tasks": [
     {
       "name": "dates",
@@ -9,7 +8,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.utility_ga-dates",
+        "template": ">context.metaData.handlebars.templates.utilities_ga-dates",
         "parseJson": "true"
       }
     },
@@ -18,7 +17,7 @@
       "taskModule": "gaGet",
       "config": {
         "connection": "goodmoves",
-        "parameters": ">context.metaData.handlebars.templates.utility_ga-goodmoves-params"
+        "parameters": ">context.metaData.handlebars.templates.utilities_ga-goodmoves-params"
       },
       "renderer": "handlebars"
     },
@@ -28,7 +27,7 @@
       "renderer": "handlebars",
       "config": {
         "connection": "scvoProduction",
-        "recordsTemplate": ">context.metaData.handlebars.templates.utility_ga-transform",
+        "recordsTemplate": ">context.metaData.handlebars.templates.utilities_ga-transform",
         "bulkOptions": {
           "extIdField": "Name__c",
           "concurrencyMode": "Parallel"

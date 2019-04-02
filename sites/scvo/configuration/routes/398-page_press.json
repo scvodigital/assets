@@ -32,7 +32,7 @@
             "name": "posts",
             "index": "web-content-production",
             "type": "scvo-cms-post",
-            "template": ">context.metaData.handlebars.queries.posts_post-press"
+            "template": ">context.metaData.handlebars.queries.posts_press"
           },
           {
             "name": "splash",
@@ -59,8 +59,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.posts_post-press",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.posts_press",
               "foot": ""
             },
             "contentType": "text/html"

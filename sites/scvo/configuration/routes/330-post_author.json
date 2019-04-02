@@ -13,7 +13,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-cms-post",
-          "template": ">context.metaData.handlebars.queries.posts_post-author",
+          "template": ">context.metaData.handlebars.queries.posts_author",
           "noResultsRoute": "four_oh_four"
         }
       },
@@ -32,13 +32,13 @@
             "name": "author_profile",
             "index": "web-content-production",
             "type": "scvo-cms-author",
-            "template": ">context.metaData.handlebars.queries.posts_post-author-profile"
+            "template": ">context.metaData.handlebars.queries.posts_author-profile"
           },
           {
             "name": "staff_profile",
             "index": "web-content-production",
             "type": "scvo-staff",
-            "template": ">context.metaData.handlebars.queries.posts_post-staff-profile"
+            "template": ">context.metaData.handlebars.queries.posts_staff-profile"
           },
           {
             "name": "splash",
@@ -65,8 +65,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.posts_post-author-head-tags",
-              "body": ">context.metaData.handlebars.templates.posts_post-author",
+              "head": ">context.metaData.handlebars.templates.posts_author-head-tags",
+              "body": ">context.metaData.handlebars.templates.posts_author",
               "foot": ""
             },
             "contentType": "text/html"

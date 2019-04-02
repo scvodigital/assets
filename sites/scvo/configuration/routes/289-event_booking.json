@@ -32,13 +32,13 @@
             "name": "types",
             "index": "web-content-production",
             "type": "scvo-event",
-            "template": ">context.metaData.handlebars.queries.events_event-aggs"
+            "template": ">context.metaData.handlebars.queries.events_aggs"
           },
           {
             "name": "splash",
             "index": "web-content-production",
             "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.events_event-splash"
+            "template": ">context.metaData.handlebars.queries.events_splash"
           }
         ]
       },
@@ -59,8 +59,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.events_event-booking",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.events_booking",
               "foot": ""
             },
             "contentType": "text/html"

@@ -223,7 +223,7 @@
         "renderer": "handlebars",
         "config": {
           "appName": "goodmoves",
-          "pathTemplate": "/notes/{{data.auth.uid}}",
+          "pathTemplate": "/notes/{{default data.auth.uid 'no-such-profile'}}",
           "defaultData": " "
         }
       }

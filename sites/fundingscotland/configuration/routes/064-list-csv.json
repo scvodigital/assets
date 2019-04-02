@@ -46,24 +46,13 @@
     },
     {
       "name": "destination",
-      "taskModule": "renderLayout",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
-        "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.data",
-            "parts": {
-              "content": ">context.metaData.handlebars.templates.funds_list-csv"
-            },
-            "contentType": "text/csv"
-          }
-        }
+        "output" : "body",
+        "template": ">context.metaData.handlebars.templates.funds_list-csv",
+        "filename": "{{@root.request.params.name}}.csv",
+        "contentType": "text/csv"
       }
     }
   ]

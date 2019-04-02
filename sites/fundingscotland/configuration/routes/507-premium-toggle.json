@@ -11,7 +11,7 @@
       "renderer": "handlebars",
       "config": {
         "appName": "fundingscotland",
-        "pathTemplate": "/users/{{@root.data.auth.uid}}/{{@root.data.currentSite.name}}/isPremium",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/{{@root.data.currentSite.name}}/isPremium",
         "setOrUpdate": "set",
         "dataTemplate": "{{if @root.data.profile.isPremium 'false' else='true'}}"
       }

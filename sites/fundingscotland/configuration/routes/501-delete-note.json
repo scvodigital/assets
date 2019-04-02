@@ -11,7 +11,7 @@
       "renderer": "handlebars",
       "config": {
         "appName": "fundingscotland",
-        "pathTemplate": "/users/{{data.auth.uid}}/{{data.currentSite.name}}/notes/{{request.body.fundId}}/{{request.body.noteId}}",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/{{data.currentSite.name}}/notes/{{request.body.fundId}}/{{request.body.noteId}}",
         "setOrUpdate": "set",
         "dataTemplate": "null"
       }

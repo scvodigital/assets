@@ -1,7 +1,6 @@
 {
   "name": "analytics-importer",
   "pattern": "/analytics-importer",
-  "debug": true,
   "tasks": [
     {
       "name": "dates",

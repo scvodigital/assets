@@ -1,6 +1,5 @@
 {
   "name": "vacancy",
-  "debug": true,
   "pattern": "/vacancy/:slug",
   "metaData": {
     "sidebarButton": {

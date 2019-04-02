@@ -10,7 +10,7 @@
       "renderer": "handlebars",
       "config": {
         "appName": "goodmoves",
-        "pathTemplate": "/notes/{{data.auth.uid}}/{{request.body.id}}",
+        "pathTemplate": "/notes/{{default data.auth.uid 'no-such-profile'}}/{{request.body.id}}",
         "setOrUpdate": "set",
         "dataTemplate": "{{{stringify (stripTags @root.request.body.notes)}}}"
       }

@@ -1,6 +1,5 @@
 {
   "name": "send-test",
-  "debug": true,
   "pattern": "/send-test/:campaign/:email",
   "tasks": [
     {

@@ -22,7 +22,57 @@
       "values": {{{stringify (default (arrayify (getProperty (querystring @root.data.shortlistPartition.items.[0].[0].querystring) "id")) (split ""))}}}
     }
   {{/queries_fund_common}},
-  "sort": {
-    "date_last_important_activity": "desc"
-  }
+  "sort": [
+{{#if @root.request.params.query.sort ~}}
+{{#compare @root.request.params.query.sort "===" "max_funded_asc" ~}}
+{
+"award_size_max": "asc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "max_funded_desc" ~}}
+{
+"award_size_max": "desc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "deadline_date_asc" ~}}
+{
+"next_deadline": "asc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "deadline_date_desc" ~}}
+{
+"next_deadline": "desc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "alphabetical_asc" ~}}
+{
+"name": "asc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "alphabetical_desc" ~}}
+{
+"name": "desc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "date_last_reviewed" ~}}
+{
+"date_last_modified": "desc"
+}
+{{else}}
+{{#compare @root.request.params.query.sort "===" "relevance" ~}}
+"_score"
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{/compare ~}}
+{{else}}
+{
+"date_last_important_activity": "desc"
+}
+{{/if ~}}
+  ]
 }

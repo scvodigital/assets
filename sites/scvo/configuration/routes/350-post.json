@@ -32,25 +32,25 @@
             "name": "author_profile",
             "index": "web-content-production",
             "type": "scvo-cms-author",
-            "template": ">context.metaData.handlebars.queries.posts_post-author-profile"
+            "template": ">context.metaData.handlebars.queries.posts_author-profile"
           },
           {
             "name": "staff_profile",
             "index": "web-content-production",
             "type": "scvo-staff",
-            "template": ">context.metaData.handlebars.queries.posts_post-staff-profile"
+            "template": ">context.metaData.handlebars.queries.posts_staff-profile"
           },
           {
             "name": "authors_posts",
             "index": "web-content-production",
             "type": "scvo-cms-post",
-            "template": ">context.metaData.handlebars.queries.posts_post-author-posts"
+            "template": ">context.metaData.handlebars.queries.posts_author-posts"
           },
           {
             "name": "category_posts",
             "index": "web-content-production",
             "type": "scvo-cms-post",
-            "template": ">context.metaData.handlebars.queries.posts_post-category-posts"
+            "template": ">context.metaData.handlebars.queries.posts_category-posts"
           },
           {
             "name": "tfn_related_posts",
@@ -92,15 +92,15 @@
           "amp": {
             "layout": ">context.metaData.handlebars.layouts.amp",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.posts_post-amp"
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.posts_amp"
             },
             "contentType": "text/html"
           },
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.posts_post-head-tags",
+              "head": ">context.metaData.handlebars.templates.posts_head-tags",
               "body": ">context.metaData.handlebars.templates.posts_post",
               "foot": ""
             },

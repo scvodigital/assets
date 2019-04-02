@@ -43,7 +43,7 @@
             "name": "splash",
             "index": "web-content-production",
             "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.events_event-splash"
+            "template": ">context.metaData.handlebars.queries.events_splash"
           }
         ]
       },
@@ -64,7 +64,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.trustees_trustee-search",
               "foot": ""
             },

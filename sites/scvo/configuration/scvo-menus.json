@@ -250,6 +250,11 @@
 		"children": [{
 			"children": [
 				{
+					"label": "Why digital matters",
+					"path": "/digital/participation/why-digital-matters",
+					"route": "^/digital/participation/why-digital-matters"
+				},
+				{
 					"label": "Essential digital skills",
 					"path": "/digital/participation/skills",
 					"route": "^/digital/participation/skills"
@@ -476,11 +481,6 @@
 					"label": "Support our campaign",
 					"path": "/projects-campaigns/i-love-charity/support-our-campaign",
 					"route": "^/projects-campaigns/i-love-charity/support-our-campaign$"
-				},
-				{
-					"label": "SCVO storytelling conference",
-					"path": "/events/a1v0n000004wy00qac-scvo-storytelling-conference",
-					"route": "^/projects-campaigns/i-love-charity/storytelling-conference$"
 				}
 			],
 			"label": "I Love Charity",

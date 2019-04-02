@@ -31,19 +31,19 @@
             "name": "grants",
             "index": "web-content-production",
             "type": "scvo-grant-cyber",
-            "template": ">context.metaData.handlebars.queries.grants_grant-cyber-search"
+            "template": ">context.metaData.handlebars.queries.grants_cyber-search"
           },
           {
             "name": "types",
             "index": "web-content-production",
             "type": "scvo-grant-cyber",
-            "template": ">context.metaData.handlebars.queries.grants_grant-cyber-aggs"
+            "template": ">context.metaData.handlebars.queries.grants_cyber-aggs"
           },
           {
             "name": "splash",
             "index": "web-content-production",
             "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.events_event-splash"
+            "template": ">context.metaData.handlebars.queries.events_splash"
           }
         ]
       },
@@ -64,8 +64,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.grants_grant-cyber-search",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.grants_cyber-search",
               "foot": ""
             },
             "contentType": "text/html"

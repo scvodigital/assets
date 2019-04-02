@@ -26,6 +26,7 @@
   "query": {
     "function_score": {
       "query": {
+        {{#compare @root.data.primaryResponse.hits.total ">" 0}}
         "bool": {
           "must": [
             {{>queries_vacancy_common_filters_open @root.request.params.query}}
@@ -34,6 +35,9 @@
             {{>queries_term field="Id" term=@root.data.primaryResponse.hits.hits.[0]._source.Id}}
           ]
         }
+        {{else}}
+        "match_none": {}
+        {{/compare}}
       },
       "boost": "5",
       "functions": [

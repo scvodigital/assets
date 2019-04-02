@@ -13,7 +13,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-grant-charter",
-          "template": ">context.metaData.handlebars.queries.grants_grant-charter-search"
+          "template": ">context.metaData.handlebars.queries.grants_charter-search"
         }
       },
       "renderer": "handlebars"
@@ -37,13 +37,13 @@
             "name": "types",
             "index": "web-content-production",
             "type": "scvo-grant-charter",
-            "template": ">context.metaData.handlebars.queries.grants_grant-charter-aggs"
+            "template": ">context.metaData.handlebars.queries.grants_charter-aggs"
           },
           {
             "name": "splash",
             "index": "web-content-production",
             "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.events_event-splash"
+            "template": ">context.metaData.handlebars.queries.events_splash"
           }
         ]
       },
@@ -64,8 +64,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.grants_grant-charter-search-head-tags",
-              "body": ">context.metaData.handlebars.templates.grants_grant-charter-search",
+              "head": ">context.metaData.handlebars.templates.grants_charter-search-head-tags",
+              "body": ">context.metaData.handlebars.templates.grants_charter-search",
               "foot": ""
             },
             "contentType": "text/html"

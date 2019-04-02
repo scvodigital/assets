@@ -13,7 +13,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-grant-ccrf",
-          "template": ">context.metaData.handlebars.queries.grants_grant-data",
+          "template": ">context.metaData.handlebars.queries.grants_data",
           "noResultsRoute": "four_oh_four"
         }
       },
@@ -32,7 +32,7 @@
             "name": "types",
             "index": "web-content-production",
             "type": "scvo-grant-ccrf",
-            "template": ">context.metaData.handlebars.queries.grants_grant-ccrf-aggs"
+            "template": ">context.metaData.handlebars.queries.grants_ccrf-aggs"
           }
         ]
       },
@@ -53,7 +53,7 @@
           "data": {
             "layout": ">context.metaData.handlebars.layouts.data",
             "parts": {
-              "content": ">context.metaData.handlebars.templates.grants_grant-data"
+              "content": ">context.metaData.handlebars.templates.grants_data"
             },
             "contentType": "application/json"
           }

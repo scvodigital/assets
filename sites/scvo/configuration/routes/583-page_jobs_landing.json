@@ -50,7 +50,7 @@
             "name": "related_training",
             "index": "web-content-production",
             "type": "scvo-event",
-            "template": ">context.metaData.handlebars.queries.events_event-soon"
+            "template": ">context.metaData.handlebars.queries.events_soon"
           },
           {
             "name": "splash",
@@ -77,8 +77,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page-jobs-landing",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_jobs-landing",
               "foot": ""
             },
             "contentType": "text/html"

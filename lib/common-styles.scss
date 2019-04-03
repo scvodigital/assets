@@ -66,7 +66,6 @@ h3,
 h4 {
   margin-bottom: $unit/2;
   font-family: $heading-font-family, $base-font-family, Helvetica, Arial, sans-serif;
-  font-display: auto;
   font-weight: $heading-font-weight;
   letter-spacing: -0.03rem;
   strong {
@@ -340,7 +339,6 @@ footer h3,
 .mdc-drawer--temporary .mdc-list-item,
 .mdc-list {
   font-family: $base-font-family, Helvetica, Arial, sans-serif;
-  font-display: auto;
   font-weight: $base-font-weight;
   letter-spacing: 0.01rem;
 }
@@ -360,7 +358,6 @@ footer h3,
 .mdc-drawer__content-heading,
 .mdc-drawer .mdc-list-group__subheader {
   font-family: $heading-font-family, $base-font-family, Helvetica, Arial, sans-serif;
-  font-display: auto;
   font-weight: $heading-font-weight;
   letter-spacing: -0.03rem;
 }
@@ -409,7 +406,6 @@ footer h3,
 .mdc-typography--title,
 .supplimentary-list-title {
   font-family: $heading-font-family, $base-font-family, Helvetica, Arial, sans-serif;
-  font-display: auto;
   font-weight: $heading-font-weight;
 }
 .mdc-drawer--temporary {
@@ -2384,13 +2380,11 @@ footer.mdc-layout__footer {
   z-index: 3;
   p, li, div {
     font-family: $footer-font-family;
-    font-display: auto;
     font-weight: $footer-font-weight;
     font-size: 1rem;
   }
   h3, a, strong {
     font-family: $footer-font-family;
-    font-display: auto;
     font-weight: 600;
   }
   .footer-main,

@@ -525,7 +525,7 @@ primary-dark: #263238
     }
   }
   .home .cta-content.callout-image {
-    background-color: map-get($themePosts, 'primary');
+    background-color: map-get($themePosts, 'primary-dark');
     // background-color: linear-gradient(
     // map-get($themePosts, 'primary-overlay-start'),
     // map-get($themePosts, 'primary-overlay-start')

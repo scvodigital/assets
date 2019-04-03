@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "Digital Checkup",
+ "background_color": "#fff",
+ "theme_color": "#1377CD",
  "icons": [
   {
    "src": "\/app\/assets\/icons\/android-icon-36x36.png",

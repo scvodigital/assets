@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "Scotland Declaration on Human Rights",
+ "background_color": "#fff",
+ "theme_color": "#448532",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

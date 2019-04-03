@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "SCVO",
+ "background_color": "#fff",
+ "theme_color": "#C2185b",
  "icons": [
   {
    "src": "\/app\/assets\/icons\/android-icon-36x36.png",

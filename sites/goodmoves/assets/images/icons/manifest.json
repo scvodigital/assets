@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "Goodmoves",
+ "background_color": "#fff",
+ "theme_color": "#3c7524",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",

@@ -10,22 +10,22 @@
         </span>
       </li>
       {{/if ~}}
-      {{#if funder_organisation.email ~}}
+      {{#ifAny fund_email_address funder_organisation.email ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-at fa-fw" title="Email"></span></span>
         <span class="key-info-bit r-margin-full">
-          <a href="{{funder_organisation.email}}">{{funder_organisation.email}}</a>
+          <a href="{{default fund_email_address funder_organisation.email}}">{{default fund_email_address funder_organisation.email}}</a>
         </span>
       </li>
-      {{/if ~}}
-      {{#if funder_organisation.telephone ~}}
+      {{/ifAny ~}}
+      {{#ifAny fund_telephone funder_organisation.telephone ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-phone fa-fw" title="Phone"></span></span>
         <span class="key-info-bit r-margin-full">
-          <a href="{{funder_organisation.telephone}}">{{funder_organisation.telephone}}</a>
+          <a href="{{default fund_telephone funder_organisation.telephone}}">{{default fund_telephone funder_organisation.telephone}}</a>
         </span>
       </li>
-      {{/if ~}}
+      {{/ifAny ~}}
       {{#if funder_organisation.twitter ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="fab fa-twitter fa-fw" title="Twitter"></span></span>

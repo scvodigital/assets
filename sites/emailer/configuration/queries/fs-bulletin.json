@@ -1,0 +1,15 @@
+{{#>queries_fund_wrapper fixedFilters=templateMetaData.config.metaData.siteConfiguration.fixedFilters templateMetaData=templateMetaData}}
+  {
+    "bool": {
+      "filter": [
+        {
+          "range": {
+            "date_last_modified": {
+              "gte": "now-1w/d"
+            }
+          }
+        }
+      ]
+    }
+  }
+{{/queries_fund_wrapper}}

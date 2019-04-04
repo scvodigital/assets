@@ -1,5 +1,7 @@
 {
- "name": "App",
+ "name": "Funding Scotland",
+ "background_color": "#fff",
+ "theme_color": "#537F2C",
  "icons": [
   {
    "src": "\/app\/assets\/icons\/android-icon-36x36.png",

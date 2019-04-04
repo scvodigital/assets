@@ -1,7 +1,7 @@
 {{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "asc")}}
   {{>pdf_text text=title style="h1"}},
   {{>pdf_text text="Summary" style="h2"}},
-  {{>pdf_markdown markdown=description}},
+  {{>pdf_markdown markdown=(removeEntities description)}},
 
   {{>pdf_text text="Fund Details" style="h2"}},
   {
@@ -59,11 +59,25 @@
           {{>pdf_text text="When to apply" bold=true}}, 
           {{>pdf_text text=when_to_apply default="No application date"}} 
         ],
+
         [ 
-          {{>pdf_text text="Next deadline" bold=true}}, 
-          {{>pdf_text text=next_deadline default="No deadline date"}} 
+          {{>pdf_text text="Next deadline" bold=true}},
+          {{#if next_deadline}}
+            {{>pdf_text text=(momentFormat (moment next_deadline "x") "YYYY-MM-DD") default="No deadline date"}}
+          {{else}}
+            {{>pdf_text text="No deadline date"}}
+          {{/if}}
         ],
-        [ 
+
+
+        {{#ifAny date_reopens date_due_to_open}}
+        [
+        {{#if date_reopens}}{{>pdf_text text="Date due to reopen" bold=true}},
+        {{else}}{{>pdf_text text="Date due to open" bold=true}},{{/if}}
+        {{>pdf_text text=(momentFormat (moment (default date_reopens date_due_to_open) "x") "YYYY-MM-DD") default="No open date"}}
+        ],
+        {{/ifAny}}
+        [
           {{>pdf_text text="Exclusions" bold=true}}, 
           {{>pdf_text text=fund_exclusion default="No exclusions given"}} 
         ],
@@ -142,30 +156,24 @@
   {{/ifAny}}
 
   {{>pdf_text text="Fund Contact and Link Information" style="h3"}},
-  {{#ifAny website email phone}}
+  {{#ifAny fund_email_address fund_telephone}}
     {
       "layout": "noBorders",
       "table": {
         "widths": [100, "*"],
         "body": [
-          {{#if website}}
-          [ 
-            {{>pdf_text text="Website" bold=true}}, 
-            {{>pdf_text text=website link=website}} 
-          ],
-          {{/if}}
-          {{#if email}}
+          {{#if fund_email_address ~}}
           [ 
             {{>pdf_text text="Email" bold=true}}, 
-            {{>pdf_text text=email link=(concat "mailto:" email)}} 
+            {{>pdf_text text=fund_email_address link=(concat "mailto:" fund_email_address)}}
           ],
           {{/if}}
-          {{#if phone}}
+          {{#ifAny fund_telephone ~}}
           [ 
             {{>pdf_text text="Phone" bold=true}}, 
-            {{>pdf_text text=phone link=(concat "tel:" phone)}} 
+            {{>pdf_text text=fund_telephone link=(concat "tel:" fund_telephone)}}
           ],
-          {{/if}}
+          {{/ifAny}}
           ["", ""]
         ]
       }

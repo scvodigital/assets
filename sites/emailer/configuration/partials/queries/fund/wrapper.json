@@ -12,7 +12,7 @@
               {
                 "term": {
                   "_type": {
-                    "value": "scvo-cms-post" 
+                    "value": "fs-{{templateMetaData.config.metaData.siteConfiguration.name}}-post" 
                   }
                 }
               },

@@ -26,7 +26,7 @@
     "fund_exclusion",
     "fund_email_address",
     "fund_telephone",
-    "url",
+    "fund_url",
     "currency_sign",
     "annual_income_min",
     "annual_income_max",

@@ -1,4 +1,4 @@
-<div class="splash-image hello" style="background-image:url('{{~>asset_url url='images/home/gathering-header.jpg'~}}');">
+<div class="splash-image hello" data-lazy-image='{ "type": "css", "url": "{{~>asset_url url='images/home/gathering-header.jpg'~}}" }'>
   <div class="splash-overlay">
     <div class="container-fluid">
       <div class="mdc-layout-grid">
@@ -47,7 +47,7 @@
 
 <section class="featured-content">
 
-  <div class="featured-background-image charity-awards" style="background-image:url('{{~>asset_url url='images/home/charityawards-bg.jpg'~}}');">
+  <div class="featured-background-image charity-awards" data-lazy-image='{ "type": "css", "url": "{{~>asset_url url='images/home/charityawards-bg.jpg'~}}" }'>
     <div class="container-fluid">
       <div class="featured scvo-cms scvo-cms-page scvo-cms-page-20536 mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
@@ -118,7 +118,7 @@
             <div class="mdc-card">
               <section class="mdc-card__media h-padding-full">
                 <a href="/projects-campaigns/i-love-charity">
-                  <img alt="I love charity" class="header-image" src="{{~>asset_url url='images/home/i-love-charity-banner.png'~}}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+                  <img alt="I love charity" class="header-image" src="{{~>asset_url url='images/1x1.png'~}}" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" data-lazy-image='{ "url": "{{~>asset_url url='images/home/i-love-charity-banner.png'~}}" }'>
                 </a>
               </section>
               <section class="mdc-card__supporting-text" style="color: black !important;">
@@ -154,7 +154,7 @@
   </div>
   {{/with ~}}
 
-  <div class="featured-background-image eu-are-valued" style="background-image: url('{{~>asset_url url='images/home/eu-are-valued-bg.jpg'~}}');">
+  <div class="featured-background-image eu-are-valued" data-lazy-image='{ "type": "css", "url": "{{~>asset_url url='images/home/eu-are-valued-bg.jpg'~}}" }'>
     <div class="container-fluid">
       <div class="featured scvo-cms scvo-cms-page scvo-cms-page-20536 mdc-layout-grid">
         <div class="mdc-layout-grid__inner">
@@ -275,7 +275,7 @@
             Top third sector jobs
           </h2>
           {{#each @root.data.supplimentaryResponses.goodmoves_latest.hits.hits ~}}
-          {{{_source.rendered.scvo_gist}}}
+          {{>goodmoves_gist _source}}
           {{/each ~}}
           <h2>
             <a href="https://goodmoves.com/search">See more on <strong>good</strong>moves</a>

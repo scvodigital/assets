@@ -48,6 +48,8 @@ export class SCVO {
       }
     }, false);
 
+    this.setupLazyImages();
+
     $(window).on('resize', () => {
       this.windowResized();
     });
@@ -132,5 +134,43 @@ export class SCVO {
     var value = "; " + document.cookie;
     var parts = value.split("; " + name + "=");
     if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+
+  setupLazyImages() {
+    try {
+      this.lazyImages = Array.from($('[data-lazy-image]')).map((el, i) => {
+        const config = $(el).data('lazy-image');
+        return { 
+          element: $(el), 
+          url: config.url, 
+          type: config.type || 'src',
+          loaded: false 
+        };
+      });
+
+      this.lazyImageFrame = window.requestAnimationFrame(() => { this.handleLazyImages(); });
+    } catch(err) {
+      console.error('Failed to setup Lazy Images', err);
+    }
+  }
+
+  handleLazyImages() { 
+    try {
+      window.cancelAnimationFrame(this.lazyImageFrame);
+      const viewportBottom = $(document).scrollTop() + $(window).height();
+      for (const lazyImage of this.lazyImages) {
+        if (!lazyImage.loaded && lazyImage.element.offset().top < viewportBottom) {
+          if (lazyImage.type === 'css') {
+            lazyImage.element.css('background-image', 'url(' + lazyImage.url + ')');
+          } else {
+            lazyImage.element.attr('src', lazyImage.url);
+          }
+          lazyImage.loaded = true;
+        }
+      } 
+      this.lazyImageFrame = window.requestAnimationFrame(() => { this.handleLazyImages(); });
+    } catch(err) {
+      console.error('Lazy Image Frame handler had an problem', err, 'It is likely that this frame handler will no longer be called');
+    }
   }
 }

@@ -1,7 +1,40 @@
 <div class="contact" data-fund-id="{{Id}}">
   <div class="detailed-info">
     {{#if @root.data.auth ~}}
-    <ul class="fa-ul first">
+
+      {{#ifAny fund_email_address fund_telephone url~}}
+        <h4 class="mdc-typography--headline7">Fund Contact Information</h4>
+      <ul class="fa-ul first">
+
+        {{#if url ~}}
+          <li class="mdc-typography--body1">
+            <span class="fa-li"><span class="far fa-link fa-fw" title="Website"></span></span>
+            <span class="key-info-bit r-margin-full">
+          <a href="{{url}}">{{url}}</a>
+        </span>
+          </li>
+        {{/if ~}}
+        {{#if fund_email_address ~}}
+          <li class="mdc-typography--body1">
+            <span class="fa-li"><span class="far fa-at fa-fw" title="Email"></span></span>
+            <span class="key-info-bit r-margin-full">
+          <a href="{{fund_email_address}}">{{fund_email_address}}</a>
+        </span>
+          </li>
+        {{/if~}}
+        {{#if fund_telephone ~}}
+          <li class="mdc-typography--body1">
+            <span class="fa-li"><span class="far fa-phone fa-fw" title="Phone"></span></span>
+            <span class="key-info-bit r-margin-full">
+          <a href="{{fund_telephone}}">{{fund_telephone}}</a>
+        </span>
+          </li>
+        {{/if}}
+      </ul>
+      {{/ifAny}}
+      <h4 class="mdc-typography--headline7">Funder Details</h4>
+      <ul class="fa-ul first">
+
       {{#if funder_organisation.website ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-link fa-fw" title="Website"></span></span>
@@ -10,22 +43,22 @@
         </span>
       </li>
       {{/if ~}}
-      {{#ifAny fund_email_address funder_organisation.email ~}}
+      {{#if funder_organisation.email ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-at fa-fw" title="Email"></span></span>
         <span class="key-info-bit r-margin-full">
-          <a href="{{default fund_email_address funder_organisation.email}}">{{default fund_email_address funder_organisation.email}}</a>
+          <a href="{{funder_organisation.email}}">{{funder_organisation.email}}</a>
         </span>
       </li>
-      {{/ifAny ~}}
-      {{#ifAny fund_telephone funder_organisation.telephone ~}}
+      {{/if~}}
+      {{#if funder_organisation.telephone ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-phone fa-fw" title="Phone"></span></span>
         <span class="key-info-bit r-margin-full">
-          <a href="{{default fund_telephone funder_organisation.telephone}}">{{default fund_telephone funder_organisation.telephone}}</a>
+          <a href="{{funder_organisation.telephone}}">{{funder_organisation.telephone}}</a>
         </span>
       </li>
-      {{/ifAny ~}}
+      {{/if~}}
       {{#if funder_organisation.twitter ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="fab fa-twitter fa-fw" title="Twitter"></span></span>
@@ -61,7 +94,7 @@
       </li>
       {{/if ~}}
       {{/if ~}}
-    </ul>
+      </ul>
 
     <div class="mdc-typography--body1 report">
       <span class="fas fa-flag fa-fw" title="Report this opportunity"></span>

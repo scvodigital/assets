@@ -1,6 +1,6 @@
 {
   "name": "stories",
-  "pattern": "/skill-up/stories",
+  "pattern": "/skills/stories",
   "metaData": {
     "title": "Stories – Scotland's Digital Participation Charter"
   },

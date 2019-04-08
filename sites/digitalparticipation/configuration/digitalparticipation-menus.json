@@ -18,7 +18,7 @@
           "route": "^/charter/signatories"
         }
       ],
-      "label": "The Charter",
+      "label": "Charter",
       "path": "/charter",
       "route": "^/charter$"
     },
@@ -35,9 +35,9 @@
           "route": "^/skill-up/stories"
         }
       ],
-      "label": "Skill up",
-      "path": "/skill-up",
-      "route": "^/skill-up$"
+      "label": "Skills",
+      "path": "/skills",
+      "route": "^/skills$"
     },
     {
       "label": "Resources",

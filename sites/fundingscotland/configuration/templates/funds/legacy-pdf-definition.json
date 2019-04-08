@@ -181,14 +181,14 @@
                 "bold": true
               }, {
                 "text": {
-                  "_if": "x._source['url']",
+                  "_if": "x._source['fund_url']",
                   "then": {
-                    "_eval": "x._source['url']"
+                    "_eval": "x._source['fund_url']"
                   },
                   "else": "No fund specific website"
                 },
                 "link": {
-                  "_eval": "x._source['url']"
+                  "_eval": "x._source['fund_url']"
                 }
               }]
             },

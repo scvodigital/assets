@@ -32,22 +32,6 @@ export class SCVO {
       };
     });
 
-    window.addEventListener("message", (event) => {
-      if (event.data.hasOwnProperty('event')) {
-        console.log('Post Message Event', event.data);
-        switch (event.data.event) {
-          case ('resize'):
-              document.querySelector('iframe[src*="' + event.origin + '"]').style.height = (30+event.data.height) + 'px';
-              window.scrollTo(0, 0);
-            break;
-          case ('redirect'):
-            var url = event.data.url;
-            ngRouter.navigateByUrl(url);
-            break;
-        }
-      }
-    }, false);
-
     this.setupLazyImages();
 
     $(window).on('resize', () => {

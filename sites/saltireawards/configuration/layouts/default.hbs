@@ -101,27 +101,17 @@
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--logo">
-              <a href="https://scvo.org">
-                <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
-              </a>
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-              <a href="/" class="mdc-top-app-bar__title">
-                Saltire Awards
-              </a>
+              <div class="container-fluid">
+                <a href="/"><img src="{{~>asset_url url='images/logos/logo.png'~}}" alt="Saltire Awards" /></a>
+              </div>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              {{#unless @root.route.metaData.hideSearch ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
-                <span class="far fa-fw fa-2x fa-search"></span>
-              </button>
-              {{/unless ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
-          <!-- </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
+          {{!-- </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> --}}
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
               {{#> components_tab_bar
                    extraClasses="mdc-tab-bar__auto-width"
@@ -271,7 +261,7 @@
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
                   <h3>About</h3>
                   <p>
-                    <strong>Saltire Awards</strong> is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>. <a href="/about">Find out more</a>
+                    <strong>The Saltire Awards</strong> is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>. <a href="/about">Find out more</a>
                   </p>
                 </div>
               </div>

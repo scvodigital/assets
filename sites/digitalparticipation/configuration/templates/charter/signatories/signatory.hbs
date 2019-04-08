@@ -115,12 +115,12 @@
         {{#if website ~}}
         <a href="{{#if (contains website 'http')}}{{website}}{{else}}http://{{website}}{{/if}}">
           {{#if logos.[0] ~}}
-          <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" />
+          <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" loading="lazy" />
           {{/if ~}}
         </a>
         {{else}}
         {{#if logos.[0] ~}}
-        <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" />
+        <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" loading="lazy" />
         {{/if ~}}
         {{/if ~}}
       </p>

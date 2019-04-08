@@ -1,6 +1,6 @@
 {
   "name": "skill_up_detail",
-  "pattern": "/skill-up/:slug",
+  "pattern": "/skills/:slug",
   "metaData": {
     "title": "Skill up – Scotland's Digital Participation Charter"
   },

@@ -1,7 +1,7 @@
 <div class="signatories">
   <h1>Signatories <span class="small">({{@root.data.supplimentaryResponses.total.hits.total}})</span></h1>
 
-  <form action="/charter/signatories" [searchroute]="'signatory_search'" data-auto-search="true" id="signatory-search">
+  <form action="/signatories" [searchroute]="'signatory_search'" data-auto-search="true" id="signatory-search">
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
@@ -38,7 +38,7 @@
       </div>
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          {{!-- <h4>Total signatories found: {{data.primaryResponse.hits.total}}</h4> --}}
+          <h4>Total signatories found: {{data.primaryResponse.hits.total}}</h4>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone">
           <h4 class="sort">Sort</h4>
@@ -55,29 +55,23 @@
     </div>
   </form>
 
-  {{> search_info paging=@root.data.primaryResponse.pagination}}
-
-  <div class="mdc-layout-grid expand">
-    {{#each @root.data.primaryResponse.hits.hits ~}}
-    {{#with _source ~}}
+  <div class="mdc-layout-grid signatories-search">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone">
-        <h2><a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{{title}}}">{{{title}}}</a></h2>
-        <p class="">
-          {{{description}}}
-          <a href="/charter/signatories/{{slug}}" title="{{{title}}}">Read more</a>
-        </p>
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone">
-        {{#if logos.[0] ~}}
-        <a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{title}}">
+      {{#each @root.data.primaryResponse.hits.hits ~}}
+      {{#with _source ~}}
+      <div class="mdc-layout-grid__cell signatory inner mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+        <a href="/charter/signatories/{{slug}}" title="{{title}}" class="search-result digital-charter-signatory">
+          {{#if logos.[0] ~}}
           <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" loading="lazy" />
+          {{/if ~}}
+          <span class="title">
+            {{title}}
+          </span>
         </a>
-        {{/if ~}}
       </div>
+      {{/with ~}}
+      {{/each ~}}
     </div>
-    {{/with ~}}
-    {{/each ~}}
   </div>
 
   {{> pagination paging=@root.data.primaryResponse.pagination firstLastNavigation=true}}

@@ -1,8 +1,8 @@
 {
-  "name": "skill_up_toolkit_essential_results",
-  "pattern": "/skills/toolkit/essential/results",
+  "name": "skills",
+  "pattern": "/skills",
   "metaData": {
-    "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
+    "title": "Skills – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skill-up_toolkit_toolkit-essential-results",
+              "body": ">context.metaData.handlebars.templates.skills_index",
               "foot": ""
             },
             "contentType": "text/html"

@@ -2,7 +2,7 @@
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url("//fonts.googleapis.com/icon?family=Material+Icons");
 
-@import url('//fonts.googleapis.com/css?family=Roboto:300,400,700|Poppins:700|Open+Sans:400,600');
+@import url('//fonts.googleapis.com/css?family=Roboto:300,400,700|Poppins:700|Open+Sans:400,600,700');
 
 $unit: 1rem;
 
@@ -410,7 +410,7 @@ main {
 // main.skills {
 //     background: $brand-skills;
 // }
-.skill-up {
+.skills {
   main {
     background: $brand-skills;
     background: -moz-linear-gradient(top, $brand-skills 10%, $brand-primary 80%);
@@ -419,21 +419,21 @@ main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
   }
 }
-.skill-up.foundation main {
+.skills.foundation main {
   background: $brand-primary;
 }
 
 main {
   padding-bottom: 4rem;
   h1 {
-    font-size: 4rem;
-    line-height: 4.5rem;
+    font-size: 3rem;
+    line-height: 2.5rem;
   }
   h3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 1rem 0 0;
   }
   img {
@@ -517,8 +517,8 @@ main {
 
   .title {
     h1 {
-      font-size: 5.4rem;
-      line-height: 6.2rem;
+      font-size: 3.4rem;
+      line-height: 3.8rem;
       letter-spacing: -0.1rem;
       margin: 2rem 0 2rem;
       padding-right: 2rem;
@@ -634,7 +634,7 @@ main {
   .expand {
     margin-bottom: 0;
     h1 {
-      font-size: 5rem;
+      font-size: 3.4rem;
     }
     h3 {
       padding: 2.5rem 0;
@@ -939,8 +939,8 @@ hr {
     }
   }
   h1 {
-    font-size: 5.3rem;
-    line-height: 5.5rem;
+    font-size: 3.4rem;
+    line-height: 3.8rem;
     letter-spacing: -.1rem;
     margin: 2rem 0 2rem;
     padding-right: 2rem;
@@ -951,7 +951,7 @@ hr {
   }
   h4 {
     margin: 1.5rem 0 0.25rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   h4.sort {
     text-align: right;
@@ -1223,7 +1223,7 @@ footer {
       padding: $unit 0 .9rem;
     }
     p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin: 0;
     }
     p,
@@ -1301,12 +1301,12 @@ footer {
 .stories.cre8te-opportunites,
 .stories.glasgow-life,
 .stories.queens-cross,
-.skill-up.foundations,
-.skill-up.communicating,
-.skill-up.handling-info,
-.skill-up.transacting,
-.skill-up.problem-solving,
-.skill-up.safety {
+.skills.foundations,
+.skills.communicating,
+.skills.handling-info,
+.skills.transacting,
+.skills.problem-solving,
+.skills.safety {
   main {
     background: $brand-typography;
     hr {
@@ -1376,8 +1376,8 @@ footer {
     font-size: 1.15rem;
   }
   main .title h1 {
-    font-size: 4.7rem;
-    line-height: 5rem;
+    font-size: 2.7rem;
+    line-height: 3rem;
   }
 }
 @media only screen and (max-width: 1014px) {
@@ -1417,11 +1417,11 @@ footer {
   main {
     .title {
       h1 {
-        font-size: 3.5rem;
-        line-height: 3.5rem;
+        font-size: 2.5rem;
+        line-height: 2.8rem;
       }
       h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
       p, li, th, td {
         font-size: 1.25rem;
@@ -1435,7 +1435,7 @@ footer {
         margin: 0;
       }
       h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin: 0;
       }
       p {
@@ -1451,7 +1451,7 @@ footer {
     }
     .expand {
       h1 {
-        font-size: 3rem;
+        font-size: 2rem;
       }
       h3 .number {
         height: 4rem;
@@ -1475,7 +1475,7 @@ footer {
       margin-left: 0.35rem;
     }
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     h3 {
       font-size: 1.8rem;

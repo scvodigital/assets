@@ -26,13 +26,13 @@
       "children": [
         {
           "label": "Toolkit",
-          "path": "/skill-up/toolkit",
-          "route": "^/skill-up/toolkit"
+          "path": "/skills/toolkit",
+          "route": "^/skills/toolkit"
         },
         {
           "label": "Stories",
-          "path": "/skill-up/stories",
-          "route": "^/skill-up/stories"
+          "path": "/skills/stories",
+          "route": "^/skills/stories"
         }
       ],
       "label": "Skills",

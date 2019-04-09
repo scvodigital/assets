@@ -4,7 +4,7 @@
     {{#if organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--content-secondary pull-right">
       <a href="/organisation/{{organisation.slug}}{{@root.request.url.search}}">
-        <img src="{{organisation.logo_url}}" alt="{{organisation.name}}" />
+        <img src="{{organisation.logo_url}}" alt="{{organisation.name}}" loading="lazy" />
       </a>
     </div>
     {{/if ~}}

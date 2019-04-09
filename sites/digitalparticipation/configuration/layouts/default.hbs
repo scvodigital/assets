@@ -79,13 +79,13 @@
                   {{#each context.metaData.menus.main ~}}
                   <div class="dropdown">
                     <a class="mdc-tab{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-tab--active{{/if}}" href="{{path}}"><span class="mdc-tab--label">{{{label}}}</span></a>
-                    {{#if children ~}}
+                    {{!-- {{#if children ~}}
                     <ul class="dropdown-content">
                     {{#each children ~}}
                     <li><a class="mdc-tab{{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-tab--active{{/if}}" href="{{path}}"><span class="mdc-tab--label">{{{label}}}</span></a></li>
                     {{/each ~}}
                     </ul>
-                    {{/if ~}}
+                    {{/if ~}} --}}
                   </div>
                   {{/each ~}}
                 </nav>

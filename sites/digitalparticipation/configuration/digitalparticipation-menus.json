@@ -18,7 +18,7 @@
           "route": "^/charter/signatories"
         }
       ],
-      "label": "The Charter",
+      "label": "Charter",
       "path": "/charter",
       "route": "^/charter$"
     },
@@ -26,18 +26,18 @@
       "children": [
         {
           "label": "Toolkit",
-          "path": "/skill-up/toolkit",
-          "route": "^/skill-up/toolkit"
+          "path": "/skills/toolkit",
+          "route": "^/skills/toolkit"
         },
         {
           "label": "Stories",
-          "path": "/skill-up/stories",
-          "route": "^/skill-up/stories"
+          "path": "/skills/stories",
+          "route": "^/skills/stories"
         }
       ],
-      "label": "Skill up",
-      "path": "/skill-up",
-      "route": "^/skill-up$"
+      "label": "Skills",
+      "path": "/skills",
+      "route": "^/skills$"
     },
     {
       "label": "Resources",

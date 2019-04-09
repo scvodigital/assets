@@ -24,7 +24,6 @@ function getConfig(site, library) {
       pattern: './sites/' + site + '/**/*.inc.json',
       output: './build/' + site
     }),
-    new HardSourceWebpackPlugin(),
   ];
 
   if (process.env.TRAVIS) {
@@ -42,7 +41,7 @@ function getConfig(site, library) {
     }));
   } else {
     plugins.push(new FileWatcherWebpackPlugin({
-      watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/' + site + '/assets/**/*'],
+      watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/global/**/*', './sites/' + site + '/assets/**/*'],
 			onAddDirCallback: (path) => { },
 			onReadyCallback: () => { }
     }));
@@ -111,7 +110,7 @@ function getConfig(site, library) {
         },
         {
           test: /\.js$/,
-          loader: 'babel-loader?cacheDirectory=true',
+          loader: 'babel-loader' + (!process.env.TRAVIS ? '?cacheLoader' : ''),
           query: {
             presets: ['@babel/preset-env'],
             compact: false

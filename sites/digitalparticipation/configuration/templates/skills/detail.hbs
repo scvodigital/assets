@@ -2,22 +2,22 @@
   <div class="mdc-layout-grid__inner expand paging hide-on-med-and-up">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
       <h3 class="nomargin">
-        <a href="/skill-up/foundations"{{#compare request.params.slug "===" "foundations"}} class="active"{{/compare}}>
+        <a href="/skills/foundations"{{#compare request.params.slug "===" "foundations"}} class="active"{{/compare}}>
           <span class="number">1</span>
         </a>
-        <a href="/skill-up/communicating"{{#compare request.params.slug "===" "communicating"}} class="active"{{/compare}}>
+        <a href="/skills/communicating"{{#compare request.params.slug "===" "communicating"}} class="active"{{/compare}}>
           <span class="number">2</span>
         </a>
-        <a href="/skill-up/handling-info"{{#compare request.params.slug "===" "handling-info"}} class="active"{{/compare}}>
+        <a href="/skills/handling-info"{{#compare request.params.slug "===" "handling-info"}} class="active"{{/compare}}>
           <span class="number">3</span>
         </a>
-        <a href="/skill-up/transacting"{{#compare request.params.slug "===" "transacting"}} class="active"{{/compare}}>
+        <a href="/skills/transacting"{{#compare request.params.slug "===" "transacting"}} class="active"{{/compare}}>
           <span class="number">4</span>
         </a>
-        <a href="/skill-up/problem-solving"{{#compare request.params.slug "===" "problem-solving"}} class="active"{{/compare}}>
+        <a href="/skills/problem-solving"{{#compare request.params.slug "===" "problem-solving"}} class="active"{{/compare}}>
           <span class="number">5</span>
         </a>
-        <a href="/skill-up/safety"{{#compare request.params.slug "===" "safety"}} class="active"{{/compare}}>
+        <a href="/skills/safety"{{#compare request.params.slug "===" "safety"}} class="active"{{/compare}}>
           <span class="number">6</span>
         </a>
       </h3>
@@ -25,30 +25,26 @@
   </div>
   <div class="mdc-layout-grid__inner expand detail">
     <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-4">
-      {{#compare request.params.slug "===" "foundations"}}
+      {{#switch request.params.slug}}
+      {{#case "foundations"}}
       <img src="https://storage.googleapis.com/digital-participation-charter/Foundation.png" alt="Foundations illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{#compare request.params.slug "===" "communicating"}}
+      {{/case}}
+      {{#case "communicating"}}
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/WEB-Skill-Up-(Communicating).png" alt="Communicating illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{#compare request.params.slug "===" "handling-info"}}
+      {{/case}}
+      {{#case "handling-info"}}
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/WEB-Skill-Up-(Managing-Info).png" alt="Handling information and content illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{#compare request.params.slug "===" "transacting"}}
+      {{/case}}
+      {{#case "transacting"}}
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/WEB-Skill-Up-(Transacting).png" alt="Transacting illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{#compare request.params.slug "===" "problem-solving"}}
+      {{/case}}
+      {{#case "problem-solving"}}
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/WEB-Skill-Up-(Problem-Solving).png" alt="Problem Solving illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{#compare request.params.slug "===" "safety"}}
+      {{/case}}
+      {{#case "safety"}}
       <img src="https://storage.googleapis.com/digital-participation-charter/Safety.png" alt="Safety illustration" class="responsive-img margin-top" />
-      {{else}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
+      {{/case}}
+      {{/switch}}
     </div>
     <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-1">
       &nbsp;
@@ -56,12 +52,13 @@
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--span-4-phone">
       <div class="pull-right expand">
         <h3>
-          <a href="/skill-up">
+          <a href="/skills">
             <i class="fa fa-times-circle" aria-hidden="true"></i>
           </a>
         </h3>
       </div>
-      {{#compare request.params.slug "===" "foundations"}}
+      {{#switch request.params.slug}}
+      {{#case "foundations"}}
       <h3><span class="number">1</span> Digital Foundation Skills</h3>
       <p>
         The framework includes a section on 'foundation' skills, which are typically required by those not currently using digital technology or using it in limited ways. These foundation skills are needed in all circumstances before moving on to develop skills for life and skills for work.
@@ -82,8 +79,8 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      {{#compare request.params.slug "===" "communicating"}}
+      {{/case}}
+      {{#case "communicating"}}
       <h3><span class="number">2</span> Communicating</h3>
       <p>
         Communicate, collaborate and share
@@ -120,8 +117,8 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      {{#compare request.params.slug "===" "handling-info"}}
+      {{/case}}
+      {{#case "handling-info"}}
       <h3><span class="number">3</span> Handling information and content</h3>
       <p>
         Find, manage and store digital information and content securely
@@ -156,8 +153,8 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      {{#compare request.params.slug "===" "transacting"}}
+      {{/case}}
+      {{#case "transacting"}}
       <h3><span class="number">4</span> Transacting</h3>
       <p>
         Register and apply for services, but and sell goods and services and administer and manage transactions online
@@ -190,8 +187,8 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      {{#compare request.params.slug "===" "problem-solving"}}
+      {{/case}}
+      {{#case "problem-solving"}}
       <h3><span class="number">5</span> Problem solving</h3>
       <p>
         Finding solutions to problems using digital tools and online services
@@ -224,8 +221,8 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      {{#compare request.params.slug "===" "safety"}}
+      {{/case}}
+      {{#case "safety"}}
       <h3><span class="number">6</span> Being safe and legal online</h3>
       <ul class="mdc-layout-grid__cell collapsible">
         <li>
@@ -251,35 +248,29 @@
           </div>
         </li>
       </ul>
-      {{else}}
-      <h3>Error 404: Page not found</h3>
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
-      {{/compare}}
+      {{/case}}
+      {{/switch}}
     </div>
   </div>
   <div class="mdc-layout-grid__inner expand paging hide-on-small-only">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
       <h3 class="margin-top">
-        <a href="/skill-up/foundations"{{#compare request.params.slug "===" "foundations"}} class="active"{{/compare}}>
+        <a href="/skills/foundations"{{#compare request.params.slug "===" "foundations"}} class="active"{{/compare}}>
           <span class="number">1</span>
         </a>
-        <a href="/skill-up/communicating"{{#compare request.params.slug "===" "communicating"}} class="active"{{/compare}}>
+        <a href="/skills/communicating"{{#compare request.params.slug "===" "communicating"}} class="active"{{/compare}}>
           <span class="number">2</span>
         </a>
-        <a href="/skill-up/handling-info"{{#compare request.params.slug "===" "handling-info"}} class="active"{{/compare}}>
+        <a href="/skills/handling-info"{{#compare request.params.slug "===" "handling-info"}} class="active"{{/compare}}>
           <span class="number">3</span>
         </a>
-        <a href="/skill-up/transacting"{{#compare request.params.slug "===" "transacting"}} class="active"{{/compare}}>
+        <a href="/skills/transacting"{{#compare request.params.slug "===" "transacting"}} class="active"{{/compare}}>
           <span class="number">4</span>
         </a>
-        <a href="/skill-up/problem-solving"{{#compare request.params.slug "===" "problem-solving"}} class="active"{{/compare}}>
+        <a href="/skills/problem-solving"{{#compare request.params.slug "===" "problem-solving"}} class="active"{{/compare}}>
           <span class="number">5</span>
         </a>
-        <a href="/skill-up/safety"{{#compare request.params.slug "===" "safety"}} class="active"{{/compare}}>
+        <a href="/skills/safety"{{#compare request.params.slug "===" "safety"}} class="active"{{/compare}}>
           <span class="number">6</span>
         </a>
       </h3>

@@ -57,12 +57,12 @@
 
   {{> search_info paging=@root.data.primaryResponse.pagination}}
 
-  <div class="mdc-layout-grid">
+  <div class="mdc-layout-grid expand">
     {{#each @root.data.primaryResponse.hits.hits ~}}
     {{#with _source ~}}
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone">
-        <a href="/charter/signatories/{{slug}}" title="{{{title}}}">{{{title}}}</a>
+        <h2><a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{{title}}}">{{{title}}}</a></h2>
         <p class="">
           {{{description}}}
           <a href="/charter/signatories/{{slug}}" title="{{{title}}}">Read more</a>
@@ -70,7 +70,7 @@
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone">
         {{#if logos.[0] ~}}
-        <a href="/charter/signatories/{{slug}}" title="{{title}}" class="">
+        <a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{title}}">
           <img src="{{logos.0.uploadUrl}}" alt="{{title}}" class="responsive-img resize-fit-center" loading="lazy" />
         </a>
         {{/if ~}}

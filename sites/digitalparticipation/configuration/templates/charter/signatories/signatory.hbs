@@ -2,6 +2,12 @@
 <div class="full digital-charter-signatory mdc-layout-grid">
   <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#if logos.[0]}}9{{else}}12{{/if}}-desktop mdc-layout-grid__cell--span-{{#if logos.[0]}}6{{else}}8{{/if}}-tablet mdc-layout-grid__cell--span-4-phone">
+      {{#if @root.request.url.search ~}}
+      <a href="/charter/signatories{{@root.request.url.search}}">Back to search results</a>
+      {{else}}
+      <a href="/charter/signatories">All signatories</a>
+      {{/if ~}}
+
       <h3>{{{title}}}</h3>
 
       {{#if mission_statement ~}}

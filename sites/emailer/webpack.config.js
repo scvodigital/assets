@@ -27,7 +27,7 @@ function getConfig(site, library) {
 
 	if (!process.env.TRAVIS) {
     plugins.push(new FileWatcherWebpackPlugin({
-      watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/' + site + '/assets/**/*'],
+      watchFileRegex: ['./sites/' + site + '/configuration/**/*', './sites/global/**/*', './sites/' + site + '/assets/**/*'],
 			onAddDirCallback: (path) => { },
 			onReadyCallback: () => { }
     }));

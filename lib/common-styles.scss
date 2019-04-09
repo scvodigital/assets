@@ -1494,7 +1494,7 @@ hr {
   font-size: 1.2rem;
   display: block;
   margin: 0;
-  padding: $unit*1.5 $unit/2 0 $unit;
+  padding: $unit*1.5 $unit 0 $unit;
   font-weight: $heading-medium-font-weight;
   .mdc-icon-toggle {
     margin-top: -$unit*(3/4);
@@ -3139,11 +3139,12 @@ form.inline-form {
       width: 100%;
     }
   }
-  .mdc-list-item:last-child {
+  .collapse-trigger {
     border-top: 1px solid #cccccc;
     border-radius: 0 0 4px 4px;
     padding: $unit/2 0;
     margin-right: 0 !important;
+    text-align: center;
   }
   .mdc-icon-toggle-xs {
     height: 24px;

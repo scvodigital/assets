@@ -185,7 +185,7 @@
                     imageUrl=(default @root.data.auth.photoURL false)
                     imageClasses="far fa-fw user-avatar"
                     iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
-                    buttonLabel=@root.data.auth.email
+                    buttonLabel="My account"
                     arrowClasses="far fa-fw fa-angle-down"}}
                   {{#each @root.context.metaData.menus.user-signed-in ~}}
                     <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">

@@ -7,25 +7,25 @@
       "route": "^/$"
     },
     {
-      "label": "Searches & alerts",
+      "label": "My searches & alerts",
       "icon": "search-plus",
       "path": "/searches",
       "route": "^/searches"
     },
     {
-      "label": "Lists & updates",
+      "label": "My lists & updates",
       "icon": "tasks",
       "path": "/lists",
       "route": "^/lists"
     },
     {
-      "label": "Notes",
+      "label": "My notes",
       "icon": "edit",
       "path": "/notes",
       "route": "^/notes"
     },
     {
-      "label": "Hidden funds",
+      "label": "My hidden funds",
       "icon": "eye-slash",
       "path": "/hidden-funds",
       "route": "^/hidden-funds"

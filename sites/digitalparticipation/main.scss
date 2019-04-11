@@ -351,17 +351,18 @@ main {
     background: -webkit-linear-gradient(top, $brand-purple 10%, $brand-pink 90%);
     background: linear-gradient(to bottom, $brand-purple 10%, $brand-pink 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-purple', endColorstr='$brand-pink',GradientType=0 );
-    .cta {
-      .cta-left {
-        margin-right: $unit/2;
-      }
-      .cta-right {
-        margin-left: $unit/2;
-      }
-    }
   }
 }
 .charter {
+  main {
+    background: $brand-pink;
+    background: -moz-linear-gradient(top, $brand-pink 10%, $brand-yellow 70%);
+    background: -webkit-linear-gradient(top, $brand-pink 10%, $brand-yellow 70%);
+    background: linear-gradient(to bottom, $brand-pink 10%, $brand-yellow 70%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-pink', endColorstr='$brand-yellow',GradientType=0 );
+  }
+}
+.skills {
   main {
     padding-bottom: 1rem;
     background: $brand-teal;
@@ -369,15 +370,6 @@ main {
     background: -webkit-linear-gradient(top, $brand-teal 10%, $brand-purple 90%);
     background: linear-gradient(to bottom, $brand-teal 10%, $brand-purple 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-teal', endColorstr='$brand-purple',GradientType=0 );
-  }
-}
-.skills {
-  main {
-    background: $brand-pink;
-    background: -moz-linear-gradient(top, $brand-pink 10%, $brand-yellow 70%);
-    background: -webkit-linear-gradient(top, $brand-pink 10%, $brand-yellow 70%);
-    background: linear-gradient(to bottom, $brand-pink 10%, $brand-yellow 70%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-pink', endColorstr='$brand-yellow',GradientType=0 );
   }
 }
 .post,
@@ -439,7 +431,7 @@ main {
     font-size: 1.4rem;
     font-weight: bold;
     border-radius: 0.15rem;
-    padding: 0.1rem 0.5rem;
+    padding: $unit/4 $unit/2;
     border: $brand-border-width solid $brand-typography;
     background: transparent;
   }
@@ -459,7 +451,7 @@ main {
     margin-top: 1.5rem;
   }
   .mdc-form-field.sort {
-    margin-top: 1.35rem;
+    margin-top: 0;
   }
   .mdc-select {
     background-image: none;
@@ -883,6 +875,7 @@ main {
 // }
 
 .mdc-tab,
+.mdc-button,
 h1,
 h2,
 h3,
@@ -963,6 +956,22 @@ hr {
   .digital-charter-signatory {
     h3 {
       margin: $unit 0;
+    }
+  }
+  .search-info {
+    margin: .55rem 0;
+  }
+  .expand {
+    h2 {
+      margin: 0;
+    }
+    p {
+      padding: 0;
+    }
+    .mdc-layout-grid__inner {
+      background: white;
+      padding: $unit;
+      margin-top: $unit*1.5;
     }
   }
   .signatory {
@@ -1292,7 +1301,6 @@ footer {
   display: none;
 }
 
-
 .accessibility,
 .privacy,
 .cookies,
@@ -1305,8 +1313,13 @@ footer {
     }
     .mdc-top-app-bar__navigation-icon,
     #menu_button,
-    h1, h2, h3, h4, p {
+    .mdc-toolbar .mdc-tab-bar .mdc-tab,
+    .mdc-toolbar .mdc-tab-bar .mdc-tab:hover,
+    h1, h2, h3, h4, p, p a, a, li, td, th {
       color: white;
+    }
+    p a {
+      text-decoration: underline;
     }
     header {
       .brand-logo {
@@ -1567,7 +1580,7 @@ footer {
     .mdc-form-field.sort {
       margin: 0;
       .mdc-select {
-        margin-top: 0.5rem;
+        margin-top: 0;
       }
     }
   }

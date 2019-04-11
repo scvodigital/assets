@@ -1,7 +1,10 @@
-<div class="signatories">
+<div class="signatories detail">
   <h1>Signatories <span class="small">({{@root.data.supplimentaryResponses.total.hits.total}})</span></h1>
 
   <form action="/charter/signatories" [searchroute]="'signatory_search'" data-auto-search="true" id="signatory-search">
+    {{#if @root.request.params.query.sort ~}}
+    <input type="hidden" name="sort" value="{{@root.request.params.query.sort}}" />
+    {{/if ~}}
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
@@ -9,7 +12,7 @@
           <div class="mdc-textfield mdc-textfield--upgraded keywords">
             <input type="text" class="mdc-textfield__input" name="q" id="charter-keywords" value="{{@root.request.params.query.q}}" placeholder="Search for a charter signatory" autofocus>
             <button type="submit" class="mdc-toolbar__icon mdc-toolbar__search search-button-large" aria-label="Search" alt="Search">
-              <span class="far fa-2x fa-search" aria-hidden="true"></span>
+              <span class="fas fa-2x fa-search" aria-hidden="true"></span>
             </button>
           </div>
         </div>
@@ -36,22 +39,6 @@
           </div>
         </div>
       </div>
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          {{!-- <h4>Total signatories found: {{data.primaryResponse.hits.total}}</h4> --}}
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-1-phone">
-          <h4 class="sort">Sort</h4>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone">
-          <div class="mdc-form-field sort">
-            <select class="mdc-select" role="listbox" id="charter-sort" name="sort">
-              <option value="" {{#if @root.request.params.query.sort}}{{else}}selected{{/if}}>Date signed</option>
-              <option value="AZ" {{#if @root.request.params.query.sort}}selected{{else}}{{/if}}>Alphabetical</option>
-            </select>
-          </div>
-        </div>
-      </div>
     </div>
   </form>
 
@@ -70,9 +57,10 @@
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-3-phone">
         <h2><a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{{title}}}">{{{title}}}</a></h2>
+        <p>Signed {{momentFromNow date_signed}}</p>
         <p>
           {{{description}}}
-          <a href="/charter/signatories/{{slug}}" title="{{{title}}}">Read more</a>
+          <a href="/charter/signatories/{{slug}}" title="{{{title}}}"><strong>Read more</strong></a>
         </p>
       </div>
     </div>

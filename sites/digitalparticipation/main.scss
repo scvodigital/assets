@@ -224,6 +224,7 @@ a {
   padding: $unit/2 0;
 }
 .mdc-toolbar {
+  background-color: transparent;
   box-shadow: none;
   .container-fluid {
     border-bottom: 3px solid $brand-typography;
@@ -429,6 +430,31 @@ main {
     }
   }
 
+  .mdc-button {
+    height: auto;
+    min-height: auto;
+    line-height: $unit*1.5;
+    letter-spacing: normal;
+    min-width: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 0.15rem;
+    padding: 0.1rem 0.5rem;
+    border: $brand-border-width solid $brand-typography;
+    background: transparent;
+  }
+  .mdc-button--active,
+  .mdc-button:hover {
+    border: $brand-border-width solid $brand-typography;
+    background: white;
+    opacity: 1;
+  }
+  .mdc-button:not(:disabled),
+  .mdc-button,
+  .mdc-button:hover {
+    color: $brand-typography;
+  }
+
   .sort {
     margin-top: 1.5rem;
   }
@@ -464,6 +490,10 @@ main {
   .mdc-select:focus {
     background-color: white;
     border-bottom-color: $brand-typography;
+  }
+
+  .mdc-layout-grid__inner {
+    grid-gap: $unit;
   }
 
   .form-group {

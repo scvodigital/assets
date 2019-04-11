@@ -1,26 +1,23 @@
 {
-  "name": "resources",
-  "pattern": "/resources",
+  "name": "blog_posts",
+  "pattern": "/stories",
   "metaData": {
-    "title": "Resources – Scotland's Digital Participation Charter"
+    "title": "Stories – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
-      "name": "supplimentaryResponses",
+      "name": "primaryResponse",
       "taskModule": "elasticsearch",
       "config": {
         "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
         "elasticsearchConfig": {
           "apiVersion": "5.6"
         },
-        "queryTemplates": [
-          {
-            "name": "links",
-            "index": "web-content-production",
-            "type": "scvo-cms-resource",
-            "template": ">context.metaData.handlebars.queries.links"
-          }
-        ]
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "scvo-cms-post",
+          "template": ">context.metaData.handlebars.queries.blog-posts"
+        }
       },
       "renderer": "handlebars"
     },
@@ -40,7 +37,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.resources_index",
+              "body": ">context.metaData.handlebars.templates.stories_index",
               "foot": ""
             },
             "contentType": "text/html"

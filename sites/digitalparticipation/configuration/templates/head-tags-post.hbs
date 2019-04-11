@@ -1,0 +1,25 @@
+{{#if data.primaryResponse.hits.hits.[0] ~}}
+{{#with data.primaryResponse.hits.hits.[0]._source ~}}
+{{#if title ~}}
+<title>{{{title}}}</title>
+<meta property="og:title" content="{{{title}}}" data-dynamic="true">
+{{else}}
+<title>{{route.metaData.title}}</title>
+<meta property="og:title" content="{{route.metaData.title}}" data-dynamic="true">
+{{/if ~}}
+{{#ifAny og_summary description ../og_summary ../description ~}}
+<meta property="og:summary" content="{{stripTags (regexReplace (default og_summary (default ../og_summary (default description ../description))) '\r|\n' 'gi' '')}}" data-dynamic="true">
+<meta name="description" content="{{stripTags (regexReplace (default description (default ../description (default og_summary ../og_summary))) '\r|\n' 'gi' '')}}" data-dynamic="true">
+{{/ifAny ~}}
+{{#if rendered.json_ld ~}}
+<script type="application/ld+json" data-dynamic="true">
+{{{rendered.json_ld}}}
+</script>
+{{/if ~}}
+{{/with ~}}
+{{else}}
+<title>{{route.metaData.title}}</title>
+<meta property="og:title" content="{{route.metaData.title}}" data-dynamic="true">
+<meta property="og:summary" content="We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services." data-dynamic="true">
+<meta name="description" content="We are on a mission: to give everyone in Scotland the essential digital skills they need to do their jobs, live their lives, and confidently use different digital services." data-dynamic="true">
+{{/if ~}}

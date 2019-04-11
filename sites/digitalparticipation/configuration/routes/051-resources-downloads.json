@@ -1,8 +1,8 @@
 {
-  "name": "stories",
-  "pattern": "/skills/stories",
+  "name": "resources_downloads",
+  "pattern": "/resources/:slug",
   "metaData": {
-    "title": "Stories – Scotland's Digital Participation Charter"
+    "title": "Downloads – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skills_stories_index",
+              "body": ">context.metaData.handlebars.templates.resources_downloads",
               "foot": ""
             },
             "contentType": "text/html"

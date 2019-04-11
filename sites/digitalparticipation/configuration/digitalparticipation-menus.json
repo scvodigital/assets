@@ -9,8 +9,8 @@
       "children": [
         {
           "label": "Sign up",
-          "path": "/sign-up",
-          "route": "^/sign-up"
+          "path": "/charter/sign-up",
+          "route": "^/charter/sign-up"
         },
         {
           "label": "Signatories",
@@ -20,7 +20,7 @@
       ],
       "label": "Charter",
       "path": "/charter",
-      "route": "^/charter$"
+      "route": "^/charter"
     },
     {
       "children": [
@@ -37,12 +37,17 @@
       ],
       "label": "Skills",
       "path": "/skills",
-      "route": "^/skills$"
+      "route": "^/skills"
+    },
+    {
+      "label": "Stories",
+      "path": "/stories",
+      "route": "^/stories|^/post"
     },
     {
       "label": "Resources",
       "path": "/resources",
-      "route": "^/resources$"
+      "route": "^/resources"
     }
   ]
 }

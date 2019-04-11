@@ -61,7 +61,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.head-tags",
+              "head": ">context.metaData.handlebars.templates.head-tags-signatory",
               "body": ">context.metaData.handlebars.templates.charter_signatories_signatory",
               "foot": ""
             },

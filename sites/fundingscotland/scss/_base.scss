@@ -153,6 +153,9 @@ header {
         .mdc-button:hover {
           border-bottom-color: rgba(255, 255, 255, 0.6);
         }
+        .mdc-menu {
+          min-width: 255px;
+        }
         .mdc-list-item {
           height: 38px !important;
         }

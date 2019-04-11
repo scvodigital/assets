@@ -1,8 +1,8 @@
 {
-  "name": "stories_detail",
-  "pattern": "/skills/stories/:slug",
+  "name": "charter_pledges",
+  "pattern": "/charter/pledges",
   "metaData": {
-    "title": "Stories – Scotland's Digital Participation Charter"
+    "title": "Charter pledges – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skills_stories_detail",
+              "body": ">context.metaData.handlebars.templates.charter_pledges",
               "foot": ""
             },
             "contentType": "text/html"

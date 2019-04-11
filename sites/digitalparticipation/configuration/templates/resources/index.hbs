@@ -3,10 +3,7 @@
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone">
       <h1>Resources</h1>
       <h4>
-        <a href="/resources/downloads">
-          Downloads
-          <i class="material-icons">arrow_forward</i>
-        </a>
+        <a href="/resources/downloads" class="mdc-button">Downloads</a>
       </h4>
       <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Resources illustration" class="responsive-img hide-on-med-and-up" />
     </div>
@@ -16,15 +13,15 @@
   </div>
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <hr class="margin-top" />
+      <hr />
     </div>
   </div>
   <div class="mdc-layout-grid__inner resources description">
     {{#each @root.data.supplimentaryResponses.links.hits.hits ~}}
     {{#with _source ~}}
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-      <h3><a href="{{link}}" rel="noopener">{{{title}}}</a></h3>
-      <h4>{{{author_attribution}}}</h4>
+      <h4><a href="{{link}}" rel="noopener">{{{title}}}</a></h4>
+      <p><strong>{{{author_attribution}}}</strong></p>
       {{{content}}}
       <p>
         <a href="{{link}}" rel="noopener">Read more</a>
@@ -33,61 +30,4 @@
     {{/with ~}}
     {{/each ~}}
   </div>
-
-  {{!-- <div class="mdc-layout-grid__inner resources description">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-      <hr class="margin-bottom" />
-
-      <h3>Scotland's Essential Digital Skills Toolkit</h3>
-      <p>
-        SCVO has developed this toolkit to help you make practical use of the framework. It contains simple checklists for measuring Foundation Skills and Essential Skills, and guidance on how to interpret the results.
-      </p>
-      <h4>
-        <a href="https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/10/SCV-05-Report-A4-Portrait-V5.pdf">Full toolkit</a> (PDF)
-      </h4>
-      <h4>
-        <a href="{{>asset_url url="essential-skills-checklist-2019-02.pdf"}}">Essential skills checklist</a> (PDF)
-      </h4>
-      <h4>
-        <a href="https://storage.googleapis.com/scvo-cms/scvo-cms/wp-content/uploads/2018/09/EDS-Checklist.pdf">Foundation skills checklist</a> (PDF)
-      </h4>
-      <hr />
-
-      <h3>Need help to get online and develop your own essential digital skills?</h3>
-      <h4>
-        <a href="/resources/support">
-          Find support near you and online
-          <i class="material-icons">arrow_forward</i>
-        </a>
-      </h4>
-      <hr />
-
-      <h3>Want to help others develop their essential digital skills?</h3>
-      <h4>
-        <a href="/resources/help-others">
-          Get support to be a digital champion
-          <i class="material-icons">arrow_forward</i>
-        </a>
-      </h4>
-      <hr />
-
-      <h3>Want to understand the latest research and evidence on digital participation?</h3>
-      <h4>
-        <a href="/resources/reports">
-          View links to recent reports and publications
-          <i class="material-icons">arrow_forward</i>
-        </a>
-      </h4>
-      <hr />
-
-      <h3>Want to promote Scotland's Digital Participation Charter?</h3>
-      <h4>
-        <a href="/resources/logos">
-          Download our brand guidelines and logos
-          <i class="material-icons">arrow_forward</i>
-        </a>
-      </h4>
-      <hr />
-    </div>
-  </div> --}}
 </div>

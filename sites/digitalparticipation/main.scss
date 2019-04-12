@@ -193,6 +193,9 @@ main {
 .mdc-temporary-drawer__header-content img.brand-logo-mobile {
   max-width: 100%;
 }
+.mdc-drawer .mdc-list-item--child {
+  padding-left: $unit*1.5;
+}
 .mdc-temporary-drawer__header:before {
   padding-top: 34%;
 }
@@ -1570,7 +1573,13 @@ footer {
     }
   }
   .mdc-button {
+    text-align: center;
     width: 100%;
+    display: block;
+    .fas {
+      float: left;
+      margin-top: 1px;
+    }
   }
   .pagination {
     padding: 0;

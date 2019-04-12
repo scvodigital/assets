@@ -8,14 +8,14 @@
     {
       "children": [
         {
-          "label": "Sign up",
-          "path": "/charter/sign-up",
-          "route": "^/charter/sign-up"
-        },
-        {
           "label": "Signatories",
           "path": "/charter/signatories",
           "route": "^/charter/signatories"
+        },
+        {
+          "label": "Sign up",
+          "path": "/charter/sign-up",
+          "route": "^/charter/sign-up"
         }
       ],
       "label": "Charter",
@@ -25,14 +25,14 @@
     {
       "children": [
         {
-          "label": "Toolkit",
-          "path": "/skills/toolkit",
-          "route": "^/skills/toolkit"
+          "label": "Foundation",
+          "path": "/skills/foundation",
+          "route": "^/skills/foundation"
         },
         {
-          "label": "Stories",
-          "path": "/skills/stories",
-          "route": "^/skills/stories"
+          "label": "Essentials",
+          "path": "/skills/essentials",
+          "route": "^/skills/essentials"
         }
       ],
       "label": "Skills",
@@ -45,6 +45,13 @@
       "route": "^/stories|^/post"
     },
     {
+      "children": [
+        {
+          "label": "Downloads",
+          "path": "/resources/downloads",
+          "route": "^/resources/downloads"
+        }
+      ],
       "label": "Resources",
       "path": "/resources",
       "route": "^/resources"

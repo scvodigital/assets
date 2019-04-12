@@ -34,7 +34,7 @@
           ]
         }
       },
-      "boost": "5",
+      "boost": "2",
       "functions": [
         {
           "field_value_factor": {
@@ -51,7 +51,7 @@
             }
           },
           "random_score": {},
-          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s1w else=@root.request.params.query.s1)}}
+          "weight": {{subtract (if (compare @root.request.params.query.type "work") 5 else=3) (if (compare @root.request.params.query.type "work") @root.request.params.query.s1w else=@root.request.params.query.s1)}}
         },
         {
           "filter": {
@@ -60,7 +60,7 @@
             }
           },
           "random_score": {},
-          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s2w else=@root.request.params.query.s2)}}
+          "weight": {{subtract (if (compare @root.request.params.query.type "work") 5 else=3) (if (compare @root.request.params.query.type "work") @root.request.params.query.s2w else=@root.request.params.query.s2)}}
         },
         {
           "filter": {
@@ -69,7 +69,7 @@
             }
           },
           "random_score": {},
-          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s3w else=@root.request.params.query.s3)}}
+          "weight": {{subtract (if (compare @root.request.params.query.type "work") 5 else=3) (if (compare @root.request.params.query.type "work") @root.request.params.query.s3w else=@root.request.params.query.s3)}}
         },
         {
           "filter": {
@@ -78,7 +78,7 @@
             }
           },
           "random_score": {},
-          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s4w else=@root.request.params.query.s4)}}
+          "weight": {{subtract (if (compare @root.request.params.query.type "work") 5 else=3) (if (compare @root.request.params.query.type "work") @root.request.params.query.s4w else=@root.request.params.query.s4)}}
         },
         {
           "filter": {
@@ -87,10 +87,10 @@
             }
           },
           "random_score": {},
-          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s5w else=@root.request.params.query.s5)}}
+          "weight": {{subtract (if (compare @root.request.params.query.type "work") 5 else=3) (if (compare @root.request.params.query.type "work") @root.request.params.query.s5w else=@root.request.params.query.s5)}}
         }
       ],
-      "max_boost": 100,
+      "max_boost": (if (compare @root.request.params.query.type "work") 5 else=3),
       "score_mode": "max",
       "boost_mode": "multiply",
       "min_score" : 1

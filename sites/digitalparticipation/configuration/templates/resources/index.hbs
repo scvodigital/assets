@@ -20,12 +20,22 @@
     {{#each @root.data.supplimentaryResponses.links.hits.hits ~}}
     {{#with _source ~}}
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-      <h4><a href="{{link}}" rel="noopener">{{{title}}}</a></h4>
+      <h4>{{{title}}}</h4>
       <p><strong>{{{author_attribution}}}</strong></p>
       {{{content}}}
+      {{#if link ~}}
       <p>
+        {{#if (contains link ".pdf") ~}}
+        <a href="{{link}}" rel="noopener" download>Download</a> <span class="fas fa-file-pdf" aria-hidden="true"></span>
+        {{else}}
+        {{#if (contains link ".zip") ~}}
+        <a href="{{link}}" rel="noopener" download>Download</a> <span class="fas fa-file-archive" aria-hidden="true"></span>
+        {{else}}
         <a href="{{link}}" rel="noopener">Read more</a> <span class="fas fa-external-link" aria-hidden="true"></span>
+        {{/if ~}}
+        {{/if ~}}
       </p>
+      {{/if ~}}
     </div>
     {{/with ~}}
     {{/each ~}}

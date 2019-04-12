@@ -1,6 +1,6 @@
 {
-  "name": "skills_toolkit_foundation",
-  "pattern": "/skills/toolkit/foundation",
+  "name": "skills_foundation",
+  "pattern": "/skills/foundation",
   "metaData": {
     "title": "Foundation digital skills – Scotland's Digital Participation Charter"
   },
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skills_toolkit_foundation",
+              "body": ">context.metaData.handlebars.templates.skills_foundation",
               "foot": ""
             },
             "contentType": "text/html"

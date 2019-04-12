@@ -5,6 +5,7 @@
     "slug",
     "title",
     "description",
+    "date_signed",
     "logos"
   ],
   "query": {

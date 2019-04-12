@@ -1,8 +1,8 @@
 {
-  "name": "skills_toolkit",
-  "pattern": "/skills/toolkit",
+  "name": "charter_pledges",
+  "pattern": "/charter/pledges",
   "metaData": {
-    "title": "Toolkit – Scotland's Digital Participation Charter"
+    "title": "Charter pledges – Scotland's Digital Participation Charter"
   },
   "tasks": [
     {
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.skills_toolkit_index",
+              "body": ">context.metaData.handlebars.templates.charter_pledges",
               "foot": ""
             },
             "contentType": "text/html"

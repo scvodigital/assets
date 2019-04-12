@@ -65,7 +65,7 @@ body {
   background-color: $mdc-theme-footer-dark;
 }
 
-h1, h2, h3, h4, h5, strong {
+h1, h2, h3, h4, h5 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
 }
@@ -222,6 +222,7 @@ main {
   }
 }
 a {
+  font-weight: $heading-font-weight;
   text-decoration-skip: ink;
 }
 ::-moz-selection {
@@ -659,7 +660,7 @@ main {
       a {
         display: block;
         color: $brand-typography;
-        font-weight: bold;
+        // font-weight: bold;
         float: right;
       }
       .material-icons {
@@ -707,7 +708,7 @@ main {
       a {
         display: inline-block;
         color: $brand-typography;
-        font-weight: normal;
+        // font-weight: normal;
       }
     }
   }
@@ -956,25 +957,25 @@ hr {
       }
     }
   }
-  h1 {
-    font-size: 3.4rem;
-    line-height: 3.8rem;
-    letter-spacing: -.1rem;
-    margin: 2rem 0 2rem;
-    padding-right: 2rem;
-    .small {
-      font-size: 3.8rem;
-      letter-spacing: -.15rem;
-    }
-  }
-  h4 {
-    margin: 1.5rem 0 0.25rem;
-    font-size: 1.5rem;
-  }
-  h4.sort {
-    text-align: right;
-    margin-right: $unit/2;
-  }
+  // h1 {
+  //   font-size: 3.4rem;
+  //   line-height: 3.8rem;
+  //   letter-spacing: -.1rem;
+  //   margin: 2rem 0 2rem;
+  //   padding-right: 2rem;
+  //   .small {
+  //     font-size: 3.8rem;
+  //     letter-spacing: -.15rem;
+  //   }
+  // }
+  // h4 {
+  //   margin: 1.5rem 0 0.25rem;
+  //   font-size: 1.5rem;
+  // }
+  // h4.sort {
+  //   text-align: right;
+  //   margin-right: $unit/2;
+  // }
   .digital-charter-signatory {
     h3 {
       margin: $unit 0 0;
@@ -995,6 +996,9 @@ hr {
       border: $unit/5 solid $brand-typography;
       padding: $unit;
       margin-top: $unit*1.5;
+      h4 a {
+        padding: 0;
+      }
     }
   }
   .signed {

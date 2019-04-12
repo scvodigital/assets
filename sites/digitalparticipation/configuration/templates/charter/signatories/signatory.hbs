@@ -1,7 +1,7 @@
 {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
 <div class="full digital-charter-signatory mdc-layout-grid">
   <div class="mdc-layout-grid__inner title">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#if logos.[0]}}9{{else}}12{{/if}}-desktop mdc-layout-grid__cell--span-{{#if logos.[0]}}6{{else}}8{{/if}}-tablet mdc-layout-grid__cell--span-4-phone">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <p>
         <strong>
           <span class="fas fa-chevron-circle-left" aria-hidden="true"></span>
@@ -12,66 +12,37 @@
           {{/if ~}}
         </strong>
       </p>
-
-      <h3>{{{title}}}</h3>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#if logos.[0]}}9{{else}}12{{/if}}-desktop mdc-layout-grid__cell--span-{{#if logos.[0]}}6{{else}}8{{/if}}-tablet mdc-layout-grid__cell--span-4-phone">
+      <h1>{{{title}}}</h1>
       <p class="signed">
         <span class="fas fa-badge-check" aria-hidden="true"></span>&ensp;Signed {{momentFromNow date_signed}}
       </p>
-
-      {{#if mission_statement ~}}
-      <h4>
-        Organisation statement:
-      </h4>
+      {{#if website ~}}
       <p>
-        {{{markdown (removeEntities mission_statement)}}}
+        <span class="fas fa-link" aria-hidden="true"></span>
+        <a href="{{#if (contains website 'http')}}{{website}}{{else}}http://{{website}}{{/if}}" rel="noopener">{{website}}</a>
       </p>
       {{/if ~}}
 
-      {{#if description ~}}
-      <h4>
-        Commitment to digital participation:
-      </h4>
+      {{#if blog ~}}
       <p>
-        {{{markdown (removeEntities description)}}}
+        <span class="fas fa-rss-square" aria-hidden="true"></span>
+        <a href="{{#if (contains blog 'http')}}{{blog}}{{else}}http://{{blog}}{{/if}}" rel="noopener">{{blog}}</a>
       </p>
       {{/if ~}}
 
-      {{#compare @root.data.supplimentaryResponses.projects.hits.total ">" 0 ~}}
-      <h4>
-        {{inflect @root.data.supplimentaryResponses.projects.hits.total "Funded" "Projects funded"}} via the <a href="/">Charter Fund</a>:
-      </h4>
-      {{#each @root.data.supplimentaryResponses.projects.hits.hits ~}}
-      {{#with _source ~}}
-      {{#if amount_awarded ~}}
+      {{#if twitter ~}}
       <p>
-        &pound;{{addCommas amount_awarded}} for {{title}}
-        <a href="https://scvo.org/digital/participation/charter-fund/projects/{{slug}}">Read more</a>
-      </p>
-      {{else}}
-      <p>
-        {{title}}
-        <a href="https://scvo.org/digital/participation/charter-fund/projects/{{slug}}">Read more</a>
-      </p>
-      {{/if ~}}
-      {{/with ~}}
-      {{/each ~}}
-      {{/compare ~}}
-
-      {{#if support_offered ~}}
-      <h4>
-        Support offered:
-      </h4>
-      <p>
-        {{{markdown (removeEntities support_offered)}}}
+        <span class="fab fa-twitter-square" aria-hidden="true"></span>
+        <a href="{{#if (contains twitter 'twitter.com')}}{{twitter}}{{else}}http://twitter.com/{{twitter}}{{/if}}" rel="noopener">{{twitter}}</a>
       </p>
       {{/if ~}}
 
-      {{#if support_wanted ~}}
-      <h4>
-        Support wanted:
-      </h4>
+      {{#if facebook ~}}
       <p>
-        {{{markdown (removeEntities support_wanted)}}}
+        <span class="fab fa-facebook-square" aria-hidden="true"></span>
+        <a href="{{#if (contains facebook 'http')}}{{facebook}}{{else}}http://{{facebook}}{{/if}}" rel="noopener">{{facebook}}</a>
       </p>
       {{/if ~}}
 
@@ -95,33 +66,6 @@
       </p>
       {{/if ~}}
       {{/if ~}}
-      {{#if website ~}}
-      <p>
-        <strong>Website:</strong>
-        <a href="{{#if (contains website 'http')}}{{website}}{{else}}http://{{website}}{{/if}}" rel="noopener">{{website}}</a>
-      </p>
-      {{/if ~}}
-
-      {{#if blog ~}}
-      <p>
-        <strong>Blog:</strong>
-        <a href="{{#if (contains blog 'http')}}{{blog}}{{else}}http://{{blog}}{{/if}}" rel="noopener">{{blog}}</a>
-      </p>
-      {{/if ~}}
-
-      {{#if twitter ~}}
-      <p>
-        <strong>Twitter:</strong>
-        <a href="{{#if (contains twitter 'twitter.com')}}{{twitter}}{{else}}http://twitter.com/{{twitter}}{{/if}}" rel="noopener">{{twitter}}</a>
-      </p>
-      {{/if ~}}
-
-      {{#if facebook ~}}
-      <p>
-        <strong>Facebook:</strong>
-        <a href="{{#if (contains facebook 'http')}}{{facebook}}{{else}}http://{{facebook}}{{/if}}" rel="noopener">{{facebook}}</a>
-      </p>
-      {{/if ~}}
     </div>
     {{#if logos.[0] ~}}
     <div class="signatory-logo-background mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-12-phone">
@@ -141,9 +85,76 @@
     </div>
     {{/if ~}}
   </div>
-  <div class="mdc-layout-grid__inner">
+  <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <hr class="margin-top" />
+      <hr />
+
+      {{#if mission_statement ~}}
+      <h4>
+        Organisation statement:
+      </h4>
+      <p>
+        {{{markdown (removeEntities mission_statement)}}}
+      </p>
+      {{/if ~}}
+
+      {{#if description ~}}
+      <h4>
+        Commitment to digital participation:
+      </h4>
+      <p>
+        {{{markdown (removeEntities description)}}}
+      </p>
+      {{/if ~}}
+
+      {{#if support_offered ~}}
+      <h4>
+        Support offered:
+      </h4>
+      <p>
+        {{{markdown (removeEntities support_offered)}}}
+      </p>
+      {{/if ~}}
+
+      {{#if support_wanted ~}}
+      <h4>
+        Support wanted:
+      </h4>
+      <p>
+        {{{markdown (removeEntities support_wanted)}}}
+      </p>
+      {{/if ~}}
+
+      {{#compare @root.data.supplimentaryResponses.projects.hits.total ">" 0 ~}}
+      <hr />
+
+      <h3>
+        {{{title}}} has been supported by the Charter Fund
+      </h3>
+      {{#each @root.data.supplimentaryResponses.projects.hits.hits ~}}
+      {{#with _source ~}}
+      <h4>
+        {{{title}}}
+      </h4>
+      <p>
+        <span class="fas fa-calendar-alt" aria-hidden="true"></span>&ensp;Funding provided {{momentFromNow day_awarded}}
+      </p>
+      <p>
+        {{{truncate (stripTags (default description description_alt)) 300}}}
+        <a href="https://scvo.org/digital/participation/charter-fund/projects/{{slug}}">Read more</a>
+        <span class="fas fa-external-link" aria-hidden="true"></span>
+      </p>
+      <p>
+        <a href="https://scvo.org/digital/participation/charter-fund">Find out more about the Charter Fund</a>
+        <span class="fas fa-external-link" aria-hidden="true"></span>
+      </p>
+      {{/with ~}}
+      {{/each ~}}
+      {{/compare ~}}
+
+      {{#ifAny mission_statement description support_offered support_wanted ~}}
+      <hr />
+      {{/ifAny ~}}
     </div>
   </div>
 </div>

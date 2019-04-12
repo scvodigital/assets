@@ -1,0 +1,23 @@
+<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone toolkit-topic-resources-{{slug}}">
+  <h4>
+    <a href="{{link}}">{{{title}}}</a>
+  </h4>
+  {{#compare author "!==" title ~}}
+  <p class="author">
+    <strong>{{{author}}}</strong>
+  </p>
+  {{/compare ~}}
+  {{#if tags ~}}
+  <p class="tags">
+    {{#each tags}}
+    <span class="tag">{{{this}}}</span>{{#unless @last}}{{/unless}}
+    {{/each}}
+  </p>
+  {{/if ~}}
+  <p>
+    {{{content}}}
+  </p>
+  <p>
+    <strong><a href="{{link}}" class="mdc-card__action">Read more</a> <span class="fas fa-external-link" aria-hidden="true"></span></strong>
+  </p>
+</div>

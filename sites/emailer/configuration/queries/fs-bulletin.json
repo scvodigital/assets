@@ -1,15 +1,21 @@
-{{#>queries_fund_wrapper fixedFilters=templateMetaData.config.metaData.siteConfiguration.fixedFilters templateMetaData=templateMetaData}}
-  {
-    "bool": {
-      "filter": [
-        {
-          "range": {
-            "date_last_modified": {
-              "gte": "now-1w/d"
+{{#withExtend this siteConfig=templateMetaData.config.metaData.siteConfiguration}}
+  {{#>queries_fund_wrapper templateMetaData=templateMetaData}}
+    {
+      "bool": {
+        "filter": [
+          {
+            "range": {
+              "date_last_modified": {
+                {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                  "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+                {{else}}
+                  "gte": "now-1w/d"
+                {{/ifAny}}
+              }
             }
           }
-        }
-      ]
+        ]
+      }
     }
-  }
-{{/queries_fund_wrapper}}
+  {{/queries_fund_wrapper}}
+{{/with}}

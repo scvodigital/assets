@@ -1,3 +1,4 @@
+{{#withExtend this siteConfig=templateMetaData.config.metaData.siteConfiguration}}
 {
   "size": 1000,
   "_source": [
@@ -12,7 +13,7 @@
               {
                 "term": {
                   "_type": {
-                    "value": "fs-{{templateMetaData.config.metaData.siteConfiguration.name}}-post" 
+                    "value": "fs-{{siteConfig.name}}-post" 
                   }
                 }
               },
@@ -30,7 +31,7 @@
             ]
           }
         },
-        {{#>queries_fund_fixed_filters fixedFilters=fixedFilters}}
+        {{#>queries_fund_fixed_filters fixedFilters=siteConfig.fixedFilters}}
           "bool": {
             "filter": [
               {
@@ -53,3 +54,4 @@
     { "updated": "desc" }
   ]
 }
+{{/withExtend}}

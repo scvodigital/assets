@@ -9,7 +9,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation-legacy/",
     "title": "Scotland's Digital Participation Charter",
     "menus": "{:./digitalparticipation-legacy-menus.json}",
     "handlebars": {

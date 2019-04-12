@@ -34,11 +34,13 @@
         {
           "query_string": {
             "query": {{{stringify (default request.params.query.q "")}}},
-            "default_field": "text_bag_boost",
+            "default_field": "text_bag",
             "default_operator": "AND",
             "analyzer": "snowball"
           }
-        },
+        }
+      ],
+      "should": [
         {
           "match_phrase": {
             "title": {

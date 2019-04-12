@@ -25,8 +25,6 @@
     "from": "fundingscotland@scvo.org.uk",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
     "metaData": {
-      "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
-      "siteName": "default",
       "baseUrl": "https://fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
       "sections": "{:./fs-email-common.json@sections.savedSearches}"
@@ -42,8 +40,6 @@
     "from": "fundingscotland@scvo.org.uk",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
     "metaData": {
-      "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
-      "siteName": "default",
       "baseUrl": "https://fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
       "sections": "{:./fs-email-common.json@sections.savedFunds}"
@@ -59,8 +55,6 @@
     "from": "fundingscotland@scvo.org.uk",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
     "metaData": {
-      "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
-      "siteName": "default",
       "baseUrl": "https://fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
       "sections": "{:./fs-email-common.json@sections.bulletin}"

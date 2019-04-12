@@ -1,5 +1,7 @@
-{{#>queries_fund_wrapper fixedFilters=templateMetaData.config.metaData.siteConfiguration.fixedFilters templateMetaData=templateMetaData}}
-  {{#eachJoin (split templateMetaData.querystrings "&&") ","}}
-    {{>queries_fund_saved_search query=(querystring this)}}
-  {{/eachJoin}}
-{{/queries_fund_wrapper}}
+{{#withExtend this siteConfig=templateMetaData.config.metaData.siteConfiguration}}
+  {{#>queries_fund_wrapper templateMetaData=templateMetaData}}
+    {{#eachJoin (split templateMetaData.querystrings "&&") ","}}
+      {{>queries_fund_saved_search query=(querystring this)}}
+    {{/eachJoin}}
+  {{/queries_fund_wrapper}}
+{{/withExtend}}

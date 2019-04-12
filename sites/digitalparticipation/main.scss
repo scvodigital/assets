@@ -960,17 +960,19 @@ hr {
       }
     }
   }
-  // h1 {
-  //   font-size: 3.4rem;
-  //   line-height: 3.8rem;
-  //   letter-spacing: -.1rem;
-  //   margin: 2rem 0 2rem;
-  //   padding-right: 2rem;
-  //   .small {
-  //     font-size: 3.8rem;
-  //     letter-spacing: -.15rem;
-  //   }
-  // }
+  h1 {
+    padding: 0;
+    .counter {
+      font-size: 2.4rem;
+      background-color: $brand-typography;
+      color: white;
+      border-radius: 3rem;
+      float: right;
+      letter-spacing: -0.05rem;
+      padding: 0 1.25rem 0 1rem;
+      cursor: default;
+    }
+  }
   // h4 {
   //   margin: 1.5rem 0 0.25rem;
   //   font-size: 1.5rem;
@@ -1611,9 +1613,6 @@ footer {
       line-height: 2.2rem;
       margin: 0;
       padding: 0;
-      .small {
-        font-size: 1.8rem;
-      }
     }
     h4 {
       font-size: 1.2rem;

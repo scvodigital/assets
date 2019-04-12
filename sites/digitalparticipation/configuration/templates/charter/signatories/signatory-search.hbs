@@ -1,9 +1,13 @@
-<div class="signatories title detail">
+<div class="signatories title">
   <h1>
+    <span class="counter" title="{{@root.data.supplimentaryResponses.total.hits.total}} charter signatories">
+      <span class="fas fa-badge-check" aria-hidden="true"></span>
+      {{@root.data.supplimentaryResponses.total.hits.total}}
+    </span>
     Signatories
-    {{!-- <span class="small">({{@root.data.supplimentaryResponses.total.hits.total}})</span> --}}
   </h1>
-
+</div>
+<div class="signatories detail">
   <form action="/charter/signatories" [searchroute]="'signatory_search'" data-auto-search="true" id="signatory-search">
     {{#if @root.request.params.query.sort ~}}
     <input type="hidden" name="sort" value="{{@root.request.params.query.sort}}" />

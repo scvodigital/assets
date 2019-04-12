@@ -4,7 +4,7 @@
       <h1>Essential digital skills toolkit:<br />Your results</h1>
       <div class="radarChartDesktop responsive-img hide-on-small-only" style="margin-top:2rem;margin-bottom: 2rem;height:560px;width:560px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
       <div class="radarChartMobile responsive-img hide-on-med-and-up" style="margin-top:1rem;height:300px;width:300px;background-image:url('{{~>asset_url url='images/toolkit-essential-labels.png'~}}');background-size:90%;background-color:#022347;border-radius:50%;background-repeat:no-repeat;background-position:center 38%;"></div>
-      <p>
+      {{!-- <p>
         To help interpret your results: if your points are closer to the edge of the circle you have a good understanding of this section, if the point is closer to the middle in each section you might need to improve your skills in this area.
       </p>
       <p>
@@ -18,11 +18,11 @@
           Have not got Essential Digital Skills<br />
           = Answer "I can't do" or "I want to learn how to do this" to any of the questions
         </li>
-      </ol>
+      </ol> --}}
       <p>
-        Thank you for using our toolkit, please <a href="/skills/toolkit/essential/feedback">provide us with feedback</a> or contact <a href="mailto:claire.sharp@scvo.org.uk">Claire Sharp</a>.
+        Thank you for using our toolkit, please <a href="/skills/essential/feedback">provide us with feedback</a> or contact <a href="mailto:claire.sharp@scvo.org.uk">Claire Sharp</a>.
       </p>
-      <p>
+      {{!-- <p>
         If your skills aren't what you'd like them to be, you can find more resources on improving them here:
       </p>
       <ul>
@@ -30,7 +30,24 @@
         <li><a href="http://www.learnmyway.com">Learn My Way</a></li>
         <li><a href="http://www.digitalunite.com">Digital Unite</a></li>
         <li><a href="http://www.learndigital.withgoogle.com/digitalgarage">Google Garage</a></li>
-      </ul>
+      </ul> --}}
+      {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
+      <h2>Useful resources based on your results</h2>
+      <div class="mdc-layout-grid equal-height t-padding-full">
+        <div class="mdc-layout-grid__inner">
+          {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}
+          {{#with _source ~}}
+          {{> resource slug=post_tags_slug.[0] tags=post_tags tags_slug=post_tags_slug link=link title=title author=author_attribution content=content}}
+          {{/with ~}}
+          {{/each ~}}
+        </div>
+      </div>
+      {{/compare ~}}
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <hr />
     </div>
   </div>
 </div>
@@ -223,23 +240,23 @@ var d = [
   [
     {
       axis: "Communicating",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s1w}}{{else}}{{@root.request.params.query.s1}}{{/compare}}
+      value: {{{safeStringify (if (compare @root.request.params.query.type "work") @root.request.params.query.s1w else=@root.request.params.query.s1)}}}
     },
     {
       axis: "Staying safe",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s5w}}{{else}}{{@root.request.params.query.s5}}{{/compare}}
+      value: {{{safeStringify (if (compare @root.request.params.query.type "work") @root.request.params.query.s5w else=@root.request.params.query.s5)}}}
     },
     {
       axis: "Transacting",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s4w}}{{else}}{{@root.request.params.query.s4}}{{/compare}}
+      value: {{{safeStringify (if (compare @root.request.params.query.type "work") @root.request.params.query.s4w else=@root.request.params.query.s4)}}}
     },
     {
       axis: "Problem solving",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s3w}}{{else}}{{@root.request.params.query.s3}}{{/compare}}
+      value: {{{safeStringify (if (compare @root.request.params.query.type "work") @root.request.params.query.s3w else=@root.request.params.query.s3)}}}
     },
     {
       axis: "Handling info",
-      value: {{#compare @root.request.params.query.type "===" "work"}}{{@root.request.params.query.s2w}}{{else}}{{@root.request.params.query.s2}}{{/compare}}
+      value: {{{safeStringify (if (compare @root.request.params.query.type "work") @root.request.params.query.s2w else=@root.request.params.query.s2)}}}
     }
   ]
 ];
@@ -279,7 +296,7 @@ RadarChart.draw(".radarChartMobile", d, mycfg);
 var svg = d3.select('#body')
 .selectAll('svg')
 .append('svg')
-.attr("width", w)
-.attr("height", h)
+.attr("width", mycfg.w)
+.attr("height", mycfg.h)
 
 </script>

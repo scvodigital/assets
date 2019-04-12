@@ -203,6 +203,24 @@ main {
 main {
   padding-bottom: $unit;
 }
+.author {
+  margin: 0 !important;
+}
+.tags {
+  margin-top: 0 !important;
+  .tag {
+    background-color: $brand-typography;
+    color: white;
+    font-weight: $heading-font-weight;
+    font-family: $heading-font-family;
+    border-radius: $unit;
+    font-size: 0.95rem;
+    padding: $unit/10 $unit/2;
+    margin-right: $unit/4;
+    display: inline-block;
+    cursor: default;
+  }
+}
 a {
   text-decoration-skip: ink;
 }
@@ -519,6 +537,9 @@ main {
       letter-spacing: -0.1rem;
       margin: 2rem 0 2rem;
       padding-right: 2rem;
+    }
+    h2 {
+      font-size: 2rem;
     }
     img {
       margin-top: 2rem;

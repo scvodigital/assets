@@ -1,0 +1,99 @@
+{
+  "size": 6,
+  "_source": [
+    "title",
+    "content",
+    "author_attribution",
+    "link",
+    "post_tags",
+    "post_tags_slug"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "post_tags_slug": [
+                  "communicating",
+                  "handling-info",
+                  "problem-solving",
+                  "transacting",
+                  "online-safety"
+                ]
+              }
+            }
+          ],
+          "must": [
+            {
+              "term": {
+                "categories_slug": "digital-participation"
+              }
+            }
+          ]
+        }
+      },
+      "boost": "5",
+      "functions": [
+        {
+          "field_value_factor": {
+            "field": "weight",
+            "factor": 10,
+            "modifier": "reciprocal",
+            "missing": 1
+          }
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "communicating"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s1w else=@root.request.params.query.s1)}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "handling-info"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s2w else=@root.request.params.query.s2)}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "problem-solving"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s3w else=@root.request.params.query.s3)}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "transacting"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s4w else=@root.request.params.query.s4)}}
+        },
+        {
+          "filter": {
+            "term": {
+              "post_tags_slug": "online-safety"
+            }
+          },
+          "random_score": {},
+          "weight": {{subtract 5 (if (compare @root.request.params.query.type "work") @root.request.params.query.s5w else=@root.request.params.query.s5)}}
+        }
+      ],
+      "max_boost": 100,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 1
+    }
+  }
+}

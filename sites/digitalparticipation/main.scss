@@ -551,8 +551,9 @@ main {
     // }
     img {
       margin: 0 auto;
-      padding: 1.5rem 8rem 0;
-      margin-bottom: -6px;
+      margin-bottom: -($unit);
+      // padding: 1.5rem 8rem 0;
+      // margin-bottom: -6px;
     }
     h2 {
       font-size: 3.1rem;
@@ -650,9 +651,9 @@ main {
         text-align: center;
         background: #fff;
         border-radius: 3rem;
-        height: 4rem;
-        width: 4rem;
-        line-height: 4rem;
+        height: 3rem;
+        width: 3rem;
+        line-height: 3.1rem;
         border: $brand-border-width solid $brand-typography;
         margin-top: -0.333rem;
       }
@@ -681,7 +682,7 @@ main {
     }
     p {
       margin: 0;
-      padding: 2.5rem 0;
+      padding: 2.5rem 0 1.5rem;
       a {
         display: inline-block;
         color: $brand-typography;
@@ -695,7 +696,7 @@ main {
     }
   }
   .pledges h1 {
-    margin-top: 10.4rem;
+    margin-top: 6.4rem;
   }
   .detail.title {
     h2 {
@@ -814,10 +815,10 @@ main {
     }
   }
   .pledge h3 {
-    margin: 0.75rem 0;
+    margin: 0;
   }
   .pledge p {
-    margin: 0.5rem 0;
+    margin: 0;
   }
   .skills h3 {
     margin: 0;
@@ -1455,10 +1456,6 @@ footer {
     .expand {
       h1 {
         font-size: 2rem;
-      }
-      h3 .number {
-        height: 4rem;
-        width: 4rem;
       }
       p {
         font-size: 1.25rem;

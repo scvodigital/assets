@@ -33,7 +33,7 @@ const app = admin.initializeApp({
   const sites = fs.readdirSync(BUILD_DIR).filter(source => fs.lstatSync(path.join(BUILD_DIR, source)).isDirectory());
   console.log('Publishing the following sites:', sites.join(', '));
   await uploadAssets(sites);
-  //await uploadConfigs(sites);
+  await uploadConfigs(sites);
   process.exit();
 })();
 

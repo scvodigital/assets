@@ -1,0 +1,17 @@
+{
+  "name": "signatories_redirect",
+  "pattern": "/signatories",
+  "metaData": {
+    "title": "Signatories – Scotland's Digital Participation Charter"
+  },
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/charter/signatories",
+        "statusCode": 301
+      }
+    }
+  ]
+}

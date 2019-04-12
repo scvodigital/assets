@@ -874,6 +874,7 @@ main {
 //     height: auto;
 // }
 
+button, input, optgroup, select, textarea,
 .mdc-tab,
 .mdc-button,
 h1,
@@ -955,7 +956,7 @@ hr {
   }
   .digital-charter-signatory {
     h3 {
-      margin: $unit 0;
+      margin: $unit 0 0;
     }
   }
   .search-info {
@@ -970,9 +971,16 @@ hr {
     }
     .mdc-layout-grid__inner {
       background: white;
+      border: $unit/5 solid $brand-typography;
       padding: $unit;
       margin-top: $unit*1.5;
     }
+  }
+  .signed {
+    // text-transform: uppercase;
+    font-weight: $heading-font-weight;
+    font-size: 1.1rem;
+    margin: 0 0 $unit/2;
   }
   .signatory {
     background: white;
@@ -1306,6 +1314,10 @@ footer {
 .cookies,
 .terms,
 .contact-us {
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .digital,
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
+    color: white;
+  }
   main {
     background: $brand-typography;
     hr {

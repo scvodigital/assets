@@ -5,6 +5,7 @@
     "slug",
     "title",
     "description",
+    "mission_statement",
     "date_signed",
     "logos"
   ],
@@ -29,7 +30,7 @@
       ],
       {{/ifAny ~}}
       {{#if request.params.query.q ~}}
-      "should": [
+      "must": [
         {
           "query_string": {
             "query": {{{stringify (default request.params.query.q "")}}},

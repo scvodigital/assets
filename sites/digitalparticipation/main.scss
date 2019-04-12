@@ -1314,6 +1314,10 @@ footer {
 .cookies,
 .terms,
 .contact-us {
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .digital,
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
+    color: white;
+  }
   main {
     background: $brand-typography;
     hr {

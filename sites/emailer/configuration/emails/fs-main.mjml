@@ -1,7 +1,7 @@
 <mjml>
   <mj-body background-color="#F5F5F5">
     <mj-wrapper background-color="#ffffff" padding="10px">
-      <mj-section background-color="{{campaignConfig.metaData.primaryColour}}" padding="10px">
+      <mj-section background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" padding="10px">
         <mj-column padding="0px">
           <mj-image src="{{campaignConfig.metaData.logoUrl}}" width="352px" align="left" padding="0px"></mj-image>
         </mj-column>
@@ -43,11 +43,11 @@
       <mj-section padding="10px 0px 10px 0px">
         <mj-column padding="0px">
           <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">{{{_source.og_title}}}</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.og_title}}}</a>
           </mj-text>
           <mj-text font-size="14px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
             {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">Find out more</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -58,15 +58,15 @@
       <mj-section padding="10px 0px 10px 0px">
         <mj-column padding="0px">
           <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">{{{_source.title}}}</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.title}}}</a>
           </mj-text>
-          <mj-text font-size="14px" padding="5px" container-background-color="{{campaignConfig.metaData.primaryColour}}" color="#ffffff" font-family="Montserrat, Helvetica, Arial, sans-serif">
+          <mj-text font-size="14px" padding="5px" container-background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" color="#ffffff" font-family="Montserrat, Helvetica, Arial, sans-serif">
             <strong>Organisation:</strong>
             <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
           </mj-text>
           <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
             {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.primaryColour}}" style="color:{{campaignConfig.metaData.primaryColour}};font-weight:bold;">Find out more</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
           </mj-text>
         </mj-column>
       </mj-section>

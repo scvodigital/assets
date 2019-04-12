@@ -22,93 +22,54 @@
     "metaData": {}
   },
   "fs-saved-searches-default": {
-    "mailgunConnection": "mg_scvo_org",
     "from": "fundingscotland@scvo.org.uk",
+    "elasticsearchType": "fundingscotland-fund,fs-default-post",
+    "metaData": {
+      "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
+      "siteName": "default",
+      "baseUrl": "https://fundingscotland.com",
+      "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
+      "sections": "{:./fs-email-common.json@sections.savedSearches}"
+    },
+    "mailgunConnection": "mg_scvo_org",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production",
-    "elasticsearchType": "fundingscotland-fund,fs-default-post",
-    "metaData": {
-      "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
-      "siteName": "default",
-      "primaryColour": "#537F2C",
-      "secondaryColour": "#F49039",
-      "baseUrl": "https://fundingscotland.com",
-      "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
-      "sections": [
-        {
-          "title": "Important news",
-          "expression": "$[_type='fs-default-post' and 'important-email-news' in _source.categories_slug][]"
-        },
-        {
-          "title": "Your latest funds",
-          "headerBlock": "Here are recently added funds that match your saved search preferences",
-          "headerBlockNoItems": "There haven't been any funds added since your previous alert",
-          "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
-        }
-      ]
-    }
+    "elasticsearchIndex": "web-content-production"
   },
   "fs-saved-funds-default": {
-    "mailgunConnection": "mg_scvo_org",
     "from": "fundingscotland@scvo.org.uk",
-    "sendIfEmpty": false,
-    "subjectPartial": "subjects_fs_saved_funds",
-    "bodyPartial": "bodies_fs_main",
-    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
     "metaData": {
       "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
       "siteName": "default",
-      "primaryColour": "#537F2C",
-      "secondaryColour": "#F49039",
       "baseUrl": "https://fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
-      "sections": [
-        {
-          "title": "Important news",
-          "expression": "$[_type='fs-default-post' and 'important-email-news' in _source.categories_slug][]"
-        },
-        {
-          "title": "Your latest funds",
-          "headerBlock": "Here are recently added funds that match your saved search preferences",
-          "headerBlockNoItems": "There haven't been any funds added since your previous alert",
-          "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
-        }
-      ]
-    }
+      "sections": "{:./fs-email-common.json@sections.savedFunds}"
+    },
+    "mailgunConnection": "mg_scvo_org",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_saved_searches",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
+    "elasticsearchIndex": "web-content-production"
   },
   "fs-bulletin-default": {
-    "mailgunConnection": "mg_scvo_org",
     "from": "fundingscotland@scvo.org.uk",
-    "sendIfEmpty": false,
-    "subjectPartial": "subjects_fs_saved_funds",
-    "bodyPartial": "bodies_fs_main",
-    "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
     "metaData": {
       "logoUrl": "https://storage.googleapis.com/fundingscotland/logos/scvo.png",
       "siteName": "default",
-      "primaryColour": "#537F2C",
-      "secondaryColour": "#F49039",
       "baseUrl": "https://fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@default}",
-      "sections": [
-        {
-          "title": "Important news",
-          "expression": "$[_type='fs-default-post' and 'important-email-news' in _source.categories_slug][]"
-        },
-        {
-          "title": "Your latest funds",
-          "headerBlock": "Here are recently added funds that match your saved search preferences",
-          "headerBlockNoItems": "There haven't been any funds added since your previous alert",
-          "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
-        }
-      ]
-    }
+      "sections": "{:./fs-email-common.json@sections.bulletin}"
+    },
+    "mailgunConnection": "mg_scvo_org",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_saved_searches",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
+    "elasticsearchIndex": "web-content-production"
   }
 }

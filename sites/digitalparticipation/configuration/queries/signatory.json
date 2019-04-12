@@ -5,6 +5,7 @@
     "organisation_id",
     "title",
     "description",
+    "date_signed",
     "files",
     "rendered.json_ld",
     "logos",

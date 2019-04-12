@@ -1,6 +1,9 @@
 {
-  "name": "page_digital_evolution_checkup_results",
-  "pattern": "/digital/evolution/check-up/results",
+  "name": "signatory_redirect",
+  "pattern": "/signatories/:slug",
+  "metaData": {
+    "title": "Signatory – Scotland's Digital Participation Charter"
+  },
   "tasks": [
     {
       "name": "url",
@@ -8,7 +11,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "https://digitalcheckup.org/checkup/results{{{@root.request.params.uri.search}}}&area=scotland"
+        "template": "/charter/signatories/{{{@root.request.params.slug}}}"
       }
     },
     {
@@ -16,7 +19,7 @@
       "taskModule": "redirect",
       "config": {
         "location": ">data.url",
-        "statusCode": 302
+        "statusCode": 301
       }
     }
   ]

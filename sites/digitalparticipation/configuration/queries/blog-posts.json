@@ -6,6 +6,8 @@
     "description_truncated",
     "publish_on",
     "author_name_full",
+    "author_job_title",
+    "author_organisation_name",
     "slug"
   ],
   "query": {

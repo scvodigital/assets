@@ -1,0 +1,17 @@
+{
+  "name": "skills_redirect",
+  "pattern": "/skill-up",
+  "metaData": {
+    "title": "Skills – Scotland's Digital Participation Charter"
+  },
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/skills",
+        "statusCode": 301
+      }
+    }
+  ]
+}

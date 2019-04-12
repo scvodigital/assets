@@ -551,8 +551,9 @@ main {
     // }
     img {
       margin: 0 auto;
-      padding: 1.5rem 8rem 0;
-      margin-bottom: -6px;
+      margin-bottom: -($unit);
+      // padding: 1.5rem 8rem 0;
+      // margin-bottom: -6px;
     }
     h2 {
       font-size: 3.1rem;
@@ -650,9 +651,9 @@ main {
         text-align: center;
         background: #fff;
         border-radius: 3rem;
-        height: 4rem;
-        width: 4rem;
-        line-height: 4rem;
+        height: 3rem;
+        width: 3rem;
+        line-height: 3.1rem;
         border: $brand-border-width solid $brand-typography;
         margin-top: -0.333rem;
       }
@@ -681,7 +682,7 @@ main {
     }
     p {
       margin: 0;
-      padding: 2.5rem 0;
+      padding: 2.5rem 0 1.5rem;
       a {
         display: inline-block;
         color: $brand-typography;
@@ -695,7 +696,7 @@ main {
     }
   }
   .pledges h1 {
-    margin-top: 10.4rem;
+    margin-top: 6.4rem;
   }
   .detail.title {
     h2 {
@@ -814,10 +815,10 @@ main {
     }
   }
   .pledge h3 {
-    margin: 0.75rem 0;
+    margin: 0;
   }
   .pledge p {
-    margin: 0.5rem 0;
+    margin: 0;
   }
   .skills h3 {
     margin: 0;
@@ -873,6 +874,7 @@ main {
 //     height: auto;
 // }
 
+button, input, optgroup, select, textarea,
 .mdc-tab,
 .mdc-button,
 h1,
@@ -954,7 +956,7 @@ hr {
   }
   .digital-charter-signatory {
     h3 {
-      margin: $unit 0;
+      margin: $unit 0 0;
     }
   }
   .search-info {
@@ -969,9 +971,16 @@ hr {
     }
     .mdc-layout-grid__inner {
       background: white;
+      border: $unit/5 solid $brand-typography;
       padding: $unit;
       margin-top: $unit*1.5;
     }
+  }
+  .signed {
+    // text-transform: uppercase;
+    font-weight: $heading-font-weight;
+    font-size: 1.1rem;
+    margin: 0 0 $unit/2;
   }
   .signatory {
     background: white;
@@ -1305,6 +1314,10 @@ footer {
 .cookies,
 .terms,
 .contact-us {
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .digital,
+  .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
+    color: white;
+  }
   main {
     background: $brand-typography;
     hr {
@@ -1455,10 +1468,6 @@ footer {
     .expand {
       h1 {
         font-size: 2rem;
-      }
-      h3 .number {
-        height: 4rem;
-        width: 4rem;
       }
       p {
         font-size: 1.25rem;

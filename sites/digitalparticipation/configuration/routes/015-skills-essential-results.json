@@ -1,6 +1,7 @@
 {
   "name": "skills_essential_results",
   "pattern": "/skills/essential/results",
+  "debug":true,
   "metaData": {
     "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
   },

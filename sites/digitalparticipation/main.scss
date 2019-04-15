@@ -1348,6 +1348,9 @@ footer {
   .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
     color: white;
   }
+  .mdc-toolbar .container-fluid {
+    border-bottom: 3px solid white;
+  }
   main {
     background: $brand-typography;
     hr {

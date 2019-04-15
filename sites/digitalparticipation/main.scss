@@ -418,7 +418,8 @@ main {
   padding-bottom: 4rem;
   h1 {
     font-size: 3rem;
-    line-height: 2.5rem;
+    line-height: 3.4rem;
+    letter-spacing: -0.1rem;
   }
   h3 {
     font-size: 2rem;
@@ -536,8 +537,8 @@ main {
 
   .title {
     h1 {
-      font-size: 3.4rem;
-      line-height: 3.8rem;
+      font-size: 3rem;
+      line-height: 3.4rem;
       letter-spacing: -0.1rem;
       margin: 2rem 0 2rem;
       padding-right: 2rem;
@@ -661,7 +662,7 @@ main {
     h3 {
       padding: 2.5rem 0;
       a {
-        display: block;
+        // display: block;
         color: $brand-typography;
         // font-weight: bold;
         float: right;
@@ -969,7 +970,7 @@ hr {
       border-radius: 3rem;
       float: right;
       letter-spacing: -0.05rem;
-      padding: 0 1.25rem 0 1rem;
+      padding: 0 1rem 0 .75rem;
       cursor: default;
     }
   }
@@ -1347,6 +1348,9 @@ footer {
   .mdc-toolbar .mdc-toolbar__title .brand-logo .digital,
   .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
     color: white;
+  }
+  .mdc-toolbar .container-fluid {
+    border-bottom: 3px solid white;
   }
   main {
     background: $brand-typography;

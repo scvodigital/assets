@@ -3137,6 +3137,8 @@ form.inline-form {
       display: block;
       height: 100%;
       width: 100%;
+      white-space: normal;
+      padding: $unit/4 0;
     }
   }
   .collapse-trigger {

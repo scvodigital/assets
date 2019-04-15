@@ -3,10 +3,11 @@
     {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__cell--span-4-phone">
       <h1>{{{title}}}</h1>
-      <h4>
+      <p>
         <span class="fas fa-user-circle" aria-hidden="true"></span>&ensp;{{{author_name_full}}}{{#ifAny author_job_title author_organisation_name}}, {{#if author_job_title}}{{{author_job_title}}} at{{/if}} {{{author_organisation_name}}}{{/ifAny}}<br />
         <span class="fas fa-calendar-alt" aria-hidden="true"></span>&ensp;{{momentFormat (moment publish_on "x") "Do MMM YYYY"}}
-      </h4>
+      </p>
+      <hr />
       <div class="content">
         {{{content}}}
       </div>

@@ -512,6 +512,19 @@ main {
   .mdc-layout-grid__inner {
     grid-gap: $unit;
   }
+  .mdc-layout-grid.equal-height {
+    .mdc-card {
+      background: transparent;
+      box-shadow: none;
+      height: 100%;
+      .mdc-card__supplimentary-text {
+        flex: 1 1 auto;
+      }
+      .mdc-card__actions {
+        padding: 0;
+      }
+    }
+  }
 
   .form-group {
     input[type=text],
@@ -1335,6 +1348,15 @@ footer {
   .mdc-temporary-drawer__drawer {
     -webkit-transform: none !important;
   }
+}
+
+.alignleft {
+  margin-left: 0;
+  float: left;
+}
+.alignright {
+  margin-right: 0;
+  float: right;
 }
 
 .hide-lg,

@@ -48,8 +48,8 @@
       "children": [
         {
           "label": "Downloads",
-          "path": "/resources/downloads",
-          "route": "^/resources/downloads"
+          "path": "/resources/toolkit-downloads",
+          "route": "^/resources/toolkit-downloads"
         }
       ],
       "label": "Resources",

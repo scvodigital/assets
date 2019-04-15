@@ -5,7 +5,7 @@
       "advice-and-justice": {
         "label": "Advice & justice",
         "terms": {
-          "advice-and-information": {
+          "advising-and-informing": {
             "label": "Advice & information",
             "textBag": "Advice information"
           },
@@ -83,9 +83,9 @@
             "label": "Disaster & emergency services",
             "textBag": "Disaster emergency services"
           },
-          "organisation-development-and-capacity-building": {
-            "label": "Organisation development & capacity building",
-            "textBag": "Organisation development capacity building"
+          "organisation-capacity-building": {
+            "label": "Organisational development & capacity building",
+            "textBag": "Organisational development capacity building"
           }
         }
       },
@@ -194,9 +194,9 @@
       "gender-and-relationships": {
         "label": "Gender & relationships",
         "terms": {
-          "lgbtqi": {
-            "label": "LGBTQI",
-            "textBag": "LGBTQI lgbt, Lesbian, Gay, Bisexual, Transgender, Queer, Intersex,"
+          "lgbtqi-people": {
+            "label": "LGBTQI people",
+            "textBag": "LGBTQI lgbt, Lesbian, Gay, Bisexual, Transgender, Queer, Intersex, people"
           },
           "men": {
             "label": "Men",
@@ -256,13 +256,13 @@
             "label": "Economically/socially disadvantaged",
             "textBag": "Economically/socially disadvantaged"
           },
-          "socially-isolated": {
-            "label": "Socially isolated",
-            "textBag": "Socially isolated, Lonely"
+          "socially-isolated-people": {
+            "label": "Socially isolated people",
+            "textBag": "Socially isolated people, Lonely"
           },
-          "care-experienced": {
-            "label": "Care experienced",
-            "textBag": "Care experienced"
+          "care-experienced-people": {
+            "label": "Care experienced people",
+            "textBag": "Care experienced people"
           },
           "homeless-or-badly-housed": {
             "label": "Homeless or badly housed",

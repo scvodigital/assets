@@ -2,7 +2,9 @@
   "name": "short_scvopolicycommittee",
   "pattern": {
     "policycommittee": "/policycommittee",
-    "policycommittee_alt": "/policy-committee"
+    "policycommittee_alt": "/policy-committee",
+    "policyforum": "/policyforum",
+    "policyforum_alt": "/policy-forum"
   },
   "tasks": [
     {

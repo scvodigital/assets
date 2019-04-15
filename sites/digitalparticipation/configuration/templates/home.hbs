@@ -16,42 +16,67 @@
       <hr />
     </div>
   </div>
+</div>
+<div class="mdc-layout-grid equal-height">
   <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h2>Charter</h2>
-      <p>
-        Scotland's Digital Participation Charter helps your organisation take a step towards a digitally smarter Scotland.
-      </p>
-      <p>
-        <a href="/charter" class="mdc-button">Find out more</a>
-      </p>
-      {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
+      <div class="mdc-card">
+        <div class="mdc-card__primary">
+          <h2>Charter</h2>
+        </div>
+        <div class="mdc-card__supplimentary-text">
+          <p>
+            Scotland's Digital Participation Charter helps your organisation take a step towards a digitally smarter Scotland.
+          </p>
+        </div>
+        <div class="mdc-card__actions">
+          <a href="/charter" class="mdc-button mdc-card__action mdc-card__action--button">
+            <span class="mdc-button__label">Find out more</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h2>Skills</h2>
-      <p>
-        We developed the Essential Digital Skills Toolkit in consultation with over 60 organisations, to support individuals, groups and organisations to measure their digital skills in life and in the workplace.
-      </p>
-      <p>
-        <a href="/skills" class="mdc-button">Find out more</a>
-      </p>
-      {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
+      <div class="mdc-card">
+        <div class="mdc-card__primary">
+          <h2>Skills</h2>
+        </div>
+        <div class="mdc-card__supplimentary-text">
+          <p>
+            We developed the Essential Digital Skills Toolkit in consultation with over 60 organisations, to support individuals, groups and organisations to measure their digital skills in life and in the workplace.
+          </p>
+        </div>
+        <div class="mdc-card__actions">
+          <a href="/skills" class="mdc-button mdc-card__action mdc-card__action--button">
+            <span class="mdc-button__label">Find out more</span>
+          </a>
+        </div>
+      </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h2>Funding</h2>
-      <p>
-        The Digital Participation Charter Fund, supported by the Scottish Government and BT, invests in community digital participation projects across Scotland.
-      </p>
-      <p>
-        <a href="https://scvo.org/digital/participation/charter-fund" class="mdc-button">Find out more&ensp;<span class="fas fa-external-link" aria-hidden="true"></span></a>
-      </p>
-      {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
+      <div class="mdc-card">
+        <div class="mdc-card__primary">
+          <h2>Funding</h2>
+        </div>
+        <div class="mdc-card__supplimentary-text">
+          <p>
+            The Digital Participation Charter Fund, supported by the Scottish Government and BT, invests in community digital participation projects across Scotland.
+          </p>
+        </div>
+        <div class="mdc-card__actions">
+          <a href="https://scvo.org/digital/participation/charter-fund" class="mdc-button mdc-card__action mdc-card__action--button">
+            <span class="mdc-button__label">Find out more&ensp;<span class="fas fa-external-link" aria-hidden="true"></span></span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div class="mdc-layout-grid">
   {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
   <div class="mdc-layout-grid__inner title">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <hr class="margin-top" />
+      <hr />
       <h2>Latest story</h2>
     </div>
   </div>
@@ -76,6 +101,14 @@
       <p>
         <a href="/stories" class="mdc-button">Read more stories</a>
       </p>
+      <p>
+        <br />
+        Looking for something else?
+      </p>
+      <p>
+        <a href="/resources" class="mdc-button">Browse resources</a>
+      </p>
+
       <hr class="margin-top" />
     </div>
   </div>

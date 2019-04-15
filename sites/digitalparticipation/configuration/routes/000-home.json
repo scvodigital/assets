@@ -6,6 +6,22 @@
   },
   "tasks": [
     {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "scvo-cms-post",
+          "template": ">context.metaData.handlebars.queries.blog-posts"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

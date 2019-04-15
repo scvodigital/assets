@@ -394,6 +394,9 @@ main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-teal', endColorstr='$brand-purple',GradientType=0 );
   }
 }
+.skills.foundation main {
+  background: $brand-purple !important;
+}
 .post,
 .stories {
   main {

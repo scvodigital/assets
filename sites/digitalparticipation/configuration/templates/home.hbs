@@ -20,37 +20,64 @@
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <h2>Charter</h2>
       <p>
-        Scotland's Digital Participation Charter helps your organisation take a step towards a digitally smarter Scotland. <a href="/charter">Find out about our pledges</a>, <a href="/charter/signatories">search our current signatories</a>, and <a href="/charter/sign-up">sign up</a>.
+        Scotland's Digital Participation Charter helps your organisation take a step towards a digitally smarter Scotland.
+      </p>
+      <p>
+        <a href="/charter" class="mdc-button">Find out more</a>
       </p>
       {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Skill-Up-Scotland-RGB-04.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <h2>Skills</h2>
       <p>
-        We developed the Essential Digital Skills Toolkit in consultation with over 60 organisations, to support individuals, groups and organisations to measure their digital skills in life and in the workplace. <a href="/skills">Find out more</a>
+        We developed the Essential Digital Skills Toolkit in consultation with over 60 organisations, to support individuals, groups and organisations to measure their digital skills in life and in the workplace.
+      </p>
+      <p>
+        <a href="/skills" class="mdc-button">Find out more</a>
       </p>
       {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Back-The-Basics-RGB-04.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h2>Resources</h2>
-      <p>
-        <a href="/resources">Find out more</a>
-      </p>
-      {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
-    </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <h2>Funding</h2>
       <p>
-        The Digital Participation Charter Fund, supported by the Scottish Government and BT, invests in community digital participation projects across Scotland. <a href="https://scvo.org/digital/participation/charter-fund">Find out more</a> <span class="fas fa-external-link" aria-hidden="true"></span>
+        The Digital Participation Charter Fund, supported by the Scottish Government and BT, invests in community digital participation projects across Scotland.
       </p>
-      {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
-    </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h2>Stories</h2>
       <p>
-        <a href="/stories">Find out more</a>
+        <a href="https://scvo.org/digital/participation/charter-fund" class="mdc-button">Find out more&ensp;<span class="fas fa-external-link" aria-hidden="true"></span></a>
       </p>
       {{!-- <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Illustration" class="responsive-img" loading="lazy" /> --}}
     </div>
   </div>
+  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+  <div class="mdc-layout-grid__inner title">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <hr class="margin-top" />
+      <h2>Latest story</h2>
+    </div>
+  </div>
+  {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
+  <div class="mdc-layout-grid__inner title">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <h4>
+        {{#if author_organisation_name}}{{{author_organisation_name}}}{{else}}SCVO{{/if}}
+      </h4>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <p>
+        <strong>{{{title}}}</strong><br />
+        &ndash; {{#if author_name_full}}by {{{author_name_full}}}{{#if author_job_title}} ({{{author_job_title}}}){{/if}},{{/if}} posted {{momentFromNow publish_on}}<br /><br />
+        “{{{description_truncated}}}”&ensp;<a href="/{{replace slug "_" "/"}}">Read more</a>
+      </p>
+    </div>
+  </div>
+  {{/with ~}}
+  <div class="mdc-layout-grid__inner title">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <p>
+        <a href="/stories" class="mdc-button">Read more stories</a>
+      </p>
+      <hr class="margin-top" />
+    </div>
+  </div>
+  {{/compare ~}}
 </div>

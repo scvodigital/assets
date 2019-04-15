@@ -1,6 +1,6 @@
 {
   "name": "resources_downloads",
-  "pattern": "/resources/:slug",
+  "pattern": "/resources/toolkit-downloads",
   "metaData": {
     "title": "Downloads – Scotland's Digital Participation Charter"
   },
@@ -21,7 +21,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.head-tags",
-              "body": ">context.metaData.handlebars.templates.resources_downloads",
+              "body": ">context.metaData.handlebars.templates.resources_toolkit-downloads",
               "foot": ""
             },
             "contentType": "text/html"

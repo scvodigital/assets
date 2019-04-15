@@ -31,8 +31,8 @@
         },
         {
           "label": "Essentials",
-          "path": "/skills/essentials",
-          "route": "^/skills/essentials"
+          "path": "/skills/essential",
+          "route": "^/skills/essential"
         }
       ],
       "label": "Skills",

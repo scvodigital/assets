@@ -15,7 +15,7 @@
         ],
         [ 
           {{>pdf_text text="Type" bold=true}}, 
-          {{>pdf_text text=type_of_funding default="No type provided"}} 
+          {{>pdf_text text=(join (arrayify type_of_cost) ", ") default="No type provided"}}
         ],
         [ 
           {{>pdf_text text="Source" bold=true}}, 
@@ -51,7 +51,11 @@
           {{>pdf_text text="Charities only" bold=true}}, 
           {{>pdf_text text=(if charities_only "Available only to charities" else="Available to anyone")}} 
         ],
-        [ 
+        [
+          {{>pdf_text text="Funds individuals" bold=true}},
+          {{>pdf_text text=(if also_funds_individuals "Yes" else="No")}}
+        ],
+        [
           {{>pdf_text text="How to apply" bold=true}}, 
           {{>pdf_text text=how_to_apply default="No application information provided"}} 
         ],

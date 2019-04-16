@@ -35,6 +35,14 @@
       <h4 class="mdc-typography--headline7">Funder Details</h4>
       <ul class="fa-ul first">
 
+      {{#if funder_organisation.address ~}}
+        <li class="mdc-typography--body1">
+          <span class="fa-li"><span class="far fa-building fa-fw" title="Address"></span></span>
+          <span class="key-info-bit r-margin-full">
+            <a href="{{funder_organisation.address}}">{{funder_organisation.address}}</a>
+          </span>
+        </li>
+      {{/if ~}}
       {{#if funder_organisation.website ~}}
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-link fa-fw" title="Website"></span></span>

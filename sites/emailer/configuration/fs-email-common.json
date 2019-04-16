@@ -7,8 +7,8 @@
       },
       {
         "title": "Your latest funds",
-        "headerBlock": "Here are recently added funds that match your saved search preferences",
-        "headerBlockNoItems": "There haven't been any funds added since your previous alert",
+        "headerBlock": "New and recently opened funds matching saved searches you have opted to receive alerts for",
+        "headerBlockNoItems": "No funds have opened since your previous alert",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
       }
     ],
@@ -19,8 +19,8 @@
       },
       {
         "title": "Your latest funds",
-        "headerBlock": "Here are recently added funds that match your saved search preferences",
-        "headerBlockNoItems": "There haven't been any funds added since your previous alert",
+        "headerBlock": "Recent activity on funds you have listed and subscribed to updates for",
+        "headerBlockNoItems": "There hasn't been any activity on your listed funds since the previous update",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
       }
     ],
@@ -30,12 +30,9 @@
         "expression": "$['important-email-news' in _source.categories_slug][]"
       },
       {
-        "title": "Bulletin",
-        "expression": "$['bulletin-news' in _source.categories_slug][]"
-      },
-      {
-        "title": "This weeks funds",
-        "headerBlockNoItems": "There haven't been any funds added since your previous alert",
+        "title": "Your latest funds",
+        "headerBlock": "New and recently opened funds",
+        "headerBlockNoItems": "No funds have opened since your previous alert",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
       }
     ]

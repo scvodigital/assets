@@ -76,13 +76,13 @@
       </span>
       {{/compare ~}}
       {{/if ~}}
-      {{#if date_next_deadline ~}}
+      {{#if next_deadline ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Next deadline:</strong>
         {{#if @root.data.auth ~}}
-        {{{momentFormat (moment date_next_deadline 'x') 'Do MMM YYYY'}}}
+        {{{momentFormat (moment next_deadline 'x') 'Do MMM YYYY'}}}
         {{else}}
-        in {{{momentFormat (moment date_next_deadline 'x') 'MMMM YYYY'}}}
+        in {{{momentFormat (moment next_deadline 'x') 'MMMM YYYY'}}}
         {{/if ~}}
       </span>
       {{/if ~}}

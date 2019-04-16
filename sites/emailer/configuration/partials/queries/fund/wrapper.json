@@ -2,9 +2,22 @@
 {
   "size": 1000,
   "_source": [
-    "title", "og_title", "description", "updated", "date_last_modified", "funder_organisation.name", "funder_organisation.slug", "categories_slug"
-  ], 
-  "query": { 
+    "title",
+    "og_title",
+    "description",
+    "updated",
+    "slug",
+    "funder_organisation.name",
+    "funder_organisation.slug",
+    "categories_slug",
+    "news",
+    "date_created",
+    "date_last_modified",
+    "date_news_last_updated",
+    "date_reopens",
+    "date_last_important_activity"
+  ],
+  "query": {
     "bool": {
       "should": [
         {
@@ -13,7 +26,7 @@
               {
                 "term": {
                   "_type": {
-                    "value": "fs-{{siteConfig.name}}-post" 
+                    "value": "fs-{{siteConfig.name}}-post"
                   }
                 }
               },
@@ -33,25 +46,29 @@
         },
         {{#>queries_fund_fixed_filters fixedFilters=siteConfig.fixedFilters}}
           "bool": {
-            "filter": [
-              {
-                "term": {
-                  "_type": {
-                    "value": "fundingscotland-fund" 
-                  }
+          "filter": [
+            {
+              "term": {
+                "_type": {
+                  "value": "fundingscotland-fund"
                 }
-              },
-              {{> @partial-block}}
-            ]
-          }
+              }
+            },
+            {{> @partial-block}}
+          ]
+        }
         {{/queries_fund_fixed_filters}}
       ],
       "minimum_should_match": 1
     }
   },
   "sort": [
-    { "date_last_modified": "desc" },
-    { "updated": "desc" }
+    {
+      "date_last_modified": "desc"
+    },
+    {
+      "updated": "desc"
+    }
   ]
 }
 {{/withExtend}}

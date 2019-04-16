@@ -154,7 +154,7 @@
             <td  style="width:352px;">
               
       <img
-         height="auto" src="{{campaignConfig.metaData.siteConfiguration.logo}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;" width="352"
+         height="auto" src="{{campaignConfig.metaData.siteConfiguration.emailLogo}}" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;" width="352"
       />
     
             </td>
@@ -309,16 +309,16 @@
             </tr>
           <![endif]-->
         {{/ifAny}}
-          {{#each items}}
-            {{#compare _type "fundingscotland-fund"}}
-              {{>fund this campaignConfig=../campaignConfig}}
-            {{else}}
-              {{>post this campaignConfig=../campaignConfig}}
-            {{/compare}}
-          {{/each}}
-          {{#ifAll (if (any items) false else=true) alwaysShow}}
-            <mj-spacer height="10px" />
-          {{/ifAll}}
+        {{#each items}}
+          {{#compare _type "fundingscotland-fund"}}
+            {{>fund this campaignConfig=../campaignConfig}}
+        {{else}}
+          {{>post this campaignConfig=../campaignConfig}}
+          {{/compare}}
+        {{/each}}
+        {{#ifAll (if (any items) false else=true) alwaysShow}}
+          <mj-spacer height="10px" />
+        {{/ifAll}}
         {{/inline}}
         {{#*inline "post"}}
           <!--[if mso | IE]>

@@ -2,19 +2,28 @@
   {{#>queries_fund_wrapper templateMetaData=templateMetaData}}
     {
       "bool": {
-        "filter": [
+        "should": [
           {
             "range": {
-              "date_last_modified": {
+              "date_last_important_activity": {
                 {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
-                  "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+                "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
                 {{else}}
-                  "gte": "now-1w/d"
+                "gte": "now-1w/d"
                 {{/ifAny}}
               }
             }
+          },
+          {
+            "range": {
+              "date_reopens": {
+                "lte": "now+7d/d",
+                "gte": "now/d"
+              }
+            }
           }
-        ]
+        ],
+        "minimum_should_match": 1
       }
     }
   {{/queries_fund_wrapper}}

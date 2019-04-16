@@ -19,7 +19,7 @@
       },
       {
         "title": "Your latest funds",
-        "headerBlock": "Here are recently added funds that match your saved search preferences",
+        "headerBlock": "Recent activity on funds you have listed and subscribed to updates for",
         "headerBlockNoItems": "There hasn't been any activity on your listed funds since the previous update",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
       }

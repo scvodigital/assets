@@ -3,7 +3,7 @@
     <mj-wrapper background-color="#ffffff" padding="10px">
       <mj-section background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" padding="10px">
         <mj-column padding="0px">
-          <mj-image src="{{campaignConfig.metaData.logoUrl}}" width="352px" align="left" padding="0px"></mj-image>
+          <mj-image src="{{campaignConfig.metaData.siteConfiguration.logo}}" width="352px" align="left" padding="0px"></mj-image>
         </mj-column>
       </mj-section>
 

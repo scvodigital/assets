@@ -30,8 +30,11 @@
         "expression": "$['important-email-news' in _source.categories_slug][]"
       },
       {
-        "title": "Your latest funds",
-        "headerBlock": "Here are recently added funds that match your saved search preferences",
+        "title": "Bulletin",
+        "expression": "$['bulletin-news' in _source.categories_slug][]"
+      },
+      {
+        "title": "This weeks funds",
         "headerBlockNoItems": "There haven't been any funds added since your previous alert",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
       }

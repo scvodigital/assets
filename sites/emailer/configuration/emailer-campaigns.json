@@ -46,9 +46,9 @@
     },
     "mailgunConnection": "mg_scvo_org",
     "sendIfEmpty": false,
-    "subjectPartial": "subjects_fs_saved_searches",
+    "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
-    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
     "elasticsearchIndex": "web-content-production"
   },
   "fs-bulletin-default": {
@@ -61,9 +61,9 @@
     },
     "mailgunConnection": "mg_scvo_org",
     "sendIfEmpty": false,
-    "subjectPartial": "subjects_fs_saved_searches",
+    "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
-    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
     "elasticsearchIndex": "web-content-production"
   }
 }

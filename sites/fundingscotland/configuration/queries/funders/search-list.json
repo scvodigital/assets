@@ -5,6 +5,7 @@
     "Id",
     "slug",
     "charity_number",
+    "description",
     "title",
     "alias",
     "og_summary",

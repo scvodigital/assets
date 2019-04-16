@@ -1,10 +1,30 @@
 {
   "name": "skills_essential_results",
   "pattern": "/skills/essential/results",
+  "debug":true,
   "metaData": {
     "title": "Essential digital skills toolkit – Scotland's Digital Participation Charter"
   },
   "tasks": [
+    {
+      "name": "supplimentaryResponses",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": [
+          {
+            "name": "resources_relevant",
+            "index": "web-content-production",
+            "type": "scvo-cms-resource",
+            "template": ">context.metaData.handlebars.queries.resources-relevant"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",

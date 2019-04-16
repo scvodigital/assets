@@ -30,7 +30,7 @@
         <div class="mdc-form-field sort pull-right">
           <form action="{{@root.request.url.path}}" method="GET">
           <select class="mdc-select" role="listbox" id="charter-sort" name="sort" onchange="this.form.submit();">
-            <option value="" {{#if @root.request.params.query.sort}}{{else}}selected{{/if}}>Date signed</option>
+            <option value="" {{#if @root.request.params.query.sort}}{{else}}selected{{/if}}>{{#if @root.request.params.query.q ~}}Relevance{{else}}Date signed{{/if}}</option>
             <option value="AZ" {{#if @root.request.params.query.sort}}selected{{else}}{{/if}}>Alphabetical</option>
           </select>
         </div>

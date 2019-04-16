@@ -5,6 +5,8 @@
     "title",
     "call",
     "amount_awarded",
+    "description",
+    "description_alt",
     "day_awarded",
     "slug"
   ],

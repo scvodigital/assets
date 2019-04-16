@@ -164,11 +164,16 @@
               {{#> components_tab_bar
                    extraClasses="mdc-tab-bar__auto-width"
                    id="main-tab-bar"}}
-                {{> components_tab
-                    url="/search"
-                    labelClasses="mdc-theme--on-primary"
-                    active=(regexMatch @root.request.url.pathname "^/search$|^/fund" "gi")
-                    label="Funds"}}
+               {{> components_tab
+                   url="/search"
+                   labelClasses="mdc-theme--on-primary"
+                   active=(regexMatch @root.request.url.pathname "^/search$|^/fund/" "gi")
+                   label="Funds"}}
+               {{> components_tab
+                   url="/funders"
+                   labelClasses="mdc-theme--on-primary"
+                   active=(regexMatch @root.request.url.pathname "^/funders$|^/funder" "gi")
+                   label="Funders"}}
                 {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{> components_tab
                       url=(default _source.menu_url (stripTrailingSlash (concat "/" _source.slug)))

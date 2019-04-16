@@ -65,7 +65,7 @@ body {
   background-color: $mdc-theme-footer-dark;
 }
 
-h1, h2, h3, h4, h5, strong {
+h1, h2, h3, h4, h5 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
 }
@@ -193,6 +193,9 @@ main {
 .mdc-temporary-drawer__header-content img.brand-logo-mobile {
   max-width: 100%;
 }
+.mdc-drawer .mdc-list-item--child {
+  padding-left: $unit*1.5;
+}
 .mdc-temporary-drawer__header:before {
   padding-top: 34%;
 }
@@ -203,7 +206,26 @@ main {
 main {
   padding-bottom: $unit;
 }
+.author {
+  margin: 0 !important;
+}
+.tags {
+  margin-top: 0 !important;
+  .tag {
+    background-color: $brand-typography;
+    color: white;
+    font-weight: $heading-font-weight;
+    font-family: $heading-font-family;
+    border-radius: $unit;
+    font-size: 0.95rem;
+    padding: $unit/10 $unit/2;
+    margin-right: $unit/4;
+    display: inline-block;
+    cursor: default;
+  }
+}
 a {
+  font-weight: $heading-font-weight;
   text-decoration-skip: ink;
 }
 ::-moz-selection {
@@ -372,6 +394,9 @@ main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-teal', endColorstr='$brand-purple',GradientType=0 );
   }
 }
+.skills.foundation main {
+  background: $brand-purple !important;
+}
 .post,
 .stories {
   main {
@@ -396,7 +421,8 @@ main {
   padding-bottom: 4rem;
   h1 {
     font-size: 3rem;
-    line-height: 2.5rem;
+    line-height: 3.4rem;
+    letter-spacing: -0.1rem;
   }
   h3 {
     font-size: 2rem;
@@ -486,6 +512,19 @@ main {
   .mdc-layout-grid__inner {
     grid-gap: $unit;
   }
+  .mdc-layout-grid.equal-height {
+    .mdc-card {
+      background: transparent;
+      box-shadow: none;
+      height: 100%;
+      .mdc-card__supplimentary-text {
+        flex: 1 1 auto;
+      }
+      .mdc-card__actions {
+        padding: 0;
+      }
+    }
+  }
 
   .form-group {
     input[type=text],
@@ -514,11 +553,14 @@ main {
 
   .title {
     h1 {
-      font-size: 3.4rem;
-      line-height: 3.8rem;
+      font-size: 3rem;
+      line-height: 3.4rem;
       letter-spacing: -0.1rem;
       margin: 2rem 0 2rem;
       padding-right: 2rem;
+    }
+    h2 {
+      font-size: 2rem;
     }
     img {
       margin-top: 2rem;
@@ -636,9 +678,9 @@ main {
     h3 {
       padding: 2.5rem 0;
       a {
-        display: block;
+        // display: block;
         color: $brand-typography;
-        font-weight: bold;
+        // font-weight: bold;
         float: right;
       }
       .material-icons {
@@ -686,7 +728,7 @@ main {
       a {
         display: inline-block;
         color: $brand-typography;
-        font-weight: normal;
+        // font-weight: normal;
       }
     }
   }
@@ -936,26 +978,28 @@ hr {
     }
   }
   h1 {
-    font-size: 3.4rem;
-    line-height: 3.8rem;
-    letter-spacing: -.1rem;
-    margin: 2rem 0 2rem;
-    padding-right: 2rem;
-    .small {
-      font-size: 3.8rem;
-      letter-spacing: -.15rem;
+    padding: 0;
+    .counter {
+      font-size: 2.4rem;
+      background-color: $brand-typography;
+      color: white;
+      border-radius: 3rem;
+      float: right;
+      letter-spacing: -0.05rem;
+      padding: 0 1rem 0 .75rem;
+      cursor: default;
     }
   }
-  h4 {
-    margin: 1.5rem 0 0.25rem;
-    font-size: 1.5rem;
-  }
-  h4.sort {
-    text-align: right;
-    margin-right: $unit/2;
-  }
+  // h4 {
+  //   margin: 1.5rem 0 0.25rem;
+  //   font-size: 1.5rem;
+  // }
+  // h4.sort {
+  //   text-align: right;
+  //   margin-right: $unit/2;
+  // }
   .digital-charter-signatory {
-    h3 {
+    h1 {
       margin: $unit 0 0;
     }
   }
@@ -974,6 +1018,9 @@ hr {
       border: $unit/5 solid $brand-typography;
       padding: $unit;
       margin-top: $unit*1.5;
+      h4 a {
+        padding: 0;
+      }
     }
   }
   .signed {
@@ -1303,6 +1350,15 @@ footer {
   }
 }
 
+.alignleft {
+  margin-left: 0;
+  float: left;
+}
+.alignright {
+  margin-right: 0;
+  float: right;
+}
+
 .hide-lg,
 .mdc-temporary-drawer__header,
 .hide-on-med-and-up {
@@ -1317,6 +1373,9 @@ footer {
   .mdc-toolbar .mdc-toolbar__title .brand-logo .digital,
   .mdc-toolbar .mdc-toolbar__title .brand-logo .charter {
     color: white;
+  }
+  .mdc-toolbar .container-fluid {
+    border-bottom: 3px solid white;
   }
   main {
     background: $brand-typography;
@@ -1509,7 +1568,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 900px) {
   .mdc-toolbar {
     .mdc-tab-bar {
       display: none;
@@ -1545,7 +1604,13 @@ footer {
     }
   }
   .mdc-button {
+    text-align: center;
     width: 100%;
+    display: block;
+    .fas {
+      float: left;
+      margin-top: 1px;
+    }
   }
   .pagination {
     padding: 0;
@@ -1577,9 +1642,6 @@ footer {
       line-height: 2.2rem;
       margin: 0;
       padding: 0;
-      .small {
-        font-size: 1.8rem;
-      }
     }
     h4 {
       font-size: 1.2rem;

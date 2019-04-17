@@ -88,7 +88,7 @@
           <tbody>
             <tr>
               <td
-                 style="direction:ltr;font-size:0px;padding:10px;text-align:center;vertical-align:top;"
+                 style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;"
               >
                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
@@ -99,14 +99,14 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="background:{{campaignConfig.metaData.siteConfiguration.colors.primary}};background-color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};Margin:0px auto;max-width:580px;">
+      <div  style="background:{{campaignConfig.metaData.siteConfiguration.colors.primary}};background-color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};Margin:0px auto;max-width:600px;">
         
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{campaignConfig.metaData.siteConfiguration.colors.primary}};background-color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};width:100%;"
@@ -122,7 +122,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:560px;"
+               class="" style="vertical-align:top;width:580px;"
             >
           <![endif]-->
             
@@ -206,17 +206,17 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="Margin:0px auto;max-width:580px;">
+      <div  style="background:{{colours.primaryText}};background-color:{{colours.primaryText}};Margin:0px auto;max-width:600px;">
         
         <table
-           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:{{colours.primaryText}};background-color:{{colours.primaryText}};width:100%;"
         >
           <tbody>
             <tr>
@@ -229,7 +229,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:580px;"
+               class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
             
@@ -247,35 +247,21 @@
       <table
          border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
       >
-        {{#if title}}
+        
             <tr>
               <td
-                 align="left" style="font-size:0px;padding:0px;word-break:break-word;"
+                 align="left" style="font-size:0px;padding:10px;word-break:break-word;"
               >
                 
       <div
-         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:20px;font-weight:700;line-height:1;text-align:left;color:#000000;"
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:20px;font-weight:700;line-height:1;text-align:left;color:{{colours.primary}};"
       >
         {{{replace title '%item_count%' (length items)}}}
       </div>
     
               </td>
             </tr>
-          {{/if}}{{#ifAny headerBlock headerBlockNoItems}}
-            <tr>
-              <td
-                 align="left" style="font-size:0px;padding:5px 0px 0px 0px;word-break:break-word;"
-              >
-                
-      <div
-         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
-      >
-        {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
-      </div>
-    
-              </td>
-            </tr>
-          {{/ifAny}}
+          
       </table>
     
             </td>
@@ -308,12 +294,108 @@
               </td>
             </tr>
           <![endif]-->
-        {{/ifAny}}
+        {{#ifAny headerBlock headerBlockNoItems}}
+          <!--[if mso | IE]>
+            <tr>
+              <td
+                 class="" width="600px"
+              >
+          
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    
+      
+      <div  style="Margin:0px auto;max-width:600px;">
+        
+        <table
+           align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style="direction:ltr;font-size:0px;padding:5px 0px 5px 0px;text-align:center;vertical-align:top;"
+              >
+                <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:top;width:600px;"
+            >
+          <![endif]-->
+            
+      <div
+         class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+      >
+        
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%"
+      >
+        <tbody>
+          <tr>
+            <td  style="vertical-align:top;padding:0px;">
+              
+      <table
+         border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%"
+      >
+        
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
+      >
+        {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          <![endif]-->
+        {{/ifAny}}{{/ifAny}}
         {{#each items}}
           {{#compare _type "fundingscotland-fund"}}
-            {{>fund this campaignConfig=../campaignConfig}}
-        {{else}}
-          {{>post this campaignConfig=../campaignConfig}}
+            {{>fund this colours=../colours campaignConfig=../campaignConfig}}
+          {{else}}
+            {{>post this colours=../colours campaignConfig=../campaignConfig}}
           {{/compare}}
         {{/each}}
         {{#ifAll (if (any items) false else=true) alwaysShow}}
@@ -328,14 +410,14 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="Margin:0px auto;max-width:580px;">
+      <div  style="Margin:0px auto;max-width:600px;">
         
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
@@ -351,7 +433,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:580px;"
+               class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
             
@@ -378,7 +460,9 @@
       <div
          style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:17px;line-height:1;text-align:left;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.og_title}}}</a>
+        <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
+              {{{_source.og_title}}}
+            </a>
       </div>
     
               </td>
@@ -393,7 +477,9 @@
          style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
       >
         {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
+              Find out more
+            </a>
       </div>
     
               </td>
@@ -440,14 +526,14 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="Margin:0px auto;max-width:580px;">
+      <div  style="Margin:0px auto;max-width:600px;">
         
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;"
@@ -455,7 +541,7 @@
           <tbody>
             <tr>
               <td
-                 style="direction:ltr;font-size:0px;padding:10px 0px 10px 0px;text-align:center;vertical-align:top;"
+                 style="direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;"
               >
                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
@@ -463,7 +549,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:580px;"
+               class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
             
@@ -484,13 +570,15 @@
         
             <tr>
               <td
-                 align="left" style="font-size:0px;padding:0px 0px 5px 0px;word-break:break-word;"
+                 align="left" style="background:{{colours.primary}};font-size:0px;padding:10px;word-break:break-word;"
               >
                 
       <div
-         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:17px;line-height:1;text-align:left;color:#000000;"
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:17px;line-height:1;text-align:left;color:{{colours.primaryText}};"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.title}}}</a>
+        <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primaryText}}" style="color:{{colours.primaryText}};font-weight:bold;text-decoration:none;">
+              {{{_source.title}}}
+            </a>
       </div>
     
               </td>
@@ -498,30 +586,149 @@
           
             <tr>
               <td
-                 align="left" style="background:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-size:0px;padding:5px;word-break:break-word;"
+                 style="font-size:0px;word-break:break-word;"
               >
                 
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="5" style="vertical-align:top;height:5px;">
+      
+    <![endif]-->
+  
       <div
-         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#ffffff;"
+         style="height:5px;"
       >
-        <strong>Organisation:</strong>
-            <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
+        &nbsp;
       </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
     
               </td>
             </tr>
           
             <tr>
               <td
-                 align="left" style="font-size:0px;padding:5px 0px 0px 0px;word-break:break-word;"
+                 align="left" style="font-size:0px;padding:5px 10px;word-break:break-word;"
               >
                 
       <div
          style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
       >
-        {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
+        <strong>Organisation:</strong>
+            <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
+              {{{_source.funder_organisation.name}}}
+            </a>
       </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:5px 10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
+      >
+        <strong>Description:</strong>
+            {{{removeEntities (stripTags _source.description)}}}
+      </div>
+    
+              </td>
+            </tr>
+          {{#if _source.date_last_important_activity}}{{#compare _source.date_last_important_activity _source.date_news_last_updated}}
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:5px 10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
+      >
+        <strong>News - {{momentFormat (moment _source.data_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
+                {{{removeEntities (stripTags _source.news)}}}
+      </div>
+    
+              </td>
+            </tr>
+          {{/compare}}{{#compare _source.date_last_important_activity _source.date_reopened}}
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:5px 10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
+      >
+        <strong>Date re-opened:</strong>
+                {{momentFormat (moment _source.date_reopened "x") "Do MMMM YYYY"}}:
+      </div>
+    
+              </td>
+            </tr>
+          {{/compare}}{{#compare _source.date_last_important_activity _source.date_created}}
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:5px 10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:left;color:#000000;"
+      >
+        <strong>Date created:</strong>
+                {{momentFormat (moment _source.date_created "x") "Do MMMM YYYY"}}:
+      </div>
+    
+              </td>
+            </tr>
+          {{/compare}}{{/if}}
+            <tr>
+              <td
+                 align="right" style="font-size:0px;padding:5px 10px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:14px;line-height:1;text-align:right;color:#000000;"
+      >
+        <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
+              Find out more &gt;
+            </a>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style="font-size:0px;word-break:break-word;"
+              >
+                
+      
+    <!--[if mso | IE]>
+    
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="5" style="vertical-align:top;height:5px;">
+      
+    <![endif]-->
+  
+      <div
+         style="height:5px;"
+      >
+        &nbsp;
+      </div>
+      
+    <!--[if mso | IE]>
+    
+        </td></tr></table>
+      
+    <![endif]-->
+  
     
               </td>
             </tr>
@@ -559,7 +766,14 @@
             </tr>
           <![endif]-->
         {{/inline}}{{#each campaignConfig.metaData.sections}}
-          {{>section this campaignConfig=../campaignConfig items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
+          {{>section this
+              campaignConfig=../campaignConfig
+              colours=../campaignConfig.metaData.siteConfiguration.colors
+              items=(if
+                (ifAll identifier property comparator)
+                (filter ../searchData.hits.hits property comparator identifier)
+                else=null
+              )}}
         {{/each}}
           <!--[if mso | IE]>
             <tr>
@@ -568,14 +782,14 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="background:#E1E3E4;background-color:#E1E3E4;Margin:0px auto;max-width:580px;">
+      <div  style="background:#E1E3E4;background-color:#E1E3E4;Margin:0px auto;max-width:600px;">
         
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#E1E3E4;background-color:#E1E3E4;width:100%;"
@@ -591,7 +805,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:580px;"
+               class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
             
@@ -664,14 +878,14 @@
               >
           
       <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:580px;" width="580"
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
     
       
-      <div  style="background:#263238;background-color:#263238;Margin:0px auto;max-width:580px;">
+      <div  style="background:#263238;background-color:#263238;Margin:0px auto;max-width:600px;">
         
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#263238;background-color:#263238;width:100%;"
@@ -687,7 +901,7 @@
         <tr>
       
             <td
-               class="" style="vertical-align:top;width:580px;"
+               class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
             

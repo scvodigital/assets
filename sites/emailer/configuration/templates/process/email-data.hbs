@@ -11,7 +11,7 @@
         "to": {{{stringify (default testEmail email)}}},
         "o:tag": {{{stringify (if testEmail (concat 'test-' campaign) else=campaign)}}},
         "o:tracking": true,
-        {{!-"o:testmode": true,--}}
+        {{#if @root.request.params.query.dontSend}}"o:testmode": true,{{/if}}
         "tag": {{{stringify campaign}}},
         "id": {{{stringify campaign}}},
         "connectionName": {{{stringify (getProperty @root.context.metaData.campaignConfig (concat campaign '.mailgunConnection'))}}},

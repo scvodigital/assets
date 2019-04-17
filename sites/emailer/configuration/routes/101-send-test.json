@@ -43,6 +43,7 @@
       "config": {
         "output": "data",
         "parseJson": true,
+        "dontTruncateResponse": true,
         "template": ">context.metaData.handlebars.templates.process_email-data"
       }
     },
@@ -52,8 +53,8 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{ {{#if @root.route.debug}} \"notifications\": {{{stringify (default @root.data.notifications \"none\")}}}, \"search_task\": {{{stringify (default @root.data.generate_es_task \"none\")}}}, \"search_data\": {{{stringify (default @root.data.search_data \"none\")}}}, \"mysql_task\": {{{stringify (default @root.data.generate_mysql_task \"none\")}}}, \"email_data\": {{{stringify (default @root.data.send_emails \"none\")}}}, \"errors\": {{{stringify (default @root.errors \"none\")}}} {{/if}} }",
-        "parseJson": true
+        "template": ">context.metaData.handlebars.templates.send-test",
+        "contentType": "text/html"
       }
     }
   ]

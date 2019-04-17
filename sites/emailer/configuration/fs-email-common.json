@@ -3,37 +3,62 @@
     "savedSearches": [
       {
         "title": "Important news",
-        "expression": "$[_type='fs-default-post' and 'important-email-news' in _source.categories_slug][]"
+        "expression": "$[_type='fs-default-post' and 'important-email-news' in _source.categories_slug][]",
+        "identifier": "important-email-news",
+        "property": "_source.categories_slug",
+        "comparator": "testIn"
       },
       {
         "title": "Your latest funds",
         "headerBlock": "New and recently opened funds matching saved searches you have opted to receive alerts for",
         "headerBlockNoItems": "No funds have opened since your previous alert",
-        "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
+        "expression": "$[_type='fundingscotland-fund'][[1..5]][]",
+        "identifier": "fundingscotland-fund",
+        "property": "_type",
+        "comparator": "==="
       }
     ],
     "savedFunds": [
       {
         "title": "Important news",
-        "expression": "$['important-email-news' in _source.categories_slug][]"
+        "expression": "$['important-email-news' in _source.categories_slug][]",
+        "identifier": "important-email-news",
+        "property": "_source.categories_slug",
+        "comparator": "testIn"
       },
       {
         "title": "Your latest funds",
         "headerBlock": "Recent activity on funds you have listed and subscribed to updates for",
         "headerBlockNoItems": "There hasn't been any activity on your listed funds since the previous update",
-        "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
+        "expression": "$[_type='fundingscotland-fund'][[1..5]][]",
+        "identifier": "fundingscotland-fund",
+        "property": "_type",
+        "comparator": "==="
       }
     ],
     "bulletin": [
       {
         "title": "Important news",
-        "expression": "$['important-email-news' in _source.categories_slug][]"
+        "expression": "$['important-email-news' in _source.categories_slug][]",
+        "identifier": "important-email-news",
+        "property": "_source.categories_slug",
+        "comparator": "testIn"
+      },
+      {
+        "title": "Bulletin",
+        "expression": "$['important-email-news' in _source.categories_slug][]",
+        "identifier": "bulletin-news",
+        "property": "_source.categories_slug",
+        "comparator": "testIn"
       },
       {
         "title": "Your latest funds",
         "headerBlock": "New and recently opened funds",
         "headerBlockNoItems": "No funds have opened since your previous alert",
-        "expression": "$[_type='fundingscotland-fund'][[1..5]][]"
+        "expression": "$[_type='fundingscotland-fund'][[1..5]][]",
+        "identifier": "fundingscotland-fund",
+        "property": "_type",
+        "comparator": "==="
       }
     ]
   }

@@ -14,6 +14,8 @@
     "date_created",
     "date_last_modified",
     "date_news_last_updated",
+    "date_reopened",
+    "date_last_opened",
     "date_reopens",
     "date_last_important_activity"
   ],

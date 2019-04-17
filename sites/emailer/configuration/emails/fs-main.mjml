@@ -1,36 +1,39 @@
 <mjml>
   <mj-body background-color="#F5F5F5">
-    <mj-wrapper background-color="#ffffff" padding="10px">
+    <mj-wrapper background-color="#ffffff" padding="0">
       <mj-section background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" padding="10px">
         <mj-column padding="0px">
           <mj-image src="{{campaignConfig.metaData.siteConfiguration.emailLogo}}" width="352px" align="left" padding="0px"></mj-image>
         </mj-column>
       </mj-section>
+
       <mj-raw>
         {{#*inline "section"}}
           {{#ifAny (any items) alwaysShow}}
       </mj-raw>
-      <mj-section padding="15px 0px 5px 0px">
+      <mj-section padding="15px 0px 5px 0px" background-color="{{colours.primaryText}}">
         <mj-column padding="0px">
-          <mj-raw>{{#if title}}</mj-raw>
-          <mj-text font-size="20px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
+          <mj-text font-size="20px" padding="10px" color="{{colours.primary}}" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
             {{{replace title '%item_count%' (length items)}}}
           </mj-text>
-          <mj-raw>{{/if}}</mj-raw>
-          <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
-          <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
-          </mj-text>
-          <mj-raw>{{/ifAny}}</mj-raw>
         </mj-column>
       </mj-section>
+      <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
+        <mj-section padding="5px 0px 5px 0px">
+          <mj-column padding="0px">
+            <mj-text font-size="14px" padding="10px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+              {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
+            </mj-text>
+          </mj-column>
+        </mj-section>
+      <mj-raw>{{/ifAny}}</mj-raw>
       <mj-raw>
         {{/ifAny}}
         {{#each items}}
           {{#compare _type "fundingscotland-fund"}}
-            {{>fund this campaignConfig=../campaignConfig}}
-        {{else}}
-          {{>post this campaignConfig=../campaignConfig}}
+            {{>fund this colours=../colours campaignConfig=../campaignConfig}}
+          {{else}}
+            {{>post this colours=../colours campaignConfig=../campaignConfig}}
           {{/compare}}
         {{/each}}
         {{#ifAll (if (any items) false else=true) alwaysShow}}
@@ -42,11 +45,15 @@
       <mj-section padding="10px 0px 10px 0px">
         <mj-column padding="0px">
           <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.og_title}}}</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
+              {{{_source.og_title}}}
+            </a>
           </mj-text>
           <mj-text font-size="14px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
             {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
+            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
+              Find out more
+            </a>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -54,19 +61,57 @@
         {{/inline}}
         {{#*inline "fund"}}
       </mj-raw>
-      <mj-section padding="10px 0px 10px 0px">
+      <mj-section padding="0px">
         <mj-column padding="0px">
-          <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">{{{_source.title}}}</a>
+          <mj-text font-size="17px" padding="10px" container-background-color="{{colours.primary}}" color="{{colours.primaryText}}" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primaryText}}" style="color:{{colours.primaryText}};font-weight:bold;text-decoration:none;">
+              {{{_source.title}}}
+            </a>
           </mj-text>
-          <mj-text font-size="14px" padding="5px" container-background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" color="#ffffff" font-family="Montserrat, Helvetica, Arial, sans-serif">
+
+          <mj-spacer height="5px" />
+
+          <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
             <strong>Organisation:</strong>
-            <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="#ffffff" style="color:#ffffff;font-weight:bold;">{{{_source.funder_organisation.name}}}</a><br />
+            <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
+              {{{_source.funder_organisation.name}}}
+            </a>
           </mj-text>
-          <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">Find out more</a>
+
+          <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <strong>Description:</strong>
+            {{{removeEntities (stripTags _source.description)}}}
           </mj-text>
+
+
+          <mj-raw>{{#if _source.date_last_important_activity}}</mj-raw>
+            <mj-raw>{{#compare _source.date_last_important_activity _source.date_news_last_updated}}</mj-raw>
+              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
+                <strong>News - {{momentFormat (moment _source.data_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
+                {{{removeEntities (stripTags _source.news)}}}
+              </mj-text>
+            <mj-raw>{{/compare}}</mj-raw>
+            <mj-raw>{{#compare _source.date_last_important_activity _source.date_reopened}}</mj-raw>
+              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
+                <strong>Date re-opened:</strong>
+                {{momentFormat (moment _source.date_reopened "x") "Do MMMM YYYY"}}:
+              </mj-text>
+            <mj-raw>{{/compare}}</mj-raw>
+            <mj-raw>{{#compare _source.date_last_important_activity _source.date_created}}</mj-raw>
+              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
+                <strong>Date created:</strong>
+                {{momentFormat (moment _source.date_created "x") "Do MMMM YYYY"}}:
+              </mj-text>
+            <mj-raw>{{/compare}}</mj-raw>
+          <mj-raw>{{/if}}</mj-raw>
+
+          <mj-text font-size="14px" padding="5px 10px" align="right" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
+              Find out more &gt;
+            </a>
+          </mj-text>
+
+          <mj-spacer height="5px" />
         </mj-column>
       </mj-section>
       <mj-raw>
@@ -75,7 +120,14 @@
 
       <mj-raw>
         {{#each campaignConfig.metaData.sections}}
-          {{>section this campaignConfig=../campaignConfig items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
+          {{>section this
+              campaignConfig=../campaignConfig
+              colours=../campaignConfig.metaData.siteConfiguration.colors
+              items=(if
+                (ifAll identifier property comparator)
+                (filter ../searchData.hits.hits property comparator identifier)
+                else=null
+              )}}
         {{/each}}
       </mj-raw>
 

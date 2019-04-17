@@ -3,40 +3,39 @@
     <mj-wrapper background-color="#ffffff" padding="10px">
       <mj-section background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" padding="10px">
         <mj-column padding="0px">
-          <mj-image src="{{campaignConfig.metaData.logoUrl}}" width="352px" align="left" padding="0px"></mj-image>
+          <mj-image src="{{campaignConfig.metaData.siteConfiguration.emailLogo}}" width="352px" align="left" padding="0px"></mj-image>
         </mj-column>
       </mj-section>
-
       <mj-raw>
         {{#*inline "section"}}
           {{#ifAny (any items) alwaysShow}}
       </mj-raw>
-        <mj-section padding="15px 0px 5px 0px">
-          <mj-column padding="0px">
-            <mj-raw>{{#if title}}</mj-raw>
-              <mj-text font-size="20px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
-                {{{replace title '%item_count%' (length items)}}}
-              </mj-text>
-            <mj-raw>{{/if}}</mj-raw>
-            <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
-              <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-                {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
-              </mj-text>
-            <mj-raw>{{/ifAny}}</mj-raw>
-          </mj-column>
-        </mj-section>
+      <mj-section padding="15px 0px 5px 0px">
+        <mj-column padding="0px">
+          <mj-raw>{{#if title}}</mj-raw>
+          <mj-text font-size="20px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
+            {{{replace title '%item_count%' (length items)}}}
+          </mj-text>
+          <mj-raw>{{/if}}</mj-raw>
+          <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
+          <mj-text font-size="14px" padding="5px 0px 0px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
+            {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
+          </mj-text>
+          <mj-raw>{{/ifAny}}</mj-raw>
+        </mj-column>
+      </mj-section>
       <mj-raw>
-          {{/ifAny}}
-          {{#each items}}
-            {{#compare _type "fundingscotland-fund"}}
-              {{>fund this campaignConfig=../campaignConfig}}
-            {{else}}
-              {{>post this campaignConfig=../campaignConfig}}
-            {{/compare}}
-          {{/each}}
-          {{#ifAll (if (any items) false else=true) alwaysShow}}
-            <mj-spacer height="10px" />
-          {{/ifAll}}
+        {{/ifAny}}
+        {{#each items}}
+          {{#compare _type "fundingscotland-fund"}}
+            {{>fund this campaignConfig=../campaignConfig}}
+        {{else}}
+          {{>post this campaignConfig=../campaignConfig}}
+          {{/compare}}
+        {{/each}}
+        {{#ifAll (if (any items) false else=true) alwaysShow}}
+          <mj-spacer height="10px" />
+        {{/ifAll}}
         {{/inline}}
         {{#*inline "post"}}
       </mj-raw>
@@ -77,7 +76,7 @@
       <mj-raw>
         {{#each campaignConfig.metaData.sections}}
           {{>section this campaignConfig=../campaignConfig items=(if expression (jsonata ../searchData.hits.hits expression) else=null)}}
-        {{/each}} 
+        {{/each}}
       </mj-raw>
 
       <mj-section background-color="#E1E3E4" padding="0px">

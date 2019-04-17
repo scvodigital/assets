@@ -3,6 +3,31 @@
     {
       "bool": {
         "should": [
+          {
+            "range": {
+              "date_last_important_activity": {
+                {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+                {{else}}
+                "gte": "now-1w/d"
+                {{/ifAny}}
+              }
+            }
+          },
+          {
+            "term": {
+              "date_reopens": {
+                "value": "now+7d/d"
+              }
+            }
+          }
+        ],
+        "minimum_should_match": 1
+      }
+    },
+    {
+      "bool": {
+        "should": [
           {{#eachJoin (split templateMetaData.querystrings "&&") ","}}
             {
               "ids": {

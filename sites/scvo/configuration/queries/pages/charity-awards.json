@@ -1,0 +1,19 @@
+{
+  "size": 1,
+  "_source": [
+    "wpid",
+    "slug",
+    "title",
+    "og_title",
+    "og_summary",
+    "content",
+    "categories_id",
+    "categories_slug",
+    "text_bag_boost"
+  ],
+  "query": {
+    "term": {
+      "slug": "{{@root.request.params.vote}}"
+    }
+  }
+}

@@ -69,7 +69,7 @@
             </a>
           </mj-text>
 
-          <mj-spacer height="5px" />
+          <mj-spacer height="10px" />
 
           <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
             <strong>Organisation:</strong>
@@ -111,7 +111,7 @@
             </a>
           </mj-text>
 
-          <mj-spacer height="5px" />
+          <mj-spacer height="10px" />
         </mj-column>
       </mj-section>
       <mj-raw>

@@ -2594,6 +2594,18 @@ body.i-love-charity:not(.post) main {
   }
 }
 body.scottish-charity-awards:not(.post) main {
+  .splash-overlay.splash-overlay-hidden {
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)) !important;
+  }
+  .splash-image .splash-overlay .container-fluid {
+    min-height: 20vh;
+    .mdc-layout-grid {
+      text-align: left;
+    }
+  }
+  .splash-image img.header-text {
+    max-height: 30vh;
+  }
   .mdc-card {
     .mdc-card__primary .mdc-card__title {
       color: white;
@@ -2667,6 +2679,7 @@ body.i-love-charity main .page-info,
 .scvo-cms-page-20034 .page-info,
 .scvo-cms-page-20005 .page-info,
 .scvo-cms-page-24853 .page-info,
+.scvo-cms-page-30659 .page-info,
 .blogs .page-sidebar .page-info,
 .policy-research.briefings-consultation-responses .mdc-card__actions,
 .policy-research.research .mdc-card__actions,

@@ -1,6 +1,9 @@
-<h1>test</h1>
 <script>
   $(function() {
-    scvo.setCookie('charity_awards_already_voted', 'yes', 90);
+    var slug = {{{stringify @root.request.params.vote}}};
+    scvo.setCookie('charity_awards_already_voted', slug, 90);
+    window.setTimeout(function() {
+      window.location.href = '/scottish-charity-awards/vote-2019/' + slug;
+    }, 2000);
   });
 </script>

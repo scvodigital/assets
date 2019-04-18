@@ -8,7 +8,10 @@
     "og_summary",
     "content",
     "category",
-    "text_bag_boost"
+    "text_bag_boost",
+    "goodhq-xid-1",
+    "goodhq-xid-2",
+    "goodhq-xid-3"
   ],
   "query": {
     "term": {

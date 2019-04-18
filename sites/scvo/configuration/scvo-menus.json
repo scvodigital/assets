@@ -89,6 +89,11 @@
 					"route": "^/jobs/community-jobs-scotland/information-for-employees/aftercare"
 				},
 				{
+					"label": "Success stories",
+					"path": "/jobs/community-jobs-scotland/information-for-employees/success-stories",
+					"route": "^/jobs/community-jobs-scotland/information-for-employees/success-stories"
+				},
+				{
 					"label": "Vacancies",
 					"path": "/jobs/community-jobs-scotland/vacancies",
 					"route": "^/jobs/community-jobs-scotland/vacancies"

@@ -3629,6 +3629,27 @@ body.post.author main {
   padding: 0;
 }
 
+.wp-block-columns.has-2-columns {
+  figure {
+    margin: 0 0 $unit;
+  }
+  .wp-block-column {
+    iframe {
+      width: 100%;
+    }
+  }
+  .wp-block-column:first-child {
+    float: left;
+    width: 49%;
+    padding-right: 1%;
+  }
+  .wp-block-column:last-child {
+    float: left;
+    width: 49%;
+    padding-left: 1%;
+  }
+}
+
 .key {
   float: right;
   display: inline-block;

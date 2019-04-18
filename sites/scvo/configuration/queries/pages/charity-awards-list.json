@@ -1,0 +1,18 @@
+{
+  "size": 100,
+  "_source": [
+    "wpid",
+    "slug",
+    "title",
+    "og_title",
+    "og_summary",
+    "content",
+    "category",
+    "text_bag_boost"
+  ],
+  "query": {
+    "term": {
+      "category": "{{@root.request.params.category}}"
+    }
+  }
+}

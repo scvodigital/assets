@@ -1,0 +1,18 @@
+{
+  "size": 10000,
+  "_source": false,
+  "query": {
+    "match_all": {}
+  },
+  "aggs": {
+    "categories": {
+      "terms": {
+        "field": "category",
+        "order": {
+          "_term": "asc"
+        },
+        "size": 10000
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "name": "vote_charity_awards",
-  "pattern": "/scottish-charity-awards/vote-2019/*category/*vote",
+  "name": "list_charity_awards",
+  "pattern": "/scottish-charity-awards/vote-2019/*category",
   "tasks": [
     {
       "name": "primaryResponse",
@@ -13,7 +13,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "scvo-cms-charity-awards",
-          "template": ">context.metaData.handlebars.queries.pages_charity-awards-vote",
+          "template": ">context.metaData.handlebars.queries.pages_charity-awards-list",
           "noResultsRoute": "four_oh_four"
         }
       },
@@ -54,7 +54,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_charity-awards-vote",
+              "body": ">context.metaData.handlebars.templates.pages_charity-awards-list",
               "foot": ""
             },
             "contentType": "text/html"

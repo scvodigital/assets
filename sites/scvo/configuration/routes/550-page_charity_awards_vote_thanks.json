@@ -55,7 +55,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.pages_charity-awards-vote-thanks",
-              "foot": ""
+              "foot": ">context.metaData.handlebars.templates.pages_charity-awards-vote-thanks-foot"
             },
             "contentType": "text/html"
           }

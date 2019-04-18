@@ -124,11 +124,11 @@ export class SCVO {
     try {
       this.lazyImages = Array.from($('[data-lazy-image]')).map((el, i) => {
         const config = $(el).data('lazy-image');
-        return { 
-          element: $(el), 
-          url: config.url, 
+        return {
+          element: $(el),
+          url: config.url,
           type: config.type || 'src',
-          loaded: false 
+          loaded: false
         };
       });
 
@@ -138,7 +138,7 @@ export class SCVO {
     }
   }
 
-  handleLazyImages() { 
+  handleLazyImages() {
     try {
       window.cancelAnimationFrame(this.lazyImageFrame);
       const viewportBottom = $(document).scrollTop() + $(window).height();
@@ -151,7 +151,7 @@ export class SCVO {
           }
           lazyImage.loaded = true;
         }
-      } 
+      }
       this.lazyImageFrame = window.requestAnimationFrame(() => { this.handleLazyImages(); });
     } catch(err) {
       console.error('Lazy Image Frame handler had an problem', err, 'It is likely that this frame handler will no longer be called');

@@ -5538,3 +5538,60 @@ button.swiper-pagination-bullet {
   .h-padding-full-sm { padding-left: $unit; padding-right: $unit; }
   .pull-centre-sm { margin-left: auto !important; margin-right: auto !important; display: block; }
 }
+
+ul.hearts {
+  display: inline;
+  li {
+    display: inline;
+    padding-left: 0!important;
+  }
+  li::before {
+    font-family: "Font Awesome 5 Pro" !important;
+    content: '\f004' !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    font-weight: 900 !important;
+  }
+  li.half span {
+    background-color: #ffffff;
+    display: inline-block;
+    height: 1.5rem;
+    width: 0.5rem;
+    margin-left: -0.5rem;
+    position: absolute;
+  }
+  li.half span::before {
+    font-family: "Font Awesome 5 Pro";
+    content: '\f004';
+    margin-left: -0.5rem;
+    padding-right: 0;
+    font-size: 1rem;
+  }
+}
+
+.demo-ui-control .demo-card__primary-action {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  .demo-card__media.mdc-card__media--square {
+    width: 110px;
+    min-width: 110px;
+    height: 110px;
+  }
+  .demo-card__primary {
+    padding: 1rem;
+    .demo-card__title {
+      margin: 0;
+    }
+    .demo-card__subtitle {
+      margin: 0;
+    }
+  }
+}
+
+.demo-card {
+  .mdc-card__actions .mdc-card__action-icons .mdc-icon-button {
+    padding-top: 6px;
+  }
+}

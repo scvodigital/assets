@@ -6,10 +6,10 @@
       "twitter",
       "linkedin",
       "instagram",
-      "title",
+      "name",
       "image_url",
-      "rendered.goodhq_heart_rating",
-      "rendered.goodhq_hearts",
+      "stars",
+      "rendered.goodhq_hearts"
   ],
   "query": {
     "ids": {
@@ -17,7 +17,7 @@
       "values": [
         {{{stringify (default @root.data.primaryResponse.hits.hits.[0]._source.goodhq-xid-1 "")}}},
         {{{stringify (default @root.data.primaryResponse.hits.hits.[0]._source.goodhq-xid-2 "")}}},
-        {{{stringify (default @root.data.primaryResponse.hits.hits.[0]._source.goodhq-xid-3 "")}}},
+        {{{stringify (default @root.data.primaryResponse.hits.hits.[0]._source.goodhq-xid-3 "")}}}
       ]
     }
   }

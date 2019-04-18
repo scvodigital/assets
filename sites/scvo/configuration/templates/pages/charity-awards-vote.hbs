@@ -23,10 +23,54 @@
               <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?__output=embedjs&vote={{slug}}&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
             {{else}}
               {{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}
-                <h4>Leave a review on GoodHQ</h4>
-                {{#each @root.data.goodhq.hits.hits}}
-                  {{_source.title}}
-                {{/each}}
+                {{#compare @root.data.goodhq.hits.total ">" 0}}
+                  <h4>Leave a review on GoodHQ</h4>
+                  <div class="mdc-layout-grid">
+                    <div class="mdc-layout-grid__inner">
+                      {{#each @root.data.goodhq.hits.hits}}
+                        <div class="mdc-layout-grid__cell">
+                          <div class="mdc-card demo-card demo-ui-control">
+                            <a href="https://goodhq.org/{{_id}}" class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
+                              <div class="mdc-card__media mdc-card__media--square demo-card__media" style="background-image: url(&quot;{{_source.image_url}}&quot;);"></div>
+                              <div class="demo-card__primary">
+                                <h5 class="demo-card__title mdc-typography mdc-typography--headline7">{{_source.name}}</h2>
+                                <h6 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">{{{_source.rendered.goodhq_hearts}}}</h3>
+                              </div>
+                            </a>
+                            <div class="mdc-card__actions">
+                              <div class="mdc-card__action-buttons">
+                                <a href="https://goodhq.org/{{_id}}/review" class="mdc-button mdc-card__action mdc-card__action--button">Review</a>
+                              </div>
+                              <div class="mdc-card__action-icons">
+                                {{#if _source.website}}
+                                  <a href="{{_source.website}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Website" data-mdc-ripple-is-unbounded="true">
+                                    <i class="fas fa-globe-europe"></i>
+                                  </a>
+                                {{/if}}
+                                {{#if _source.twitter}}
+                                  <a href="https://twitter.com/{{_source.twitter}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Twitter" data-mdc-ripple-is-unbounded="true">
+                                    <i class="fab fa-twitter"></i>
+                                  </a>
+                                {{/if}}
+                                {{#if _source.instagram}}
+                                  <a href="{{_source.instagram}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Instagram" data-mdc-ripple-is-unbounded="true">
+                                    <i class="fab fa-instagram"></i>
+                                  </a>
+                                {{/if}}
+                                {{#if _source.facebook}}
+                                  <a href="{{_source.facebook}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Facebook" data-mdc-ripple-is-unbounded="true">
+                                    <i class="fab fa-facebook"></i>
+                                  </a>
+                                {{/if}}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {{/each}}
+                    </div>
+                  </div>
+                {{/compare}}
+
                 <h4>Volunteering opportunities</h4>
 
               {{else}}

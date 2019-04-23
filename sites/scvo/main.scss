@@ -2594,6 +2594,18 @@ body.i-love-charity:not(.post) main {
   }
 }
 body.scottish-charity-awards:not(.post) main {
+  .splash-overlay.splash-overlay-hidden {
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)) !important;
+  }
+  .splash-image .splash-overlay .container-fluid {
+    min-height: 20vh;
+    .mdc-layout-grid {
+      text-align: left;
+    }
+  }
+  .splash-image img.header-text {
+    max-height: 30vh;
+  }
   .mdc-card {
     .mdc-card__primary .mdc-card__title {
       color: white;
@@ -2667,6 +2679,7 @@ body.i-love-charity main .page-info,
 .scvo-cms-page-20034 .page-info,
 .scvo-cms-page-20005 .page-info,
 .scvo-cms-page-24853 .page-info,
+.scvo-cms-page-30659 .page-info,
 .blogs .page-sidebar .page-info,
 .policy-research.briefings-consultation-responses .mdc-card__actions,
 .policy-research.research .mdc-card__actions,
@@ -3627,6 +3640,27 @@ body.post.author main {
 }
 .mdc-card__actions ul {
   padding: 0;
+}
+
+.wp-block-columns.has-2-columns {
+  figure {
+    margin: 0 0 $unit;
+  }
+  .wp-block-column {
+    iframe {
+      width: 100%;
+    }
+  }
+  .wp-block-column:first-child {
+    float: left;
+    width: 49%;
+    padding-right: 1%;
+  }
+  .wp-block-column:last-child {
+    float: left;
+    width: 49%;
+    padding-left: 1%;
+  }
 }
 
 .key {
@@ -5503,4 +5537,62 @@ button.swiper-pagination-bullet {
   .v-padding-full-sm { padding-top: $unit; padding-bottom: $unit; }
   .h-padding-full-sm { padding-left: $unit; padding-right: $unit; }
   .pull-centre-sm { margin-left: auto !important; margin-right: auto !important; display: block; }
+}
+
+ul.hearts {
+  display: inline;
+  li {
+    display: inline;
+    padding-left: 0!important;
+  }
+  li::before {
+    font-family: "Font Awesome 5 Pro" !important;
+    content: '\f004' !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    font-weight: 900 !important;
+  }
+  li.half span {
+    background-color: #ffffff;
+    display: inline-block;
+    height: 1.5rem;
+    width: 0.5rem;
+    margin-left: -0.5rem;
+    position: absolute;
+  }
+  li.half span::before {
+    font-family: "Font Awesome 5 Pro";
+    content: '\f004';
+    margin-left: -0.5rem;
+    padding-right: 0;
+    font-size: 1rem;
+  }
+}
+
+.demo-ui-control .demo-card__primary-action {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  .demo-card__media.mdc-card__media--square {
+    width: 110px;
+    min-width: 110px;
+    height: 110px;
+  }
+  .demo-card__primary {
+    padding: 1rem;
+    .demo-card__title {
+      margin: 0;
+      line-height: initial;
+    }
+    .demo-card__subtitle {
+      margin: 0;
+    }
+  }
+}
+
+.demo-card {
+  .mdc-card__actions .mdc-card__action-icons .mdc-icon-button {
+    padding-top: 6px;
+  }
 }

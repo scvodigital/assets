@@ -1,20 +1,13 @@
 <div class="page">
-  <div class="splash-image splash-image-scvo-cms-page" style="background-image: url('https://storage.googleapis.com/scvo-cms/scvo-assets/test/scvo/images/home/charityawards-bg.jpg');">
-    <div class="splash-overlay splash-overlay-hidden">
-      <div class="container-fluid">
-        <div class="mdc-layout-grid">
-          <img src="https://storage.googleapis.com/scvo-cms/scvo-wordpress-media/2019/02/J017-SCA2019-LOGO-NO-DATE-e1549871829679.png" alt="Scottish Charity Awards 2019 Voting" class="header-text">
-        </div>
-      </div>
-    </div>
-  </div>
+  {{> headers_splash_charity_awards title=@root.data.primaryResponse.hits.hits.[0]._source.title}}
   <div class="container-fluid">
     <ul class="breadcrumbs" aria-hidden="true">
       <li><a href="/">Home</a></li>
       <li><a href="/scottish-charity-awards">Scottish Charity Awards</a></li>
       <li><a href="/scottish-charity-awards/vote-2019">Vote</a></li>
+      <li><a href="/scottish-charity-awards/vote-2019/{{@root.request.params.category}}">{{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}}</a></li>
       {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
-      <li>{{{title}}}</li>
+        <li>{{{title}}}</li>
       {{/with ~}}
     </ul>
     <div class="mdc-layout-grid">
@@ -22,7 +15,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content">
           {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
           <h2>Thank you for your vote for {{{title}}}!</h2>
-
+          <p>Please wait a second while this is being processed.</p>
           {{/with ~}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone sidebar page-sidebar">

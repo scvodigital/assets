@@ -7,9 +7,11 @@
     "og_title",
     "og_summary",
     "content",
-    "categories_id",
-    "categories_slug",
-    "text_bag_boost"
+    "category",
+    "text_bag_boost",
+    "goodhq-xid-1",
+    "goodhq-xid-2",
+    "goodhq-xid-3"
   ],
   "query": {
     "term": {

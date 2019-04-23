@@ -1,0 +1,94 @@
+{{#ifAll (if @root.currentTask.parseJson false else=true) (any @root.data.send_emails)}}
+  <html>
+    <head>
+      <title>Send Test</title>
+      <style>
+        th {
+          text-align: left;
+        }
+        .email-details {
+          display: flex;
+          flex-direction: row;
+        }
+        .email-details .column {
+          flex-grow: 1;
+        }
+        .email-preview {
+          width: 100%;
+          height: 600px;
+          border: none;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Rendered emails</h1>
+      {{#each @root.data.send_emails}}
+        <h2>Email: {{data.to}} - {{data.tag}}</h2>
+        <div class="email-details">
+          <div class="column">
+            <h3>Outgoing</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>From</th>
+                  <td>{{data.from}}</td>
+                </tr>
+                <tr>
+                  <th>To</th>
+                  <td>{{data.to}}</td>
+                </tr>
+                <tr>
+                  <th>Tag</th>
+                  <td>{{data.tag}}</td>
+                </tr>
+                <tr>
+                  <th>Connection</th>
+                  <td>{{data.connectionName}}</td>
+                </tr>
+                <tr>
+                  <th>Subject</th>
+                  <td>{{data.subject}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column">
+            <h3>Response</h3>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Id</th>
+                  <td>{{response.id}}</td>
+                </tr>
+                <tr>
+                  <th>Message</th>
+                  <td>{{response.message}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <h3>Rendered</h3>
+        <iframe src="about:blank" frameborder="0" id="email-frame-{{@index}}" class="email-preview"></iframe>
+        <script>
+          var doc = document.getElementById('email-frame-{{@index}}').contentWindow.document;
+          doc.open();
+          doc.write({{{safeStringify data.html}}});
+          doc.close();
+        </script>
+      {{/each}}
+    </body>
+  </html>
+{{else}}
+{
+  {{#unless @root.currentTask.parseJson}}
+    "render": "No email data to render",
+  {{/unless}}
+  "notifications": {{{stringify (default @root.data.notifications "none")}}},
+  "search_task": {{{stringify (default @root.data.generate_es_task "none")}}},
+  "search_data": {{{stringify (default @root.data.search_data "none")}}},
+  "mysql_task": {{{stringify (default @root.data.generate_mysql_task "none")}}},
+  "email_data": {{{stringify (default @root.data.send_emails "none")}}},
+  "errors": {{{stringify (default @root.errors "none")}}}
+}
+{{/ifAll}}

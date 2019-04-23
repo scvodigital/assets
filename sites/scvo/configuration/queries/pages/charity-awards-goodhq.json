@@ -1,3 +1,4 @@
+{{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}
 {
   "_source": [
       "charity_number",
@@ -22,3 +23,10 @@
     }
   }
 }
+{{else}}
+{
+  "query": {
+    "match_none": {}
+  }
+}
+{{/compare}}

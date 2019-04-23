@@ -40,6 +40,22 @@
       "renderer": "handlebars"
     },
     {
+      "name": "volunteering-opportunities",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "milo-volunteering-opportunity",
+          "template": ">context.metaData.handlebars.queries.pages_charity-awards-volunteering-opportunities"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "supplimentaryResponses",
       "taskModule": "elasticsearch",
       "config": {

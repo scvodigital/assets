@@ -37,3 +37,9 @@
     </div>
   </div>
 </div>
+<script>
+  gtag('event', 'charity-awards-2019-hit', {
+    event_category: 'category',
+    event_label: {{{stringify (default @root.request.params.category 'unknown')}}}
+  });
+</script>

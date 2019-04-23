@@ -15,6 +15,38 @@
     "title": "Saltire Awards",
     "menus": "{:./saltireawards-menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
+    "commonTasks": {
+      "authNotRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "saltireawards",
+          "notAuthenticatedRoute": ""
+        }
+      },
+      "authRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "saltireawards",
+          "notAuthenticatedRoute": "sign_in"
+        }
+      }
+    },
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

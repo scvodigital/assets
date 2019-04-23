@@ -145,13 +145,13 @@
                 {{#>components_tab_bar
                     extraClasses="mdc-tab-bar__auto-width"
                     id="user-not-signed-in-tab-bar"}}
-                  {{!--#each @root.context.metaData.menus.user-not-signed-in ~}}
+                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
                     {{>components_tab
                         url=(stripTrailingSlash path)
                         labelClasses="mdc-theme--on-primary"
                         active=(regexMatch @root.request.url.pathname route "gi")
                         label=label}}
-                  {{/each--}}
+                  {{/each}}
                 {{/components_tab_bar}}
               {{/if ~}}
             </section>
@@ -314,12 +314,12 @@
     var saltireawards = null; readyListeners = [];
     $(document).ready(function() {
       saltireawards = new SaltireAwards.SaltireAwards({
-        apiKey: "AIzaSyAdecxsam31jfcXk5riBTKFjjZN6H68FMI",
-        authDomain: "auth.saltireawards.org.uk",
-        databaseURL: "https://scvo-auth-fs.firebaseio.com",
-        projectId: "scvo-auth-fs",
-        storageBucket: "scvo-auth-fs.appspot.com",
-        messagingSenderId: "35877130739"
+        apiKey: "AIzaSyBdoW5NoWqvMFMUKufrPVvuaYtNrEIRY6k",
+        authDomain: "saltire-awards.firebaseapp.com",
+        databaseURL: "https://saltire-awards.firebaseio.com",
+        projectId: "saltire-awards",
+        storageBucket: "saltire-awards.appspot.com",
+        messagingSenderId: "940419868873"
       });
       ready = true;
       readyListeners.forEach(function(listener) {

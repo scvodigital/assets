@@ -1,10 +1,12 @@
 {
-  "name": "_default",
-  "pattern": "/*path",
+  "name": "sign_out",
+  "pattern": "/sign-out",
+  "debug": true,
   "metaData": {
-    "title": "404: Page not found – Saltire Awards"
+    "hideSearch": true
   },
   "tasks": [
+    "context.metaData.commonTasks.authRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -20,9 +22,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages.head-tags",
-              "body": ">context.metaData.handlebars.templates.404",
-              "foot": ">context.metaData.handlebars.templates.pages.foot"
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.account_sign-out"
             },
             "contentType": "text/html"
           }

@@ -12,7 +12,7 @@
     </ul>
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content b-margin-full">
           {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
             <div class="v-margin-full">
               {{{content}}}
@@ -20,21 +20,29 @@
 
             {{#unless @root.request.cookies.charity_awards_already_voted}}
               <h4>Vote for {{{title}}} in the {{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}} category</h4>
-              <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?__output=embedjs&vote={{slug}}&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
+              {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
+                <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
+              {{/withExtend}}
+              <style>
+                .sg-survey{
+                  display:none;
+                }
+              </style>
             {{else}}
               {{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}
                 {{#compare @root.data.goodhq.hits.total ">" 0}}
-                  <h4>Leave a review on GoodHQ</h4>
-                  <div class="mdc-layout-grid">
+                  <h4>Thank you for voting for {{@root.data.primaryResponse.hits.hits.[0]._source.title}}</h4>
+                  <h5>Leave a review on <a href="https://goodhq.org">GoodHQ</a></h5>
+                  <div class="mdc-layout-grid equal-height">
                     <div class="mdc-layout-grid__inner">
                       {{#each @root.data.goodhq.hits.hits}}
                         <div class="mdc-layout-grid__cell">
                           <div class="mdc-card demo-card demo-ui-control">
-                            <a href="https://goodhq.org/{{_id}}" class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-                              <div class="mdc-card__media mdc-card__media--square demo-card__media" style="background-image: url(&quot;{{_source.image_url}}&quot;);"></div>
+                            <a href="https://goodhq.org/{{_id}}" class="mdc-card__primary-action demo-card__primary-action" tabindex="0" style="flex: 1 0 auto;">
+                              <div class="mdc-card__media mdc-card__media--square demo-card__media" style="background-image: url(&quot;{{default _source.image_url 'https://goodhq.org/images/default_avatar_small.png'}}&quot;);"></div>
                               <div class="demo-card__primary">
-                                <h5 class="demo-card__title mdc-typography mdc-typography--headline7">{{_source.name}}</h2>
-                                <h6 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">{{{_source.rendered.goodhq_hearts}}}</h3>
+                                <h2 class="demo-card__title mdc-typography mdc-typography--headline6">{{_source.name}}</h2>
+                                <!--<h6 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">{{{_source.rendered.goodhq_hearts}}}</h3>-->
                               </div>
                             </a>
                             <div class="mdc-card__actions">
@@ -71,8 +79,44 @@
                   </div>
                 {{/compare}}
 
-                <h4>Volunteering opportunities</h4>
-
+                {{#compare @root.data.volunteering-opportunities.hits.total ">" 0}}
+                  <h5>Volunteering opportunities on <a href="https://search.volunteerscotland.net">Volunteer Scotland</a></h5>
+                  <div class="mdc-layout-grid equal-height">
+                    <div class="mdc-layout-grid__inner">
+                      {{#each @root.data.volunteering-opportunities.hits.hits}}
+                        <div class="mdc-layout-grid__cell">
+                          {{#with _source}}
+                            <div class="mdc-card charity-awards-volopp-card">
+                              <div class="mdc-card__primary-action charity-awards-volopp-card__primary-action x-padding-full" tabindex="0" style="flex: 1 0 auto;">
+                                <div class="charity-awards-volopp-card__primary">
+                                  <h2 class="charity-awards-volopp-card__title mdc-typography mdc-typography--headline6">
+                                    <a href="https://search.volunteerscotland.net/opportunity/{{slug}}">
+                                      <span class="hover-underline">{{title}}</span>
+                                    </a>
+                                  </h2>
+                                  <h3 class="charity-awards-volopp-card__subtitle mdc-typography mdc-typography--subtitle2">
+                                    <span class="fa-li"><span class="far fa-home-heart" title="Organisation"></span></span>
+                                    <a href="https://search.volunteerscotland.net/organisation/{{organisation_slug}}">
+                                      {{organisation_name}}
+                                    </a>
+                                  </h3>
+                                </div>
+                                <div class="charity-awards-volopp-card__secondary mdc-typography mdc-typography--body2">
+                                  {{truncate description 255}}
+                                </div>
+                              </div>
+                              <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                  <a href="https://search.volunteerscotland.net/opportunity/{{slug}}" class="mdc-button mdc-card__action mdc-card__action--button">Find out more</a>
+                                </div>
+                              </div>
+                            </div>
+                          {{/with}}
+                        </div>
+                      {{/each}}
+                    </div>
+                  </div>
+                {{/compare}}
               {{else}}
                 <h4>You have already voted in this years' awards</h4>
               {{/compare}}
@@ -86,3 +130,9 @@
     </div>
   </div>
 </div>
+<script>
+  gtag('event', 'charity-awards-2019-hit', {
+    event_category: 'entrant',
+    event_label: {{{stringify (default @root.request.params.vote 'unknown')}}}
+  });
+</script>

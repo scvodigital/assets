@@ -26,10 +26,11 @@
           "range": {
             "start_at": {
               {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
-              "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}}
+              "gte": {{momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x"}},
               {{else}}
-              "gte": "now-1w/d"
+              "gte": "now-1w/d",
               {{/ifAny}}
+              "lt": "now/d"
             }
           }
         }

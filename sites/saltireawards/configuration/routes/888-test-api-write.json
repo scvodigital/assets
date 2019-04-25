@@ -1,0 +1,36 @@
+{
+  "name": "testpage",
+  "pattern": "/testpage",
+  "acceptedVerbs": "GET",
+  "defaultParams": {
+    "context": "results"
+  },
+  "metaData" : {
+    "body" : {
+      "users" : [
+        {
+          "externalID" : "extid 8",
+          "dateOfBirth": "2015-05-20",
+          "schoolCollegeName" : "this college"
+        },
+        {
+          "externalID" : "extid 9",
+          "dateOfBirth": "2014-05-20",
+          "schoolCollegeName" : "that college"
+        }
+        ]
+    }
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{{@root.context.metaData.body}}"
+      }
+    }
+  ]
+}

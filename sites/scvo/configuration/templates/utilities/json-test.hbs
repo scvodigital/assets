@@ -9,13 +9,21 @@
       {{{stringify this}}},
     {{/each}}
     'Last',
-  {{/json}},,
+  {{/json}},
   {{{json key='another-array' value=(split 'i,am,a,test' ',')}}},
   {{#json key='big-string' type='string'}}
     <html>
-      <head>
-        <title>I'm a title with "quotes"</title>
-      </head>
+
+    <head>
+      <title>I'm a title with "quotes"</title>
+    </head>
+
     </html>
   {{/json}},
+  {{#json key='json-string' type='string'}}
+    {{#json}}
+      {{{json key='i' value='am some nested json'}}},
+      {{{json key='another-array' value=(split 'i,am,a,test' ',')}}},
+    {{/json}}
+  {{/json}}
 {{/json}}

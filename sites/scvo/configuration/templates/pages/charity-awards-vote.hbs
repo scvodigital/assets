@@ -14,20 +14,42 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content b-margin-full">
           {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
+            {{#if image_url}}
+              <div class="pull-right l-margin-full b-margin-full charity-awards-image hide-sm hide-md">
+                <img src="{{image_url}}" />
+              </div>
+            {{/if}}
             <div class="v-margin-full">
               {{{content}}}
             </div>
+            {{#if image_url}}
+              <div class="v-margin-full charity-awards-image hide-lg">
+                <img src="{{image_url}}" />
+              </div>
+            {{/if}}
 
             {{#unless @root.request.cookies.charity_awards_already_voted}}
-              <h4>Vote for {{{title}}} in the {{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}} category</h4>
-              {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
-                <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
-              {{/withExtend}}
-              <style>
-                .sg-survey{
-                  display:none;
-                }
-              </style>
+              <div class="mdc-card charity-awards-vote-card">
+                <div class="mdc-card__primary x-padding-full mdc-theme--on-primary mdc-theme--primary-bg" tabindex="0">
+                  <div class="charity-awards-vote-card__primary">
+                    <h2 class="charity-awards-vote-card__title mdc-typography mdc-typography--headline6">
+                      Vote for {{{title}}} in the {{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}} category
+                    </h2>
+                  </div>
+                </div>
+                <div class="mdc-card__primary-action x-padding-full">
+                  <div class="charity-awards-vote-card__secondary mdc-typography mdc-typography--body2">
+                    {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
+                      <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
+                    {{/withExtend}}
+                    <style>
+                      .sg-survey{
+                        display:none;
+                      }
+                    </style>
+                  </div>
+                </div>
+              </div>
             {{else}}
               {{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}
                 {{#compare @root.data.goodhq.hits.total ">" 0}}

@@ -8,7 +8,8 @@
     "og_summary",
     "content",
     "category",
-    "text_bag_boost"
+    "text_bag_boost",
+    "image_url"
   ],
   "query": {
     "term": {

@@ -5499,6 +5499,7 @@ button.swiper-pagination-bullet {
 .r-margin-full { margin-right: $unit; }
 
 @media (max-width: 479px) {
+  .hide-sm { display: none !important; }
   .no-float-sm { float: none; }
   .no-t-margin-sm { margin-top: 0; }
   .no-b-margin-sm { margin-bottom: 0; }
@@ -5537,6 +5538,14 @@ button.swiper-pagination-bullet {
   .v-padding-full-sm { padding-top: $unit; padding-bottom: $unit; }
   .h-padding-full-sm { padding-left: $unit; padding-right: $unit; }
   .pull-centre-sm { margin-left: auto !important; margin-right: auto !important; display: block; }
+}
+
+@media (min-width: 480px) and (max-width: 839px) {
+  .hide-md { display: none !important; }
+}
+
+@media (min-width: 840px) {
+  .hide-lg { display: none !important; }
 }
 
 ul.hearts {
@@ -5594,5 +5603,19 @@ ul.hearts {
 .demo-card {
   .mdc-card__actions .mdc-card__action-icons .mdc-icon-button {
     padding-top: 6px;
+  }
+}
+
+.charity-awards-image {
+  img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 479px) {
+  .charity-awards-image {
+    img {
+      max-width: 100%;
+    }
   }
 }

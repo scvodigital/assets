@@ -15,7 +15,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content b-margin-full">
           {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
             {{#if image_url}}
-              <div class="pull-right l-margin-full b-margin-full charity-awards-image hide-sm hide-md">
+              <div class="pull-right l-margin-full b-margin-full t-margin-full charity-awards-image hide-sm hide-md">
                 <img src="{{image_url}}" />
               </div>
             {{/if}}

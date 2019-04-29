@@ -1,5 +1,5 @@
 {
-  "size": 10000,
+  "size": 0,
   "_source": false,
   "query": {
     "match_all": {}

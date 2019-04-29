@@ -23,6 +23,9 @@
               </h1>
             </section>
             <section class="mdc-card__supporting-text">
+              {{#if image_url}}
+                <img src="{{image_url}}" style="max-width:200px;" class="pull-right l-margin-full hide-sm">
+              {{/if}}
               {{{truncate (stripTags content) 280}}}
             </section>
             <section class="mdc-card__actions"><a href="{{@root.request.url.path}}/{{slug}}">Find out more &amp; vote</a></section>

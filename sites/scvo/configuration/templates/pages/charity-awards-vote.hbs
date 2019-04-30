@@ -1,3 +1,46 @@
+{{#if @root.request.params.query.sg_sessionid}}
+  <div class="page">
+    {{> headers_splash_charity_awards title=@root.data.primaryResponse.hits.hits.[0]._source.title}}
+    <div class="container-fluid">
+      <ul class="breadcrumbs" aria-hidden="true">
+        <li><a href="/">Home</a></li>
+        <li><a href="/scottish-charity-awards">Scottish Charity Awards</a></li>
+        <li><a href="/scottish-charity-awards/vote-2019">Categories</a></li>
+        <li><a href="/scottish-charity-awards/vote-2019/{{@root.request.params.category}}">{{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}}</a></li>
+        {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
+          <li>{{{title}}}</li>
+        {{/with ~}}
+      </ul>
+      <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content b-margin-full">
+            <h1>Placing vote, please wait</h1>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone sidebar page-sidebar">
+            {{> menus_charity_awards}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
+      {{#withExtend (obj)
+          vote=slug
+          candidateTitle=title
+          category=category
+          categoryTitle=(getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title"))
+          host=@root.request.url.host
+          __ref=@root.request.url.href
+          __output='embedjs'}}
+        <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
+      {{/withExtend}}
+      <style>
+        .sg-survey{
+          display:none;
+        }
+      </style>
+    {{/with}}
+  </div>
+{{else}}
 <div class="page">
   {{> headers_splash_charity_awards title=@root.data.primaryResponse.hits.hits.[0]._source.title}}
   <div class="container-fluid">
@@ -161,3 +204,4 @@
     event_label: {{{stringify (default @root.request.params.vote 'unknown')}}}
   });
 </script>
+{{/if}}

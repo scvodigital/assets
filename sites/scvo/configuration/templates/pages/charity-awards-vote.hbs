@@ -4,7 +4,7 @@
     <ul class="breadcrumbs" aria-hidden="true">
       <li><a href="/">Home</a></li>
       <li><a href="/scottish-charity-awards">Scottish Charity Awards</a></li>
-      <li><a href="/scottish-charity-awards/vote-2019">Vote</a></li>
+      <li><a href="/scottish-charity-awards/vote-2019">Categories</a></li>
       <li><a href="/scottish-charity-awards/vote-2019/{{@root.request.params.category}}">{{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}}</a></li>
       {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
         <li>{{{title}}}</li>
@@ -29,26 +29,22 @@
             {{/if}}
 
             {{#unless @root.request.cookies.charity_awards_already_voted}}
-              <div class="mdc-card charity-awards-vote-card">
-                <div class="mdc-card__primary x-padding-full mdc-theme--on-primary mdc-theme--primary-bg" tabindex="0">
-                  <div class="charity-awards-vote-card__primary">
-                    <h2 class="charity-awards-vote-card__title mdc-typography mdc-typography--headline6">
-                      Vote for {{{title}}} in the {{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}} category
-                    </h2>
-                  </div>
-                </div>
-                <div class="mdc-card__primary-action x-padding-full">
-                  <div class="charity-awards-vote-card__secondary mdc-typography mdc-typography--body2">
-                    {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
-                      <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
-                    {{/withExtend}}
-                    <style>
-                      .sg-survey{
-                        display:none;
-                      }
-                    </style>
-                  </div>
-                </div>
+              <div class="{{category}} mdc-card charity-awards-vote-card">
+                <section class="mdc-card__primary">
+                  <h1 class="mdc-card__title mdc-card__title--large">
+                    Vote for {{{title}}} in the {{{getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title")}}} category
+                  </h1>
+                </section>
+                <section class="mdc-card__supporting-text">
+                  {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
+                    <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
+                  {{/withExtend}}
+                  <style>
+                    .sg-survey{
+                      display:none;
+                    }
+                  </style>
+                </section>
               </div>
             {{else}}
               {{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}

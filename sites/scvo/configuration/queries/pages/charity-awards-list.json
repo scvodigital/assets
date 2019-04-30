@@ -9,11 +9,28 @@
     "content",
     "category",
     "text_bag_boost",
-    "image_url"
+    "image_url",
+    "Id"
   ],
   "query": {
-    "term": {
-      "category": "{{@root.request.params.category}}"
+    "bool": {
+      "filter": [
+        {{#if @root.request.params.category}}
+          {
+            "term": {
+              "category": "{{@root.request.params.category}}"
+            }
+          },
+        {{/if}}
+        {
+          "exists": {
+            "field": "title_sort"
+          }
+        }
+      ]
     }
-  }
+  },
+  "sort": [
+    { "title_sort": { "order": "asc" } }
+  ]
 }

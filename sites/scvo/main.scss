@@ -5612,6 +5612,16 @@ ul.hearts {
   }
 }
 
+.mdc-card__title--inline {
+  a {
+    display: inline !important;
+  }
+
+  .fa-fw {
+    text-align: center !important;
+  }
+}
+
 @media (max-width: 479px) {
   .charity-awards-image {
     img {

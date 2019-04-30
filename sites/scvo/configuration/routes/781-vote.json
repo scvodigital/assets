@@ -6,7 +6,7 @@
       "name": "destination",
       "taskModule": "redirect",
       "config": {
-        "location": "https://goodhq.org/scottish_charity_awards_2018/",
+        "location": "/scottish-charity-awards/vote-2019",
         "statusCode": 302
       }
     }

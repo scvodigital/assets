@@ -14,17 +14,19 @@
   ],
   "query": {
     "bool": {
+      {{#if @root.request.params.category}}
       "filter": [
-        {{#if @root.request.params.category}}
           {
             "term": {
               "category": "{{@root.request.params.category}}"
             }
-          },
-        {{/if}}
+          }
+      ],
+      {{/if}}
+      "must_not": [
         {
-          "exists": {
-            "field": "title_sort"
+          "term": {
+            "title_sort": ""
           }
         }
       ]

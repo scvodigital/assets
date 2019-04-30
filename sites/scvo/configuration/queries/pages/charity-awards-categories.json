@@ -2,8 +2,14 @@
   "size": 0,
   "_source": false,
   "query": {
-    "exists": {
-      "field": "title_sort"
+    "bool": {
+      "must_not": [
+        {
+          "term": {
+            "title_sort": ""
+          }
+        }
+      ]
     }
   },
   "aggs": {

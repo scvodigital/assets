@@ -52,7 +52,7 @@
             {{/if}}
           </h3>
 
-          {{#each (sortBy @root.data.search.finalists.hits.hits "_source.title" "asc") ~}}
+          {{#each @root.data.search.finalists.hits.hits ~}}
             {{#with _source ~}}
               <div class="{{category}} support mdc-card v-margin-full" data-id="{{Id}}">
                 <section class="mdc-card__primary">

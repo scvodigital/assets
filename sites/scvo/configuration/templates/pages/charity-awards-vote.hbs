@@ -36,7 +36,14 @@
                   </h1>
                 </section>
                 <section class="mdc-card__supporting-text">
-                  {{#withExtend (obj) vote=slug category=category host=@root.request.url.host __ref=@root.request.url.href __output='embedjs'}}
+                  {{#withExtend (obj)
+                      vote=slug
+                      candidateTitle=title
+                      category=category
+                      categoryTitle=(getProperty @root.route.metaData.awards-info (concat @root.request.params.category ".title"))
+                      host=@root.request.url.host
+                      __ref=@root.request.url.href
+                      __output='embedjs'}}
                     <script src="https://www.surveygizmo.eu/s3/90139442/Scottish-Charity-Awards-2019-voting?{{querystringify this}}" type="text/javascript"></script>
                   {{/withExtend}}
                   <style>
@@ -49,7 +56,7 @@
             {{else}}
               {{#compare @root.request.cookies.charity_awards_already_voted @root.request.params.vote}}
                 {{#compare @root.data.goodhq.hits.total ">" 0}}
-                  <h4>Thank you for voting for {{@root.data.primaryResponse.hits.hits.[0]._source.title}}</h4>
+                  <h4>Thank you for voting for {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}</h4>
                   <h5>Leave a review on <a href="https://goodhq.org">GoodHQ</a></h5>
                   <div class="mdc-layout-grid equal-height">
                     <div class="mdc-layout-grid__inner">

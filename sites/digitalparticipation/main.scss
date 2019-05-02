@@ -1878,3 +1878,18 @@ footer {
 ::-moz-placeholder {
   color: #777;
 }
+
+blockquote {
+  margin-left: $unit/2 !important;
+  p {
+    border-left: 2px solid #000;
+    padding-top: $unit/2 !important;
+    padding-bottom: $unit/2 !important;
+    padding-left: $unit !important;
+  }
+  cite {
+    margin-left: $unit*2;
+    text-align: right;
+    display: block;
+  }
+}

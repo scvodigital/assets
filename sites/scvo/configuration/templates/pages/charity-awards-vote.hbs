@@ -71,6 +71,8 @@
               </div>
             {{/if}}
 
+            <a name="vote" style="margin-top:-150px; display: block; position: absolute;"></a>
+
             {{#unless @root.request.cookies.charity_awards_already_voted}}
               <div class="{{category}} mdc-card charity-awards-vote-card">
                 <section class="mdc-card__primary">
@@ -119,7 +121,7 @@
                               </div>
                               <div class="mdc-card__action-icons">
                                 {{#if _source.website}}
-                                  <a href="{{_source.website}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Website" data-mdc-ripple-is-unbounded="true">
+                                  <a href="{{fixUrl _source.website "https"}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Website" data-mdc-ripple-is-unbounded="true">
                                     <i class="fas fa-globe-europe"></i>
                                   </a>
                                 {{/if}}
@@ -129,12 +131,12 @@
                                   </a>
                                 {{/if}}
                                 {{#if _source.instagram}}
-                                  <a href="{{_source.instagram}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Instagram" data-mdc-ripple-is-unbounded="true">
+                                  <a href="{{fixUrl _source.instagram "https"}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Instagram" data-mdc-ripple-is-unbounded="true">
                                     <i class="fab fa-instagram"></i>
                                   </a>
                                 {{/if}}
                                 {{#if _source.facebook}}
-                                  <a href="{{_source.facebook}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Facebook" data-mdc-ripple-is-unbounded="true">
+                                  <a href="{{fixUrl _source.facebook "https"}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" title="Facebook" data-mdc-ripple-is-unbounded="true">
                                     <i class="fab fa-facebook"></i>
                                   </a>
                                 {{/if}}

@@ -90,7 +90,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.pages_charity-awards-vote",
-              "foot": ""
+              "foot": ">context.metaData.handlebars.templates.pages_charity-awards-vote-foot"
             },
             "contentType": "text/html"
           }

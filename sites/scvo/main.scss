@@ -767,6 +767,21 @@ primary-dark: #263238
       }
     }
   }
+
+  .mdc-tab--active {
+    .mdc-tab__text-label {
+      color: map-get($themeSelected, 'primary');
+    }
+    .mdc-tab-indicator > .mdc-tab-indicator__content--underline {
+      background-color: map-get($themeSelected, 'primary');
+    }
+  }
+
+  .mdc-tab {
+    .mdc-tab__ripple::before, .mdc-tab__ripple::after {
+      background-color: map-get($themeSelected, 'primary');
+    }
+  }
 }
 
 @include theme-colours('default');

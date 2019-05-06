@@ -1,14 +1,12 @@
 <script>
-  if (window.thanksTimeout) {
-    console.log('Thanks timeout:', window.thanksTimeout);
-    window.clearTimeout(window.thanksTimeout);
-    console.log('Thanks timeout cleared', window);
-  }
-
+  {{#if @root.request.params.query.sg_sessionid}}
+    window.location.hash = '#vote';
+  {{/if}}
   console.log('Registering jQuery on load');
   $(function() {
-    console.log('Checking vote success', window.voteSuccess);
-    if (window.voteSuccess) {
+    var voteSuccessElement = $('#vote-success');
+    console.log('Checking vote success element', voteSuccessElement);
+    if (voteSuccessElement.length > 0) {
       console.log('Setting redirect vars');
       var slug = {{{stringify (default @root.request.params.vote '')}}};
       var category = {{{stringify (default @root.request.params.category '')}}};
@@ -28,11 +26,15 @@
             event_label: slug
           });
         }
-        console.log('Redirecting back to finalist page');
-        window.location.href = '/scottish-charity-awards/vote-2019/' + category + '/' + slug + '#vote';
+        window.setTimeout(function() {
+          console.log('Redirecting back to finalist page');
+          window.location.href = '/scottish-charity-awards/vote-2019/' + category + '/' + slug + '#vote';
+        }, 2000);
       } else {
-        console.log('No slug or category specified. Redirecting to main finalist list');
-        window.location.href = '/scottish-charity-awards/vote-2019';
+        window.setTimeout(function() {
+          console.log('No slug or category specified. Redirecting to main finalist list');
+          window.location.href = '/scottish-charity-awards/vote-2019';
+        }, 2000);
       }
     }
   });

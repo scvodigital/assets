@@ -782,6 +782,22 @@ primary-dark: #263238
       background-color: map-get($themeSelected, 'primary');
     }
   }
+
+  .wp-block-table {
+    border: 1px solid map-get($themeSelected, 'primary');
+    border-collapse: collapse;
+    &.full-width {
+      width: 100%;
+    }
+    th {
+      padding: $unit/2;
+      font-weight: bold;
+    }
+    td {
+      padding: $unit/2;
+      border: 1px solid #000000;
+    }
+  }
 }
 
 @include theme-colours('default');

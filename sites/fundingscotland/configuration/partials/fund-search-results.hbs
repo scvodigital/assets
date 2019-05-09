@@ -80,7 +80,7 @@
           {{#if @root.request.params.query.keywords}}
             <input type="hidden" name="keywords" value="{{@root.request.params.query.keywords}}">
           {{/if}}
-          {{#each (split "fund_status,charities_only,geographical_areas_funded,type_of_cost,type_of_funding,activities,beneficiaries" ",")}}
+          {{#each (split "fund_status,charities_only,geographical_areas_funded,type_of_cost,type_of_funding,activities,beneficiaries,source_of_fund" ",")}}
             {{#if (getProperty @root.request.params.query this)}}
               {{#each (arrayify (getProperty @root.request.params.query this))}}
                 <input type="hidden" name="{{../this}}" value="{{this}}">

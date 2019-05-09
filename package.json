@@ -13,7 +13,8 @@
     "publish": "npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "publish-local": "export TRAVIS=\"true\" && npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "clear-build": "rm -rf build/**",
-    "clear-cache": "rm -rf node_modules/.cache/hard-source"
+    "clear-cache": "rm -rf node_modules/.cache/hard-source",
+    "push-to-prod": "git checkout production && git pull && git pull && git pull origin development && git push && git checkout development"
   },
   "husky": {
     "hooks": {
@@ -71,6 +72,7 @@
     "@scvo/json-inc": "^0.0.15",
     "babel-polyfill": "^6.26.0",
     "dot-object": "^1.7.1",
+    "fast-sass-loader": "^1.4.7",
     "firebase": "^5.4.2",
     "firebase-admin": "^6.0.0",
     "flat": "^4.1.0",

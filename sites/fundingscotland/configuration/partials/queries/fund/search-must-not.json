@@ -6,4 +6,3 @@
   }
 },
 {{/if ~}}
-{{>queries_do_nothing}}

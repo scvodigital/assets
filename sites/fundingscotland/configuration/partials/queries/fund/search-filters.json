@@ -25,4 +25,3 @@
 {{#if region_group ~}}
   {{>queries_terms field="region_group_slug" terms=region_group}},
 {{/if ~}}
-{{>queries_do_nothing}}

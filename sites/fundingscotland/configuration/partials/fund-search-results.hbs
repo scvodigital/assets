@@ -165,41 +165,6 @@
             <input type="hidden" name="{{this}}" value="{{getProperty @root.request.params.query this}}" />
           {{/if ~}}
         {{/each ~}}
-        <!-- <div class="mdc-select mdc-select--sort pull-right" data-mdc-auto-init="MDCSelect">
-          <input type="hidden" id="sort" name="sort">
-          <i class="mdc-select__dropdown-icon"></i>
-          <div class="mdc-select__selected-text" role="button" aria-haspopup="listbox" aria-labelledby="sort-label">Relevance</div>
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-            <ul class="mdc-list">
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "relevance"}} mdc-list-item--selected{{/compare}}" data-value="relevance" aria-selected="true">
-                Relevance
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "max_funded_asc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="max_funded_asc">
-                Maximum funded - low to high
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "max_funded_desc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="max_funded_desc">
-                Maximum funded - high to low
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "deadline_date_asc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="deadline_date_asc">
-                Deadline date - soonest first
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "deadline_date_desc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="deadline_date_desc">
-                Deadline date - soonest last
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "date_last_reviewed"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="date_last_reviewed">
-                Date last reviewed
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "alphabetical_asc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="alphabetical_asc">
-                Alphabetical - a to z
-              </li>
-              <li class="mdc-list-item{{#compare @root.request.params.query.sort "===" "alphabetical_desc"}} mdc-list-item--selected{{/compare}}{{#if @root.data.auth}}{{else}} mdc-list-item--disabled{{/if}}" data-value="alphabetical_desc">
-                Alphabetical - z to a
-              </li>
-            </ul>
-          </div>
-          <span id="sort-label" class="mdc-floating-label mdc-floating-label--float-above">Sort</span>
-          <div class="mdc-line-ripple"></div>
-        </div> -->
         {{> fund_search_sort}}
       </form>
       {{/compare ~}}
@@ -211,6 +176,14 @@
     </div>
   </div>
 </div>
+
+{{#if (contains @root.request.url.host "local:8080")}}
+<div class="search-info mdc-elevation--z1">
+  <h3 onclick="$('#search-query').toggleClass('hidden');">Search Query (show/hide)</h3>
+  <pre id="search-query" class="hidden">{{{safeStringify @root.data.search_data.detailed_results.request}}}</pre>
+</div>
+{{/if}}
+
 
 {{#each @root.data.search_data.detailed_results.hits.hits ~}}
   {{#compare @root.route.name "===" "fund_search" ~}}

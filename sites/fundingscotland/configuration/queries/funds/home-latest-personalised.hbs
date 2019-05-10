@@ -1,0 +1,68 @@
+{{#json}}
+  {{{json key="size" value=10}}},
+  {{#json key="_source" type="array"}}
+    "Id",
+    "slug",
+    "title",
+    "description",
+    "geographical_areas_funded",
+    "fund_status",
+    "fund_status_slug",
+    "date_reopens",
+    "date_last_important_activity",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url"
+  {{/json}},
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+        {{#ifAll @root.data.auth @root.data.searches.items.[0] ~}}
+          {{#json key="bool"}}
+            {{#json key="filter" type="array"}}
+              {{#json}}
+                {{#json key="bool"}}
+                  {{#json key="should" type="array"}}
+                    {{>queries_term field="fund_status_slug" term="open"}},
+                    {{#json}}
+                      {{#json key="bool"}}
+                        {{#json key="filter" type="array"}}
+                          {{>queries_term field="fund_status_slug" term="currently-closed"}},
+                          {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+                        {{/json}}
+                      {{/json}}
+                    {{/json}}
+                  {{/json}},
+                  {{{json key="minimum_should_match" value=1}}}
+                {{/json}}
+              {{/json}}
+            {{/json}},
+            {{#json key="should" type="array"}}
+              {{#each @root.data.searches.items.[0] ~}}
+                {{#with (querystring querystring) ~}}
+                  {{#json}}
+                    {{#json key="bool"}}
+                      {{#json key="filter" type="array"}}
+                        {{>queries_fund_search_filters this}}
+                      {{/json}},
+                      {{#json key="must" type="array"}}
+                        {{>queries_fund_search_must this}}
+                      {{/json}}
+                    {{/json}}
+                  {{/json}}
+                {{/with ~}}
+              {{/each ~}}
+            {{/json}},
+            {{{json key="minimum_should_match" value=1}}}
+          {{/json}}
+        {{else}}
+          {{#json key="match_none"}}{{/json}}
+        {{/ifAll ~}}
+      {{else}}
+        {{#json key="match_none"}}{{/json}}
+      {{/ifAny ~}}
+    {{/queries_fund_common}}
+  {{/json}},
+  {{#json key="sort"}}
+    {{{json key="date_last_important_activity" value="desc"}}}
+  {{/json}}
+{{/json}}

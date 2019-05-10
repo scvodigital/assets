@@ -1,9 +1,11 @@
 {
   "size": 0,
   "_source": false,
-  "query": {{#>queries_fund_common}}
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
     "match_all": {}
-  {{/queries_fund_common}},
+    {{/queries_fund_common}}
+  {{/json}},
   "aggs": {
     "funders": {
       "terms": {

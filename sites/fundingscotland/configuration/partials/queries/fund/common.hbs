@@ -1,0 +1,55 @@
+{{#json key="function_score"}}
+  {{#json key="query"}}
+    {{#json key="bool"}}
+      {{#json key="must" type="array"}}
+        {{#json}}
+          {{#json key="bool"}}
+            {{#json key="filter" type="array"}}
+              {{#if @root.data.currentSite.fixedFilters.type_of_cost ~}}
+                {{>queries_terms field="type_of_cost_slug" terms=@root.data.currentSite.fixedFilters.type_of_cost}},
+              {{/if ~}}
+              {{#if @root.data.currentSite.fixedFilters.type_of_funding ~}}
+                {{>queries_terms field="type_of_funding_slug" terms=@root.data.currentSite.fixedFilters.type_of_funding}},
+              {{/if ~}}
+              {{#if @root.data.currentSite.fixedFilters.source_of_fund ~}}
+                {{>queries_terms field="source_of_fund_slug" terms=@root.data.currentSite.fixedFilters.source_of_fund}},
+              {{/if ~}}
+              {{#if @root.data.currentSite.fixedFilters.activities ~}}
+                {{>queries_terms field="activities_slugs" terms=@root.data.currentSite.fixedFilters.activities}},
+              {{/if}}
+              {{#if @root.data.currentSite.fixedFilters.beneficiaries ~}}
+                {{>queries_terms field="beneficiaries_slugs" terms=@root.data.currentSite.fixedFilters.beneficiaries}},
+              {{/if}}
+              {{#if @root.data.currentSite.fixedFilters.geographical_areas_funded ~}}
+                {{>queries_terms field="geographical_areas_funded_slugs" terms=@root.data.currentSite.fixedFilters.geographical_areas_funded}},
+              {{/if ~}}
+              {{#if @root.data.currentSite.fixedFilters.region_group ~}}
+                {{>queries_terms field="region_group_slug" terms=@root.data.currentSite.fixedFilters.region_group}},
+              {{/if ~}}
+            {{/json}},
+            {{#json key="must_not" type="array"}}
+              {{#unless showHidden}}
+              {{#if @root.data.profile.hidden}}
+                {{#json}}
+                  {{#json key="ids"}}
+                    {{{json key="type" value="fundingscotland-fund"}}},
+                    {{{json key="values" value=(getKeys @root.data.profile.hidden)}}}
+                  {{/json}}
+                {{/json}}
+              {{/if}}
+              {{/unless}}
+            {{/json}}
+          {{/json}}
+        {{/json}},
+        {{#json}}
+          {{> @partial-block}}
+        {{/json}}
+      {{/json}}
+    {{/json}}
+  {{/json}},
+  {{#json key="script_score"}}
+    {{#json key="script"}}
+      {{{json key="source" value="_score + (doc['boost'].value)"}}}
+    {{/json}}
+  {{/json}}
+{{/json}}

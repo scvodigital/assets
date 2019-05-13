@@ -1,0 +1,9 @@
+{{#ifAny @root.data.currentSite.enablePremiumFeatures (compare @root.data.profile.isPremium ">=" (moment null null)) ~}}
+  <!--
+    Premium Content.
+    enablePremiumFeatures: {{default @root.data.currentSite.enablePremiumFeatures "Not set"}}
+    isPremium: {{default @root.data.profile.isPremium "Not set"}}
+    now: {{moment null null}}
+  -->
+  {{> @partial-block}}
+{{/ifAny}}

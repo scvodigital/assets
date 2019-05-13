@@ -1,4 +1,17 @@
 <div class="container-fluid home-funds b-padding-full">
+  {{#withExtend (obj) test="Test"}}
+    {{#>premium_content}}
+      <h2>I <u>am</u> premium content.</h2>
+      <p>The test variable is "{{test}}".</p>
+    {{/premium_content}}
+    {{#>premium_content_alt}}
+      <h2>I <u>am not</u> premium content.</h2>
+      <p>The test variable is "{{test}}".</p>
+    {{/premium_content_alt}}
+  {{/withExtend}}
+
+
+
   {{#compare @root.data.primaryResponse.all.hits.total ">" 0 ~}}
   {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
   {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0) ~}}

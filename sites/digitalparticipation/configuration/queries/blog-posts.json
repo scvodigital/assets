@@ -1,5 +1,5 @@
 {
-  "size": {{if (compare @root.route.name "home") 1 else=100}},
+  "size": {{if (compare @root.route.name "home") 1 else=10}},
   "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
     "title",

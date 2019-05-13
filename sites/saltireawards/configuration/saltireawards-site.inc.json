@@ -14,6 +14,7 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/saltireawards/",
     "title": "Saltire Awards",
     "menus": "{:./saltireawards-menus.json}",
+    "accountInfoValidation": "{:./account-info-validation.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "commonTasks": {
       "authNotRequired": {

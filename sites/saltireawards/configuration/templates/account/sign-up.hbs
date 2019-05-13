@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var passwordConfirm = $passwordConfirm.val();
     saltireawards.auth.createAccount(email, emailConfirm, password, passwordConfirm)
       .then(function(user) {
-          window.location.href = '/';
+          window.location.href = '/sign-up-details/';
       })
       .catch(function(err) {
         $message.text(err.message || 'There was a problem creating your account').show();

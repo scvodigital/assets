@@ -1,35 +1,33 @@
 {
   "name": "testpage",
   "pattern": "/testpage",
+  "debug": true,
   "acceptedVerbs": "GET",
   "defaultParams": {
     "context": "results"
   },
-  "metaData" : {
-    "body" : {
-      "users" : [
-        {
-          "externalID" : "extid 8",
-          "dateOfBirth": "2015-05-20",
-          "schoolCollegeName" : "this college"
-        },
-        {
-          "externalID" : "extid 9",
-          "dateOfBirth": "2014-05-20",
-          "schoolCollegeName" : "that college"
-        }
-        ]
-    }
-  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {
-      "name": "destination",
+      "name": "postBody",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "testAPIPost",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
         "output": "body",
-        "template": "{{@root.context.metaData.body}}"
+        "method": "POST",
+        "body": ">data.postBody",
+        "apexClassPath": "/SaltireUsers/"
       }
     }
   ]

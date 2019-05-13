@@ -8,11 +8,31 @@
     "og_summary",
     "content",
     "category",
-    "text_bag_boost"
+    "text_bag_boost",
+    "image_url",
+    "Id"
   ],
   "query": {
-    "term": {
-      "category": "{{@root.request.params.category}}"
+    "bool": {
+      {{#if @root.request.params.category}}
+      "filter": [
+          {
+            "term": {
+              "category": "{{@root.request.params.category}}"
+            }
+          }
+      ],
+      {{/if}}
+      "must_not": [
+        {
+          "term": {
+            "title_sort": ""
+          }
+        }
+      ]
     }
-  }
+  },
+  "sort": [
+    { "title_sort": { "order": "asc" } }
+  ]
 }

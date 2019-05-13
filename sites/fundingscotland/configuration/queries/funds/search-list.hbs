@@ -1,0 +1,124 @@
+{{#json}}
+  {{{json key="size" value=10}}},
+  {{#json key="from" type="number"}}
+    {{#if @root.data.auth}}
+      {{multiply (subtract (default (if (compare request.params.query.page ">" 5) 5 else=request.params.query.page) 1) 1) 10}}
+    {{else}}
+      0
+    {{/if}}
+  {{/json}},
+  {{#json key="_source" type="array"}}
+    "Id",
+    "slug",
+    "title",
+    "text_bag_boost",
+    "fund_status",
+    "fund_status_slug",
+    "date_reopens",
+    "for_charities_only",
+    "activities",
+    "activities_slugs",
+    "beneficiaries",
+    "beneficiaries_slugs",
+    "region_group",
+    "region_group_slug",
+    "description",
+    "source_of_fund",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url",
+    "rendered.fundingscotland_rss"
+  {{/json}},
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      {{#json key="bool"}}
+        {{#json key="filter" type="array"}}
+          {{>queries_fund_search_filters @root.request.params.query}}
+        {{/json}},
+        {{#json key="must" type="array"}}
+          {{>queries_fund_search_must @root.request.params.query}}
+        {{/json}},
+        {{#if (contains @root.request.params.query.miscellaneous "hide-open-funds") ~}}
+          {{#json key="must_not" type="array"}}
+            {{>queries_term field="fund_status_slug" term="open"}}
+          {{/json}},
+        {{/if ~}}
+        {{#json key="should" type="array"}}
+          {{#unless (contains @root.request.params.query.miscellaneous "hide-open-funds") ~}}
+            {{>queries_term field="fund_status_slug" term="open"}},
+          {{/unless ~}}
+          {{#if (contains @root.request.params.query.miscellaneous "show-opening-soon-funds")}}
+            {{#json}}
+              {{#json key="bool"}}
+                {{#json key="filter" type="array"}}
+                  {{>queries_term field="fund_status_slug" term="currently-closed"}}
+                {{/json}},
+                {{#json key="must" type="array"}}
+                  {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+                {{/json}}
+              {{/json}}
+            {{/json}},
+          {{/if}}
+          {{#if (contains @root.request.params.query.miscellaneous "show-closed-funds")}}
+            {{#json}}
+              {{#json key="bool"}}
+                {{#json key="filter" type="array"}}
+                  {{>queries_term field="fund_status_slug" term="currently-closed"}}
+                {{/json}},
+                {{#json key="must_not" type="array"}}
+                  {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+                {{/json}}
+              {{/json}}
+            {{/json}},
+          {{/if}}
+        {{/json}},
+        {{{json key="minimum_should_match" value=1}}}
+      {{/json}}
+    {{/queries_fund_common}}
+  {{/json}},
+  {{#json key="sort" type="array"}}
+    {{#switch @root.request.params.query.sort}}
+      {{#case "max_funded_asc"}}
+        {{#json}}
+          {{{json key="award_size_max" value="asc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "max_funded_desc" ~}}
+        {{#json}}
+          {{{json key="award_size_max" value="desc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "deadline_date_asc" ~}}
+        {{#json}}
+          {{{json key="next_deadline" value="asc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "deadline_date_desc" ~}}
+        {{#json}}
+          {{{json key="next_deadline" value="desc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "alphabetical_asc" ~}}
+        {{#json}}
+          {{{json key="name" value="asc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "alphabetical_desc" ~}}
+        {{#json}}
+          {{{json key="name" value="desc"}}}
+        {{/json}}
+      {{/case}}
+      {{#case "date_last_reviewed" ~}}
+        {{#json}}
+          {{{json key="date_last_modified" value="desc"}}}
+        {{/json}}
+      {{/case}}
+      {{#switchDefault}}
+        "_score"
+      {{/switchDefault ~}}
+    {{/switch}}
+  {{/json}}
+{{/json}}

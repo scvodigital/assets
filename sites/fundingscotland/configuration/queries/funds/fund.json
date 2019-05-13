@@ -55,13 +55,15 @@
     "rendered.json_ld",
     "date_last_modified"
   ],
-  "query": {{#>queries_fund_common}}
-    "term": {
-      {{#if (includes request.params.slug "-") ~}}
-      "slug": "{{request.params.slug}}"
-      {{else}}
-      "Id": "{{request.params.slug}}"
-      {{/if ~}}
-    }
-  {{/queries_fund_common}}
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      "term": {
+        {{#if (includes request.params.slug "-") ~}}
+        "slug": "{{request.params.slug}}"
+        {{else}}
+        "Id": "{{request.params.slug}}"
+        {{/if ~}}
+      }
+    {{/queries_fund_common}}
+  {{/json}}
 }

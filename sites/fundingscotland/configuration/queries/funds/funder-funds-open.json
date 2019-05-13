@@ -24,24 +24,26 @@
     "funder_organisation.profile",
     "funder_organisation_website_url"
   ],
-  "query": {{#>queries_fund_common}}
-    "bool": {
-      "filter": [
-        {
-          "term": {
-            "fund_status_slug": "open"
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      "bool": {
+        "filter": [
+          {
+            "term": {
+              "fund_status_slug": "open"
+            }
           }
-        }
-      ],
-      "must": [
-        {
-          "term": {
-            "funder_organisation.id": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
+        ],
+        "must": [
+          {
+            "term": {
+              "funder_organisation.id": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
+            }
           }
-        }
-      ]
-    }
-  {{/queries_fund_common}},
+        ]
+      }
+    {{/queries_fund_common}}
+  {{/json}},
   "sort": {
     "name": "asc"
   }

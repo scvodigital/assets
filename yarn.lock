@@ -2668,6 +2668,13 @@ clean-css@4.2.x:
   dependencies:
     source-map "~0.6.0"
 
+cli-source-preview@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cli-source-preview/-/cli-source-preview-1.1.0.tgz#05303ab1279a9093ead1a3837b3ee231f3006544"
+  integrity sha1-BTA6sSeakJPq0aODez7iMfMAZUQ=
+  dependencies:
+    chalk "^1.1.3"
+
 cliui@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
@@ -4069,6 +4076,17 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+fast-sass-loader@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/fast-sass-loader/-/fast-sass-loader-1.4.7.tgz#ef30809fa5a3c01aa2516ed329eb3841d35c806d"
+  integrity sha512-ooXeUPLdRGuw6iObCyPBzGw2roAevkVnI4NYOTUuuuFN6GKNj8TFiHPNR0IzPUN1brWgmb1wtsj6k64q2d/jRw==
+  dependencies:
+    async "^2.0.1"
+    cli-source-preview "^1.0.0"
+    co "^4.6.0"
+    fs-extra "3.x"
+    loader-utils "^1.1.0"
+
 fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
@@ -4306,6 +4324,15 @@ from2@^2.1.0:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
+
+fs-extra@3.x:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-3.0.1.tgz#3794f378c58b342ea7dbbb23095109c4b3b62291"
+  integrity sha1-N5TzeMWLNC6n27sjCVEJxLO2IpE=
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^3.0.0"
+    universalify "^0.1.0"
 
 fs-minipass@^1.2.5:
   version "1.2.5"
@@ -4637,6 +4664,11 @@ google-proto-files@^0.16.0, google-proto-files@^0.16.1:
 graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
+
+graceful-fs@^4.1.6:
+  version "4.1.15"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
+  integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
 
 graceful-fs@~2.0.0:
   version "2.0.3"
@@ -5527,6 +5559,13 @@ json5@^2.1.0:
   integrity sha512-8Mh9h6xViijj36g7Dxi+Y4S6hNGV96vcJZr/SrlHh1LR/pEn/8j/+qIBbs44YKl69Lrfctp4QD+AdWLTMqEZAQ==
   dependencies:
     minimist "^1.2.0"
+
+jsonfile@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-3.0.1.tgz#a5ecc6f65f53f662c4415c7675a0331d0992ec66"
+  integrity sha1-pezG9l9T9mLEQVx2daAzHQmS7GY=
+  optionalDependencies:
+    graceful-fs "^4.1.6"
 
 jsonify@~0.0.0:
   version "0.0.0"
@@ -9089,6 +9128,11 @@ universal-deep-strict-equal@^1.2.1:
     array-filter "^1.0.0"
     indexof "0.0.1"
     object-keys "^1.0.0"
+
+universalify@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
+  integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"

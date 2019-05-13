@@ -16,12 +16,14 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {{#>queries_fund_common}}
-    "ids": {
-      "type": "fundingscotland-fund",
-      "values": {{{stringify (pluck @root.data.shortlist.items.[0] "value")}}}
-    }
-  {{/queries_fund_common}},
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      "ids": {
+        "type": "fundingscotland-fund",
+        "values": {{{stringify (pluck @root.data.shortlist.items.[0] "value")}}}
+      }
+    {{/queries_fund_common}}
+  {{/json}},
   "sort": {
     "date_last_important_activity": "desc"
   }

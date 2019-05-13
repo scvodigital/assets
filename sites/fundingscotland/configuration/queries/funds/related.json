@@ -16,77 +16,79 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {{#>queries_fund_common}}
-    "function_score": {
-      "query": {
-        "bool": {
-          "must_not": [
-            {
-              "term": {
-                "Id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
-              }
-            }
-          ]
-        }
-      },
-      "functions": [
-        {
-          "filter": {
-            "more_like_this": {
-              "fields": ["title^5","text_bag"],
-              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
-              "min_term_freq": 1,
-              "max_query_terms": 12
-            }
-          },
-          "weight": 5
-        },
-        {
-          "filter": {
-            "more_like_this": {
-              "fields": ["funder_organisation.name^2","text_bag","who_can_apply"],
-              "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
-              "min_term_freq": 1,
-              "max_query_terms": 12
-            }
-          },
-          "weight": 4
-        },
-        {
-          "filter": {
-            "common": {
-              "activities": {
-                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.activities}}",
-                "cutoff_frequency": 0.001,
-                "minimum_should_match": {
-                  "low_freq" : 2,
-                  "high_freq" : 3
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      "function_score": {
+        "query": {
+          "bool": {
+            "must_not": [
+              {
+                "term": {
+                  "Id": "{{data.primaryResponse.hits.hits.[0]._source.Id}}"
                 }
               }
-            }
-          },
-          "weight": 1
+            ]
+          }
         },
-        {
-          "filter": {
-            "common": {
-              "beneficiaries": {
-                "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
-                "cutoff_frequency": 0.001,
-                "minimum_should_match": {
-                  "low_freq" : 2,
-                  "high_freq" : 3
+        "functions": [
+          {
+            "filter": {
+              "more_like_this": {
+                "fields": ["title^5","text_bag"],
+                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
+                "min_term_freq": 1,
+                "max_query_terms": 12
+              }
+            },
+            "weight": 5
+          },
+          {
+            "filter": {
+              "more_like_this": {
+                "fields": ["funder_organisation.name^2","text_bag","who_can_apply"],
+                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
+                "min_term_freq": 1,
+                "max_query_terms": 12
+              }
+            },
+            "weight": 4
+          },
+          {
+            "filter": {
+              "common": {
+                "activities": {
+                  "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.activities}}",
+                  "cutoff_frequency": 0.001,
+                  "minimum_should_match": {
+                    "low_freq" : 2,
+                    "high_freq" : 3
+                  }
                 }
               }
-            }
+            },
+            "weight": 1
           },
-          "weight": 1
-        }
-      ],
-      "max_boost": 50,
-      "score_mode": "max",
-      "boost_mode": "multiply",
-      "min_score" : 1
-    }
-  {{/queries_fund_common}}
+          {
+            "filter": {
+              "common": {
+                "beneficiaries": {
+                  "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
+                  "cutoff_frequency": 0.001,
+                  "minimum_should_match": {
+                    "low_freq" : 2,
+                    "high_freq" : 3
+                  }
+                }
+              }
+            },
+            "weight": 1
+          }
+        ],
+        "max_boost": 50,
+        "score_mode": "max",
+        "boost_mode": "multiply",
+        "min_score" : 1
+      }
+    {{/queries_fund_common}}
+  {{/json}}
 }

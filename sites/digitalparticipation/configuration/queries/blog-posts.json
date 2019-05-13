@@ -8,7 +8,12 @@
     "author_name_full",
     "author_job_title",
     "author_organisation_name",
-    "slug"
+    "slug",
+    "quotation.author",
+    "quotation.text",
+    "quotation.headshot",
+    "quotation.author_title",
+    "quotation.author_url"
   ],
   "query": {
     "bool": {

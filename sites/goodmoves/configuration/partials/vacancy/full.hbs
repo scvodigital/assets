@@ -15,7 +15,7 @@
             {{#if start_at ~}}
             <li class="mdc-card__info--content-primary-from mdc-typography--body1">
               <span class="fa-li"><span class="far fa-calendar-plus fa-fw" title="Start date"></span></span>
-              Advertised from {{momentFormat (moment start_at "x") "Do MMMM YYYY"}}
+              Advertised from {{momentFormat (momentConvertTz (moment start_at "x") "UTC" "Europe/London") "Do MMMM YYYY"}}
             </li>
             {{/if ~}}
             {{#if salary_info ~}}

@@ -1,0 +1,33 @@
+{
+  "name": "skills_information",
+  "pattern": "/skills/information",
+  "metaData": {
+    "title": "Learn about the essential digital skills framework – Scotland's Digital Participation Charter"
+  },
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.head-tags",
+              "body": ">context.metaData.handlebars.templates.skills_information",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

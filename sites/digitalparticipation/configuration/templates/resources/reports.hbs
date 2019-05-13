@@ -1,0 +1,46 @@
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner title">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone">
+      <h1><a href="/resources">Resources</a></h1>
+      <h2>Reports</h2>
+      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Resources illustration" class="responsive-img hide-on-med-and-up" />
+    </div>
+    <div class="mdc-layout-grid__cell hide-on-small-only mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-4-phone">
+      <img src="https://storage.googleapis.com/digitalparticipation/images/illustrations/Resource-Banner.png" alt="Resources illustration" class="responsive-img pull-right" />
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <hr />
+    </div>
+  </div>
+  <div class="mdc-layout-grid__inner resources description">
+    {{#each @root.data.supplimentaryResponses.links.hits.hits ~}}
+    {{#with _source ~}}
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+      <h4>{{{title}}}</h4>
+      <p><strong>{{{author_attribution}}}</strong></p>
+      {{{content}}}
+      {{#if link ~}}
+      <p>
+        {{#if (contains link ".pdf") ~}}
+        <a href="{{link}}" rel="noopener" download>Download</a> <span class="fas fa-file-pdf" aria-hidden="true"></span>
+        {{else}}
+        {{#if (contains link ".zip") ~}}
+        <a href="{{link}}" rel="noopener" download>Download</a> <span class="fas fa-file-archive" aria-hidden="true"></span>
+        {{else}}
+        <a href="{{link}}" rel="noopener">Read more</a> <span class="fas fa-external-link" aria-hidden="true"></span>
+        {{/if ~}}
+        {{/if ~}}
+      </p>
+      {{/if ~}}
+    </div>
+    {{/with ~}}
+    {{/each ~}}
+  </div>
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <hr class="margin-top" />
+    </div>
+  </div>
+</div>

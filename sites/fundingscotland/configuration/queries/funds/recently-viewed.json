@@ -13,21 +13,23 @@
     "funder_organisation.has_logo",
     "funder_organisation.logo_url"
   ],
-  "query": {{#>queries_fund_common}}
-    "bool": {
-      "must": [
-        {{#if @root.request.cookies.recently_viewed}}
-        {
-          "terms": {
-            "Id": {{{stringify (split @root.request.cookies.recently_viewed ',')}}}
+  {{#json key="query"}}
+    {{#>queries_fund_common}}
+      "bool": {
+        "must": [
+          {{#if @root.request.cookies.recently_viewed}}
+          {
+            "terms": {
+              "Id": {{{stringify (split @root.request.cookies.recently_viewed ',')}}}
+            }
           }
-        }
-        {{else}}
-        {
-          "match_none": {}
-        }
-        {{/if}}
-      ]
-    }
-  {{/queries_fund_common}}
+          {{else}}
+          {
+            "match_none": {}
+          }
+          {{/if}}
+        ]
+      }
+    {{/queries_fund_common}}
+  {{/json}}
 }

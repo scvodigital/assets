@@ -1,29 +1,12 @@
 {
   "name": "categories_charity_awards",
-  "pattern": "/scottish-charity-awards/vote-2019",
+  "pattern": "/scottish-charity-awards/vote-2019(/*category)",
   "metaData": {
     "awards-info": "{:../awards-info.json}"
   },
   "tasks": [
     {
-      "name": "primaryResponse",
-      "taskModule": "elasticsearch",
-      "config": {
-        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
-        "elasticsearchConfig": {
-          "apiVersion": "5.6"
-        },
-        "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-page",
-          "template": ">context.metaData.handlebars.queries.pages_page",
-          "noResultsRoute": "four_oh_four"
-        }
-      },
-      "renderer": "handlebars"
-    },
-    {
-      "name": "supplimentaryResponses",
+      "name": "search",
       "taskModule": "elasticsearch",
       "config": {
         "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
@@ -31,6 +14,12 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": [
+          {
+            "name": "cms",
+            "index": "web-content-production",
+            "type": "scvo-cms-page",
+            "template": ">context.metaData.handlebars.queries.pages_charity-awards-cms"
+          },
           {
             "name": "categories",
             "index": "web-content-production",
@@ -42,6 +31,12 @@
             "index": "web-content-production",
             "type": "scvo-cms-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
+          },
+          {
+            "name": "finalists",
+            "index": "web-content-production",
+            "type": "scvo-cms-charity-awards",
+            "template": ">context.metaData.handlebars.queries.pages_charity-awards-list"
           }
         ]
       },

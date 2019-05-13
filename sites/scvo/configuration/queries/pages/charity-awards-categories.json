@@ -1,8 +1,16 @@
 {
-  "size": 10000,
+  "size": 0,
   "_source": false,
   "query": {
-    "match_all": {}
+    "bool": {
+      "must_not": [
+        {
+          "term": {
+            "title_sort": ""
+          }
+        }
+      ]
+    }
   },
   "aggs": {
     "categories": {

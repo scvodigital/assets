@@ -1,6 +1,7 @@
 {
   "name": "blog_posts",
   "pattern": "/stories",
+  "debug": true,
   "metaData": {
     "title": "Stories – Scotland's Digital Participation Charter"
   },

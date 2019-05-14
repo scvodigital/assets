@@ -1,6 +1,7 @@
 {
   "name": "delete_user",
   "pattern": "/delete-user",
+  "debug": true,
   "metaData": {
     "hideSearch": true
   },

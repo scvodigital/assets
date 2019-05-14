@@ -110,43 +110,22 @@
               <a href="/" class="mdc-top-app-bar__title">
                 {{@root.data.currentSite.title}}
               </a>
-              <!-- {{#compare @root.data.currentSite.name "!==" "default" ~}}
-              &emsp;<span style="font-weight:600;">|</span>&emsp;
-              <a href="https://fundingscotland.com" class="mdc-typography--caption">{{@root.data.currentSite.title}}</a>
-              {{/compare ~}} -->
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              <!-- <form action="/search" method="GET" class="h-margin">
-                <div class="mdc-text-field text-field demo-text-field-outlined-shaped mdc-text-field--outlined mdc-text-field--with-trailing-icon" data-mdc-auto-init="MDCTextField">
-                  <input type="text" id="perm-keywords" name="keywords" class="mdc-text-field__input mdc-text-field--fullwidth" value="" data-lpignore="true" autocomplete="off">
-                  <span class="fas fa-search active-search-icon mdc-text-field__icon" role="button" onclick="$(this).parents('form:first').submit();" style="pointer-events:initial !important; z-index:500;" tabindex="-1"></span>
-                  <div class="mdc-notched-outline mdc-notched-outline--upgraded">
-                    <div class="mdc-notched-outline__leading"></div>
-                    <div class="mdc-notched-outline__notch">
-                      <label class="mdc-floating-label" for="keywords">
-                        {{#compare @root.data.currentSite.name "===" "default" ~}}
-                        Search {{@root.data.currentSite.title}}
-                        {{else}}
-                        {{@root.data.currentSite.title}}
-                        {{/compare ~}}
-                      </label>
-                    </div>
-                    <div class="mdc-notched-outline__trailing"></div>
-                  </div>
-                </div>
-              </form> -->
-
               {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
-              {{#withExtend this isPremium=@root.data.profile.isPremium ~}}
               <div class="mdc-chipset pull-right hide-md hide-sm">
                 <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
-                  <i class="far mdc-chip__icon {{if isPremium 'fa-check-circle' else='fa-circle'}}"></i>
+                  {{#>premium_content}}
+                    <i class="far mdc-chip__icon fa-check-circle"></i>
+                  {{/premium_content}}
+                  {{#>premium_content_alt}}
+                    <i class="far mdc-chip__icon fa-circle"></i>
+                  {{/premium_content_alt}}
                   <div class="mdc-chip__text">
                     Premium user
                   </div>
                 </a>
               </div>
-              {{/withExtend ~}}
               {{/ifAll ~}}
 
               {{#unless @root.route.metaData.hideSearch ~}}

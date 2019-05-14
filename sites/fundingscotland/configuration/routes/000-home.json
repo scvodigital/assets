@@ -1,6 +1,7 @@
 {
   "name": "home",
   "pattern": "/",
+  "debug": true,
   "metaData": {
     "hideSearch": true
   },

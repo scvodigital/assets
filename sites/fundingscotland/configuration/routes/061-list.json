@@ -1,6 +1,7 @@
 {
   "name": "list",
   "pattern": "/lists/:name",
+  "debug": true,
   "metaData": {
     "hideSearch": true
   },

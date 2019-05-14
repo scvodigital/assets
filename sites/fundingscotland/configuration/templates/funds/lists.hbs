@@ -1,82 +1,83 @@
 <div id="detailed-results-container" class="container-content lists fundingscotland-lists">
   <h1 class="mdc-typography--headline3 v-margin-full">
     Lists &amp; email updates
-    {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+    {{#>premium_content}}
       <span class="far fa-fw fa-question-circle fa-xs pointer" data-help-box-toggle="lists-page"></span>
-    {{/ifAny}}
+    {{/premium_content}}
   </h1>
 
-  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-  {{#>help_box id="lists-page"}}
-      You can use lists to organise funds you are interested in. Lists can then be downloaded as a full report of each fund (including any notes you have made) as a PDF. You can also subscribe to receive email updates about any changes to funds in each of your lists.
-  {{/help_box}}
+  {{#>premium_content}}
+    {{#>help_box id="lists-page"}}
+        You can use lists to organise funds you are interested in. Lists can then be downloaded as a full report of each fund (including any notes you have made) as a PDF. You can also subscribe to receive email updates about any changes to funds in each of your lists.
+    {{/help_box}}
 
-  <div class="mdc-list-group mdc-theme--secondary-border border rounded b-margin-full">
-    <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
-      {{#if (any @root.data.shortlistPartitions.items.[0]) ~}}
-      {{#each @root.data.shortlistPartitions.items.[0] ~}}
-      <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
-        <span class="mdc-list-item__graphic mdc-theme--primary-bg mdc-theme--on-primary mdc-list-item__graphic-counter">
-          {{length (filter (arrayify (getProperty (querystring querystring) "id")) null "valueIn" (pluck @root.data.primaryResponse.hits.hits "_id"))}}
-        </span>
-        <span class="mdc-list-item__text">
-          <span class="mdc-list-item__primary-text">
-            <a href="/lists/{{partition}}">{{partition}}</a>
+    <div class="mdc-list-group mdc-theme--secondary-border border rounded b-margin-full">
+      <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
+        {{#if (any @root.data.shortlistPartitions.items.[0]) ~}}
+        {{#each @root.data.shortlistPartitions.items.[0] ~}}
+        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
+          <span class="mdc-list-item__graphic mdc-theme--primary-bg mdc-theme--on-primary mdc-list-item__graphic-counter">
+            {{length (filter (arrayify (getProperty (querystring querystring) "id")) null "valueIn" (pluck @root.data.primaryResponse.hits.hits "_id"))}}
           </span>
-          <span class="mdc-list-item__secondary-text">
-            <span class="r-margin-full">
-              <a class="mdc-theme--error pointer" role="button" data-delete-list="{{partition}}">Delete list</a>
+          <span class="mdc-list-item__text">
+            <span class="mdc-list-item__primary-text">
+              <a href="/lists/{{partition}}">{{partition}}</a>
             </span>
-            <span class="r-margin-full">
-              <a href="/list-pdf/{{partition}}" download>Download as PDF</a>
-            </span>
-            <span class="r-margin-full">
-              <a href="/list-csv/{{partition}}" download>Download as CSV</a>
+            <span class="mdc-list-item__secondary-text">
+              <span class="r-margin-full">
+                <a class="mdc-theme--error pointer" role="button" data-delete-list="{{partition}}">Delete list</a>
+              </span>
+              <span class="r-margin-full">
+                <a href="/list-pdf/{{partition}}" download>Download as PDF</a>
+              </span>
+              <span class="r-margin-full">
+                <a href="/list-csv/{{partition}}" download>Download as CSV</a>
+              </span>
             </span>
           </span>
-        </span>
-        <span class="mdc-list-item__meta">
-          <div class="mdc-chip-set">
-            {{#> ajax_chip
-              onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
-              offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
-              onText="Email updates"
-              offText="Email updates"
-              iconClasses="far fa-envelope"
-              on=partitionActive
-            }}
-            {
-              "extraAttributes": "data-fund-id=\"{{../partition}}\"",
-              "onClasses": {
-                "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
-              },
-              "offClasses": {
-                "[data-fund-id=\"{{../partition}}\"]": ""
+          <span class="mdc-list-item__meta">
+            <div class="mdc-chip-set">
+              {{#> ajax_chip
+                onUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+                offUrl=(concat "/toggle-list-subscription?name=" (urlencode partition))
+                onText="Email updates"
+                offText="Email updates"
+                iconClasses="far fa-envelope"
+                on=partitionActive
+              }}
+              {
+                "extraAttributes": "data-fund-id=\"{{../partition}}\"",
+                "onClasses": {
+                  "[data-fund-id=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                },
+                "offClasses": {
+                  "[data-fund-id=\"{{../partition}}\"]": ""
+                }
               }
-            }
-            {{/ajax_chip}}
-          </div>
-        </span>
-      </li>
-      {{#unless @last}}
-        <li class="mdc-list-divider" role="separator"></li>
-      {{/unless ~}}
-      {{/each ~}}
-      {{else}}
-      <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
-        <span class="mdc-list-item__text">
-          <span class="mdc-list-item__primary-text">
-            You haven't created any lists
+              {{/ajax_chip}}
+            </div>
           </span>
-          <span class="mdc-list-item__secondary-text">
-            To create a list, go to the "Lists" tab on a fund you would like to save.
+        </li>
+        {{#unless @last}}
+          <li class="mdc-list-divider" role="separator"></li>
+        {{/unless ~}}
+        {{/each ~}}
+        {{else}}
+        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
+          <span class="mdc-list-item__text">
+            <span class="mdc-list-item__primary-text">
+              You haven't created any lists
+            </span>
+            <span class="mdc-list-item__secondary-text">
+              To create a list, go to the "Lists" tab on a fund you would like to save.
+            </span>
           </span>
-        </span>
-      </li>
-      {{/if ~}}
-    </ul>
-  </div>
-  {{else}}
-  {{> upgrade_ad_lists}}
-  {{/ifAny ~}}
+        </li>
+        {{/if ~}}
+      </ul>
+    </div>
+  {{/premium_content}}
+  {{#>premium_content_alt}}
+    {{> upgrade_ad_lists}}
+  {{/premium_content_alt}}
 </div>

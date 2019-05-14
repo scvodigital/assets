@@ -1,6 +1,7 @@
 {
   "name": "four_oh_four",
   "pattern": "/404",
+  "debug": true,
   "defaultStatusCode": 404,
   "metaData": {
     "hideSearch": true

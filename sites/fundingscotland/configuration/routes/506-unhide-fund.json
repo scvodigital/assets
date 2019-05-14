@@ -1,6 +1,7 @@
 {
   "name": "unhide_fund",
   "pattern": "/unhide-fund/:fundId",
+  "debug": true,
   "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.currentSite",

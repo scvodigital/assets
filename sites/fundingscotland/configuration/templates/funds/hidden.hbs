@@ -6,23 +6,21 @@
     {{/compare}}
   </h1>
 
-  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-
-  {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
-    {{#>help_box id="hidden-funds"}}
-      Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by clicking on the <i class="far fa-eye fa-fw"></i> button.
-    {{/help_box}}
-  {{#each @root.data.primaryResponse.hits.hits ~}}
-    {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
-  {{/each ~}}
-
-  {{else}}
-    {{#>help_box id="hidden-funds-none" permanent=true}}
-      You are not currently hiding any funds.
-    {{/help_box}}
-  {{/compare ~}}
-
-  {{else}}
-  {{> upgrade_ad_hidden}}
-  {{/ifAny ~}}
+  {{#>premium_content}}
+    {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+      {{#>help_box id="hidden-funds"}}
+        Below is a list of all funds you have requested be hidden from all parts of Funding Scotland. You can unhide them by clicking on the <i class="far fa-eye fa-fw"></i> button.
+      {{/help_box}}
+      {{#each @root.data.primaryResponse.hits.hits ~}}
+        {{> fund_search_result _source sort=sort actions="more-fund,unhide-fund" hideNotes=true}}
+      {{/each ~}}
+    {{else}}
+      {{#>help_box id="hidden-funds-none" permanent=true}}
+        You are not currently hiding any funds.
+      {{/help_box}}
+    {{/compare ~}}
+  {{/premium_content}}
+  {{#>premium_content_alt}}
+    {{> upgrade_ad_hidden}}
+  {{/premium_content_alt}}
 </div>

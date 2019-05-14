@@ -1,6 +1,7 @@
 {
   "name": "delete_note",
   "pattern": "/delete-note",
+  "debug": true,
   "acceptedVerbs": "POST",
   "tasks": [
     "context.metaData.commonTasks.currentSite",

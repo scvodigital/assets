@@ -1,6 +1,7 @@
 {
   "name": "hide_fund",
   "pattern": "/hide-fund",
+  "debug": true,
   "acceptedVerbs": "POST",
   "tasks": [
     "context.metaData.commonTasks.currentSite",

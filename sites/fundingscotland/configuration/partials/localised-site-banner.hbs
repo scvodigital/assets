@@ -1,5 +1,5 @@
 {{#compare @root.data.currentSite.name "default"}}
-  {{#unless @root.data.profile.isPremium}}
+  {{#>premium_content_alt}}
     {{#each (pluck (shuffle (entries @root.context.metaData.site-configurations)) "1")}}
       {{#each @root.request.params.query}}
         {{#if (getProperty ../this (concat "defaultSiteAdTerms." @key))}}
@@ -23,12 +23,10 @@
                   </button>
                 </div>
               </div>
-              <!--
             {{/unless}}
           {{/if}}
         {{/if}}
       {{/each}}
     {{/each}}
-    <!-- -->
-  {{/unless}}
+  {{/premium_content_alt}}
 {{/compare}}

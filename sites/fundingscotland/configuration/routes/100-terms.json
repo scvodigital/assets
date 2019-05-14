@@ -1,6 +1,7 @@
 {
   "name": "page_terms",
   "pattern": "/terms",
+  "debug": true,
   "metaData": {
     "hideSearch": true
   },

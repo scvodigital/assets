@@ -1,6 +1,7 @@
 {
   "name": "page_privacy",
   "pattern": "/privacy",
+  "debug": true,
   "metaData": {
     "hideSearch": true
   },

@@ -13,7 +13,7 @@
         "appName": "fundingscotland",
         "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/{{@root.data.currentSite.name}}/isPremium",
         "setOrUpdate": "set",
-        "dataTemplate": "{{if @root.data.profile.isPremium 'false' else='true'}}"
+        "dataTemplate": "{{#>premium_content}}false{{/premium_content}}{{#>premium_content_alt}}{{dateMath 'now+1y'}}{{/premium_content_alt}}"
       }
     },
     {

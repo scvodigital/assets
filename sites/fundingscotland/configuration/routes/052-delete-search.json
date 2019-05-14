@@ -1,7 +1,7 @@
 {
   "name": "delete_search",
   "pattern": "/delete-search",
-  "debug": true,
+  "debug": false,
   "acceptedVerbs": "POST",
   "tasks": [
     "context.metaData.commonTasks.authRequired",

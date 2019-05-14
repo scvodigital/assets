@@ -1,7 +1,7 @@
 {
   "name": "hidden_funds",
   "pattern": "/hidden-funds",
-  "debug": true,
+  "debug": false,
   "metaData": {
     "hideSearch": true
   },

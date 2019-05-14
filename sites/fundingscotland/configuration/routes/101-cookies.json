@@ -1,7 +1,7 @@
 {
   "name": "page_cookies",
   "pattern": "/cookies",
-  "debug": true,
+  "debug": false,
   "metaData": {
     "hideSearch": true
   },

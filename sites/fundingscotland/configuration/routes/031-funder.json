@@ -1,7 +1,7 @@
 {
   "name": "funder",
   "pattern": "/funder/:slug",
-  "debug": true,
+  "debug": false,
   "defaultParams": {
     "context": "detail"
   },

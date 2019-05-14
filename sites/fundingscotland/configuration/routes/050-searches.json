@@ -1,7 +1,7 @@
 {
   "name": "searches",
   "pattern": "/searches",
-  "debug": true,
+  "debug": false,
   "metaData": {
     "hideSearch": true,
     "sidebarButton": {

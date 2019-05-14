@@ -1,6 +1,6 @@
 {
-  "name": "home",
-  "pattern": "/sign-up-details/",
+  "name": "sign-up-details",
+  "pattern": "/sign-up-details",
   "debug": true,
   "metaData": {
     "hideSearch": true

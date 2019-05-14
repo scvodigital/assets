@@ -20,9 +20,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages.head-tags",
-              "body": ">context.metaData.handlebars.templates.404",
-              "foot": ">context.metaData.handlebars.templates.pages.foot"
+              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.404"
             },
             "contentType": "text/html"
           }

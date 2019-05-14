@@ -1,0 +1,35 @@
+{
+  "name": "submit-user-details",
+  "pattern": "/submit-user-details",
+  "debug": true,
+  "acceptedVerbs": "POST",
+  "defaultParams": {
+    "context": "results"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "postBody",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "APIPost",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "body",
+        "method": "POST",
+        "body": ">data.postBody",
+        "apexClassPath": "/SaltireUsers/"
+      }
+    }
+
+  ]
+}

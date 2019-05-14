@@ -5,7 +5,7 @@
     Thank you for signing up to the Saltire Awards! Please add your details below
   </div>
 
-  <form id="user-details-form" action="/submit-details" method="POST">
+  <form id="user-details-form" action="/submit-user-details" method="POST">
 
     {{>account_details_form_fields}}
 
@@ -22,10 +22,12 @@
   function preSubmit() {
     var form = document.getElementById("user-details-form");
     var isValid = form.checkValidity();
-    if (isValid) console.log("I submit form");
-    
+    if (isValid) {
+      onSubmit();
+    }
+
   }
-  function onSubmit(token) {
+  function onSubmit() {
     document.getElementById("user-details-form").submit();
   }
 </script>

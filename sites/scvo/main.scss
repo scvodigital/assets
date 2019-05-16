@@ -341,9 +341,15 @@ primary-dark: #263238
       background-color: white !important;
     }
   }
+  .post-info .post-info-categories .inline-list li a {
+    color: map-get($themeSelected, 'primary') !important;
+  }
+  .post-info .post-info-categories .inline-list li a:hover {
+    color: map-get($themeSelected, 'primary-dark') !important;
+  }
   .support.funding .mdc-card__primary,
   .support.support-organisation .mdc-card__primary,
-  .post-info .post-info-categories .inline-list li a,
+  .post-info .post-info-tags .inline-list li a,
   .pagination li.current-page,
   .mdc-theme--primary-bg {
     background-color: map-get($themeSelected, 'primary') !important;
@@ -435,7 +441,7 @@ primary-dark: #263238
   }
   .pagination li:hover,
   .pagination li.current-page:hover,
-  .post-info .post-info-categories .inline-list li a:hover,
+  .post-info .post-info-tags .inline-list li a:hover,
   .mdc-theme--primary-dark-bg {
     background-color: map-get($themeSelected, 'primary-dark') !important;
   }
@@ -3250,7 +3256,7 @@ table.membership-fees {
     padding-bottom: $unit/2 !important;
   }
 }
-.post-info-categories {
+.post-info-tags {
   margin-left: 1px;
   ul {
     padding: 0;
@@ -3918,7 +3924,7 @@ ul.breadcrumbs {
     margin-right: $unit/2;
     margin-bottom: $unit/2;
   }
-  .post-info-item.post-info-categories {
+  .post-info-item.post-info-tags {
     margin-bottom: 0;
   }
   .post-info-item:last-child {
@@ -3942,7 +3948,7 @@ ul.breadcrumbs {
     }
   }
   .post-info-share,
-  .post-info-categories {
+  .post-info-tags {
     .inline-list {
       li {
         display: inline-block;
@@ -3958,6 +3964,20 @@ ul.breadcrumbs {
           text-decoration: none;
         }
       }
+    }
+  }
+  .post-info-categories {
+    li:not(:last-child) {
+      margin-right: 0;
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+    li:after {
+      content: ","
+    }
+    li:last-child:after {
+      content: ""
     }
   }
 }

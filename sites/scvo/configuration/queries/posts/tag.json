@@ -1,0 +1,40 @@
+{
+  "size": 10,
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
+  "_source": [
+    "post_tags",
+    "post_tags_id",
+    "post_tags_slug",
+    "rendered.scvo_list",
+    "rendered.rss"
+  ],
+  "query": {
+    "bool": {
+      "must_not": [
+        {
+          "term": {
+            "hide_in_results": true
+          }
+        },
+        {
+          "term": {
+            "hide_from_search": "1"
+          }
+        }
+      ],
+      "should": [
+        {
+          "terms": {
+            "post_tags_slug": [
+              "{{request.params.tag_slug}}"
+            ]
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+  "sort": {
+    "publish_on": "desc"
+  }
+}

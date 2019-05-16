@@ -33,9 +33,6 @@
       </ul> --}}
       {{#compare @root.data.supplimentaryResponses.resources_relevant.hits.total ">" 0 ~}}
       <h2>Useful resources based on your results</h2>
-      <p>
-        To view all of our skills resources <a href="/resources">go to our resources page</a>.
-      </p>
       <div class="mdc-layout-grid equal-height t-padding-full">
         <div class="mdc-layout-grid__inner">
           {{#each @root.data.supplimentaryResponses.resources_relevant.hits.hits ~}}
@@ -45,6 +42,9 @@
           {{/each ~}}
         </div>
       </div>
+      <p>
+        To view all of our skills resources <a href="/resources">go to our resources page</a>.
+      </p>
       {{/compare ~}}
     </div>
   </div>

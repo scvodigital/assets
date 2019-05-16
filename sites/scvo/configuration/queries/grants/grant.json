@@ -11,7 +11,7 @@
     "planned_start",
     "planned_end",
     "call",
-    "call-slug",
+    "call_slug",
     "amount_awarded",
     "amount_requested_total",
     "amount_requested",

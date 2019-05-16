@@ -789,6 +789,7 @@ primary-dark: #263238
     }
   }
 
+  body.post table,
   .wp-block-table {
     border: 1px solid map-get($themeSelected, 'primary');
     border-collapse: collapse;

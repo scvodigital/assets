@@ -1,8 +1,7 @@
 {
   "domains": [
     "digitalparticipation-legacy.local",
-    "digitalparticipation.scot",
-    "www.digitalparticipation.scot"
+    "legacy.digitalparticipation.scot"
   ],
   "routes": [
     "{:./routes/*.json}"

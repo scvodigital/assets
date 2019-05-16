@@ -1,7 +1,8 @@
 {
   "domains": [
     "digitalparticipation.local",
-    "test.digitalparticipation.scot"
+    "digitalparticipation.scot",
+    "www.digitalparticipation.scot"
   ],
   "routes": [
     "{:./routes/*.json}"

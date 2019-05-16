@@ -24,13 +24,13 @@
           {{#compare key "===" "Cyber 2" ~}}
           <h2>Call 2, 2019</h2>
           <p>
-            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{grants.hits.total}} have currently been awarded.
+            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{#compare grants.hits.total "<" 60}}{{grants.hits.total}} have currently been awarded.{{/compare}}
           </p>
           {{else}}
           {{#compare key "===" "Cyber 3" ~}}
           <h2>Call 3, 2019</h2>
           <p>
-
+            In the third round of the Cyber Essentials grant scheme, we supported {{grants.hits.total}} organisations to achieve Cyber Essentials accreditation.
           </p>
           {{/compare ~}}
           {{/compare ~}}

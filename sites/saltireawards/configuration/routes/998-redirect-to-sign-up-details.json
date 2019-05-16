@@ -1,0 +1,15 @@
+{
+  "name": "redirect-to-sign-up-details",
+  "pattern": "/redirect-to-sign-up-details",
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/sign-up-details?redirect=true",
+        "statusCode": 302
+      }
+    }
+  ]
+}
+

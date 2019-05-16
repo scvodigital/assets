@@ -132,14 +132,14 @@
                     iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
-                  {{!--#each @root.context.metaData.menus.user-signed-in ~}}
+                  {{#each @root.context.metaData.menus.user-signed-in ~}}
                     <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
                       {{#if icon ~}}
                       <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
                       {{/if ~}}
                       {{{label}}}
                     </a>
-                  {{/each ~--}}
+                  {{/each ~}}
                 {{/components_anchored_menu}}
               {{else}}
                 {{#>components_tab_bar
@@ -177,7 +177,7 @@
               </span>
               <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
             </a>
-            {{!--#each @root.context.metaData.menus.user-signed-in ~}}
+            {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}
             {{else}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
@@ -198,7 +198,7 @@
               {{/if ~}}
               {{{label}}}
             </a>
-            {{/each ~--}}
+            {{/each ~}}
             {{/if ~}}
           </nav>
         </div>

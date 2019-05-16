@@ -19,15 +19,43 @@
       }
     },
     {
-      "name": "APIPost",
+      "name": "miloAPI",
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
         "connection": "scvoAlexSandbox",
-        "output": "body",
+        "output": "data",
         "method": "POST",
         "body": ">data.postBody",
         "apexClassPath": "/SaltireUsers/"
+      }
+    },
+    {
+      "name": "storeExternalProfileId",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/external-id/{{default data.auth.uid 'no-such-write-profile'}}/",
+        "setOrUpdate": "set",
+        "dataTemplate": ">context.metaData.handlebars.templates.account_external-profile-id"
+      }
+    },
+    {
+      "name": "redirectUrl",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{{#if @root.request.body.redirect}}/{{@root.request.body.redirect}}{{else}}/{{/if}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": ">data.redirectUrl",
+        "statusCode": 302
       }
     }
 

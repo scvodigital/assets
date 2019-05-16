@@ -2,7 +2,12 @@
   <h2 class="mdc-typography--headline4">Add your details</h2>
 
   <div class="mdc-typography--headline6">
+    {{#unless @root.request.params.query.redirect}}
     Thank you for signing up to the Saltire Awards! Please add your details below
+    {{else}}
+      In order to use this site you need to complete your user details, please complete these below.
+    {{/unless}}
+
   </div>
 
   <form id="user-details-form" action="/submit-user-details" method="POST">

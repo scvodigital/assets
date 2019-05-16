@@ -19,6 +19,20 @@
       "path": "/sign-up",
       "route": "^/sign-up"
     }
+  ],
+  "user-signed-in" : [
+    {
+      "label": "My account",
+      "icon": "cog",
+      "path": "/account",
+      "route": "^/account"
+    },
+    {
+      "label": "Sign out",
+      "icon": "sign-out-alt",
+      "path": "/sign-out",
+      "route": "^/sign-out"
+    }
   ]
 
 }

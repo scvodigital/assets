@@ -1040,6 +1040,9 @@ iframe {
   background-repeat: no-repeat;
   background-position: center center;
 }
+.sg-survey iframe {
+  background-image: none;
+}
 figure {
   margin: $unit 0;
 }

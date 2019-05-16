@@ -3,16 +3,20 @@
     <div class="container-fluid">
       <div class="mdc-layout-grid">
         {{#if headerTextOverride ~}}
-        <h1 class="header-text">
-          <span class="header-text-banner">
-            {{{headerTextOverride}}}
-            {{#if headerTextCaptionOverride ~}}
-            <span class="mdc-typography--caption">
-              {{{headerTextCaptionOverride}}}
-            </span>
-            {{/if ~}}
-          </span>
-        </h1>
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+            <h1 class="header-text">
+              <span class="header-text-banner">
+                {{{headerTextOverride}}}
+                {{#if headerTextCaptionOverride ~}}
+                <span class="mdc-typography--caption">
+                  {{{headerTextCaptionOverride}}}
+                </span>
+                {{/if ~}}
+              </span>
+            </h1>
+          </div>
+        </div>
         {{else}}
         {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
         {{#if header_text ~}}
@@ -21,8 +25,8 @@
           <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
             <img src="{{header_text}}" alt="{{title}}" class="header-text" />
           </div>
-          <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
-            <h1 class="header-text" style="position:absolute;bottom:3rem;">
+          <div class="mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone" style="display:flex;align-items:center;">
+            <h1 class="header-text">
               <span class="header-text-banner">
                 {{{sub_title}}}
               </span>
@@ -30,25 +34,33 @@
           </div>
         </div>
         {{else}}
-        <img src="{{header_text}}" alt="{{title}}" class="header-text" />
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+            <img src="{{header_text}}" alt="{{title}}" class="header-text" />
+          </div>
+        </div>
         {{/if ~}}
         {{else}}
-        <h1 class="header-text">
-          <span class="header-text-banner">
-            {{#if title ~}}
-            {{#unless hide_overlay ~}}
-            {{{title}}}
-            {{#if sub_title ~}}
-            <span class="mdc-typography--caption">
-              {{{sub_title}}}
-            </span>
-            {{/if ~}}
-            {{/unless ~}}
-            {{else}}
-            404: Not found
-            {{/if ~}}
-          </span>
-        </h1>
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+            <h1 class="header-text">
+              <span class="header-text-banner">
+                {{#if title ~}}
+                {{#unless hide_overlay ~}}
+                {{{title}}}
+                {{#if sub_title ~}}
+                <span class="mdc-typography--caption">
+                  {{{sub_title}}}
+                </span>
+                {{/if ~}}
+                {{/unless ~}}
+                {{else}}
+                404: Not found
+                {{/if ~}}
+              </span>
+            </h1>
+          </div>
+        </div>
         {{/if ~}}
         {{/with ~}}
         {{/if ~}}

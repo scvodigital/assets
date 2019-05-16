@@ -51,7 +51,7 @@
 
 {{> search_info paging=@root.data.search_data.detailed_results.pagination}}
 
-{{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+{{#>premium_content}}
   {{#unless savedSearch}}
   <aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description">
     <div class="mdc-dialog__container">
@@ -97,13 +97,13 @@
     <div class="mdc-dialog__scrim"></div>
   </aside>
   {{/unless}}
-{{/ifAny ~}}
+{{/premium_content ~}}
 
 <div class="mdc-layout-grid head v-margin">
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone action">
       {{#if @root.data.auth ~}}
-        {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+        {{#>premium_content}}
           {{#unless savedSearch ~}}
             {{#with (
               querystringify (obj)
@@ -126,12 +126,13 @@
               Search filters
             </button>
           {{/unless ~}}
-        {{else}}
+        {{/premium_content}}
+        {{#>premium_content_alt}}
           <a href="/premium" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">
             <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>
             Go premium to save searches and get alerts
           </a>
-        {{/ifAny ~}}
+        {{/premium_content_alt}}
       {{else}}
         {{#compare @root.data.search_data.detailed_results.hits.total ">" 10 ~}}
           <a href="/sign-up" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">

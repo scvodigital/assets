@@ -15,7 +15,7 @@
   {{/json}},
   {{#json key="query"}}
     {{#>queries_fund_common}}
-      {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+      {{#>premium_content}}
         {{#ifAll @root.data.auth @root.data.searches.items.[0] ~}}
           {{#json key="bool"}}
             {{#json key="filter" type="array"}}
@@ -57,9 +57,10 @@
         {{else}}
           {{#json key="match_none"}}{{/json}}
         {{/ifAll ~}}
-      {{else}}
+      {{/premium_content}}
+      {{#>premium_content_alt}}
         {{#json key="match_none"}}{{/json}}
-      {{/ifAny ~}}
+      {{/premium_content_alt}}
     {{/queries_fund_common}}
   {{/json}},
   {{#json key="sort"}}

@@ -1,6 +1,7 @@
 {
   "name": "premium",
   "pattern": "/premium",
+  "debug": false,
   "metaData": {
     "hideSearch": true
   },

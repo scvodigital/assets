@@ -1,6 +1,7 @@
 {
   "name": "upgrade_token",
   "pattern": "/upgrade-token",
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     {

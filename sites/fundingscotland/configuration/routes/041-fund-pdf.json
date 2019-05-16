@@ -1,6 +1,7 @@
 {
   "name": "fund_pdf",
   "pattern": "/fund-pdf/:slug",
+  "debug": false,
   "metaData": {
     "pdf": {
       "title": ">data.currentSite.title",

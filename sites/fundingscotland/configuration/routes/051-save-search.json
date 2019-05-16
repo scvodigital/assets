@@ -1,6 +1,7 @@
 {
   "name": "save_search",
   "pattern": "/save-search",
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",

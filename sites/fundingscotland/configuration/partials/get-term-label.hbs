@@ -1,11 +1,11 @@
-{{~#if (getProperty @root.context.metaData.terms field)~}}
-  {{~#withExtend (getProperty @root.context.metaData.terms field) term=term~}}
+{{~#each @root.context.metaData.terms~}}
+  {{~#compare key ../field~}}
     {{~#each termGroups~}}
       {{~#each terms~}}
-        {{~#compare @key ../../term}}{{label}}{{~/compare~}}
+        {{~#compare key ../../../term}}
+          {{label}}
+        {{~/compare~}}
       {{~/each~}}
     {{~/each~}}
-  {{~/withExtend~}}
-{{~else~}}
-  {{term}}
-{{~/if~}}
+  {{~/compare~}}
+{{~/each~}}

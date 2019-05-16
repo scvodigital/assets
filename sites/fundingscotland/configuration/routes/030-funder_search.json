@@ -1,6 +1,7 @@
 {
   "name": "funder_search",
   "pattern": "/funders",
+  "debug": false,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

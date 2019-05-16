@@ -1,6 +1,7 @@
 {
   "name": "robots",
   "pattern": "/robots.txt",
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     {

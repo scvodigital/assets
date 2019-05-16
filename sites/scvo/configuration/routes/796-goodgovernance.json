@@ -1,12 +1,12 @@
 {
-  "name": "page_digital_evolution_checkup",
-  "pattern": "/digital/evolution/check-up",
+  "name": "short_goodgovernance",
+  "pattern": "/goodgovernance",
   "tasks": [
     {
       "name": "destination",
       "taskModule": "redirect",
       "config": {
-        "location": "https://digitalcheckup.org",
+        "location": "/running-your-organisation/governance",
         "statusCode": 301
       }
     }

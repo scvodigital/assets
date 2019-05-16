@@ -1,6 +1,7 @@
 {
   "name": "blank",
   "pattern": "/blank",
+  "debug": false,
   "tasks": [
     {
       "name": "destination",

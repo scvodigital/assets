@@ -1,6 +1,7 @@
 {
   "name": "remove_fund",
   "pattern": "/remove-fund",
+  "debug": false,
   "defaultParams": {
     "context": "detail"
   },

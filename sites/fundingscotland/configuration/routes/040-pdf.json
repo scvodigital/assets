@@ -1,6 +1,7 @@
 {
   "name": "pdf",
   "pattern": "/pdf",
+  "debug": false,
   "metaData": {
     "hideSearch": true
   },

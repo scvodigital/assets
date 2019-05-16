@@ -30,24 +30,24 @@
         {{/if ~}}
       </div>
       <div class="mdc-card__action-icons pull-right">
-        {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
-        {{#if @root.data.auth ~}}
-          {{#if (contains actions "pdf") ~}}
-            <a href="/fund-pdf/{{slug}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-card__action--download-pdf" title="Download fund as PDF">
-              <span class="far fa-file-pdf" aria-hidden="true"></span>
-            </a>
-          {{/if}}
-          {{#if (contains actions "hide-fund") ~}}
-            {{> fund_action_hide_fund id=Id name=title}}
+        {{#>premium_content}}
+          {{#if @root.data.auth ~}}
+            {{#if (contains actions "pdf") ~}}
+              <a href="/fund-pdf/{{slug}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-card__action--download-pdf" title="Download fund as PDF">
+                <span class="far fa-file-pdf" aria-hidden="true"></span>
+              </a>
+            {{/if}}
+            {{#if (contains actions "hide-fund") ~}}
+              {{> fund_action_hide_fund id=Id name=title}}
+            {{/if ~}}
+            {{#if (contains actions "unhide-fund") ~}}
+              {{> fund_action_unhide_fund id=Id}}
+            {{/if ~}}
+            {{#if (contains actions "lists")}}
+              {{> fund_action_manage_lists id=Id slug=slug}}
+            {{/if ~}}
           {{/if ~}}
-          {{#if (contains actions "unhide-fund") ~}}
-            {{> fund_action_unhide_fund id=Id}}
-          {{/if ~}}
-          {{#if (contains actions "lists")}}
-            {{> fund_action_manage_lists id=Id slug=slug}}
-          {{/if ~}}
-        {{/if ~}}
-        {{/ifAny ~}}
+        {{/premium_content}}
       </div>
     </div>
   {{/if ~}}

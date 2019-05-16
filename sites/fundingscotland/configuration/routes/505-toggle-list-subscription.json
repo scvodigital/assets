@@ -1,6 +1,7 @@
 {
   "name": "toggle_list_subscription",
   "pattern": "/toggle-list-subscription",
+  "debug": false,
   "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.currentSite",

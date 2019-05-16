@@ -1,6 +1,7 @@
 {
   "name": "humans",
   "pattern": "/humans.txt",
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     {

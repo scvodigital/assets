@@ -5,7 +5,7 @@
       Back to lists
     </a>
   </div>
-  {{#ifAny @root.data.currentSite.enablePremiumFeatures @root.data.profile.isPremium ~}}
+  {{#>premium_content}}
     {{#with @root.data.shortlistPartition.items.[0].[0]}}
       <h1 class="mdc-typography--headline3 v-margin-full">
         <div class="pull-right mdc-chip-set">
@@ -31,41 +31,37 @@
         List: {{partition}}
       </h1>
 
-
       <div class="mdc-layout-grid ">
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone action">
             <div class="v-margin-full">
-      <span class="r-margin-full">
-        <a class="mdc-theme--error pointer" data-delete-list="{{partition}}">Delete list</a>
-      </span>
               <span class="r-margin-full">
-        <a href="/list-pdf/{{partition}}" download>Download as PDF</a>
-      </span>
+                <a class="mdc-theme--error pointer" data-delete-list="{{partition}}">Delete list</a>
+              </span>
               <span class="r-margin-full">
-        <a href="/list-csv/{{partition}}" download>Download as CSV</a>
-      </span>
+                <a href="/list-pdf/{{partition}}" download>Download as PDF</a>
+              </span>
+              <span class="r-margin-full">
+                <a href="/list-csv/{{partition}}" download>Download as CSV</a>
+              </span>
             </div>
-
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone action">
             <form action="{{{@root.request.url.path}}}" method="GET">
               {{> fund_search_sort}}
             </form>
           </div>
-
         </div>
       </div>
     {{/with}}
-
     {{#each @root.data.primaryResponse.hits.hits ~}}
       {{> fund_search_result _source sort=sort actions="more-fund"}}
     {{/each ~}}
-
-  {{else}}
+  {{/premium_content}}
+  {{#>premium_content_alt}}
     <h1 class="mdc-typography--headline3 v-margin-full">
       Lists &amp; email updates
     </h1>
     {{> upgrade_ad_lists}}
-  {{/ifAny ~}}
+  {{/premium_content_alt}}
 </div>

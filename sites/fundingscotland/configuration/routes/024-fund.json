@@ -1,6 +1,7 @@
 {
   "name": "fund",
   "pattern": "/fund/:slug",
+  "debug": false,
   "defaultParams": {
     "context": "detail"
   },

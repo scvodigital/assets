@@ -1,6 +1,7 @@
 {
   "name": "save_fund",
   "pattern": "/save-fund",
+  "debug": false,
   "defaultParams": {
     "context": "detail"
   },

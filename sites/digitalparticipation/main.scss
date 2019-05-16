@@ -634,9 +634,11 @@ main {
   }
   .title,
   .detail,
+  .stories,
   .expand {
     .sg-instructions,
     .sg-page-description,
+    blockquote cite,
     p {
       font-size: 1.3rem;
       font-weight: 400;
@@ -731,6 +733,24 @@ main {
         // font-weight: normal;
       }
     }
+  }
+  .stories {
+    h3 {
+      padding: 0;
+      margin-top: 0;
+      a {
+        text-decoration: none;
+      }
+    }
+    blockquote {
+      margin: 0;
+      cite {
+        font-weight: $heading-font-weight;
+      }
+    }
+  }
+  figure {
+    margin: 0;
   }
   .skills.expand {
     p {
@@ -933,7 +953,7 @@ a {
   color: $brand-typography;
 }
 
-p, li, div {
+p, li, div, blockquote, cite {
   font-family: $base-font-family;
   font-weight: $base-font-weight;
   font-size: $base-font-size;
@@ -1881,7 +1901,7 @@ footer {
 blockquote {
   margin-left: $unit/2 !important;
   p {
-    border-left: 2px solid $brand-typography;
+    border-left: $brand-border-width solid $brand-typography;
     padding-top: $unit/2 !important;
     padding-bottom: $unit/2 !important;
     padding-left: $unit !important;
@@ -1891,7 +1911,6 @@ blockquote {
     text-align: right;
     display: block;
     font-style: normal;
-    font-size: 1.5rem;
   }
 }
 

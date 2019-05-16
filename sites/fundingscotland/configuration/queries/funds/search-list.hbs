@@ -2,7 +2,7 @@
   {{{json key="size" value=10}}},
   {{#withExtend (obj) page=(default (num @root.request.params.query.page) 1)}}
     {{#compare page ">" 1}}
-      {{{json key="from" value=(multiply (subtract (minimum page 5) 1) 10)}}},
+      {{{json key="from" value=(multiply (subtract (if (compare page ">" 5) 5 else=page) 1) 10)}}},
     {{/compare}}
   {{/withExtend}}
   {{#json key="_source" type="array"}}

@@ -3,6 +3,7 @@
   "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
     "title",
+    "featured_image",
     "description_truncated",
     "publish_on",
     "author_name_full",

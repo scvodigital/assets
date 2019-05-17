@@ -9,27 +9,28 @@
   </div>
   {{#each @root.data.primaryResponse.hits.hits ~}}
   {{#with _source ~}}
-  <div class="mdc-layout-grid__inner expand skills">
+  <div class="mdc-layout-grid__inner stories">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <hr class="margin-top" />
+      <hr />
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <h3>
-        {{#if author_organisation_name}}{{{author_organisation_name}}}{{else}}SCVO{{/if}}
-      </h3>
+      <a href="/{{replace slug "_" "/"}}"><img src="{{featured_image.sizes.full.source_url}}" alt="title" /></a>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <h3>
+        <a href="/{{replace slug "_" "/"}}">{{{title}}}</a>
+      </h3>
       <p>
-        <strong>{{{title}}}</strong><br />
-        &ndash; {{#if author_name_full}}by {{{author_name_full}}}{{#if author_job_title}} ({{{author_job_title}}}){{/if}},{{/if}} posted {{momentFromNow publish_on}}<br /><br />
-        “{{{description_truncated}}}”&ensp;<a href="/{{replace slug "_" "/"}}">Read more</a>
+        <a href="/{{replace slug "_" "/"}}">Read this story</a>
       </p>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      {{#if quotation}}
       <blockquote>
-        <p>{{quotation.text}}</p>
+        {{#if quotation.text}}<p>“{{quotation.text}}”</p>{{/if}}
         <cite>{{quotation.author}}</cite>
       </blockquote>
+      {{/if}}
     </div>
   </div>
   {{/with ~}}

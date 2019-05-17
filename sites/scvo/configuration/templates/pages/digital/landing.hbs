@@ -35,10 +35,9 @@
             <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/evolution">Find out more</a></section>
           </div>
         </div>
-        {{#compare @root.data.supplimentaryResponses.related_events.hits.total ">" 0 ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          {{#with @root.data.supplimentaryResponses.related_events.hits ~}}
-            {{#compare total ">" 0 ~}}
+          {{#compare @root.data.supplimentaryResponses.related_events.hits.total ">" 0 ~}}
+            {{#with @root.data.supplimentaryResponses.related_events.hits ~}}
               <div class="mdc-card events">
                 <section class="mdc-card__primary">
                   <h1 class="mdc-card__title mdc-card__title--large">
@@ -60,25 +59,24 @@
                   {{/compare ~}}
                 </section>
               </div>
-            {{else}}
-              <div class="mdc-card research">
-                <section class="mdc-card__primary">
-                  <h1 class="mdc-card__title mdc-card__title--large">
-                    <a href="/digital/participation/reports">Research</a>
-                  </h1>
-                </section>
-                <section class="mdc-card__media"><a href="/digital/participation/reports">&nbsp;</a></section>
-                <section class="mdc-card__supporting-text">
-                  Check out our resource library on developing digital potential
-                </section>
-                <section class="mdc-card__actions">
-                  <a class="mdc-card__action" href="/digital/participation/reports">Find out more</a>
-                </section>
-              </div>
-            {{/compare ~}}
-          {{/with ~}}
+            {{/with ~}}
+          {{else}}
+            <div class="mdc-card research">
+              <section class="mdc-card__primary">
+                <h1 class="mdc-card__title mdc-card__title--large">
+                  <a href="/digital/participation/reports">Research</a>
+                </h1>
+              </section>
+              <section class="mdc-card__media"><a href="/digital/participation/reports">&nbsp;</a></section>
+              <section class="mdc-card__supporting-text">
+                Check out our resource library on developing digital potential
+              </section>
+              <section class="mdc-card__actions">
+                <a class="mdc-card__action" href="/digital/participation/reports">Find out more</a>
+              </section>
+            </div>
+          {{/compare ~}}
         </div>
-        {{/compare ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card funding">
             <section class="mdc-card__primary">

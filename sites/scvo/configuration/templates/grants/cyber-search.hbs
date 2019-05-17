@@ -24,13 +24,13 @@
           {{#compare key "===" "Cyber 2" ~}}
           <h2>Call 2, 2019</h2>
           <p>
-            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{grants.hits.total}} have currently been awarded.
+            The Cyber Essentials grant scheme was scaled up to support a further 60 third sector organisations to achieve Cyber Essentials accreditation. {{#compare grants.hits.total "<" 60}}{{grants.hits.total}} have currently been awarded.{{/compare}}
           </p>
           {{else}}
           {{#compare key "===" "Cyber 3" ~}}
           <h2>Call 3, 2019</h2>
           <p>
-
+            In the third round of the Cyber Essentials grant scheme, we supported {{grants.hits.total}} organisations to achieve Cyber Essentials accreditation.
           </p>
           {{/compare ~}}
           {{/compare ~}}
@@ -103,9 +103,9 @@
           <p>
             No results could be found, please try a different search.
           </p>
-          <p>&nbsp;</p>
           {{/compare ~}}
-
+          <p>&nbsp;</p>
+          
           <p class="text-centre t-margin-full">
             <strong style="font-weight:600;">SCVO's Cyber Grant Scheme is funded by the Scottish Government as part of the <a href="https://www.gov.scot/publications/third-sector-action-plan-cyber-resilience-2018-20/">Third Sector Cyber Resilience Action Plan</a></strong>
           </p>

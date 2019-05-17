@@ -1,5 +1,5 @@
 {{#json}}
-  {{{json key="size" value=10}}},
+  {{{json key="size" value=100}}},
   {{#json key="_source" type="array"}}
     "slug",
     "title",
@@ -11,6 +11,13 @@
   {{/json}},
   {{#json key="query"}}
     {{#json key="bool"}}
+      {{#json key="filter" type="array"}}
+        {{#json}}
+          {{#json key="term"}}
+            {{{json key="_type" value=(concat "fs-" @root.data.currentSite.name "-page")}}}
+          {{/json}}
+        {{/json}}
+      {{/json}},
       {{#json key="must" type="array"}}
         {{#json}}
           {{#json key="term"}}

@@ -12,7 +12,7 @@
         {{#if request.params.query.call ~}}
         {
           "term": {
-            "call-slug": "{{request.params.query.call}}"
+            "call_slug": "{{request.params.query.call}}"
           }
         }
         {{#if request.params.query.tag}},{{else}}{{#if request.params.query.q}},{{/if}}{{/if}}

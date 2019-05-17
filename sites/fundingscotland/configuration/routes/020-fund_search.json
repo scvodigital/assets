@@ -3,7 +3,7 @@
   "pattern": {
     "search": "/search"
   },
-  "debug": false,
+  "debug": true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

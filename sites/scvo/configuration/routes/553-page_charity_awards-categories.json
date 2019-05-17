@@ -6,64 +6,11 @@
   },
   "tasks": [
     {
-      "name": "search",
-      "taskModule": "elasticsearch",
-      "config": {
-        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
-        "elasticsearchConfig": {
-          "apiVersion": "5.6"
-        },
-        "queryTemplates": [
-          {
-            "name": "cms",
-            "index": "web-content-production",
-            "type": "scvo-cms-page",
-            "template": ">context.metaData.handlebars.queries.pages_charity-awards-cms"
-          },
-          {
-            "name": "categories",
-            "index": "web-content-production",
-            "type": "scvo-cms-charity-awards",
-            "template": ">context.metaData.handlebars.queries.pages_charity-awards-categories"
-          },
-          {
-            "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.pages_splash"
-          },
-          {
-            "name": "finalists",
-            "index": "web-content-production",
-            "type": "scvo-cms-charity-awards",
-            "template": ">context.metaData.handlebars.queries.pages_charity-awards-list"
-          }
-        ]
-      },
-      "renderer": "handlebars"
-    },
-    {
       "name": "destination",
-      "taskModule": "renderLayout",
-      "renderer": "handlebars",
+      "taskModule": "redirect",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
-        "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_charity-awards-categories",
-              "foot": ""
-            },
-            "contentType": "text/html"
-          }
-        }
+        "location": "/scottish-charity-awards",
+        "statusCode": 301
       }
     }
   ]

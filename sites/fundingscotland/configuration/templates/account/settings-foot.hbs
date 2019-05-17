@@ -1,10 +1,16 @@
 <script>
   $(document).ready(function() {
     var $changePassword = $('#change-password');
+    var $currentPassword = $('#change-password-current');
     var $password1 = $('#change-password-password');
     var $password2 = $('#change-password-confirm');
 
     $changePassword.on('click', changePassword);
+    $currentPassword.on('keypress', function(evt) {
+      if (evt.which === 13) {
+        $password1.focus();
+      }
+    });
     $password1.on('keypress', function(evt) {
       if (evt.which === 13) {
         $password2.focus();
@@ -17,30 +23,32 @@
     });
 
     function changePassword() {
+      var current = $currentPassword.val();
       var password1 = $password1.val();
       var password2 = $password2.val();
-      fundingscotland.disable([$changePassword, $password1, $password2]);
+      fundingscotland.disable([$changePassword, $currentPassword, $password1, $password2]);
 
-      fundingscotland.auth.changePassword(password1, password2).then(function() {
-        fundingscotland.snackbarShow({
-          message: 'Password changed, please wait',
+      fundingscotland.auth.changePassword(password1, password2, current).then(function() {
+        fundingscotland.snackbar.show({
+          message: 'Password changed',
         });
-        window.setTimeout(function() {
-          window.location.reload();
-        }, 1000);
-      }).catch(function(err) {
-        fundingscotland.disable([$changePassword, $password1, $password2], false);
+        fundingscotland.disable([$changePassword, $currentPassword, $password1, $password2], false);
         $password1.val('');
         $password2.val('');
-        $password1.focus();
-        fundingscotland.snackbarShow({
-          message: err.message || 'There was a problem changing your password',
-          backgroundColor: '#dd4b39'
+        $currentPassword.val('');
+      }).catch(function(err) {
+        fundingscotland.disable([$changePassword, $currentPassword, $password1, $password2], false);
+        $password1.val('');
+        $password2.val('');
+        $currentPassword.val('');
+        $currentPassword.focus();
+        fundingscotland.snackbar.show({
+          message: err.message || 'There was a problem changing your password'
         });
         if (err.code === 'auth/requires-recent-login') {
-          window.setTimeout(function() {
-            window.location.href = '/sign-in?reauth=true';
-          }, 1000);
+          //window.setTimeout(function() {
+          //  window.location.href = '/sign-in?reauth=true';
+          //}, 1000);
         }
         return;
       });

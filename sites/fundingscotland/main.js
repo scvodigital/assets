@@ -14,6 +14,7 @@ export class FundingScotland {
 
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
+    this.snackbar = this.componentsInitialiser.snackbar;
 
     this.displayMode = null;
     this.displayModes = [

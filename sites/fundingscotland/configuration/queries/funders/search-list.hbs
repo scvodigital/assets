@@ -1,0 +1,45 @@
+{{#json}}
+  {{{json key="size" value=12}}},
+  {{#withExtend (obj) page=(default (num @root.request.params.query.page) 1)}}
+    {{#compare page ">" 1}}
+      {{{json key="from" value=(multiply (subtract (default @root.request.params.query.page 1) 1) 12)}}},
+    {{/compare}}
+  {{/withExtend}}
+  {{#json key="_source" type="array"}}
+    "Id",
+    "slug",
+    "charity_number",
+    "description",
+    "title",
+    "alias",
+    "og_summary",
+    "has_logo",
+    "logo_url",
+    "facebook",
+    "facebook_url",
+    "twitter",
+    "twitter_url",
+    "website",
+    "website_url",
+    "rendered.json_ld"
+  {{/json}},
+  {{#json key="query"}}
+    {{#json key="bool"}}
+      {{#json key="filter" type="array"}}
+        {{>queries_funder_common_filters @root.request.params.query}}
+      {{/json}},
+      {{#json key="must" type="array"}}
+        {{>queries_fund_search_must @root.request.params.query}}
+      {{/json}}
+    {{/json}}
+  {{/json}},
+  {{#json key="sort" type="array"}}
+    {{#if @root.request.params.query.keywords ~}}
+      "_score"
+    {{else}}
+      {{#json}}
+        {{{json key="name" value="asc"}}}
+      {{/json}}
+    {{/if ~}}
+  {{/json}}
+{{/json}}

@@ -6,7 +6,7 @@
       Currently open
     </span>
     {{else}}
-    {{#ifAll (compare date_reopens ">=" (dateMath "now/d")) (compare date_reopens "<=" (dateMath "now+7d/d")) ~}}
+    {{#ifAll (compare date_reopens ">=" (dateMath "now/d")) (compare date_reopens "<=" (dateMath @root.context.metaData.openingSoonDate)) ~}}
     <span class="pull-right mdc-elevation--z1 v-margin l-margin-full mdc-typography--caption fund-status mdc-theme--warning-border mdc-theme--warning">
       Opening soon
     </span>
@@ -47,7 +47,7 @@
       {{#if date_last_important_activity ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Updated:</strong>
-        {{{momentFormat (moment date_last_important_activity "x") "YYYY-MM-DD"}}}
+        {{{momentFormat (moment date_last_important_activity "x") "Do MMMM YYYY"}}}
       </span>
       {{/if ~}}
       {{#if type_of_funding ~}}

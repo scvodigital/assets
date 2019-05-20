@@ -27,7 +27,7 @@
                       {{#json key="bool"}}
                         {{#json key="filter" type="array"}}
                           {{>queries_term field="fund_status_slug" term="currently-closed"}},
-                          {{>queries_date_range field="date_reopens" lte="now+7d/d" gte="now/d"}}
+                          {{>queries_date_range field="date_reopens" lte=@root.context.metaData.openingSoonDate gte="now/d"}}
                         {{/json}}
                       {{/json}}
                     {{/json}}

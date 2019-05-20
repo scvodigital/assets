@@ -55,7 +55,7 @@
                   {{>queries_term field="fund_status_slug" term="currently-closed"}}
                 {{/json}},
                 {{#json key="must" type="array"}}
-                  {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+                  {{>queries_date_range field="date_reopens" gte="now/d" lte=@root.context.metaData.openingSoonDate}}
                 {{/json}}
               {{/json}}
             {{/json}},
@@ -67,7 +67,7 @@
                   {{>queries_term field="fund_status_slug" term="currently-closed"}}
                 {{/json}},
                 {{#json key="must_not" type="array"}}
-                  {{>queries_date_range field="date_reopens" gte="now/d" lte="now+7d/d"}}
+                  {{>queries_date_range field="date_reopens" gte="now/d" lte=@root.context.metaData.openingSoonDate}}
                 {{/json}}
               {{/json}}
             {{/json}},

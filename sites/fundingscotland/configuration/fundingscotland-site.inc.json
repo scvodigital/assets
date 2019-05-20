@@ -40,6 +40,7 @@
     "terms": "{:./terms.json}",
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",
+    "openingSoonDate": "now+3M/d",
     "globalNoteStatuses": [
       "Application in progress",
       "Application sent - under review",

@@ -41,7 +41,11 @@
 		"route": "^/about$"
 	}],
 	"charity-awards": [{
-		"children": [
+		"children": [{
+				"label": "The finalists",
+				"path": "/scottish-charity-awards/finalists-2019",
+				"route": "^/scottish-charity-awards/finalists-2019"
+			},
 			{
 				"label": "Book a table",
 				"path": "/scottish-charity-awards/book-2019",

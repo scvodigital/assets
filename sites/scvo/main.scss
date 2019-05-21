@@ -2296,7 +2296,7 @@ form#settled_status {
   min-height: 27vh;
 }
 .splash-overlay.splash-overlay-hidden {
-  background-image: none !important;
+  background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
 }
 .splash-image {
   background-size: 60%;
@@ -2575,9 +2575,9 @@ body.right-approach:not(.post) main,
 body.building-healthier-happier-communities:not(.post) main {
   .splash-image .splash-overlay .container-fluid {
     min-height: 125px;
-    padding-top: $unit*2;
+    padding: $unit 0;
     img.header-text {
-      max-height: 100%;
+      height: 100%;
     }
   }
   .splash-image .container-fluid .mdc-layout-grid {

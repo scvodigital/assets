@@ -4,14 +4,14 @@
 
       {{#ifAny fund_email_address fund_telephone url~}}
         <h4 class="mdc-typography--headline7">Fund Contact Information</h4>
-      <ul class="fa-ul first">
+        <ul class="fa-ul first">
 
         {{#if fund_url ~}}
           <li class="mdc-typography--body1">
             <span class="fa-li"><span class="far fa-link fa-fw" title="Website"></span></span>
             <span class="key-info-bit r-margin-full">
-          <a href="{{fund_url}}">{{fund_url}}</a>
-        </span>
+              <a href="{{fund_url}}" target="_blank">{{fund_url}}</a>
+            </span>
           </li>
         {{/if ~}}
         {{#if fund_email_address ~}}

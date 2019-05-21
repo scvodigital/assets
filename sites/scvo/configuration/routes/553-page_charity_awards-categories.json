@@ -1,6 +1,6 @@
 {
   "name": "categories_charity_awards",
-  "pattern": "/scottish-charity-awards/vote-2019(/*category)",
+  "pattern": "/scottish-charity-awards/finalists-2019(/*category)",
   "metaData": {
     "awards-info": "{:../awards-info.json}"
   },

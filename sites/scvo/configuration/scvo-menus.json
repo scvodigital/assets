@@ -42,9 +42,9 @@
 	}],
 	"charity-awards": [{
 		"children": [{
-				"label": "Vote now",
-				"path": "/scottish-charity-awards/vote-2019",
-				"route": "^/scottish-charity-awards/vote-2019"
+				"label": "The finalists",
+				"path": "/scottish-charity-awards/finalists-2019",
+				"route": "^/scottish-charity-awards/finalists-2019"
 			},
 			{
 				"label": "Book a table",

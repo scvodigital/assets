@@ -41,7 +41,7 @@
                     <strong>Trainer</strong>
                   </div>
                   <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
-                    {{trainer}}
+                    {{{trainer}}}
                   </div>
                 </div>
                 {{/if ~}}
@@ -52,9 +52,9 @@
                   </div>
                   <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
                     {{#if contact_email ~}}
-                    <span class="far fa-envelope fa-fw"></span> <a href="mailto:{{contact_email}}">{{contact_name}}</a>
+                    <span class="far fa-envelope fa-fw"></span> <a href="mailto:{{contact_email}}">{{{striptags contact_name}}}</a>
                     {{else}}
-                    {{contact_name}}
+                    {{{striptags contact_name}}}
                     {{/if ~}}
                     {{#if contact_phone ~}}<br />
                     <span class="fas fa-phone fa-fw"></span> {{contact_phone}}{{/if ~}}
@@ -78,7 +78,7 @@
                   </div>
                   <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
                     {{#forEach cost_structures ~}}
-                    {{Description__c}} &pound;{{Total_Amount__c}}{{#unless isLast}}, {{/unless}}
+                    {{{Description__c}}} &pound;{{Total_Amount__c}}{{#unless isLast}}, {{/unless}}
                     {{/forEach ~}}
                   </div>
                 </div>

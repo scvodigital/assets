@@ -1,6 +1,7 @@
 {
   "name": "grant_cyber_data",
   "pattern": "/digital/evolution/cyber-resilience/projects/data.json",
+  "debug":true,
   "tasks": [
     {
       "name": "primaryResponse",

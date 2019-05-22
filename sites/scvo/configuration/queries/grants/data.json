@@ -18,6 +18,11 @@
           "exists": {
             "field": "amount_requested"
           }
+        },
+        {
+          "exists": {
+            "field": "amount_awarded"
+          }
         }
       ],
       "minimum_should_match": 1

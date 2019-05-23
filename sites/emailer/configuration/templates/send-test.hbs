@@ -71,10 +71,9 @@
         <h3>Rendered</h3>
         <iframe src="about:blank" frameborder="0" id="email-frame-{{@index}}" class="email-preview"></iframe>
         <script>
-          var doc = document.getElementById('email-frame-{{@index}}').contentWindow.document;
-          doc.open();
-          doc.write({{{safeStringify data.html}}});
-          doc.close();
+          var doc = document.getElementById('email-frame-{{@index}}');
+          var contents = {{{safeStringify data.html}}};
+          doc.src = 'data:text/html;charset=utf-8,' + escape(contents);
         </script>
       {{/each}}
     </body>

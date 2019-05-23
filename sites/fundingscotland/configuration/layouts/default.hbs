@@ -112,21 +112,23 @@
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
-              <div class="mdc-chipset pull-right hide-md hide-sm">
-                <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
-                  {{#>premium_content}}
-                    <i class="far mdc-chip__icon fa-check-circle"></i>
-                  {{/premium_content}}
-                  {{#>premium_content_alt}}
-                    <i class="far mdc-chip__icon fa-circle"></i>
-                  {{/premium_content_alt}}
-                  <div class="mdc-chip__text">
-                    Premium user
-                  </div>
-                </a>
-              </div>
-              {{/ifAll ~}}
+              {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
+                {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
+                <div class="mdc-chipset pull-right hide-md hide-sm">
+                  <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
+                    {{#>premium_content}}
+                      <i class="far mdc-chip__icon fa-check-circle"></i>
+                    {{/premium_content}}
+                    {{#>premium_content_alt}}
+                      <i class="far mdc-chip__icon fa-circle"></i>
+                    {{/premium_content_alt}}
+                    <div class="mdc-chip__text">
+                      Premium user
+                    </div>
+                  </a>
+                </div>
+                {{/ifAll ~}}
+              {{/ifAny ~}}
 
               {{#unless @root.route.metaData.hideSearch ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">

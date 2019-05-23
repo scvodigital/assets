@@ -61,7 +61,7 @@
                       {{{getProperty @root.route.metaData.awards-info (concat category ".title")}}}
                     </a>
                     <i class="fas fa-caret-right fa-fw"></i>
-                    <a href="/scottish-charity-awards/finalists-2019/{{category}}/{{slug}}" title="Find out more and vote for {{{title}}}">
+                    <a href="/scottish-charity-awards/finalists-2019/{{category}}/{{slug}}" title="Find out more about {{{title}}}">
                       {{{title}}}
                     </a>
                   </h1>
@@ -72,7 +72,7 @@
                   {{/if}}
                   {{{truncate (stripTags (default og_summary content)) 280}}}
                 </section>
-                <section class="mdc-card__actions"><a href="/scottish-charity-awards/finalists-2019/{{category}}/{{slug}}">Find out more &amp; vote</a></section>
+                <section class="mdc-card__actions"><a href="/scottish-charity-awards/finalists-2019/{{category}}/{{slug}}">Find out more</a></section>
               </div>
             {{/with ~}}
           {{/each ~}}

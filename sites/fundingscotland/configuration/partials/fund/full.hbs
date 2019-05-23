@@ -104,29 +104,14 @@
     {{/if ~}}
     {{/ifAny ~}}
 
-    {{#if who_can_apply ~}}
+    {{#ifAny who_can_apply annual_income_min annual_income_max ~}}
     <h4 class="mdc-typography--headline7">Who can apply</h4>
-    <div class="mdc-typography--body1">
-      {{{who_can_apply}}}
-    </div>
-    {{/if ~}}
-
-    {{#if how_to_apply~}}
-      <h4 class="mdc-typography--headline7">How to apply</h4>
-      <div class="mdc-typography--body1">
-        {{{how_to_apply}}}
-      </div>
-    {{/if ~}}
-
-    {{#ifAny fund_exclusion annual_income_min annual_income_max ~}}
-    <h4 class="mdc-typography--headline7">Exclusions</h4>
-    <div class="mdc-typography--body1">
-      {{#if fund_exclusion ~}}
-      {{{fund_exclusion}}}
-      {{/if ~}}
-    </div>
-    {{#ifAny annual_income_min annual_income_max ~}}
     <div class="fund-details">
+      {{#if who_can_apply ~}}
+      <span class="key-info-bit r-margin-full">
+        {{{who_can_apply}}}
+      </span>
+      {{/if ~}}
       {{#if annual_income_min ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Minimum annual income:</strong>
@@ -143,6 +128,21 @@
       {{/if ~}}
     </div>
     {{/ifAny ~}}
+
+    {{#if how_to_apply~}}
+      <h4 class="mdc-typography--headline7">How to apply</h4>
+      <div class="mdc-typography--body1">
+        {{{how_to_apply}}}
+      </div>
+    {{/if ~}}
+
+    {{#ifAny fund_exclusion ~}}
+    <h4 class="mdc-typography--headline7">Exclusions</h4>
+    <div class="mdc-typography--body1">
+      {{#if fund_exclusion ~}}
+      {{{fund_exclusion}}}
+      {{/if ~}}
+    </div>
     {{/ifAny ~}}
 
     {{#ifAny when_to_apply date_due_to_open ~}}

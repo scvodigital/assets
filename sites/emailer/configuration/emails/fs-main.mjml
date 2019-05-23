@@ -1,152 +1,170 @@
 <mjml>
   <mj-body background-color="#F5F5F5">
     <mj-wrapper background-color="#ffffff" padding="0">
-      <mj-section background-color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" padding="10px">
-        <mj-column padding="0px">
-          <mj-image src="{{campaignConfig.metaData.siteConfiguration.emailLogo}}" width="352px" align="left" padding="0px"></mj-image>
-        </mj-column>
-      </mj-section>
-
-      <mj-raw>
-        {{#*inline "section"}}
-          {{#ifAny (any items) alwaysShow}}
-      </mj-raw>
-      <mj-section padding="15px 0px 5px 0px" background-color="{{colours.primaryText}}">
-        <mj-column padding="0px">
-          <mj-text font-size="20px" padding="10px" color="{{colours.primary}}" font-family="Montserrat, Helvetica, Arial, sans-serif" font-weight="700">
-            {{{replace title '%item_count%' (length items)}}}
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-raw>{{#ifAny headerBlock headerBlockNoItems}}</mj-raw>
-        <mj-section padding="5px 0px 5px 0px">
+      <mj-raw>{{#withExtend this
+        colours=campaignConfig.metaData.siteConfiguration.colors
+        importantNews=(filter searchData.hits.hits "_source.categories_slug" "testIn" "important-email-news")
+        bulletinNews=(filter searchData.hits.hits "_source.categories_slug" "testIn" "bulletin-news")
+        funds=(filter searchData.hits.hits "_type" "===" "fundingscotland-fund")
+      }}</mj-raw>
+        <mj-section background-color="{{colours.primary}}" padding="0px">
           <mj-column padding="0px">
-            <mj-text font-size="14px" padding="10px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-              {{{if items (replace headerBlock '%item_count%' (length items)) else=(default headerBlockNoItems (replace headerBlock '%item_count%' (length items)))}}}
+            <mj-image src="{{campaignConfig.metaData.siteConfiguration.emailLogo}}" padding="0px" />
+          </mj-column>
+        </mj-section>
+
+        <mj-section padding="0px" background-color="{{colours.primary}}">
+          <mj-column padding="0px" width="75%">
+            <mj-text font-size="22px" color="{{colours.primaryText}}" font-family="sans-serif" padding="15px" font-weight="700" vertical-align="middle">
+              <a href="{{campaignConfig.metaData.siteConfiguration.url}}" style="color:{{colours.primaryText}};text-decoration:none;">
+                {{campaignConfig.metaData.title}}
+              </a>
+            </mj-text>
+          </mj-column>
+          <mj-column padding="0px" width="25%">
+            <mj-text font-size="17px" color="{{colours.primaryText}}" font-family="sans-serif" padding="15px" align="right" vertical-align="middle">
+              <a href="%unsubscribe_url%" style="color:{{colours.primaryText}};text-decoration:none;">
+                Unsubscribe
+              </a>
             </mj-text>
           </mj-column>
         </mj-section>
-      <mj-raw>{{/ifAny}}</mj-raw>
-      <mj-raw>
-        {{/ifAny}}
-        {{#each items}}
-          {{#compare _type "fundingscotland-fund"}}
-            {{>fund this colours=../colours campaignConfig=../campaignConfig}}
-          {{else}}
-            {{>post this colours=../colours campaignConfig=../campaignConfig}}
-          {{/compare}}
-        {{/each}}
-        {{#ifAll (if (any items) false else=true) alwaysShow}}
-          <mj-spacer height="10px" />
-        {{/ifAll}}
-        {{/inline}}
-        {{#*inline "post"}}
-      </mj-raw>
-      <mj-section padding="10px 0px 10px 0px">
+
+        <mj-section padding="0px">
+          <mj-column padding="0px">
+            <mj-divider border-width="5px" border-style="solid" border-color="{{colours.secondary}}" padding="0px" />
+          </mj-column>
+        </mj-section>
+
+        <mj-raw>{{#ifAll (any importantNews) (any bulletinNews)}}</mj-raw>
+          <mj-section padding="0px">
+            <mj-column padding="30px 15px 15px 15px">
+              <mj-text font-size="24px" color="#37474F" font-family="sans-serif" padding="0px">
+                {{campaignConfig.metaData.newsTitle}}
+              </mj-text>
+              <mj-divider border-width="1px" border-style="solid" border-color="{{colours.secondary}}" padding="10px 0px" />
+            </mj-column>
+          </mj-section>
+
+          <mj-raw>{{#each importantNews}}</mj-raw>
+            <mj-section padding="0px">
+              <mj-column padding="0px">
+                <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
+                  <img src="https://storage.googleapis.com/fundingscotland/important.png" height="16" width="16" alt="[important]" title="Important news" style="vertical-align: middle;">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                    {{{_source.og_title}}}
+                  </a>
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px" color="#000000" font-family="sans-serif" line-height="18px">
+                  {{{truncate (stripTags _source.description) 500}}}
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                    Read full post
+                  </a>
+                </mj-text>
+              </mj-column>
+            </mj-section>
+          <mj-raw>{{/each}}</mj-raw>
+
+          <mj-raw>{{#each bulletinNews}}</mj-raw>
+            <mj-section padding="0px">
+              <mj-column padding="0px">
+                <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                    {{{_source.og_title}}}
+                  </a>
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px" color="#000000" font-family="sans-serif" line-height="18px">
+                  {{{truncate (stripTags _source.description) 500}}}
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                    Read full post
+                  </a>
+                </mj-text>
+              </mj-column>
+            </mj-section>
+          <mj-raw>{{/each}}</mj-raw>
+        <mj-raw>{{/ifAll}}</mj-raw>
+
+        <mj-section padding="0px">
+          <mj-column padding="30px 15px 15px 15px">
+            <mj-text font-size="24px" color="#37474F" font-family="sans-serif" padding="0px">
+              {{campaignConfig.metaData.fundsTitle}}
+            </mj-text>
+            <mj-divider border-width="1px" border-style="solid" border-color="{{colours.secondary}}" padding="10px 0px" />
+          </mj-column>
+        </mj-section>
+
+        <mj-raw>{{#each funds}}</mj-raw>
+          <mj-section padding="0px">
+            <mj-column padding="0px">
+              <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
+                <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  {{{_source.title}}}
+                </a>
+              </mj-text>
+
+              <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                <strong>Organisation:</strong>
+                <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  {{{_source.funder_organisation.name}}}
+                </a>
+              </mj-text>
+
+              <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                <strong>Description:</strong>
+                {{{removeEntities (stripTags _source.description)}}}
+              </mj-text>
+
+              <mj-raw>{{#if _source.date_last_important_activity}}</mj-raw>
+                <mj-raw>{{#compare _source.date_last_important_activity _source.date_news_last_updated}}</mj-raw>
+                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                    <strong>News - {{momentFormat (moment _source.data_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
+                    {{{removeEntities (stripTags _source.news)}}}
+                  </mj-text>
+                <mj-raw>{{/compare}}</mj-raw>
+                <mj-raw>{{#compare _source.date_last_important_activity _source.date_reopened}}</mj-raw>
+                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                    <strong>Date re-opened:</strong>
+                    {{momentFormat (moment _source.date_reopened "x") "Do MMMM YYYY"}}
+                  </mj-text>
+                <mj-raw>{{/compare}}</mj-raw>
+                <mj-raw>{{#compare _source.date_last_important_activity _source.date_created}}</mj-raw>
+                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                    <strong>Date created:</strong>
+                    {{momentFormat (moment _source.date_created "x") "Do MMMM YYYY"}}
+                  </mj-text>
+                <mj-raw>{{/compare}}</mj-raw>
+              <mj-raw>{{/if}}</mj-raw>
+
+              <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif" line-height="18px">
+                <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  Find out more &gt;
+                </a>
+              </mj-text>
+            </mj-column>
+          </mj-section>
+        <mj-raw>{{/each}}</mj-raw>
+
+        <mj-section padding="0px">
+          <mj-column padding="0px">
+            <mj-divider border-width="5px" border-style="solid" border-color="{{colours.secondary}}" padding="0px" />
+          </mj-column>
+        </mj-section>
+      <mj-raw>{{/withExtend}}</mj-raw>
+
+      <mj-section background-color="#263238" padding="15px">
         <mj-column padding="0px">
-          <mj-text font-size="17px" padding="0px 0px 5px 0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
-              {{{_source.og_title}}}
-            </a>
-          </mj-text>
-          <mj-text font-size="14px" padding="0px" color="#000000" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            {{{truncate (stripTags _source.description) 250}}}
-            <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{campaignConfig.metaData.siteConfiguration.colors.primary}}" style="color:{{campaignConfig.metaData.siteConfiguration.colors.primary}};font-weight:bold;">
-              Find out more
-            </a>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-raw>
-        {{/inline}}
-        {{#*inline "fund"}}
-      </mj-raw>
-      <mj-section padding="0px">
-        <mj-column padding="0px">
-          <mj-text font-size="17px" padding="10px" container-background-color="{{colours.primary}}" color="{{colours.primaryText}}" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primaryText}}" style="color:{{colours.primaryText}};font-weight:bold;text-decoration:none;">
-              {{{_source.title}}}
-            </a>
-          </mj-text>
-
-          <mj-spacer height="10px" />
-
-          <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <strong>Organisation:</strong>
-            <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
-              {{{_source.funder_organisation.name}}}
-            </a>
-          </mj-text>
-
-          <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <strong>Description:</strong>
-            {{{removeEntities (stripTags _source.description)}}}
-          </mj-text>
-
-
-          <mj-raw>{{#if _source.date_last_important_activity}}</mj-raw>
-            <mj-raw>{{#compare _source.date_last_important_activity _source.date_news_last_updated}}</mj-raw>
-              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
-                <strong>News - {{momentFormat (moment _source.data_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
-                {{{removeEntities (stripTags _source.news)}}}
-              </mj-text>
-            <mj-raw>{{/compare}}</mj-raw>
-            <mj-raw>{{#compare _source.date_last_important_activity _source.date_reopened}}</mj-raw>
-              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
-                <strong>Date re-opened:</strong>
-                {{momentFormat (moment _source.date_reopened "x") "Do MMMM YYYY"}}:
-              </mj-text>
-            <mj-raw>{{/compare}}</mj-raw>
-            <mj-raw>{{#compare _source.date_last_important_activity _source.date_created}}</mj-raw>
-              <mj-text font-size="14px" padding="5px 10px" font-family="Montserrat, Helvetica, Arial, sans-serif">
-                <strong>Date created:</strong>
-                {{momentFormat (moment _source.date_created "x") "Do MMMM YYYY"}}:
-              </mj-text>
-            <mj-raw>{{/compare}}</mj-raw>
-          <mj-raw>{{/if}}</mj-raw>
-
-          <mj-text font-size="14px" padding="5px 10px" align="right" font-family="Montserrat, Helvetica, Arial, sans-serif">
-            <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{colours.primary}}" style="color:{{colours.primary}};font-weight:bold;">
-              Find out more &gt;
-            </a>
-          </mj-text>
-
-          <mj-spacer height="10px" />
-        </mj-column>
-      </mj-section>
-      <mj-raw>
-        {{/inline}}
-      </mj-raw>
-
-      <mj-raw>
-        {{#each campaignConfig.metaData.sections}}
-          {{>section this
-              campaignConfig=../campaignConfig
-              colours=../campaignConfig.metaData.siteConfiguration.colors
-              items=(if
-                (ifAll identifier property comparator)
-                (filter ../searchData.hits.hits property comparator identifier)
-                else=null
-              )}}
-        {{/each}}
-      </mj-raw>
-
-      <mj-section background-color="#E1E3E4" padding="0px">
-        <mj-column padding="10px">
-          <mj-text font-size="16px" color="#37474F" font-family="Montserrat, helvetica, Arial, sans-serif" padding="0px">
-            <p style="margin:0px;">
-              <a href="%unsubscribe_url%" color="#37474F" style="color:#37474F;font-weight:bold;text-decoration:none;">Unsubscribe from these emails</a>
-            </p>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-
-      <mj-section background-color="#263238" padding="0px">
-        <mj-column padding="10px">
-          <mj-text font-size="14px" color="#ffffff" font-family="Montserrat, helvetica, Arial, sans-serif" padding="0px 0px 15px">
+          <mj-text font-size="14px" color="#ffffff" font-family="sans-serif" padding="0px 0px 15px" line-height="18px">
             &#169; {{momentFormat (moment) "YYYY"}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Charity registered in Scotland SC003558. Registered office Mansfield Traquair Centre, 15 Mansfield Place, Edinburgh EH3 6BB.
           </mj-text>
-          <mj-image src="https://storage.googleapis.com/scvo-assets/emailer/scvo-logo.png" align="center" width="125px" padding="0px"></mj-image>
+          <mj-image src="https://storage.googleapis.com/scvo-assets/emailer/scvo-logo.png" align="right" width="125px" padding="0px"></mj-image>
         </mj-column>
       </mj-section>
     </mj-wrapper>

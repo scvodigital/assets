@@ -28,6 +28,9 @@
               {{/if ~}}
             {{/json}},
             {{#json key="must_not" type="array"}}
+              {{#if (contains @root.request.params.query.miscellaneous "available-to-non-charities") ~}}
+                {{>queries_term field="charities_only" term=true}},
+              {{/if ~}}
               {{#unless showHidden}}
               {{#if @root.data.profile.hidden}}
                 {{#json}}

@@ -1,4 +1,6 @@
 <div class="container-fluid b-padding-full">
+  {{> header_search}}
+
   {{#compare @root.data.primaryResponse.all.hits.total ">" 0 ~}}
     {{#>premium_content}}
       {{#if (compare @root.data.supplimentaryResponses.saved.hits.total ">" 0) ~}}

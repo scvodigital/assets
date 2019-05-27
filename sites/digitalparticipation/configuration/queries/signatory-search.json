@@ -19,7 +19,7 @@
           "term": {
             "sector": "{{request.params.query.sector}}"
           }
-        }{{#if @root.request.params.query.category}},{{/if}}
+        }{{#ifAny @root.request.params.query.category @root.request.params.query.exclude_expired}},{{/ifAny}}
         {{/if ~}}
         {{#if @root.request.params.query.category ~}}
         {

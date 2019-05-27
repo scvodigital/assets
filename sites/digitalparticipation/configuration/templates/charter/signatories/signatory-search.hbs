@@ -66,9 +66,11 @@
         <h4>
           <a href="/charter/signatories/{{slug}}{{@root.request.url.search}}" title="{{{title}}}">{{{title}}}</a>
         </h4>
+        {{#compare status "===" "Signed" ~}}
         <p class="signed">
           <span class="fas fa-badge-check" aria-hidden="true"></span>&ensp;Signed {{momentFromNow date_signed}}
         </p>
+        {{/compare ~}}
         <p>
           {{#if description}}
           {{{truncate (stripTags description) 250}}}

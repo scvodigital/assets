@@ -3,6 +3,7 @@
   "_source": [
     "Id",
     "organisation_id",
+    "status",
     "title",
     "description",
     "date_signed",

@@ -7,6 +7,7 @@
     "description",
     "mission_statement",
     "date_signed",
+    "status",
     "logos"
   ],
   "query": {

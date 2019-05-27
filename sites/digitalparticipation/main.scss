@@ -160,6 +160,12 @@ hr {
   float: right;
 }
 
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  border-color: $brand-typography;
+  background-color: $brand-typography;
+}
+
 .mdc-drawer--modal.mdc-drawer--open {
   top: 0;
 }
@@ -485,6 +491,9 @@ main {
   .mdc-select,
   .mdc-form-field {
     width: 100%;
+  }
+  .mdc-form-field.narrow {
+    width: auto;
   }
   .mdc-textfield__input,
   .mdc-select {

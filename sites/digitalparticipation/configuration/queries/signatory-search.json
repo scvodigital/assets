@@ -1,6 +1,6 @@
 {
   "size": 10,
-  "from": {{multiply (subtract (default request.params.query.page 1) 1) 10}},
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
     "slug",
     "title",
@@ -12,29 +12,36 @@
   ],
   "query": {
     "bool": {
-      {{#ifAny request.params.query.sector request.params.query.category ~}}
+      {{#ifAny @root.request.params.query.sector @root.request.params.query.category @root.request.params.query.exclude_expired ~}}
       "filter": [
-        {{#if request.params.query.sector ~}}
+        {{#if @root.request.params.query.sector ~}}
         {
           "term": {
             "sector": "{{request.params.query.sector}}"
           }
-        }{{#if request.params.query.category}},{{/if}}
+        }{{#if @root.request.params.query.category}},{{/if}}
         {{/if ~}}
-        {{#if request.params.query.category ~}}
+        {{#if @root.request.params.query.category ~}}
         {
           "term": {
             "category": "{{request.params.query.category}}"
+          }
+        }{{#if @root.request.params.query.exclude_expired}},{{/if}}
+        {{/if ~}}
+        {{#if @root.request.params.query.exclude_expired ~}}
+        {
+          "term": {
+            "status": "Signed"
           }
         }
         {{/if ~}}
       ],
       {{/ifAny ~}}
-      {{#if request.params.query.q ~}}
+      {{#if @root.request.params.query.q ~}}
       "must": [
         {
           "query_string": {
-            "query": {{{stringify (default request.params.query.q "")}}},
+            "query": {{{stringify (default @root.request.params.query.q "")}}},
             "default_field": "text_bag",
             "default_operator": "AND",
             "analyzer": "snowball"
@@ -45,7 +52,7 @@
         {
           "match_phrase": {
             "title": {
-              "query": {{{stringify (default request.params.query.q "")}}},
+              "query": {{{stringify (default @root.request.params.query.q "")}}},
               "boost": 10
             }
           }
@@ -61,10 +68,10 @@
     }
   },
   "sort": {
-    {{#if request.params.query.sort ~}}
+    {{#if @root.request.params.query.sort ~}}
     "slug": "asc"
     {{else}}
-    {{#if request.params.query.q ~}}
+    {{#if @root.request.params.query.q ~}}
     "_score": "desc"
     {{else}}
     "date_signed": "desc"

@@ -611,6 +611,7 @@ main {
       line-height: 3.5rem;
       margin: 4rem 0;
     }
+    td,
     p {
       font-size: 1.3rem;
       font-weight: 400;
@@ -648,6 +649,8 @@ main {
     .sg-instructions,
     .sg-page-description,
     blockquote cite,
+    td,
+    th,
     p {
       font-size: 1.3rem;
       font-weight: 400;
@@ -962,7 +965,7 @@ a {
   color: $brand-typography;
 }
 
-p, li, div, blockquote, cite {
+p, li, div, blockquote, cite, td, th {
   font-family: $base-font-family;
   font-weight: $base-font-weight;
   font-size: $base-font-size;

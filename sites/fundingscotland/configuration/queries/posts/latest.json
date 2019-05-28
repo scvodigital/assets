@@ -1,0 +1,67 @@
+{
+  "size": 10,
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
+  "_source": [
+    "title",
+    "url",
+    "publish_on",
+    "description",
+    "image_feature",
+    "featured_image",
+    "header_background"
+  ],
+  "query": {
+    "bool": {
+      "minimum_should_match": "1",
+      "should": [
+        {{#each @root.context.metaData.site-configurations ~}}
+        {{#ifAny (compare @key "===" "default") (compare @key @root.data.currentSite.name) ~}}
+        {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "_type": {
+                    "value" : "fs-{{@key}}-post"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "categories": "Site news"
+                }
+              }
+            ]
+          }
+        },
+        {{/ifAny ~}}
+        {{/each ~}}
+        {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "_type": {
+                    "value" : "tfn-news-post"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "categories": "Funding & Finance"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    {
+      "publish_on": {
+        "order" : "desc"
+      }
+    }
+  ]
+}

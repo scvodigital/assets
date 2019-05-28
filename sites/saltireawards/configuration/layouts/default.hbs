@@ -132,26 +132,26 @@
                     iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
-                  {{!--#each @root.context.metaData.menus.user-signed-in ~}}
+                  {{#each @root.context.metaData.menus.user-signed-in ~}}
                     <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
                       {{#if icon ~}}
                       <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
                       {{/if ~}}
                       {{{label}}}
                     </a>
-                  {{/each ~--}}
+                  {{/each ~}}
                 {{/components_anchored_menu}}
               {{else}}
                 {{#>components_tab_bar
                     extraClasses="mdc-tab-bar__auto-width"
                     id="user-not-signed-in-tab-bar"}}
-                  {{!--#each @root.context.metaData.menus.user-not-signed-in ~}}
+                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
                     {{>components_tab
                         url=(stripTrailingSlash path)
                         labelClasses="mdc-theme--on-primary"
                         active=(regexMatch @root.request.url.pathname route "gi")
                         label=label}}
-                  {{/each--}}
+                  {{/each}}
                 {{/components_tab_bar}}
               {{/if ~}}
             </section>
@@ -177,7 +177,7 @@
               </span>
               <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
             </a>
-            {{!--#each @root.context.metaData.menus.user-signed-in ~}}
+            {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}
             {{else}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
@@ -198,7 +198,7 @@
               {{/if ~}}
               {{{label}}}
             </a>
-            {{/each ~--}}
+            {{/each ~}}
             {{/if ~}}
           </nav>
         </div>
@@ -314,12 +314,12 @@
     var saltireawards = null; readyListeners = [];
     $(document).ready(function() {
       saltireawards = new SaltireAwards.SaltireAwards({
-        apiKey: "AIzaSyAdecxsam31jfcXk5riBTKFjjZN6H68FMI",
-        authDomain: "auth.saltireawards.org.uk",
-        databaseURL: "https://scvo-auth-fs.firebaseio.com",
-        projectId: "scvo-auth-fs",
-        storageBucket: "scvo-auth-fs.appspot.com",
-        messagingSenderId: "35877130739"
+        apiKey: "AIzaSyBdoW5NoWqvMFMUKufrPVvuaYtNrEIRY6k",
+        authDomain: "saltire-awards.firebaseapp.com",
+        databaseURL: "https://saltire-awards.firebaseio.com",
+        projectId: "saltire-awards",
+        storageBucket: "saltire-awards.appspot.com",
+        messagingSenderId: "940419868873"
       });
       ready = true;
       readyListeners.forEach(function(listener) {

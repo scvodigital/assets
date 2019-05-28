@@ -1,0 +1,35 @@
+<div id="detailed-results-container" class="container-content content-notes">
+  <h2 class="mdc-typography--headline4">Add your details</h2>
+
+  <div class="mdc-typography--headline6">
+    Your details
+  </div>
+
+  <form id="user-details-form" action="/submit-user-details" method="POST" data-ajax-form='{
+      "successMessage": "Profile information updated",
+      "failureMessage": "Failed to update profile"
+    }'>
+
+    {{>account_details_form_fields}}
+
+    {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
+    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="preSubmit()">
+      <span class="far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
+      Submit Details
+    </button>
+  </form>
+</div>
+
+{{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
+<script>
+  function preSubmit() {
+    var form = document.getElementById("user-details-form");
+    var isValid = form.checkValidity();
+    if (isValid) {
+      onSubmit();
+    }
+
+  }
+  function onSubmit() {
+  }
+</script>

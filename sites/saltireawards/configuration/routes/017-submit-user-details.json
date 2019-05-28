@@ -1,0 +1,65 @@
+{
+  "name": "submit-user-details",
+  "pattern": "/submit-user-details",
+  "debug": true,
+  "acceptedVerbs": "POST",
+  "defaultParams": {
+    "context": "results"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "postBody",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "saveUserData",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "POST",
+        "body": ">data.postBody",
+        "apexClassPath": "/SaltireUsers/"
+      }
+    },
+    {
+      "name": "storeExternalProfileId",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/external-id/{{default data.auth.uid 'no-such-write-profile'}}/",
+        "setOrUpdate": "set",
+        "dataTemplate": ">context.metaData.handlebars.templates.account_external-profile-id"
+      }
+    },
+    {
+      "name": "reroute-no-profile-save",
+      "taskModule": "reroute",
+      "config":
+      {
+        "if":[{"!=":[{"var": "request.params.query.redirect"}, null]},
+          "redirect-home",
+          null
+        ]}
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{\"success\": true}"
+      }
+    }
+
+  ]
+}

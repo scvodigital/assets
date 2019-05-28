@@ -14,7 +14,61 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/saltireawards/",
     "title": "Saltire Awards",
     "menus": "{:./saltireawards-menus.json}",
+    "accountInfoValidation": "{:./account-info-validation.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
+    "commonTasks": {
+      "authNotRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "saltireawards",
+          "notAuthenticatedRoute": ""
+        }
+      },
+      "authRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "saltireawards",
+          "notAuthenticatedRoute": "sign_in"
+        }
+      },
+      "getExternalProfileId": {
+        "name": "externalProfileId",
+        "taskModule": "firebaseRtbGet",
+        "renderer": "handlebars",
+        "config": {
+          "appName": "saltireawards",
+          "pathTemplate": "/external-id/{{default data.auth.uid 'no-such-profile'}}/milo-profile-id",
+          "defaultData": ""
+        }
+      },
+      "externalProfileRequired": {
+        "name": "externalProfileRequired",
+        "taskModule": "reroute",
+        "config":
+        { "if" : [{ "and" : [
+          {"!=" : [ { "var" : "data.auth.uid" }, null ]},
+          {"==" : [ { "var" : "data.externalProfileId" }, ""] }
+        ] }, "redirect-to-sign-up-details", null
+        ]}
+      }
+    },
+
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

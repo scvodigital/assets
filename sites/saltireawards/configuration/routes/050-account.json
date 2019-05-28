@@ -1,25 +1,33 @@
 {
-  "name": "testpage",
-  "pattern": "/testpage",
+  "name": "account",
+  "pattern": "/account",
   "debug": true,
-  "acceptedVerbs": "GET,POST",
-  "defaultParams": {
-    "context": "results"
+  "metaData": {
+    "hideSearch": true
   },
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getExternalProfileId",
     {
-      "name": "postBody",
+      "name": "apexUrl",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_user-body",
-        "parseJson": true
+        "template": "/SaltireUsers/?id={{@root.data.externalProfileId}}"
       }
     },
-
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -36,7 +44,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_test"
+              "body": ">context.metaData.handlebars.templates.account_account-details"
             },
             "contentType": "text/html"
           }

@@ -19,7 +19,7 @@
       }
     },
     {
-      "name": "miloAPI",
+      "name": "saveUserData",
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
@@ -42,20 +42,22 @@
       }
     },
     {
-      "name": "redirectUrl",
+      "name": "reroute-no-profile-save",
+      "taskModule": "reroute",
+      "config":
+      {
+        "if":[{"!=":[{"var": "request.body.redirect"}, null]},
+          "redirect-home",
+          null
+        ]}
+    },
+    {
+      "name": "destination",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{{#if @root.request.body.redirect}}/{{@root.request.body.redirect}}{{else}}/{{/if}}"
-      }
-    },
-    {
-      "name": "destination",
-      "taskModule": "redirect",
-      "config": {
-        "location": ">data.redirectUrl",
-        "statusCode": 302
+        "template": "{\"success\": true}"
       }
     }
 

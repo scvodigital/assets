@@ -1,13 +1,7 @@
 {{#with @root.request.body}}
 {{#json}}
   {{#json key='users' type='array'}}
-    {{#json}}
-      {{{json key='firstName' value=first_name}}},
-      {{{json key='lastName' value=last_name}}},
-      {{{json key='externalID' value=external_id}}},
-      {{{json key='dateOfBirth' value=date_of_birth}}},
-      {{{json key='schoolCollegeName' value=school_college_name}}}
-    {{/json}},
+    {{{stringify this}}}
   {{/json}}
 {{/json}}
 {{/with}}

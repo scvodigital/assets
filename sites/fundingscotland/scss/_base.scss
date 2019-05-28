@@ -1038,7 +1038,10 @@ footer.mdc-layout__footer {
 }
 
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::before, :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::after {
-  background-color: initial!important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+:not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item:hover::before {
+  opacity: 1 !important;
 }
 
 .areas {

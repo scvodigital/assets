@@ -18,7 +18,6 @@
     "cost_structures",
     "rate",
     "course_overview",
-    "course_type",
     "aims",
     "description",
     "aimed_at",
@@ -31,12 +30,11 @@
     "geo.latitude",
     "geo.longitude",
     "venue_alt",
-    "rendered.scvo_full",
     "rendered.scvo_speakers"
   ],
   "query": {
     "term": {
-      "slug": "{{request.params.event_slug}}"
+      "slug": "a1v0n000009ykncqao-funding-the-future-ii"
     }
   }
 }

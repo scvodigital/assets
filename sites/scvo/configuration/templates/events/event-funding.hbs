@@ -1,6 +1,18 @@
 <div class="event">
-  {{> headers_splash_event}}
-  <div class="container-fluid page-content">
+  <div class="splash-image splash-image-scvo-cms-page" style="background-image: url('https://storage.googleapis.com/scvo-cms/29468/website-funding-header.jpg');">
+      <div class="splash-overlay splash-overlay-hidden">
+        <div class="container-fluid">
+          <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                <img src="https://storage.googleapis.com/scvo-cms/wp-content/uploads/2019/05/FTF-logo-rgb-2.jpg" alt="Funding the future" class="header-text">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid page-content">
     {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
@@ -8,7 +20,7 @@
       <li>{{{title}}}</li>
     </ul>
 
-    {{!-- <div class="full scvo-event scvo-event-{{Id}}{{#if (contains other_information "brand-")}} scvo-event-{{other_information}}{{/if}} mdc-layout-grid">
+    <div class="full scvo-event scvo-event-{{Id}}{{#if (contains other_information "brand-")}} scvo-event-{{other_information}}{{/if}} mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone content event-content">
           <dl class="inline-dl">
@@ -218,9 +230,8 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 
-    {{{rendered.scvo_full}}}
     {{{rendered.scvo_speakers}}}
     {{/with ~}}
     {{> same_events}}

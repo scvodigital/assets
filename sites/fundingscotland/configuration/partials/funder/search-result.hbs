@@ -5,7 +5,7 @@
         <a href="/funder/{{slug}}{{@root.request.url.search}}">{{title}}</a>
       </div>
       <div class="search-result-article__snippet mdc-typography--body1">
-        {{{truncate (default description og_summary) 280}}}
+        {{{truncate (stripTags (default description og_summary)) 280}}}
       </div>
     </div>
   </div>

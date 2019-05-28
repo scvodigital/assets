@@ -15,9 +15,11 @@
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#if logos.[0]}}9{{else}}12{{/if}}-desktop mdc-layout-grid__cell--span-{{#if logos.[0]}}6{{else}}8{{/if}}-tablet mdc-layout-grid__cell--span-4-phone">
       <h1>{{{title}}}</h1>
+      {{#compare status "===" "Signed" ~}}
       <p class="signed">
         <span class="fas fa-badge-check" aria-hidden="true"></span>&ensp;Signed {{momentFromNow date_signed}}
       </p>
+      {{/compare ~}}
       {{#if website ~}}
       <p>
         <span class="fas fa-link" aria-hidden="true"></span>

@@ -8,7 +8,7 @@
   {{>queries_terms field="source_of_fund_slug" terms=source_of_fund}},
 {{/if ~}}
 {{#if (contains miscellaneous "for-charities-only") ~}}
-  {{>queries_terms field="charities_only" terms=true}},
+  {{>queries_term field="charities_only" term=true}},
 {{/if ~}}
 {{#if (contains miscellaneous "funds-individuals") ~}}
   {{>queries_terms field="also_funds_individuals" terms=true}},

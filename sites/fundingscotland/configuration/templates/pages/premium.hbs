@@ -1,18 +1,25 @@
 <div class="container-content fundingscotland-page t-padding">
   <div class="mdc-card list h-padding-full b-padding-full t-margin b-margin-full mdc-elevation--z3">
-    {{#compare data.primaryResponse.hits.total ">" 0 ~}}
+    {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
       <h1 class="mdc-typography--headline4">
-        {{{data.primaryResponse.hits.hits.[0]._source.title}}}
+        {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
       </h1>
-      {{{data.primaryResponse.hits.hits.[0]._source.content}}}
+      {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
 
       {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
         <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90135398/Funding-Scotland-Premium?__output=embedjs&email={{@root.data.auth.email}}&passwordHash={{@root.data.auth.passwordHash}}&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
+      {{else}}
+      <div class="mdc-typography--body1">
+        <a href="/sign-in" class="mdc-button mdc-button--raised">
+          <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>
+          Sign in
+        </a>
+        <a href="/sign-up" class="mdc-button mdc-button--raised">
+          <span class="far fa-list-alt mdc-list-item__graphic" aria-hidden="true"></span>
+          Sign up
+        </a>
+      </div>
       {{/ifAll ~}}
-    {{else}}
-      <h2 class="mdc-typography--headline5">
-        Error 404: Page not found
-      </h2>
     {{/compare ~}}
   </div>
 </div>

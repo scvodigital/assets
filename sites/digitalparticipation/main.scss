@@ -160,6 +160,12 @@ hr {
   float: right;
 }
 
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+  border-color: $brand-typography;
+  background-color: $brand-typography;
+}
+
 .mdc-drawer--modal.mdc-drawer--open {
   top: 0;
 }
@@ -486,6 +492,9 @@ main {
   .mdc-form-field {
     width: 100%;
   }
+  .mdc-form-field.narrow {
+    width: auto;
+  }
   .mdc-textfield__input,
   .mdc-select {
     font-size: 1.1rem;
@@ -602,6 +611,7 @@ main {
       line-height: 3.5rem;
       margin: 4rem 0;
     }
+    td,
     p {
       font-size: 1.3rem;
       font-weight: 400;
@@ -639,6 +649,8 @@ main {
     .sg-instructions,
     .sg-page-description,
     blockquote cite,
+    td,
+    th,
     p {
       font-size: 1.3rem;
       font-weight: 400;
@@ -953,7 +965,7 @@ a {
   color: $brand-typography;
 }
 
-p, li, div, blockquote, cite {
+p, li, div, blockquote, cite, td, th {
   font-family: $base-font-family;
   font-weight: $base-font-weight;
   font-size: $base-font-size;

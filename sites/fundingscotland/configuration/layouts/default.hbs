@@ -112,21 +112,23 @@
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
-              <div class="mdc-chipset pull-right hide-md hide-sm">
-                <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
-                  {{#>premium_content}}
-                    <i class="far mdc-chip__icon fa-check-circle"></i>
-                  {{/premium_content}}
-                  {{#>premium_content_alt}}
-                    <i class="far mdc-chip__icon fa-circle"></i>
-                  {{/premium_content_alt}}
-                  <div class="mdc-chip__text">
-                    Premium user
-                  </div>
-                </a>
-              </div>
-              {{/ifAll ~}}
+              {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
+                {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
+                <div class="mdc-chipset pull-right hide-md hide-sm">
+                  <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
+                    {{#>premium_content}}
+                      <i class="far mdc-chip__icon fa-check-circle"></i>
+                    {{/premium_content}}
+                    {{#>premium_content_alt}}
+                      <i class="far mdc-chip__icon fa-circle"></i>
+                    {{/premium_content_alt}}
+                    <div class="mdc-chip__text">
+                      Premium user
+                    </div>
+                  </a>
+                </div>
+                {{/ifAll ~}}
+              {{/ifAny ~}}
 
               {{#unless @root.route.metaData.hideSearch ~}}
               <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
@@ -143,16 +145,21 @@
               {{#> components_tab_bar
                    extraClasses="mdc-tab-bar__auto-width"
                    id="main-tab-bar"}}
-               {{> components_tab
-                   url="/search"
-                   labelClasses="mdc-theme--on-primary"
-                   active=(regexMatch @root.request.url.pathname "^/search$|^/fund/" "gi")
-                   label="Funds"}}
-               {{> components_tab
-                   url="/funders"
-                   labelClasses="mdc-theme--on-primary"
-                   active=(regexMatch @root.request.url.pathname "^/funders$|^/funder" "gi")
-                   label="Funders"}}
+                {{> components_tab
+                    url="/"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/$" "gi")
+                    label="Home"}}
+                {{> components_tab
+                    url="/search"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/search$|^/fund/" "gi")
+                    label="Funds"}}
+                {{> components_tab
+                    url="/funders"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/funders$|^/funder" "gi")
+                    label="Funders"}}
                 {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{> components_tab
                       url=(default _source.menu_url (stripTrailingSlash (concat "/" _source.slug)))
@@ -160,6 +167,11 @@
                       active=(regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")
                       label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
+                {{> components_tab
+                    url="/news"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/news$|^/post" "gi")
+                    label="News"}}
               {{/components_tab_bar}}
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
@@ -242,7 +254,7 @@
               <span class="mdc-list-item__graphic" aria-hidden="true">
                 <img src="{{@root.data.auth.photoURL}}" />
               </span>
-              <span class="mdc-list-item__text">{{@root.data.auth.email}}</span>
+              <span class="mdc-list-item__text">My account</span>
             </a>
             {{#each @root.context.metaData.menus.user-signed-in ~}}
             {{#compare path "===" "/" ~}}

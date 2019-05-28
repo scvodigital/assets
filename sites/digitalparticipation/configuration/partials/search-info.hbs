@@ -1,40 +1,54 @@
-<div class="mdc-layout-grid">
-  <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
-      {{#if paging.totalResults ~}}
-      <p class="search-info">
-        <strong>Total results:</strong> {{addCommas paging.totalResults}}
-        {{#compare paging.totalResults ">" 10 ~}} |
-        <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
-        {{/compare ~}}
-      </p>
-      {{else}}
-      {{#ifAny @root.request.params.query.q @root.request.params.query.sector @root.request.params.query.category ~}}
-      <p class="search-info">
-        No results could be found, please try a different search query
-      </p>
-      {{/ifAny ~}}
-      {{/if ~}}
-    </div>
-    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
-      <form action="{{@root.request.url.path}}" method="GET">
-        {{#if @root.request.params.query.q ~}}
-        <input type="hidden" name="q" value="{{@root.request.params.query.q}}" />
+<form action="{{@root.request.url.path}}" method="GET">
+  {{#if @root.request.params.query.q ~}}
+  <input type="hidden" name="q" value="{{@root.request.params.query.q}}" />
+  {{/if ~}}
+  {{#if @root.request.params.query.sector ~}}
+  <input type="hidden" name="sector" value="{{@root.request.params.query.sector}}" />
+  {{/if ~}}
+  {{#if @root.request.params.query.category ~}}
+  <input type="hidden" name="category" value="{{@root.request.params.query.category}}" />
+  {{/if ~}}
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        {{#if paging.totalResults ~}}
+        <p class="search-info">
+          <strong>Total results:</strong> {{addCommas paging.totalResults}}
+          {{#compare paging.totalResults ">" 10 ~}} |
+          <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
+          {{/compare ~}}
+        </p>
+        {{else}}
+        {{#ifAny @root.request.params.query.q @root.request.params.query.sector @root.request.params.query.category ~}}
+        <p class="search-info">
+          No results could be found, please try a different search query
+        </p>
+        {{/ifAny ~}}
         {{/if ~}}
-        {{#if @root.request.params.query.sector ~}}
-        <input type="hidden" name="sector" value="{{@root.request.params.query.sector}}" />
-        {{/if ~}}
-        {{#if @root.request.params.query.category ~}}
-        <input type="hidden" name="category" value="{{@root.request.params.query.category}}" />
-        {{/if ~}}
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-form-field narrow pull-right">
+          <div class="mdc-checkbox">
+            <input type="checkbox" class="mdc-checkbox__native-control" id="exclude_expired" name="exclude_expired" onchange="this.form.submit();"{{#if @root.request.params.query.exclude_expired}} checked{{/if}} />
+            <div class="mdc-checkbox__background">
+              <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+              </svg>
+              <div class="mdc-checkbox__mixedmark"></div>
+            </div>
+          </div>
+          <label for="exclude_expired">Show only active signatories</label>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
         <div class="mdc-form-field sort pull-right">
           <form action="{{@root.request.url.path}}" method="GET">
           <select class="mdc-select" role="listbox" id="charter-sort" name="sort" onchange="this.form.submit();">
-            <option value="" {{#if @root.request.params.query.sort}}{{else}}selected{{/if}}>{{#if @root.request.params.query.q ~}}Relevance{{else}}Date signed{{/if}}</option>
-            <option value="AZ" {{#if @root.request.params.query.sort}}selected{{else}}{{/if}}>Alphabetical</option>
+            <option value=""{{#if @root.request.params.query.sort}}{{else}} selected{{/if}}>{{#if @root.request.params.query.q ~}}Relevance{{else}}Date signed{{/if}}</option>
+            <option value="AZ"{{#if @root.request.params.query.sort}} selected{{else}}{{/if}}>Alphabetical</option>
           </select>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</form>

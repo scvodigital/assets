@@ -1,7 +1,9 @@
-<div class="container-fluid home-funds">
+<div class="container-fluid">
+  {{> header_search}}
+
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}8{{else}}4{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone l-padding-full r-padding-full home-info">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}8{{else}}4{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone h-padding-full home-info mdc-elevation--z5 {{#compare @root.data.currentSite.name "!==" "default" ~}} b-margin-full{{/compare}}">
         <h1 class="mdc-typography--headline4">
           {{@root.data.currentSite.headingText}}
         </h1>
@@ -47,9 +49,10 @@
           </div>
         </div>
       </div>
+
       {{#compare @root.data.currentSite.name "default" ~}}
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone b-padding-full">
-        <div class="mdc-typography--headline6 v-margin-full">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone r-padding-full">
+        <div class="mdc-typography--headline6 b-margin-full">
           Recently updated funds
         </div>
         {{> fund_mini @root.data.primaryResponse.hits.hits.[0]._source}}
@@ -57,8 +60,8 @@
         {{> fund_mini @root.data.primaryResponse.hits.hits.[2]._source}}
       </div>
       {{else}}
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <div class="mdc-typography--headline6 v-margin-full">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone r-padding-full">
+        <div class="mdc-typography--headline6 b-margin-full">
           Recently updated funds
         </div>
         <div class="mdc-layout-grid equal-height">
@@ -89,6 +92,10 @@
         </div>
       </div>
       {{/compare ~}}
+
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone h-padding-full">
+        {{> tfn_latest}}
+      </div>
     </div>
   </div>
 </div>

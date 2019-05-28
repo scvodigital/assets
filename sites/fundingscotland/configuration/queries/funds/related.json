@@ -34,24 +34,35 @@
           {
             "filter": {
               "more_like_this": {
-                "fields": ["title^5","text_bag"],
-                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
-                "min_term_freq": 1,
-                "max_query_terms": 12
+                "fields": ["description"],
+                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.description}}",
+                "min_term_freq": 6,
+                "max_query_terms": 30
               }
             },
-            "weight": 5
+            "weight": 2
           },
           {
             "filter": {
               "more_like_this": {
-                "fields": ["funder_organisation.name^2","text_bag","who_can_apply"],
-                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
+                "fields": ["title"],
+                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.title}}",
                 "min_term_freq": 1,
-                "max_query_terms": 12
+                "max_query_terms": 4
               }
             },
-            "weight": 4
+            "weight": 3
+          },
+          {
+            "filter": {
+              "more_like_this": {
+                "fields": ["funder_organisation.name"],
+                "like": "{{@root.data.primaryResponse.hits.hits.[0]._source.funder_organisation.name}}",
+                "min_term_freq": 1,
+                "max_query_terms": 3
+              }
+            },
+            "weight": 5
           },
           {
             "filter": {
@@ -60,8 +71,8 @@
                   "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.activities}}",
                   "cutoff_frequency": 0.001,
                   "minimum_should_match": {
-                    "low_freq" : 2,
-                    "high_freq" : 3
+                    "low_freq": 3,
+                    "high_freq": 5
                   }
                 }
               }
@@ -75,19 +86,19 @@
                   "query": "{{@root.data.primaryResponse.hits.hits.[0]._source.beneficiaries}}",
                   "cutoff_frequency": 0.001,
                   "minimum_should_match": {
-                    "low_freq" : 2,
-                    "high_freq" : 3
+                    "low_freq": 2,
+                    "high_freq": 5
                   }
                 }
               }
             },
-            "weight": 1
+            "weight": 2
           }
         ],
         "max_boost": 50,
         "score_mode": "max",
         "boost_mode": "multiply",
-        "min_score" : 1
+        "min_score": 3
       }
     {{/queries_fund_common}}
   {{/json}}

@@ -7,7 +7,7 @@
     "headingText": "Funding at your fingertips",
     "url": "https://test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/scvo-inverse.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/default-email.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-default-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#537F2C",

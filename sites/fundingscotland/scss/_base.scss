@@ -107,9 +107,10 @@ header {
         font-size: 1.75rem;
         letter-spacing: -0.05rem;
         font-weight: 600;
-        line-height: 100px;
+        line-height: 1.3;
         display: block;
         margin-left: $unit*1.25;
+        white-space: normal;
       }
       .mdc-top-app-bar__title:hover {
         text-decoration: none;
@@ -370,6 +371,7 @@ a:hover {
 
 .mdc-button--raised .mdc-list-item__graphic {
   color: #fff;
+  height: auto;
 }
 .mdc-button--raised.mdc-button--disabled .mdc-list-item__graphic {
   color: rgba(0, 0, 0, 0.37);
@@ -811,6 +813,7 @@ footer,
 }
 
 .tfn-latest {
+  margin-bottom: $unit/2;
   .gist {
     .mdc-card__subtitle {
       color: $mdc-theme-secondary-dark;

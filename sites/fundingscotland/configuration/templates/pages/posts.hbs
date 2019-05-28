@@ -1,6 +1,8 @@
 <div class="container-content fundingscotland-page t-padding">
   <div class="list b-padding-full t-margin b-margin-full">
-    {{#each @root.data.primaryResponse.tfn_latest.hits.hits ~}}
+    {{> search_info paging=@root.data.primaryResponse.pagination}}
+
+    {{#each @root.data.primaryResponse.hits.hits ~}}
     {{#with _source ~}}
     <div class="mdc-card x-padding-full gist tfn-post {{../_type}}">
       <a href="{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic" title="{{title}}"><img src="{{image_feature}}" /></a>
@@ -20,5 +22,7 @@
     </div>
     {{/with ~}}
     {{/each ~}}
+
+    {{> pagination paging=@root.data.primaryResponse.pagination}}
   </div>
 </div>

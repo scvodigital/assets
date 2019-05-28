@@ -8,11 +8,11 @@
 <div class="search-info mdc-elevation--z3">
   <strong>Total results:</strong> {{addCommas paging.totalResults}}
   {{#ifAny @root.request.params.query.keywords @root.request.params.query.activities @root.request.params.query.beneficiaries @root.request.params.query.geographical_areas_funded @root.request.params.query.type_of_cost @root.request.params.query.type_of_funding @root.request.params.query.source_of_fund @root.request.params.query.miscellaneous @root.request.params.query.page ~}}
-  {{#compare paging.totalResults ">" 50}}
+  {{#ifAll (compare paging.totalResults ">" 50) (compare @root.route.name "!==" "posts") ~}}
   (limited to 50 per search)
   {{else}}
   {{> current_page}}
-  {{/compare ~}}
+  {{/ifAll ~}}
   {{else}}
   {{> current_page}}
   {{/ifAny ~}}

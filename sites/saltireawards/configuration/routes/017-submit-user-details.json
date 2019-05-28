@@ -46,7 +46,7 @@
       "taskModule": "reroute",
       "config":
       {
-        "if":[{"!=":[{"var": "request.body.redirect"}, null]},
+        "if":[{"!=":[{"var": "request.params.query.redirect"}, null]},
           "redirect-home",
           null
         ]}

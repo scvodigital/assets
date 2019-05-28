@@ -53,35 +53,6 @@
       </div>
 
 
-      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-        <input type="text" id="first_name" name="first_name" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-        <label class="mdc-floating-label" for="first_name">
-          First name (Optional)
-        </label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-
-    <p>
-        Check the boxes below to receive regular email updates in areas that interest you.
-      </p>
-      {{#each @root.data.all-newsletter-info.result}}
-        <div class="mdc-form-field">
-        <div class="mdc-checkbox">
-          <input type="checkbox" class="mdc-checkbox__native-control" name="list-{{ListID}}" id="list-{{ListID}}" />
-          <div class="mdc-checkbox__background">
-            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-              <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-            </svg>
-            <div class="mdc-checkbox__mixedmark"></div>
-          </div>
-        </div>
-        <label for="list-{{ListID}}">
-          {{Name}}
-        </label>
-
-        </div>
-      {{/each}}
     </div>
 
       <div id="form-section-sign-up-buttons">

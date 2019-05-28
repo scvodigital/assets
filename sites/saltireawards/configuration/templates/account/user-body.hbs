@@ -1,0 +1,7 @@
+{{#with @root.request.body}}
+{{#json}}
+  {{#json key='users' type='array'}}
+    {{{stringify this}}}
+  {{/json}}
+{{/json}}
+{{/with}}

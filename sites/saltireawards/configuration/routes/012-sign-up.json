@@ -1,10 +1,13 @@
 {
-  "name": "_default",
-  "pattern": "/*path",
+  "name": "sign_up",
+  "pattern": "/sign-up",
+  "debug": true,
   "metaData": {
-    "title": "404: Page not found – Saltire Awards"
+    "hideSearch": true,
+    "title": "Sign up - Volunteer Scotland Search"
   },
   "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -21,7 +24,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.404"
+              "body": ">context.metaData.handlebars.templates.account_sign-up"
             },
             "contentType": "text/html"
           }

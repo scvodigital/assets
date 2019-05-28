@@ -1,10 +1,8 @@
 {
-  "name": "_default",
-  "pattern": "/*path",
-  "metaData": {
-    "title": "404: Page not found – Saltire Awards"
-  },
+  "name": "delete-user",
+  "pattern": "/delete-user",
   "tasks": [
+    "context.metaData.commonTasks.authRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -20,8 +18,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.404"
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.account_delete-user"
             },
             "contentType": "text/html"
           }

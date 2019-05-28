@@ -3,13 +3,15 @@ import { default as Headroom } from 'headroom.js';
 import * as mdc from 'material-components-web';
 import { ComponentsInitialiser } from '../../lib/components-initialiser';
 import * as querystring from 'querystring';
+import { Auth } from '../../lib/firebase-auth';
+
 
 import * as cookieInfoScript from '../../lib/cookie-info-script' ;
 
 export class SaltireAwards {
   constructor(firebaseConfig) {
     this.firebaseConfig = firebaseConfig;
-    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'fs_cookie');
+    this.auth = new Auth(this.firebaseConfig, '/upgrade-token?token={idToken}', 'sa_cookie');
 
     this.componentsInitialiser = new ComponentsInitialiser();
     this.componentsInitialiser.initialise();
@@ -97,13 +99,13 @@ export class SaltireAwards {
       const $dismissButton = $helpBox.find('.help-box__dismiss-button');
       $dismissButton.on('click', (evt) => {
         $helpBox.addClass('help-box--dismissed');
-        const dismissedCookie = this.getCookie('fs_dismissed') || '';
+        const dismissedCookie = this.getCookie('sa_dismissed') || '';
         const dismissedList = dismissedCookie.substr(1, dismissedCookie.length - 2).split('][');
         if (dismissedList.indexOf(id) === -1) {
           dismissedList.push(id);
         }
         const newCookie = '[' + dismissedList.join('][') + ']';
-        this.setCookie('fs_dismissed', newCookie);
+        this.setCookie('sa_dismissed', newCookie);
       });
     });
 

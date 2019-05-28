@@ -4,9 +4,11 @@
   "_source": [
     "title",
     "url",
+    "slug",
     "publish_on",
     "description",
     "image_feature",
+    "image_wide",
     "featured_image",
     "header_background"
   ],

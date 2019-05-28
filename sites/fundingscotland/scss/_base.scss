@@ -390,6 +390,10 @@ a:hover {
   color: $mdc-theme-surface-dark;
 }
 
+.mdc-card__action--button {
+  padding: 0;
+}
+
 .mdc-card {
   .mdc-card__actions {
     background-color: $mdc-theme-surface;
@@ -399,6 +403,12 @@ a:hover {
     .mdc-card__action {
       color: $mdc-theme-primary-dark;
     }
+  }
+  .mdc-card__media--16-9::before {
+    margin-top: 25% !important;
+  }
+  .demo-card__secondary {
+    flex: 1 1 auto !important;
   }
 }
 

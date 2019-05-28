@@ -2,26 +2,36 @@
   <div class="list b-padding-full t-margin b-margin-full">
     {{> search_info paging=@root.data.primaryResponse.pagination}}
 
-    {{#each @root.data.primaryResponse.hits.hits ~}}
-    {{#with _source ~}}
-    <div class="mdc-card x-padding-full gist tfn-post {{../_type}}">
-      <a href="{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic" title="{{title}}"><img src="{{default (default image_feature featured_image) header_background}}" /></a>
-      <h3 class="mdc-card__title mdc-typography--headline">
-        <a href="{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic" title="{{title}}">{{{title}}}</a>
-      </h3>
-      <h4 class="mdc-card__subtitle post-info">
-        <div class="post-info-item post-info-date">
-          <span class="far fa-calendar-edit" aria-hidden="true"></span>
-          {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
+    <div class="mdc-layout-grid equal-height">
+      <div class="mdc-layout-grid__inner">
+        {{#each @root.data.primaryResponse.hits.hits ~}}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-card gist {{_type}}">
+            {{#with _source ~}}
+            {{#ifAny image_feature featured_image header_background ~}}
+            <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url(&quot;{{default (default (default image_wide image_feature) featured_image) header_background}}&quot;);"></div>
+            {{/ifAny ~}}
+            <div class="demo-card__primary">
+              <h2 class="demo-card__title mdc-typography mdc-typography--headline6 h-padding-full">{{{title}}}</h2>
+              <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2 h-padding-full">
+                <span class="far fa-calendar-edit" aria-hidden="true"></span>
+                {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
+              </h3>
+            </div>
+            <div class="demo-card__secondary mdc-typography mdc-typography--body2 x-padding-full">
+              {{{description}}}
+            </div>
+            <div class="mdc-card__actions">
+              <div class="mdc-card__action-buttons">
+                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace slug "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more</a>
+              </div>
+            </div>
+            {{/with ~}}
+          </div>
         </div>
-      </h4>
-      <p class="mdc-typography--body1">
-        {{{description}}}
-        <a href="{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic" title="{{title}}">Read more</a>
-      </p>
+        {{/each ~}}
+      </div>
     </div>
-    {{/with ~}}
-    {{/each ~}}
 
     {{> pagination paging=@root.data.primaryResponse.pagination}}
   </div>

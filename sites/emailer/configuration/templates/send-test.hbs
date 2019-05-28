@@ -2,80 +2,168 @@
   <html>
     <head>
       <title>Send Test</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
       <style>
-        th {
-          text-align: left;
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+        .sidebar {
+          background: rgb(61, 79, 93);
+          color: #fff;
+        }
+        .sidebar .container {
+          margin: 2em;
+        }
+        .pure-button-group{
+          width: 100%;
+        }
+        .pure-button-group .pure-button {
+          width: 50%;
+        }
+        .sidebar select {
+          color: #000000;
+          width: 100%;
+        }
+        table tbody {
+          background: #fff;
+        }
+        .email-frame {
+          width: 100%;
+          height: 100vh;
+          border: none;
+          display: none;
         }
         .email-details {
-          display: flex;
-          flex-direction: row;
-        }
-        .email-details .column {
-          flex-grow: 1;
-        }
-        .email-preview {
-          width: 100%;
-          height: 600px;
-          border: none;
+          display: none;
         }
       </style>
     </head>
     <body>
-      <h1>Rendered emails</h1>
-      {{#each @root.data.send_emails}}
-        <h2>Email: {{data.to}} - {{data.tag}}</h2>
-        <div class="email-details">
-          <div class="column">
-            <h3>Outgoing</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <th>From</th>
-                  <td>{{data.from}}</td>
-                </tr>
-                <tr>
-                  <th>To</th>
-                  <td>{{data.to}}</td>
-                </tr>
-                <tr>
-                  <th>Tag</th>
-                  <td>{{data.tag}}</td>
-                </tr>
-                <tr>
-                  <th>Connection</th>
-                  <td>{{data.connectionName}}</td>
-                </tr>
-                <tr>
-                  <th>Subject</th>
-                  <td>{{data.subject}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="column">
-            <h3>Response</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Id</th>
-                  <td>{{response.id}}</td>
-                </tr>
-                <tr>
-                  <th>Message</th>
-                  <td>{{response.message}}</td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="pure-g">
+        <div class="sidebar pure-u-1 pure-u-md-1-4">
+          <div class="container">
+            <div class="header">
+              <h1 class="brand-title">Test emails</h1>
+              <h2 class="brand-tagline">{{{@root.data.send_emails.[0].data.tag}}}</h2>
+            </div>
+
+            <div class="pure-form pure-form-stacked">
+              <div class="pure-button-group" role="group" aria-label="...">
+                <button class="pure-button" id="toggle-preview" onclick="toggleOutput()">Preview</button>
+                <button class="pure-button" id="toggle-json" onclick="toggleOutput()">Search JSON</button>
+              </div>
+              <div class="pure-control-group">
+                <label for="email">Select an email</label>
+                <select id="email" onchange="showEmail(this.value);">
+                  {{#each @root.data.send_emails}}
+                    <option value="{{@index}}">{{data.to}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+
+            {{#each @root.data.send_emails}}
+              <div class="email-details" id="email-details-{{@index}}">
+                <h3>Email: {{data.to}}</h3>
+
+                <table class="pure-table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Request</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="pure-table-odd">
+                      <th>From</th>
+                      <td>{{data.from}}</td>
+                    </tr>
+                    <tr>
+                      <th>To</th>
+                      <td>{{data.to}}</td>
+                    </tr>
+                    <tr class="pure-table-odd">
+                      <th>Tag</th>
+                      <td>{{data.tag}}</td>
+                    </tr>
+                    <tr>
+                      <th>Connection</th>
+                      <td>{{data.connectionName}}</td>
+                    </tr>
+                    <tr class="pure-table-odd">
+                      <th>Subject</th>
+                      <td>{{data.subject}}</td>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colspan="2">Response</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Id</th>
+                      <td>{{response.id}}</td>
+                    </tr>
+                    <tr class="pure-table-odd">
+                      <th>Message</th>
+                      <td>{{response.message}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            {{/each}}
           </div>
         </div>
-        <h3>Rendered</h3>
-        <iframe src="about:blank" frameborder="0" id="email-frame-{{@index}}" class="email-preview"></iframe>
-        <script>
-          var doc = document.getElementById('email-frame-{{@index}}');
-          var contents = {{{safeStringify data.html}}};
-          doc.src = 'data:text/html;charset=utf-8,' + escape(contents);
-        </script>
-      {{/each}}
+        <div class="content pure-u-1 pure-u-md-3-4">
+          <iframe src="about:blank" frameborder="0" id="email-preview" class="email-frame"></iframe>
+          <iframe src="about:blank" frameborder="0" id="email-json" class="email-frame"></iframe>
+          <script>
+            var previewFrame = document.getElementById('email-preview');
+            var jsonFrame = document.getElementById('email-json');
+            var previewToggle = document.getElementById('toggle-preview');
+            var jsonToggle = document.getElementById('toggle-json');
+            var emailDetails = Array.from(document.querySelectorAll('.email-details'));
+            var outputToggles = Array.from(document.querySelectorAll('.output-toggle'));
+            var emails = [
+              {{#each @root.data.send_emails}}
+                {
+                  details: document.getElementById('email-details-{{@index}}'),
+                  contents: {{{safeStringify data.html}}},
+                  json: {{{safeStringify (safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.to))))}}}
+                }{{#unless @last}},{{/unless}}
+              {{/each}}
+            ];
+            function showEmail(index) {
+              email = emails[index];
+              previewFrame.src = 'data:text/html;charset=utf-8,' + escape(email.contents);
+              jsonFrame.src = 'data:application/json;charset=utf-8,' + escape(email.json);
+              for (const email of emailDetails) {
+                email.style.display = 'none';
+              }
+              email.details.style.display = 'block';
+            }
+            showEmail(0);
+            function toggleOutput() {
+              if (previewFrame.style.display === 'block') {
+                previewFrame.style.display = 'none';
+                jsonFrame.style.display = 'block';
+                previewToggle.classList.remove('pure-button-active');
+                jsonToggle.classList.add('pure-button-active');
+              } else {
+                jsonFrame.style.display = 'none';
+                previewFrame.style.display = 'block';
+                previewToggle.classList.add('pure-button-active');
+                jsonToggle.classList.remove('pure-button-active');
+              }
+            }
+            toggleOutput();
+          </script>
+        </div>
+      </div>
     </body>
   </html>
 {{else}}

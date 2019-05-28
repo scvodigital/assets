@@ -17,7 +17,7 @@
           {
             "term": {
               "date_reopens": {
-                "value": "now+7d/d"
+                "value": "now+3M/d"
               }
             }
           }

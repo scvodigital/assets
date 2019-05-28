@@ -17,7 +17,7 @@
           {
             "range": {
               "date_reopens": {
-                "lte": "now+7d/d",
+                "lte": "now+3M/d",
                 "gte": "now/d"
               }
             }

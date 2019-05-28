@@ -4,8 +4,11 @@
   "_source": [
     "title",
     "url",
-    "date_published",
-    "image_feature"
+    "publish_on",
+    "description",
+    "image_feature",
+    "featured_image",
+    "header_background"
   ],
   "query": {
     "bool": {

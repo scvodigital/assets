@@ -1009,16 +1009,26 @@ footer.mdc-layout__footer {
 
 .chip-filters {
   display: inline-block;
+  line-height: 2.5rem;
+  margin-right: 1rem;
 }
 
 .chip-filters > span:first-child::before {
-  //font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Pro";
   font-weight: 900;
 }
 
-#activities-filters > span:first-child::before {
-  content: "Activities: ";
+.chip-filters:empty {
+  display: none;
 }
+
+#activities-filters > span:first-child::before { content: "\f4ce"; }
+#beneficiaries-filters > span:first-child::before { content: "\f0c0"; }
+#type_of_funding-filters > span:first-child::before { content: "\f19c"; }
+#type_of_cost-filters > span:first-child::before { content: "\f53c"; }
+#miscellaneous-filters > span:first-child::before { content: "\f0b0"; }
+#geographical_areas_funded-filters > span:first-child::before { content: "\f5a0"; }
+#source_of_fund-filters > span:first-child::before { content: "\f4c4"; }
 
 .search-result-article__notes .faded-overflow {
   &:before {

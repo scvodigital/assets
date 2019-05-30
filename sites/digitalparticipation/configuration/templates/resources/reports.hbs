@@ -18,7 +18,12 @@
     {{#with _source ~}}
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
       <h4>{{{title}}}</h4>
-      <p><strong>{{{author_attribution}}}</strong></p>
+      <p>
+        <strong>{{{author_attribution}}}</strong>
+        {{#if year_published}}
+          &mdash; {{year_published}}
+        {{/if}}
+      </p>
       {{{content}}}
       {{#if link ~}}
       <p>

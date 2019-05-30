@@ -5,7 +5,8 @@
     "content",
     "author_attribution",
     "link",
-    "post_tags_slug"
+    "post_tags_slug",
+    "year_published"
   ],
   "query": {
     "bool": {

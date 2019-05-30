@@ -157,11 +157,16 @@
                       {{/each}}
                     </ul>
                     <form action="/save-fund" method="GET">
-                      <div class="mdc-layout-grid x-padding-full" style="padding-bottom:0.5rem">
+                      <div class="h-padding-full t-padding-full b-padding">
+                        Search names may only contain letters, numbers, spaces, and the following special characters:
+                        <span class="inline-pre">- _ , .</span>
+                      </div>
+                      <div class="mdc-layout-grid h-padding-full" style="padding-bottom:0.5rem">
                         <div class="mdc-layout-grid__inner">
                           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
                             <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-                              <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" data-lpignore="true">
+                              <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder=""
+                                  data-lpignore="true" data-restricted="[\w\d\s\-_.,]+">
                               <label for="name" class="mdc-floating-label">
                                 Add to new list
                               </label>

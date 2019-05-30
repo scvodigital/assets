@@ -1,56 +1,60 @@
-{{#ifAll (if @root.currentTask.parseJson false else=true) (any @root.data.send_emails)}}
-  <html>
-    <head>
-      <title>Send Test</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-      <style>
-        html, body {
-          margin: 0;
-          padding: 0;
-        }
-        .sidebar {
-          background: rgb(61, 79, 93);
-          color: #fff;
-        }
-        .sidebar .container {
-          margin: 2em;
-        }
-        .pure-button-group{
-          width: 100%;
-        }
-        .pure-button-group .pure-button {
-          width: 50%;
-        }
-        .sidebar select {
-          color: #000000;
-          width: 100%;
-        }
-        table tbody {
-          background: #fff;
-        }
-        .email-frame {
-          width: 100%;
-          height: 100vh;
-          border: none;
-          display: none;
-        }
-        .email-details {
-          display: none;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="pure-g">
-        <div class="sidebar pure-u-1 pure-u-md-1-4">
-          <div class="container">
-            <div class="header">
-              <h1 class="brand-title">Test emails</h1>
-              <h2 class="brand-tagline">{{{@root.data.send_emails.[0].data.tag}}}</h2>
-            </div>
+<html>
+  <head>
+    <title>Send Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      .sidebar {
+        background: rgb(61, 79, 93);
+        color: #fff;
+        min-height: 100vh;
+      }
+      .sidebar .container {
+        margin: 2em;
+      }
+      .pure-button-group{
+        width: 100%;
+      }
+      .pure-button-group .pure-button {
+        width: 50%;
+      }
+      .sidebar select {
+        color: #000000;
+        width: 100%;
+      }
+      table tbody {
+        background: #fff;
+      }
+      .email-frame {
+        width: 100%;
+        height: 100vh;
+        border: none;
+        display: none;
+      }
+      .json {
+        width: 100%;
+      }
+      .email-details {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="container">
+          <div class="header">
+            <h1 class="brand-title">Test emails</h1>
+            <h2 class="brand-tagline">{{{@root.data.send_emails.[0].data.tag}}}</h2>
+          </div>
 
+          {{#if (any @root.data.send_emails)}}
             <div class="pure-form pure-form-stacked">
               <div class="pure-button-group" role="group" aria-label="...">
                 <button class="pure-button" id="toggle-preview" onclick="toggleOutput()">Preview</button>
@@ -116,9 +120,13 @@
                 </table>
               </div>
             {{/each}}
-          </div>
+          {{else}}
+            <p>No emails to send</p>
+          {{/if}}
         </div>
-        <div class="content pure-u-1 pure-u-md-3-4">
+      </div>
+      <div class="content pure-u-1 pure-u-md-3-4">
+        {{#if (any @root.data.send_emails)}}
           <iframe src="about:blank" frameborder="0" id="email-preview" class="email-frame"></iframe>
           <iframe src="about:blank" frameborder="0" id="email-json" class="email-frame"></iframe>
           <script>
@@ -162,20 +170,19 @@
             }
             toggleOutput();
           </script>
-        </div>
+        {{else}}
+          <pre class="json">
+{{#json}}
+  {{{json key="notifications" value=(default @root.data.notifications "none")}}},
+  {{{json key="search_task" value=(default @root.data.generate_es_task "none")}}},
+  {{{json key="search_data" value=(default @root.data.search_data "none")}}},
+  {{{json key="mysql_task" value=(default @root.data.generate_mysql_task "none")}}},
+  {{{json key="email_data" value=(default @root.data.send_emails "none")}}},
+  {{{json key="errors" value=(default @root.errors "none")}}}
+{{/json}}
+          </pre>
+        {{/if}}
       </div>
-    </body>
-  </html>
-{{else}}
-{
-  {{#unless @root.currentTask.parseJson}}
-    "render": "No email data to render",
-  {{/unless}}
-  "notifications": {{{stringify (default @root.data.notifications "none")}}},
-  "search_task": {{{stringify (default @root.data.generate_es_task "none")}}},
-  "search_data": {{{stringify (default @root.data.search_data "none")}}},
-  "mysql_task": {{{stringify (default @root.data.generate_mysql_task "none")}}},
-  "email_data": {{{stringify (default @root.data.send_emails "none")}}},
-  "errors": {{{stringify (default @root.errors "none")}}}
-}
-{{/ifAll}}
+    </div>
+  </body>
+</html>

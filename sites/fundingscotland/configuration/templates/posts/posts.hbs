@@ -19,11 +19,11 @@
               </h3>
             </div>
             <div class="demo-card__secondary mdc-typography mdc-typography--body2 x-padding-full">
-              {{{description}}}
+              {{{default description (truncate content 280)}}}
             </div>
             <div class="mdc-card__actions">
               <div class="mdc-card__action-buttons">
-                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace slug "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more</a>
+                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (replace slug (concat @root.data.currentSite.name "_news_") "") "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more</a>
               </div>
             </div>
             {{/with ~}}

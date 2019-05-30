@@ -6,6 +6,7 @@
     "url",
     "slug",
     "publish_on",
+    "content",
     "description",
     "image_feature",
     "image_wide",

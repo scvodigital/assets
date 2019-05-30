@@ -19,7 +19,7 @@
   ],
   "query": {
     "term": {
-      "slug": "{{replace @root.request.params.path "news_" ""}}"
+      "slug": "{{concat @root.data.currentSite.name "_" @root.request.params.path}}"
     }
   }
 }

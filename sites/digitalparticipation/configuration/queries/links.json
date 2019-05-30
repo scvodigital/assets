@@ -23,7 +23,16 @@
       ]
     }
   },
-  "sort": {
-    "weight": "desc"
-  }
+  "sort": [
+    {
+      "year_published": {
+        "order": "desc"
+      }
+    },
+    {
+      "title_sort": {
+        "order": "asc"
+      }
+    }
+  ]
 }

@@ -2,6 +2,7 @@
   {
     "key": "activities",
     "label": "Activities",
+    "icon": "fas fa-people-carry",
     "termGroups": [
       {
         "key": "advice-and-justice",
@@ -215,6 +216,7 @@
   {
     "key": "beneficiaries",
     "label": "Beneficiaries",
+    "icon": "fas fa-users",
     "termGroups": [
       {
         "key": "age",
@@ -422,6 +424,7 @@
   {
     "key": "geographical_areas_funded",
     "label": "Geographical areas funded",
+    "icon": "fas fa-map-marked-alt",
     "termGroups": [
       {
         "key": "national",
@@ -668,6 +671,7 @@
   {
     "key": "type_of_cost",
     "label": "Type of cost",
+    "icon": "fas fa-money-check",
     "termGroups": [
       {
         "key": "other",
@@ -695,6 +699,7 @@
   {
     "key": "type_of_funding",
     "label": "Type of funding",
+    "icon": "fas fa-university",
     "termGroups": [
       {
         "key": "other",
@@ -742,6 +747,7 @@
   {
     "key": "source_of_fund",
     "label": "Source of fund",
+    "icon": "fas fa-hands-helping",
     "termGroups": [
       {
         "key": "other",
@@ -784,6 +790,7 @@
   {
     "key": "miscellaneous",
     "label": "Other filters",
+    "icon": "fas fa-filter",
     "termGroups": [
       {
         "key": "other",

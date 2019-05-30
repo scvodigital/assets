@@ -1007,6 +1007,19 @@ footer.mdc-layout__footer {
   background-color: $mdc-theme-primary-dark;
 }
 
+.chip-filters {
+  display: inline-block;
+}
+
+.chip-filters > span:first-child::before {
+  //font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+}
+
+#activities-filters > span:first-child::before {
+  content: "Activities: ";
+}
+
 .search-result-article__notes .faded-overflow {
   &:before {
     background: linear-gradient(rgba(236, 242, 233, 0), rgba(236, 242, 233, 1));

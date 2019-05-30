@@ -56,6 +56,24 @@
               }
             ]
           }
+        },
+        {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "_type": {
+                    "value" : "tfn-feature"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "categories": "Funding & Finance"
+                }
+              }
+            ]
+          }
         }
       ]
     }

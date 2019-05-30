@@ -3,6 +3,7 @@
   "_source": [
     "wpid",
     "slug",
+    "publish_on",
     "title",
     "og_title",
     "og_image",
@@ -18,8 +19,11 @@
     "categories_id"
   ],
   "query": {
-    "term": {
-      "slug": "{{concat @root.data.currentSite.name "_" @root.request.params.path}}"
+    "terms": {
+      "slug": [
+        "{{concat @root.data.currentSite.name "_" @root.request.params.path}}",
+        "{{concat "default_" @root.request.params.path}}"
+      ]
     }
   }
 }

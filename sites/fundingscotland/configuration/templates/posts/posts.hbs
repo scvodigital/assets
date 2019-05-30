@@ -23,7 +23,7 @@
             </div>
             <div class="mdc-card__actions">
               <div class="mdc-card__action-buttons">
-                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (replace slug (concat @root.data.currentSite.name "_news_") "") "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more</a>
+                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (regexReplace slug ".+?(?=_)_news_" "gi" "") "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more</a>
               </div>
             </div>
             {{/with ~}}

@@ -5,6 +5,9 @@
     <h1 class="mdc-typography--headline4">
       {{{title}}}
     </h1>
+    <p class="mdc-typography--caption">
+      Posted by {{{author_name_full}}} on {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
+    </p>
     {{{content}}}
     {{/with ~}}
     {{else}}

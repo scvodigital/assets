@@ -94,7 +94,13 @@ export class FundingScotland {
     this.$saveSearchDialog = $('#save-search-dialog');
     if (this.$saveSearchDialog.length > 0) {
       this.saveSearchDialog = new mdc.dialog.MDCDialog(this.$saveSearchDialog[0]);
+      $('#saved-search-name').on('keypress', (evt) => {
+        if (!evt.key.match(/[\w\d\s\-_.,]/ig)) {
+          evt.preventDefault();
+        }
+      });
       $('.save-search-dialog-button').on('click', (evt) => {
+        /* OLD CODE FOR SUGGESTING A NAME
         const search = location.search.substring(1);
         const query = querystring.parse(search);
         const selected = {};
@@ -130,8 +136,8 @@ export class FundingScotland {
         }
         const name = nameParts.join(' - ');
         $('#saved-search-name').val(name.substr(0, 254));
-
-         this.saveSearchDialog.open();
+        */
+        this.saveSearchDialog.open();
       });
     }
     this.helpBoxes();

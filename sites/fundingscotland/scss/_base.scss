@@ -1003,6 +1003,15 @@ footer.mdc-layout__footer {
   }
 }
 
+.inline-pre {
+  font-family: monospace;
+  background-color: #ebebeb;
+  display: inline-block;
+  padding: 0 5px;
+  white-space: pre-wrap;
+  border: 1px solid #cccccc;
+}
+
 #app-snackbar {
   background-color: $mdc-theme-primary-dark;
 }

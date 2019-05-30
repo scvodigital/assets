@@ -1,11 +1,17 @@
 {
-  "size": 10,
+  "size": {{#compare @root.route.name "posts"}}10{{else}}4{{/compare}},
   "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
     "title",
     "url",
-    "date_published",
-    "image_feature"
+    "slug",
+    "publish_on",
+    "content",
+    "description",
+    "image_feature",
+    "image_wide",
+    "featured_image",
+    "header_background"
   ],
   "query": {
     "bool": {
@@ -40,6 +46,24 @@
                 "term": {
                   "_type": {
                     "value" : "tfn-news-post"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "categories": "Funding & Finance"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "bool": {
+            "must": [
+              {
+                "term": {
+                  "_type": {
+                    "value" : "tfn-feature"
                   }
                 }
               },

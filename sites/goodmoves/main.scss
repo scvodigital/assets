@@ -457,6 +457,12 @@ hr {
 a.mdc-drawer__content-heading {
   color: rgba(0, 0, 0, 0.87);
 }
+.mdc-drawer__content-heading {
+  padding: $unit $unit $unit/2;
+  .mdc-icon-toggle {
+    margin-top: 0;
+  }
+}
 
 .mdc-icon-button {
   .far:hover {

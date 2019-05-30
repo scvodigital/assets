@@ -5,6 +5,7 @@
     "title": "404: Page not found – Saltire Awards"
   },
   "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",

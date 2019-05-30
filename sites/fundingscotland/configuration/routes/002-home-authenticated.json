@@ -86,7 +86,7 @@
             "name": "tfn_latest",
             "index": "web-content-production",
             "type": "tfn-news-post,tfn-feature",
-            "template": ">context.metaData.handlebars.queries.posts_tfn-latest"
+            "template": ">context.metaData.handlebars.queries.posts_latest"
           }
         ]
       },

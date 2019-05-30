@@ -158,26 +158,26 @@
               console.log('Saved Search Query Strings:', {{{stringify (map @root.data.searches.items.[0] (getProp 'querystring'))}}});
             });
           </script>
-          {{#if (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
-            {{#with (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this))}}
-              <h3 class="mdc-typography--headline6">
-                Your search&ensp;
-                <span class="mdc-typography--body1">
-                  <a name="#" data-dialog-target="#edit-search-dialog" style="cursor:pointer;">{{{partition}}}</a>
-                </span>
-              </h3>
-            {{/with ~}}
-          {{else}}
-            <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button" data-dialog-target="#save-search-dialog">
-              <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
-              Save/email this search
-            </button>
-            <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg filter-search-button" id="filter-search-button">
-              <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
-              Search filters
-            </button>
-          {{/if ~}}
         {{/with ~}}
+        {{#if (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this)) ~}}
+          {{#with (itemAt @root.data.searches.items.[0] (indexOf (map @root.data.searches.items.[0] (getProp 'querystring')) this))}}
+            <h3 class="mdc-typography--headline6">
+              Your search&ensp;
+              <span class="mdc-typography--body1">
+                <a name="#" data-dialog-target="#edit-search-dialog" style="cursor:pointer;">{{{partition}}}</a>
+              </span>
+            </h3>
+          {{/with ~}}
+        {{else}}
+          <button class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button" data-dialog-target="#save-search-dialog">
+            <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
+            Save/email this search
+          </button>
+          <button class="mdc-button mdc-button--raised mdc-button--large filter-search hide-lg filter-search-button" id="filter-search-button">
+            <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
+            Search filters
+          </button>
+        {{/if ~}}
       {{else}}
         <a href="/sign-up" class="mdc-button mdc-button--raised mdc-button--large save-search hide-sm hide-md" id="save-search-button">
           <span class="far fa-sign-in-alt mdc-list-item__graphic" aria-hidden="true"></span>

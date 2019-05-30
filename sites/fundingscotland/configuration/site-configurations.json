@@ -36,7 +36,7 @@
     "headingText": "Funding in East Renfrewshire",
     "url": "https://eastrenfrewshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/eastren.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/eastren.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastrenfrewshire-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
     "colors": {
       "primary": "#006DC3",
@@ -78,7 +78,7 @@
     "headingText": "Funding in Fife",
     "url": "https://fifefundingsearch.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/fife.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/fife.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-fife-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fife-cm-crop.jpg",
     "colors": {
       "primary": "#01526D",
@@ -120,7 +120,7 @@
     "headingText": "Funding in North Lanarkshire",
     "url": "https://northlanarkshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-northlanarkshire-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#BD0029",
@@ -162,7 +162,7 @@
     "headingText": "Funding on the Shetland Islands",
     "url": "https://shetland.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/shetland.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/shetland.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-shetland-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/shetland-cm-crop.jpg",
     "colors": {
       "primary": "#064B89",
@@ -204,7 +204,7 @@
     "headingText": "Funding in South Lanarkshire",
     "url": "https://southlanarkshire.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-southlanarkshire-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
       "primary": "#244781",
@@ -246,7 +246,7 @@
     "headingText": "Funding in Rural Scotland",
     "url": "https://srn.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/srn.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/srn.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-srn-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/srn-cm-crop.jpg",
     "colors": {
       "primary": "#007aad",
@@ -336,7 +336,7 @@
     "headingText": "Funding in Stirling",
     "url": "https://stirling.test.fundingscotland.com",
     "logo": "https://storage.googleapis.com/fundingscotland/logos/stirling.png",
-    "emailLogo": "https://storage.googleapis.com/fundingscotland/logos/stirling.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-stirling-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/stirling-cm-crop.jpg",
     "colors": {
       "primary": "#8F2984",

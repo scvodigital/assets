@@ -29,7 +29,7 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input id="thisfield" name="date_of_birth"
+        <input id="date_of_birth" name="date_of_birth"
           {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
                class="mdc-text-field__input mdc-text-field--fullwidth"
                value = "{{@root.data.accountInfo.date_of_birth}}">
@@ -49,8 +49,42 @@
       </div>
     </div>
   </div>
-  <div class="mdc-layout-grid__inner">
+  <div id="parental_verification" class="mdc-layout-grid__inner" style="display: none">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+        <input type="email" id="parental_verification_email" name="parental_verification_email"
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.parental_verification_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
+               value = "{{@root.data.accountInfo.parental_verification_email}}">
+        <label class="mdc-floating-label" for="parental_verification_email">
+          Your Parent or Guardian's email address
+        </label>
+      </div>
+    </div>
   </div>
 </div>
 
 <input type="hidden" name="external_id" value="{{data.auth.uid}}">
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var $dob = $('#date_of_birth');
+    var $pv_block = $('#parental_verification')
+    var $pv_email = $('#parental_verification_email')
+
+    $dob.change(function(){
+       var dob = $dob.val();
+      var compareDate = new Date();
+      var dobTS = Date.parse(dob);
+      compareDate.setFullYear(compareDate.getFullYear() - 13);
+      var cdTS = compareDate.getTime();
+      if (dobTS > cdTS) {
+        $pv_email.prop('required', true);
+        $pv_block.show();
+      } else {
+        $pv_email.prop('required', false);
+        $pv_block.hide();
+
+      }
+    })
+  })
+</script>

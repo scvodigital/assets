@@ -99,6 +99,9 @@
     $form.on('submit', function(evt) {
       $loader.css('display', 'flex');
       evt.preventDefault();
+      if (true) {
+          $form.valid();
+      }
       var email = $email.val();
       var emailConfirm = $emailConfirm.val();
       var password = $password.val();

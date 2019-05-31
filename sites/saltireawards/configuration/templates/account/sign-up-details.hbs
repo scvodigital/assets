@@ -3,19 +3,19 @@
 
   <div class="mdc-typography--headline6">
     {{#unless @root.request.params.query.redirect}}
-    Thank you for signing up to the Saltire Awards! Please add your details below
+      Thank you for signing up to the Saltire Awards! Please add your details below
     {{else}}
       In order to use this site you need to complete your user details, please complete these below.
     {{/unless}}
 
   </div>
 
-  <form id="user-details-form" action="/submit-user-details?redirect=true" method="POST">
+  <form id="user-details-form" method="POST">
 
     {{>account_details_form_fields}}
-
+    <input type="hidden" name="signup" value="true">
     {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="preSubmit()">
+    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" type="submit">
       <span class="far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
       Submit Details
     </button>
@@ -24,15 +24,70 @@
 
 {{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
 <script>
-  function preSubmit() {
-    var form = document.getElementById("user-details-form");
-    var isValid = form.checkValidity();
-    if (isValid) {
-      onSubmit();
-    }
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var $form = $('#user-details-form');
 
-  }
-  function onSubmit() {
-    document.getElementById("user-details-form").submit();
-  }
+    $form.on('submit', function(evt) {
+      evt.preventDefault();
+      var pvRequired;
+
+      var formdata = $form.serialize();
+
+      // Determine if this user needs U13 parental validation.
+      var dob = $form.find('input[name="date_of_birth"]').val();
+      var thirteenYearsAgo = new Date();
+      thirteenYearsAgo.setYear(thirteenYearsAgo.getYear() - 13);
+      if (dob > thirteenYearsAgo) pvRequired = true;
+
+
+      $.ajax({
+        url: '/submit-user-details',
+        type: 'POST',
+        data: formdata, // serializes the form's elements.
+      }).done(function( data ) {
+        console.log(JSON.stringify(data));
+        console.log("now I'd send you home");
+      }).fail(function( err){
+        $message.text(err.message || 'There was a problem adding your details').show();
+        $loader.css('display', 'none');
+        return;
+      });
+
+      // Add the fact that they have to the formdata. submit needs to know.
+
+      /* Okay. when we submit, the form will do several things
+      * - It'll submit the data
+      *then
+      *
+      *
+      * If it has yes to PV.
+      * - It'll make a (back end router) code and a url and add them to the SF Object
+      * - It'll save a MiloStatus of "PARENTAL VALIDATION REQUIRED" to the user (not an externalID any more
+      * - It'll send out an email to the parent with a code.
+      * - It'll redirect to P Verify - needed.
+      *
+      * - It'll save a MiloStatus of "ACTIVE" or , rather than an external ID based on this fact
+      *
+      * Else,
+      * = It'll leave code and url fields blank
+      * - It'll save a status of "FINE" to the user.
+      * - It'll redirect HOME.
+      *
+      * */
+
+      /*
+       * On login, if we get nothing for the MiloStatus we go to details.
+       * If we get PARENTAL VALIDATION REQUIRED we shunt to PV page with required (it offers an input field and an email).
+       */
+
+      /*
+       Finally, when a PV link comes in we:
+       - Get the Milo object by External (FireBase) Id.
+       - check the code matches the link.
+       - If so, we set our status as 'FINE' and go to PV page with done flag and first name.
+       - If not, we go to PV page with fail flag.
+       */
+
+    })
+  })
 </script>

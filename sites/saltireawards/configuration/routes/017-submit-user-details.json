@@ -7,7 +7,16 @@
     "context": "results"
   },
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "PVCode",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_pv-code"
+      }
+    },
     {
       "name": "postBody",
       "taskModule": "render",
@@ -31,25 +40,15 @@
       }
     },
     {
-      "name": "storeExternalProfileId",
+      "name": "setSignUpStatus",
       "taskModule": "firebaseRtbSet",
       "renderer": "handlebars",
       "config": {
         "appName": "saltireawards",
-        "pathTemplate": "/external-id/{{default data.auth.uid 'no-such-write-profile'}}/",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
         "setOrUpdate": "set",
-        "dataTemplate": ">context.metaData.handlebars.templates.account_external-profile-id"
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=(if @root.data.PVCode \"pv-needed\" else=\"\")}}}{{/json}}"
       }
-    },
-    {
-      "name": "reroute-no-profile-save",
-      "taskModule": "reroute",
-      "config":
-      {
-        "if":[{"!=":[{"var": "request.params.query.redirect"}, null]},
-          "redirect-home",
-          null
-        ]}
     },
     {
       "name": "destination",
@@ -57,9 +56,8 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"success\": true}"
+        "template": "{\"id\": {{{stringify @root.data.postBody}}} }"
       }
     }
-
   ]
 }

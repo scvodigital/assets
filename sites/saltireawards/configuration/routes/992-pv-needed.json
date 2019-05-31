@@ -1,0 +1,15 @@
+{
+  "name": "pv-needed",
+  "pattern": "/pv-needed",
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/parental-verification-needed",
+        "statusCode": 302
+      }
+    }
+  ]
+}
+

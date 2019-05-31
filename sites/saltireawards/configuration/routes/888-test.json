@@ -8,18 +8,15 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.getExternalProfileId",
     {
-      "name": "postBody",
+      "name": "PVCode",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_user-body",
-        "parseJson": true
+        "template": ">context.metaData.handlebars.templates.account_pv-code"
       }
     },
-
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -43,6 +40,5 @@
         }
       }
     }
-
   ]
 }

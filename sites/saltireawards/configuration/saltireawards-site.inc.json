@@ -47,24 +47,24 @@
           "notAuthenticatedRoute": "sign_in"
         }
       },
-      "getExternalProfileId": {
-        "name": "externalProfileId",
+      "getSignUpStatus": {
+        "name": "signUpStatus",
         "taskModule": "firebaseRtbGet",
         "renderer": "handlebars",
         "config": {
           "appName": "saltireawards",
-          "pathTemplate": "/external-id/{{default data.auth.uid 'no-such-profile'}}/milo-profile-id",
+          "pathTemplate": "/{{default data.auth.uid 'no-such-read-profile'}}/signup-status",
           "defaultData": ""
         }
       },
-      "externalProfileRequired": {
-        "name": "externalProfileRequired",
+      "fullSignUpRequired": {
+        "name": "signUpReroute",
         "taskModule": "reroute",
         "config":
         { "if" : [{ "and" : [
           {"!=" : [ { "var" : "data.auth.uid" }, null ]},
-          {"==" : [ { "var" : "data.externalProfileId" }, ""] }
-        ] }, "redirect-to-sign-up-details", null
+          {"!=" : [ { "var" : "data.signUpStatus" }, null] }
+        ] }, {"var" : "data.signUpStatus.status"}, null
         ]}
       }
     },

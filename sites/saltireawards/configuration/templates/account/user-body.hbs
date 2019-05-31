@@ -1,7 +1,18 @@
 {{#with @root.request.body}}
 {{#json}}
   {{#json key='users' type='array'}}
-    {{{stringify this}}}
+    {{#json}}
+      {{#if @root.data.PVCode}}
+        {{{json key='parental_verification_code' value=@root.data.PVCode}}},
+        {{{json key='parental_verification_email' value=parental_verification_email}}},
+        {{#json key='parental_verification_url' type="text"}}https://saltireawards.local:8080/parent-verify/?code={{@root.data.PVCode}}&id={{external_id}}{{/json}},
+      {{/if}}
+      {{{json key='first_name' value=first_name}}},
+      {{{json key='last_name' value=last_name}}},
+      {{{json key='external_id' value=external_id}}},
+      {{{json key='date_of_birth' value=date_of_birth}}},
+      {{{json key='school_college_name' value=school_college_name}}}
+    {{/json}},
   {{/json}}
 {{/json}}
 {{/with}}

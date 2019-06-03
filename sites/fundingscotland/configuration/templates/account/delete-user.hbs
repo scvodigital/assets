@@ -8,16 +8,10 @@
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     window.setTimeout(function() {
-      fundingscotland.app.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          user.delete().then(function() {
-            fundingscotland.setCookie('fs_token');
-            fundingscotland.setCookie('fs_cookie');
-            window.location.href = '/';
-          }).catch(function(err) {
-            console.error('Failed to delete user', user, err);
-          });
-        }
+      fundingscotland.auth.deleteUser().then(function() {
+        window.location.href = '/';
+      }).catch(function(err) {
+        console.error('Failed to delete user', err);
       });
     }, 1000);
   });

@@ -1,7 +1,7 @@
 {
   "name": "settings",
   "pattern": "/settings",
-  "debug": false,
+  "debug": true,
   "metaData": {
     "hideSearch": true,
     "sidebarButton": {
@@ -20,6 +20,7 @@
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
+    "context.metaData.commonTasks.bulletinData",
     {
       "name": "email_days",
       "taskModule": "render",

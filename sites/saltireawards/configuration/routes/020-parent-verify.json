@@ -1,0 +1,93 @@
+{
+  "name": "parent-verify",
+  "pattern": "/parent-verify",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "apexUrl",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "/SaltireUsers/?id={{@root.request.params.query.id}}"
+      }
+    },
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
+      }
+    },
+    {
+      "name": "codeVerified",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_code-verify"
+      }
+    },
+    {
+      "name": "handlePassFail",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "data.codeVerified"
+              },
+              "pass"
+            ]
+          },
+          null,
+          "parent-verify-fail"
+        ]
+      }
+    },
+    {
+      "name": "setSignUpStatus",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default @root.request.params.query.id 'no-such-write-profile'}}/signup-status",
+        "setOrUpdate": "set",
+        "dataTemplate": "{}"
+      }
+    },
+    {
+      "name": "passDestination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_parent-verify-pass",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

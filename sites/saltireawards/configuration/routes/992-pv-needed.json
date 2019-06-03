@@ -6,7 +6,7 @@
       "name": "destination",
       "taskModule": "redirect",
       "config": {
-        "location": "/parental-verification-needed",
+        "location": "/parental-verification-required",
         "statusCode": 302
       }
     }

@@ -57,6 +57,15 @@
           "defaultData": ""
         }
       },
+      "redirectIfPVNeeded": {
+        "name": "redirectIfPV",
+        "taskModule": "reroute",
+        "config":
+        { "if" : [{ "and" : [
+          {"==" : [ { "var" : "data.signUpStatus.status" }, "pv-needed"] }
+        ] }, "pv-needed", null
+        ]}
+      },
       "fullSignUpRequired": {
         "name": "signUpReroute",
         "taskModule": "reroute",

@@ -1,23 +1,30 @@
 {
-  "name": "sign-up-details",
-  "pattern": "/sign-up-details",
+  "name": "parental-verification-required",
+  "pattern": "/parental-verification-required",
   "debug": true,
   "metaData": {
     "hideSearch": true
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.redirectIfPVNeeded",
     {
-      "name": "setSignUpStatus",
-      "taskModule": "firebaseRtbSet",
+      "name": "apexUrl",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
-        "setOrUpdate": "set",
-        "dataTemplate": "{{#json}}{{{json key=\"status\" value=\"sd-needed\"}}}{{/json}}"
+        "output": "data",
+        "template": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+      }
+    },
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
       }
     },
     {
@@ -36,7 +43,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.account_sign-up-details"
+              "body": ">context.metaData.handlebars.templates.pages_parental-verification-needed",
+              "foot": ""
             },
             "contentType": "text/html"
           }

@@ -37,6 +37,7 @@
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "emailCampaignName": "fs-saved-searches",
     "shortlistCampaignName": "fs-saved-funds",
+    "bulletinCampaignName": "fs-bulletin",
     "terms": "{:./terms.json}",
     "domain-map": "{:./domain-map.json}",
     "site-configurations": "{:./site-configurations.json}",

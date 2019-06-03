@@ -1,0 +1,190 @@
+$mdc-theme-primary: #ffffff;
+$mdc-theme-primary-medium: #ffffff;
+$mdc-theme-primary-light: #ffffff;
+$mdc-theme-primary-dark: #ffffff;
+
+$mdc-theme-complimentary: #ffffff;
+$mdc-theme-complimentary-light: #ffffff;
+$mdc-theme-complimentary-dark: #ffffff;
+
+$mdc-theme-secondary: #E0E0E0; // Gray 300
+$mdc-theme-secondary-light: #F5F5F5; // Gray 100
+$mdc-theme-secondary-dark: #212121; // Gray 900
+
+$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer-light: #E1E3E4;
+$mdc-theme-footer-dark: #263238; // Blue Gray 900
+
+$unit: 1rem;
+
+@import "./node_modules/material-components-web/material-components-web.scss";
+@import "./lib/common-styles.scss";
+
+body {
+  background-color: $mdc-theme-footer-dark;
+}
+::-moz-selection {
+  color: #fff;
+  background: $mdc-theme-primary-dark;
+}
+::selection {
+  color: #fff;
+  background: $mdc-theme-primary-dark;
+}
+.mdc-theme--background {
+  background-color: $mdc-theme-secondary-light !important;
+}
+.mdc-top-app-bar {
+  background-color: #fff;
+}
+
+header {
+  .container-fluid {
+    .mdc-top-app-bar__upper,
+    .mdc-top-app-bar__lower {
+      background-color: $mdc-theme-primary-medium;
+    }
+    .mdc-tab-bar {
+      .mdc-tab {
+        color: $mdc-theme-primary;
+        .mdc-tab__text-label {
+          color: $mdc-theme-primary;
+        }
+      }
+    }
+    #upper-tab-bar {
+      .mdc-tab:hover .mdc-tab__text-label {
+        border-bottom-color: $mdc-theme-primary;
+      }
+      .mdc-tab.mdc-tab--active .mdc-tab__text-label {
+        border-bottom-color: $mdc-theme-primary;
+      }
+    }
+    .mdc-top-app-bar__main .mdc-tab-bar,
+    .mdc-top-app-bar__user .mdc-tab-bar {
+      .mdc-tab {
+        color: #fff;
+      }
+      .mdc-tab:hover .mdc-tab__text-label {
+        border-bottom-color: rgba(255, 255, 255, 0.75);
+      }
+      .mdc-tab.mdc-tab--active .mdc-tab__text-label {
+        border-bottom-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+    .mdc-top-app-bar__navigation-icon {
+      color: $mdc-theme-primary;
+    }
+    .mdc-top-app-bar__main,
+    .mdc-top-app-bar__user {
+      .mdc-menu-surface--anchor {
+        .mdc-button:hover {
+          border-bottom-color: rgba(255, 255, 255, 0.6);
+        }
+      }
+    }
+    .mdc-top-app-bar__section {
+      .mdc-top-app-bar__action-item {
+        color: $mdc-theme-secondary !important;
+      }
+    }
+    .mdc-top-app-bar__section--logo img {
+      max-height: 80px;
+    }
+  }
+}
+.mdc-tab-bar {
+  .mdc-tab {
+    color: $mdc-theme-secondary;
+  }
+}
+
+.main-body {
+  margin-top: 100px;
+  background-color: white;
+}
+.top-bar-stuck {
+  top: 0;
+}
+.container-fluid {
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto; // padding: 0 1.5rem;
+}
+
+
+// Footer ======================================================================
+footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
+  background-color: $mdc-theme-footer-light !important;
+  color: $mdc-theme-footer !important;
+}
+
+footer.mdc-layout__footer {
+  border-top: none;
+  background-color: $mdc-theme-footer-light;
+  box-shadow: none;
+  h3 {
+    color: $mdc-theme-footer;
+    font-weight: $heading-font-weight;
+    border-bottom: none;
+    font-size: 1.1rem;
+    margin: $unit 0 0;
+    text-transform: uppercase;
+  }
+  .about a,
+  a {
+    color: $mdc-theme-footer;
+  }
+  .about a:hover,
+  a:hover {
+    color: $mdc-theme-footer;
+  }
+  .mdc-layout-grid {
+    p {
+      color: $mdc-theme-footer;
+    }
+  }
+  .fa-ul {
+    .fa-li {
+      .fas,
+      .fal,
+      .far,
+      .fab {
+        color: $mdc-theme-footer;
+      }
+    }
+  }
+  .footer-copyright {
+    background-color: $mdc-theme-footer-dark;
+    p,
+    a {
+      color: white;
+    }
+  }
+}
+
+:focus {
+  outline: none;
+}
+.pull-right {
+  float: right;
+}
+
+::-moz-selection {
+  color: white;
+  background: black;
+}
+::selection {
+  color: white;
+  background: black;
+}
+::-webkit-input-placeholder {
+  color: #777;
+}
+::-ms-input-placeholder {
+  color: #777;
+}
+::-moz-placeholder {
+  color: #777;
+}

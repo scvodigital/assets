@@ -3,7 +3,8 @@
   "pattern": "/sign-in",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Sign in - Saltire Awards"
   },
   "tasks": [
    "context.metaData.commonTasks.authNotRequired",
@@ -22,7 +23,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.account_sign-in"
             },
             "contentType": "text/html"

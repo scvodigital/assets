@@ -1,0 +1,54 @@
+{
+  "name": "submit-user-details",
+  "pattern": "/submit-user-details",
+  "debug": true,
+  "acceptedVerbs": "POST",
+  "defaultParams": {
+    "context": "results"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "postBody",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "saveUserData",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "unhScotlandSandbox",
+        "output": "data",
+        "method": "POST",
+        "body": ">data.postBody",
+        "apexClassPath": "/Users/"
+      }
+    },
+    {
+      "name": "setSignUpStatus",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "sdgadvocate",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=\"\"}}}{{/json}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{\"id\": {{{stringify @root.data.postBody}}} }"
+      }
+    }
+  ]
+}

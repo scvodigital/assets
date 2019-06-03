@@ -1,0 +1,38 @@
+{
+  "main": [
+    {
+      "label": "Home",
+      "path": "/",
+      "route": "^/$"
+    }
+  ],
+  "user-not-signed-in": [
+    {
+      "label": "Sign in",
+      "icon": "sign-in-alt",
+      "path": "/sign-in",
+      "route": "^/sign-in"
+    },
+    {
+      "label": "Sign up",
+      "icon": "list-alt",
+      "path": "/sign-up",
+      "route": "^/sign-up"
+    }
+  ],
+  "user-signed-in" : [
+    {
+      "label": "My account",
+      "icon": "cog",
+      "path": "/account",
+      "route": "^/account"
+    },
+    {
+      "label": "Sign out",
+      "icon": "sign-out-alt",
+      "path": "/sign-out",
+      "route": "^/sign-out"
+    }
+  ]
+
+}

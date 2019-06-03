@@ -3,7 +3,8 @@
   "pattern": "/",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Saltire Awards - recognising young volunteers in Scotland"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
@@ -24,7 +25,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.pages_home",
               "foot": ">context.metaData.handlebars.templates.pages_foot"
             },

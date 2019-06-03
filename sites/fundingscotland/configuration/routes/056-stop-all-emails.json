@@ -1,0 +1,28 @@
+{
+  "name": "stop-all-emails",
+  "pattern": "/stop-all-emails",
+  "acceptedVerbs": "GET",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
+    {
+      "name": "notifications",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "stop_all_emails": ">context.metaData.handlebars.queries.notifications_stop-all-emails"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": ">request.headers.referer"
+      }
+    }
+  ]
+}

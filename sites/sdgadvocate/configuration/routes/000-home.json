@@ -3,7 +3,8 @@
   "pattern": "/",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Advocate Programme - Sustainable Development Goals - UN House Scotland"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

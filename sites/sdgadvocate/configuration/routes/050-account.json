@@ -3,7 +3,8 @@
   "pattern": "/account",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Account - Sustainable Development Goals Advocate"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

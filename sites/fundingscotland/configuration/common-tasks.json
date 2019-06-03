@@ -133,6 +133,17 @@
     },
     "renderer": "handlebars"
   },
+  "bulletinData": {
+    "name": "bulletin",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-bulletin"
+      }
+    },
+    "renderer": "handlebars"
+  },
   "profileData": {
     "name": "profile",
     "taskModule": "firebaseRtbGet",

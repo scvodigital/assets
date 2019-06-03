@@ -7,7 +7,9 @@
     "title": "Sign up - Saltire Awards"
   },
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.redirectIfPVNeeded",
     {
       "name": "setSignUpStatus",
       "taskModule": "firebaseRtbSet",

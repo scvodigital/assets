@@ -45,8 +45,7 @@
         type: 'POST',
         data: formdata, // serializes the form's elements.
       }).done(function( data ) {
-        console.log(JSON.stringify(data));
-        console.log("now I'd send you home");
+        window.location.href = '/';
       }).fail(function( err){
         $message.text(err.message || 'There was a problem adding your details').show();
         $loader.css('display', 'none');

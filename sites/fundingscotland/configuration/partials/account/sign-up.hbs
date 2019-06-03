@@ -47,6 +47,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
         </label>
         <div class="mdc-line-ripple"></div>
       </div>
+      <div class="mdc-form-field">
+        <div class="mdc-checkbox">
+          <input type="checkbox" class="mdc-checkbox__native-control" id="sign-up-subscribe"/>
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+          </div>
+        </div>
+        <label for="sign-up-subscribe">Subscribe to the weekly bulletin</label>
+      </div>
     </div>
     <div id="form-section-sign-up-buttons">
       <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">
@@ -75,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var $emailConfirm = $('#sign-up-email-confirm');
   var $password = $('#sign-up-password');
   var $passwordConfirm = $('#sign-up-password-confirm');
+  var $subscribe = $('#sign-up-subscribe');
   var $register = $('#sign-up-submit');
   var $loader = $('#sign-up-loader');
 
@@ -88,7 +101,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var passwordConfirm = $passwordConfirm.val();
 
     fundingscotland.auth.createAccount(email, emailConfirm, password, passwordConfirm).then(function(user) {
-      window.location.href = '/';
+      if ($subscribe.prop('checked')) {
+        window.location.href = '/bulletin?subscribe=true';
+      } else {
+        window.location.href = '/';
+      }
     }).catch(function(err) {
       $message.text(err.message || 'Something went wrong when creating your account').show();
       $loader.css('display', 'none');

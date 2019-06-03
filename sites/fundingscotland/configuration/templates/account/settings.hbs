@@ -1,24 +1,3 @@
-{{#*inline "linkChip"}}
-  <div class="mdc-chip{{#if linked}} mdc-chip--selected{{/if}} provider-{{provider}}" data-provider-link="{{provider}}">
-    <span class="fab fa-{{provider}} mdc-chip__icon mdc-chip__icon--leading {{#if linked}}mdc-chip__icon--leading-hidden{{/if}}" aria-hidden="true"></span>
-    <div class="mdc-chip__checkmark">
-      <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
-        <path class="mdc-chip__checkmark-path" fill="none" stroke="#ffffff" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-      </svg>
-    </div>
-    <div class="mdc-chip__text noselect">
-      <span class="link-action">
-        {{#if linked}}
-          Unlink from
-        {{else}}
-          Link to
-        {{/if}}
-      </span>
-      {{capitalize provider}}
-    </div>
-  </div>
-{{/inline}}
-
 <div id="detailed-results-container" class="container-content content-settings settings fundingscotland-settings">
   <h1 class="mdc-typography--headline3 v-margin-full">
     Settings
@@ -37,6 +16,7 @@
           {{#ifAny
             (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
             @root.data.shortlist.items.[0].[0].active
+            @root.data.bulletin.items.[0].[0].active
           }}
             <a href="/stop-all-emails" class="mdc-button mdc-button--raised mdc-button--fullwidth">
               <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
@@ -45,6 +25,22 @@
           {{else}}
             You currently have no subscriptions.
           {{/ifAny}}
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+          <h3 class="mdc-typography--headline6 v-margin-full">
+            Weekly bulletin
+          </h3>
+          {{#if @root.data.bulletin.items.[0].[0].active}}
+            <a href="/bulletin?subscribe=false" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              Unsubscribe
+            </a>
+          {{else}}
+            <a href="/bulletin?subscribe=true" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              Subscribe
+            </a>
+          {{/if}}
         </div>
       </div>
     </div>

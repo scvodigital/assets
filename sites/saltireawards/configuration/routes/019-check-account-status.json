@@ -1,0 +1,69 @@
+{
+  "name": "check-account-status",
+  "pattern": "/check-account-status",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true,
+    "title": "Account - Saltire Awards"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "apexUrl",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+      }
+    },
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
+      }
+    },
+    {
+      "name": "checkStatus",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "data.accountInfo"
+              },
+              "{}"
+            ]
+          },
+          null,
+          "redirect-home"
+        ]
+      }
+    },
+    {
+      "name": "setSignUpStatus",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=\"sd-needed\"}}}{{/json}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/sign-up-details",
+        "statusCode": 302
+      }
+    }
+  ]
+}

@@ -41,9 +41,28 @@
               "{}"
             ]
           },
-          "sd-needed",
+          null,
           "redirect-home"
         ]
+      }
+    },
+    {
+      "name": "setSignUpStatus",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=\"sd-needed\"}}}{{/json}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/sign-up-details",
+        "statusCode": 302
       }
     }
   ]

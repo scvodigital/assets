@@ -3,7 +3,8 @@
   "pattern": "/sign-out",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Sign out - Sustainable Development Goals Advocate"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

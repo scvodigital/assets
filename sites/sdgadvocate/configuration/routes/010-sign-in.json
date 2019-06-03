@@ -3,7 +3,8 @@
   "pattern": "/sign-in",
   "debug": true,
   "metaData": {
-    "hideSearch": true
+    "hideSearch": true,
+    "title": "Sign in - Sustainable Development Goals Advocate"
   },
   "tasks": [
    "context.metaData.commonTasks.authNotRequired",

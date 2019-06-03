@@ -2,7 +2,7 @@
   "name": "_default",
   "pattern": "/*path",
   "metaData": {
-    "title": "404: Page not found – SDG Advocate"
+    "title": "404: Page not found – Sustainable Development Goals Advocate"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

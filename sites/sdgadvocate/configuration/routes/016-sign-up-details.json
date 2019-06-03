@@ -1,12 +1,23 @@
 {
-  "name": "reset_password",
-  "pattern": "/reset-password",
+  "name": "sign-up-details",
+  "pattern": "/sign-up-details",
+  "debug": true,
   "metaData": {
-    "hideSearch": true,
-    "title": "Reset password - Saltire Awards"
+    "hideSearch": true
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "setSignUpStatus",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "sdgadvocate",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=\"sd-needed\"}}}{{/json}}"
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -23,12 +34,13 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.account_reset-password"
+              "body": ">context.metaData.handlebars.templates.account_sign-up-details"
             },
             "contentType": "text/html"
           }
         }
       }
     }
+
   ]
 }

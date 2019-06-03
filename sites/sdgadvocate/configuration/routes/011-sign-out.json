@@ -1,13 +1,12 @@
 {
-  "name": "sign_in",
-  "pattern": "/sign-in",
+  "name": "sign_out",
+  "pattern": "/sign-out",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
-    "title": "Sign in - Saltire Awards"
+    "hideSearch": true
   },
   "tasks": [
-   "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.authRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -24,7 +23,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.account_sign-in"
+              "body": ">context.metaData.handlebars.templates.account_sign-out"
             },
             "contentType": "text/html"
           }

@@ -1,0 +1,55 @@
+<div id="detailed-results-container" class="container-content content-notes">
+  <h2 class="mdc-typography--headline4">Add your details</h2>
+
+  <div class="mdc-typography--headline6">
+    {{#unless @root.request.params.query.redirect}}
+      Thank you for signing up to SDG Advocate! Please add your details below
+    {{else}}
+      In order to use this site you need to complete your user details, please complete these below.
+    {{/unless}}
+
+  </div>
+
+  <form id="user-details-form" method="POST">
+
+    {{>account_details_form_fields}}
+    <input type="hidden" name="signup" value="true">
+    {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
+    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" type="submit">
+      <span class="far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
+      Submit Details
+    </button>
+  </form>
+</div>
+
+{{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var $form = $('#user-details-form');
+
+    $form.on('submit', function(evt) {
+      evt.preventDefault();
+
+      var formdata = $form.serialize();
+
+      // Determine if this user needs U13 parental validation.
+      var dob = $form.find('input[name="date_of_birth"]').val();
+      var thirteenYearsAgo = new Date();
+      thirteenYearsAgo.setYear(thirteenYearsAgo.getYear() - 13);
+
+      $.ajax({
+        url: '/submit-user-details',
+        type: 'POST',
+        data: formdata, // serializes the form's elements.
+      }).done(function( data ) {
+        console.log(JSON.stringify(data));
+        console.log("now I'd send you home");
+      }).fail(function( err){
+        $message.text(err.message || 'There was a problem adding your details').show();
+        $loader.css('display', 'none');
+        return;
+      });
+      
+    })
+  })
+</script>

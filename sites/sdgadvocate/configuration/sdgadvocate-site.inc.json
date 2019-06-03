@@ -1,0 +1,85 @@
+{
+  "domains": [
+    "sdgadvocate.local",
+    "test.sdgadvocate.org",
+    "sdgadvocate.org"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/sdgadvocate/",
+    "title": "SDG Advocate Programme",
+    "menus": "{:./sdgadvocate-menus.json}",
+    "accountInfoValidation": "{:./account-info-validation.json}",
+    "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
+    "commonTasks": {
+      "authNotRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "sdgadvocate",
+          "notAuthenticatedRoute": ""
+        }
+      },
+      "authRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.sa_token",
+          "cookieName": "sa_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "sdgadvocate",
+          "notAuthenticatedRoute": "sign_in"
+        }
+      },
+      "getSignUpStatus": {
+        "name": "signUpStatus",
+        "taskModule": "firebaseRtbGet",
+        "renderer": "handlebars",
+        "config": {
+          "appName": "sdgadvocate",
+          "pathTemplate": "/{{default data.auth.uid 'no-such-read-profile'}}/signup-status",
+          "defaultData": ""
+        }
+      },
+      "fullSignUpRequired": {
+        "name": "signUpReroute",
+        "taskModule": "reroute",
+        "config":
+        { "if" : [{ "and" : [
+          {"!=" : [ { "var" : "data.auth.uid" }, null ]},
+          {"!=" : [ { "var" : "data.signUpStatus" }, null] }
+        ] }, {"var" : "data.signUpStatus.status"}, null
+        ]}
+      }
+    },
+
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

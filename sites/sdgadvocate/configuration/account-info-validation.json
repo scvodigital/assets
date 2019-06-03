@@ -1,0 +1,5 @@
+{
+  "first_name" : {"required": true, "maxlength": 64},
+  "last_name" : {"required": true, "maxlength": 64},
+  "date_of_birth" : {"required": true, "type" : "date"}
+}

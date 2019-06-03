@@ -3,8 +3,7 @@
   "pattern": "/account",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
-    "title": "Account - Saltire Awards"
+    "hideSearch": true
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -16,7 +15,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+        "template": "/Users/?id={{@root.data.auth.uid}}"
       }
     },
     {
@@ -24,7 +23,7 @@
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
-        "connection": "scvoAlexSandbox",
+        "connection": "unhScotlandSandbox",
         "output": "data",
         "method": "GET",
         "apexClassPath": ">data.apexUrl"

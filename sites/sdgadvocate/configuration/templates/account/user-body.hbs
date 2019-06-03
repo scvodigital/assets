@@ -1,0 +1,11 @@
+{{#with @root.request.body}}
+{{#json}}
+  {{#json key='users' type='array'}}
+    {{#json}}
+      {{{json key='first_name' value=first_name}}},
+      {{{json key='last_name' value=last_name}}},
+      {{{json key='external_id' value=external_id}}}
+    {{/json}},
+  {{/json}}
+{{/json}}
+{{/with}}

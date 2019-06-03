@@ -105,7 +105,7 @@
       var passwordConfirm = $passwordConfirm.val();
       saltireawards.auth.createAccount(email, emailConfirm, password, passwordConfirm)
         .then(function(user) {
-          window.location.href = '/sign-up-details/';
+          window.location.href = '/check-account-status/';
         })
         .catch(function(err) {
           $message.text(err.message || 'There was a problem creating your account').show();

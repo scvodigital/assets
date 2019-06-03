@@ -80,7 +80,7 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.layouts.pages_page-head-tags",
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.pages_parent-verify-pass",
               "foot": ""
             },

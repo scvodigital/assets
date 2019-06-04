@@ -55,7 +55,7 @@ export class mPowerHealth {
     // Headroom
     var header = document.querySelector("header.top-bar-stuck");
     var headroom  = new Headroom(header, {
-      "offset": 100,
+      "offset": 138,
       "tolerance": 5
     });
     headroom.init();

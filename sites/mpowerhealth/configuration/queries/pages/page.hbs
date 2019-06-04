@@ -21,12 +21,12 @@
       {{#json key="filter" type="array"}}
         {{#json}}
           {{#json key="term"}}
-            {{{json key="_type" value=(concat "fs-" @root.data.currentSite.name "-page")}}}
+            {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-page")}}}
           {{/json}}
         {{/json}},
         {{#json}}
           {{#json key="term"}}
-            {{{json key="slug" value=@root.request.params.path}}}
+            {{{json key="slug" value=(concat @root.data.currentSite.name "_" @root.request.params.path)}}}
           {{/json}}
         {{/json}}
       {{/json}}

@@ -3,8 +3,6 @@
     "name": "default",
     "title": "mPower Health",
     "url": "https://test.mpowerhealth.eu",
-    "logo": "https://storage.googleapis.com/fundingscotland/logos/scvo-inverse.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/",
     "colors": {
       "primary": "#537F2C",
       "primaryText": "#ffffff",
@@ -27,8 +25,6 @@
       "title": "NHS Dumfries & Galloway"
     },
     "url": "https://dumfriesgalloway.mpowerhealth.eu",
-    "logo": "https://storage.googleapis.com/fundingscotland/logos/",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
     "colors": {
       "primary": "#006DC3",
       "primaryText": "#ffffff",

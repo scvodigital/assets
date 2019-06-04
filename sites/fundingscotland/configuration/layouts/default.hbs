@@ -286,12 +286,13 @@
       <div class="mdc-drawer-scrim"></div>
 
       <main class="mdc-theme--primary-light-bg main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
-        {{#if layoutParts.sidebar }}
+        {{#if layoutParts.sidebar ~}}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
         </aside>
         <div class="mdc-drawer-scrim"></div>
-        {{/if}}
+        {{/if ~}}
+
         {{{layoutParts.body}}}
       </main>
 

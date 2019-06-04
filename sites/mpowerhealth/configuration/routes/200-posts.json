@@ -1,0 +1,48 @@
+{
+  "name": "posts",
+  "pattern": "/news",
+  "debug": false,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.menus",
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "tfn-news-post,tfn-feature,fs-default-post,fs-eastrenfrewshire-post,fs-fife-post,fs-northlanarkshire-post,fs-shetland-post,fs-southlanarkshire-post,fs-srn-post,fs-stirling-post",
+          "template": ">context.metaData.handlebars.queries.posts_latest"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
+              "body": ">context.metaData.handlebars.templates.posts_posts"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

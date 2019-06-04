@@ -1,0 +1,41 @@
+{
+  "currentSite": {
+    "name": "currentSite",
+    "taskModule": "render",
+    "renderer": "jsone",
+    "config": {
+      "template": {
+        "_let": {
+          "hostname": {
+            "_eval": "jsone.stringReplace(request.url.hostname, '.', '_')"
+          }
+        },
+        "in": {
+          "_let": {
+            "path": "${context.metaData['domain-map'][hostname]}"
+          },
+          "in": {
+            "_eval": "context.metaData['site-configurations'][path]"
+          }
+        }
+      },
+      "output": "data"
+    }
+  },
+  "menus": {
+    "name": "menus",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": {
+        "index": "web-content-production",
+        "type": "mpower-default-page,mpower-dumfriesgalloway-page",
+        "template": ">context.metaData.handlebars.queries.pages_menus"
+      }
+    },
+    "renderer": "handlebars"
+  }
+}

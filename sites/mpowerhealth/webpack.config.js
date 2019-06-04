@@ -51,7 +51,7 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
-      ...globby.sync('./sites/' + site + '/scss/*-main.scss'),
+      './sites/' + site + '/main.scss',
       './sites/' + site + '/main.js',
     ],
     output: {
@@ -62,12 +62,11 @@ function getConfig(site, library) {
     module: {
       rules: [
         {
-          test: /\/([a-z0-9-_]*?)-main\.scss$/,
+          test: /\.scss$/,
           use: [{
               loader: 'file-loader',
               options: {
-                regExp: /\/([a-z0-9-_]*?)-main\.scss$/,
-                name: 'build/' + site + '/sub-sites/[1]/main-VERSION.css',
+                name: 'build/' + site + '/main-VERSION.css',
               },
             },
             {
@@ -75,6 +74,12 @@ function getConfig(site, library) {
             },
             {
               loader: 'css-loader'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()],
+              },
             },
             {
               loader: 'sass-loader',

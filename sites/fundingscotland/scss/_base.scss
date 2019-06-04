@@ -41,43 +41,6 @@ strong {
 
 header {
   .container-fluid {
-    // .mdc-top-app-bar__lower .mdc-top-app-bar__section--align-start {
-    //   background-image: linear-gradient(80deg, $mdc-theme-primary-dark, $mdc-theme-primary-dark 220px, $mdc-theme-primary 221px, $mdc-theme-primary);
-    // }
-    // .mdc-tab-bar,
-    // .mdc-tab-bar .mdc-tab,
-    // .mdc-top-app-bar__user .mdc-menu-surface--anchor .mdc-button {
-    //   height: 62px;
-    // }
-    // .mdc-tab-bar .mdc-tab {
-    //   line-height: 62px;
-    // }
-    // .mdc-tab-bar .mdc-tab .mdc-tab__text-label {
-    //   height: 58px;
-    //   line-height: 58px;
-    // }
-    // .mdc-top-app-bar__row.mdc-top-app-bar__lower {
-    //   height: 62px;
-    //   position: relative;
-    //   .mdc-top-app-bar__title {
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: $unit;
-    //     .header-text {
-    //       margin: 0;
-    //       img {
-    //         height: 160px;
-    //       }
-    //     }
-    //   }
-    // }
-    // .mdc-top-app-bar__section .mdc-menu-surface--anchor .mdc-menu-surface {
-    //   top: 62px !important;
-    // }
-    // .mdc-tab-bar .mdc-tab,
-    // .mdc-menu-surface--anchor .mdc-button {
-    //   font-weight: 400 !important;
-    // }
     .mdc-top-app-bar__upper {
       background-color: $mdc-theme-footer;
       .mdc-top-app-bar__section {
@@ -872,6 +835,7 @@ footer,
 }
 
 // Footer ======================================================================
+
 footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
   background-color: $mdc-theme-footer-light !important;
   color: $mdc-theme-footer !important;

@@ -2290,13 +2290,40 @@ form#settled_status {
     margin: 0;
   }
 }
+
+.wp-block-gallery {
+  li.blocks-gallery-item::before {
+    content: "";
+    margin: 0;
+    padding: 0;
+  }
+  li.blocks-gallery-item {
+    float: left;
+    padding: 0 $unit 0 0;
+    figure {
+      margin: 0 0 $unit/2;
+    }
+  }
+}
+.wp-block-gallery.columns-3 {
+  li.blocks-gallery-item {
+    width: 31%;
+  }
+}
+.wp-block-gallery.columns-4 {
+  li.blocks-gallery-item {
+    width: 23%;
+  }
+}
+
 .splash-image .splash-overlay .container-fluid {
   overflow: hidden;
   position: relative;
   min-height: 27vh;
 }
 .splash-overlay.splash-overlay-hidden {
-  background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
+  // background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
+  background-image: none;
 }
 .splash-image {
   background-size: 60%;

@@ -15,7 +15,9 @@
       "config": {
         "connectionName": "notifications",
         "queryTemplates": {
-          "delete_user": ">context.metaData.handlebars.queries.notifications_delete-user"
+          "delete_funds": ">context.metaData.handlebars.queries.notifications_delete-funds",
+          "delete_searches": ">context.metaData.handlebars.queries.notifications_delete-searches",
+          "delete_bulletins": ">context.metaData.handlebars.queries.notifications_delete-bulletins"
         }
       },
       "renderer": "handlebars"

@@ -1,0 +1,39 @@
+{
+  "name": "new-user",
+  "pattern": "/new-user",
+  "acceptedVerbs": "GET",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
+    {
+      "name": "notifications",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "stop_all_emails": ">context.metaData.handlebars.queries.notifications_toggle-bulletin"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "user-profile",
+      "taskModule": "firebaseRtbSet",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/",
+        "setOrUpdate": "set",
+        "dataTemplate": "{ \"organisation\": {{{stringify (default @root.request.query.params.organisation 'None')}}}, \"postcode\": {{{stringify (default @root.request.query.params.postcode 'None')}}} }"
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": ">request.headers.referer"
+      }
+    }
+  ]
+}

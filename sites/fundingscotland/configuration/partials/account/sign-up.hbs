@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     <div class="mdc-typography--body1" id="form-section-email">
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-email">
           Email
         </label>
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       </div>
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-email-confirm">
           Confirm email
         </label>
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-        <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-password">
           Password
         </label>
@@ -41,12 +41,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
       </div>
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-        <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-password-confirm">
           Confirm password
         </label>
         <div class="mdc-line-ripple"></div>
       </div>
+
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="text" id="sign-up-organisation" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
+        <label class="mdc-floating-label" for="sign-up-organisation">
+          Organisation
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="text" id="sign-up-postcode" class="mdc-text-field__input mdc-text-field--fullwidth" maxlength="9" data-lpignore="true" autocomplete="off" pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})" required />
+        <label class="mdc-floating-label" for="sign-up-postcode">
+          Postcode
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+
       <div class="mdc-form-field">
         <div class="mdc-checkbox">
           <input type="checkbox" class="mdc-checkbox__native-control" id="sign-up-subscribe"/>
@@ -87,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var $emailConfirm = $('#sign-up-email-confirm');
   var $password = $('#sign-up-password');
   var $passwordConfirm = $('#sign-up-password-confirm');
+  var $organisation = $('#sign-up-organisation');
+  var $postcode = $('#sign-up-postcode');
   var $subscribe = $('#sign-up-subscribe');
   var $register = $('#sign-up-submit');
   var $loader = $('#sign-up-loader');
@@ -95,17 +115,33 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $loader.css('display', 'flex');
     evt.preventDefault();
 
+    const valid = evt.currentTarget.checkValidity();
+    if (!valid) {
+      evt.currentTarget.reportValidity();
+      return;
+    }
+
     var email = $email.val();
     var emailConfirm = $emailConfirm.val();
     var password = $password.val();
     var passwordConfirm = $passwordConfirm.val();
 
     fundingscotland.auth.createAccount(email, emailConfirm, password, passwordConfirm).then(function(user) {
+      var redirect = '/new-user';
+      var parameters = [];
+
       if ($subscribe.prop('checked')) {
-        window.location.href = '/bulletin?subscribe=true';
-      } else {
-        window.location.href = '/';
+        parameters.push('subscribe=true');
       }
+
+      parameters.push('organisation=' + encodeURIComponent($organisation.val()));
+      parameters.push('postcode=' + encodeURIComponent($postcode.val()));
+
+      if (parameters.length > 0) {
+        redirect += '?' + parameters.join('&');
+      }
+
+      window.location.href = redirect;
     }).catch(function(err) {
       $message.text(err.message || 'Something went wrong when creating your account').show();
       $loader.css('display', 'none');

@@ -1,0 +1,3 @@
+@mixin diagonal($colourLeft, $colourRight, $position, $angle: 80deg) {
+  background-image: linear-gradient($angle, $colourLeft, $colourLeft $position, $colourRight ($position + 1), $colourRight);
+}

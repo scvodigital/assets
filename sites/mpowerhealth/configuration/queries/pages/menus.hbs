@@ -1,0 +1,30 @@
+{{#json}}
+  {{{json key="size" value=100}}},
+  {{#json key="_source" type="array"}}
+    "slug",
+    "title",
+    "menu_order",
+    "menu_label",
+    "which_menus",
+    "menu_url",
+    "menu_icon"
+  {{/json}},
+  {{#json key="query"}}
+    {{#json key="bool"}}
+      {{#json key="filter" type="array"}}
+        {{#json}}
+          {{#json key="term"}}
+            {{{json key="_type" value=(concat "fs-" @root.data.currentSite.name "-page")}}}
+          {{/json}}
+        {{/json}}
+      {{/json}}
+    {{/json}}
+  {{/json}},
+  {{#json key="sort" type="array"}}
+    {{#json}}
+      {{#json key="menu_order"}}
+        {{{json key="order" value="asc"}}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/json}}

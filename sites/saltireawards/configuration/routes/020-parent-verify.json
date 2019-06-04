@@ -6,7 +6,7 @@
     "hideSearch": true
   },
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "apexUrl",
       "taskModule": "render",

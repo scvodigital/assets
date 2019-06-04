@@ -1,0 +1,26 @@
+{{#*inline "current_page" ~}}
+{{#compare paging.totalResults ">" 10 ~}} |
+<strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
+{{/compare ~}}
+{{/inline ~}}
+
+{{#if paging.totalResults ~}}
+<div class="search-info mdc-elevation--z2">
+  <strong>Total results:</strong> {{addCommas paging.totalResults}}
+  {{#ifAny @root.request.params.query.keywords @root.request.params.query.activities @root.request.params.query.beneficiaries @root.request.params.query.geographical_areas_funded @root.request.params.query.type_of_cost @root.request.params.query.type_of_funding @root.request.params.query.source_of_fund @root.request.params.query.miscellaneous @root.request.params.query.page ~}}
+  {{#ifAll (compare paging.totalResults ">" 50) (compare @root.route.name "!==" "posts") ~}}
+  (limited to 50 per search)
+  {{else}}
+  {{> current_page}}
+  {{/ifAll ~}}
+  {{else}}
+  {{> current_page}}
+  {{/ifAny ~}}
+</div>
+{{else}}
+{{#ifAny @root.request.params.query.keywords @root.request.params.query.activities @root.request.params.query.beneficiaries @root.request.params.query.geographical_areas_funded @root.request.params.query.type_of_cost @root.request.params.query.type_of_funding @root.request.params.query.source_of_fund @root.request.params.query.miscellaneous ~}}
+<div class="search-info mdc-elevation--z1">
+  No results could be found, please try a different search query
+</div>
+{{/ifAny ~}}
+{{/if ~}}

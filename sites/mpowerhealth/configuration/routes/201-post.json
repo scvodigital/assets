@@ -1,7 +1,7 @@
 {
   "name": "post",
   "pattern": "/news/*slug",
-  "debug": false,
+  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.menus",
@@ -15,7 +15,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "fs-default-post,fs-eastrenfrewshire-post,fs-fife-post,fs-northlanarkshire-post,fs-shetland-post,fs-southlanarkshire-post,fs-srn-post,fs-stirling-post",
+          "type": "mpower-default-post,mpower-dumfriesgalloway-post",
           "template": ">context.metaData.handlebars.queries.posts_post"
         }
       },

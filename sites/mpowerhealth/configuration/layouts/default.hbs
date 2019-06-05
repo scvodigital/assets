@@ -100,7 +100,7 @@
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--logo">
-              <a href="{{#if (contains request.url.hostname ".local")}}https://mpowerhealth.local:8080{{else}}https://test.mpowerhealth.eu{{/if}}">
+              <a href="{{#if (contains request.url.hostname ".local")}}https://mpowerhealth.local:8080{{else}}{{@root.context.metaData.site-configurations.default.url}}{{/if}}">
                 <img src="{{~>asset_url url='images/logos/mpower.png'~}}" alt="mPower Health" />
               </a>
             </section>

@@ -103,6 +103,7 @@ header {
         color: $mdc-theme-primary-dark !important;
       }
     }
+    .mdc-tab--active,
     .mdc-tab:hover {
       .mdc-tab__text-label {
         border-bottom-color: $mdc-theme-primary-dark !important;

@@ -1,6 +1,5 @@
 <div class="container-content mpower-page t-padding">
-  {{!-- <img src="{{~>asset_url url='images/community-scape.jpg'~}}" aria-hidden="true" /> --}}
-  <div class="mdc-card list h-padding-full b-padding-full t-margin b-margin-full mdc-elevation--z3">
+  <div class="b-padding-full t-margin b-margin-full">
     {{#compare @root.data.currentSite.name "default" ~}}
     {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
     {{else}}

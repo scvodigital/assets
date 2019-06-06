@@ -172,6 +172,16 @@ secondary: #022347,
 secondary-light: #6dede5,
 secondary-dark: #A7C9F2
 ),
+twenty-years: (
+primary: #EE5427,
+primary-overlay-start: #EE5427,
+primary-overlay-end: #EE5427,
+primary-light: #F9B796,
+primary-dark: #58595B,
+secondary: #022347,
+secondary-light: #6dede5,
+secondary-dark: #A7C9F2
+),
 services: (
 primary: #1976d2,
 primary-overlay-start: #1976d2,
@@ -832,6 +842,13 @@ primary-dark: #263238
 .services.goodmoves {
   @include theme-colours('goodmoves');
 }
+.i-love-charity.featured-background-image,
+.i-love-charity {
+  @include theme-colours('i-love-charity');
+}
+.20-years-delivering-change {
+  @include theme-colours('twenty-years');
+}
 .scottish-charity-awards .book-your-place,
 .project,
 .campaign,
@@ -856,10 +873,6 @@ primary-dark: #263238
 .the-gathering.featured-background-image,
 .the-gathering {
   @include theme-colours('gathering');
-}
-.i-love-charity.featured-background-image,
-.i-love-charity {
-  @include theme-colours('i-love-charity');
 }
 .events,
 .search-result.scvo-cms-post,

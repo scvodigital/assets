@@ -73,7 +73,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fundingscotland.auth.signInEmailPassword(email, password)
       .then(function(user) {
         // console.log('Logged in:', user);
-        window.location.href = '{{#if (contains @root.request.headers.referer "sign-out")}}/{{else}}{{default @root.request.headers.referer "/"}}{{/if}}';
+        window.location.href = '/signed-in?referer=' + encodeURIComponent('
+          {{~#if (contains @root.request.headers.referer "sign-out")~}}
+            /
+          {{~else~}}
+            {{default @root.request.headers.referer "/"}}
+          {{~/if~}}
+        ');
       })
       .catch(function(err) {
         $message.html(err.message+' <a href="/reset-password">Reset password</a>').show();

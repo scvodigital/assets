@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 {{else}}
 <form id="sign-up-form" method="POST" class="sign-in-form sign-up-form" autocomplete="off">
   <div class="mdc-typography--headline5">
-    Sign up
+    Sign up for a Funding Scotland account
   </div>
   <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border b-margin" id="sign-up-message">
     <span id="form-message"></span>
@@ -148,6 +148,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   });
+
+  $email.on('blur', checkExisting);
+  $emailConfirm.on('blur', checkExisting);
+
+  function checkExisting() {
+    var email = $email.val().toLowerCase();
+    var emailConfirm = $emailConfirm.val().toLowerCase();
+    if (email !== emailConfirm) return;
+    $.getJSON('/existing-account?email=' + encodeURIComponent(email)).then(function(response) {
+      if (response.profiles && response.profiles.length > 0) {
+        alert('You already have a Funding Scotland account');
+      }
+    });
+  }
 });
 </script>
 {{/ifAll}}

@@ -1,0 +1,13 @@
+{{#json}}
+  {{#json key="profiles" type="array"}}
+    {{#each (getKeys @root.data.profiles)}}
+      {{#with (getProperty @root.context.metaData.site-configurations this)}}
+        {{#json}}
+          {{{json key="name" value=name}}},
+          {{{json key="title" value=title}}},
+          {{{json key="url" value=url}}}
+        {{/json}},
+      {{/with}}
+    {{/each}}
+  {{/json}}
+{{/json}}

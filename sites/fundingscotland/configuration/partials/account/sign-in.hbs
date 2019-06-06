@@ -3,14 +3,14 @@
     {{#if @root.request.params.query.reauth}}
       Reauthenticate
     {{else}}
-      Sign in
+      Sign in with you Funding Scotland account
     {{/if}}
   </div>
+  <div class="mdc-typography--headline6 v-margin">
   {{#if @root.request.params.query.reauth}}
-    <div class="mdc-typography--headline6 v-margin">
-      Before you can do that you must sign in again
-    </div>
+    Before you can do that you must sign in again
   {{/if}}
+  </div>
   <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border" id="sign-in-message">
     <span id="form-message"></span>
   </div>

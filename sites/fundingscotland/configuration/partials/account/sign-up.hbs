@@ -16,17 +16,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     <div class="mdc-typography--body1" id="form-section-email">
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
+        <span class="far fa-spinner fa-spin mdc-text-field__icon hidden" id="sign-up-existing-spinner" tabindex="-1"></span>
         <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-email">
           Email
-        </label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-        <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
-        <label class="mdc-floating-label" for="sign-up-email-confirm">
-          Confirm email
         </label>
         <div class="mdc-line-ripple"></div>
       </div>
@@ -35,6 +28,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         <span id="sign-up-existing-email"></span> already has a Funding Scotland account
         which was most recently used on <a id="sign-up-existing-recent" class="mdc-theme--on-error"></a> <span id="sign-up-existing-current">this site</span>.
         You can <a href="/sign-in" id="sign-up-existing-sign-in" class="mdc-theme--on-error">sign-in with this account here.</a>
+      </div>
+
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
+        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
+        <label class="mdc-floating-label" for="sign-up-email-confirm">
+          Confirm email
+        </label>
+        <div class="mdc-line-ripple"></div>
       </div>
 
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
@@ -157,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   $email.change(checkExisting);
 
+  $existingSpinner = $('#sign-up-existing-spinner');
   $existingMessage = $('#sign-up-existing-message');
   $existingEmail = $('#sign-up-existing-email');
   $existingRecent = $('#sign-up-existing-recent');
@@ -165,7 +168,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function checkExisting() {
     var email = $email.val().toLowerCase();
+    var emailField = $email.parents('.mdc-text-field');
+    emailField.addClass('mdc-text-field--with-trailing-icon');
+    $existingSpinner.removeClass('hidden');
     $.getJSON('/existing-account?email=' + encodeURIComponent(email)).then(function(response) {
+      emailField.removeClass('mdc-text-field--with-trailing-icon');
+      $existingSpinner.addClass('hidden');
       if (response.profiles && response.profiles.length > 0) {
         response.profiles.sort((a, b) => {
           return a.accessed || 0 - b.accessed || 0;
@@ -174,6 +182,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
       } else {
         unlockExisting();
       }
+    }).catch(function(err) {
+      emailField.removeClass('mdc-text-field--with-trailing-icon');
+      $existingSpinner.addClass('hidden');
+      unlockExisting();
     });
   }
 

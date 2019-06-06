@@ -2313,6 +2313,11 @@ form#settled_status {
 .wp-block-gallery.columns-4 {
   li.blocks-gallery-item {
     width: 23%;
+    img {
+      max-height: 8vw;
+      margin: 0 auto $unit*2;
+      display: block;
+    }
   }
 }
 

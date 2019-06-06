@@ -3,6 +3,7 @@
   "pattern": "/existing-account",
   "debug": true,
   "tasks": [
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "getUser",
       "taskModule": "firebaseGetUser",

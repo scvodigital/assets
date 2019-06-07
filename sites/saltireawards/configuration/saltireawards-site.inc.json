@@ -13,6 +13,7 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/saltireawards/",
     "title": "Saltire Awards",
+    "emailSendSettings": "{:./email-send-settings.json}",
     "menus": "{:./saltireawards-menus.json}",
     "accountInfoValidation": "{:./account-info-validation.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",

@@ -6,17 +6,20 @@
   "defaultParams": {
     "context": "results"
   },
+  "metaData": {
+    "emailType": "parent-verify"
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
-      "name": "accountInfo",
-      "taskModule": "salesforceApex",
+      "name": "send_email",
+      "taskModule": "mailgun",
       "renderer": "handlebars",
       "config": {
-        "connection": "scvoAlexSandbox",
         "output": "data",
-        "method": "GET",
-        "apexClassPath": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+        "parseJson": true,
+        "template": ">context.metaData.handlebars.templates.account_verify-email"
       }
     },
     {

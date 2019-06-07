@@ -132,5 +132,17 @@
         return;
       });
     }
+
+    $profileForm = $('#profile-form');
+    $profileOrganisation = $('#profile-organisation');
+    $profilePostcode = $('#profile-postcode');
+    $profileUpdate = $('#profile-update');
+
+    $profileOrganisation.on('keypress', function(evt) {
+      if (evt.which === 13) {
+        $profilePostcode.focus();
+        evt.preventDefault();
+      }
+    });
   });
 </script>

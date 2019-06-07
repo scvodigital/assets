@@ -4,7 +4,7 @@
     {{~#each (filter @root.data.fund_lookup.hits.hits "_source.Id" "===" fundId)~}}
       {{{json key="title" value=_source.title}}},
       {{{json key="organisation" value=_source.funder_organisation.name}}},
-      {{{json key="url" value=(concat @root.data.currentSite.url "/fund/" _source.slug)}}}
+      {{{json key="url" value=(concat (default ../baseUrl @root.data.currentSite.url) "/fund/" _source.slug)}}}
     {{~else~}}
       {{{json key="error" value=(concat "Details for fund '" fundId "' could not be found. It may be old and is no longer in the search index")}}}
     {{~/each~}}
@@ -13,100 +13,217 @@
     {{/if}}
   {{/json}}
 {{~/inline~}}
+{{~#*inline "site"~}}
+  {{#json}}
+    {{{json key="name" value=name}}},
+    {{~#with (getProperty @root.context.metaData.site-configurations name)~}}
+      {{{json key="title" value=title}}},
+      {{{json key="url" value=url}}}
+      {{#if @partial-block}}
+        ,{{> @partial-block}}
+      {{/if}}
+    {{~else~}}
+      {{{json key="error" value=(concat "Details for site '" name "' could not be found. It may have been closed down")}}}
+      {{#if @partial-block}}
+        ,{{> @partial-block}}
+      {{/if}}
+    {{~/with~}}
+  {{/json}}
+{{~/inline~}}
 
 {{#json}}
   {{#json key="dataComment"}}
-    {{{json key="description" value="This is an export of your Funding Scotland account data."}}},
-    {{{json key="location" value="Google Cloud Platform"}}}
+    {{#json key="description" type="string"~}}
+      This is an export of your Funding Scotland account data.
+    {{~/json}},
+    {{#json key="location" type="string"~}}
+      Google Cloud Platform
+    {{~/json}}
   {{/json}},
+
   {{#json key="user"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="This is all the information stored about you for the purposes of authentication and other information you have chosen to save such as shortlisted funds, saved searches, and notes."}}},
-      {{{json key="location" value="Google Firebase"}}}
+      {{#json key="description" type="string"~}}
+        This is all the information stored about you for the purposes of authentication
+        and other information you have chosen to save such as shortlisted funds, saved
+        searches, and notes.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        Google Firebase
+      {{~/json}}
     {{/json}},
+
     {{{json key="email" value=@root.data.auth.email}}},
     {{{json key="emailVerified" value=@root.data.auth.emailVerified}}},
     {{{json key="metadata" value=@root.data.auth.metadata}}},
   {{/json}},
+
+  {{#json key="profile"}}
+    {{#json key="dataComment"}}
+      {{#json key="description" type="string"~}}
+        This is all the information stored about you that was collected when you first
+        signed up for your Funding Scotland account. This information is used to help
+        us understand who is using each of the Funding Scotland websites.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        Google Firebase Real-Time Database
+      {{~/json}}
+    {{/json}},
+
+    {{{json key="organisation" value=(default @root.data.profile.organisation "none")}}},
+    {{{json key="postcode" value=(default @root.data.profile.postcode "none")}}},
+  {{/json}},
+
   {{#json key="notes"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="A list of fund IDs with any notes you may have stored against them."}}},
-      {{{json key="location" value="Google Firebase Real-Time Database"}}}
+      {{#json key="description" type="string"~}}
+        A list of fund IDs with any notes you may have stored against them.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        Google Firebase Real-Time Database
+      {{~/json}}
     {{/json}},
-    {{#json key="funds" type="array"}}
-      {{#each @root.data.profile.notes}}
-        {{#>fund fundId=@key}}
-          {{#json key="notes" type="array"}}
-            {{#each this}}
-              {{#json}}
-                {{{json key="dateTime" value=(momentFormat (moment @key "x") "YYYY-MM-DD HH:mm:SS")}}},
-                {{{json key="note" value=note}}},
-                {{{json key="status" value=status}}},
-              {{/json}},
-            {{/each}}
-          {{/json}}
-        {{/fund}},
-      {{else}}
-        {{{json value="No notes"}}}
+
+    {{#json key="sites" type="array"}}
+      {{#each @root.data.profile}}
+        {{#if notes}}
+          {{#>site name=@key}}
+            {{#json key="funds" type="array"}}
+              {{#each ../notes}}
+                {{#>fund fundId=@key baseUrl=../url}}
+                  {{#json key="notes" type="array"}}
+                    {{#each this}}
+                      {{#if note}}
+                        {{#json}}
+                          {{{json key="dateTime" value=(momentFormat (moment @key "x") "YYYY-MM-DD HH:mm:SS")}}},
+                          {{{json key="note" value=note}}},
+                          {{{json key="status" value=status}}},
+                        {{/json}},
+                      {{/if}}
+                    {{/each}}
+                  {{/json}}
+                {{/fund}},
+              {{else}}
+                {{{json value="No notes"}}}
+              {{/each}}
+            {{/json}}
+          {{/site}},
+        {{/if}}
       {{/each}}
     {{/json}}
   {{/json}},
+
   {{#json key="hiddenFunds"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="A list of fund IDs that will be hidden from search results and related funds' lists."}}},
-      {{{json key="location" value="Google Firebase Real-Time Database"}}}
+      {{#json key="description" type="string"~}}
+        A list of fund IDs that will be hidden from search results and related funds' lists.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        Google Firebase Real-Time Database
+      {{~/json}}
     {{/json}},
-    {{#json key="funds" type="array"}}
-      {{#each (getKeys @root.data.profile.hidden)}}
-        {{>fund fundId=this}},
-      {{else}}
-        {{{json value="No hidden funds"}}}
+
+    {{#json key="sites" type="array"}}
+      {{#each @root.data.profile}}
+        {{#if hidden}}
+          {{#>site name=@key}}
+            {{#json key="funds" type="array"}}
+              {{#each ../hidden}}
+                {{>fund fundId=@key baseUrl=../url}},
+              {{else}}
+                {{{json value="No hidden funds"}}}
+              {{/each}}
+            {{/json}}
+          {{/site}},
+        {{/if}}
       {{/each}}
     {{/json}}
   {{/json}},
+
   {{#json key="savedFundLists"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="A list of all your saved fund lists."}}},
-      {{{json key="location" value="On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/compute/docs/regions-zones/"}}}
+      {{#json key="description" type="string"~}}
+        A list of all your saved fund lists.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London).
+        For more information visit https://cloud.google.com/compute/docs/regions-zones/
+      {{~/json}}
     {{/json}},
-    {{#json key="lists" type="array"}}
-      {{#each @root.data.shortlistPartitions.items.[0]}}
-        {{#json}}
-          {{{json key="name" value=partition}}},
-          {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
-          {{#json key="funds" type="array"}}
-            {{#each (arrayify (getProperty (querystring querystring) "id"))}}
-              {{>fund fundId=this}},
-            {{/each}}
-          {{/json}}
-        {{/json}},
-      {{else}}
-        {{{json value="No saved fund lists"}}}
+
+    {{#json key="sites" type="array"}}
+      {{#each @root.data.profile}}
+        {{#ifAny hidden accessed notes}}
+          {{#>site name=@key}}
+            {{#json key="lists" type="array"}}
+              {{#each (filter @root.data.subscriptions.items.[0] "campaign" "===" (concat "fs-saved-funds-" @../key))}}
+                {{#json}}
+                  {{{json key="name" value=partition}}},
+                  {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
+                  {{#json key="funds" type="array"}}
+                    {{#each (arrayify (getProperty (querystring querystring) "id"))}}
+                      {{>fund fundId=this baseUrl=../../url}},
+                    {{/each}}
+                  {{/json}}
+                {{/json}},
+              {{else}}
+                {{{json value="No lists"}}}
+              {{/each}}
+            {{/json}}
+          {{/site}},
+        {{/ifAny}}
       {{/each}}
     {{/json}}
   {{/json}},
+
   {{#json key="savedSearches"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="A list of all your saved searches."}}},
-      {{{json key="location" value="On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/compute/docs/regions-zones/"}}}
+      {{#json key="description" type="string"~}}
+        A list of all your saved searches.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London).
+        For more information visit https://cloud.google.com/compute/docs/regions-zones/
+      {{~/json}}
     {{/json}},
-    {{#json key="searches" type="array"}}
-      {{#each @root.data.searches.items.[0]}}
-        {{#json}}
-          {{{json key="name" value=partition}}},
-          {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
-          {{{json key="url" value=(concat @root.data.currentSite.url "/search?" querystring)}}}
-        {{/json}},
-      {{else}}
-        {{{json value="No saved searches"}}}
+
+    {{#json key="sites" type="array"}}
+      {{#each @root.data.profile}}
+        {{#ifAny hidden accessed notes}}
+          {{#>site name=@key}}
+            {{#json key="savedSearches" type="array"}}
+              {{#each (filter @root.data.subscriptions.items.[0] "campaign" "===" (concat "fs-saved-searches-" @../key))}}
+                {{#json}}
+                  {{{json key="name" value=partition}}},
+                  {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
+                  {{{json key="url" value=(concat ../url "/search?" querystring)}}},
+                  {{{json key="terms" value=(querystring querystring)}}},
+                {{/json}},
+              {{else}}
+                {{{json value="No lists"}}}
+              {{/each}}
+            {{/json}}
+          {{/site}},
+        {{/ifAny}}
       {{/each}}
     {{/json}}
   {{/json}},
+
   {{#json key="recentlyViewed"}}
     {{#json key="dataComment"}}
-      {{{json key="description" value="Here is a list of (up to) the last 10 funds you have viewed."}}},
-      {{{json key="location" value="Your browser cookies allow our web servers to read this information. These servers are located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/computer/docs/regions-zones/"}}}
+      {{#json key="description" type="string"~}}
+        Here is a list of (up to) the last 10 funds you have viewed.
+      {{~/json}},
+      {{#json key="location" type="string"~}}
+        This data is stored in your browsers cookies but is visible to our web servers.
+        These servers are located at 'europe-west2-c' (London). For more information
+        visit https://cloud.google.com/computer/docs/regions-zones/. Note that this
+        list is only for the current site ({{@root.data.currentSite.title}}). Your
+        browser may be storing similar cookies for other Funding Scotland websites.
+        Please visit them for more information.
+      {{~/json}}
     {{/json}},
+
     {{#json key="funds" type="array"}}
       {{#each (split @root.request.cookies.recently_viewed ",")}}
         {{>fund fundId=this}},
@@ -115,5 +232,6 @@
       {{/each}}
     {{/json}}
   {{/json}},
-  {{{json key="exported" value=(momentFormat (moment) "YYYY-MM-DD HH:mm:SS")}}}
+
+  {{{json key="exported" value=(momentFormat (moment null "x") "YYYY-MM-DD HH:mm:SS")}}}
 {{/json}}

@@ -11,14 +11,16 @@
   {{/with}}
   {{#json key="profiles" type="array"}}
     {{#each @root.data.profiles}}
-      {{#with (getProperty @root.context.metaData.site-configurations @key)}}
-        {{#json}}
-          {{{json key="accessed" value=../accessed}}},
-          {{{json key="name" value=name}}},
-          {{{json key="title" value=title}}},
-          {{{json key="url" value=url}}}
-        {{/json}},
-      {{/with}}
+      {{#ifAny accessed notes hidden}}
+        {{#with (getProperty @root.context.metaData.site-configurations @key)}}
+          {{#json}}
+            {{{json key="accessed" value=../accessed}}},
+            {{{json key="name" value=name}}},
+            {{{json key="title" value=title}}},
+            {{{json key="url" value=url}}}
+          {{/json}},
+        {{/with}}
+      {{/ifAny}}
     {{/each}}
   {{/json}}
 {{/json}}

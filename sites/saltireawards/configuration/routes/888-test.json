@@ -8,7 +8,17 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -4211,6 +4211,10 @@ p:last-child {
     display: block;
     margin: 0 auto;
   }
+  .wp-block-image .aligncenter {
+    text-align: center;
+    margin-bottom: $unit/2;
+  }
 }
 .static-sidebar,
 .post-content .full {

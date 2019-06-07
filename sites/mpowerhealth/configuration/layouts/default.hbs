@@ -147,9 +147,9 @@
                 {{/compare ~}}
                 {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{> components_tab
-                      url=(default _source.menu_url (stripTrailingSlash (concat "/" _source.slug)))
+                      url=(default _source.menu_url (stripTrailingSlash (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") ""))))
                       labelClasses="mdc-theme--on-primary"
-                      active=(regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")
+                      active=(regexMatch @root.request.url.pathname (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") "")) "gi")
                       label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
               {{/components_tab_bar}}

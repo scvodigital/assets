@@ -1,0 +1,36 @@
+{
+  "name": "existing_account",
+  "pattern": "/existing-account",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    {
+      "name": "getUser",
+      "taskModule": "firebaseGetUser",
+      "config": {
+        "appName": "fundingscotland",
+        "userIdentifier": ">request.params.query.email"
+      }
+    },
+    {
+      "name": "profiles",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.getUser.uid 'null'}}/",
+        "defaultData": { }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": ">context.metaData.handlebars.templates.account_existing-user",
+        "parseJson": true
+      }
+    }
+  ]
+}

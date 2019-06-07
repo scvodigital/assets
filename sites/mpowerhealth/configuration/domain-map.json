@@ -3,5 +3,7 @@
   "mpowerhealth_local": "default",
   "test_mpowerhealth_eu": "default",
   "dumfriesgalloway_mpowerhealth_eu": "dumfriesgalloway",
+  "dumfries-galloway_mpowerhealth_eu": "dumfriesgalloway",
+  "dumfriesandgalloway_mpowerhealth_eu": "dumfriesgalloway",
   "mpowerhealth-dumfriesgalloway_local": "dumfriesgalloway"
 }

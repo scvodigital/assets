@@ -36,7 +36,6 @@
   <meta name="msapplication-TileColor" content="#3c7524">
   <meta name="msapplication-TileImage" content="{{~>asset_url url='images/icons/ms-icon-144x144.png'~}}">
   <meta name="theme-color" content="#3c7524">
-  <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://mpowerhealth.eu{{request.params.uri.pathname}}" /> -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-30"></script>
@@ -67,10 +66,9 @@
   {{/ifAny ~}}
   </script>
 
-  <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"> -->
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url='fontawesome-pro/css/all.min.css'~}}">
 
-  <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
+  <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main-VERSION.css'}}">
 </head>
 <body class="mdc-theme--footer-dark-bg">
   <mpowerhealth-site>
@@ -102,46 +100,26 @@
         <div class="container-fluid">
           <div class="mdc-top-app-bar__row mdc-top-app-bar__upper">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--logo">
-              <a href="https://scvo.org">
-                <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
+              <a href="{{#if (contains request.url.hostname ".local")}}https://mpowerhealth.local:8080{{else}}{{@root.context.metaData.site-configurations.default.url}}{{/if}}">
+                <img src="{{~>asset_url url='images/logos/mpower.png'~}}" alt="mPower Health" />
               </a>
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-              <a href="/" class="mdc-top-app-bar__title">
-                {{@root.data.currentSite.title}}
-              </a>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--partner">
+              {{#compare @root.data.currentSite.name "!==" "default" ~}}
+              <img src="{{~>asset_url url=(concat 'images/logos/partners/' @root.data.currentSite.name '.png')~}}" alt="In partnership with {{@root.data.currentSite.healthBoard.title}}" />
+              {{/compare ~}}
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
-              {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
-                {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
-                <div class="mdc-chipset pull-right hide-md hide-sm">
-                  <a href="/premium-toggle" class="mdc-chip mdc-chip--premium">
-                    {{#>premium_content}}
-                      <i class="far mdc-chip__icon fa-check-circle"></i>
-                    {{/premium_content}}
-                    {{#>premium_content_alt}}
-                      <i class="far mdc-chip__icon fa-circle"></i>
-                    {{/premium_content_alt}}
-                    <div class="mdc-chip__text">
-                      Premium user
-                    </div>
-                  </a>
-                </div>
-                {{/ifAll ~}}
-              {{/ifAny ~}}
-
-              {{#unless @root.route.metaData.hideSearch ~}}
-              <button class="mdc-top-app-bar__navigation-icon hide-lg filter-search-button" id="sidebar-button" title="Search">
-                <span class="far fa-fw fa-2x fa-search"></span>
-              </button>
-              {{/unless ~}}
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section--funder">
+              <a href="https://www.seupb.eu/iva-overview">
+                <img src="{{~>asset_url url='images/logos/interreg-vi-logo.png'~}}" alt="INTERREG VA Programme" />
+              </a>
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
-          <!-- </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
+          </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__main hide-md hide-sm">
               {{#> components_tab_bar
                    extraClasses="mdc-tab-bar__auto-width"
                    id="main-tab-bar"}}
@@ -150,6 +128,23 @@
                     labelClasses="mdc-theme--on-primary"
                     active=(regexMatch @root.request.url.pathname "^/$" "gi")
                     label="Home"}}
+                {{#compare @root.data.currentSite.name "default" ~}}
+                {{#each @root.context.metaData.menus.corporate ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each}}
+                {{else}}
+                {{#each @root.context.metaData.menus.localised ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each}}
+                {{/compare ~}}
                 {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
                   {{> components_tab
                       url=(default _source.menu_url (stripTrailingSlash (concat "/" _source.slug)))
@@ -157,61 +152,11 @@
                       active=(regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")
                       label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
-                {{> components_tab
-                    url="/news"
-                    labelClasses="mdc-theme--on-primary"
-                    active=(regexMatch @root.request.url.pathname "^/news$|^/post" "gi")
-                    label="News"}}
               {{/components_tab_bar}}
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
-              {{#if @root.data.auth ~}}
-                {{#>components_anchored_menu
-                    buttonClasses="mdc-theme--on-primary"
-                    imageUrl=(default @root.data.auth.photoURL false)
-                    imageClasses="far fa-fw user-avatar"
-                    iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
-                    buttonLabel="My account"
-                    arrowClasses="far fa-fw fa-angle-down"}}
-                  {{#each @root.context.metaData.menus.user-signed-in ~}}
-                    <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
-                      {{#if icon ~}}
-                      <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-                      {{/if ~}}
-                      {{{label}}}
-                    </a>
-                  {{/each ~}}
-                {{/components_anchored_menu}}
-              {{else}}
-                {{#>components_tab_bar
-                    extraClasses="mdc-tab-bar__auto-width"
-                    id="user-not-signed-in-tab-bar"}}
-                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        labelClasses="mdc-theme--on-primary"
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        label=label}}
-                  {{/each}}
-                {{/components_tab_bar}}
-              {{/if ~}}
             </section>
           </div>
         </div>
       </header>
-
-      <div class="header-banner mdc-top-app-bar-fixed-adjust" style="background-image:url('{{@root.data.currentSite.headerImage}}')">
-        {{#compare @root.data.currentSite.name "!==" "default" ~}}
-        <div class="site-brand rounded mdc-elevation--z2">
-          <a href="/" class="site-brand--organisation">
-            <img src="{{@root.data.currentSite.logo}}" alt="{{@root.data.currentSite.organisationName}}" />
-          </a>
-          <a href="https://mpowerhealth.eu" class="site-brand--mpowerhealth">
-            mPower Health
-          </a>
-        </div>
-        {{/compare ~}}
-      </div>
 
       <aside class="mdc-drawer mdc-drawer--modal" id="mobile-menu" data-mdc-auto-init="MDCDrawer">
         <div class="mdc-drawer__content">
@@ -231,101 +176,67 @@
                 {{{default _source.menu_label _source.title}}}
               </a>
             {{/each ~}}
-
-            <div role="separator" class="mdc-list-divider"></div>
-
-            {{#if @root.data.auth ~}}
-            <a class="mdc-list-item mdc-list-item__user" href="#">
-              <span class="mdc-list-item__graphic" aria-hidden="true">
-                <img src="{{@root.data.auth.photoURL}}" />
-              </span>
-              <span class="mdc-list-item__text">My account</span>
-            </a>
-            {{#each @root.context.metaData.menus.user-signed-in ~}}
-            {{#compare path "===" "/" ~}}
-            {{else}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
-            {{/compare ~}}
-            {{/each ~}}
-            {{else}}
-            {{#each @root.context.metaData.menus.user-not-signed-in ~}}
-            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
-               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
-              {{#if icon ~}}
-              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
-              {{/if ~}}
-              {{{label}}}
-            </a>
-            {{/each ~}}
-            {{/if ~}}
           </nav>
         </div>
       </aside>
 
       <div class="mdc-drawer-scrim"></div>
 
-      <main class="mdc-theme--primary-light-bg main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
-        {{#if layoutParts.sidebar }}
+      <main class="mdc-theme--primary-light-bg mdc-top-app-bar-fixed-adjust main-body {{#if layoutParts.sidebar}}drawer-container-permanent{{else}}drawer-container-temporary{{/if}}">
+        {{#if layoutParts.sidebar ~}}
         <aside class="mdc-drawer mdc-drawer--occasional" id="sidebar-temporary" data-menu-button=".filter-search-button">
           {{{layoutParts.sidebar}}}
         </aside>
         <div class="mdc-drawer-scrim"></div>
-        {{/if}}
+        {{/if ~}}
+
         {{{layoutParts.body}}}
       </main>
 
       <footer class="mdc-layout__footer mdc-theme--footer-bg mdc-theme--on-footer">
-        <div class="footer-main">
+        <div class="footer-main" style="background-image: url('{{~>asset_url url='images/communityscape.png'~}}');">
           <div class="container-fluid">
             <div class="mdc-layout-grid">
               <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone contact">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+                  <h3>Partners</h3>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
+                  <div class="partner-logos">
+                    <a href="https://nhsnss.org/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-1.png"></a>
+                    <a href="http://www.cawt.com/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-2.png"></a>
+                    <a href="https://www.hse.ie/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-3.png"></a>
+                    <a href="https://www.nhsaaa.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-4.png"></a>
+                    <a href="http://www.nhsdg.scot.nhs.uk"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-5.png"></a>
+                    <a href="https://www.wihb.scot.nhs.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-6.png"></a>
+                    <a href="http://www.southerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-7.png"></a>
+                    <a href="http://www.westerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-8.png"></a>
+                    <a href="https://www.uhi.ac.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-9.png"></a>
+                    <a href="https://scvo.org"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-10.png"></a>
+                    <a href="https://www.seupb.eu/iva-overview"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-11.png"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone contact">
                   <h3>Contact</h3>
                   <ul class="fa-ul">
                     <li>
-                      <span class="fa-li"><span class="fas fa-envelope"></span></span>
-                      <a href="mailto:{{@root.data.currentSite.organisationContact}}">{{@root.data.currentSite.organisationContact}}</a>
-                    </li>
-                    <li>
                       <span class="fa-li"><span class="fas fa-phone"></span></span>
-                      <a href="tel:+448001690022">0800 169 0022</a>
+                      <a href="tel:+353XXXXXXXX">+353XXXXXXXX</a>
                     </li>
                     <li>
                       <span class="fa-li"><span class="fab fa-twitter"></span></span>
-                      <a href="https://twitter.com/mpowerhealth" target="_blank">Twitter</a>
+                      <a href="https://twitter.com/mPower_health" target="_blank">Twitter</a>
                     </li>
                   </ul>
                 </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
-                  <h3>Information</h3>
-                  <ul class="mdc-list">
-                    {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
-                    <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
-                    </li>
-                    {{/each ~}}
-                  </ul>
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone info">
-                  <h3>Help</h3>
-                  <ul class="mdc-list">
-                    {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-help") ~}}
-                    <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
-                    </li>
-                    {{/each ~}}
-                  </ul>
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone about">
                   <h3>About</h3>
                   <p>
-                    <strong>{{@root.data.currentSite.title}}</strong> is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>{{#compare @root.data.currentSite.name "!==" "default"}} as part of <a href="https://mpowerhealth.eu">mPower Health</a>{{/compare}}. <a href="/about">Find out more</a>
+                    The mPower project is funded through the European Union's <a href="https://www.seupb.eu/iva-overview">INTERREG VA Programme</a>, managed by the <a href="https://www.seupb.eu">Special EU Programmes Body (SEUPB)</a>. It is designed to promote greater levels of cross-border co-operation. Match funding is provided by the <a href="https://www.northernireland.gov.uk">Northern Ireland Executive</a>, the <a href="https://www.gov.ie">Irish Government</a> and the <a href="https://www.gov.scot">Scottish Government</a>.<br />
+                    This website is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>.<br />
+                    <a href="/about">Find out more</a>
                   </p>
                 </div>
               </div>

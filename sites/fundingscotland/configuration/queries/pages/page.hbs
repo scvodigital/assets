@@ -26,7 +26,7 @@
         {{/json}},
         {{#json}}
           {{#json key="term"}}
-            {{{json key="slug" value=@root.request.params.path}}}
+          {{{json key="slug" value=(concat @root.data.currentSite.name "_" @root.request.params.path)}}}
           {{/json}}
         {{/json}}
       {{/json}}

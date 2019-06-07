@@ -1,5 +1,5 @@
 {
-  "size": {{#compare @root.route.name "posts"}}10{{else}}4{{/compare}},
+  "size": 10,
   "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
     "title",
@@ -25,13 +25,8 @@
               {
                 "term": {
                   "_type": {
-                    "value" : "fs-{{@key}}-post"
+                    "value" : "mpower-{{@key}}-post"
                   }
-                }
-              },
-              {
-                "term": {
-                  "categories": "Site news"
                 }
               }
             ]
@@ -51,25 +46,7 @@
               },
               {
                 "term": {
-                  "categories": "Funding & Finance"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "bool": {
-            "must": [
-              {
-                "term": {
-                  "_type": {
-                    "value" : "tfn-feature"
-                  }
-                }
-              },
-              {
-                "term": {
-                  "categories": "Funding & Finance"
+                  "categories": ""
                 }
               }
             ]

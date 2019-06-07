@@ -1,0 +1,119 @@
+{{~#*inline "fund"~}}
+  {{#json}}
+    {{{json key="fundId" value=fundId}}},
+    {{~#each (filter @root.data.fund_lookup.hits.hits "_source.Id" "===" fundId)~}}
+      {{{json key="title" value=_source.title}}},
+      {{{json key="organisation" value=_source.funder_organisation.name}}},
+      {{{json key="url" value=(concat @root.data.currentSite.url "/fund/" _source.slug)}}}
+    {{~else~}}
+      {{{json key="error" value=(concat "Details for fund '" fundId "' could not be found. It may be old and is no longer in the search index")}}}
+    {{~/each~}}
+    {{#if @partial-block}}
+      ,{{> @partial-block}}
+    {{/if}}
+  {{/json}}
+{{~/inline~}}
+
+{{#json}}
+  {{#json key="dataComment"}}
+    {{{json key="description" value="This is an export of your Funding Scotland account data."}}},
+    {{{json key="location" value="Google Cloud Platform"}}}
+  {{/json}},
+  {{#json key="user"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="This is all the information stored about you for the purposes of authentication and other information you have chosen to save such as shortlisted funds, saved searches, and notes."}}},
+      {{{json key="location" value="Google Firebase"}}}
+    {{/json}},
+    {{{json key="email" value=@root.data.auth.email}}},
+    {{{json key="emailVerified" value=@root.data.auth.emailVerified}}},
+    {{{json key="metadata" value=@root.data.auth.metadata}}},
+  {{/json}},
+  {{#json key="notes"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="A list of fund IDs with any notes you may have stored against them."}}},
+      {{{json key="location" value="Google Firebase Real-Time Database"}}}
+    {{/json}},
+    {{#json key="funds" type="array"}}
+      {{#each @root.data.profile.notes}}
+        {{#>fund fundId=@key}}
+          {{#json key="notes" type="array"}}
+            {{#each this}}
+              {{#json}}
+                {{{json key="dateTime" value=(momentFormat (moment @key "x") "YYYY-MM-DD HH:mm:SS")}}},
+                {{{json key="note" value=note}}},
+                {{{json key="status" value=status}}},
+              {{/json}},
+            {{/each}}
+          {{/json}}
+        {{/fund}},
+      {{else}}
+        {{{json value="No notes"}}}
+      {{/each}}
+    {{/json}}
+  {{/json}},
+  {{#json key="hiddenFunds"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="A list of fund IDs that will be hidden from search results and related funds' lists."}}},
+      {{{json key="location" value="Google Firebase Real-Time Database"}}}
+    {{/json}},
+    {{#json key="funds" type="array"}}
+      {{#each (getKeys @root.data.profile.hidden)}}
+        {{>fund fundId=this}},
+      {{else}}
+        {{{json value="No hidden funds"}}}
+      {{/each}}
+    {{/json}}
+  {{/json}},
+  {{#json key="savedFundLists"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="A list of all your saved fund lists."}}},
+      {{{json key="location" value="On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/compute/docs/regions-zones/"}}}
+    {{/json}},
+    {{#json key="lists" type="array"}}
+      {{#each @root.data.shortlistPartitions.items.[0]}}
+        {{#json}}
+          {{{json key="name" value=partition}}},
+          {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
+          {{#json key="funds" type="array"}}
+            {{#each (arrayify (getProperty (querystring querystring) "id"))}}
+              {{>fund fundId=this}},
+            {{/each}}
+          {{/json}}
+        {{/json}},
+      {{else}}
+        {{{json value="No saved fund lists"}}}
+      {{/each}}
+    {{/json}}
+  {{/json}},
+  {{#json key="savedSearches"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="A list of all your saved searches."}}},
+      {{{json key="location" value="On a Google Cloud Platorm MySQL database located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/compute/docs/regions-zones/"}}}
+    {{/json}},
+    {{#json key="searches" type="array"}}
+      {{#each @root.data.searches.items.[0]}}
+        {{#json}}
+          {{{json key="name" value=partition}}},
+          {{{json key="subscribed" value=(if partitionActive "Yes" else="No")}}},
+          {{{json key="url" value=(concat @root.data.currentSite.url "/search?" querystring)}}}
+        {{/json}},
+      {{else}}
+        {{{json value="No saved searches"}}}
+      {{/each}}
+    {{/json}}
+  {{/json}},
+  {{#json key="recentlyViewed"}}
+    {{#json key="dataComment"}}
+      {{{json key="description" value="Here is a list of (up to) the last 10 funds you have viewed."}}},
+      {{{json key="location" value="Your browser cookies allow our web servers to read this information. These servers are located at 'europe-west2-c' (London). For more information visit https://cloud.google.com/computer/docs/regions-zones/"}}}
+    {{/json}},
+    {{#json key="funds" type="array"}}
+      {{#each (split @root.request.cookies.recently_viewed ",")}}
+        {{>fund fundId=this}},
+      {{else}}
+        {{{json value="No recently viewed funds"}}}
+      {{/each}}
+    {{/json}}
+  {{/json}},
+  {{{json key="exported" value=(momentFormat (moment) "YYYY-MM-DD HH:mm:SS")}}}
+{{/json}}

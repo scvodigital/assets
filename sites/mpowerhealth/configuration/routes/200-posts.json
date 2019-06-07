@@ -15,7 +15,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "tfn-news-post,tfn-feature,fs-default-post,fs-eastrenfrewshire-post,fs-fife-post,fs-northlanarkshire-post,fs-shetland-post,fs-southlanarkshire-post,fs-srn-post,fs-stirling-post",
+          "type": "mpower-default-post,mpower-dumfriesgalloway-post",
           "template": ">context.metaData.handlebars.queries.posts_latest"
         }
       },

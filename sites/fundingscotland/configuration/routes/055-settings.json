@@ -31,6 +31,17 @@
       }
     },
     {
+      "name": "shortlistPartitions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": ">context.metaData.handlebars.queries.notifications_get-shortlist-partitions"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
       "name": "fund_lookup",
       "taskModule": "elasticsearch",
       "config": {

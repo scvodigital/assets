@@ -172,6 +172,16 @@ secondary: #022347,
 secondary-light: #6dede5,
 secondary-dark: #A7C9F2
 ),
+twenty-years: (
+primary: #EE5427,
+primary-overlay-start: #EE5427,
+primary-overlay-end: #EE5427,
+primary-light: #F9B796,
+primary-dark: #BA350F,
+secondary: #022347,
+secondary-light: #6dede5,
+secondary-dark: #A7C9F2
+),
 services: (
 primary: #1976d2,
 primary-overlay-start: #1976d2,
@@ -388,6 +398,14 @@ primary-dark: #263238
   }
   footer h3 {
     border-color: map-get($themeFooter, 'primary-light');
+  }
+  .leading-quotation {
+    background: map-get($themeSelected, 'primary-dark');
+    color: white;
+    blockquote {
+      border: none;
+      color: white;
+    }
   }
 
   .mdc-theme--primary-light {
@@ -809,12 +827,32 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
+.projects-campaigns.twenty-years-delivering-change.saving-marine-life,
+.projects-campaigns.twenty-years-delivering-change.saving-marine-life .page-content,
+.projects-campaigns.twenty-years-delivering-change.climate-change,
+.projects-campaigns.twenty-years-delivering-change.climate-change .page-content,
+.projects-campaigns.twenty-years-delivering-change.right-to-roam,
+.projects-campaigns.twenty-years-delivering-change.right-to-roam .page-content,
+.projects-campaigns.twenty-years-delivering-change.community-right-to-buy,
+.projects-campaigns.twenty-years-delivering-change.community-right-to-buy .page-content,
 .funding-updates,
 .funding {
   @include theme-colours('funding');
 }
 .about,
 .search-result.scvo-staff,
+.projects-campaigns.twenty-years-delivering-change.smoke-free-public-places,
+.projects-campaigns.twenty-years-delivering-change.smoke-free-public-places .page-content,
+.projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing,
+.projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing .page-content,
+.projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases,
+.projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases .page-content,
+.projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out,
+.projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out .page-content,
+.projects-campaigns.twenty-years-delivering-change.continue-to-care,
+.projects-campaigns.twenty-years-delivering-change.continue-to-care .page-content,
+.projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people,
+.projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people .page-content,
 .running-a-charity,
 .setting-up-a-charity,
 .running-your-organisation {
@@ -839,6 +877,14 @@ primary-dark: #263238
 .projects-campaigns {
   @include theme-colours('projects');
 }
+.i-love-charity.featured-background-image,
+.i-love-charity {
+  @include theme-colours('i-love-charity');
+}
+.twenty-years-delivering-change,
+.twenty-years-delivering-change .page-content {
+  @include theme-colours('twenty-years');
+}
 .goodhq,
 .search-result.goodhq-organisation,
 .search-result.goodhq-post {
@@ -852,16 +898,20 @@ primary-dark: #263238
   @include theme-colours('funding-scotland');
 }
 .events.a1vb0000007fc04aaa-the-gathering,
+.projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund,
+.projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund .page-content,
+.projects-campaigns.twenty-years-delivering-change.equal-marriage,
+.projects-campaigns.twenty-years-delivering-change.equal-marriage .page-content,
 .the-gathering-2019,
 .the-gathering.featured-background-image,
 .the-gathering {
   @include theme-colours('gathering');
 }
-.i-love-charity.featured-background-image,
-.i-love-charity {
-  @include theme-colours('i-love-charity');
-}
 .events,
+.projects-campaigns.twenty-years-delivering-change.making-renting-right,
+.projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
+.projects-campaigns.twenty-years-delivering-change.affordable-homes,
+.projects-campaigns.twenty-years-delivering-change.affordable-homes .page-content,
 .search-result.scvo-cms-post,
 .related-posts,
 .post,
@@ -888,6 +938,14 @@ primary-dark: #263238
   @include theme-colours('tfn');
 }
 .services,
+.projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes,
+.projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes .page-content,
+.projects-campaigns.twenty-years-delivering-change.free-school-meals,
+.projects-campaigns.twenty-years-delivering-change.free-school-meals .page-content,
+.projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation,
+.projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation .page-content,
+.projects-campaigns.twenty-years-delivering-change.social-security,
+.projects-campaigns.twenty-years-delivering-change.social-security .page-content,
 .search-result.scvo-cms-page,
 .search-result.scvo-event,
 .gist.scvo-event,
@@ -1516,16 +1574,16 @@ section.search {
   .wp-block-file__button {
     font-weight: $heading-medium-font-weight;
     margin-left: $unit/2;
-    background: #444;
-    color: white;
     border-radius: $unit;
     padding: 0 $unit/2;
+    background: #555;
+    color: white !important;
   }
   .wp-block-file__button:hover {
     font-weight: $heading-medium-font-weight;
     text-decoration: none;
+    background: #222 !important;
     color: white !important;
-    background: #222;
   }
 }
 
@@ -2290,13 +2348,45 @@ form#settled_status {
     margin: 0;
   }
 }
+
+.wp-block-gallery {
+  li.blocks-gallery-item::before {
+    content: "";
+    margin: 0;
+    padding: 0;
+  }
+  li.blocks-gallery-item {
+    float: left;
+    padding: 0 $unit 0 0;
+    figure {
+      margin: 0 0 $unit/2;
+    }
+  }
+}
+.wp-block-gallery.columns-3 {
+  li.blocks-gallery-item {
+    width: 31%;
+  }
+}
+.wp-block-gallery.columns-4 {
+  li.blocks-gallery-item {
+    width: 23%;
+    img {
+      max-height: 8vw;
+      margin: 0 auto $unit*2;
+      display: block;
+    }
+  }
+}
+
 .splash-image .splash-overlay .container-fluid {
   overflow: hidden;
   position: relative;
   min-height: 27vh;
 }
 .splash-overlay.splash-overlay-hidden {
-  background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
+  // background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
+  background-image: none;
 }
 .splash-image {
   background-size: 60%;
@@ -4000,6 +4090,17 @@ blockquote {
 }
 blockquote p {
   display: inline;
+}
+.leading-quotation {
+  border-radius: $unit/5;
+  blockquote {
+    font-size: 1.3rem;
+    padding: 0;
+    p {
+      font-family: $heading-font-family;
+      letter-spacing: -0.03rem;
+    }
+  }
 }
 
 ul.supplimentary-list {

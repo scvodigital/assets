@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 {{else}}
 <form id="sign-up-form" method="POST" class="sign-in-form sign-up-form" autocomplete="off">
   <div class="mdc-typography--headline5">
-    Sign up
+    Sign up for a Funding Scotland account
   </div>
   <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border b-margin" id="sign-up-message">
     <span id="form-message"></span>
@@ -16,15 +16,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
     <div class="mdc-typography--body1" id="form-section-email">
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <span class="far fa-spinner fa-spin mdc-text-field__icon hidden" id="sign-up-existing-spinner" tabindex="-1"></span>
+        <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-email">
           Email
         </label>
         <div class="mdc-line-ripple"></div>
       </div>
+
+      <div class="hidden mdc-theme--error-bg mdc-theme--on-error x-padding-full" id="sign-up-existing-message">
+        <span id="sign-up-existing-email"></span> already has a Funding Scotland account
+        which was most recently used on <a id="sign-up-existing-recent" class="mdc-theme--on-error"></a> <span id="sign-up-existing-current">this site</span>.
+        You can <a href="/sign-in" id="sign-up-existing-sign-in" class="mdc-theme--on-error">sign-in with this account here.</a>
+      </div>
+
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-email-confirm">
           Confirm email
         </label>
@@ -33,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-        <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-password">
           Password
         </label>
@@ -41,12 +49,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
       </div>
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-        <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
+        <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
         <label class="mdc-floating-label" for="sign-up-password-confirm">
           Confirm password
         </label>
         <div class="mdc-line-ripple"></div>
       </div>
+
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="text" id="sign-up-organisation" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" required />
+        <label class="mdc-floating-label" for="sign-up-organisation">
+          Organisation
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+      <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+        <input type="text" id="sign-up-postcode" class="mdc-text-field__input mdc-text-field--fullwidth" maxlength="9" data-lpignore="true" autocomplete="off" pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})" required />
+        <label class="mdc-floating-label" for="sign-up-postcode">
+          Postcode
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+
       <div class="mdc-form-field">
         <div class="mdc-checkbox">
           <input type="checkbox" class="mdc-checkbox__native-control" id="sign-up-subscribe"/>
@@ -87,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var $emailConfirm = $('#sign-up-email-confirm');
   var $password = $('#sign-up-password');
   var $passwordConfirm = $('#sign-up-password-confirm');
+  var $organisation = $('#sign-up-organisation');
+  var $postcode = $('#sign-up-postcode');
   var $subscribe = $('#sign-up-subscribe');
   var $register = $('#sign-up-submit');
   var $loader = $('#sign-up-loader');
@@ -95,23 +123,100 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $loader.css('display', 'flex');
     evt.preventDefault();
 
+    const valid = evt.currentTarget.checkValidity();
+    if (!valid) {
+      evt.currentTarget.reportValidity();
+      return;
+    }
+
     var email = $email.val();
     var emailConfirm = $emailConfirm.val();
     var password = $password.val();
     var passwordConfirm = $passwordConfirm.val();
 
     fundingscotland.auth.createAccount(email, emailConfirm, password, passwordConfirm).then(function(user) {
+      var redirect = '/new-user';
+      var parameters = [];
+
       if ($subscribe.prop('checked')) {
-        window.location.href = '/bulletin?subscribe=true';
-      } else {
-        window.location.href = '/';
+        parameters.push('subscribe=true');
       }
+
+      parameters.push('organisation=' + encodeURIComponent($organisation.val()));
+      parameters.push('postcode=' + encodeURIComponent($postcode.val()));
+
+      if (parameters.length > 0) {
+        redirect += '?' + parameters.join('&');
+      }
+
+      window.location.href = redirect;
     }).catch(function(err) {
       $message.text(err.message || 'Something went wrong when creating your account').show();
       $loader.css('display', 'none');
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   });
+
+  $email.change(checkExisting);
+
+  $existingSpinner = $('#sign-up-existing-spinner');
+  $existingMessage = $('#sign-up-existing-message');
+  $existingEmail = $('#sign-up-existing-email');
+  $existingRecent = $('#sign-up-existing-recent');
+  $existingCurrent = $('#sign-up-existing-current');
+  $existingSignin = $('#sign-up-existing-sign-in');
+
+  function checkExisting() {
+    var email = $email.val().toLowerCase();
+    var emailField = $email.parents('.mdc-text-field');
+    emailField.addClass('mdc-text-field--with-trailing-icon');
+    $existingSpinner.removeClass('hidden');
+    $.getJSON('/existing-account?email=' + encodeURIComponent(email)).then(function(response) {
+      emailField.removeClass('mdc-text-field--with-trailing-icon');
+      $existingSpinner.addClass('hidden');
+      if (response.profiles && response.profiles.length > 0) {
+        response.profiles.sort((a, b) => {
+          return a.accessed || 0 - b.accessed || 0;
+        });
+        lockExisting(email, response.profiles[0].title, response.profiles[0].url);
+      } else {
+        unlockExisting();
+      }
+    }).catch(function(err) {
+      emailField.removeClass('mdc-text-field--with-trailing-icon');
+      $existingSpinner.addClass('hidden');
+      unlockExisting();
+    });
+  }
+
+  function lockExisting(email, title, url) {
+    $existingEmail.html(email);
+
+    if (title === {{{stringify @root.data.currentSite.title}}}) {
+      $existingCurrent.show();
+      $existingRecent.hide();
+    } else {
+      $existingRecent.html(title);
+      $existingRecent.attr('href', url);
+      $existingCurrent.hide();
+      $existingRecent.show();
+    }
+
+    $existingSignin.attr('href', '/sign-in?email=' + encodeURIComponent(email));
+    $existingMessage.removeClass('hidden');
+    $email[0].setCustomValidity('Account already exists');
+    $form[0].reportValidity();
+  }
+
+  function unlockExisting() {
+    $existingMessage.addClass('hidden');
+    $existingEmail.html('');
+    $existingRecent.html('');
+    $existingRecent.attr('href', '');
+    $existingSignin.attr('href', '');
+    $email[0].setCustomValidity('');
+    $form[0].reportValidity();
+  }
 });
 </script>
 {{/ifAll}}

@@ -1,13 +1,20 @@
 {{#json}}
-  {{{json key="size" value=100}}},
+  {{{json key="size" value=1}}},
   {{#json key="_source" type="array"}}
+    "wpid",
     "slug",
     "title",
-    "menu_order",
-    "menu_label",
-    "which_menus",
-    "menu_url",
-    "menu_icon"
+    "sub_title",
+    "og_title",
+    "content",
+    "rendered.json_ld",
+    "breadcrumb",
+    "categories_id",
+    "categories_slug",
+    "author",
+    "header_background",
+    "header_text",
+    "hide_overlay"
   {{/json}},
   {{#json key="query"}}
     {{#json key="bool"}}
@@ -16,14 +23,12 @@
           {{#json key="term"}}
             {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-page")}}}
           {{/json}}
+        {{/json}},
+        {{#json}}
+          {{#json key="term"}}
+            {{{json key="slug" value=@root.data.currentSite.name}}}
+          {{/json}}
         {{/json}}
-      {{/json}}
-    {{/json}}
-  {{/json}},
-  {{#json key="sort" type="array"}}
-    {{#json}}
-      {{#json key="menu_order"}}
-        {{{json key="order" value="asc"}}}
       {{/json}}
     {{/json}}
   {{/json}}

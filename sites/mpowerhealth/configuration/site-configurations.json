@@ -1,10 +1,8 @@
 {
   "default": {
     "name": "default",
-    "title": "mPower Health",
+    "title": "mPower",
     "url": "https://test.mpowerhealth.eu",
-    "logo": "https://storage.googleapis.com/fundingscotland/logos/scvo-inverse.png",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/",
     "colors": {
       "primary": "#537F2C",
       "primaryText": "#ffffff",
@@ -22,13 +20,11 @@
   },
   "dumfriesgalloway": {
     "name": "dumfriesgalloway",
-    "title": "mPower Health - Dumfries & Galloway",
+    "title": "mPower Dumfries & Galloway",
     "healthBoard": {
       "title": "NHS Dumfries & Galloway"
     },
-    "url": "https://dumfriesgalloway.mpowerhealth.eu",
-    "logo": "https://storage.googleapis.com/fundingscotland/logos/",
-    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "url": "https://dumfries-galloway.mpowerhealth.eu",
     "colors": {
       "primary": "#006DC3",
       "primaryText": "#ffffff",

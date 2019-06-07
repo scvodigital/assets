@@ -3,14 +3,14 @@
     {{#if @root.request.params.query.reauth}}
       Reauthenticate
     {{else}}
-      Sign in
+      Sign in with you Funding Scotland account
     {{/if}}
   </div>
+  <div class="mdc-typography--headline6 v-margin">
   {{#if @root.request.params.query.reauth}}
-    <div class="mdc-typography--headline6 v-margin">
-      Before you can do that you must sign in again
-    </div>
+    Before you can do that you must sign in again
   {{/if}}
+  </div>
   <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border" id="sign-in-message">
     <span id="form-message"></span>
   </div>
@@ -18,7 +18,7 @@
     <div class="mdc-typography--body1" id="form-section-email">
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth" />
+        <input type="email" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.request.params.query.email}}"/>
         <label class="mdc-floating-label" for="sign-in-email">
           Email
         </label>
@@ -73,7 +73,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fundingscotland.auth.signInEmailPassword(email, password)
       .then(function(user) {
         // console.log('Logged in:', user);
-        window.location.href = '{{#if (contains @root.request.headers.referer "sign-out")}}/{{else}}{{default @root.request.headers.referer "/"}}{{/if}}';
+        window.location.href = '/signed-in?referer=' + encodeURIComponent('
+          {{~#if (contains @root.request.headers.referer "sign-out")~}}
+            /
+          {{~else~}}
+            {{default @root.request.headers.referer "/"}}
+          {{~/if~}}
+        ');
       })
       .catch(function(err) {
         $message.html(err.message+' <a href="/reset-password">Reset password</a>').show();

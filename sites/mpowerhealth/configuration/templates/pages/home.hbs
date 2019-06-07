@@ -1,20 +1,12 @@
-<div class="container-fluid">
-  <div class="mdc-layout-grid">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}8{{else}}4{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone h-padding-full home-info mdc-elevation--z2 {{#compare @root.data.currentSite.name "!==" "default" ~}} b-margin-full{{/compare}}">
-        <h1 class="mdc-typography--headline4">
-          {{@root.data.currentSite.title}}
-        </h1>
-        {{#compare @root.data.currentSite.name "default" ~}}
-        <p>
-          main site
-        </p>
-        {{else}}
-        <p>
-          localised site for {{@root.data.currentSite.healthBoard.title}} 
-        </p>
-        {{/compare ~}}
-      </div>
-    </div>
+<div class="container-content mpower-page t-padding">
+  <div class="b-padding-full t-margin b-margin-full">
+    {{#compare @root.data.currentSite.name "default" ~}}
+    {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
+    {{else}}
+    <h2>
+      {{@root.data.currentSite.healthBoard.title}}
+    </h2>
+    {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
+    {{/compare ~}}
   </div>
 </div>

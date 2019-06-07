@@ -1,0 +1,29 @@
+<div class="container-content mpower-page t-padding">
+  <div class="b-padding-full t-margin b-margin-full">
+    {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
+    <h1 class="mdc-typography--headline4">
+      {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
+    </h1>
+    {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
+
+    {{#each @root.data.supplimentaryResponses.resources.hits.hits ~}}
+    <hr />
+    {{#with _source ~}}
+    <h2>{{{title}}}</h2>
+    <p>
+      {{{content}}}
+    </p>
+    {{#if website_address ~}}
+    <p>
+      <a href="{{website_address}}">Read more</a>
+    </p>
+    {{/if ~}}
+    {{/with ~}}
+    {{/each ~}}
+    {{else}}
+    <h2 class="mdc-typography--headline5">
+      Error 404: Page not found
+    </h2>
+    {{/compare ~}}
+  </div>
+</div>

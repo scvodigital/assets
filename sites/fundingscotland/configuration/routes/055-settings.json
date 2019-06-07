@@ -16,11 +16,31 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.profileData",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",
     "context.metaData.commonTasks.bulletinData",
+    {
+      "name": "subscriptions",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "items": ">context.metaData.handlebars.queries.notifications_get-subscriptions"
+        }
+      },
+      "renderer": "handlebars"
+    },
     {
       "name": "email_days",
       "taskModule": "render",

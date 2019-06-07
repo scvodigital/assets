@@ -1,0 +1,12 @@
+{
+  "parent-verify": {
+    "mailgunConnection": "mg_volunteerscotland_net",
+    "from": "Saltire Awards <hello@saltireawards.org.uk>",
+    "replyTo": "Saltire Awards <hello@saltireawards.org.uk>",
+    "sendIfEmpty": false,
+    "subjectPartial": "emails_parent_verify_subject",
+    "bodyPartial": "emails_parent_verify_body",
+    "metaData": {}
+  }
+}
+

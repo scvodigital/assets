@@ -1,0 +1,29 @@
+{{#with @root.data.accountInfo title="parent-verify"}}
+[
+  {
+  "from": "hello@saltireawards.org.uk",
+  "h:sender": "hello@saltireawards.org.uk",
+  "to": {{parental_verification_email}},
+  "o:tag": {{title}},
+  "o:tracking": true,
+  {{!-- "o:testmode": true, --}}
+  "tag":  {{title}},
+  "id":  {{title}},
+  "connectionName": {{{stringify (getProperty @root.context.metaData.emailSendSettings (concat title '.mailgunConnection'))}}},
+  "subject":
+  {{~#blockStringify this ~}}
+    {{~>
+    (getProperty @root.context.metaData.emailSendSettings (concat title '.subjectPartial'))
+      this  emailType=title
+    ~}}
+  {{~/blockStringify}},
+  "html": "
+  {{~#blockStringify this ~}}
+  {{~>
+    (getProperty @root.context.metaData.emailSendSettings (concat title '.bodyPartial'))
+      this emailType=title
+    ~}}
+  {{~/blockStringify}}
+  }
+]
+{{/with}}

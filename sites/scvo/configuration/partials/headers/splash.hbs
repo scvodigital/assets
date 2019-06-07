@@ -65,7 +65,9 @@
         {{/with ~}}
         {{/if ~}}
       </div>
+      {{#unless @root.data.primaryResponse.hits.hits.[0]._source.header_background ~}}
       {{> headers_caption}}
+      {{/unless ~}}
     </div>
   </div>
 </div>

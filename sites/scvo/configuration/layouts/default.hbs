@@ -72,7 +72,7 @@
 
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url='main-VERSION.css'}}">
 </head>
-<body class="mdc-theme--site-bg {{#if request.params.path}}{{replace request.params.path '_' ' '}}{{else}}home{{/if}}">
+<body class="mdc-theme--site-bg {{#if request.params.path}}{{replace (replace request.params.path '20-years' 'twenty-years') '_' ' '}}{{else}}home{{/if}}">
   <scvo-site>
     <div class="mdc-typography">
       <header class="mdc-toolbar mdc-toolbar--fixed">

@@ -57,7 +57,19 @@
           "defaultData": ""
         }
       },
-      "redirectIfPVNeeded": {
+      "getAccountInfo" :{
+        "name": "accountInfo",
+        "taskModule": "salesforceApex",
+        "renderer": "handlebars",
+        "config": {
+          "connection": "scvoAlexSandbox",
+          "output": "data",
+          "method": "GET",
+          "apexClassPath": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+        }
+      },
+
+"redirectIfPVNeeded": {
         "name": "redirectIfPV",
         "taskModule": "reroute",
         "config":

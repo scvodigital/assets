@@ -400,7 +400,12 @@ primary-dark: #263238
     border-color: map-get($themeFooter, 'primary-light');
   }
   .leading-quotation {
-    border-bottom: $unit/5 solid map-get($themeSelected, 'primary');
+    background: map-get($themeSelected, 'primary-dark');
+    color: white;
+    blockquote {
+      border: none;
+      color: white;
+    }
   }
 
   .mdc-theme--primary-light {
@@ -4085,6 +4090,17 @@ blockquote {
 }
 blockquote p {
   display: inline;
+}
+.leading-quotation {
+  border-radius: $unit/5;
+  blockquote {
+    font-size: 1.3rem;
+    padding: 0;
+    p {
+      font-family: $heading-font-family;
+      letter-spacing: -0.03rem;
+    }
+  }
 }
 
 ul.supplimentary-list {

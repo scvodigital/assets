@@ -323,7 +323,7 @@
                   <ul class="mdc-list">
                     {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="{{default _source.menu_url (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") ""))}}">{{{default _source.menu_label _source.title}}}</a>
                     </li>
                     {{/each ~}}
                   </ul>
@@ -333,7 +333,7 @@
                   <ul class="mdc-list">
                     {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-help") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="{{default _source.menu_url (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") ""))}}">{{{default _source.menu_label _source.title}}}</a>
                     </li>
                     {{/each ~}}
                   </ul>

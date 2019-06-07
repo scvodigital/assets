@@ -10,16 +10,10 @@ strong {
   font-size: 3.6rem;
 }
 
-// .home-banner .banner-header,
-// .home-banner .banner-header.overlay .overlay-content,
-// .home-banner .banner-header .overlay-content {
-//   min-height: 30vh;
-// }
 ::-moz-selection {
   color: #fff;
   background: $mdc-theme-primary-dark;
 }
-
 ::selection {
   color: #fff;
   background: $mdc-theme-primary-dark;

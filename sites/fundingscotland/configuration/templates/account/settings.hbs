@@ -1,8 +1,73 @@
 <div id="detailed-results-container" class="container-content content-settings settings fundingscotland-settings">
   <section class="settings-section settings-email fundingscotland-settings-email">
-    <h1 class="mdc-typography--headline3 v-margin-full">
-      Settings
+    <h1 class="mdc-typography--headline3">
+      Site settings
     </h1>
+
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+          <h2 class="mdc-typography--headline5 b-margin-full">
+            Weekly bulletin
+          </h2>
+
+          <p>
+            In the weekly bulletin you will receive funding news and updates, and information on any recently opened or updated funds.
+          </p>
+          {{#if @root.data.bulletin.items.[0].[0].active}}
+            <a href="/bulletin?subscribe=false" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              Unsubscribe
+            </a>
+          {{else}}
+            <a href="/bulletin?subscribe=true" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              Subscribe
+            </a>
+          {{/if}}
+        </div>
+
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+          <h2 class="mdc-typography--headline5 b-margin-full">
+            Unsubscribe from everything
+          </h2>
+
+          <p>
+            You can unsubscribe from all saved search alerts, saved fund alerts, and weekly bulletins
+            by clicking on the button below. You can resubscribe to any of these at any time
+          </p>
+
+          {{#ifAny
+            (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
+            @root.data.shortlist.items.[0].[0].active
+            @root.data.bulletin.items.[0].[0].active
+          }}
+            <a href="/stop-all-emails" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              Stop all emails
+            </a>
+          {{else}}
+            <a href="#" class="mdc-button mdc-button--raised mdc-button--fullwidth disabled" disabled>
+              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+              You currently have no subscriptions.
+            </a>
+          {{/ifAny}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="settings-section settings-email fundingscotland-settings-email t-padding-full">
+    <h1 class="mdc-typography--headline3">
+      Funding Scotland account settings
+    </h1>
+
+    {{#>help_box permanent=true}}
+      Any changes made to the following settings are applied to your Funding Scotland account across all
+      Funding Scotland websites.
+    {{/help_box}}
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
@@ -45,71 +110,6 @@
 
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
           <h2 class="mdc-typography--headline5 b-margin-full">
-            Weekly bulletin
-          </h2>
-
-          <p>
-            In the weekly bulletin you will receive funding news and updates, and information on any recently opened or updated funds.
-          </p>
-          {{#if @root.data.bulletin.items.[0].[0].active}}
-            <a href="/bulletin?subscribe=false" class="mdc-button mdc-button--raised mdc-button--fullwidth">
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              Unsubscribe
-            </a>
-          {{else}}
-            <a href="/bulletin?subscribe=true" class="mdc-button mdc-button--raised mdc-button--fullwidth">
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              Subscribe
-            </a>
-          {{/if}}
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
-          <h2 class="mdc-typography--headline5 b-margin-full">
-            Unsubscribe from everything
-          </h2>
-
-          <p>
-            You can unsubscribe from all saved search alerts, saved fund alerts, and weekly bulletins
-            by clicking on the button below. You can resubscribe to any of these at any time
-          </p>
-
-          {{#ifAny
-            (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
-            @root.data.shortlist.items.[0].[0].active
-            @root.data.bulletin.items.[0].[0].active
-          }}
-            <a href="/stop-all-emails" class="mdc-button mdc-button--raised mdc-button--fullwidth">
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              Stop all emails
-            </a>
-          {{else}}
-            <a href="#" class="mdc-button mdc-button--raised mdc-button--fullwidth disabled" disabled>
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              You currently have no subscriptions.
-            </a>
-          {{/ifAny}}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr>
-
-  <div class="v-margin-full">
-    <button type="button" class="mdc-button v-padding-full" onclick="$('#advanced-settings').removeClass('hidden'); $(this).hide();">
-      Show advanced settings
-    </button>
-  </div>
-
-  <section class="settings-section content-settings-account settings-account fundingscotland-settings-account t-margin-full hidden" id="advanced-settings">
-    <h1 class="mdc-typography--headline3 v-margin-full">
-      Advanced settings
-    </h1>
-
-    <div class="mdc-layout-grid">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
-          <h2 class="mdc-typography--headline5 b-margin-full">
             Change email address
           </h2>
 
@@ -145,15 +145,64 @@
           </button>
         </div>
 
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+        <form id="profile-form" action="/update-profile" method="POST" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
           <h2 class="mdc-typography--headline5 b-margin-full">
-            Your data
+            Update profile information
           </h2>
+
+          <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+            <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+            <input type="text" id="profile-organisation" name="organisation" class="mdc-text-field__input" data-lpignore="true"
+                autocomplete="off" value="{{@root.data.profile.organisation}}" pattern="[\w\s]+" required />
+            <label class="mdc-floating-label mdc-floating-label--float-above" for="profile-organisation">
+              Organisation
+            </label>
+            <div class="mdc-line-ripple"></div>
+          </div>
+
+          <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+            <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
+            <input type="text" id="profile-postcode" name="postcode" class="mdc-text-field__input" data-lpignore="true"
+                autocomplete="off" value="{{@root.data.profile.postcode}}" pattern="[a-zA-Z0-9\s]{3,4}\s[a-zA-Z0-9\s]{3,4}" required />
+            <label class="mdc-floating-label mdc-floating-label--float-above" for="profile-postcode">
+              Postcode
+            </label>
+            <div class="mdc-line-ripple"></div>
+          </div>
+
+          <button class="mdc-button mdc-button--raised mdc-button--change_password mdc-button--fullwidth" id="profile-update">
+            <span class="far fa-lock mdc-list-item__graphic" aria-hidden="true"></span>
+            Update profile
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <div class="v-margin-full">
+    <button type="button" class="mdc-button v-padding-full" onclick="$('#advanced-settings').removeClass('hidden'); $(this).hide();">
+      Show advanced settings
+    </button>
+  </div>
+
+  <section class="settings-section content-settings-account settings-account fundingscotland-settings-account t-padding-full hidden" id="advanced-settings">
+    <h2 class="mdc-typography--headline5">
+      Advanced settings
+    </h2>
+
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+          <h3 class="mdc-typography--headline6 b-margin-full">
+            Your data
+          </h3>
           <p>
             You have the right to download any data we have stored in relation to you and your account
-            in a readable format. {{@root.data.currentSite.title}} only stores things you have explicitly set
+            in a readable format. Funding Scotland only stores things you have explicitly set
             such as saved funds, hidden funds, saved searches, and your profile information. Click the
-            button below to download your data.
+            button below to download your data <strong>for all Funding Scotland websites</strong>.
           </p>
           <button class="mdc-button mdc-button--raised mdc-button--export mdc-button--fullwidth v-margin" onclick="exportUserData()">
             <span class="far fa-upload mdc-list-item__graphic" aria-hidden="true"></span>
@@ -162,17 +211,17 @@
         </div>
 
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
-          <h2 class="mdc-typography--headline5 b-margin-full">
+          <h3 class="mdc-typography--headline6 b-margin-full">
             Delete your account
-          </h2>
+          </h3>
 
           <p>
-            You also have the right to be forgotten by {{@root.data.currentSite.title}}. Enter your
+            You also have the right to be forgotten by Funding Scotland. Enter your
             current password and click the button below and all information we hold about you
+            <strong>on all Funding Scotland websites</strong>
             including your login will be deleted from our servers. The only thing that we will
             retain are records in our email system letting us know not to email you.
           </p>
-
           <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
             <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
             <input type="password" id="delete-account-password" class="mdc-text-field__input" data-lpignore="true" autocomplete="off" />
@@ -186,6 +235,27 @@
             <span class="far fa-trash mdc-list-item__graphic" aria-hidden="true"></span>
             Delete account
           </button>
+        </div>
+
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+          <h3 class="mdc-typography--headline6 b-margin-full">
+            Funding Scotland websites
+          </h3>
+          <p>
+            You have signed in using this account ({{@root.data.auth.email}}) to the following
+            Funding Scotland websites:
+          </p>
+          <ul>
+            {{#each @root.data.profile}}
+              {{#ifAny accessed notes hidden}}
+                {{#with (getProperty @root.context.metaData.site-configurations @key)}}
+                  <li>
+                    <a href="{{url}}">{{title}}</a>
+                  </li>
+                {{/with}}
+              {{/ifAny}}
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>

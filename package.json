@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.917",
+  "version": "0.0.918",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "compile-email-templates": "node_modules/mjml/bin/mjml sites/emailer/configuration/emails/*mjml -o sites/emailer/configuration/partials/bodies/",
     "watch-compile-email-templates": "node_modules/mjml/bin/mjml -w sites/emailer/configuration/emails/*mjml -o sites/emailer/configuration/partials/bodies/",
     "compile-vs-email-templates": "node_modules/mjml/bin/mjml sites/volunteerscotland-search/configuration/emails/*mjml -o sites/volunteerscotland-search/configuration/partials/emails/",
+    "compile-sa-email-templates": "node_modules/mjml/bin/mjml sites/saltireawards/configuration/emails/*mjml -o sites/saltireawards/configuration/partials/emails/",
     "publish": "npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "publish-local": "export TRAVIS=\"true\" && npm start && export GOOGLE_APPLICATION_CREDENTIALS=\"service-accounts/gcs.json\" && node publish.js",
     "clear-build": "rm -rf build/**",

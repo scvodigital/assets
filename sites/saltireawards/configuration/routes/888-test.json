@@ -13,13 +13,22 @@
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.getAccountInfo",
     {
-      "name": "send_email",
-      "taskModule": "mailgun",
+      "name": "PVCode",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.account_verify-email"
+        "template": ">context.metaData.handlebars.templates.account_pv-code"
+      }
+    },
+    {
+      "name": "saveUserData",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
       }
     },
     {

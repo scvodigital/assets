@@ -41,12 +41,31 @@
       }
     },
     {
+      "name": "checkStatus",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "data.PVCode"
+              },
+              ""
+            ]
+          },
+          "redirect-home",
+          "parent-email-send"
+        ]
+      }
+    },
+
+    {
       "name": "destination",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"id\": {{{stringify @root.data.postBody}}} }"
+        "template": "{\"id\": {{{stringify @root.data.saveUserData}}} }"
       }
     }
   ]

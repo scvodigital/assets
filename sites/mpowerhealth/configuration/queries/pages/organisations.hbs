@@ -1,0 +1,30 @@
+{{#json}}
+  {{{json key="size" value=100}}},
+  {{#json key="_source" type="array"}}
+    "wpid",
+    "slug",
+    "title",
+    "content",
+    "geo_coords",
+    "postcode",
+    "address",
+    "phone_number",
+    "email_address",
+    "website_address"
+  {{/json}},
+  {{#json key="query"}}
+    {{#json key="bool"}}
+      {{#json key="filter" type="array"}}
+        {{#json}}
+          {{#json key="term"}}
+            {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-organisation")}}}
+          {{/json}}
+        {{/json}},
+        {{#json}}
+          {{#json key="match_all"}}
+          {{/json}}
+        {{/json}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/json}}

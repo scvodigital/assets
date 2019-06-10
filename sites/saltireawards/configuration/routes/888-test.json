@@ -6,17 +6,29 @@
   "defaultParams": {
     "context": "results"
   },
+  "metaData": {
+    "emailType": "parent-verify"
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
-      "name": "accountInfo",
-      "taskModule": "salesforceApex",
+      "name": "PVCode",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "connection": "scvoAlexSandbox",
         "output": "data",
-        "method": "GET",
-        "apexClassPath": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+        "template": ">context.metaData.handlebars.templates.account_pv-code"
+      }
+    },
+    {
+      "name": "saveUserData",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.account_user-body",
+        "parseJson": true
       }
     },
     {

@@ -1,3 +1,30 @@
-<p>{{@root.data.auth.uid}}</p>
-<p>and</p>
-<p>{{@root.data.externalProfileId}}</p>
+{{#withExtend @root.data.accountInfo type="parent-verify"}}
+  [
+  {
+  "from": "hello@saltireawards.org.uk",
+  "h:sender": "hello@saltireawards.org.uk",
+  "to": {{parental_verification_email}},
+  "o:tag": {{type}},
+  "o:tracking": true,
+  {{!-- "o:testmode": true, --}}
+  "tag":  {{type}},
+  "id":  {{type}},
+  "connectionName": {{{stringify (getProperty @root.context.metaData.emailSendSettings (concat type '.mailgunConnection'))}}},
+  "subject":
+  {{~#blockStringify this ~}}
+    {{~>
+    (getProperty @root.context.metaData.emailSendSettings (concat type '.subjectPartial'))
+      @root.request.body emailType=this
+    ~}}
+  {{~/blockStringify}},
+  "html":
+  {{~#blockStringify this ~}}
+    {{~>
+    (getProperty @root.context.metaData.emailSendSettings (concat type '.bodyPartial'))
+      @root.request.body emailType=this
+    ~}}
+  {{~/blockStringify}}
+  }
+
+  ]
+{{/withExtend }}

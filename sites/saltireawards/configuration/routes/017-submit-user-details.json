@@ -18,16 +18,6 @@
       }
     },
     {
-      "name": "postBody",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_user-body",
-        "parseJson": true
-      }
-    },
-    {
       "name": "saveUserData",
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
@@ -35,7 +25,7 @@
         "connection": "scvoAlexSandbox",
         "output": "data",
         "method": "POST",
-        "body": ">data.postBody",
+        "body": ">context.metaData.handlebars.templates.account_user-body",
         "apexClassPath": "/SaltireUsers/"
       }
     },
@@ -51,12 +41,31 @@
       }
     },
     {
+      "name": "checkStatus",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "data.PVCode"
+              },
+              ""
+            ]
+          },
+          "redirect-home",
+          "parent-email-send"
+        ]
+      }
+    },
+
+    {
       "name": "destination",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"id\": {{{stringify @root.data.postBody}}} }"
+        "template": "{\"id\": {{{stringify @root.data.saveUserData}}} }"
       }
     }
   ]

@@ -1,29 +1,30 @@
-{{#with @root.data.accountInfo title="parent-verify"}}
-[
+{{#withExtend @root.data.accountInfo type="parent-verify"}}
+  [
   {
   "from": "hello@saltireawards.org.uk",
   "h:sender": "hello@saltireawards.org.uk",
-  "to": {{parental_verification_email}},
-  "o:tag": {{title}},
+  "to": "{{{parental_verification_email}}}",
+  "o:tag": "{{{type}}}",
   "o:tracking": true,
   {{!-- "o:testmode": true, --}}
-  "tag":  {{title}},
-  "id":  {{title}},
-  "connectionName": {{{stringify (getProperty @root.context.metaData.emailSendSettings (concat title '.mailgunConnection'))}}},
+  "tag":  "{{{type}}}",
+  "id":  "{{{type}}}",
+  "connectionName": {{{stringify (getProperty @root.context.metaData.emailSendSettings (concat type '.mailgunConnection'))}}},
   "subject":
   {{~#blockStringify this ~}}
     {{~>
-    (getProperty @root.context.metaData.emailSendSettings (concat title '.subjectPartial'))
-      this  emailType=title
+    (getProperty @root.context.metaData.emailSendSettings (concat type '.subjectPartial'))
+      this
     ~}}
   {{~/blockStringify}},
-  "html": "
+  "html":
   {{~#blockStringify this ~}}
-  {{~>
-    (getProperty @root.context.metaData.emailSendSettings (concat title '.bodyPartial'))
-      this emailType=title
+    {{~>
+    (getProperty @root.context.metaData.emailSendSettings (concat type '.bodyPartial'))
+      this
     ~}}
   {{~/blockStringify}}
   }
-]
-{{/with}}
+
+  ]
+{{/withExtend }}

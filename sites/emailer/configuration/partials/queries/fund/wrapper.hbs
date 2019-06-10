@@ -1,0 +1,53 @@
+{{#withExtend this siteConfig=templateMetaData.config.metaData.siteConfiguration}}
+  {{#json}}
+    {{{json key="size" value=1000}}},
+    {{#json key="_source" type="array"}}
+      "title",
+      "og_title",
+      "description",
+      "updated",
+      "slug",
+      "funder_organisation.name",
+      "funder_organisation.slug",
+      "categories_slug",
+      "news",
+      "date_created",
+      "date_last_modified",
+      "date_news_last_updated",
+      "date_reopened",
+      "date_last_opened",
+      "date_reopens",
+      "date_last_important_activity"
+    {{/json}},
+    {{#json key="query"}}
+      {{#json key="bool"}}
+        {{#json key="should" type="array"}}
+          {{#json}}
+            {{#json key="bool"}}
+              {{#json key="filter" type="array"}}
+                {{>queries_term field="_type" term=(concat "fs-" siteConfig.name "-post")}},
+                {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                  {{>queries_date_range field="updated" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
+                {{else}}
+                  {{>queries_date_range field="updated" gte="now-1w/d"}}
+                {{/ifAny}}
+              {{/json}}
+            {{/json}}
+          {{/json}},
+          {{#>queries_fund_common this}}
+            {{> @partial-block}}
+          {{/queries_fund_common}}
+        {{/json}},
+        {{{json key="minimum_should_match" value=1}}}
+      {{/json}}
+    {{/json}},
+    {{#json key="sort" type="array"}}
+      {{#json}}
+        {{{json key="date_last_modified" value="desc"}}}
+      {{/json}},
+      {{#json}}
+        {{{json key="updated" value="desc"}}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/withExtend}}

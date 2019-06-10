@@ -1,0 +1,36 @@
+{{#json}}
+  {{#json key="bool"}}
+    {{#json key="must" type="array"}}
+      {{#json}}
+        {{#json key="bool"}}
+          {{#json key="filter" type="array"}}
+            {{#if siteConfig.fixedFilters.type_of_cost ~}}
+              {{>queries_terms field="type_of_cost_slug" terms=siteConfig.fixedFilters.type_of_cost}},
+            {{/if ~}}
+            {{#if siteConfig.fixedFilters.type_of_funding ~}}
+              {{>queries_terms field="type_of_funding_slug" terms=siteConfig.fixedFilters.type_of_funding}},
+            {{/if ~}}
+            {{#if siteConfig.fixedFilters.source_of_fund ~}}
+              {{>queries_terms field="source_of_fund_slug" terms=siteConfig.fixedFilters.source_of_fund}},
+            {{/if ~}}
+            {{#if siteConfig.fixedFilters.activities ~}}
+              {{>queries_terms field="activities_slugs" terms=siteConfig.fixedFilters.activities}},
+            {{/if}}
+            {{#if siteConfig.fixedFilters.beneficiaries ~}}
+              {{>queries_terms field="beneficiaries_slugs" terms=siteConfig.fixedFilters.beneficiaries}},
+            {{/if}}
+            {{#if siteConfig.fixedFilters.geographical_areas_funded ~}}
+              {{>queries_terms field="geographical_areas_funded_slugs" terms=siteConfig.fixedFilters.geographical_areas_funded}},
+            {{/if ~}}
+            {{#if siteConfig.fixedFilters.region_group ~}}
+              {{>queries_terms field="region_group_slug" terms=siteConfig.fixedFilters.region_group}},
+            {{/if ~}}
+          {{/json}}
+        {{/json}}
+      {{/json}},
+      {{#json}}
+        {{> @partial-block}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/json}},

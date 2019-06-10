@@ -9,7 +9,10 @@
     {{#each @root.data.supplimentaryResponses.organisations.hits.hits ~}}
     <hr />
     {{#with _source ~}}
-    <p>{{{title}}}</p>
+    <h4>{{{title}}}</h4>
+    <p>
+      {{geo_coords.lat}}, {{geo_coords.lon}}
+    </p>
     {{/with ~}}
     {{/each ~}}
     {{else}}

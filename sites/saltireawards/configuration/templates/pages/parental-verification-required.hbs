@@ -2,4 +2,22 @@
   <h2>Parent or guardian verification</h2>
   <p>Parent or guardian verification needed. An email has been sent to {{@root.data.accountInfo.parental_verification_email}} please
   ask the your parent or guardian to click the link in that email</p>
+  <button onclick="resendEmail()">Resend Email</button>
 </div>
+
+<script>
+  function resendEmail(){
+    $.ajax({
+      url: '/parent-email-send',
+      type: 'POST',
+    }).done(function( data ) {
+      $message.text('Parental email re-sent').show();
+    }).fail(function( err){
+      $message.text(err.message || 'There was a problem adding your details').show();
+      $loader.css('display', 'none');
+      return;
+    });
+  }
+
+
+</script>

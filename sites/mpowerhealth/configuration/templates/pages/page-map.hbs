@@ -1,3 +1,35 @@
+{{#*inline "marker"}}
+<marker style="display:none;" data-map="fullMap" data-lat="{{lat}}" data-lng="{{lng}}" data-title="{{source.title}}">
+  <div class="map-content">
+    {{#with source ~}}
+    <h3 class="mdc-typography--headline7">
+      {{{title}}}
+    </h3>
+    <div class="mdc-typography--body2">
+      {{{content}}}
+      {{!-- <a href="/vacancy/{{slug}}{{@root.request.url.search}}" class="mdc-card__action">Find out more</a> --}}
+    </div>
+    <div class="mdc-typography--body2">
+      <ul>
+        {{#if address ~}}
+        <li><strong>Address:</strong> {{address}}</li>
+        {{/if ~}}
+        {{#if phone_number ~}}
+        <li><strong>Phone:</strong> {{phone_number}}</li>
+        {{/if ~}}
+        {{#if email_address ~}}
+        <li><strong>Email:</strong> <a href="mailto:{{email_address}}">{{email_address}}</a></li>
+        {{/if ~}}
+        {{#if website_address ~}}
+        <li><strong>Website:</strong> <a href="{{fixUrl website_address}}">{{website_address}}</a></li>
+        {{/if ~}}
+      </ul>
+    </div>
+    {{/with ~}}
+  </div>
+</marker>
+{{/inline}}
+
 <div class="container-content mpower-page t-padding">
   <div class="b-padding-full t-margin b-margin-full">
     {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
@@ -6,15 +38,14 @@
     </h1>
     {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
 
-    {{#each @root.data.supplimentaryResponses.organisations.hits.hits ~}}
-    <hr />
-    {{#with _source ~}}
-    <h4>{{{title}}}</h4>
-    <p>
-      {{geo_coords.lat}}, {{geo_coords.lon}}
-    </p>
-    {{/with ~}}
-    {{/each ~}}
+    <div id="map-full" data-map-name="fullMap" data-map-clustered-options='{}'>
+      {{#each @root.data.supplimentaryResponses.organisations.hits.hits ~}}
+        {{#each (arrayify _source.geo_coords) ~}}
+          {{> marker lat=lat lng=lon source=../_source index=@index}}
+        {{/each ~}}
+      {{/each ~}}
+    </div>
+
     {{else}}
     <h2 class="mdc-typography--headline5">
       Error 404: Page not found

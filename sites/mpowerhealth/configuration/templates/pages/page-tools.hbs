@@ -18,6 +18,14 @@
       <a href="{{website_address}}">Read more</a>
     </p>
     {{/if ~}}
+    {{#if downloads ~}}
+    <h4>Downloads</h4>
+    <ul>
+      {{#each downloads ~}}
+      <li>{{{this}}}</li>
+      {{/each ~}}
+    </ul>
+    {{/if ~}}
     {{/with ~}}
     {{/each ~}}
     {{else}}

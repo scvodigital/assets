@@ -1,1 +1,3 @@
-Funding Scotland alert - {{length searchData.hits.total}} new {{inflect (length searchData.hits.total) "fund" "funds" false}}
+{{~#withExtend this total=(length (filter searchData.hits.hits "_type" "===" "fundingscotland-fund"))~}}
+{{{campaignConfig.metaData.siteConfiguration.title}}}: {{{campaignConfig.metaData.title}}} - {{total}} new {{inflect total "fund" "funds" false}}
+{{~/withExtend~}}

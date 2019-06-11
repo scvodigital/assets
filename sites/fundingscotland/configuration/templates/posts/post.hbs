@@ -1,19 +1,19 @@
 <div class="container-content fundingscotland-post t-padding container-centred">
-  <div class="mdc-card list h-padding-full b-padding-full t-margin b-margin-full mdc-elevation--z3">
+  <div class="b-padding-full b-margin-full">
     {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
-    {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
-    <h1 class="mdc-typography--headline4">
-      {{{title}}}
-    </h1>
-    <p class="mdc-typography--caption">
-      Posted by {{{author_name_full}}} on {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
-    </p>
-    {{{content}}}
-    {{/with ~}}
+      {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
+        <h1 class="mdc-typography--headline4">
+          {{{title}}}
+        </h1>
+        <p class="mdc-typography--caption">
+          Posted by {{{author_name_full}}} on {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
+        </p>
+        {{{content}}}
+      {{/with ~}}
     {{else}}
-    <h2 class="mdc-typography--headline5">
-      Error 404: Page not found
-    </h2>
+      <h2 class="mdc-typography--headline5">
+        Error 404: Page not found
+      </h2>
     {{/compare ~}}
   </div>
 </div>

@@ -149,11 +149,24 @@
     {{#ifAny when_to_apply date_due_to_open ~}}
     <h4 class="mdc-typography--headline7">When to apply</h4>
     <div class="mdc-typography--body1">
+      {{#ifAny next_deadline date_due_to_open}}
+        <div class="v-margin">
+          {{#if next_deadline}}
+            <span class="key-info-bit r-margin-full">
+              <strong>Next deadline:</strong>
+              {{momentFormat (moment next_deadline "x") "Do MMM YYYY"}}
+            </span>
+          {{/if}}
+          {{#if date_due_to_open ~}}
+            <span class="key-info-bit r-margin-full">
+              <strong>Due to open:</strong>
+              {{momentFormat (moment date_due_to_open "x") "Do MMM YYYY"}}
+            </span>
+          {{/if ~}}
+        </div>
+      {{/ifAny}}
       {{#if when_to_apply ~}}
-      {{{when_to_apply}}}
-      {{/if ~}}
-      {{#if date_due_to_open ~}}
-      <br /><strong>Due to open:</strong> {{momentFormat (moment date_due_to_open "x") "Do MMM YYYY"}}
+        <div>{{{when_to_apply}}}</div>
       {{/if ~}}
     </div>
     {{/ifAny ~}}

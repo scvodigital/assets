@@ -3,7 +3,7 @@
   "pattern": {
     "search": "/search"
   },
-  "debug": false,
+  "debug": true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",
@@ -39,6 +39,22 @@
         ]
       },
       "renderer": "handlebars"
+    },
+    {
+      "name": "pdf_reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+          "and": [
+              { "var": ["data.auth.uid"] },
+              { "var": ["request.params.query.pdf"] }
+            ]
+          },
+          "search_pdf",
+          false
+        ]
+      }
     },
     "context.metaData.commonTasks.supplimentaryResponses",
     {

@@ -1,0 +1,27 @@
+<div class="container-content fundingscotland-page t-padding container-centred">
+  <div class="b-padding-full b-margin-full">
+    <div class="v-margin-full">
+      <h1 class="mdc-typography--headline4">
+        Welcome to our SCVO Members Bulletin funding search
+      </h1>
+      <p>
+        Please find all the latest funding opportunities made available between
+        {{momentFormat (moment (firstItem (split (atob request.params.range) '-')) "x") "Do MMM YYYY"}} and
+        {{momentFormat (moment (lastItem (split (atob request.params.range) '-')) "x") "Do MMM YYYY"}} below.
+      </p>
+    </div>
+
+    <hr />
+
+    <div class="mdc-layout-grid equal-height">
+      <div class="mdc-layout-grid__inner">
+        {{#each @root.data.primaryResponse.hits.hits ~}}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+          {{>fund_list _source}}
+        </div>
+        {{/each ~}}
+      </div>
+    </div>
+    {{> pagination paging=@root.data.primaryResponse.pagination}}
+  </div>
+</div>

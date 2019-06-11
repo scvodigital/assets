@@ -1,34 +1,75 @@
 {{#json}}
-  {{{json key="size" value=10}}},
-  {{#withExtend (obj) page=(default (num @root.request.params.query.page) 1)}}
-    {{#compare page ">" 1}}
-      {{{json key="from" value=(multiply (subtract (if (compare page ">" 5) 5 else=page) 1) 10)}}},
-    {{/compare}}
-  {{/withExtend}}
+  {{#if @root.request.params.query.pdf}}
+    {{{json key="size" value=50}}},
+  {{else}}
+    {{{json key="size" value=10}}},
+    {{#withExtend (obj) page=(default (num @root.request.params.query.page) 1)}}
+      {{#compare page ">" 1}}
+        {{{json key="from" value=(multiply (subtract (if (compare page ">" 5) 5 else=page) 1) 10)}}},
+      {{/compare}}
+    {{/withExtend}}
+  {{/if}}
   {{#json key="_source" type="array"}}
-    "Id",
-    "slug",
+    "region_group_slug",
     "title",
-    "text_bag_boost",
-    "fund_status",
-    "fund_status_slug",
-    "date_reopens",
-    "for_charities_only",
-    "activities",
+    "region_group",
+    "description",
     "activities_slugs",
+    "fund_status_slug",
+    "funder_organisation.name",
+    "date_reopens",
+    "Id",
     "beneficiaries",
     "beneficiaries_slugs",
-    "region_group",
-    "region_group_slug",
-    "description",
-    "source_of_fund",
-    "type_of_cost",
     "type_of_funding",
+    "activities",
+    "type_of_cost",
+    "text_bag_boost",
+    "fund_status",
     "funder_organisation.slug",
-    "funder_organisation.name",
-    "funder_organisation.has_logo",
-    "funder_organisation.logo_url",
-    "rendered.fundingscotland_rss"
+    "source_of_fund",
+    "slug",
+    {{#if @root.request.params.query.pdf}}
+      "funder_organisation.charity_number",
+      "award_size_max",
+      "fund_url",
+      "annual_income_max",
+      "award_size_avg",
+      "rendered.json_ld",
+      "also_funds_individuals",
+      "funder_organisation.twitter",
+      "funder_organisation.website",
+      "fund_email_address",
+      "currency_sign",
+      "applicant_success_rate",
+      "charities_only",
+      "date_last_modified",
+      "award_size_min",
+      "when_to_apply",
+      "geographical_areas_funded",
+      "annual_income_min",
+      "fund_telephone",
+      "who_can_apply",
+      "annual_total",
+      "date_due_to_open",
+      "how_to_apply",
+      "funder_organisation.facebook",
+      "notes_on_award_amounts",
+      "funder_organisation.address",
+      "funder_organisation.email",
+      "summary",
+      "next_deadline",
+      "funder_organisation.telephone",
+      "fund_exclusion",
+      "geographical_areas_funded_slugs",
+      "date_last_checked",
+      "funder_organisation.linkedin"
+    {{else}}
+      "funder_organisation.logo_url",
+      "for_charities_only",
+      "funder_organisation.has_logo",
+      "rendered.fundingscotland_rss"
+    {{/if}}
   {{/json}},
   {{#json key="query"}}
     {{#>queries_fund_common}}

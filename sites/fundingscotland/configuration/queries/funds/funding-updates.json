@@ -1,0 +1,50 @@
+{
+  "size": 1000,
+  "_source": [
+    "Id",
+    "slug",
+    "title",
+    "text_bag_boost",
+    "fund_status",
+    "fund_status_slug",
+    "date_reopens",
+    "for_charities_only",
+    "activities",
+    "activities_slugs",
+    "beneficiaries",
+    "beneficiaries_slugs",
+    "region_group",
+    "region_group_slug",
+    "description",
+    "source_of_fund",
+    "type_of_cost",
+    "type_of_funding",
+    "funder_organisation.slug",
+    "funder_organisation.name",
+    "funder_organisation.has_logo",
+    "funder_organisation.logo_url",
+    "rendered.fundingscotland_rss"
+  ],
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "date_last_important_activity": {
+              "gte": "{{firstItem (split (atob request.params.range) '-')}}",
+              "lte": "{{lastItem (split (atob request.params.range) '-')}}"
+            }
+          }
+        },
+        {
+          "terms": {
+            "fund_status_slug": [ "open" ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": {
+    "date_last_important_activity": "desc"
+  }
+}

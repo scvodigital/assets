@@ -1,0 +1,35 @@
+{
+  "name": "search_pdf",
+  "pattern": "/search-pdf",
+  "debug": true,
+  "metaData": {
+    "pdf": {
+      "title": ">data.currentSite.title",
+      "subtitle": ">data.headings.subtitle"
+    }
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "headings",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ \"subtitle\": \"Search results\" }",
+        "output": "data",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "generatePdf",
+      "renderer": "handlebars",
+      "config": {
+        "imagesTemplate": "{ \"logo\": {{{stringify (default @root.data.currentSite.logo '')}}} }",
+        "definitionTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-definition",
+        "headerTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-header",
+        "footerTemplate": ">context.metaData.handlebars.templates.funds_list-pdf-footer"
+      }
+    }
+  ]
+}

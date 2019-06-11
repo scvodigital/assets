@@ -1,0 +1,34 @@
+<div class="container-content fundingscotland-page t-padding container-centred">
+  <div class="b-padding-full b-margin-full">
+    <div class="v-margin-full">
+      <h1 class="mdc-typography--headline4">
+        Funding updates link generator
+      </h1>
+      <p>
+        Simply enter your date range below and a link will appear.
+      </p>
+    </div>
+
+    <div class="mdc-layout-grid v-margin">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+          <label>
+            <strong>Date from: </strong>
+            <input type="date" id="link-gen-from">
+          </label>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+          <label>
+            <strong>Date to: </strong>
+            <input type="date" id="link-gen-to">
+          </label>
+        </div>
+      </div>
+    </div>
+    <p id="link-gen-text">
+      <strong>Unique link for this date range:</strong>
+      <span id="link-gen-link"></span>
+    </p>
+  </div>
+</div>
+<script src="{{~>asset_url url='funding-updates-link-gen.js'~}}"></script>

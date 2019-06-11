@@ -94,16 +94,20 @@
                       <td>{{data.tag}}</td>
                     </tr>
                     <tr>
+                      <th>Test mode</th>
+                      <td>{{default (getProperty data "o:testmode") "false"}}</td>
+                    </tr>
+                    <tr class="pure-table-odd">
                       <th>Connection</th>
                       <td>{{data.connectionName}}</td>
                     </tr>
-                    <tr class="pure-table-odd">
+                    <tr>
                       <th>Subject</th>
                       <td>{{data.subject}}</td>
                     </tr>
                   </tbody>
                   <thead>
-                    <tr>
+                    <tr class="pure-table-odd">
                       <th colspan="2">Response</th>
                     </tr>
                   </thead>

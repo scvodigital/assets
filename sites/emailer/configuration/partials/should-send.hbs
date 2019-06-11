@@ -1,0 +1,13 @@
+{{#if sendIfEmpty}}
+  {{> @partial-block}}
+{{else}}
+  {{#if importantType}}
+    {{#if (any (filter searchData "_type" "===" importantType))}}
+      {{> @partial-block}}
+    {{/if}}
+  {{else}}
+    {{#if (any searchData)}}
+      {{> @partial-block}}
+    {{/if}}
+  {{/if}}
+{{/if}}

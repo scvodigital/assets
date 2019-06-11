@@ -66,6 +66,7 @@
   "fs-bulletin-default": {
     "from": "fundingscotland@scvo.org.uk",
     "elasticsearchType": "fundingscotland-fund,fs-default-post",
+    "importantType": "fs-default-post",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://fundingscotland.com",
@@ -198,7 +199,7 @@
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@fife}",
       "newsTitle": "Latest news",
       "newsText": "",
-      "noNewsText": "",
+      "noNewsText": "There are no news items this week",
       "fundsTitle": "Latest funds",
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"

@@ -21,10 +21,12 @@
           {{/ifAny ~}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 text-right">
-          <a href="{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query pdf=true}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
-            <span class="fas fa-tree-alt fa-rotate-90 fa-fw r-margin"></span>
-            Download results as PDF
-          </a>
+          {{#>premium_content}}
+            <a href="{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query pdf=true}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
+              <span class="fas fa-tree-alt fa-rotate-90 fa-fw r-margin"></span>
+              Download results as PDF
+            </a>
+          {{/premium_content}}
         </div>
       </div>
     </div>

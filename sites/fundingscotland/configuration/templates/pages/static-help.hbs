@@ -1,7 +1,7 @@
 <div class="container-content fundingscotland-page t-padding container-centred">
   <div class="b-padding-full b-margin-full">
     <h1 class="mdc-typography--headline4">
-      Contact
+      Help
     </h1>
     <h3>Contacting funders</h3>
     <p>
@@ -20,13 +20,13 @@
       If you encounter any unexpected error messages, the site doesn’t work as expected or you need help with your account please contact us using the form below.
     </p>
     {{#unless @root.request.params.query.sent ~}}
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
-      <input type="hidden" name="orgid" value="00Db0000000KJWY" />
-      <input type="hidden" name="retURL" value="{{@root.data.currentSite.url}}/contact?sent=true" />
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" class="mdc-card list x-padding-full">
+      <input type="hidden" name="orgid" id="orgid" value="00Db0000000KJWY" />
+      <input type="hidden" name="retURL" id="retURL" value="{{@root.data.currentSite.url}}/help?sent=true" />
       <input type="hidden" name="subject" id="subject" value="Funding Scotland Web Case" />
-      <input type="hidden" name="type" id="type" value="Funding Scotland" />
+      <input type="hidden" name="type" id="type" value="{{@root.data.currentSite.title}}" />
       <input type="hidden" name="recordType" id="recordType" value="012b0000000QRA7" />
-      <input type="hidden" id="external" name="external" value="1" /><br>
+      <input type="hidden" name="external" id="external" value="1" />
 
       <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
       <!--  these lines if you wish to test in debug mode.                          -->

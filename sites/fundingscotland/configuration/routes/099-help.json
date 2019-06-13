@@ -1,6 +1,6 @@
 {
-  "name": "page_contact",
-  "pattern": "/contact",
+  "name": "page_help",
+  "pattern": "/help",
   "debug": false,
   "metaData": {
     "hideSearch": true
@@ -27,7 +27,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_static-contact"
+              "body": ">context.metaData.handlebars.templates.pages_static-help"
             },
             "contentType": "text/html"
           }

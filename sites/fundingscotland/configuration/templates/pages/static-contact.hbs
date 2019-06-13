@@ -1,0 +1,73 @@
+<div class="container-content fundingscotland-page t-padding container-centred">
+  <div class="b-padding-full b-margin-full">
+    <h1 class="mdc-typography--headline4">
+      Contact
+    </h1>
+    <h3>Contacting funders</h3>
+    <p>
+      Funding Scotland simply provides an online funding search. We don't manage any funds ourselves. If you have a question about a fund then please contact the funder directly. You can find their contact details on the fund information page.
+    </p>
+    <h3>Help finding funds</h3>
+    <p>
+      Please use the Funding Scotland search to fund funds. You will find helpful tips on getting the best from the search in the FAQs. You'll also find resources to help you make applications and information on local support organisations who may be able to help. Please remember we only provide funding information for organisations in Scotland.
+    </p>
+    <h3>Information for funders</h3>
+    <p>
+      If you have a fund that you'd like to be added to Funding Scotland, or would like us to make changes to your entry, please contact us using the form below.
+    </p>
+    <h3>Problems with Funding Scotland</h3>
+    <p>
+      If you encounter any unexpected error messages, the site doesn’t work as expected or you need help with your account please contact us using the form below.
+    </p>
+    {{#unless @root.request.params.query.sent ~}}
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+      <input type="hidden" name="orgid" value="00Db0000000KJWY" />
+      <input type="hidden" name="retURL" value="{{@root.data.currentSite.url}}/contact?sent=true" />
+      <input type="hidden" name="subject" id="subject" value="Funding Scotland Web Case" />
+      <input type="hidden" name="type" id="type" value="Funding Scotland" />
+      <input type="hidden" name="recordType" id="recordType" value="012b0000000QRA7" />
+      <input type="hidden" id="external" name="external" value="1" /><br>
+
+      <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+      <!--  these lines if you wish to test in debug mode.                          -->
+      <!--  <input type="hidden" name="debug" value=1>                              -->
+      <!--  <input type="hidden" name="debugEmail" value="salesforce@scvo.org.uk">  -->
+
+      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+        <input type="text" id="name" name="name" class="mdc-text-field__input" placeholder="" value="" maxlength="80" />
+        <label for="name" class="mdc-floating-label">
+          Your name
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+        <input type="text" id="email" name="email" class="mdc-text-field__input" placeholder="" value="{{@root.data.auth.email}}" maxlength="80" />
+        <label for="name" class="mdc-floating-label">
+          Your email address
+        </label>
+        <div class="mdc-line-ripple"></div>
+      </div>
+
+      <div class="mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
+        <textarea id="description" name="description" class="mdc-text-field__input" rows="8" cols="40"></textarea>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="description" class="mdc-floating-label">Your message</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div>
+
+      <button class="mdc-button mdc-button--raised mdc-ripple-surface mdc-ripple-surface--primary" type="submit" id="submit" data-mdc-auto-init="MDCRipple">
+        <span class="far fa-envelope fa-fw mdc-list-item__graphic" aria-hidden="true"></span>
+        Send
+      </button>
+    </form>
+    {{else}}
+    <div class="search-info mdc-elevation--z5">
+      <strong>Thank you!</strong> Your message was sent, we'll get back to you as soon as possible.
+    </div>
+    {{/unless ~}}
+  </div>
+</div>

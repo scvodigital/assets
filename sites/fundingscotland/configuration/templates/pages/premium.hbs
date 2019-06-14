@@ -7,7 +7,7 @@
       {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
 
       {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
-      <div class="mdc-card list x-padding-full">
+      <div class="mdc-card list h-padding-full">
         <script type="text/javascript" >document.write('<script src="http' + ( ("https:" == document.location.protocol) ? "s" : "") + '://www.surveygizmo.eu/s3/90135398/Funding-Scotland-Premium?__output=embedjs&email={{@root.data.auth.email}}&passwordHash={{@root.data.auth.passwordHash}}&__ref=' + escape(document.location.origin + document.location.pathname) + '" type="text/javascript" ></scr' + 'ipt>');</script><style>.sg-survey{display:none; }</style>
       </div>
       {{else}}

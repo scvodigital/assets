@@ -20,7 +20,7 @@
       If you encounter any unexpected error messages, the site doesn’t work as expected or you need help with your account please contact us using the form below.
     </p>
     {{#unless @root.request.params.query.sent ~}}
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" class="mdc-card list h-padding-full">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" class="mdc-card list x-padding-full">
       <input type="hidden" name="orgid" id="orgid" value="00Db0000000KJWY" />
       <input type="hidden" name="retURL" id="retURL" value="{{@root.data.currentSite.url}}/help?sent=true" />
       <input type="hidden" name="subject" id="subject" value="Funding Scotland Web Case" />

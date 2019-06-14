@@ -39,20 +39,26 @@
   <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
 
   <!-- <link rel="canonical" href="https://fundingscotland.com{{request.params.uri.pathname}}" /> -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3467930-12"></script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TJQ3FN');</script>
+<!-- End Google Tag Manager -->
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-3467930-12', {
-    'send_page_view': true,
-    'anonymize_ip': true,
-    'cookieDomain': 'none',
-    'custom_map': {
-      'dimension1': 'hit_type',
-      'dimension2': 'parent_document'
-    }
-  });
+  //window.dataLayer = window.dataLayer || [];
+  //function gtag(){dataLayer.push(arguments);}
+  //gtag('js', new Date());
+  //gtag('config', 'UA-3467930-12', {
+  //  'send_page_view': true,
+  //  'anonymize_ip': true,
+  //  'cookieDomain': 'none',
+  //  'custom_map': {
+  //    'dimension1': 'hit_type',
+  //    'dimension2': 'parent_document'
+  //  }
+  //});
 
   {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
   console.log('#### DEBUG MODE ON ####');
@@ -73,6 +79,10 @@
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
 </head>
 <body class="mdc-theme--footer-dark-bg">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJQ3FN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <fundingscotland-site>
     <div class="mdc-typography">
       {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}

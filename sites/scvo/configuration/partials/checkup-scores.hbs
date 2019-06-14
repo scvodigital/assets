@@ -1,6 +1,6 @@
 {{#if query_params ~}}
   {{#each (keyValue query_params) ~}}
-    <input type="hidden" name="{{key}}" value="{{value}}" />
+  <input type="hidden" name="{{key}}" value="{{value}}" />
   {{/each ~}}
 {{else}}
   {{#if @root.request.body ~}}

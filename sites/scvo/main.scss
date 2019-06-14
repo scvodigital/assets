@@ -827,6 +827,19 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
+.events,
+.projects-campaigns.twenty-years-delivering-change.making-renting-right,
+.projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
+.projects-campaigns.twenty-years-delivering-change.affordable-homes,
+.projects-campaigns.twenty-years-delivering-change.affordable-homes .page-content,
+.search-result.scvo-cms-post,
+.related-posts,
+.post,
+.blogs,
+.press-media,
+.policy-research {
+  @include theme-colours('posts');
+}
 .projects-campaigns.twenty-years-delivering-change.saving-marine-life,
 .projects-campaigns.twenty-years-delivering-change.saving-marine-life .page-content,
 .projects-campaigns.twenty-years-delivering-change.climate-change,
@@ -906,19 +919,6 @@ primary-dark: #263238
 .the-gathering.featured-background-image,
 .the-gathering {
   @include theme-colours('gathering');
-}
-.events,
-.projects-campaigns.twenty-years-delivering-change.making-renting-right,
-.projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
-.projects-campaigns.twenty-years-delivering-change.affordable-homes,
-.projects-campaigns.twenty-years-delivering-change.affordable-homes .page-content,
-.search-result.scvo-cms-post,
-.related-posts,
-.post,
-.blogs,
-.press-media,
-.policy-research {
-  @include theme-colours('posts');
 }
 .credit-union {
   @include theme-colours('credit-union');
@@ -2811,6 +2811,7 @@ body.i-love-charity main .page-info,
 .scvo-cms-page-20005 .page-info,
 .scvo-cms-page-24853 .page-info,
 .scvo-cms-page-30659 .page-info,
+.scvo-cms-page-31505 .page-info,
 .blogs .page-sidebar .page-info,
 .policy-research.briefings-consultation-responses .mdc-card__actions,
 .policy-research.research .mdc-card__actions,

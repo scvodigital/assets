@@ -2,6 +2,11 @@
 @import "./sites/fundingscotland/scss/_colours.scss";
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import "./lib/common-styles.scss";
+
+html {
+  font-size: 1.02rem !important;
+}
+
 strong {
   font-weight: 600;
 }

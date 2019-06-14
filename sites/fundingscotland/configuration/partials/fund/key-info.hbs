@@ -30,7 +30,7 @@
 
     {{#if title ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
-      <a href="/fund/{{slug}}{{@root.request.url.search}}">
+      <a href="{{>fund_url search=true}}">
         <span class="hover-underline">{{title}}</span>
       </a>
     </h2>

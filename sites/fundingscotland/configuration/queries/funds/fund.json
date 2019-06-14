@@ -58,10 +58,10 @@
   {{#json key="query"}}
     {{#>queries_fund_common}}
       "term": {
-        {{#if (includes request.params.slug "-") ~}}
-        "slug": "{{request.params.slug}}"
+        {{#if (includes request.params.id "-") ~}}
+        "slug": "{{request.params.id}}"
         {{else}}
-        "Id": "{{request.params.slug}}"
+        "Id": "{{request.params.id}}"
         {{/if ~}}
       }
     {{/queries_fund_common}}

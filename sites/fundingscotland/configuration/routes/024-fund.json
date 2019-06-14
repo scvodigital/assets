@@ -1,6 +1,6 @@
 {
   "name": "fund",
-  "pattern": "/fund/:slug",
+  "pattern": "/fund/:id(/:junk)",
   "debug": false,
   "defaultParams": {
     "context": "detail"

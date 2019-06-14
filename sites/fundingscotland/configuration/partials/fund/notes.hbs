@@ -2,14 +2,14 @@
   <div class="search-result-article__notes">
     <h4 class="mdc-typography--headline7">
       Your notes&ensp;
-      <a href="/fund/{{slug}}{{@root.request.url.search}}#notes" class="mdc-typography--body2">Edit</a>
+      <a href="{{>fund_url search=true anchor="notes"}}" class="mdc-typography--body2">Edit</a>
     </h4>
     <div class="mdc-typography--body1">
       {{#if limit ~}}
           <div style="max-height: {{limit}};" class="faded-overflow">
             {{>fund_notes_rendered id=Id}}
           </div>
-          <a href="/fund/{{slug}}{{@root.request.url.search}}#notes">Read more</a>
+          <a href="{{>fund_url search=true anchor="notes"}}">Read more</a>
       {{else}}
         {{>fund_notes_rendered id=Id}}
       {{/if ~}}

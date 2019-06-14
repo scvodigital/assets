@@ -4,7 +4,7 @@
     {{~#each (filter @root.data.fund_lookup.hits.hits "_source.Id" "===" fundId)~}}
       {{{json key="title" value=_source.title}}},
       {{{json key="organisation" value=_source.funder_organisation.name}}},
-      {{{json key="url" value=(concat (default ../baseUrl @root.data.currentSite.url) "/fund/" _source.slug)}}}
+      {{#json key="url" type="string"~}}{{>fund_url _source full=true}}{{/json}}
     {{~else~}}
       {{{json key="error" value=(concat "Details for fund '" fundId "' could not be found. It may be old and is no longer in the search index")}}}
     {{~/each~}}

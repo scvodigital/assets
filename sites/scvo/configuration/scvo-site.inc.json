@@ -24,6 +24,7 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo/",
     "title": "SCVO",
     "menus": "{:./scvo-menus.json}",
+    "governanceCheckup": "{:./governance-checkup.json}",
     "commonTasks": {
       "authNotRequired": {
         "name": "auth",

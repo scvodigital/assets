@@ -691,7 +691,7 @@
 				"route": "^/running-your-organisation/legislation"
 			},
 			{
-				"label": "Good governance",
+				"label": "Good Governance",
 				"path": "/running-your-organisation/governance",
 				"route": "^/running-your-organisation/governance"
 			},
@@ -1028,9 +1028,9 @@
 					"route": "^/running-your-organisation/governance/developing-board"
 				},
 				{
-					"label": "Mediation",
-					"path": "/running-your-organisation/governance/mediation",
-					"route": "^/running-your-organisation/governance/mediation"
+					"label": "Safeguarding",
+					"path": "/running-your-organisation/governance/safeguarding",
+					"route": "^/running-your-organisation/governance/safeguarding"
 				},
 				{
 					"label": "Jargon buster",
@@ -1038,12 +1038,53 @@
 					"route": "^/running-your-organisation/governance/jargon-buster"
 				},
 				{
+					"label": "Mediation",
+					"path": "/running-your-organisation/governance/mediation",
+					"route": "^/running-your-organisation/governance/mediation"
+				},
+				{
 					"label": "Scottish Governance Code for the Third Sector",
 					"path": "https://governancecode.scot",
 					"route": "^https://governancecode.scot"
 				}
 			],
-			"label": "Good governance",
+			"label": "Good Governance",
+			"path": "/running-your-organisation/governance",
+			"route": "^/running-your-organisation/governance$"
+		}],
+		"label": "Running your organisation",
+		"path": "/running-your-organisation",
+		"route": "^/running-your-organisation$"
+	}],
+	"running-governance-checkup": [{
+		"children": [{
+			"children": [{
+				"children": [{
+						"label": "Start",
+						"path": "/running-your-organisation/governance/checkup/questions",
+						"route": "^/running-your-organisation/governance/checkup/questions"
+					},
+					{
+						"label": "Results",
+						"path": "/running-your-organisation/governance/checkup/results",
+						"route": "^/running-your-organisation/governance/checkup/results"
+					},
+					{
+						"label": "Blogs",
+						"path": "/running-your-organisation/governance/checkup/blogs",
+						"route": "^/running-your-organisation/governance/checkup/blogs"
+					},
+					{
+						"label": "About",
+						"path": "/running-your-organisation/governance/checkup/about",
+						"route": "^/running-your-organisation/governance/checkup/about"
+					}
+				],
+				"label": "Checkup",
+				"path": "/running-your-organisation/governance/checkup",
+				"route": "^/running-your-organisation/governance/checkup$"
+			}],
+			"label": "Good Governance",
 			"path": "/running-your-organisation/governance",
 			"route": "^/running-your-organisation/governance$"
 		}],

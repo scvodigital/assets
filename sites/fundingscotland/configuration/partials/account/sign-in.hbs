@@ -6,11 +6,16 @@
       Sign in with your Funding Scotland account
     {{/if}}
   </div>
-  <div class="mdc-typography--headline6 v-margin">
   {{#if @root.request.params.query.reauth}}
+  <div class="mdc-typography--headline6 v-margin">
     Before you can do that you must sign in again
-  {{/if}}
   </div>
+  {{/if}}
+  {{#compare @root.data.currentSite.name "default" ~}}
+  {{#>help_box id="sign-in-migration"}}
+  Funding Scotland used to allow sign in without a password, you now need to <a href="/reset-password">set a password</a>
+  {{/help_box}}
+  {{/compare ~}}
   <div class="mdc-card__info x-padding-full v-margin border rounded mdc-theme--error-light-bg mdc-theme--error-dark mdc-theme--error-border" id="sign-in-message">
     <span id="form-message"></span>
   </div>
@@ -18,7 +23,7 @@
     <div class="mdc-typography--body1" id="form-section-email">
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
         <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-        <input type="email" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.request.params.query.email}}"/>
+        <input type="email" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.request.params.query.email}}" />
         <label class="mdc-floating-label" for="sign-in-email">
           Email
         </label>

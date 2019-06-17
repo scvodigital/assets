@@ -14,7 +14,7 @@
         <li><a href="/running-your-organisation/governance">Good Governance</a></li>
         <li><a href="/running-your-organisation/governance/checkup">Checkup</a></li>
         {{#with (getProperty @root.context.metaData.governanceCheckup (concat "section-" @root.request.params.query.section)) ~}}
-        <li>{{{title}}}</li>
+        <li>{{{name}}}</li>
         {{/with ~}}
       </ul>
     {{/unless ~}}
@@ -25,11 +25,7 @@
             {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_full}}}
             <a href="{{@root.request.url.pathname}}?section=1" class="mdc-button mdc-button--raised">Start checkup</a>
           {{else}}
-            {{#compare @root.request.params.query.section "results" ~}}
-              {{> checkup_results}}
-            {{else}}
-              {{> checkup_section section=(concat "section-" @root.request.params.query.section)}}
-            {{/compare ~}}
+            {{> checkup_section section=(concat "section-" @root.request.params.query.section)}}
           {{/unless ~}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone sidebar page-sidebar">

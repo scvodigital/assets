@@ -1,6 +1,6 @@
 {
   "section-1": {
-    "name": "Section 1",
+    "name": "Organisational purpose",
     "title": "Organisational purpose",
     "heading": "A well-run board is clear about the purpose and values of the organisation and how it will achieve its aims.",
     "description": "As the board we have ultimate responsibility for directing the activity of our organisation and delivering its stated purpose.",
@@ -90,7 +90,7 @@
     "next_section": "2"
   },
   "section-2": {
-    "name": "Section 2",
+    "name": "Leadership",
     "title": "Leadership",
     "heading": "A well-run board is clear about its role and responsibilities and provides strategic direction in line with the organisation's purpose, vision and values.",
     "description": "As the board we are here to lead our organisation, and we are individually and collectively responsible for our decisions. We need to make sure our organisation has a clear strategy to achieve our purpose.",
@@ -222,7 +222,7 @@
     "next_section": "3"
   },
   "section-3": {
-    "name": "Section 3",
+    "name": "Board behaviour",
     "title": "Board behaviour",
     "heading": "A well-run board, both collectively and individually, embraces and demonstrates mutual respect, integrity, openness and accountability.",
     "description": "As the board we understand that our behaviour can have a far-reaching impact and is fundamental to our organisation's reputation and success. We need to ensure our behaviour is consistent with our organisation's vision and values.",
@@ -367,7 +367,7 @@
     "next_section": "4"
   },
   "section-4": {
-    "name": "Section 4",
+    "name": "Control",
     "title": "Control",
     "heading": "A well-run board will develop and implement appropriate controls to direct and oversee progress and performance of the organisation.",
     "description": "As the board we should put in place appropriate structures, controls and processes to make sure the organisation is run in line with its purposes and values, governing document, and relevant legal and regulatory requirements.",
@@ -514,7 +514,7 @@
     "next_section": "5"
   },
   "section-5": {
-    "name": "Section 5",
+    "name": "Effectiveness",
     "title": "Effectiveness",
     "heading": "A well-run board understands its role, powers and duties, and works collectively and proactively to achieve its organisational purpose.",
     "description": "As the board we should be self-aware and work together as a team, with a diverse and appropriate balance of skills and experience to continually improve the governance of our organisation.",
@@ -701,6 +701,40 @@
         ]
       }
     ],
+    "next_section": "6"
+  },
+  "section-6": {
+    "name": "Confirmation",
+    "title": "Confirmation",
+    "heading": "",
+    "description": "",
+    "icon": "confirm",
+    "progress": 90,
+    "questions": [
+      {
+        "title": "Test",
+        "value": "q1",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "This",
+            "score": 1
+          },
+          {
+            "answer": "or this (either)",
+            "score": 1
+          }
+        ]
+      }
+    ],
     "next_section": "results"
+  },
+  "section-results": {
+    "name": "Results",
+    "title": "Your checkup results",
+    "heading": "",
+    "description": "",
+    "icon": "results",
+    "progress": 100
   }
 }

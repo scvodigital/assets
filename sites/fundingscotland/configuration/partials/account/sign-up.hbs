@@ -25,9 +25,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       </div>
 
       <div class="hidden mdc-theme--error-bg mdc-theme--on-error x-padding-full" id="sign-up-existing-message">
-        <span id="sign-up-existing-email"></span> already has a Funding Scotland account
-        which was most recently used on <a id="sign-up-existing-recent" class="mdc-theme--on-error"></a> <span id="sign-up-existing-current">this site</span>.
-        You can <a href="/sign-in" id="sign-up-existing-sign-in" class="mdc-theme--on-error">sign-in with this account here.</a>
+        You already have a Funding Scotland account with <span id="sign-up-existing-email"></span>
+        which was most recently used on <a id="sign-up-existing-recent" class="mdc-theme--on-error"></a> <span id="sign-up-existing-current">this site</span> - you can <a href="/sign-in" id="sign-up-existing-sign-in" class="mdc-theme--on-error">sign in with this account</a> or <a href="/reset-password" id="sign-up-existing-reset" class="mdc-theme--on-error">reset your password</a>
       </div>
 
       <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
@@ -165,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   $existingRecent = $('#sign-up-existing-recent');
   $existingCurrent = $('#sign-up-existing-current');
   $existingSignin = $('#sign-up-existing-sign-in');
+  $existingReset = $('#sign-up-existing-reset');
 
   function checkExisting() {
     var email = $email.val().toLowerCase();
@@ -203,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     $existingSignin.attr('href', '/sign-in?email=' + encodeURIComponent(email));
+    $existingReset.attr('href', '/reset-password?email=' + encodeURIComponent(email));
     $existingMessage.removeClass('hidden');
     $email[0].setCustomValidity('Account already exists');
     $form[0].reportValidity();
@@ -214,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $existingRecent.html('');
     $existingRecent.attr('href', '');
     $existingSignin.attr('href', '');
+    $existingReset.attr('href', '');
     $email[0].setCustomValidity('');
     $form[0].reportValidity();
   }

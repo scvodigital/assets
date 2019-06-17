@@ -136,6 +136,16 @@ export class FundingScotland {
       });
     }
     this.helpBoxes();
+
+    $('[data-fund-id]').each((i, o) => {
+      const data = $(o).data();
+      const event = {
+        event: 'fund-displayed',
+        id: data.fundId,
+        context: data.fundContext || 'other'
+      };
+      dataLayer.push(event);
+    })
   }
 
   windowResized() {

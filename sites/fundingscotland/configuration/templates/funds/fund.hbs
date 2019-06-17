@@ -90,12 +90,20 @@
                   </div>
                 {{/premium_content_alt}}
               {{else}}
-                <div class="detailed-info">
-                  <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
-                  <p class="mdc-typography--body1">
-                    If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
-                  </p>
-                </div>
+                {{#compare @root.data.currentSite.name "default" ~}}
+                  {{#>premium_content_alt}}
+                    <div class="detailed-info">
+                      {{> upgrade_ad_notes}}
+                    </div>
+                  {{/premium_content_alt}}
+                {{else}}
+                  <div class="detailed-info">
+                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save a note on this fund.
+                    </p>
+                  </div>
+                {{/compare ~}}
               {{/if ~}}
             </div>
             <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="lists">
@@ -191,12 +199,20 @@
                   </div>
                 {{/premium_content_alt}}
               {{else}}
-                <div class="detailed-info">
-                  <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
-                  <p class="mdc-typography--body1">
-                    If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
-                  </p>
-                </div>
+                {{#compare @root.data.currentSite.name "default" ~}}
+                  {{#>premium_content_alt}}
+                    <div class="detailed-info">
+                      {{> upgrade_ad_lists}}
+                    </div>
+                  {{/premium_content_alt}}
+                {{else}}
+                  <div class="detailed-info">
+                    <h4 class="mdc-typography--headline7">Sign up to {{@root.data.currentSite.title}}</h4>
+                    <p class="mdc-typography--body1">
+                      If you <a href="/sign-up">sign up</a> you'll be able to save this fund to a list.
+                    </p>
+                  </div>
+                {{/compare ~}}
               {{/if ~}}
             </div>
             {{> fund_actions actions="more-funder,hide-fund,pdf" funder=funder}}
@@ -224,7 +240,7 @@
         <div class="mdc-layout-grid__inner">
           {{#each data.supplimentaryResponses.related.hits.hits ~}}
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-            {{> fund_list _source actions="more-fund,lists,hide-fund"}}
+            {{> fund_list _source actions="more-fund,lists,hide-fund" context="related"}}
           </div>
           {{/each ~}}
         </div>

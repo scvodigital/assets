@@ -361,6 +361,7 @@ primary-dark: #263238
   .support.support-organisation .mdc-card__primary,
   .post-info .post-info-tags .inline-list li a,
   .pagination li.current-page,
+  .progress-bar .progress-label,
   .mdc-theme--primary-bg {
     background-color: map-get($themeSelected, 'primary') !important;
   }
@@ -3724,6 +3725,33 @@ body.post.author main {
 .booking {
   font-size: 2rem;
   font-weight: $heading-medium-font-weight;
+}
+
+.progress-bar {
+  margin-top: $unit;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: $unit*2;
+  background-color: #E2E4E5;
+  border: none;
+  border-top-width: $unit/5;
+  border-right-width: $unit/4;
+  border-bottom-width: $unit/5;
+  border-left-width: $unit/4;
+  height: $unit*2.5;
+  line-height: $unit*2.5;
+  padding: 0;
+  .progress-label {
+    border-radius: $unit*2 0 0 $unit*2;
+    color: white;
+    font-size: 0.95rem;
+    .progress-label-text {
+      padding: 0 $unit;
+      line-height: $unit*2.55;
+    }
+  }
 }
 
 .container-content {

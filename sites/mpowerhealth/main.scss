@@ -12,9 +12,7 @@ $mdc-theme-secondary: #E0E0E0; // Gray 300
 $mdc-theme-secondary-light: #F5F5F5; // Gray 100
 $mdc-theme-secondary-dark: #212121; // Gray 900
 
-$mdc-theme-footer: #37474F; // Blue Gray 800
-$mdc-theme-footer-light: #E1E3E4;
-$mdc-theme-footer-dark: #D4DC48; // Blue Gray 900
+$mdc-theme-footer: #D5DB47;
 
 $unit: 1rem;
 
@@ -41,14 +39,22 @@ strong {
   width: 100%;
   margin: 0 auto; // padding: 0 1.5rem;
 }
+.container-content {
+  max-width: 960px;
+  margin-left: 4.5rem;
+}
+.mdc-top-app-bar__lower .mdc-top-app-bar__section {
+  margin-left: 3.5rem;
+}
 
 .mdc-top-app-bar {
   position: relative;
+  background-color: transparent;
 }
 header {
   .container-fluid {
     .mdc-top-app-bar__upper {
-      background-color: #fff;
+      background-color: transparent;
       // .mdc-top-app-bar__section {
       //   background-color: $mdc-theme-primary;
       // }
@@ -110,8 +116,11 @@ header {
   }
 }
 
-main {
-  background: white;
+.mdc-typography {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
 }
 
 h1, h2, h3, h4, h5, p, div, li {
@@ -535,11 +544,7 @@ h1, h2, h3, h4, h5, p, div, li {
 
 // Footer ======================================================================
 .mdc-theme--footer-dark-bg {
-  background-color: $mdc-theme-footer-dark !important;
-}
-footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
-  background-color: $mdc-theme-footer-light !important;
-  color: $mdc-theme-secondary-dark !important;
+  background-color: $mdc-theme-footer !important;
 }
 
 footer.mdc-layout__footer {
@@ -594,7 +599,7 @@ footer.mdc-layout__footer {
     }
   }
   .footer-copyright {
-    background-color: $mdc-theme-footer-dark;
+    background-color: $mdc-theme-footer;
     p,
     a {
       color: $mdc-theme-secondary-dark;

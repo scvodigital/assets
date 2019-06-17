@@ -76,7 +76,7 @@
 </head>
 <body class="mdc-theme--footer-dark-bg">
   <mpowerhealth-site>
-    <div class="mdc-typography">
+    <div class="mdc-typography" style="background-image: url('{{~>asset_url url='images/mpower-header.png'~}}');">
       {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
         {{#if errors.[0]}}
           <div style="z-index:100;position:fixed;top:0;right:0;padding:5px;background-color:#ff0000;color:#ffffff;">
@@ -108,15 +108,12 @@
                 <img src="{{~>asset_url url='images/logos/mpower.png'~}}" alt="mPower Health" />
               </a>
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--partner">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section--partner">
               {{#compare @root.data.currentSite.name "!==" "default" ~}}
               <img src="{{~>asset_url url=(concat 'images/logos/partners/' @root.data.currentSite.name '.png')~}}" alt="In partnership with {{@root.data.currentSite.healthBoard.title}}" />
               {{/compare ~}}
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section--funder">
-              <a href="https://www.seupb.eu/iva-overview">
-                <img src="{{~>asset_url url='images/logos/interreg-vi-logo.png'~}}" alt="INTERREG VA Programme" />
-              </a>
               <button class="mdc-top-app-bar__navigation-icon hide-lg" data-drawer-target="#mobile-menu">
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
@@ -198,8 +195,11 @@
       </main>
 
       <footer class="mdc-layout__footer mdc-theme--footer-bg mdc-theme--on-footer">
-        <div class="footer-main" style="background-image: url('{{~>asset_url url='images/communityscape.png'~}}');">
+        <div class="footer-main" style="background-image: url('{{~>asset_url url='images/mpower-communityscape.png'~}}');">
           <div class="container-fluid">
+            <a href="https://www.seupb.eu/iva-overview">
+              <img src="{{~>asset_url url='images/logos/interreg-vi-logo.png'~}}" alt="INTERREG VA Programme" />
+            </a>
             <div class="mdc-layout-grid">
               <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">

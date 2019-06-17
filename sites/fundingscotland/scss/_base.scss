@@ -1052,12 +1052,29 @@ footer.mdc-layout__footer {
   cursor: pointer;
 }
 
+.help-box {
+  .help-box__dismiss-button {
+    width: auto;
+    height: auto;
+    line-height: inherit;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  a,
+  .help-box__dismiss-button {
+    color: $mdc-theme-info !important;
+  }
+  a:hover,
+  .help-box__dismiss-button:hover {
+    color: $mdc-theme-info-dark !important;
+  }
+  .mdc-chip__icon--leading {
+    color: $mdc-theme-info-dark;
+    margin-top: -3px;
+  }
+}
 .help-box--dismissed {
   display: none !important;
-}
-.help-box .mdc-chip__icon--leading {
-  color: $mdc-theme-info-dark;
-  margin-top: -3px;
 }
 
 .pointer {

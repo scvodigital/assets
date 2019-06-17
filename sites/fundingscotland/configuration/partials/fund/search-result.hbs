@@ -1,4 +1,4 @@
-<div class="mdc-card search-result" data-fund-id="{{Id}}">
+<div class="mdc-card search-result" data-fund-id="{{Id}}" data-fund-context="search-result">
   {{> fund_key_info}}
   <hr class="mdc-list-divider" />
   {{#ifAll (getProperty @root.data.profile.notes Id) (compare hideNotes "!==" true) ~}}

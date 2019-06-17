@@ -3050,6 +3050,24 @@ table.membership-fees {
   }
 }
 
+.answer-block {
+  margin: 0;
+  li.answer {
+    padding: 0;
+    .mdc-form-field {
+      align-items: flex-start;
+      // margin-left: -10px
+    }
+    .mdc-form-field > label {
+      line-height: 1.5rem;
+      margin: $unit/2 0;
+    }
+  }
+  li.answer::before {
+    display: none;
+  }
+}
+
 .grid-info {
   .mdc-card__primary {
     h1 {

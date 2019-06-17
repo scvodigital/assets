@@ -1,4 +1,4 @@
-<div class="mdc-card list" data-fund-id="{{Id}}">
+<div class="mdc-card list" data-fund-id="{{Id}}" data-fund-context="{{default context "other"}}">
   {{> fund_key_info}}
   <hr class="mdc-list-divider" />
   {{#compare (trim (getProperty @root.data.profile.notes Id)) "!==" "" ~}}

@@ -1,4 +1,4 @@
-<div class="mdc-card mini" data-fund-id="{{Id}}">
+<div class="mdc-card mini" data-fund-id="{{Id}}" data-fund-context="mini">
   {{> fund_key_info}}
   {{#compare (trim (getProperty @root.data.profile.notes Id)) "!==" "" ~}}
     {{> fund_description limit="2rem" description=description}}

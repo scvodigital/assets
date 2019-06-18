@@ -1,12 +1,5 @@
-<div class="container-content mpower-page t-padding">
+<div class="container-content mpower-page mpower-home t-padding">
   <div class="b-padding-full t-margin b-margin-full">
-    {{#compare @root.data.currentSite.name "default" ~}}
     {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
-    {{else}}
-    <h2>
-      {{@root.data.currentSite.healthBoard.title}}
-    </h2>
-    {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
-    {{/compare ~}}
   </div>
 </div>

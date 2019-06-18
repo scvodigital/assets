@@ -5,7 +5,7 @@
     "heading": "A well-run board is clear about the purpose and values of the organisation and how it will achieve its aims.",
     "description": "As the board we have ultimate responsibility for directing the activity of our organisation and delivering its stated purpose.",
     "icon": "org-purpose",
-    "progress": 12,
+    "progress": 17,
     "questions": [
       {
         "title": "Understanding our organisational purpose and values and committing to them to make sure that our organisation delivers what it was set up to do",
@@ -95,7 +95,7 @@
     "heading": "A well-run board is clear about its role and responsibilities and provides strategic direction in line with the organisation's purpose, vision and values.",
     "description": "As the board we are here to lead our organisation, and we are individually and collectively responsible for our decisions. We need to make sure our organisation has a clear strategy to achieve our purpose.",
     "icon": "leadership",
-    "progress": 25,
+    "progress": 34,
     "questions": [
       {
         "title": "Identifying and embedding the vision and values of our organisation, making sure these underpin all our decisions and activities",
@@ -227,7 +227,7 @@
     "heading": "A well-run board, both collectively and individually, embraces and demonstrates mutual respect, integrity, openness and accountability.",
     "description": "As the board we understand that our behaviour can have a far-reaching impact and is fundamental to our organisation's reputation and success. We need to ensure our behaviour is consistent with our organisation's vision and values.",
     "icon": "board-behaviour",
-    "progress": 37,
+    "progress": 50,
     "questions": [
       {
         "title": "Being transparent, open and accountable about how we govern, who we are, and the decisions we make",
@@ -372,7 +372,7 @@
     "heading": "A well-run board will develop and implement appropriate controls to direct and oversee progress and performance of the organisation.",
     "description": "As the board we should put in place appropriate structures, controls and processes to make sure the organisation is run in line with its purposes and values, governing document, and relevant legal and regulatory requirements.",
     "icon": "control",
-    "progress": 50,
+    "progress": 66,
     "questions": [
       {
         "title": "Maintaining and regularly reviewing policies and procedures and reporting arrangements, for example our internal governance, safeguarding, fundraising and financial controls",
@@ -519,7 +519,7 @@
     "heading": "A well-run board understands its role, powers and duties, and works collectively and proactively to achieve its organisational purpose.",
     "description": "As the board we should be self-aware and work together as a team, with a diverse and appropriate balance of skills and experience to continually improve the governance of our organisation.",
     "icon": "effectiveness",
-    "progress": 62,
+    "progress": 83,
     "questions": [
       {
         "title": "Understanding the legal structure and governing document of our organisation and making sure we act in line with it",

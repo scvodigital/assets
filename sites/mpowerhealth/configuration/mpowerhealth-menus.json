@@ -2,37 +2,49 @@
   "corporate": [
     {
       "label": "About",
-      "icon": "list-alt",
+      "icon": "info-circle",
       "path": "/about",
       "route": "^/about"
     },
     {
       "label": "Partners",
-      "icon": "list-alt",
+      "icon": "handshake",
       "path": "/partners",
       "route": "^/partners"
     },
     {
       "label": "News",
-      "icon": "list-alt",
+      "icon": "newspaper",
       "path": "/news",
       "route": "^/news"
     },
     {
       "label": "Webinars",
-      "icon": "list-alt",
+      "icon": "video",
       "path": "/webinars",
       "route": "^/webinars"
     },
     {
-      "label": "Contact",
+      "label": "Digital health",
       "icon": "list-alt",
+      "path": "/tools",
+      "route": "^/tools"
+    },
+    {
+      "label": "Community map",
+      "icon": "map-marked-alt",
+      "path": "/map",
+      "route": "^/map"
+    },
+    {
+      "label": "Contact",
+      "icon": "envelope",
       "path": "/contact",
       "route": "^/contact"
     },
     {
       "label": "Resources",
-      "icon": "list-alt",
+      "icon": "books",
       "path": "/resources",
       "route": "^/resources"
     }
@@ -40,13 +52,13 @@
   "localised": [
     {
       "label": "Supporting you",
-      "icon": "list-alt",
+      "icon": "handshake",
       "path": "/support",
       "route": "^/support"
     },
     {
       "label": "Your community",
-      "icon": "list-alt",
+      "icon": "users",
       "path": "/community",
       "route": "^/community"
     },
@@ -58,19 +70,19 @@
     },
     {
       "label": "Community map",
-      "icon": "list-alt",
+      "icon": "map-marked-alt",
       "path": "/map",
       "route": "^/map"
     },
     {
       "label": "Case studies",
-      "icon": "list-alt",
+      "icon": "newspaper",
       "path": "/case-studies",
       "route": "^/case-studies"
     },
     {
       "label": "Contact us",
-      "icon": "list-alt",
+      "icon": "envelope",
       "path": "/contact",
       "route": "^/contact"
     }

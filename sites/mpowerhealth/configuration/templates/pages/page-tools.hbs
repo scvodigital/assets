@@ -26,6 +26,14 @@
       {{/each ~}}
     </ul>
     {{/if ~}}
+    {{#compare @root.data.currentSite.name "default" ~}}
+    <p>
+      In use by:
+    </p>
+    <div class="partner-logos">
+      <a href="/"><img src="{{~>asset_url url='images/logos/partners/dumfriesgalloway.png'~}}"></a>
+    </div>
+    {{/compare ~}}
     {{/with ~}}
     {{/each ~}}
     {{else}}

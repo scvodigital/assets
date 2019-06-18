@@ -13,18 +13,23 @@
     "website_address"
   {{/json}},
   {{#json key="query"}}
-    {{#json key="bool"}}
-      {{#json key="filter" type="array"}}
-        {{#json}}
-          {{#json key="term"}}
-            {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-organisation")}}}
-          {{/json}}
-        {{/json}},
-        {{#json}}
-          {{#json key="match_all"}}
+    {{#compare @root.data.currentSite.name "default" ~}}
+      {{#json key="match_all"}}
+      {{/json}}
+    {{else}}
+      {{#json key="bool"}}
+        {{#json key="filter" type="array"}}
+          {{#json}}
+            {{#json key="term"}}
+              {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-organisation")}}}
+            {{/json}}
+          {{/json}},
+          {{#json}}
+            {{#json key="match_all"}}
+            {{/json}}
           {{/json}}
         {{/json}}
       {{/json}}
-    {{/json}}
+    {{/compare}}
   {{/json}}
 {{/json}}

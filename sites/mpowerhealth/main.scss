@@ -15,7 +15,7 @@ $mdc-theme-secondary-dark: #212121; // Gray 900
 $mdc-theme-footer: #d6dd2e;
 
 $unit: 1rem;
-$page-width: 800px;
+$page-width: 920px;
 $page-left: 11vw;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
@@ -82,6 +82,22 @@ footer .footer-copyright {
     margin-left: -4rem;
   }
 }
+@media screen and (max-width: 700px) {
+  header {
+    padding-top: 14vw;
+    .mdc-top-app-bar__section--nav {
+      top: -14vw !important;
+    }
+    .mdc-top-app-bar__section--logo {
+      margin-left: -2.5rem;
+      zoom: 0.6;
+    }
+    .mdc-top-app-bar__section--partner {
+      zoom: .7;
+      margin-right: .25rem;
+    }
+  }
+}
 
 .container-fluid {
   box-sizing: border-box;
@@ -116,7 +132,7 @@ header {
         }
       }
       .mdc-top-app-bar__section--logo {
-        padding: 0 $unit;
+        padding: 0 0 0 $unit;
       }
       .mdc-top-app-bar__section--logo {
         flex: 0 0 auto;

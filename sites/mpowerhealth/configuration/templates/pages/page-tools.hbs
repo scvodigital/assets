@@ -27,12 +27,16 @@
     </ul>
     {{/if ~}}
     {{#compare @root.data.currentSite.name "default" ~}}
+    {{#if areas_used_list ~}}
     <p>
       In use by:
     </p>
     <div class="partner-logos">
-      <a href="/"><img src="{{~>asset_url url='images/logos/partners/dumfriesgalloway.png'~}}"></a>
+      {{#each areas_used_list ~}}
+      <a href="{{getProperty @root.context.metaData.site-configurations (concat this '.url')}}"><img src="{{~>asset_url url=(concat 'images/logos/partners/' this '.png')~}}"></a>
+      {{/each ~}}
     </div>
+    {{/if ~}}
     {{/compare ~}}
     {{/with ~}}
     {{/each ~}}

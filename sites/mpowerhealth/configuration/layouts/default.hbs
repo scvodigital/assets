@@ -210,37 +210,27 @@
         {{/if ~}}
 
         {{{layoutParts.body}}}
+
+        {{#compare @root.data.currentSite.name "default" ~}}
+        <div class="container-content">
+          <div class="partner-logos">
+            <a href="http://www.cawt.com/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-2.png"></a>
+            <a href="https://nhsnss.org/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-1.png"></a>
+            <a href="https://www.hse.ie/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-3.png"></a>
+            <a href="https://www.nhsaaa.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-4.png"></a>
+            <a href="http://www.nhsdg.scot.nhs.uk"><img src="{{~>asset_url url='images/logos/partners/dumfriesgalloway.png'~}}"></a>
+            <a href="https://www.wihb.scot.nhs.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-6.png"></a>
+            <a href="http://www.southerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-7.png"></a>
+            <a href="http://www.westerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-8.png"></a>
+            <a href="https://www.uhi.ac.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-9.png"></a>
+            <a href="https://scvo.org"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-10.png"></a>
+            {{!-- <a href="https://www.seupb.eu/iva-overview"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-11.png"></a> --}}
+          </div>
+        </div>
+        {{/compare ~}}
       </main>
 
       <footer class="mdc-layout__footer mdc-theme--footer-bg mdc-theme--on-footer" style="background-image: url('{{~>asset_url url='images/mpower-communityscape.png'~}}');">
-        <div class="footer-main">
-          {{#compare @root.data.currentSite.name "default" ~}}
-          <div class="container-fluid">
-            <div class="mdc-layout-grid">
-              <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-                  <h3>Partners</h3>
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
-                  <div class="partner-logos">
-                    <a href="https://nhsnss.org/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-1.png"></a>
-                    <a href="http://www.cawt.com/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-2.png"></a>
-                    <a href="https://www.hse.ie/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/06/logo-3.png"></a>
-                    <a href="https://www.nhsaaa.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-4.png"></a>
-                    <a href="http://www.nhsdg.scot.nhs.uk"><img src="{{~>asset_url url='images/logos/partners/dumfriesgalloway.png'~}}"></a>
-                    <a href="https://www.wihb.scot.nhs.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-6.png"></a>
-                    <a href="http://www.southerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-7.png"></a>
-                    <a href="http://www.westerntrust.hscni.net/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-8.png"></a>
-                    <a href="https://www.uhi.ac.uk/"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-9.png"></a>
-                    <a href="https://scvo.org"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-10.png"></a>
-                    {{!-- <a href="https://www.seupb.eu/iva-overview"><img src="https://cms.mpowerhealth.eu/wp-content/uploads/sites/13/2019/03/logo-11.png"></a> --}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{/compare ~}}
-        </div>
         <div class="footer-copyright">
           <div class="container-fluid">
             {{!-- <div class="mdc-layout-grid">

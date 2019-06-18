@@ -1,7 +1,7 @@
 {
   "name": "funding_updates_link_gen",
   "pattern": "/funding/updates/link-generator",
-  "debug": true,
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.menus",

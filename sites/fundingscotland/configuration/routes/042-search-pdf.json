@@ -1,7 +1,7 @@
 {
   "name": "search_pdf",
   "pattern": "/search-pdf",
-  "debug": true,
+  "debug": false,
   "metaData": {
     "pdf": {
       "title": ">data.currentSite.title",

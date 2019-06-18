@@ -18,6 +18,9 @@ $mdc-theme-footer-dark: #263238; // Blue Gray 900
 $mdc-theme-error: #A9201E;
 
 $mdc-theme-tfn: #3b9db1;
+$mdc-theme-tfn-dark: #2f7e8e;
+$mdc-theme-volunteering: #00a0af;
+$mdc-theme-volunteering-dark: #00717c;
 
 $unit: 1rem;
 
@@ -667,6 +670,83 @@ footer,
         }
       }
     }
+  }
+}
+
+.volunteering-banner {
+  padding-bottom: $unit;
+  background-color: white;
+  .banner-search.overlay {
+    background-size: cover;
+    background-position: center center;
+    .content {
+      background-image: none !important;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      min-height: 15vh;
+      background-color: transparent;
+      padding: $unit*15 0 $unit;
+      .search-form {
+        min-width: 45%;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: $unit $unit $unit/2;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: white;
+        .mdc-typography--headline6 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .home-browse {
+    border-bottom: none;
+  }
+  .faded-overflow:before {
+    background: linear-gradient(rgba(255, 255, 255, 0), $mdc-theme-secondary-light);
+  }
+  .mdc-typography--headline7 {
+    margin-top: $unit;
+    color: $mdc-theme-secondary-dark;
+  }
+  .home-content-primary {
+    margin-bottom: 0;
+  }
+  .content-primary.mdc-card.mini {
+    border-top: none;
+  }
+  .home-browse,
+  .content-primary.mdc-card.mini,
+  .mdc-card.mini .mdc-card__actions {
+    background-color: $mdc-theme-secondary-light;
+  }
+  .home-content-primary {
+    background-color: white;
+  }
+  .mdc-typography--headline6,
+  #search-terms.mdc-chip-set .mdc-chip,
+  .search-form .geo-lookup,
+  .home-browse .mdc-list .mdc-list-item .mdc-list-item__text,
+  a {
+    color: $mdc-theme-volunteering !important;
+  }
+  #search-terms.mdc-chip-set .mdc-chip:hover,
+  .search-form .geo-lookup:hover,
+  .home-browse .mdc-list .mdc-list-item:hover .mdc-list-item__text,
+  a:hover,
+  a:active {
+    color: $mdc-theme-volunteering-dark !important;
+  }
+  .scroll-button .scroll-icon,
+  .mdc-button.mdc-button--raised {
+    background-color: $mdc-theme-volunteering !important;
+  }
+  .scroll-button:hover .scroll-icon,
+  .mdc-button.mdc-button--raised:hover {
+    background-color: $mdc-theme-volunteering-dark !important;
   }
 }
 

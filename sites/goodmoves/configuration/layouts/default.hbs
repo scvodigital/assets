@@ -137,10 +137,12 @@
                   {{/each ~}}
                 {{/if ~}}
                 {{#each @root.context.metaData.menus.upper ~}}
+                  {{#if label ~}}
                   {{>components_tab
                       url=(stripTrailingSlash path)
                       active=(regexMatch @root.request.url.pathname route "gi")
                       label=label}}
+                  {{/if ~}}
                 {{/each ~}}
               {{/components_tab_bar}}
             </section>

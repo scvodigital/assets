@@ -2,7 +2,7 @@
   "name": "stop-all-emails",
   "pattern": "/stop-all-emails",
   "acceptedVerbs": "GET",
-  "debug": true,
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",

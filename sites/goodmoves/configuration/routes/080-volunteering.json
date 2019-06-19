@@ -1,7 +1,6 @@
 {
   "name": "volunteering",
   "pattern": "/volunteering",
-  "debug": true,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

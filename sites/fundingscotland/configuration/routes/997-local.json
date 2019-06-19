@@ -1,9 +1,14 @@
 {
-  "name": "home",
-  "pattern": "/",
+  "name": "page_local",
+  "pattern": "/local",
   "debug": false,
+  "metaData": {
+    "hideSearch": true
+  },
   "tasks": [
     "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.menus",
     {
       "name": "primaryResponse",
@@ -15,12 +20,13 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "mpower-default-page,mpower-dumfriesgalloway-page",
-          "template": ">context.metaData.handlebars.queries.pages_home"
+          "type": "fs-default-page",
+          "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },
       "renderer": "handlebars"
     },
+    "context.metaData.commonTasks.supplimentaryResponses",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -36,9 +42,8 @@
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_home-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_home",
-              "foot": ">context.metaData.handlebars.templates.pages_home-foot"
+              "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_local"
             },
             "contentType": "text/html"
           }

@@ -20,7 +20,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "fs-default-page,fs-eastrenfrewshire-page,fs-fife-page,fs-northlanarkshire-page,fs-shetland-page,fs-southlanarkshire-page,fs-srn-page,fs-stirling-page",
+          "type": "fs-default-page",
           "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },

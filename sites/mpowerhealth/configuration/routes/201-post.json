@@ -1,7 +1,7 @@
 {
   "name": "post",
   "pattern": "/news/*slug",
-  "debug": true,
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.menus",

@@ -1,6 +1,6 @@
 {
-  "name": "premium",
-  "pattern": "/premium",
+  "name": "page_local",
+  "pattern": "/local",
   "debug": false,
   "metaData": {
     "hideSearch": true
@@ -43,7 +43,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_page-head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_premium"
+              "body": ">context.metaData.handlebars.templates.pages_local"
             },
             "contentType": "text/html"
           }

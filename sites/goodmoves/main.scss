@@ -19,8 +19,8 @@ $mdc-theme-error: #A9201E;
 
 $mdc-theme-tfn: #3b9db1;
 $mdc-theme-tfn-dark: #2f7e8e;
-$mdc-theme-volunteering: #00a0af;
-$mdc-theme-volunteering-dark: #00717c;
+$mdc-theme-volunteering: #448532;
+$mdc-theme-volunteering-dark: #223c1d;
 
 $unit: 1rem;
 
@@ -718,7 +718,12 @@ footer,
   .content-primary.mdc-card.mini {
     border-top: none;
   }
+  .mdc-card.mini .mdc-card__info--content-primary-row {
+    flex: 0 0 auto;
+  }
   .home-browse,
+  #home-browse-collapse,
+  #home-browse-collapse .home-content-primary,
   .content-primary.mdc-card.mini,
   .mdc-card.mini .mdc-card__actions {
     background-color: $mdc-theme-secondary-light;

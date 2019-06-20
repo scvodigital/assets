@@ -25,7 +25,42 @@
     "opportunity_contact_email"
   ],
   "query": {
-    "match_all": {}
+    "function_score": {
+      "query": {
+        "bool": {
+          "filter": [
+            {
+              "range": {
+                "date_last_modified": {
+                  "gt": "now-12M",
+                  "boost": 1
+                }
+              }
+            }
+          ],
+          "should": [
+            {
+              "exists": {
+                "boost": 25,
+                "field": "geo_coords"
+              }
+            }
+          ]
+        }
+      },
+      "boost_mode": "multiply",
+      "functions" : [
+        {
+          "gauss": {
+            "date_last_modified": {
+              "scale": "10d",
+              "offset": "60d",
+              "decay": 0.95
+            }
+          }
+        }
+      ]
+    }
   },
   "sort": {
     "date_last_modified": "desc"

@@ -1,0 +1,15 @@
+{{#with @root.request.body}}
+    {{#json}}
+      {{#json key='task'}}
+        {{{json key='task_name' value=task_name}}},
+        {{{json key='location' value=location}}},
+        {{{json key='organisation_charity_number' value=organisation_charity_number }}},
+        {{{json key='organisation_name' value=organisation_name }}},
+        {{{json key='un_sustainable_development_goals' value=un_sustainable_development_goals }}},
+        {{{json key='volunteer_manager_email' value=volunteer_manager_email }}},
+        {{{json key='volunteer_manager_name' value=volunteer_manager_name }}},
+        {{{json key='volunteer_manager_phone' value=volunteer_manager_phone }}},
+        {{{json key='volunteer_manager_title' value=volunteer_manager_title }}}
+      {{/json}}
+    {{/json}}
+{{/with}}

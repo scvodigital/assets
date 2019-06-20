@@ -66,11 +66,32 @@
           "connection": "scvoAlexSandbox",
           "output": "data",
           "method": "GET",
-          "apexClassPath": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+          "apexClassPath": "/SaltireUser/?id={{@root.data.auth.uid}}"
         }
       },
-
-"redirectIfPVNeeded": {
+      "getTasksInfo" : {
+        "name": "tasksInfo",
+        "taskModule": "salesforceApex",
+        "renderer": "handlebars",
+        "config": {
+          "connection": "scvoAlexSandbox",
+          "output": "data",
+          "method": "GET",
+          "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}"
+        }
+      },
+      "getHoursInfo" : {
+        "name": "hoursInfo",
+        "taskModule": "salesforceApex",
+        "renderer": "handlebars",
+        "config": {
+          "connection": "scvoAlexSandbox",
+          "output": "data",
+          "method": "GET",
+          "apexClassPath": "/SaltireHours/?user_id={{@root.data.auth.uid}}"
+        }
+      },
+      "redirectIfPVNeeded": {
         "name": "redirectIfPV",
         "taskModule": "reroute",
         "config":

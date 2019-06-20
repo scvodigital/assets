@@ -1,6 +1,7 @@
 {
   "name": "vacancy_search",
   "pattern": "/search",
+  "debug": false,
   "metaData": {
     "sidebarButton": {
       "icon": "search",

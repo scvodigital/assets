@@ -13,7 +13,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUsers/?id={{@root.request.params.query.id}}"
+        "template": "/SaltireUser/?id={{@root.request.params.query.id}}"
       }
     },
     {

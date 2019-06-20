@@ -1,0 +1,41 @@
+{
+  "name": "hours",
+  "pattern": "/hours",
+  "debug": true,
+  "metaData": {
+    "hideSearch": true,
+    "title": "Hours - Saltire Awards"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.getTasksInfo",
+    "context.metaData.commonTasks.getHoursInfo",
+
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_hours"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+
+  ]
+}

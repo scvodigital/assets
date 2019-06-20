@@ -14,7 +14,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUsers/?id={{@root.data.auth.uid}}"
+        "template": "/SaltireUser/?id={{@root.data.auth.uid}}"
       }
     },
     {

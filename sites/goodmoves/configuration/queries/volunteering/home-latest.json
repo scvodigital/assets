@@ -29,37 +29,44 @@
       "query": {
         "bool": {
           "filter": [
-            {
-              "range": {
-                "date_last_modified": {
-                  "gt": "now-12M",
-                  "boost": 1
-                }
-              }
-            }
+            {{>queries_opportunity_common_filters @root.request.params.query}},
+            {{>queries_opportunity_search_filters @root.request.params.query}}
           ],
-          "should": [
-            {
-              "exists": {
-                "boost": 25,
-                "field": "geo_coords"
-              }
-            }
+          "must": [
+            {{>queries_opportunity_search_must @root.request.params.query}}
           ]
         }
       },
-      "boost_mode": "multiply",
-      "functions" : [
+      "boost": 1,
+      "functions": [
         {
-          "gauss": {
-            "date_last_modified": {
-              "scale": "10d",
-              "offset": "60d",
-              "decay": 0.95
+          "filter": [
+            {
+              "bool": {
+                "must": [
+                  {
+                    "term": {
+                      "_type": {
+                        "value" : "goodmoves-vacancy"
+                      }
+                    }
+                  },
+                  {
+                    "match": {
+                      "top_job": true
+                    }
+                  }
+                ]
+              }
             }
-          }
+          ],
+          "weight": 2
         }
-      ]
+      ],
+      "max_boost": 10,
+      "score_mode": "max",
+      "boost_mode": "multiply",
+      "min_score" : 0
     }
   },
   "sort": {

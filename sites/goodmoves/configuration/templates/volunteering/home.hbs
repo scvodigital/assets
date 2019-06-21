@@ -27,7 +27,7 @@
   <div class="banner-search overlay" style="background-image: url('https://storage.googleapis.com/volunteerscotland-search/vs-search-homepage-image.jpg');">
     <div class="content page-content">
       <div class="search-content">
-        <form id="search-view" class="search-form" action="/volunteering/search" method="GET">
+        <form id="search-view" class="search-form" action="https://search.volunteerscotland.net/search" method="GET">
           <input type="hidden" name="lat" value="{{@root.request.params.query.lat}}" id="location-lat" />
           <input type="hidden" name="lng" value="{{@root.request.params.query.lng}}" id="location-lng" />
           <input type="hidden" name="la" value="{{@root.request.params.query.la}}" id="location-la" />
@@ -124,7 +124,7 @@
         <div class="mdc-typography--headline5">
           Latest opportunities &ensp;
           <span class="mdc-typography--body1">
-            <a href="/volunteering/search?sort=newest&page=2">Find more</a>
+            <a href="https://search.volunteerscotland.net/search?sort=newest&page=2">Find more</a>
           </span>
         </div>
       </div>
@@ -138,20 +138,20 @@
       itemClasses="latest-primary-content"
       items=(map @root.data.search_data.home_latest.hits.hits (getProp "_source"))
       itemsPartial="volunteering_mini"
-      moreUrl="/volunteering/search?sort=newest&page=2"
+      moreUrl="https://search.volunteerscotland.net/search?sort=newest&page=2"
       moreText="Find more opportunities"}}
     {{/components_horizontal_card_scroller}}
   </div>
   {{/compare}}
 
-  {{#compare @root.data.search_data.home_top.hits.total ">" 0}}
+  {{!-- {{#compare @root.data.search_data.home_top.hits.total ">" 0}}
   <div class="mdc-layout-grid home-heading">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
         <div class="mdc-typography--headline5">
           Top opportunities &ensp;
           <span class="mdc-typography--body1">
-            <a href="/volunteering/search?sort=relevance&page=2">Find more</a>
+            <a href="https://search.volunteerscotland.net/search?sort=relevance&page=2">Find more</a>
           </span>
         </div>
       </div>
@@ -165,9 +165,9 @@
       itemClasses="top-primary-content"
       items=(map @root.data.search_data.home_top.hits.hits (getProp "_source"))
       itemsPartial="volunteering_mini"
-      moreUrl="/volunteering/search?sort=relevance&page=2"
+      moreUrl="https://search.volunteerscotland.net/search?sort=relevance&page=2"
       moreText="Find more opportunities"}}
     {{/components_horizontal_card_scroller}}
   </div>
-  {{/compare}}
+  {{/compare}} --}}
 </div>

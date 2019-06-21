@@ -1,6 +1,6 @@
 {
   "name": "volunteering_search",
-  "pattern": "/volunteering/search",
+  "pattern": "__DISABLED__/volunteering/search",
   "debug": true,
   "metaData": {
     "title": "Volunteer Scotland Search",

@@ -26,7 +26,7 @@
           {
             "name": "home_latest",
             "index": "web-content-production",
-            "type": "milo-volunteering-opportunity,goodmoves-vacancy",
+            "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_home-latest"
           },
           {

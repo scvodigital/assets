@@ -836,6 +836,7 @@ primary-dark: #263238
 .search-result.scvo-cms-post,
 .related-posts,
 .post,
+.p,
 .blogs,
 .press-media,
 .policy-research {
@@ -4284,6 +4285,7 @@ p:last-child {
   }
 }
 
+.p,
 .post {
   h1.post-title {
     margin: $unit/2 0 $unit;

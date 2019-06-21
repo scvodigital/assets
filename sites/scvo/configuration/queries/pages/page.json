@@ -21,7 +21,7 @@
   ],
   "query": {
     "term": {
-      "slug": "{{@root.request.params.path}}"
+      "slug": "scvo-cms-page-{{replace @root.request.params.path}}"
     }
   }
 }

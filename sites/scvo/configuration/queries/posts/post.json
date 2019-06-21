@@ -29,7 +29,7 @@
       "should": [
         {
           "term": {
-            "path": "/{{replace @root.request.params.path '_' '/'}}"
+            "path": "{{@root.request.url.path}}"
           }
         },
         {

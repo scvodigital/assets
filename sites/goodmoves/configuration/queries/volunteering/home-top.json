@@ -1,24 +1,16 @@
 {
   "size": 10,
-  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
-  "highlight": {
-    "fields": {
-      "text_bag": {},
-      "text_bag_boost": {}
-    }
-  },
   "_source": [
     "Id",
     "slug",
     "title",
+    "description",
     "available_from",
     "themes",
     "themes_slugs",
-    "date_last_modified",
     "description",
-    "goodhq_organisation.image_url",
+    "end_date",
     "geo_coords",
-    "advertised_areas",
     "geo",
     "postcode",
     "volunteersearch_type",
@@ -26,15 +18,14 @@
     "organisation_slug",
     "organisation_name",
     "organisation_aims_and_objectives",
+    "travel_expenses",
+    "work_location",
     "activities",
     "activities_slugs",
     "top_job",
     "geo_vacancy_coords",
-    "home_based",
-    "various_locations",
     "location",
     "salary",
-    "salary_currency",
     "role_status_list",
     "active",
     "closing_date",
@@ -45,19 +36,6 @@
     "organisation.has_logo",
     "organisation.logo_url"
   ],
-  {{#ifAll @root.request.params.query.lat @root.request.params.query.lng}}
-  "script_fields": {
-    "distance": {
-      "script": {
-        "params": {
-          "lat": {{@root.request.params.query.lat}},
-          "lon": {{@root.request.params.query.lng}}
-        },
-        "source": "if (!doc['geo_coords'].empty) { doc['geo_coords'].arcDistance(params.lat, params.lon) * 0.000621371; }"
-      }
-    }
-  },
-  {{/ifAll}}
   "query": {
     "function_score": {
       "query": {
@@ -84,6 +62,11 @@
                         "value" : "goodmoves-vacancy"
                       }
                     }
+                  },
+                  {
+                    "match": {
+                      "top_job": true
+                    }
                   }
                 ]
               }
@@ -97,37 +80,8 @@
       "boost_mode": "multiply",
       "min_score" : 0
     }
+  },
+  "sort": {
+    "_score": "desc"
   }
-  {{#if @root.request.params.query.sort}},
-  "sort": [
-    {{#switch @root.request.params.query.sort}}
-      {{#case "distance"}}
-        {{#ifAll @root.request.params.query.lat @root.request.params.query.lng}}
-          {
-            "_geo_distance": {
-              "geo_coords": {
-                "lat": {{@root.request.params.query.lat}},
-                "lon": {{@root.request.params.query.lng}}
-              },
-              "order": "asc",
-              "unit": "mi",
-              "mode": "min",
-              "distance_type": "arc"
-            }
-          }
-        {{/ifAll}}
-      {{/case}}
-      {{#case "newest"}}
-        {
-          "date_last_modified": "desc"
-        }
-      {{/case}}
-      {{#case "oldest"}}
-        {
-          "date_last_modified": "asc"
-        }
-      {{/case}}
-    {{/switch}}
-  ]
-  {{/if}}
 }

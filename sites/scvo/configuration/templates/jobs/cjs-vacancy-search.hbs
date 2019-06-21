@@ -45,8 +45,8 @@
                   {{/ifAll ~}}
                   }'>
                   {{#each @root.data.primaryResponse.hits.hits ~}}
-                    {{#if _source.geo_vacancy_coords ~}}
-                      {{#each (arrayify _source.geo_vacancy_coords) ~}}
+                    {{#if _source.geo_coords ~}}
+                      {{#each (arrayify _source.geo_coords) ~}}
                         <marker style="display:none;" data-map="fullMap" data-lat="{{lat}}" data-lng="{{lon}}" data-title="{{../_source.title}}" data-type="{{../_type}}">
                           {{#with ../_source ~}}
                           <div class="map-content">

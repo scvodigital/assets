@@ -2,7 +2,7 @@
   "size": 1000,
   "from": 0,
   "_source": [
-    "geo_vacancy_coords",
+    "geo_coords",
     "organisation.name",
     "slug",
     "title"

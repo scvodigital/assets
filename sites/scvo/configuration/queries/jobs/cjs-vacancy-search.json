@@ -6,7 +6,7 @@
     "slug",
     "title",
     "organisation.name",
-    "geo_vacancy_coords",
+    "geo_coords",
     "rendered.scvo_list"
   ],
   "query": {
@@ -16,7 +16,7 @@
         {
           "geo_distance": {
             "distance": "{{default @root.request.params.query.distance "80.4672"}}km",
-            "geo_vacancy_coords": {
+            "geo_coords": {
               "lat": {{@root.request.params.query.lat}},
               "lon": {{@root.request.params.query.lng}}
             }
@@ -73,7 +73,7 @@
     {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
     {
       "_geo_distance": {
-        "geo_vacancy_coords": {
+        "geo_coords": {
           "lat": {{@root.request.params.query.lat}},
           "lon": {{@root.request.params.query.lng}}
         },

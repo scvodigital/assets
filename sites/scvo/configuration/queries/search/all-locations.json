@@ -2,7 +2,7 @@
   "size": 10000,
   "from": 0,
   "_source": [
-    "geo_vacancy_coords",
+    "geo_coords",
     "geo_organisation_coords",
     "geo_coords",
     "organisation.name",
@@ -15,18 +15,6 @@
       "should": [
         {
           "bool": {
-            "must_not": [
-              {
-                "term": {
-                  "hide_in_results": true
-                }
-              },
-              {
-                "term": {
-                  "hide_from_search": "1"
-                }
-              }
-            ],
             "must": [
               {
                 "term": {
@@ -35,16 +23,10 @@
                   }
                 }
               },
-              {
-                "term": {
-                  "vacancy_status": "vacancy-open"
-                }
-              },
-              {
-                "term": {
-                  "country_slug": "scotland"
-                }
-              }
+              {{>queries_term field="active" term=true}},
+              {{>queries_date_range field="closing_date" gt="now"}},
+              {{>queries_date_range field="start_at" lt="now"}},
+              {{>queries_date_range field="end_at" gt="now"}}
             ]
           }
         },
@@ -75,18 +57,6 @@
         },
         {
           "bool": {
-            "must_not": [
-              {
-                "term": {
-                  "hide_in_results": true
-                }
-              },
-              {
-                "term": {
-                  "hide_from_search": "1"
-                }
-              }
-            ],
             "must": [
               {
                 "term": {
@@ -94,7 +64,8 @@
                     "value" : "milo-volunteering-opportunity"
                   }
                 }
-              }
+              },
+              {{>queries_date_range field="date_last_modified" gt="now-12M"}}
             ]
           }
         },

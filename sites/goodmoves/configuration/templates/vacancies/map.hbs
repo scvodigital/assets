@@ -17,8 +17,8 @@
     {{/ifAll ~}}
     }'>
     {{#each @root.data.search_data.map_results.hits.hits ~}}
-      {{#if _source.geo_vacancy_coords ~}}
-        {{#each (arrayify _source.geo_vacancy_coords) ~}}
+      {{#if _source.geo_coords ~}}
+        {{#each (arrayify _source.geo_coords) ~}}
           {{#if @root.request.params.query.distance ~}}
             {{#compare (itemAt ../fields.distance @index) "<" @root.request.params.query.distance ~}}
               {{> marker lat=lat lng=lon source=../_source index=@index}}

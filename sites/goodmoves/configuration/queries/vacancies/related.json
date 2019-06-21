@@ -6,7 +6,7 @@
     "top_job",
     "description",
     "title",
-    "geo_vacancy_coords",
+    "geo_coords",
     "location",
     "salary",
     "salary_min",
@@ -106,10 +106,10 @@
           "weight": 2
         },
         {{/if ~}}
-        {{#each @root.data.primaryResponse.hits.hits.[0]._source.geo_vacancy_coords ~}}
+        {{#each @root.data.primaryResponse.hits.hits.[0]._source.geo_coords ~}}
         {
           "gauss": {
-            "geo_vacancy_coords": {
+            "geo_coords": {
               "origin": { "lat": {{lat}}, "lon": {{lon}} },
               "offset": "2km",
               "scale":  "10km"

@@ -6,7 +6,7 @@
     "top_job",
     "description",
     "title",
-    "geo_vacancy_coords",
+    "geo_coords",
     "location",
     "salary",
     "role_status_list",

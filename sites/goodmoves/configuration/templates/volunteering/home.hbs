@@ -46,7 +46,7 @@
                     "laSelector": "[name=\"la\"]",
                     "locationServicesSelector": ".geo-lookup"
                   }'>
-                  <label for="where-opportunities" class="mdc-floating-label">
+                  <label for="where-opportunities" class="mdc-floating-label mdc-floating-label--float-above">
                     Location
                   </label>
                   <div class="mdc-line-ripple"></div>
@@ -118,30 +118,56 @@
   </div> --}}
 
   {{#compare @root.data.search_data.home_latest.hits.total ">" 0}}
-    <div class="mdc-layout-grid home-heading">
-      <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-typography--headline7">
-            Latest opportunities &ensp;
-            <span class="mdc-typography--body1">
-              <a href="/volunteering/search?sort=newest&page=2">Find more</a>
-            </span>
-          </div>
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-typography--headline5">
+          Latest opportunities &ensp;
+          <span class="mdc-typography--body1">
+            <a href="/volunteering/search?sort=newest&page=2">Find more</a>
+          </span>
         </div>
       </div>
     </div>
-    <div class="home-content-primary">
-      {{#>components_horizontal_card_scroller
-        outerClasses="home-latest"
-        scrollLeftIconClasses="fal fa-fw fa-angle-left"
-        scrollRightIconClasses="fal fa-fw fa-angle-right"
-        itemClasses="latest-primary-content latest-primary-content-personalised"
-        items=(map @root.data.search_data.home_latest.hits.hits (getProp "_source"))
-        itemsPartial="volunteering_mini"
-        moreUrl="/volunteering/search?sort=newest&page=2"
-        moreText="Find more opportunities"}}
-      {{/components_horizontal_card_scroller}}
+  </div>
+  <div class="home-content-primary">
+    {{#>components_horizontal_card_scroller
+      outerClasses="home-latest"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="latest-primary-content"
+      items=(map @root.data.search_data.home_latest.hits.hits (getProp "_source"))
+      itemsPartial="volunteering_mini"
+      moreUrl="/volunteering/search?sort=newest&page=2"
+      moreText="Find more opportunities"}}
+    {{/components_horizontal_card_scroller}}
+  </div>
+  {{/compare}}
+
+  {{#compare @root.data.search_data.home_top.hits.total ">" 0}}
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-typography--headline5">
+          Top opportunities &ensp;
+          <span class="mdc-typography--body1">
+            <a href="/volunteering/search?sort=relevance&page=2">Find more</a>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-{{/compare}}
+  <div class="home-content-primary">
+    {{#>components_horizontal_card_scroller
+      outerClasses="home-top"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="top-primary-content"
+      items=(map @root.data.search_data.home_top.hits.hits (getProp "_source"))
+      itemsPartial="volunteering_mini"
+      moreUrl="/volunteering/search?sort=relevance&page=2"
+      moreText="Find more opportunities"}}
+    {{/components_horizontal_card_scroller}}
+  </div>
+  {{/compare}}
 </div>

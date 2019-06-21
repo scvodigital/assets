@@ -28,6 +28,12 @@
             "index": "web-content-production",
             "type": "milo-volunteering-opportunity,goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.volunteering_home-latest"
+          },
+          {
+            "name": "home_top",
+            "index": "web-content-production",
+            "type": "goodmoves-vacancy",
+            "template": ">context.metaData.handlebars.queries.volunteering_home-top"
           }
         ]
       },

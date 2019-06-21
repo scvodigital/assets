@@ -675,7 +675,6 @@ footer,
 
 .volunteering-banner {
   padding-bottom: $unit;
-  background-color: white;
   .banner-search.overlay {
     background-size: cover;
     background-position: center center;
@@ -705,9 +704,6 @@ footer,
   .home-browse {
     border-bottom: none;
   }
-  .faded-overflow:before {
-    background: linear-gradient(rgba(255, 255, 255, 0), $mdc-theme-secondary-light);
-  }
   .mdc-typography--headline7 {
     margin-top: $unit;
   }
@@ -717,19 +713,19 @@ footer,
   .content-primary.mdc-card.mini {
     border-top: none;
   }
-  .mdc-card.mini .mdc-card__info--content-primary-row {
+  .mdc-card.mini.content-volunteering .mdc-card__info--content-primary-row {
     flex: 0 0 auto;
   }
-  .home-browse,
-  #home-browse-collapse,
-  #home-browse-collapse .home-content-primary,
-  .content-primary.mdc-card.mini,
-  .mdc-card.mini .mdc-card__actions {
-    background-color: $mdc-theme-secondary-light;
-  }
-  .home-content-primary {
-    background-color: white;
-  }
+  // .home-browse,
+  // #home-browse-collapse,
+  // #home-browse-collapse .home-content-primary,
+  // .content-primary.mdc-card.mini,
+  // .mdc-card.mini .mdc-card__actions {
+  //   background-color: $mdc-theme-secondary-light;
+  // }
+  // .home-content-primary {
+  //   background-color: white;
+  // }
   #search-terms.mdc-chip-set .mdc-chip,
   .search-form .geo-lookup,
   .home-browse .mdc-list .mdc-list-item .mdc-list-item__text,

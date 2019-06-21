@@ -1,8 +1,8 @@
 {
   "name": "post",
   "pattern": {
-    "post_path": "/post/:path",
-    "post_id": "/p/:id(/:junk)"
+    "post_path": "/post/*path",
+    "post_id": "/p/*id(/:junk)"
   },
   "debug": true,
   "tasks": [

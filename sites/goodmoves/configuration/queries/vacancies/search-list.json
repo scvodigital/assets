@@ -7,7 +7,7 @@
     "top_job",
     "description",
     "title",
-    "geo_vacancy_coords",
+    "geo_coords",
     "home_based",
     "various_locations",
     "location",
@@ -94,7 +94,7 @@
     {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
     {
       "_geo_distance": {
-        "geo_vacancy_coords": {
+        "geo_coords": {
           "lat": {{request.params.query.lat}},
           "lon": {{request.params.query.lng}}
         },
@@ -135,7 +135,7 @@
     {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}},
     {
       "_geo_distance": {
-        "geo_vacancy_coords": {
+        "geo_coords": {
           "lat": {{request.params.query.lat}},
           "lon": {{request.params.query.lng}}
         },

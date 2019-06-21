@@ -25,7 +25,7 @@
         {
           "geo_distance": {
             "distance": "{{default distance "8.04672"}}km",
-            "geo_vacancy_coords": {
+            "geo_coords": {
               "lat": {{lat}},
               "lon": {{lng}}
             }

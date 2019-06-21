@@ -10,8 +10,8 @@
   <div class="container-content container-map">
     <div id="map-content-primary" data-map-name="vacancyMap" data-map-clustered-options="{}">
       {{#each @root.data.search_data.detailed_results.hits.hits ~}}
-        {{#if _source.geo_vacancy_info ~}}
-          {{#each (arrayify _source.geo_vacancy_info) ~}}
+        {{#if _source.geo_info ~}}
+          {{#each (arrayify _source.geo_info) ~}}
             {{#compare @root.request.params.district (slugify (replace (replace admin_district " City" "") "City of " ""))}}
               {{#ifAny (if @root.request.params.ward false else=true) (compare @root.request.params.ward "===" (slugify admin_ward))}}
               <marker style="display:none;" data-map="vacancyMap" data-lat="{{latitude}}" data-lng="{{longitude}}" data-shortlisted="{{#each @root.data.shortlist.items}}{{#compare id "===" ../../_source.Id}}true{{/compare}}{{/each}}" data-homebased="{{#if ../_source.home_based}}true{{/if}}" data-variouslocations="{{#if ../_source.various_locations}}true{{/if}}" data-title="{{../_source.title}}">

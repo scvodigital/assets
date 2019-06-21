@@ -6,8 +6,8 @@
     "top_job",
     "description",
     "title",
-    "geo_vacancy_coords",
-    "geo_vacancy_info",
+    "geo_coords",
+    "geo_info",
     "home_based",
     "various_locations",
     "location",
@@ -45,7 +45,7 @@
                 "term": {
                   "admin_ward_slug": {{{stringify @root.request.params.ward}}}
                 }
-              }              
+              }
             {{/if}}
           ],
           "must": [
@@ -74,7 +74,7 @@
   "script_fields" : {
     "distance" : {
       "script" : {
-        "inline": "doc['geo_vacancy_coords'].arcDistance(params.lat,params.lon) * 0.000621371",
+        "inline": "doc['geo_coords'].arcDistance(params.lat,params.lon) * 0.000621371",
         "lang": "painless",
         "params": {
           "lat": {{request.params.query.lat}},
@@ -121,7 +121,7 @@
     {{#ifAll @root.request.params.query.location @root.request.params.query.lat @root.request.params.query.lng ~}}
     {
       "_geo_distance": {
-        "geo_vacancy_coords": {
+        "geo_coords": {
           "lat": {{request.params.query.lat}},
           "lon": {{request.params.query.lng}}
         },

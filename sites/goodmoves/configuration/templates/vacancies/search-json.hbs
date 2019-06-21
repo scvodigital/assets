@@ -6,7 +6,7 @@
       {{#each data.search_data.map_results.hits.hits}}
       {
         "Id": {{{stringify _id}}},
-        "geo_vacancy_coords": {{{stringify _source.geo_vacancy_coords}}},
+        "geo_coords": {{{stringify _source.geo_coords}}},
         "title": {{{stringify _source.title}}},
         "info_window": {{{stringify (component "vacancy_map" _source)}}}
       }{{#unless @last}},{{/unless}}

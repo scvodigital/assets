@@ -46,7 +46,8 @@
             "post_slug": "{{@root.request.params.path}}"
           }
         }
-      ]
+      ],
+      "minimum_should_match": 1
     }
   }
 }

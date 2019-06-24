@@ -55,17 +55,19 @@
       "filter": [
         {{>queries_vacancy_common_filters request.params.query}}
       ],
-      "must": [
+      "should": [
         {
           "term": {
-            {{#if (includes request.params.slug "-") ~}}
-            "slug": "{{request.params.slug}}"
-            {{else}}
-            "Id": "{{request.params.slug}}"
-            {{/if ~}}
+            "Id": "{{@root.request.params.id}}"
+          }
+        },
+        {
+          "term": {
+            "slug": "{{@root.request.params.id}}"
           }
         }
-      ]
+      ],
+      "minimum_should_match": 1
     }
   }
 }

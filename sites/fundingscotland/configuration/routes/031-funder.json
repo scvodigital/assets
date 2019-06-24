@@ -1,6 +1,6 @@
 {
   "name": "funder",
-  "pattern": "/funder/:slug",
+  "pattern": "/funder/:id(/:junk)",
   "debug": false,
   "defaultParams": {
     "context": "detail"

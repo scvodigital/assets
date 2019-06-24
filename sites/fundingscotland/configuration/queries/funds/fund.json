@@ -41,7 +41,7 @@
     "date_reopens",
     "date_due_to_open",
     "type_of_funding",
-    "funder_organisation.Id",
+    "funder_organisation.id",
     "funder_organisation.slug",
     "funder_organisation.name",
     "funder_organisation.email",
@@ -59,11 +59,7 @@
   {{#json key="query"}}
     {{#>queries_fund_common}}
       "term": {
-        {{#if (includes request.params.id "-") ~}}
-        "slug": "{{request.params.id}}"
-        {{else}}
         "Id": "{{request.params.id}}"
-        {{/if ~}}
       }
     {{/queries_fund_common}}
   {{/json}}

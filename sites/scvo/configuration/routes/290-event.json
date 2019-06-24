@@ -4,7 +4,7 @@
     "event_path": "/events/:event_slug",
     "event_id": "/events/*id(/:slug)"
   },
-  "debug": true,
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

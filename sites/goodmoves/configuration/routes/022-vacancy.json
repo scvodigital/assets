@@ -1,6 +1,6 @@
 {
   "name": "vacancy",
-  "pattern": "/vacancy/:vacancy_slug(/:junk)",
+  "pattern": "/vacancy/:id(/:junk)",
   "metaData": {
     "sidebarButton": {
       "icon": "search",

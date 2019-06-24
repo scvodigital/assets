@@ -48,7 +48,8 @@
             "event_slug": "events_{{@root.request.params.event_slug}}"
           }
         }
-      ]
+      ],
+      "minimum_should_match": 1
     }
   }
 }

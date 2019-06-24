@@ -24,7 +24,8 @@
             "slug": "{{@root.request.params.vacancy_slug}}"
           }
         }
-      ]
+      ],
+      "minimum_should_match": 1
     }
   }
 }

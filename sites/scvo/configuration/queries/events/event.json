@@ -38,13 +38,11 @@
   "query": {
     "bool": {
       "should": [
-        {{#if @root.request.params.id ~}}
         {
           "term": {
-            "Id": "{{@root.request.params.id}}"
+            "Id": "{{@root.request.params.event_slug}}"
           }
         },
-        {{/if ~}}
         {
           "term": {
             "event_slug": "events_{{@root.request.params.event_slug}}"

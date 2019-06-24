@@ -1,9 +1,7 @@
 {
   "name": "event_policy",
-  "pattern": {
-    "event_path": "/policy-research/events/:event_slug",
-    "event_id": "/policy-research/events/*id(/:slug)"
-  },
+  "pattern": "/policy-research/events/:event_slug(/:junk)",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

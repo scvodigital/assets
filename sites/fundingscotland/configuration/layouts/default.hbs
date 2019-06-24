@@ -180,7 +180,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{> components_tab
                     url="/news"
                     labelClasses="mdc-theme--on-primary"
-                    active=(regexMatch @root.request.url.pathname "^/news$|^/post" "gi")
+                    active=(regexMatch @root.request.url.pathname "^/news|^/post" "gi")
                     label="News"}}
               {{/components_tab_bar}}
             </section>

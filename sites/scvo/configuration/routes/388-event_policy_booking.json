@@ -1,6 +1,9 @@
 {
   "name": "event_policy_booking",
-  "pattern": "/policy-research/events/:event_slug/book",
+  "pattern": {
+    "event_path": "/policy-research/events/:event_slug/book",
+    "event_id": "/policy-research/events/*id(/:slug)/book"
+  },
   "tasks": [
     {
       "name": "primaryResponse",

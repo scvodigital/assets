@@ -90,7 +90,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://eastrenfrewshire.test.fundingscotland.com",
+      "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@eastrenfrewshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -111,7 +111,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://eastrenfrewshire.test.fundingscotland.com",
+      "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@eastrenfrewshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -132,7 +132,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://eastrenfrewshire.test.fundingscotland.com",
+      "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@eastrenfrewshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -216,7 +216,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://northlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://northlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@northlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -237,7 +237,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://northlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://northlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@northlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -258,7 +258,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://northlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://northlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@northlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -279,7 +279,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-shetland-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://shetland.test.fundingscotland.com",
+      "baseUrl": "https://shetland.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@shetland}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -300,7 +300,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-shetland-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://shetland.test.fundingscotland.com",
+      "baseUrl": "https://shetland.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@shetland}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -321,7 +321,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-shetland-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://shetland.test.fundingscotland.com",
+      "baseUrl": "https://shetland.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@shetland}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -342,7 +342,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://southlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://southlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@southlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -363,7 +363,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://southlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://southlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@southlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -384,7 +384,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://southlanarkshire.test.fundingscotland.com",
+      "baseUrl": "https://southlanarkshire.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@southlanarkshire}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -405,7 +405,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-srn-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://srn.test.fundingscotland.com",
+      "baseUrl": "https://srn.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@srn}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -426,7 +426,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-srn-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://srn.test.fundingscotland.com",
+      "baseUrl": "https://srn.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@srn}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -447,7 +447,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-srn-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://srn.test.fundingscotland.com",
+      "baseUrl": "https://srn.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@srn}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -468,7 +468,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-stirling-post",
     "metaData": {
       "title": "Saved search alert",
-      "baseUrl": "https://stirling.test.fundingscotland.com",
+      "baseUrl": "https://stirling.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@stirling}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -489,7 +489,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-stirling-post",
     "metaData": {
       "title": "Saved funds alert",
-      "baseUrl": "https://stirling.test.fundingscotland.com",
+      "baseUrl": "https://stirling.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@stirling}",
       "newsTitle": "Latest news",
       "newsText": "",
@@ -510,7 +510,7 @@
     "elasticsearchType": "fundingscotland-fund,fs-stirling-post",
     "metaData": {
       "title": "Funding updates and news",
-      "baseUrl": "https://stirling.test.fundingscotland.com",
+      "baseUrl": "https://stirling.fundingscotland.com",
       "siteConfiguration": "{:../../fundingscotland/configuration/site-configurations.json@stirling}",
       "newsTitle": "Latest news",
       "newsText": "",

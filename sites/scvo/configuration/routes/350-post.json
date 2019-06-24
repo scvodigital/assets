@@ -4,7 +4,7 @@
     "post_path": "/post/*path",
     "post_id": "/p/*id(/:year)(/:month)(/:day)(/:slug)"
   },
-  "debug": true,
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

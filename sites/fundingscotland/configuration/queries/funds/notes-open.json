@@ -18,6 +18,7 @@
     "source_of_fund",
     "type_of_cost",
     "type_of_funding",
+    "funder_organisation.Id",
     "funder_organisation.slug",
     "funder_organisation.name",
     "funder_organisation.has_logo",

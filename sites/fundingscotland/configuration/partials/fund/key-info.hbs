@@ -35,11 +35,11 @@
       </a>
     </h2>
     {{/if ~}}
-    {{#ifAll funder_organisation.name funder_organisation.slug ~}}
+    {{#ifAll funder_organisation.Id funder_organisation.name funder_organisation.slug ~}}
     <ul class="fa-ul funder">
       <li class="mdc-card__info--content-primary-funder mdc-typography--body1">
         <span class="fa-li"><span class="far fa-handshake" title="Funder"></span></span>
-        <a href="/funder/{{funder_organisation.slug}}{{@root.request.url.search}}">{{funder_organisation.name}}</a>
+        <a href="/funder/{{funder_organisation.Id}}/{{funder_organisation.slug}}{{@root.request.url.search}}">{{funder_organisation.name}}</a>
       </li>
     </ul>
     {{/ifAll ~}}

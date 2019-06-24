@@ -40,12 +40,12 @@
       "should": [
         {
           "term": {
-            "Id": "{{@root.request.params.event_slug}}"
+            "Id": "{{@root.request.params.id}}"
           }
         },
         {
           "term": {
-            "event_slug": "events_{{@root.request.params.event_slug}}"
+            "event_slug": "events_{{@root.request.params.id}}"
           }
         }
       ],

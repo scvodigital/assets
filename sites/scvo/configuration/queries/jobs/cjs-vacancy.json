@@ -16,12 +16,12 @@
       "should": [
         {
           "term": {
-            "Id": "{{@root.request.params.vacancy_slug}}"
+            "Id": "{{@root.request.params.id}}"
           }
         },
         {
           "term": {
-            "slug": "{{@root.request.params.vacancy_slug}}"
+            "slug": "{{@root.request.params.id}}"
           }
         }
       ],

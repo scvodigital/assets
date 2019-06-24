@@ -1,6 +1,6 @@
 {
   "name": "event_digital_booking",
-  "pattern": "/digital/events/:event_slug(/:junk)/book",
+  "pattern": "/digital/events/:id(/:junk)/book",
   "debug": false,
   "tasks": [
     {

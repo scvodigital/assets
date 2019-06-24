@@ -1,6 +1,6 @@
 {
   "name": "event_booking",
-  "pattern": "/events/:event_slug(/:junk)/book",
+  "pattern": "/events/:id(/:junk)/book",
   "debug": false,
   "tasks": [
     {

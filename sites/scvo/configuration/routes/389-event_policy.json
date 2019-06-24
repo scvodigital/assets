@@ -1,6 +1,6 @@
 {
   "name": "event_policy",
-  "pattern": "/policy-research/events/:event_slug(/:junk)",
+  "pattern": "/policy-research/events/:id(/:junk)",
   "debug": false,
   "tasks": [
     {

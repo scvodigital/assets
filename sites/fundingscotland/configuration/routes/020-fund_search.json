@@ -1,8 +1,6 @@
 {
   "name": "fund_search",
-  "pattern": {
-    "search": "/search"
-  },
+  "pattern": "/search",
   "debug": false,
   "metaData": {
     "sidebarButton": {

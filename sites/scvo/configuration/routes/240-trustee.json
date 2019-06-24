@@ -1,6 +1,7 @@
 {
   "name": "trustee",
   "pattern": "/projects-campaigns/terrific-trustees/search/:slug",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

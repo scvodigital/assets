@@ -1,6 +1,7 @@
 {
   "name": "post_category",
   "pattern": "/post/categories/:category_slug",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

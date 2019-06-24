@@ -1,9 +1,7 @@
 {
   "name": "event_digital",
-  "pattern": {
-    "event_path": "/digital/events/:event_slug",
-    "event_id": "/digital/events/*id(/:slug)"
-  },
+  "pattern": "/digital/events/:event_slug(/:junk)",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

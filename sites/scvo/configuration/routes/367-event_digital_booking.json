@@ -1,9 +1,7 @@
 {
   "name": "event_digital_booking",
-  "pattern": {
-    "event_path": "/digital/events/:event_slug/book",
-    "event_id": "/digital/events/*id(/:slug)/book"
-  },
+  "pattern": "/digital/events/:event_slug(/:junk)/book",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

@@ -41,6 +41,7 @@
     "date_reopens",
     "date_due_to_open",
     "type_of_funding",
+    "funder_organisation.id",
     "funder_organisation.slug",
     "funder_organisation.name",
     "funder_organisation.email",

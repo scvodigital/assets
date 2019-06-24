@@ -402,8 +402,8 @@
 				},
 				{
 					"label": "Events",
-					"path": "/digital/participation/events",
-					"route": "^/digital/participation/events"
+					"path": "/digital/events",
+					"route": "^/digital/events"
 				},
 				{
 					"label": "Research",

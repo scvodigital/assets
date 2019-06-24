@@ -21,7 +21,7 @@
   ],
   "query": {
     "term": {
-      "path": "{{@root.request.url.path}}"
+      "path": "/{{replace @root.request.params.path '_' '/'}}"
     }
   }
 }

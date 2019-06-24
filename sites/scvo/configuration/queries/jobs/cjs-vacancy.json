@@ -8,11 +8,23 @@
     "application_notes",
     "job_number",
     "sub_title",
+    "title_slug",
     "title"
   ],
   "query": {
-    "term": {
-      "slug": "{{request.params.slug}}"
+    "bool": {
+      "should": [
+        {
+          "term": {
+            "Id": "{{@root.request.params.vacancy_slug}}"
+          }
+        },
+        {
+          "term": {
+            "slug": "{{@root.request.params.vacancy_slug}}"
+          }
+        }
+      ]
     }
   }
 }

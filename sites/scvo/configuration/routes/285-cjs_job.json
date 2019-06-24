@@ -1,7 +1,7 @@
 {
   "name": "cjs_job",
   "pattern": "/jobs/community-jobs-scotland/vacancies/:phase/:vacancy_slug(/:junk)",
-  "debug": true,
+  "debug": false,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

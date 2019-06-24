@@ -1,6 +1,7 @@
 {
   "name": "event_search",
   "pattern": "/events",
+  "debug": false,
   "tasks": [
     {
       "name": "primaryResponse",

@@ -25,11 +25,13 @@
         }
       ],
       "must": [
+        {{#if @root.request.params.author_slug ~}}
         {
           "term": {
             "author_slug": "{{@root.request.params.author_slug}}"
           }
         },
+        {{/if ~}}
         {
           "term": {
             "is_press_release": false

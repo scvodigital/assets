@@ -2,9 +2,9 @@
   "name": "post",
   "pattern": {
     "post_path": "/post/*path",
-    "post_id": "/p/*id(/:junk)"
+    "post_id": "/p/*id(/:year)(/:month)(/:day)(/:slug)"
   },
-  "debug": false,
+  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

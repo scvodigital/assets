@@ -17,6 +17,7 @@
           }
         }
       ],
+      {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
       "must": [
         {
           "term": {
@@ -39,6 +40,13 @@
         }
       },
       "minimum_should_match": 1
+      {{else}}
+      "must": [
+        {
+          "match_none": {}
+        }
+      ]
+      {{/if ~}}
     }
   },
   "sort": {

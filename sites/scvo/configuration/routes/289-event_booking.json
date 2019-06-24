@@ -1,6 +1,9 @@
 {
   "name": "event_booking",
-  "pattern": "/events/:event_slug/book",
+  "pattern": {
+    "event_path": "/events/:event_slug/book",
+    "event_id": "/events/*id(/:slug)/book"
+  },
   "tasks": [
     {
       "name": "primaryResponse",

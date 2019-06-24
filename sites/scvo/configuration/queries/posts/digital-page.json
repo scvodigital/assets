@@ -22,7 +22,8 @@
           ],
           "must": {
             "match_all": {}
-          },
+          }
+          {{#if @root.data.primaryResponse.hits.hits.[0] ~}},
           "should": [
             {
               "terms": {
@@ -33,6 +34,7 @@
             }
           ],
           "minimum_should_match": 1
+          {{/if ~}}
         }
       },
       "random_score": {},

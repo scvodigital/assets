@@ -26,11 +26,13 @@
         }
       ],
       "must": [
+        {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
         {
           "term": {
             "author_sfid": "{{@root.data.primaryResponse.hits.hits.[0]._source.Id}}"
           }
         },
+        {{/if ~}}
         {
           "term": {
             "is_press_release": false

@@ -27,11 +27,20 @@
   "query": {
     "bool": {
       "should": [
+        {{#if @root.request.params.id ~}}
         {
           "term": {
-            "path": "{{@root.request.url.path}}"
+            "wpid": {{@root.request.params.id}}
           }
         },
+        {{/if ~}}
+        {{#if @root.request.params.slug}}
+        {
+          "term": {
+            "post_slug": "post_{{@root.request.params.year}}_{{@root.request.params.month}}_{{@root.request.params.day}}_{{@root.request.params.slug}}"
+          }
+        },
+        {{/if ~}}
         {
           "term": {
             "post_slug": "{{@root.request.params.path}}"

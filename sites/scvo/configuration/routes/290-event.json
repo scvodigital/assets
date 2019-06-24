@@ -1,6 +1,10 @@
 {
   "name": "event",
-  "pattern": "/events/:event_slug",
+  "pattern": {
+    "event_path": "/events/:event_slug",
+    "event_id": "/events/*id(/:slug)"
+  },
+  "debug": true,
   "tasks": [
     {
       "name": "primaryResponse",

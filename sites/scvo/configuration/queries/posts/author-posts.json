@@ -18,17 +18,20 @@
         }
       ],
       "must": [
+        {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
         {
           "term": {
             "author": {{@root.data.primaryResponse.hits.hits.[0]._source.author}}
           }
         },
+        {{/if ~}}
         {
           "term": {
             "is_press_release": false
           }
         }
-      ],
+      ]
+      {{#if @root.data.primaryResponse.hits.hits.[0] ~}},
       "should": {
         "bool": {
           "must_not": {
@@ -39,6 +42,7 @@
         }
       },
       "minimum_should_match": 1
+      {{/if ~}}
     }
   },
   "sort": {

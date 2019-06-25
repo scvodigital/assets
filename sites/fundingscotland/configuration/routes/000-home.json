@@ -1,6 +1,6 @@
 {
   "name": "home",
-  "pattern": "/",
+  "pattern": ["/", ""],
   "debug": false,
   "metaData": {
     "hideSearch": true

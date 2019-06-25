@@ -64,11 +64,18 @@ header {
         flex: 0 1 auto;
         padding-right: $unit/2 !important;
       }
-      .mdc-tab-bar__auto-width {
+      #main-tab-bar.mdc-tab-bar__auto-width {
         height: auto;
-        display: inline-table;
+        display: block;
+        .mdc-tab-scroller__scroll-content {
+          display: unset;
+          flex: unset;
+        }
+        .mdc-tab {
+          display: inline-block;
+        }
         .mdc-tab:first-child {
-          padding-left: inherit;
+          padding-left: $unit/2;
         }
       }
       .mdc-top-app-bar__section--name {

@@ -20,7 +20,7 @@
             {{> current_page}}
           {{/ifAny ~}}
         </div>
-        {{#compare @root.route.name "fund_search" ~}}
+        {{#ifAll @root.data.auth (compare @root.route.name "fund_search") ~}}
         {{#>premium_content}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 text-right">
             <a href="{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query pdf=true}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
@@ -29,7 +29,7 @@
             </a>
         </div>
         {{/premium_content}}
-        {{/compare ~}}
+        {{/ifAll ~}}
       </div>
     </div>
   </div>

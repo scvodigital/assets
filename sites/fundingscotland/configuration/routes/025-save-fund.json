@@ -24,7 +24,7 @@
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "template": "{{#if request.params.query.slug}}/fund/{{request.params.query.slug}}#lists{{else}}/blank{{/if}}",
+        "template": "{{#if request.params.query.slug}}/fund/{{request.params.query.id}}/{{request.params.query.slug}}#lists{{else}}/blank{{/if}}",
         "output": "data"
       }
     },

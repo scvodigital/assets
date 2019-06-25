@@ -17,7 +17,7 @@
       <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list">
         {{#if (any @root.data.shortlistPartitions.items.[0]) ~}}
         {{#each @root.data.shortlistPartitions.items.[0] ~}}
-        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
+        <li class="mdc-list-item"{{#if first}} tabindex="0"{{/if}} data-list-name="{{partition}}">
           <span class="mdc-list-item__graphic mdc-theme--primary-bg mdc-theme--on-primary mdc-list-item__graphic-counter">
             {{length (filter (arrayify (getProperty (querystring querystring) "id")) null "valueIn" (pluck @root.data.primaryResponse.hits.hits "_id"))}}
           </span>
@@ -65,7 +65,7 @@
         {{/unless ~}}
         {{/each ~}}
         {{else}}
-        <li class="mdc-list-item" {{#if first}}tabindex="0"{{/if}} data-list-name="{{partition}}">
+        <li class="mdc-list-item"{{#if first}} tabindex="0"{{/if}} data-list-name="{{partition}}">
           <span class="mdc-list-item__text">
             <span class="mdc-list-item__primary-text">
               You haven't created any lists

@@ -7,6 +7,7 @@ html {
   font-size: 1.02rem !important;
 }
 
+strong a,
 strong {
   font-weight: 600;
 }
@@ -59,9 +60,19 @@ header {
       .mdc-top-app-bar__section--align-end {
         padding-right: 0 !important;
       }
-      .mdc-top-app-bar__user {
-        flex: 0 0 auto;
+      .mdc-top-app-bar__main {
+        flex: 0 1 auto;
         padding-right: $unit/2 !important;
+      }
+      .mdc-tab-bar__auto-width {
+        height: auto;
+        display: inline-table;
+        .mdc-tab:first-child {
+          padding-left: inherit;
+        }
+      }
+      .mdc-top-app-bar__section--name {
+        min-width: 265px;
       }
       .mdc-top-app-bar__title {
         color: white;
@@ -101,8 +112,7 @@ header {
         border-bottom-color: rgba(255, 255, 255, 0.6);
       }
     }
-    .mdc-top-app-bar__main .mdc-tab-bar,
-    .mdc-top-app-bar__user .mdc-tab-bar {
+    .mdc-top-app-bar__main .mdc-tab-bar {
       .mdc-tab:hover .mdc-tab__text-label {
         border-bottom-color: rgba(255, 255, 255, 0.75);
       }
@@ -110,9 +120,11 @@ header {
         border-bottom-color: rgba(255, 255, 255, 0.9);
       }
     }
-    .mdc-top-app-bar__main,
-    .mdc-top-app-bar__user {
+    .mdc-top-app-bar__main {
       .mdc-menu-surface--anchor {
+        .mdc-button {
+          min-width: 145px;
+        }
         .mdc-button:hover {
           border-bottom-color: rgba(255, 255, 255, 0.6);
         }
@@ -914,6 +926,9 @@ footer.mdc-layout__footer {
     height: 64px !important;
   }
   header .container-fluid .mdc-top-app-bar__row.mdc-top-app-bar__upper {
+    .mdc-top-app-bar__section--name {
+      min-width: auto;
+    }
     .mdc-top-app-bar__title {
       font-size: 1.25rem;
       margin-left: 0.5rem;

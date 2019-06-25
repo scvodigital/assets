@@ -1,7 +1,7 @@
 {
 	"size": 0,
-    "_source": false,
+	"_source": false,
 	"query": {
-        "match_none": {}
+		"match_none": {}
 	}
 }

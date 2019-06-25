@@ -1158,6 +1158,24 @@ footer {
   }
 }
 
+table {
+  width: 100%;
+  td {
+    padding: 0;
+    border-spacing: 0;
+  }
+}
+table.premium {
+  tr {
+    td {
+      text-align: center;
+    }
+    td:first-child {
+      text-align: left;
+    }
+  }
+}
+
 .mdc-drawer--open .mdc-list-item__user .mdc-list-item__text::after {
   width: 10%;
 }

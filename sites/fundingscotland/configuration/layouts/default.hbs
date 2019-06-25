@@ -116,7 +116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="{{~>asset_url url='images/logos/scvo.png'~}}" alt="Scottish Council for Voluntary Organisations" />
               </a>
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--name">
               <a href="/" class="mdc-top-app-bar__title">
                 {{@root.data.currentSite.title}}
               </a>
@@ -149,8 +149,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="far fa-fw fa-2x fa-bars"></span>
               </button>
             </section>
-          <!-- </div>
-          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> -->
+          {{!-- <!-- </div>
+          <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> --> --}}
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
               {{#> components_tab_bar
                    extraClasses="mdc-tab-bar__auto-width"
@@ -182,9 +182,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     labelClasses="mdc-theme--on-primary"
                     active=(regexMatch @root.request.url.pathname "^/news|^/post" "gi")
                     label="News"}}
+                {{#unless @root.data.auth ~}}
+                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
+                    {{> components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/each ~}}
+                {{/unless ~}}
               {{/components_tab_bar}}
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
               {{#if @root.data.auth ~}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"
@@ -202,18 +209,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </a>
                   {{/each ~}}
                 {{/components_anchored_menu}}
-              {{else}}
-                {{#>components_tab_bar
-                    extraClasses="mdc-tab-bar__auto-width"
-                    id="user-not-signed-in-tab-bar"}}
-                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
-                    {{>components_tab
-                        url=(stripTrailingSlash path)
-                        labelClasses="mdc-theme--on-primary"
-                        active=(regexMatch @root.request.url.pathname route "gi")
-                        label=label}}
-                  {{/each}}
-                {{/components_tab_bar}}
               {{/if ~}}
             </section>
           </div>
@@ -319,7 +314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="container-fluid">
             <div class="mdc-layout-grid">
               <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone contact">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone contact">
                   <h3>Contact</h3>
                   <ul class="fa-ul">
                     <li>
@@ -336,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </li>
                   </ul>
                 </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
                   <h3>Help</h3>
                   <ul class="mdc-list">
                     {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
@@ -349,7 +344,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </li>
                   </ul>
                 </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
                   <h3>Information</h3>
                   <ul class="mdc-list">
                     <li class="mdc-list-item">
@@ -363,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </li>
                   </ul>
                 </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
                   <h3>About</h3>
                   <p>
                     <strong>{{@root.data.currentSite.title}}</strong> lists funders with a track record of supporting projects in Scotland and is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>{{#compare @root.data.currentSite.name "!==" "default"}} as part of <a href="https://fundingscotland.com">Funding Scotland</a>{{/compare}}. <a href="/about">Find out more</a>

@@ -2448,7 +2448,7 @@ footer.mdc-layout__footer {
     margin: 0 0 0 $unit*1.5;
     li {
       margin-bottom: 0;
-      height: $unit*1.5;
+      min-height: $unit*1.5;
       a {
         text-decoration: none;
       }

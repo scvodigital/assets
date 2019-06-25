@@ -252,9 +252,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               Funders
             </a>
             {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
-              <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}} mdc-list-item--activated{{/if}}"
-                  href="{{default _source.menu_url (stripTrailingSlash (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") "")))}}"
-                  {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+              <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}} mdc-list-item--activated{{/if}}" href="{{default _source.menu_url (stripTrailingSlash (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") "")))}}" {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
                 {{#if _source.menu_icon ~}}
                 <span class="{{_source.menu_icon}} mdc-list-item__graphic" aria-hidden="true"></span>
                 {{/if ~}}

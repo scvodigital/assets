@@ -177,6 +177,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       active=(regexMatch @root.request.url.pathname (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") "")) "gi")
                       label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
+                {{> components_tab
+                    url="/news"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/news|^/post" "gi")
+                    label="News"}}
               {{/components_tab_bar}}
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
@@ -241,6 +246,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="far fa-search mdc-list-item__graphic" aria-hidden="true"></span>
               Funds
             </a>
+            <a class="mdc-list-item {{#compare @root.request.url.pathname "/funders"}} mdc-list-item--activated{{/compare}}"
+               href="/funders" aria-selected="true" tabindex="1">
+              <span class="far fa-search-plus mdc-list-item__graphic" aria-hidden="true"></span>
+              Funders
+            </a>
             {{#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "main") ~}}
               <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname (concat "/" _source.slug) "gi")}} mdc-list-item--activated{{/if}}"
                   href="{{default _source.menu_url (stripTrailingSlash (concat "/" _source.slug))}}"
@@ -251,6 +261,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{{default _source.menu_label _source.title}}}
               </a>
             {{/each ~}}
+            <a class="mdc-list-item {{#compare @root.request.url.pathname "/news"}} mdc-list-item--activated{{/compare}}"
+               href="/news" aria-selected="true" tabindex="1">
+              <span class="far fa-newspaper mdc-list-item__graphic" aria-hidden="true"></span>
+              News
+            </a>
 
             <div role="separator" class="mdc-list-divider"></div>
 

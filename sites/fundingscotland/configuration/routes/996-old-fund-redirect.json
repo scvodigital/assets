@@ -1,0 +1,23 @@
+{
+  "name": "old_fund_redirect",
+  "pattern": "/Funds/Fund/:slug",
+  "debug": true,
+  "tasks": [
+    {
+      "name": "url",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "/fund/{{firstItem (split request.params.slug '-')}}/{{substr request.params.slug (add (length (firstItem (split request.params.slug '-'))) 1) 100}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": ">data.url"
+      }
+    }
+  ]
+}

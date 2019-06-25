@@ -23,7 +23,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/fund/{{{@root.request.body.slug}}}#notes"
+        "template": "/fund/{{{@root.request.body.id}}}/{{{@root.request.body.slug}}}#notes"
       }
     },
     {

@@ -177,6 +177,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       active=(regexMatch @root.request.url.pathname (concat "/" (replace _source.slug (concat @root.data.currentSite.name "_") "")) "gi")
                       label=(default _source.menu_label _source.title)}}
                 {{/each ~}}
+                {{> components_tab
+                    url="/news"
+                    labelClasses="mdc-theme--on-primary"
+                    active=(regexMatch @root.request.url.pathname "^/news|^/post" "gi")
+                    label="News"}}
               {{/components_tab_bar}}
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">

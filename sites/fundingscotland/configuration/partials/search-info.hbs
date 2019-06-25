@@ -11,7 +11,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8" style="align-self: center;">
           <strong>Total results:</strong> {{addCommas paging.totalResults}}
           {{#ifAny @root.request.params.query.keywords @root.request.params.query.activities @root.request.params.query.beneficiaries @root.request.params.query.geographical_areas_funded @root.request.params.query.type_of_cost @root.request.params.query.type_of_funding @root.request.params.query.source_of_fund @root.request.params.query.miscellaneous @root.request.params.query.page ~}}
-            {{#ifAll (compare paging.totalResults ">" 50) (compare @root.route.name "!==" "posts") ~}}
+            {{#ifAll (compare paging.totalResults ">" 50) (compare @root.route.name "fund_search") ~}}
               (limited to 50 per search)
             {{else}}
               {{> current_page}}
@@ -20,14 +20,16 @@
             {{> current_page}}
           {{/ifAny ~}}
         </div>
+        {{#compare @root.route.name "fund_search" ~}}
+        {{#>premium_content}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 text-right">
-          {{#>premium_content}}
             <a href="{{@root.request.params.uri.pathname}}?{{{querystringify @root.request.params.query pdf=true}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
               <span class="fas fa-tree-alt fa-rotate-90 fa-fw r-margin"></span>
               Download results as PDF
             </a>
-          {{/premium_content}}
         </div>
+        {{/premium_content}}
+        {{/compare ~}}
       </div>
     </div>
   </div>

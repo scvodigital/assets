@@ -51,7 +51,7 @@
                           {{#with ../_source ~}}
                           <div class="map-content">
                             <h3 class="mdc-typography--headline6">
-                              <a href="{{@root.request.url.pathname}}/{{slug}}{{@root.request.url.search}}">{{title}}</a>
+                              <a href="{{@root.request.url.pathname}}/{{Id}}/{{title_slug}}{{@root.request.url.search}}">{{title}}</a>
                             </h3>
                             {{#if organisation.name ~}}
                             <div class="mdc-typography--body1 v-margin">
@@ -59,7 +59,7 @@
                             </div>
                             {{/if ~}}
                             <div class="mdc-typography--body2">
-                              <a href="{{@root.request.url.pathname}}/{{slug}}{{@root.request.url.search}}" class="mdc-card__action">Find out more</a>
+                              <a href="{{@root.request.url.pathname}}/{{Id}}/{{title_slug}}{{@root.request.url.search}}" class="mdc-card__action">Find out more</a>
                             </div>
                           </div>
                           {{/with ~}}

@@ -32,6 +32,7 @@
     "support_options",
     "goodhq_organisation.image_url",
     "title",
+    "title_slug",
     "travel_expenses",
     "work_location",
     "activities",

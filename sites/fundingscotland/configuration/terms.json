@@ -11,32 +11,32 @@
           {
             "key": "advising-and-informing",
             "label": "Advice & information",
-            "textBag": "Advice information"
+            "textBag": "Advice information, help"
           },
           {
             "key": "advocacy",
             "label": "Advocacy",
-            "textBag": "Advocacy"
+            "textBag": "Advocacy, assistance"
           },
           {
             "key": "befriending-and-mentoring",
             "label": "Befriending & mentoring",
-            "textBag": "Befriending mentoring"
+            "textBag": "Befriending mentoring, advisor, guide, councillor"
           },
           {
             "key": "financial-advice-and-support",
             "label": "Financial advice & support",
-            "textBag": "Financial advice support"
+            "textBag": "Financial advice support, finance, money"
           },
           {
             "key": "campaigning",
             "label": "Campaigning",
-            "textBag": "Campaigning"
+            "textBag": "Campaigning, campaign, lobby, champion, canvass"
           },
           {
             "key": "justice-equality-and-law",
             "label": "Justice, equality & law",
-            "textBag": "justice equality law"
+            "textBag": "justice equality law, ethics, fairness"
           }
         ]
       },
@@ -47,22 +47,22 @@
           {
             "key": "arts-and-culture",
             "label": "Arts & culture",
-            "textBag": "Arts culture, Music"
+            "textBag": "Arts culture, Music, drama, visual arts, dance, literature, opera, choir, craft, writing, poetry, painting, theatre"
           },
           {
             "key": "heritage-and-building-preservation",
             "label": "Heritage & building preservation",
-            "textBag": "Heritage building preservation"
+            "textBag": "Heritage building preservation, preservation, tradition, culture, castle"
           },
           {
             "key": "sport-and-physical-activity",
             "label": "Sport & physical activity",
-            "textBag": "Sport physical activity"
+            "textBag": "Sport physical activity, football, rugby, tennis, racket, cricket, golf, sailing, skiing, rowing, bowls, badminton, running, walking, cycling"
           },
           {
             "key": "recreation-and-social-activities",
             "label": "Recreation & social activities",
-            "textBag": "Recreation social activities"
+            "textBag": "Recreation social activities, groups, clubs, entertainment, hobby"
           },
           {
             "key": "religious-activities",
@@ -78,27 +78,27 @@
           {
             "key": "citizenship-and-community-involvement",
             "label": "Citizenship & community involvement",
-            "textBag": "Citizenship community involvement"
+            "textBag": "Citizenship community involvement, people, neighbourhood"
           },
           {
             "key": "community-development-and-regeneration",
             "label": "Community development & regeneration",
-            "textBag": "Community development regeneration"
+            "textBag": "Community development regeneration, economy"
           },
           {
             "key": "community-facilities",
             "label": "Community facilities",
-            "textBag": "Community facilities"
+            "textBag": "Community facilities, village hall, community centre"
           },
           {
             "key": "community-safety",
             "label": "Community safety",
-            "textBag": "Community safety"
+            "textBag": "Community safety, crime, anti-social behaviour, disorder, offending"
           },
           {
             "key": "transport",
             "label": "Transport",
-            "textBag": "Transport"
+            "textBag": "Transport, bus, mini bus, car, bike, walk, train, travel"
           },
           {
             "key": "disaster-and-emergency-services",
@@ -108,7 +108,7 @@
           {
             "key": "organisation-capacity-building",
             "label": "Organisational development & capacity building",
-            "textBag": "Organisational development capacity building"
+            "textBag": "Organisational development capacity building, skills, knowledge, tools, learning"
           }
         ]
       },
@@ -124,12 +124,12 @@
           {
             "key": "employability-services",
             "label": "Employability services",
-            "textBag": "Employability services"
+            "textBag": "Employability services, jobs, work, training"
           },
           {
             "key": "research",
             "label": "Research",
-            "textBag": "Research"
+            "textBag": "Research, investigation, exploration"
           },
           {
             "key": "science-and-technology",
@@ -145,17 +145,17 @@
           {
             "key": "animal-welfare",
             "label": "Animal welfare",
-            "textBag": "Animal welfare, Wildlife"
+            "textBag": "Animal welfare, Wildlife, dogs, cats, horses, rabbits, pets"
           },
           {
             "key": "environment",
             "label": "Environment",
-            "textBag": "Environment"
+            "textBag": "Environment, habitat, nature, wildlife, countryside, biosphere, ecosystem, landscape, woods, oceans, rivers, conservation"
           },
           {
             "key": "energy",
             "label": "Energy",
-            "textBag": "Energy"
+            "textBag": "Energy, power, renewables, wind, solar, heat, biomass, insulation"
           }
         ]
       },
@@ -166,17 +166,17 @@
           {
             "key": "health-care-and-wellbeing",
             "label": "Health care & wellbeing",
-            "textBag": "Health care wellbeing"
+            "textBag": "Health care wellbeing, hospital, nurse, help"
           },
           {
             "key": "health-education-and-promotion",
             "label": "Health education & promotion",
-            "textBag": "Health education promotion"
+            "textBag": "Health education promotion, dental, nutrition"
           },
           {
             "key": "heritage-and-building-preservation",
             "label": "Heritage & building preservation",
-            "textBag": "Heritage building preservation"
+            "textBag": "Heritage building preservation, architecture, historic, church, castle"
           },
           {
             "key": "mental-health-care",
@@ -186,17 +186,17 @@
           {
             "key": "social-care-and-welfare",
             "label": "Social care & welfare",
-            "textBag": "Social care welfare"
+            "textBag": "Social care welfare, support, help"
           },
           {
             "key": "respite-and-holidays",
             "label": "Respite & holidays",
-            "textBag": "Respite holidays"
+            "textBag": "Respite holidays, care, carer breaks"
           },
           {
             "key": "housing-and-shelter",
             "label": "Housing & shelter",
-            "textBag": "Housing shelter"
+            "textBag": "Housing shelter, homeless accomodation home"
           }
         ]
       },
@@ -230,12 +230,12 @@
           {
             "key": "older-people",
             "label": "Older people",
-            "textBag": "Older people, Elderly"
+            "textBag": "Older people, Elderly, pensioners, senior citizens"
           },
           {
             "key": "young-people",
             "label": "Young people",
-            "textBag": "Young people"
+            "textBag": "Young people, kids, youngsters"
           }
         ]
       },
@@ -251,7 +251,7 @@
           {
             "key": "men",
             "label": "Men",
-            "textBag": "Men, Males"
+            "textBag": "Men, Males, Blokes, Guys, Man"
           },
           {
             "key": "carers",
@@ -266,7 +266,7 @@
           {
             "key": "women-and-girls",
             "label": "Women & girls",
-            "textBag": "Women, Girls, Ladies"
+            "textBag": "Women, Girls, Ladies, Woman"
           }
         ]
       },
@@ -277,7 +277,7 @@
           {
             "key": "ill-health",
             "label": "Ill-health",
-            "textBag": "Ill-health, Sick"
+            "textBag": "Ill-health, Sick, Ill, Unwell"
           },
           {
             "key": "disabilities",
@@ -297,7 +297,7 @@
           {
             "key": "sensory-impairments",
             "label": "Sensory impairments",
-            "textBag": "Sensory impairments, Deaf, Blind, Visual, Mute"
+            "textBag": "Sensory impairments, Deaf, Blind, Visual, Mute, Impared"
           },
           {
             "key": "mental-health-conditions",
@@ -313,7 +313,7 @@
           {
             "key": "people-in-poverty",
             "label": "People in poverty",
-            "textBag": "People in poverty, Poor"
+            "textBag": "People in poverty, Poor, Financial hardship"
           },
           {
             "key": "economicallysocially-disadvantaged",
@@ -338,27 +338,27 @@
           {
             "key": "unemployed",
             "label": "Unemployed",
-            "textBag": "Unemployed"
+            "textBag": "Unemployed, Jobless, Work, Workless, Unwaged, Unoccupied, Redundant, Sacked, Dole, Welfare"
           },
           {
             "key": "addicts-and-misusers",
             "label": "Addicts & Misusers",
-            "textBag": "Addicts Misusers, Drugs"
+            "textBag": "Addicts Misusers, Drugs, Alcoholic"
           },
           {
             "key": "victims-of-crime-and-abuse",
             "label": "Victims of crime & abuse",
-            "textBag": "Victims of crime abuse"
+            "textBag": "Victims of crime abuse, Rape, Violence"
           },
           {
             "key": "veterans-and-armed-forces-personnel",
             "label": "Veterans & armed forces personnel",
-            "textBag": "Veterans armed forces personnel"
+            "textBag": "Veterans armed forces personnel, Army, Navy, Naval, Airforce, Soldier, Sailor"
           },
           {
             "key": "offenders-and-ex-offenders",
             "label": "Offenders & ex-offenders",
-            "textBag": "Offenders ex-offenders"
+            "textBag": "Offenders ex-offenders, prisoner, criminal"
           },
           {
             "key": "refugees-and-asylum-seekers",
@@ -368,7 +368,7 @@
           {
             "key": "black-and-ethnic-minorities",
             "label": "Black & Ethnic Minorities",
-            "textBag": "Black Ethnic Minorities, Asian, Pakistani, Indian, Chinese, Caribbean, African, Bangladeshi, Arab"
+            "textBag": "Black Ethnic Minorities, Asian, Pakistani, Indian, Chinese, Caribbean, African, Bangladeshi, Arab, Gypsy, Traveller"
           }
         ]
       },
@@ -379,12 +379,12 @@
           {
             "key": "rural-communities",
             "label": "Rural communities",
-            "textBag": "Rural communities"
+            "textBag": "Rural communities, Countryside"
           },
           {
             "key": "urban-communities",
             "label": "Urban communities",
-            "textBag": "Urban communities"
+            "textBag": "Urban communities, City, Cities, Towns"
           },
           {
             "key": "local-communities",
@@ -410,12 +410,12 @@
           {
             "key": "third-sector-organisations",
             "label": "Third sector organisations",
-            "textBag": "Third sector organisations"
+            "textBag": "Third sector organisations, voluntary groups, charities, clubs"
           },
           {
             "key": "religious-and-belief-groups",
             "label": "Religious & Belief Groups",
-            "textBag": "Religious Belief Groups"
+            "textBag": "Religious Belief Groups, church, faith"
           }
         ]
       }

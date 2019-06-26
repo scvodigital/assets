@@ -16,7 +16,6 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.profileData",
     {
       "name": "profile",
       "taskModule": "firebaseRtbGet",

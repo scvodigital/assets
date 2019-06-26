@@ -1,16 +1,16 @@
 <form id="sign-in-form" method="POST" class="sign-in-form">
   <div class="mdc-typography--headline5">
-    {{#if @root.request.params.query.reauth}}
+    {{#if @root.request.params.query.reauth ~}}
       Reauthenticate
     {{else}}
       Sign in with your Funding Scotland account
-    {{/if}}
+    {{/if ~}}
   </div>
-  {{#if @root.request.params.query.reauth}}
+  {{#if @root.request.params.query.reauth ~}}
   <div class="mdc-typography--headline6 v-margin">
     Before you can do that you must sign in again
   </div>
-  {{/if}}
+  {{/if ~}}
   {{#compare @root.data.currentSite.name "default" ~}}
   {{#>help_box id="sign-in-migration"}}
   Funding Scotland previously allowed sign in without a password, you now need to <a href="/reset-password?email={{urlencode @root.request.params.query.email}}">set a password</a>

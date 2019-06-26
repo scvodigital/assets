@@ -5,6 +5,7 @@
     "Id",
     "slug",
     "title",
+    "title_slug",
     "description",
     "course_overview",
     "rendered.post_info_booked",

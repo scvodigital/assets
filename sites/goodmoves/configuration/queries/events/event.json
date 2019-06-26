@@ -4,6 +4,7 @@
     "Id",
     "title",
     "slug",
+    "title_slug",
     "course_type",
     "course_overview",
     "description",

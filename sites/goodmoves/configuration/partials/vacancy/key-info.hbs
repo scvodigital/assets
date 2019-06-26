@@ -3,7 +3,7 @@
   <div class="mdc-card__info--content-primary">
     {{#if organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--content-secondary pull-right">
-      <a href="/organisation/{{organisation.slug}}{{@root.request.url.search}}">
+      <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{@root.request.url.search}}">
         <img src="{{organisation.logo_url}}" alt="{{organisation.name}}" loading="lazy" />
       </a>
     </div>
@@ -18,7 +18,7 @@
     {{/compare ~}}
     {{/compare ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
-      <a href="/vacancy/{{slug}}{{@root.request.url.search}}">
+      <a href="/vacancy/{{Id}}/{{title_slug}}{{@root.request.url.search}}">
         {{#if top_job}}<span class="top-content">Top job!</span>{{/if}}
         <span class="hover-underline">{{title}}</span>
       </a>
@@ -26,7 +26,7 @@
     <ul class="fa-ul organisation">
       <li class="mdc-card__info--content-primary-secondary mdc-typography--body1">
         <span class="fa-li"><span class="far fa-building fa-fw" title="Organisation"></span></span>
-        <a href="/organisation/{{organisation.slug}}{{@root.request.url.search}}">{{organisation.name}}</a>
+        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{@root.request.url.search}}">{{organisation.name}}</a>
       </li>
     </ul>
     <!-- <div class="mdc-layout-grid hide-md hide-lg">

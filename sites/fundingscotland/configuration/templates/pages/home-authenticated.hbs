@@ -35,16 +35,16 @@
     <div class="mdc-layout-grid home-heading">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          {{#ifAll @root.data.searches.items.[0] (compare @root.data.primaryResponse.personalised.hits.total ">" 0) ~}}
+          {{#ifAll @root.data.searches.items.[0] (compare @root.data.primaryResponse.personalised.hits.total ">" 0) (ifAny @root.data.profile.isPremium (compare @root.data.currentSite.name "!==" "default")) ~}}
           <h2 class="mdc-typography--headline6">
-            Your latest funds&ensp;
+            Recently reviewed funds matching your search preferences&ensp;
             <span class="mdc-typography--body1">
               <a href="/searches">Your searches</a>
             </span>
           </h2>
           {{else}}
           <h2 class="mdc-typography--headline6">
-            Latest funds&ensp;
+            Recently reviewed funds&ensp;
             <span class="mdc-typography--body1">
               <a href="/search?sort=date_last_reviewed">Find more</a>
             </span>

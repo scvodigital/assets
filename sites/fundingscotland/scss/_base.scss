@@ -1092,6 +1092,11 @@ footer.mdc-layout__footer {
   cursor: pointer;
 }
 
+.mdc-theme--error-dark a,
+.mdc-theme--error-dark a:hover {
+  color: $mdc-theme-error-dark !important;
+}
+
 .help-box {
   .help-box__dismiss-button {
     width: auto;

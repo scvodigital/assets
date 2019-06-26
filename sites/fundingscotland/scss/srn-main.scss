@@ -23,7 +23,7 @@ $mdc-theme-footer-light: #E1E3E4;
 $mdc-theme-footer-dark: #263238; // Blue Gray 900
 
 $mdc-theme-success: #4caf50;
-$mdc-theme-success-light: lighten($mdc-theme-success, 15%);
+$mdc-theme-success-light: lighten($mdc-theme-success, 55%);
 $mdc-theme-success-dark: darken($mdc-theme-success, 15%);
 
 $mdc-theme-info: #2871A9;
@@ -31,11 +31,11 @@ $mdc-theme-info-light: #E5F4FA;
 $mdc-theme-info-dark: #36577A;
 
 $mdc-theme-warning: #8b6d11;
-$mdc-theme-warning-light: lighten($mdc-theme-warning, 15%);
+$mdc-theme-warning-light: lighten($mdc-theme-warning, 55%);
 $mdc-theme-warning-dark: darken($mdc-theme-warning, 15%);
 
 $mdc-theme-error: #A9201E;
-$mdc-theme-error-light: lighten($mdc-theme-error, 15%);
+$mdc-theme-error-light: lighten($mdc-theme-error, 55%);
 $mdc-theme-error-dark: darken($mdc-theme-error, 15%);
 
 $mdc-theme-tfn: #3b9db1;

@@ -1,8 +1,8 @@
 {
   "@context": "http://schema.org",
   "@type": "JobPosting",
-  "@id": "https://goodmoves.com/vacancy/{{slug}}",
-  "url": "https://goodmoves.com/vacancy/{{slug}}",
+  "@id": "https://goodmoves.com/vacancy/{{Id}}/{{title_slug}}",
+  "url": "https://goodmoves.com/vacancy/{{Id}}/{{title_slug}}",
   "identifier": "{{reference_number}}",
   "baseSalary": {
     "@type": "MonetaryAmount",

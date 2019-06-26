@@ -44,12 +44,11 @@
     </ul>
     {{/ifAll ~}}
     <div class="fund-details mdc-typography--body1">
-      {{#if date_last_important_activity ~}}
+      {{#ifAll (compare @root.route.name "!==" "fund") date_last_modified ~}}
       <span class="key-info-bit r-margin-full">
-        <strong>Updated:</strong>
-        {{{momentFormat (moment date_last_modified "x") "Do MMMM YYYY"}}}
+        Last reviewed {{{momentFromNow (moment date_last_modified "x") "Do MMMM YYYY"}}}
       </span>
-      {{/if ~}}
+      {{/ifAll ~}}
       {{#if type_of_funding ~}}
       {{#compare (length (arrayify type_of_funding)) ">" 0 ~}}
       <span class="key-info-bit r-margin-full">

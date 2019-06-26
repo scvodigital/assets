@@ -1,8 +1,16 @@
 <div id="detailed-results-container" class="container-content content-settings settings fundingscotland-settings">
   <section class="settings-section settings-email fundingscotland-settings-email">
     <h1 class="mdc-typography--headline3">
-      Site settings
+      {{@root.data.currentSite.title}} settings
     </h1>
+    {{#if @root.data.profile.default.isPremium ~}}
+    <h2 class="mdc-typography--headline5 b-margin-full">
+      Premium
+    </h2>
+    <p>
+      Your premium account is active till the {{momentFormat (moment @root.data.profile.default.isPremium 'x') 'Do \o\f MMMM, YYYY'}}.
+    </p>
+    {{/if ~}}
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
@@ -10,7 +18,6 @@
           <h2 class="mdc-typography--headline5 b-margin-full">
             Weekly bulletin
           </h2>
-
           <p>
             In the weekly bulletin you will receive funding news and updates, and information on any recently opened or updated funds.
           </p>
@@ -31,12 +38,10 @@
           <h2 class="mdc-typography--headline5 b-margin-full">
             Unsubscribe from everything
           </h2>
-
           <p>
             You can unsubscribe from all saved search alerts, saved fund alerts, and weekly bulletins
             by clicking on the button below. You can resubscribe to any of these at any time
           </p>
-
           {{#ifAny
             (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
             @root.data.shortlist.items.[0].[0].active
@@ -57,7 +62,7 @@
     </div>
   </section>
 
-  <hr>
+  <hr />
 
   <section class="settings-section settings-email fundingscotland-settings-email t-padding-full">
     <h1 class="mdc-typography--headline3">

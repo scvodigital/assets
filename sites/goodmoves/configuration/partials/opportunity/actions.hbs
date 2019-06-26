@@ -1,10 +1,10 @@
 <div class="mdc-card__actions">
   <div class="mdc-card__action-buttons demo-card__action-buttons--text-only mdc-card__actions--full-bleed">
     {{#compare action "===" "organisation" ~}}
-    <a href="https://search.volunteerscotland.net/organisation/{{organisation_slug}}?utm_source=Goodmoves" class="mdc-card__action hide-sm">Find out more about {{organisation_name}}</a>
+    <a href="https://search.volunteerscotland.net/organisation/{{organisation_id}}/{{organisation_name_slug}}?utm_source=Goodmoves" class="mdc-card__action hide-sm">Find out more about {{organisation_name}}</a>
     {{else}}
-    <a href="https://search.volunteerscotland.net/opportunity/{{slug}}?utm_source=Goodmoves" class="mdc-card__action hide-sm">Find out more</a>
-    <a href="https://search.volunteerscotland.net/opportunity/{{slug}}?utm_source=Goodmoves" class="mdc-card__action hide-md hide-lg"><span class="fal fa-info-circle fa-fw fa-2x" aria-hidden="true"></span></a>
+    <a href="https://search.volunteerscotland.net/opportunity/{{Id}}/{{title_slug}}?utm_source=Goodmoves" class="mdc-card__action hide-sm">Find out more</a>
+    <a href="https://search.volunteerscotland.net/opportunity/{{Id}}/{{title_slug}}?utm_source=Goodmoves" class="mdc-card__action hide-md hide-lg"><span class="fal fa-info-circle fa-fw fa-2x" aria-hidden="true"></span></a>
     {{/compare ~}}
   </div>
 </div>

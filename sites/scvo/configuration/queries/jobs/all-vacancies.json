@@ -4,7 +4,11 @@
   "_source": [
     "geo_coords",
     "organisation.name",
+    "organisation.id",
+    "organisation.name_slug",
     "slug",
+    "Id",
+    "title_slug",
     "title"
   ],
   "query": {

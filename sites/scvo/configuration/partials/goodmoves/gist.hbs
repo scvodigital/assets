@@ -3,14 +3,14 @@
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-1-phone">
         {{#if organisation.has_logo ~}}
-        <a href="/organisation/{{organisation.slug}}" title="More jobs with {{organisation.name}}" class="thumbnail">
+        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}" title="More jobs with {{organisation.name}}" class="thumbnail">
           <img src="{{~>asset_url url='images/1x1.png'~}}" alt="{{organisation.name}}" class="logo" data-lazy-image='{ "type": "src", "url": "{{organisation.logo_url}}" }' />
         </a>
         {{/if ~}}
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
         <h3 class="mdc-card__title mdc-typography--headline">
-          <a href="https://goodmoves.com/vacancy/{{slug}}">{{{title}}} - {{{organisation.name}}}</a>
+          <a href="https://goodmoves.com/vacancy/{{Id}}/{{title_slug}}">{{{title}}} - {{{organisation.name}}}</a>
         </h3>
         <h4 class="mdc-card__subtitle post-info">
           <div class="post-info-item post-info-closing-date">

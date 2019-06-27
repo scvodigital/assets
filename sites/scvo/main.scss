@@ -123,11 +123,11 @@ secondary-light: #FFA000,
 secondary-dark: #FF6F00
 ),
 funding-scotland: (
-primary: #71B745,
-primary-overlay-start: #71B745,
-primary-overlay-end: #71B745,
-primary-light: #71B745,
-primary-dark: #689F38,
+primary: #537F2C,
+primary-overlay-start: #537F2C,
+primary-overlay-end: #537F2C,
+primary-light: #f2f7ef,
+primary-dark: #2e4618,
 secondary: #FF8F00,
 secondary-light: #FFA000,
 secondary-dark: #FF6F00
@@ -3266,12 +3266,12 @@ table.membership-fees {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/cjs-logo.png');
     background-size: contain;
   }
-  .funding-scotland .mdc-card__media {
+  .funding-scotland .mdc-card__primary {
     background-color: #8AC645 !important;
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/funding-scotland.png');
-    background-size: 60%;
-    background-position: left center;
-    background-position-x: $unit;
+    // background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/funding-scotland.png');
+    // background-size: 60%;
+    // background-position: left center;
+    // background-position-x: $unit;
   }
   .goodhq .mdc-card__media {
     background-color: #4033E9 !important;

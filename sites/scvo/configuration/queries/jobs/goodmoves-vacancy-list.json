@@ -2,8 +2,16 @@
   "size": 9,
   "_source": [
     "rendered.scvo_gist",
-    "Id", "organisation.has_logo", "organisation.logo_url",
-    "organisation.name", "organisation.slug", "slug", "title",
+    "Id",
+    "organisation.has_logo",
+    "organisation.logo_url",
+    "organisation.name",
+    "organisation.id",
+    "organisation.name_slug",
+    "organisation.slug",
+    "slug",
+    "title",
+    "title_slug",
     "closing_date"
   ],
   "query": {

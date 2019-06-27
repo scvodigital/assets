@@ -1,8 +1,16 @@
 {
   "size": 3,
   "_source": [
-    "Id", "organisation.has_logo", "organisation.logo_url",
-    "organisation.name", "organisation.slug", "slug", "title",
+    "Id",
+    "organisation.has_logo",
+    "organisation.logo_url",
+    "organisation.id",
+    "organisation.name_slug",
+    "organisation.name",
+    "organisation.slug",
+    "slug",
+    "title",
+    "title_slug",
     "closing_date"
   ],
   "query": {

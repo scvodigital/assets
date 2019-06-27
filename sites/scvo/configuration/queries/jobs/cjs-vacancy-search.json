@@ -5,7 +5,10 @@
     "Id",
     "slug",
     "title",
+    "title_slug",
     "organisation.name",
+    "organisation.id",
+    "organisation.name_slug",
     "geo_coords",
     "rendered.scvo_list"
   ],

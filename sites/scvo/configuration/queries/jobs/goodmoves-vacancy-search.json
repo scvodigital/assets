@@ -2,12 +2,16 @@
   "size": 10,
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 10}},
   "_source": [
+    "Id",
     "title",
+    "title_slug",
     "closing_date",
     "location",
     "description_short",
     "organisation.slug",
     "organisation.name",
+    "organisation.id",
+    "organisation.name_slug",
     "slug"
   ],
   "query": {

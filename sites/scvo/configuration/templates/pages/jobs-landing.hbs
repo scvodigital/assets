@@ -61,9 +61,9 @@
                   <div class="map-content map-content-{{../_type}}">
                     <h3 class="mdc-typography--headline6">
                       {{#compare ../_type "===" "goodmoves-vacancy"}}
-                        <a href="https://goodmoves.com/vacancy/{{../_source.slug}}" class="mdc-card__action">{{../_source.title}}</a>
+                        <a href="https://goodmoves.com/vacancy/{{../_source.Id}}/{{../_source.title_slug}}" class="mdc-card__action">{{../_source.title}}</a>
                       {{else}}
-                        <a href="/jobs/community-jobs-scotland/vacancies/p19v/{{../_source.slug}}" class="mdc-card__action">{{../_source.title}}</a>
+                        <a href="/jobs/community-jobs-scotland/vacancies/p19v/{{../_source.Id}}/{{../_source.title_slug}}" class="mdc-card__action">{{../_source.title}}</a>
                       {{/compare}}
                     </h3>
                     {{#if ../_source.organisation.name ~}}
@@ -73,9 +73,9 @@
                     {{/if ~}}
                     <div class="mdc-typography--body2">
                       {{#compare ../_type "===" "goodmoves-vacancy"}}
-                        <a href="https://goodmoves.com/vacancy/{{../_source.slug}}" class="mdc-card__action">Find out more on Goodmoves</a>
+                        <a href="https://goodmoves.com/vacancy/{{../_source.Id}}/{{../_source.title_slug}}" class="mdc-card__action">Find out more on Goodmoves</a>
                       {{else}}
-                        <a href="/jobs/community-jobs-scotland/vacancies/p19v/{{../_source.slug}}" class="mdc-card__action">Find out more</a>
+                        <a href="/jobs/community-jobs-scotland/vacancies/p19v/{{../_source.Id}}/{{../_source.title_slug}}" class="mdc-card__action">Find out more</a>
                       {{/compare}}
                     </div>
                   </div>

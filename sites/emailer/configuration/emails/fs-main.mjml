@@ -143,7 +143,7 @@
 
                 <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                   <strong>Organisation:</strong>
-                  <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.id}}/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.funder_organisation.name}}}
                   </a>
                 </mj-text>
@@ -175,7 +175,7 @@
                 <mj-raw>{{/if}}</mj-raw>
 
                 <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif" line-height="18px">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Find out more &gt;
                   </a>
                 </mj-text>

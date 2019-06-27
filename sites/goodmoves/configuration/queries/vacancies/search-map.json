@@ -3,8 +3,11 @@
   "_source": [
     "Id",
     "title",
+    "title_slug",
     "organisation.name",
     "organisation.logo",
+    "organisation.id",
+    "organisation.name_slug",
     "geo_coords",
     "regions_scotland_slugs",
     "active",

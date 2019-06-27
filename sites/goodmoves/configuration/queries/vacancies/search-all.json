@@ -6,6 +6,7 @@
     "top_job",
     "description",
     "title",
+    "title_slug",
     "geo_coords",
     "home_based",
     "various_locations",
@@ -19,6 +20,8 @@
     "end_at",
     "organisation.slug",
     "organisation.name",
+    "organisation.id",
+    "organisation.name_slug",
     "organisation.has_logo",
     "organisation.logo_url",
     "rendered.goodmoves_rss"

@@ -3,6 +3,7 @@
   "_source": [
     "Id",
     "slug",
+    "title_slug",
     "top_job",
     "description",
     "title",
@@ -15,7 +16,9 @@
     "closing_date",
     "start_at",
     "end_at",
+    "organisation.id",
     "organisation.slug",
+    "organisation.name_slug",
     "organisation.name"
   ],
   "query": {

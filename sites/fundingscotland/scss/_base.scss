@@ -1092,6 +1092,11 @@ footer.mdc-layout__footer {
   cursor: pointer;
 }
 
+.mdc-theme--error-dark a,
+.mdc-theme--error-dark a:hover {
+  color: $mdc-theme-error-dark !important;
+}
+
 .help-box {
   .help-box__dismiss-button {
     width: auto;
@@ -1160,9 +1165,9 @@ footer {
 
 table {
   width: 100%;
+  border-spacing: 0;
   td {
     padding: 0;
-    border-spacing: 0;
   }
 }
 table.premium {
@@ -1172,6 +1177,11 @@ table.premium {
     }
     td:first-child {
       text-align: left;
+    }
+    td:nth-child(3) {
+      background-color: $mdc-theme-primary;
+      color: white;
+      zoom: 1.2;
     }
   }
 }

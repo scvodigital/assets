@@ -6,11 +6,9 @@
         recipientId=(slugify (concat campaign " " email))
         searchData=(getProperty @root.data.search_data (concat (slugify (concat campaign " " email)) ".hits.hits"))
       }}
-        {{#>should_send
-          sendIfEmpty=campaignConfig.sendIfEmpty
-          searchData=searchData
-          importantType=(default campaignConfig.importantType null)
-        }}
+        {{#ifAny sendIfEmpty
+            (ifAll importantType (any (filter searchData "_type" "===" importantType)))
+            (ifAll (if importantType false else=true) (any searchData))}}
           {{#json}}
             {{{json key="from" value=campaignConfig.from}}},
             {{{json key="h:sender" value=campaignConfig.from}}},
@@ -40,7 +38,7 @@
               ~}}
             {{/json}}
           {{/json}}
-        {{/should_send}}
+        {{/ifAny}}
       {{/withExtend}}
     {{/each}}
   {{/if}}

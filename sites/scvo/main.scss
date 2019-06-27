@@ -3266,13 +3266,6 @@ table.membership-fees {
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/cjs-logo.png');
     background-size: contain;
   }
-  .funding-scotland .mdc-card__primary {
-    background-color: #537F2C !important;
-    // background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/funding-scotland.png');
-    // background-size: 60%;
-    // background-position: left center;
-    // background-position-x: $unit;
-  }
   .goodhq .mdc-card__media {
     background-color: #4033E9 !important;
     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/banners/goodhq.png');
@@ -3325,6 +3318,9 @@ table.membership-fees {
     background-image: url('https://storage.googleapis.com/scvo-wordpress-media/2019/03/0f9b1f2c-toolkit.jpg');
     background-position: center center;
   }
+}
+.page-content .support.support-organisation .funding-scotland .mdc-card__primary {
+  background-color: #537F2C !important;
 }
 .support.support-digital {
   .mdc-card__primary {

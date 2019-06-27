@@ -1,6 +1,6 @@
 {
   "name": "fund_pdf",
-  "pattern": "/fund-pdf/:slug",
+  "pattern": "/fund-pdf/:id",
   "debug": false,
   "metaData": {
     "pdf": {

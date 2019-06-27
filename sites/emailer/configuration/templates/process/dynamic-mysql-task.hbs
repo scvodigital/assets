@@ -1,0 +1,51 @@
+{{#ifAll (any @root.data.notifications.subscriptions.[1]) @root.data.search_data}}
+  {{#json}}
+    {{{json key="name" value="nothing_to_send"}}},
+    {{{json key="taskModule" value="mysql"}}},
+    {{{json key="handlebars" value="handlebars"}}},
+    {{#json key="config"}}
+      {{{json key="connectionName" value="notifications"}}},
+      {{#json key="queryTemplates" type="array"}}
+        {{#each @root.data.notifications.subscriptions.[1]}}
+          {{#withExtend this
+              campaignConfig=(getProperty @root.context.metaData.campaignConfig campaign)
+              recipientId=(slugify (concat campaign " " email))
+              searchData=(getProperty @root.data.search_data (concat (slugify (concat campaign " " email)) ".hits.hits"))
+            }}
+            {{~#json type="string" ~}}
+              CALL _log(
+                NULL,
+                {{{mysqlEscape (slugify (concat campaign " " email " " (random 1000000000 9999999999)))}}},
+                {{{mysqlEscape campaign}}},
+                {{{mysqlEscape email}}},
+                {{#ifAny campaignConfig.sendIfEmpty
+                    (ifAll (default campaignConfig.importantType null) (any (filter searchData "_type" "===" importantType)))
+                    (ifAll (if (default campaignConfig.importantType null) false else=true) (any searchData))}}
+                  {{{mysqlEscape 'sent-to-mailgun'}}}
+                {{~else~}}
+                  {{{mysqlEscape 'nothing-to-send'}}}
+                {{~/ifAny~}},
+                {{{mysqlEscape 'info'}}},
+                {{{mysqlEscape (concat 'jobId: ' jobId)}}},
+                {{{mysqlEscape (momentFormat (moment "") "X")}}},
+                NULL,
+                NULL
+              );
+            {{~/json ~}}
+          {{/withExtend}}
+        {{/each}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{else}}
+{
+  "name": "nothing_to_send",
+  "taskModule": "render",
+  "renderer": "handlebars",
+  "config": {
+    "output": "data",
+    "template": "{ \"status\": \"No more subscriptions to process\" }",
+    "parseJson": true
+  }
+}
+{{/ifAll}}

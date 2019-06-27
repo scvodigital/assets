@@ -33,7 +33,7 @@
         {{#>premium_content}}
           {{#if @root.data.auth ~}}
             {{#if (contains actions "pdf") ~}}
-              <a href="/fund-pdf/{{slug}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-card__action--download-pdf" title="Download fund as PDF">
+              <a href="/fund-pdf/{{Id}}" class="mdc-icon-button mdc-card__action mdc-card__action--icon mdc-card__action--download-pdf" title="Download fund as PDF" download>
                 <span class="far fa-file-pdf" aria-hidden="true"></span>
               </a>
             {{/if}}

@@ -23,7 +23,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/"
+        "template": "/premium-activated"
       }
     },
     {

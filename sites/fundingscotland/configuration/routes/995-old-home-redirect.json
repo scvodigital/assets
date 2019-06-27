@@ -1,6 +1,6 @@
 {
-  "name": "old_fund_redirect",
-  "pattern": "/Funds/Fund/:slug",
+  "name": "old_home_redirect",
+  "pattern": "/Account/MemberLoginRegister",
   "debug": false,
   "tasks": [
     {
@@ -9,7 +9,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/fund/{{firstItem (split request.params.slug '-')}}/{{substr request.params.slug (add (length (firstItem (split request.params.slug '-'))) 1) 100}}"
+        "template": "/"
       }
     },
     {

@@ -156,7 +156,7 @@
                 <mj-raw>{{#if _source.date_last_important_activity}}</mj-raw>
                   <mj-raw>{{#compare _source.date_last_important_activity _source.date_news_last_updated}}</mj-raw>
                     <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
-                      <strong>News - {{momentFormat (moment _source.data_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
+                      <strong>News - {{momentFormat (moment _source.date_news_last_updated "x") "Do MMMM YYYY"}}:</strong>
                       {{{removeEntities (stripTags _source.news)}}}
                     </mj-text>
                   <mj-raw>{{/compare}}</mj-raw>

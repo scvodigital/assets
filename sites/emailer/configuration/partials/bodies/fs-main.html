@@ -369,7 +369,9 @@
       
               </td>
             </tr>
-          
+          <![endif]-->
+                {{#ifAny (any importantNews) (any bulletinNews)}}
+                  <!--[if mso | IE]>
             <tr>
               <td
                  class="" width="600px"
@@ -381,12 +383,12 @@
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
       <![endif]-->
-                <div style="Margin:0px auto;max-width:600px;">
-                  <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
-                    <tbody>
-                      <tr>
-                        <td style="direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;">
-                          <!--[if mso | IE]>
+                  <div style="Margin:0px auto;max-width:600px;">
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+                      <tbody>
+                        <tr>
+                          <td style="direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;">
+                            <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 
         <tr>
@@ -395,23 +397,23 @@
                class="" style="vertical-align:top;width:600px;"
             >
           <![endif]-->
-                          <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
-                            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
-                              <tbody>
-                                <tr>
-                                  <td style="vertical-align:top;padding:30px 15px 15px 15px;">
-                                    <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
-                                      <tr>
-                                        <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
-                                          <div style="font-family:sans-serif;font-size:24px;line-height:1;text-align:left;color:#37474F;">
-                                            {{{campaignConfig.metaData.newsTitle}}} </div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td style="font-size:0px;padding:10px 0px;word-break:break-word;">
-                                          <p style="border-top:solid 1px {{colours.secondary}};font-size:1;margin:0px auto;width:100%;">
-                                          </p>
-                                          <!--[if mso | IE]>
+                            <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                                <tbody>
+                                  <tr>
+                                    <td style="vertical-align:top;padding:30px 15px 15px 15px;">
+                                      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                                        <tr>
+                                          <td align="left" style="font-size:0px;padding:0px;word-break:break-word;">
+                                            <div style="font-family:sans-serif;font-size:24px;line-height:1;text-align:left;color:#37474F;">
+                                              {{{campaignConfig.metaData.newsTitle}}} </div>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td style="font-size:0px;padding:10px 0px;word-break:break-word;">
+                                            <p style="border-top:solid 1px {{colours.secondary}};font-size:1;margin:0px auto;width:100%;">
+                                            </p>
+                                            <!--[if mso | IE]>
         <table
            align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:solid 1px {{colours.secondary}};font-size:1;margin:0px auto;width:570px;" role="presentation" width="570px"
         >
@@ -422,27 +424,27 @@
           </tr>
         </table>
       <![endif]-->
-                                        </td>
-                                      </tr>
-                                    </table>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                          <!--[if mso | IE]>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!--[if mso | IE]>
             </td>
           
         </tr>
       
                   </table>
                 <![endif]-->
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!--[if mso | IE]>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!--[if mso | IE]>
           </td>
         </tr>
       </table>
@@ -450,7 +452,7 @@
               </td>
             </tr>
           <![endif]-->
-                {{#ifAny (any importantNews) (any bulletinNews)}}{{#if campaignConfig.metaData.newsText}}
+                  {{#if campaignConfig.metaData.newsText}}
                     <!--[if mso | IE]>
             <tr>
               <td
@@ -742,7 +744,8 @@
               </td>
             </tr>
           <![endif]-->
-                    {{/if}}{{/ifAny}}
+                    {{/if}}
+                {{/ifAny}}
                 <!--[if mso | IE]>
             <tr>
               <td

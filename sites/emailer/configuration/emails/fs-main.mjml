@@ -160,12 +160,14 @@
                       {{{removeEntities (stripTags _source.news)}}}
                     </mj-text>
                   <mj-raw>{{/compare}}</mj-raw>
+
                   <mj-raw>{{#compare _source.date_last_important_activity _source.date_reopened}}</mj-raw>
                     <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                       <strong>Date re-opened:</strong>
                       {{momentFormat (moment _source.date_reopened "x") "Do MMMM YYYY"}}
                     </mj-text>
                   <mj-raw>{{/compare}}</mj-raw>
+
                   <mj-raw>{{#compare _source.date_last_important_activity _source.date_created}}</mj-raw>
                     <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                       <strong>Date created:</strong>

@@ -734,7 +734,7 @@
          style="font-family:sans-serif;font-size:20px;line-height:1;text-align:left;color:#000000;"
       >
         <img src="https://storage.googleapis.com/fundingscotland/important.png" height="16" width="16" alt="[important]" title="Important news" style="vertical-align: middle;">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.og_title}}}
                   </a>
       </div>
@@ -764,7 +764,7 @@
       <div
          style="font-family:sans-serif;font-size:14px;line-height:1;text-align:right;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+        <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Read full post
                   </a>
       </div>
@@ -862,7 +862,7 @@
       <div
          style="font-family:sans-serif;font-size:20px;line-height:1;text-align:left;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+        <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.og_title}}}
                   </a>
       </div>
@@ -892,7 +892,7 @@
       <div
          style="font-family:sans-serif;font-size:14px;line-height:1;text-align:right;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+        <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Read full post
                   </a>
       </div>
@@ -1304,7 +1304,7 @@
       <div
          style="font-family:sans-serif;font-size:20px;line-height:1;text-align:left;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+        <a href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.title}}}
                   </a>
       </div>
@@ -1321,7 +1321,7 @@
          style="font-family:sans-serif;font-size:14px;line-height:18px;text-align:left;color:#000000;"
       >
         <strong>Organisation:</strong>
-                  <a href="{{campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.id}}/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{../campaignConfig.metaData.baseUrl}}/funder/{{_source.funder_organisation.id}}/{{_source.funder_organisation.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.funder_organisation.name}}}
                   </a>
       </div>
@@ -1397,7 +1397,7 @@
       <div
          style="font-family:sans-serif;font-size:14px;line-height:18px;text-align:right;color:#000000;"
       >
-        <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+        <a href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Find out more &gt;
                   </a>
       </div>

@@ -9,7 +9,7 @@
     {{/components_tab_bar}}
     <hr class="mdc-list-divider" />
     <div class="panels" for="content-primary-tab-bar">
-      <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="panel-1">
+      <div class="panel panel--active mdc-card--full-content" role="tabpanel" aria-hidden="false" data-tab-name="information">
         <div class="key-info-extra">
           <ul class="fa-ul">
             {{#if start_at ~}}
@@ -58,7 +58,7 @@
           {{{rendered.goodmoves_sponsor_logos}}}
         </div>
       </div>
-      <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="panel-2">
+      <div class="panel mdc-card--full-content" role="tabpanel" aria-hidden="true" data-tab-name="location">
         <div class="location-info">
           {{#compare (length geo_coords) ">" 0 ~}}
             <div class="container-content container-map">

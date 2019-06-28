@@ -1,5 +1,6 @@
 {
   "domains": [
+    "fs-default.local",
     "fs-www.local",
     "test.fundingscotland.com",
     "fundingscotland.com",

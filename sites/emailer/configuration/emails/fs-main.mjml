@@ -61,7 +61,7 @@
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
                   <img src="https://storage.googleapis.com/fundingscotland/important.png" height="16" width="16" alt="[important]" title="Important news" style="vertical-align: middle;">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.og_title}}}
                   </a>
                 </mj-text>
@@ -71,7 +71,7 @@
                 </mj-text>
 
                 <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Read full post
                   </a>
                 </mj-text>
@@ -83,7 +83,7 @@
             <mj-section padding="0px">
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.og_title}}}
                   </a>
                 </mj-text>
@@ -93,7 +93,7 @@
                 </mj-text>
 
                 <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/news/{{_source.slug}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Read full post
                   </a>
                 </mj-text>
@@ -136,7 +136,7 @@
             <mj-section padding="0px">
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/post/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.title}}}
                   </a>
                 </mj-text>

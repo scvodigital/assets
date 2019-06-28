@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         <div class="mdc-line-ripple"></div>
       </div>
 
-      {{!-- <div class="mdc-form-field">
+      {{#compare @root.data.currentSite.name "!==" "default" ~}}
+      <div class="mdc-form-field">
         <div class="mdc-checkbox">
           <input type="checkbox" class="mdc-checkbox__native-control" id="sign-up-subscribe"/>
           <div class="mdc-checkbox__background">
@@ -83,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
           </div>
         </div>
         <label for="sign-up-subscribe">Subscribe to the weekly bulletin</label>
-      </div> --}}
+      </div>
+      {{/compare ~}}
     </div>
     <div id="form-section-sign-up-buttons">
       <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">

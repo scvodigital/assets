@@ -354,7 +354,7 @@
       <div
          style="font-family:Montserrat, Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;text-align:left;color:#000000;"
       >
-        <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
+        <p> <a href="https://search.volunteerscotland.net/opportunity/{{_source.Id}}/{{_source.title_slug}}?utm_source=alert&utm_medium=email" color="#42842A" style="color:#42842A;font-weight:bold;">{{{_source.title}}}</a>
               with {{{_source.organisation_name}}} will close on {{momentFormat (moment _source.end_date "") "Do \o\f MMMM"}}</p>
       </div>
     

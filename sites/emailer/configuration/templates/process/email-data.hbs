@@ -13,7 +13,7 @@
             {{{json key="from" value=campaignConfig.from}}},
             {{{json key="h:sender" value=campaignConfig.from}}},
             {{{json key="to" value=(default testEmail email)}}},
-            {{{json key="o:tag" value=(if testEmail (concat "test-" campaign) else=campaign)}}},
+            {{{json key="o:tag" value=campaign}}},
             {{{json key="o:tracking" value=true}}},
             {{#if @root.request.params.query.dontSend}}
               {{{json key="o:testmode" value=true}}},

@@ -136,7 +136,7 @@
             <mj-section padding="0px">
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
-                  <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
+                  <a href="{{campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     {{{_source.title}}}
                   </a>
                 </mj-text>

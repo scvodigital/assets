@@ -927,6 +927,12 @@ footer.mdc-layout__footer {
 //     background-image: linear-gradient(80deg, rgba(23, 135, 55, 0.89), rgba(23, 135, 55, 0.91) 66%, transparent 66.08%, transparent);
 //   }
 // }
+@media screen and (max-width: 600px) {
+  .search-form.home-info {
+    padding-left: $unit/2 !important;
+    padding-right: $unit/2 !important;
+  }
+}
 @media screen and (max-width: $mobile-landscape-breakpoint) {
   .mdc-top-app-bar,
   header .container-fluid .mdc-top-app-bar__row.mdc-top-app-bar__upper {
@@ -950,6 +956,9 @@ footer.mdc-layout__footer {
         max-height: 50px;
       }
     }
+  }
+  .main-body .r-padding-full {
+    padding-left: $unit !important;
   }
   .mdc-top-app-bar-fixed-adjust {
     margin-top: 64px;

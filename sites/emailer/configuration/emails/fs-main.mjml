@@ -36,16 +36,16 @@
           </mj-column>
         </mj-section>
 
-        <mj-section padding="0px">
-          <mj-column padding="30px 15px 15px 15px">
-            <mj-text font-size="24px" color="#37474F" font-family="sans-serif" padding="0px">
-              {{{campaignConfig.metaData.newsTitle}}}
-            </mj-text>
-            <mj-divider border-width="1px" border-style="solid" border-color="{{colours.secondary}}" padding="10px 0px" />
-          </mj-column>
-        </mj-section>
-
         <mj-raw>{{#ifAny (any importantNews) (any bulletinNews)}}</mj-raw>
+          <mj-section padding="0px">
+            <mj-column padding="30px 15px 15px 15px">
+              <mj-text font-size="24px" color="#37474F" font-family="sans-serif" padding="0px">
+                {{{campaignConfig.metaData.newsTitle}}}
+              </mj-text>
+              <mj-divider border-width="1px" border-style="solid" border-color="{{colours.secondary}}" padding="10px 0px" />
+            </mj-column>
+          </mj-section>
+
           <mj-raw>{{#if campaignConfig.metaData.newsText}}</mj-raw>
             <mj-section padding="0px">
               <mj-column padding="0px">

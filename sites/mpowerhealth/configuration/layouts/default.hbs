@@ -112,7 +112,7 @@
               {{#compare @root.data.currentSite.name "!==" "default" ~}}
               <img src="{{~>asset_url url=(concat 'images/logos/partners/' @root.data.currentSite.name '.png')~}}" alt="In partnership with {{@root.data.currentSite.healthBoard.title}}" />
               {{/compare ~}}
-              <a href="https://www.seupb.eu/iva-overview">
+              <a href="https://www.seupb.eu/iva-overview" class="hide-sm">
                 <img src="{{~>asset_url url='images/logos/interreg-vi-logo.png'~}}" alt="INTERREG VA Programme" />
               </a>
             </section>
@@ -211,6 +211,9 @@
 
         {{{layoutParts.body}}}
 
+        <a href="https://www.seupb.eu/iva-overview" class="hide-md hide-lg">
+          <img src="{{~>asset_url url='images/logos/interreg-vi-logo.png'~}}" alt="INTERREG VA Programme" />
+        </a>
         {{#compare @root.data.currentSite.name "default" ~}}
         <div class="container-content">
           <div class="partner-logos">

@@ -39,6 +39,8 @@ iframe {
   margin: 0;
   padding: 0;
 }
+audio,
+video,
 iframe,
 img {
   max-width: 100%;
@@ -98,6 +100,11 @@ footer .footer-copyright {
       zoom: .7;
       margin-right: .25rem;
     }
+  }
+  main,
+  footer .footer-main,
+  footer .footer-copyright {
+    margin-left: 0;
   }
 }
 

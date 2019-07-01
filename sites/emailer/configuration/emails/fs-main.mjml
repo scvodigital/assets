@@ -149,6 +149,15 @@
                 </mj-text>
 
                 <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                  <strong>Status:</strong>
+                  <mj-raw>{{#compare _source.fund_status "Open"}}</mj-raw>
+                    Open
+                  <mj-raw>{{else}}</mj-raw>
+                    Currently closed, re-opens in 3 months
+                  <mj-raw>{{/compare}}</mj-raw>
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                   <strong>Description:</strong>
                   {{{removeEntities (stripTags _source.description)}}}
                 </mj-text>
@@ -174,6 +183,13 @@
                       {{momentFormat (moment _source.date_created "x") "Do MMMM YYYY"}}
                     </mj-text>
                   <mj-raw>{{/compare}}</mj-raw>
+                <mj-raw>{{/if}}</mj-raw>
+
+                <mj-raw>{{#if _source.next_deadline}}</mj-raw>
+                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                    <strong>Next deadline:</strong>
+                    {{momentFormat (moment _source.next_deadline "x") "Do MMMM YYYY"}}
+                  </mj-text>
                 <mj-raw>{{/if}}</mj-raw>
 
                 <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif" line-height="18px">

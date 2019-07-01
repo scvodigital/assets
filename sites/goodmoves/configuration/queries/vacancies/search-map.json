@@ -9,6 +9,7 @@
     "organisation.id",
     "organisation.name_slug",
     "geo_coords",
+    "geo_info",
     "regions_scotland_slugs",
     "active",
     "closing_date",

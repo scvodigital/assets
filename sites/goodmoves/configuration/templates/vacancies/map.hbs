@@ -24,7 +24,14 @@
               {{> marker lat=lat lng=lon source=../_source index=@index}}
             {{/compare ~}}
           {{else}}
-            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{#if @root.request.params.query.regions ~}}
+              {{!-- {{replace @root.request.params.query.regions "-" " "}} in {{lowercase (getProperty (itemAt ../_source.geo_info @index) "nhs_ha")}}<br /> --}}
+              {{!-- {{#if (contains (replace @root.request.params.query.regions "-" " ") (lowercase (getProperty (itemAt ../_source.geo_info @index) "nhs_ha"))) ~}} --}}
+                {{> marker lat=lat lng=lon source=../_source index=@index}}
+              {{!-- {{/if ~}} --}}
+            {{else}}
+              {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
           {{/if ~}}
         {{/each ~}}
       {{/if ~}}

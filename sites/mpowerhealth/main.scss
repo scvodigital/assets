@@ -34,6 +34,12 @@ strong {
   color: white;
   background: $mdc-theme-primary-dark;
 }
+figure,
+iframe {
+  margin: 0;
+  padding: 0;
+}
+iframe,
 img {
   max-width: 100%;
 }

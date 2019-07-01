@@ -2,12 +2,26 @@
   {{#>queries_fund_wrapper this}}
     {{#json key="bool"}}
       {{#json key="should" type="array"}}
-        {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
-          {{>queries_date_range field="date_last_important_activity" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
-        {{else}}
-          {{>queries_date_range field="date_last_important_activity" gte="now-1w/d"}}
-        {{/ifAny}},
-        {{>queries_term field="date_reopens" term="now+3M/w"}}
+        {{#json}}
+          {{#json key="bool"}}
+            {{#json key="filter" type="array"}}
+              {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                {{>queries_date_range field="date_last_important_activity" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
+              {{else}}
+                {{>queries_date_range field="date_last_important_activity" gte="now-1w/d"}}
+              {{/ifAny}},
+              {{>queries_term field="fund_status" term="Open"}}
+            {{/json}}
+          {{/json}}
+        {{/json}},
+        {{#json}}
+          {{#json key="bool"}}
+            {{#json key="filter" type="array"}}
+              {{>queries_term field="date_reopens" term="now+3M/d"}},
+              {{>queries_term field="fund_status" term="Currently Closed"}}
+            {{/json}}
+          {{/json}}
+        {{/json}}
       {{/json}},
       {{{json key="minimum_should_match" value=1}}}
     {{/json}},

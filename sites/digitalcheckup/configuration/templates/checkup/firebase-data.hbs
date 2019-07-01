@@ -12,7 +12,7 @@
   "next_project" : {{{safeStringify next_project}}},
   "barriers" : {{{safeStringify barriers}}},
   "topic" : {{{safeStringify topic}}},
-  "support" : {{{default (compare support "true") "false"}}},
+  "support" : {{{compare support "Yes please"}}},
   "date_last_modified": {{{safeStringify (moment null "X")}}},
   "score_total" : {{{safeStringify (sumArray (split (concat section-1-score "," section-2-score "," section-3-score "," section-4-score "," section-5-score) ","))}}},
   "score_leadership_culture_and_skills" : {{{safeStringify (num section-1-score)}}},

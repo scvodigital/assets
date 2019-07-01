@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       emailField.removeClass('mdc-text-field--with-trailing-icon');
       $existingSpinner.addClass('hidden');
       if (response.profiles && response.profiles.length > 0) {
-        response.profiles.sort((a, b) => {
+        response.profiles.sort(function (a, b){
           return a.accessed || 0 - b.accessed || 0;
         });
         lockExisting(email, response.profiles[0].title, response.profiles[0].url);

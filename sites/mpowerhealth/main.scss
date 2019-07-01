@@ -23,8 +23,25 @@ $page-left: 11vw;
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.css);
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css);
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+p,
+li,
+td,
+footer.mdc-layout__footer p,
+p, li, .mdc-tab, footer h3, .mdc-chip, .mdc-card, .mdc-button, .mdc-select, .mdc-button, .mdc-form-field, .mdc-typography, .mdc-form-field, .mdc-text-field, .mdc-dialog__body, .mdc-dialog__title, .mdc-card__subtitle, .mdc-floating-label, .mdc-card__subtitle, .mdc-snackbar__text, .mdc-snackbar__label, .mdc-dialog__content, .mdc-dialog__actions, .mdc-drawer__subtitle, .mdc-textfield__input, .mdc-typography--body1, .mdc-typography--body2, .mdc-typography--title, .mdc-text-field__input, .mdc-top-app-bar__title, .mdc-card__title--large, .mdc-typography--caption, .mdc-menu .mdc-list-item, .supplimentary-list-title, .mdc-typography--headline, .mdc-typography--headline1, .mdc-typography--headline2, .mdc-typography--headline3, .mdc-typography--headline4, .mdc-typography--headline5, .mdc-typography--headline6, .mdc-typography--headline7, .mdc-card__supporting-text, .mdc-select__selected-text, .mdc-dialog__header__title, .mdc-drawer .mdc-list-item, .mdc-select__native-control, .mdc-typography--subheading2, .mdc-list-item__secondary-text, .mdc-simple-menu .mdc-list-item, .mdc-temporary-drawer .mdc-list-item, .mdc-drawer--temporary .mdc-list-item, .mdc-list {
+  font-family: 'Ubuntu', Arial, sans-serif;
+}
+.mdc-top-app-bar__title, .mdc-typography--headline, .mdc-typography--headline1, .mdc-typography--headline2, .mdc-typography--headline3, .mdc-typography--headline4, .mdc-typography--headline5, .mdc-typography--headline6, .mdc-typography--headline7, .mdc-drawer__content-heading, .mdc-drawer .mdc-list-group__subheader, h1, h2, h3, h4, h5,
 strong {
-  font-weight: 600;
+  color: $mdc-theme-primary-dark;
+  font-weight: 700 !important;
 }
 ::-moz-selection {
   color: white;
@@ -62,10 +79,11 @@ a:focus {
 }
 
 header,
-main,
-footer .footer-main,
-footer .footer-copyright {
+main {
   margin-left: $page-left;
+}
+footer .container-content {
+  padding-left: $page-left;
 }
 header {
   max-width: $page-width;
@@ -73,12 +91,6 @@ header {
   .mdc-top-app-bar__section--logo {
     margin-left: -3.5rem;
   }
-}
-footer .footer-main {
-  max-width: $page-width;
-}
-footer .footer-copyright {
-  margin-right: $page-left !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -101,10 +113,16 @@ footer .footer-copyright {
       margin-right: .25rem;
     }
   }
+  .mdc-top-app-bar__main {
+    margin-left: -11vw;
+  }
   main,
   footer .footer-main,
   footer .footer-copyright {
     margin-left: 0;
+  }
+  footer.mdc-layout__footer {
+    background-size: contain !important;
   }
 }
 
@@ -129,6 +147,7 @@ header {
     .mdc-top-app-bar__upper {
       height: auto !important;
       background-color: transparent;
+      min-height: 130px;
       // .mdc-top-app-bar__section {
       //   background-color: $mdc-theme-primary;
       // }
@@ -136,7 +155,7 @@ header {
       .mdc-top-app-bar__section--partner {
         img {
           max-height: 64px;
-          margin: 0 -($unit/5) 0 $unit/2;
+          margin: 0 -($unit/5) 0 0;
           vertical-align: middle;
         }
       }
@@ -154,6 +173,7 @@ header {
       }
       .mdc-top-app-bar__section--align-middle.mdc-top-app-bar__section--partner {
         img {
+          max-height: 130px;
           margin: 0 auto;
         }
       }
@@ -175,7 +195,7 @@ header {
         vertical-align: middle;
         font-size: 1.75rem;
         letter-spacing: -0.05rem;
-        font-weight: 600;
+        font-weight: 700;
         line-height: 1.3;
         display: block;
         margin-left: $unit*1.25;
@@ -219,12 +239,6 @@ header {
       }
     }
   }
-}
-
-.mdc-top-app-bar__title, .mdc-typography--headline, .mdc-typography--headline1, .mdc-typography--headline2, .mdc-typography--headline3, .mdc-typography--headline4, .mdc-typography--headline5, .mdc-typography--headline6, .mdc-typography--headline7, .mdc-drawer__content-heading, .mdc-drawer .mdc-list-group__subheader,
-h1, h2, h3, h4, h5, p, div, li {
-  color: $mdc-theme-primary-dark;
-  font-weight: 100;
 }
 
 .mdc-drawer--open .mdc-list-item__user .mdc-list-item__text::after {
@@ -657,7 +671,7 @@ footer.mdc-layout__footer {
   padding-top: 18vw;
   h3 {
     color: $mdc-theme-secondary-dark;
-    font-weight: $heading-font-weight;
+    font-weight: 700;
     border-bottom: none;
     font-size: 1.1rem;
     margin: $unit 0 0;
@@ -692,15 +706,15 @@ footer.mdc-layout__footer {
     p {
       font-size: 1rem;
     }
-    .smaller {
-      margin-top: $unit;
-      font-size: 0.93rem;
-      margin-bottom: $page-left/4;
-    }
     p,
     a {
       color: $mdc-theme-secondary-dark;
     }
+  }
+  .smaller {
+    margin-top: $unit;
+    font-size: 0.93rem;
+    margin-bottom: $page-left/4;
   }
 }
 @media screen and (max-width: 1200px) {

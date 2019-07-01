@@ -2,42 +2,15 @@
   "default": {
     "name": "default",
     "title": "mPower",
-    "url": "https://test.mpowerhealth.eu",
-    "colors": {
-      "primary": "#537F2C",
-      "primaryText": "#ffffff",
-      "secondary": "#F49039",
-      "secondaryText": "#000000",
-      "info": "#4779af",
-      "infoText": "#000000",
-      "success": "#4caf50",
-      "successText": "#000000",
-      "warning": "#8b6d11",
-      "warningText": "#ffffff",
-      "error": "#d32f2f",
-      "errorText": "#ffffff"
-    }
+    "url": "https://test.mpowerhealth.eu"
   },
   "dumfriesgalloway": {
     "name": "dumfriesgalloway",
     "title": "mPower Dumfries & Galloway",
+    "description": "Wigtownshire, Dumfries & Galloway",
     "healthBoard": {
       "title": "NHS Dumfries & Galloway"
     },
-    "url": "https://dumfries-galloway.mpowerhealth.eu",
-    "colors": {
-      "primary": "#006DC3",
-      "primaryText": "#ffffff",
-      "secondary": "#5ED245",
-      "secondaryText": "#000000",
-      "info": "#4a9ae5",
-      "infoText": "#000000",
-      "success": "#5ab756",
-      "successText": "#000000",
-      "warning": "#cca13e",
-      "warningText": "#000000",
-      "error": "#d32f2f",
-      "errorText": "#ffffff"
-    }
+    "url": "https://dumfries-galloway.mpowerhealth.eu"
   }
 }

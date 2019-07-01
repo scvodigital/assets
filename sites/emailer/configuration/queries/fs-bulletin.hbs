@@ -1,29 +1,37 @@
 {{#withExtend this siteConfig=templateMetaData.config.metaData.siteConfiguration}}
   {{#>queries_fund_wrapper this}}
     {{#json key="bool"}}
-      {{#json key="should" type="array"}}
-        {{#json}}
-          {{#json key="bool"}}
-            {{#json key="filter" type="array"}}
-              {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
-                {{>queries_date_range field="date_last_important_activity" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
-              {{else}}
-                {{>queries_date_range field="date_last_important_activity" gte="now-1w/d"}}
-              {{/ifAny}},
-              {{>queries_term field="fund_status" term="Open"}}
+      {{#ifAny (compare templateMetaData.campaign "!==" "fs-bulletin-default") (compare templateMetaData.metaData "===" "premium")}}
+        {{#json key="should" type="array"}}
+          {{#json}}
+            {{#json key="bool"}}
+              {{#json key="filter" type="array"}}
+                {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
+                  {{>queries_date_range field="date_last_important_activity" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
+                {{else}}
+                  {{>queries_date_range field="date_last_important_activity" gte="now-1w/d"}}
+                {{/ifAny}},
+                {{>queries_term field="fund_status" term="Open"}}
+              {{/json}}
+            {{/json}}
+          {{/json}},
+          {{#json}}
+            {{#json key="bool"}}
+              {{#json key="filter" type="array"}}
+                {{>queries_date_range field="date_reopens" gte="now+3M-3d/d" lte="now+3M+3d/d"}},
+                {{>queries_term field="fund_status" term="Currently Closed"}}
+              {{/json}}
             {{/json}}
           {{/json}}
         {{/json}},
-        {{#json}}
-          {{#json key="bool"}}
-            {{#json key="filter" type="array"}}
-              {{>queries_date_range field="date_reopens" gte="now+3M-3d/d" lte="now+3M+3d/d"}},
-              {{>queries_term field="fund_status" term="Currently Closed"}}
-            {{/json}}
+        {{{json key="minimum_should_match" value=1}}}
+      {{else}}
+        {{#json key="filter" type="array"}}
+          {{#json}}
+            {{#json key="match_none"}}{{/json}}
           {{/json}}
         {{/json}}
-      {{/json}},
-      {{{json key="minimum_should_match" value=1}}}
+      {{/ifAny}}
     {{/json}}
   {{/queries_fund_wrapper}}
 {{/withExtend}}

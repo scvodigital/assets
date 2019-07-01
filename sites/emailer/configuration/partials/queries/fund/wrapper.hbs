@@ -2,11 +2,13 @@
   {{#json}}
     {{{json key="size" value=1000}}},
     {{#json key="_source" type="array"}}
+      "Id",
       "title",
       "og_title",
       "description",
       "updated",
       "slug",
+      "funder_organisation.id",
       "funder_organisation.name",
       "funder_organisation.slug",
       "categories_slug",
@@ -25,7 +27,7 @@
           {{#json}}
             {{#json key="bool"}}
               {{#json key="filter" type="array"}}
-                {{>queries_term field="_type" term=(concat "fs-" siteConfig.name "-post")}},
+                {{>queries_terms field="_type" terms=(split (concat "fs-" siteConfig.name "-post,fs-default-post") ",")}},
                 {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
                   {{>queries_date_range field="updated" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
                 {{else}}

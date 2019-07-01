@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fundingscotland.auth.signInEmailPassword(email, password)
       .then(function(user) {
         window.location.href = '/signed-in?referer=' + encodeURIComponent('
-          {{~#ifAny (contains @root.request.headers.referer "sign-out") (contains @root.request.headers.referer "reset-password")~}}
+          {{~#ifAny (contains @root.request.headers.referer "sign-out") (contains @root.request.headers.referer "reset-password") (contains @root.request.headers.referer "sign-in") (contains @root.request.headers.referer "sign-up")~}}
             /
           {{~else~}}
             {{default @root.request.headers.referer "/"}}

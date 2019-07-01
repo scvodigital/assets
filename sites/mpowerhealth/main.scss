@@ -143,12 +143,18 @@ header {
       .mdc-top-app-bar__section--logo {
         padding: 0 0 0 $unit;
       }
+      .mdc-top-app-bar__section--align-end.mdc-top-app-bar__section--partner,
       .mdc-top-app-bar__section--logo {
-        flex: 0 0 auto;
+        flex: 1 0 auto;
       }
       .mdc-top-app-bar__section--partner {
         img {
           max-height: 100px;
+        }
+      }
+      .mdc-top-app-bar__section--align-middle.mdc-top-app-bar__section--partner {
+        img {
+          margin: 0 auto;
         }
       }
       .mdc-top-app-bar__section--nav {
@@ -645,7 +651,7 @@ footer.mdc-layout__footer {
   border-top: none;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: top;
   background-color: white;
   box-shadow: none;
   padding-top: 18vw;
@@ -699,9 +705,9 @@ footer.mdc-layout__footer {
 }
 @media screen and (max-width: 1200px) {
   footer.mdc-layout__footer {
-    background-size: contain;
-    background-position: top;
-    padding-top: 14vw;
+    // background-size: cover;
+    // background-position: top;
+    // padding-top: 18vw;
     background-color: $mdc-theme-footer;
   }
 }

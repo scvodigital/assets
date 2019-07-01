@@ -110,7 +110,7 @@
             </section>
             {{#compare @root.data.currentSite.name "!==" "default" ~}}
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-middle mdc-top-app-bar__section--partner">
-              <img src="{{~>asset_url url=(concat 'images/logos/partners/' @root.data.currentSite.name '.png')~}}" alt="In partnership with {{@root.data.currentSite.healthBoard.title}}" />
+              <img src="{{~>asset_url url=@root.data.currentSite.healthBoard.logo ~}}" alt="In partnership with {{@root.data.currentSite.healthBoard.title}}" />
             </section>
             {{/compare ~}}
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__section--partner hide-sm">

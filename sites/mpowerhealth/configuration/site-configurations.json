@@ -9,7 +9,8 @@
     "title": "mPower Ayshire & Arran",
     "description": "Ayshire & Arran",
     "healthBoard": {
-      "title": "NHS Ayshire & Arran"
+      "title": "NHS Ayshire & Arran",
+      "logo": "images/logos/partners/nhs-ayrshire-arran.png"
     },
     "url": "https://ayrshire-arran.mpowerhealth.eu"
   },
@@ -18,7 +19,8 @@
     "title": "mPower Dumfries & Galloway",
     "description": "Wigtownshire, Dumfries & Galloway",
     "healthBoard": {
-      "title": "NHS Dumfries & Galloway"
+      "title": "NHS Dumfries & Galloway",
+      "logo": "images/logos/partners/nhs-dumfries-galloway.png"
     },
     "url": "https://dumfries-galloway.mpowerhealth.eu"
   },
@@ -27,7 +29,8 @@
     "title": "mPower Western Isles",
     "description": "Western Isles",
     "healthBoard": {
-      "title": "NHS Western Isles"
+      "title": "NHS Western Isles",
+      "logo": "images/logos/partners/nhs-western-isles.png"
     },
     "url": "https://western-isles.mpowerhealth.eu"
   },
@@ -36,7 +39,8 @@
     "title": "mPower Fermanagh",
     "description": "Fermanagh",
     "healthBoard": {
-      "title": "HSC Western Trust"
+      "title": "HSC Western Trust",
+      "logo": "images/logos/partners/hsc-western.png"
     },
     "url": "https://fermanagh.mpowerhealth.eu"
   },
@@ -45,7 +49,8 @@
     "title": "mPower Newry & South Armagh",
     "description": "Newry City and South Armagh",
     "healthBoard": {
-      "title": "HSC Southern Trust"
+      "title": "HSC Southern Trust",
+      "logo": "images/logos/partners/hsc-southern.png"
     },
     "url": "https://newry-south-armagh.mpowerhealth.eu"
   },
@@ -54,7 +59,8 @@
     "title": "mPower Drogheda & Carrickmacross",
     "description": "Drogheda & Carrickmacross",
     "healthBoard": {
-      "title": "HSE CH08"
+      "title": "HSE CH08",
+      "logo": "images/logos/partners/hse-ch08.png"
     },
     "url": "https://drogheda-carrickmacross.mpowerhealth.eu"
   },
@@ -63,7 +69,8 @@
     "title": "mPower Finn Valley",
     "description": "Finn Valley Area",
     "healthBoard": {
-      "title": "HSE CH01"
+      "title": "HSE CH01",
+      "logo": "images/logos/partners/hse-ch01.png"
     },
     "url": "https://finn-valley.mpowerhealth.eu"
   },
@@ -72,7 +79,8 @@
     "title": "mPower South Leitrim",
     "description": "South Leitrim",
     "healthBoard": {
-      "title": "HSE CH01"
+      "title": "HSE CH01",
+      "logo": "images/logos/partners/hse-ch01.png"
     },
     "url": "https://south-leitrim.mpowerhealth.eu"
   }

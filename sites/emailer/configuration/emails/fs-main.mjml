@@ -185,6 +185,13 @@
                   <mj-raw>{{/compare}}</mj-raw>
                 <mj-raw>{{/if}}</mj-raw>
 
+                <mj-raw>{{#if _source.next_deadline}}</mj-raw>
+                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                    <strong>Next deadline:</strong>
+                    {{momentFormat (moment _source.next_deadline "x") "Do MMMM YYYY"}}
+                  </mj-text>
+                <mj-raw>{{/if}}</mj-raw>
+
                 <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif" line-height="18px">
                   <a href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
                     Find out more &gt;

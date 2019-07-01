@@ -4,6 +4,15 @@
     "title": "mPower",
     "url": "https://test.mpowerhealth.eu"
   },
+  "ayrshirearran": {
+    "name": "ayrshirearran",
+    "title": "mPower Ayshire & Arran",
+    "description": "Ayshire & Arran",
+    "healthBoard": {
+      "title": "NHS Ayshire & Arran"
+    },
+    "url": "https://ayrshire-arran.mpowerhealth.eu"
+  },
   "dumfriesgalloway": {
     "name": "dumfriesgalloway",
     "title": "mPower Dumfries & Galloway",
@@ -12,5 +21,59 @@
       "title": "NHS Dumfries & Galloway"
     },
     "url": "https://dumfries-galloway.mpowerhealth.eu"
+  },
+  "westernisles": {
+    "name": "westernisles",
+    "title": "mPower Western Isles",
+    "description": "Western Isles",
+    "healthBoard": {
+      "title": "NHS Western Isles"
+    },
+    "url": "https://western-isles.mpowerhealth.eu"
+  },
+  "fermanagh": {
+    "name": "fermanagh",
+    "title": "mPower Fermanagh",
+    "description": "Fermanagh",
+    "healthBoard": {
+      "title": "HSC Western Trust"
+    },
+    "url": "https://fermanagh.mpowerhealth.eu"
+  },
+  "newrysoutharmagh": {
+    "name": "newrysoutharmagh",
+    "title": "mPower Newry & South Armagh",
+    "description": "Newry City and South Armagh",
+    "healthBoard": {
+      "title": "HSC Southern Trust"
+    },
+    "url": "https://newry-south-armagh.mpowerhealth.eu"
+  },
+  "droghedacarrickmacross": {
+    "name": "droghedacarrickmacross",
+    "title": "mPower Drogheda & Carrickmacross",
+    "description": "Drogheda & Carrickmacross",
+    "healthBoard": {
+      "title": "HSE CH08"
+    },
+    "url": "https://drogheda-carrickmacross.mpowerhealth.eu"
+  },
+  "finnvalley": {
+    "name": "finnvalley",
+    "title": "mPower Finn Valley",
+    "description": "Finn Valley Area",
+    "healthBoard": {
+      "title": "HSE CH01"
+    },
+    "url": "https://finn-valley.mpowerhealth.eu"
+  },
+  "southleitrim": {
+    "name": "southleitrim",
+    "title": "mPower South Leitrim",
+    "description": "South Leitrim",
+    "healthBoard": {
+      "title": "HSE CH01"
+    },
+    "url": "https://south-leitrim.mpowerhealth.eu"
   }
 }

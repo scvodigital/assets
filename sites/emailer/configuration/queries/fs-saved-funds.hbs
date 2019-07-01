@@ -17,7 +17,7 @@
         {{#json}}
           {{#json key="bool"}}
             {{#json key="filter" type="array"}}
-              {{>queries_term field="date_reopens" term="now+3M/w"}},
+              {{>queries_term field="date_reopens" term="now+3M/d"}},
               {{>queries_term field="fund_status" term="Currently Closed"}}
             {{/json}}
           {{/json}}

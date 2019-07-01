@@ -29,7 +29,7 @@
     "mpowerhealth-finnvalley.local",
     "south-leitrim.mpowerhealth.eu",
     "southleitrim.mpowerhealth.eu",
-    "mpowerhealth-southleitrim.local",
+    "mpowerhealth-southleitrim.local"
   ],
   "routes": [
     "{:./routes/*.json}"

@@ -1337,6 +1337,25 @@
       <div
          style="font-family:sans-serif;font-size:14px;line-height:18px;text-align:left;color:#000000;"
       >
+        <strong>Status:</strong>
+                  <mj-raw>{{#compare _source.fund_status "Open"}}</mj-raw>
+                    Open
+                  <mj-raw>{{else}}</mj-raw>
+                    Currently closed, re-opens in 3 months
+                  <mj-raw>{{/compare}}</mj-raw>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align="left" style="font-size:0px;padding:5px 15px;word-break:break-word;"
+              >
+                
+      <div
+         style="font-family:sans-serif;font-size:14px;line-height:18px;text-align:left;color:#000000;"
+      >
         <strong>Description:</strong>
                   {{{removeEntities (stripTags _source.description)}}}
       </div>

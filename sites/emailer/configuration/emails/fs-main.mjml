@@ -149,6 +149,15 @@
                 </mj-text>
 
                 <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                  <strong>Status:</strong>
+                  <mj-raw>{{#compare _source.fund_status "Open"}}</mj-raw>
+                    Open
+                  <mj-raw>{{else}}</mj-raw>
+                    Currently closed, re-opens in 3 months
+                  <mj-raw>{{/compare}}</mj-raw>
+                </mj-text>
+
+                <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                   <strong>Description:</strong>
                   {{{removeEntities (stripTags _source.description)}}}
                 </mj-text>

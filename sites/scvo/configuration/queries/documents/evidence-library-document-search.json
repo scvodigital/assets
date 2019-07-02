@@ -3,6 +3,7 @@
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 10}},
   "_source": [
     "rendered.scvo_list",
+    "rendered.rss",
     "rendered.json_ld"
   ],
   "query": {

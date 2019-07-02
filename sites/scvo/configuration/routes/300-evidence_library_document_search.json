@@ -50,15 +50,32 @@
       "config": {
         "logic": {
           "if": [
+            {
+              "in": [
+                "view=rss",
+                {
+                  "var": "request.fullUrl"
+                }
+              ]
+            },
+            "rss",
             "default"
           ]
         },
         "output": "body",
         "layouts": {
+          "rss": {
+            "layout": ">context.metaData.handlebars.layouts.rss",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.documents_evidence-library-rss-head-tags",
+              "body": ">context.metaData.handlebars.templates.documents_evidence-library-rss"
+            },
+            "contentType": "application/rss+xml"
+          },
           "default": {
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "head": ">context.metaData.handlebars.templates.documents_evidence-library-head-tags",
               "body": ">context.metaData.handlebars.templates.documents_evidence-library-document-search",
               "foot": ""
             },

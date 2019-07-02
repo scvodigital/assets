@@ -1,0 +1,273 @@
+{{#*inline "checkbox"}}
+  <div class="mdc-form-field">
+    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+      <input type="checkbox" class="mdc-checkbox__native-control" id="{{id}}" name="{{name}}"
+          {{#if value}}value="{{value}}"{{/if}} {{#if checked}}checked{{/if}} />
+      <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+      </div>
+    </div>
+    <label for="{{id}}">{{label}}</label>
+  </div>
+{{/inline}}
+
+{{#*inline "textbox"}}
+  <div class="mdc-text-field mdc-text-field--outlined {{#if leadingIcon}}mdc-text-field--with-leading-icon{{/if}}" data-mdc-auto-init="MDCTextField">
+    {{#if leadingIcon}}
+      <i class="mdc-text-field__icon {{leadingIcon}}"></i>
+    {{/if}}
+    <input type="{{default type "text"}}" class="mdc-text-field__input" id="{{default id name}}" name="{{default name id}}" value="{{value}}">
+    <div class="mdc-notched-outline">
+      <div class="mdc-notched-outline__leading"></div>
+      <div class="mdc-notched-outline__notch">
+        <label for="{{default id name}}" class="mdc-floating-label">{{label}}</label>
+      </div>
+      <div class="mdc-notched-outline__trailing"></div>
+    </div>
+  </div>
+{{/inline}}
+
+<style>
+  .admin-user-info {
+    list-style: none;
+    margin:0;
+    padding:0;
+    /*padding: 1rem;
+    border: 1px solid #cccccc;
+    background-color: #fff;*/
+  }
+  .admin-user-info li {
+    padding:0;
+    margin:0 15px 0 0;
+    display: inline-block;
+  }
+  .partitions-table {
+    border: 1px solid #cccccc;
+    border-collapse: collapse;
+  }
+  .partitions-table th {
+    border-bottom: 1px solid #cccccc;
+  }
+  .partitions-table tr:nth-child(even), .partitions-table thead tr {
+    background-color: #ffffff;
+  }
+  .partitions-table th, .partitions-table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem;
+  }
+</style>
+
+<div class="container-content fundingscotland-post t-padding container-centred">
+  <h1 class="mdc-typography--headline4">
+    Find user
+  </h1>
+  <form action="/admin" method="GET">
+    {{>textbox id="email" value=@root.data.email label="Find user by email" leadingIcon="fas fa-search" type="email"}}
+  </form>
+
+  <hr class="border mdc-theme--primary-border">
+
+  <h1 class="mdc-typography--headline4">Found: {{{@root.data.userAuth.email}}}</h1>
+  <h2 class="mdc-typography--headline5">Authentication system info</h2>
+  <ul class="admin-user-info">
+    <li>
+      <strong>UID:</strong>
+      {{@root.data.userAuth.uid}}
+    </li>
+    <li>
+      <strong>Account created:</strong>
+      {{@root.data.userAuth.metadata.creationTime}}
+    </li>
+    <li>
+      <strong>Last sign-in:</strong>
+      {{@root.data.userAuth.metadata.lastSignInTime}}
+    </li>
+  </ul>
+
+  <hr class="t-border mdc-theme--secondary-border">
+
+  <h2 class="mdc-typography--headline5">Profile</h2>
+  <form action="/admin/update-profile" method="POST">
+    <h3 class="mdc-typography--headline6">Basic information</h3>
+    <div class="mdc-layout-grid t-margin-full">
+      <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+        <div class="mdc-layout-grid__cell">
+          {{>textbox id="organisation" value=@root.data.userProfile.organisation label="Organisation"}}
+        </div>
+        <div class="mdc-layout-grid__cell">
+          {{>textbox id="postcode" value=@root.data.userProfile.organisation label="Postcode"}}
+        </div>
+        <div class="mdc-layout-grid__cell">
+          <button type="submit" class="mdc-button mdc-button--raised">
+            <span class="mdc-button__label">Update profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <h3 class="mdc-typography--headline6">Premium status</h3>
+  <form action="/admin/update-profile" method="POST">
+    <div class="mdc-layout-grid t-margin-full">
+      <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+        <div class="mdc-layout-grid__cell">
+          {{>textbox id="premium-expiry" leadingIcon="fas fa-calendar" label="Premium expiry" type="date"
+              value=(if @root.data.userProfile.default.isPremium (momentFormat (moment @root.data.userProfile.default.isPremium "x") "YYYY-MM-DD") else="")}}
+        </div>
+        <div class="mdc-layout-grid__cell">
+          <button type="submit" class="mdc-button mdc-button--raised">
+            <span class="mdc-button__label">Set premium status</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr class="t-border mdc-theme--secondary-border">
+
+  <h2 class="mdc-typography--headline5">Subscriptions</h2>
+  {{#each (groupBy @root.data.userSubscriptions.subscriptions.[0] "campaign")}}
+    {{#if (regexMatch [0].campaign "^fs-" "i")}}
+      <h3 class="mdc-typography--headline6">Subscription: {{[0].campaign}}</h3>
+      <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
+        {{#with [0]}}
+          <ul class="admin-user-info">
+            <li>
+              <strong>Last status: </strong>
+              {{status}}
+            </li>
+            <li>
+              <strong>Last sent: </strong>
+              {{momentFormat (moment lastSent null) "ddd, Do MMMM YYYY, HH:mm:ss"}}
+            </li>
+            <li>
+              <strong>Created: </strong>
+              {{momentFormat (moment createdAt null) "ddd, Do MMMM YYYY, HH:mm:ss"}}
+            </li>
+            <li>
+              <strong>Last updated: </strong>
+              {{momentFormat (moment updatedAt null) "ddd, Do MMMM YYYY, HH:mm:ss"}}
+            </li>
+            <li>
+              <strong>Metadata: </strong>
+              {{safeStringify metaData}}
+            </li>
+          </ul>
+
+          <form action="/admin/update-subscription" method="POST">
+            <h4 class="mdc-typography--headline7">Update subscription</h4>
+            <div class="mdc-layout-grid t-margin-full">
+              <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                <div class="mdc-layout-grid__cell">
+                  {{>textbox id=(concat campaign "-days") value=days label="Days"}}
+                  <small><em>* Sunday = 1, Monday = 2, etc.</em></small>
+                </div>
+                <div class="mdc-layout-grid__cell">
+                  {{>checkbox id=(concat campaign "-active") name="active" label="Active" checked=active}}
+                  <small><em>* This cannot be changed by users and acts as an override to surpress emails</em></small>
+                </div>
+                <div class="mdc-layout-grid__cell">
+                  <button type="submit" class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label">Update subscription</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        {{/with}}
+
+        <h4 class="mdc-typography--headline7">Subscription partitions</h4>
+        <table class="partitions-table">
+          <thead>
+            <tr>
+              <th>Partition name</th>
+              <th>Parameters</th>
+              <th>Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each this}}
+              <tr>
+                <td>{{partition}}</td>
+                <td>
+                  <pre style="margin:0;">{{{safeStringify (querystring querystring)}}}</pre>
+                </td>
+                <td style="text-align: center">
+                  {{#if partitionActive}}
+                    Yes<br />
+                    <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=false" class="mdc-button mdc-button--raised">
+                      <i class="mdc-button__icon fas fa-toggle-on fa-fw"></i>
+                      <span class="mdc-button__label">Turn off</span>
+                    </a>
+                  {{else}}
+                    No<br />
+                    <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=true" class="mdc-button mdc-button--raised">
+                      <i class="mdc-button__icon fas fa-toggle-off fa-fw"></i>
+                      <span class="mdc-button__label">Turn on</span>
+                    </a>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+  {{/each}}
+
+  <hr class="t-border mdc-theme--secondary-border">
+
+  <h2 class="mdc-typography--headline5">Site specific information</h2>
+  {{#each @root.data.userProfile}}
+    {{#if (getProperty @root.context.metaData.site-configurations @key)}}
+      <h3 class="mdc-typography--headline6">{{{getProperty @root.context.metaData.site-configurations (concat @key ".title")}}}</h3>
+      <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
+        <ul class="admin-user-info">
+          <li>
+            <strong>Last accessed: </strong>
+            {{#if accessed}}
+              {{momentFormat (moment accessed "x") "ddd, Do MMMM YYYY, HH:mm:ss"}}
+            {{else}}
+              Never
+            {{/if}}
+          </li>
+          {{#if hidden}}
+            <li>
+              <strong>Hidden funds: </strong>
+              {{#each hidden}}
+                <a href="/fund/{{@key}}/from-admin" target="_blank">{{@key}}</a>{{#unless @last}}, {{/unless}}
+              {{/each}}
+            </li>
+          {{/if}}
+        </ul>
+
+        {{#if notes}}
+          {{#each notes}}
+            <h4 class="mdc-typography--headline7">Notes for fund <a href="/fund/{{@key}}/from-admin#notes" target="_blank">{{@key}}</a></h4>
+            {{#each this}}
+              <div class="mdc-card x-padding-full b-margin-full" style="background-color: #ffffff;">
+                <ul class="admin-user-info">
+                  <li>
+                    <strong>Status: </strong>
+                    {{status}}
+                  </li>
+                  <li>
+                    <strong>Date: </strong>
+                    {{momentFormat (moment @key "x") "ddd, Do MMMM YYYY, HH:mm:ss"}}
+                  </li>
+                </ul>
+                <pre style="margin: 1em 0 0 0">{{{note}}}</pre>
+              </div>
+            {{/each}}
+          {{/each}}
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/each}}
+
+  <hr class="v-margin-full" />
+</div>

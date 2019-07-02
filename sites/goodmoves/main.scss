@@ -292,10 +292,13 @@ a {
   height: auto;
   min-height: 72px;
 }
+.mdc-list-item {
+  min-height: 28px;
+}
 .mdc-list--avatar-list .mdc-list-item {
   min-height: 56px;
 }
-.mdc-list-item {
+.mdc-menu__items .mdc-list-item {
   min-height: 38px;
 }
 .mdc-list-item__secondary-text {

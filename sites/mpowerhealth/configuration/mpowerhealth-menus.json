@@ -25,18 +25,6 @@
       "route": "^/webinars"
     },
     {
-      "label": "Digital health",
-      "icon": "list-alt",
-      "path": "/tools",
-      "route": "^/tools"
-    },
-    {
-      "label": "Community map",
-      "icon": "map-marked-alt",
-      "path": "/map",
-      "route": "^/map"
-    },
-    {
       "label": "Contact",
       "icon": "envelope",
       "path": "/contact",
@@ -47,6 +35,12 @@
       "icon": "books",
       "path": "/resources",
       "route": "^/resources"
+    },
+    {
+      "label": "In your area",
+      "icon": "books",
+      "path": "/in-your-area",
+      "route": "^/in-your-area"
     }
   ],
   "localised": [
@@ -63,25 +57,25 @@
       "route": "^/community"
     },
     {
+      "label": "Map",
+      "icon": "map-marked-alt",
+      "path": "/map",
+      "route": "^/map"
+    },
+    {
       "label": "Digital health",
       "icon": "list-alt",
       "path": "/tools",
       "route": "^/tools"
     },
     {
-      "label": "Community map",
-      "icon": "map-marked-alt",
-      "path": "/map",
-      "route": "^/map"
-    },
-    {
-      "label": "Case studies",
+      "label": "Stories",
       "icon": "newspaper",
-      "path": "/case-studies",
-      "route": "^/case-studies"
+      "path": "/stories",
+      "route": "^/stories"
     },
     {
-      "label": "Contact us",
+      "label": "Local team",
       "icon": "envelope",
       "path": "/contact",
       "route": "^/contact"

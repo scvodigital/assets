@@ -19,16 +19,74 @@
     {{#each @root.data.search_data.map_results.hits.hits ~}}
       {{#if _source.geo_coords ~}}
         {{#each (arrayify _source.geo_coords) ~}}
-          {{#if @root.request.params.query.distance ~}}
-            {{#compare (itemAt ../fields.distance @index) "<" @root.request.params.query.distance ~}}
-              {{> marker lat=lat lng=lon source=../_source index=@index}}
-            {{/compare ~}}
+          {{#if @root.request.params.query.regions ~}}
+            {{!-- {{#switch (getProperty (itemAt ../_source.geo_info @index) "nhs_ha") ~}}
+            {{#case "Lothian" ~}}
+            {{#if (contains @root.request.params.query.regions "edinburgh-lothian") ~}} --}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{!-- {{/if ~}}
+            {{/case ~}}
+            {{#case "Greater Glasgow and Clyde" ~}}
+            {{#if (contains @root.request.params.query.regions "glasgow-clyde") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Tayside" ~}}
+            {{#if (contains @root.request.params.query.regions "tayside") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Forth Valley" ~}}
+            {{#if (contains @root.request.params.query.regions "central-scotland") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Western Isles" ~}}
+            {{#if (contains @root.request.params.query.regions "na-h-eileanan-siar") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Fife" ~}}
+            {{#if (contains @root.request.params.query.regions "fife") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Grampian" ~}}
+            {{#if (contains @root.request.params.query.regions "grampian") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Highland" ~}}
+            {{#if (contains @root.request.params.query.regions "highlands") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Lanarkshire" ~}}
+            {{#if (contains @root.request.params.query.regions "glasgow-clyde") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Orkney" ~}}
+            {{#if (contains @root.request.params.query.regions "northern-isles") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Shetland" ~}}
+            {{#if (contains @root.request.params.query.regions "northern-isles") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{#case "Argyll & Bute" ~}}
+            {{#if (contains @root.request.params.query.regions "argyll-bute") ~}}
+            {{> marker lat=lat lng=lon source=../_source index=@index}}
+            {{/if ~}}
+            {{/case ~}}
+            {{/switch ~}} --}}
           {{else}}
-            {{#if @root.request.params.query.regions ~}}
-              {{!-- {{replace @root.request.params.query.regions "-" " "}} in {{lowercase (getProperty (itemAt ../_source.geo_info @index) "nhs_ha")}}<br /> --}}
-              {{!-- {{#if (contains (replace @root.request.params.query.regions "-" " ") (lowercase (getProperty (itemAt ../_source.geo_info @index) "nhs_ha"))) ~}} --}}
+            {{#if @root.request.params.query.distance ~}}
+              {{#compare (itemAt ../fields.distance @index) "<" @root.request.params.query.distance ~}}
                 {{> marker lat=lat lng=lon source=../_source index=@index}}
-              {{!-- {{/if ~}} --}}
+              {{/compare ~}}
             {{else}}
               {{> marker lat=lat lng=lon source=../_source index=@index}}
             {{/if ~}}

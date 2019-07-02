@@ -3565,6 +3565,14 @@ table.membership-fees {
   color: #555;
   padding: $unit/3 $unit/2;
   box-sizing: border-box;
+  .rss {
+    color: #f26522;
+    font-size: 145%;
+    line-height: 1;
+  }
+  .rss:hover {
+    color: #bb440b;
+  }
 }
 body.post.author main {
   .search-info {

@@ -4,7 +4,6 @@
   "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",
@@ -15,7 +14,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "mpower-default-post,mpower-dumfriesgalloway-post",
+          "type": "mpower-default-post,mpower-ayrshirearran-post,mpower-dumfriesgalloway-post,mpower-westernisles-post,mpower-fermanagh-post,mpower-newrysoutharmagh-post,mpower-droghedacarrickmacross-post,mpower-finnvalley-post,mpower-southleitrim-post",
           "template": ">context.metaData.handlebars.queries.posts_post"
         }
       },

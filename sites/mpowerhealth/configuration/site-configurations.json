@@ -47,7 +47,7 @@
   "newrysoutharmagh": {
     "name": "newrysoutharmagh",
     "title": "mPower Newry & South Armagh",
-    "description": "Newry City and South Armagh",
+    "description": "Newry and South Armagh",
     "healthBoard": {
       "title": "HSC Southern Trust",
       "logo": "images/logos/partners/hsc-southern.png"
@@ -67,7 +67,7 @@
   "finnvalley": {
     "name": "finnvalley",
     "title": "mPower Finn Valley",
-    "description": "Finn Valley Area",
+    "description": "Finn Valley",
     "healthBoard": {
       "title": "HSE CH01",
       "logo": "images/logos/partners/hse-ch01.png"

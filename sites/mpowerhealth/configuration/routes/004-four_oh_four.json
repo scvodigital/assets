@@ -5,7 +5,6 @@
   "defaultStatusCode": 404,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "not_found",
       "taskModule": "elasticsearch",
@@ -16,7 +15,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "fundingscotland-page",
+          "type": "mpower-default-page,mpower-ayrshirearran-page,mpower-dumfriesgalloway-page,mpower-westernisles-page,mpower-fermanagh-page,mpower-newrysoutharmagh-page,mpower-droghedacarrickmacross-page,mpower-finnvalley-page,mpower-southleitrim-page",
           "template": ">context.metaData.handlebars.queries.errors_404"
         }
       },

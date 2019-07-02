@@ -21,21 +21,5 @@
       },
       "output": "data"
     }
-  },
-  "menus": {
-    "name": "menus",
-    "taskModule": "elasticsearch",
-    "config": {
-      "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
-      "elasticsearchConfig": {
-        "apiVersion": "5.6"
-      },
-      "queryTemplates": {
-        "index": "web-content-production",
-        "type": "mpower-default-page,mpower-dumfriesgalloway-page",
-        "template": ">context.metaData.handlebars.queries.pages_menus"
-      }
-    },
-    "renderer": "handlebars"
   }
 }

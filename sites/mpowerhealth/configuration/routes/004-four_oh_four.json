@@ -5,7 +5,6 @@
   "defaultStatusCode": 404,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "not_found",
       "taskModule": "elasticsearch",

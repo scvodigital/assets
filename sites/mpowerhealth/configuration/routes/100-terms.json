@@ -4,7 +4,6 @@
   "debug": false,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

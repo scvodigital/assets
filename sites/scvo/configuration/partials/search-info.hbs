@@ -3,8 +3,8 @@
   <strong>Total results:</strong> {{addCommas paging.totalResults}} |
   <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
   {{#ifAny (compare @root.route.name "evidence_library_document_search") (compare @root.route.name "post_tag") (compare @root.route.name "post_category") (compare @root.route.name "page_blogs") (compare @root.route.name "page_press") ~}}
-  <a href="{{@root.request.params.uri.pathname}}?_view=rss&amp;{{@root.request.params.uri.query}}" class="rss pull-right">
-    <span class="fas fa-rss-square" aria-hidden="true" aria-label="RSS"></span>
+  <a href="{{@root.request.params.uri.pathname}}?_view=rss{{#if @root.request.params.uri.query}}&amp;{{@root.request.params.uri.query}}{{/if}}" class="rss pull-right">
+    <span class="fas fa-rss-square" aria-hidden="true" aria-label="RSS feed"></span>
   </a>
   {{/ifAny ~}}
 </div>

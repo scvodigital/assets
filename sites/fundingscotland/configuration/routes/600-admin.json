@@ -61,7 +61,8 @@
       "config": {
         "connectionName": "notifications",
         "queryTemplates": {
-          "subscriptions": "CALL _getSubscriptions({{{mysqlEscape @root.data.email}}}, NULL, NULL)"
+          "subscriptions": "CALL _getSubscriptions({{{mysqlEscape @root.data.email}}}, NULL, NULL)",
+          "logs": "SELECT * FROM logs WHERE email={{{mysqlEscape @root.data.email}}} AND campaign LIKE 'fs-%'"
         }
       }
     },

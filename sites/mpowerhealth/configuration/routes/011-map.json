@@ -15,7 +15,7 @@
         },
         "queryTemplates": {
           "index": "web-content-production",
-          "type": "mpower-default-page,mpower-dumfriesgalloway-page",
+          "type": "mpower-default-page,mpower-ayrshirearran-page,mpower-dumfriesgalloway-page,mpower-westernisles-page,mpower-fermanagh-page,mpower-newrysoutharmagh-page,mpower-droghedacarrickmacross-page,mpower-finnvalley-page,mpower-southleitrim-page",
           "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },
@@ -33,7 +33,7 @@
           {
             "name": "organisations",
             "index": "web-content-production",
-            "type": "mpower-dumfriesgalloway-organisation",
+            "type": "mpower-ayrshirearran-organisation,mpower-dumfriesgalloway-organisation,mpower-westernisles-organisation,mpower-fermanagh-organisation,mpower-newrysoutharmagh-organisation,mpower-droghedacarrickmacross-organisation,mpower-finnvalley-organisation,mpower-southleitrim-organisation",
             "template": ">context.metaData.handlebars.queries.pages_organisations"
           }
         ]

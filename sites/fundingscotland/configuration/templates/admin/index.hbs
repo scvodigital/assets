@@ -45,6 +45,22 @@
   {{/if}}
 {{/inline}}
 
+{{#*inline "campaign"}}
+{{#if (contains name "bulletin") ~}}
+{{#if (getProperty @root.context.metaData.site-configurations (itemAt (arrayify (split name "-")) 2)) ~}}
+{{{getProperty @root.context.metaData.site-configurations (concat (itemAt (arrayify (split name "-")) 2) '.title')}}} bulletin
+{{else}}
+{{name}}
+{{/if ~}}
+{{else}}
+{{#if (getProperty @root.context.metaData.site-configurations (itemAt (arrayify (split name "-")) 3)) ~}}
+{{{getProperty @root.context.metaData.site-configurations (concat (itemAt (arrayify (split name "-")) 3) '.title')}}} {{itemAt (arrayify (split name "-")) 1}} {{itemAt (arrayify (split name "-")) 2}}
+{{else}}
+{{name}}
+{{/if ~}}
+{{/if ~}}
+{{/inline}}
+
 <style>
   .bottom-menu {
     position: fixed;
@@ -223,18 +239,22 @@
       <h2 class="mdc-typography--headline4">Subscriptions</h2>
       {{#each (groupBy @root.data.userSubscriptions.subscriptions.[0] "campaign")}}
         {{#if (regexMatch [0].campaign "^fs-" "i")}}
-          <h3 class="mdc-typography--headline5">Subscription: {{[0].campaign}}</h3>
+          <h3 class="mdc-typography--headline5">
+            {{>campaign name=[0].campaign}}
+          </h3>
           <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
             {{#with [0]}}
               <ul class="admin-user-info">
+                {{#if status ~}}
                 <li>
                   <strong>Last status: </strong>
-                  {{status}}
+                  {{default (replace status "-" " ") "N/A"}}
                 </li>
                 <li>
                   <strong>Last sent: </strong>
                   {{momentFormat (moment lastSent null) "YYYY-MM-DD HH:mm:ss"}}
                 </li>
+                {{/if ~}}
                 <li>
                   <strong>Created: </strong>
                   {{momentFormat (moment createdAt null) "YYYY-MM-DD HH:mm:ss"}}
@@ -243,10 +263,12 @@
                   <strong>Last updated: </strong>
                   {{momentFormat (moment updatedAt null) "YYYY-MM-DD HH:mm:ss"}}
                 </li>
+                {{#if metadata ~}}
                 <li>
                   <strong>Metadata: </strong>
                   {{safeStringify metaData}}
                 </li>
+                {{/if ~}}
               </ul>
 
               <form action="/admin/update-subscription" method="POST" data-ajax-form='{
@@ -341,9 +363,9 @@
                     {{/switchDefault}}
                   {{/switch}}
                 </td>
-                <td>{{momentFormat (moment timestamp "x") "YYYY-MM-DD HH:mm:ss"}}</td>
-                <td>{{campaign}}</td>
-                <td>{{event}}</td>
+                <td>{{momentFormat (moment (concat timestamp "000") "x") "YYYY-MM-DD HH:mm:ss"}}</td>
+                <td>{{>campaign name=campaign}}</td>
+                <td>{{replace event "-" " "}}</td>
                 <td>{{other}}</td>
                 <td>{{messageId}}</td>
               </tr>
@@ -364,7 +386,7 @@
           <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
             <ul class="admin-user-info">
               <li>
-                <strong>Last accessed: </strong>
+                <strong>Last accessed:</strong>
                 {{#if accessed}}
                   {{momentFormat (moment accessed "x") "YYYY-MM-DD HH:mm:ss"}}
                 {{else}}
@@ -381,11 +403,19 @@
                     <span class="mdc-list-item__text">
                       <a href="/fund/{{@key}}/from-admin" target="_blank">{{@key}}</a>
                     </span>
-                    <span class="mdc-list-item__meta">
-                      <a href="/admin/delete-hidden?site={{@../key}}&email={{@root.data.userAuth.email}}&id={{@key}}" class="mdc-icon-button mdc-theme--error-dark">
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </span>
+                    <form action="/admin/remove-hidden" method="POST" class="mdc-list-item__meta" data-ajax-form='{
+                          "successMessage": "Fund unhidden",
+                          "failureMessage": "Failed to unhide fund",
+                          "successCallback": "fundUnhidden"
+                        }'>
+                        <input type="hidden" name="site" value="{{@../key}}">
+                        <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+                        <input type="hidden" name="id" value="{{@key}}">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <i class="mdc-button__icon fas fa-eye fa-fw"></i>
+                        <span class="mdc-button__label">Unhide</span>
+                      </button>
+                    </form>
                   </li>
                 {{/each}}
               </ul>

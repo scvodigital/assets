@@ -1,0 +1,51 @@
+{
+  "name": "admin_update_partition",
+  "pattern": "/admin/update-partition",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "updateSubscription",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "UPDATE subscriptionPartitions SET active={{@root.request.body.active}} WHERE campaign={{{mysqlEscape @root.request.body.campaign}}} AND email={{{mysqlEscape @root.request.body.email}}} AND `partition`={{{mysqlEscape @root.request.body.partition}}}"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

@@ -909,6 +909,7 @@ primary-dark: #263238
   @include theme-colours('digital-charter');
 }
 .search-result.funding-scotland-fund,
+.search-result.fundingscotland-fund,
 .services.funding-scotland {
   @include theme-colours('funding-scotland');
 }

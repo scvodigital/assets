@@ -7,14 +7,14 @@
     "bool": {
       "must": [
         {
-          "terms": {
-            "fundStatus": [ "Open" ]
+          "term": {
+            "fund_status_slug": "open"
           }
         }
       ]
     }
   },
   "sort": {
-    "lastImportantActivity": "desc"
+    "date_last_important_activity": "desc"
   }
 }

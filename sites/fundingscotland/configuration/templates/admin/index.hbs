@@ -1,0 +1,404 @@
+{{#*inline "checkbox"}}
+  <div class="mdc-form-field">
+    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+      <input type="checkbox" class="mdc-checkbox__native-control" id="{{id}}" name="{{name}}"
+          {{#if value}}value="{{value}}"{{/if}} {{#if checked}}checked{{/if}} />
+      <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+      </div>
+    </div>
+    <label for="{{id}}">{{label}}</label>
+  </div>
+{{/inline}}
+
+{{#*inline "textbox"}}
+  <div class="mdc-text-field mdc-text-field--outlined {{#if leadingIcon}}mdc-text-field--with-leading-icon{{/if}}" data-mdc-auto-init="MDCTextField">
+    {{#if leadingIcon}}
+      <i class="mdc-text-field__icon {{leadingIcon}}"></i>
+    {{/if}}
+    <input type="{{default type "text"}}" class="mdc-text-field__input" id="{{default id name}}" name="{{default name id}}" value="{{value}}">
+    <div class="mdc-notched-outline">
+      <div class="mdc-notched-outline__leading"></div>
+      <div class="mdc-notched-outline__notch">
+        <label for="{{default id name}}" class="mdc-floating-label">{{label}}</label>
+      </div>
+      <div class="mdc-notched-outline__trailing"></div>
+    </div>
+  </div>
+{{/inline}}
+
+<style>
+  .admin-section {
+    padding: 5rem 0;
+  }
+
+  h2.mdc-typography--headline4 {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 1rem;
+  }
+
+  .mdc-text-field--outlined {
+    background-color: #ffffff !important;
+  }
+
+  .admin-section:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .admin-user-info {
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+
+  .admin-user-info li {
+    padding:0;
+    margin:0 15px 0 0;
+    display: inline-block;
+  }
+
+  .table {
+    max-height: 60vh;
+    border: 1px solid #cccccc;
+    overflow: auto;
+  }
+
+  .table table {
+    border-collapse: collapse;
+  }
+
+  .table table th {
+    border-bottom: 1px solid #cccccc;
+  }
+  .table table tr:nth-child(odd) {
+    background-color: #ededed;
+  }
+
+  .table table tr:nth-child(even), .table table thead tr {
+    background-color: #ffffff !important;
+  }
+
+
+  .table table th, .table table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem;
+  }
+</style>
+
+<div class="admin-section">
+  <div class="container-content container-centred">
+    <div class="mdc-card x-padding-full b-margin-full" style="background-color: #ffffff;">
+      <h1 class="mdc-typography--headline4">
+        Find user
+      </h1>
+      <form action="/admin" method="GET">
+        {{>textbox id="email" value=@root.data.email label="Find user by email" leadingIcon="fas fa-search" type="email"}}
+      </form>
+    </div>
+  </div>
+</div>
+
+{{#if data.userAuth.uid}}
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Authentication system info</h2>
+      <ul class="admin-user-info">
+        <li>
+          <strong>Email: </strong>
+          {{@root.data.userAuth.email}}
+        </li>
+        <li>
+          <strong>UID:</strong>
+          {{@root.data.userAuth.uid}}
+        </li>
+        <li>
+          <strong>Account created:</strong>
+          {{@root.data.userAuth.metadata.creationTime}}
+        </li>
+        <li>
+          <strong>Last sign-in:</strong>
+          {{@root.data.userAuth.metadata.lastSignInTime}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Profile</h2>
+      <form action="/admin/update-profile" method="POST">
+        <h3 class="mdc-typography--headline5">Basic information</h3>
+        <div class="mdc-layout-grid t-margin-full">
+          <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+            <div class="mdc-layout-grid__cell">
+              {{>textbox id="organisation" value=@root.data.userProfile.organisation label="Organisation"}}
+            </div>
+            <div class="mdc-layout-grid__cell">
+              {{>textbox id="postcode" value=@root.data.userProfile.organisation label="Postcode"}}
+            </div>
+            <div class="mdc-layout-grid__cell">
+              <button type="submit" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Update profile</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <h3 class="mdc-typography--headline5">Premium status</h3>
+      <form action="/admin/update-profile" method="POST">
+        <div class="mdc-layout-grid t-margin-full">
+          <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+            <div class="mdc-layout-grid__cell">
+              {{>textbox id="premium-expiry" leadingIcon="fas fa-calendar" label="Premium expiry" type="date"
+                  value=(if @root.data.userProfile.default.isPremium (momentFormat (moment @root.data.userProfile.default.isPremium "x") "YYYY-MM-DD") else="")}}
+            </div>
+            <div class="mdc-layout-grid__cell">
+              <button type="submit" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Set premium status</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Subscriptions</h2>
+      {{#each (groupBy @root.data.userSubscriptions.subscriptions.[0] "campaign")}}
+        {{#if (regexMatch [0].campaign "^fs-" "i")}}
+          <h3 class="mdc-typography--headline5">Subscription: {{[0].campaign}}</h3>
+          <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
+            {{#with [0]}}
+              <ul class="admin-user-info">
+                <li>
+                  <strong>Last status: </strong>
+                  {{status}}
+                </li>
+                <li>
+                  <strong>Last sent: </strong>
+                  {{momentFormat (moment lastSent null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                <li>
+                  <strong>Created: </strong>
+                  {{momentFormat (moment createdAt null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                <li>
+                  <strong>Last updated: </strong>
+                  {{momentFormat (moment updatedAt null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                <li>
+                  <strong>Metadata: </strong>
+                  {{safeStringify metaData}}
+                </li>
+              </ul>
+
+              <form action="/admin/update-subscription" method="POST">
+                <h4 class="mdc-typography--headline6">Update subscription</h4>
+                <div class="mdc-layout-grid t-margin-full">
+                  <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                    <div class="mdc-layout-grid__cell">
+                      {{>textbox id=(concat campaign "-days") value=days label="Days"}}
+                      <small><em>* Sunday = 1, Monday = 2, etc.</em></small>
+                    </div>
+                    <div class="mdc-layout-grid__cell">
+                      {{>checkbox id=(concat campaign "-active") name="active" label="Active" checked=active}}
+                      <small><em>* This cannot be changed by users and acts as an override to surpress emails</em></small>
+                    </div>
+                    <div class="mdc-layout-grid__cell">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">Update subscription</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            {{/with}}
+
+            <h4 class="mdc-typography--headline6">Subscription partitions</h4>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Partition name</th>
+                    <th>Parameters</th>
+                    <th>Active</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each this}}
+                    <tr>
+                      <td>{{partition}}</td>
+                      <td>
+                        <pre style="margin:0;">{{{safeStringify (querystring querystring)}}}</pre>
+                      </td>
+                      <td style="text-align: center">
+                        {{#if partitionActive}}
+                          Yes<br />
+                          <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=false" class="mdc-button mdc-button--raised">
+                            <i class="mdc-button__icon fas fa-toggle-on fa-fw"></i>
+                            <span class="mdc-button__label">Turn off</span>
+                          </a>
+                        {{else}}
+                          No<br />
+                          <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=true" class="mdc-button mdc-button--raised">
+                            <i class="mdc-button__icon fas fa-toggle-off fa-fw"></i>
+                            <span class="mdc-button__label">Turn on</span>
+                          </a>
+                        {{/if}}
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Email logs</h2>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Timestamp</th>
+              <th>Campaign</th>
+              <th>Event</th>
+              <th>Other</th>
+              <th>Message Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each @root.data.userSubscriptions.logs}}
+              <tr>
+                <td>
+                  {{#switch logLevel}}
+                    {{#case "warn"}}
+                      <i class="fas fa-comment-alt-exclamation mdc-theme--warning"></i>
+                    {{/case}}
+                    {{#case "error"}}
+                      <i class="fas fa-exclamation-triangle mdc-theme--error"></i>
+                    {{/case}}
+                    {{#switchDefault}}
+                      <i class="fas fa-info-circle mdc-theme--info"></i>
+                    {{/switchDefault}}
+                  {{/switch}}
+                </td>
+                <td>{{momentFormat (moment timestamp "x") "YYYY-MM-DD HH:mm:ss"}}</td>
+                <td>{{campaign}}</td>
+                <td>{{event}}</td>
+                <td>{{other}}</td>
+                <td>{{messageId}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Site specific information</h2>
+      {{#each @root.data.userProfile}}
+        {{#if (getProperty @root.context.metaData.site-configurations @key)}}
+          <h3 class="mdc-typography--headline5">{{{getProperty @root.context.metaData.site-configurations (concat @key ".title")}}}</h3>
+          <div class="l-margin-full l-border mdc-theme--primary-border l-padding-full b-margin-full t-padding-full b-padding-full">
+            <ul class="admin-user-info">
+              <li>
+                <strong>Last accessed: </strong>
+                {{#if accessed}}
+                  {{momentFormat (moment accessed "x") "YYYY-MM-DD HH:mm:ss"}}
+                {{else}}
+                  Never
+                {{/if}}
+              </li>
+            </ul>
+
+            {{#if hidden}}
+              <h4 class="mdc-typography--headline6">Hidden funds</h4>
+              <ul class="mdc-list">
+                {{#each hidden}}
+                  <li class="mdc-list-item">
+                    <span class="mdc-list-item__text">
+                      <a href="/fund/{{@key}}/from-admin" target="_blank">{{@key}}</a>
+                    </span>
+                    <span class="mdc-list-item__meta">
+                      <a href="/admin/delete-hidden?site={{@../key}}&email={{@root.data.userAuth.email}}&id={{@key}}" class="mdc-icon-button mdc-theme--error-dark">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </span>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+
+            {{#if notes}}
+              {{#each notes}}
+                <h4 class="mdc-typography--headline6">
+                  Notes for fund <a href="/fund/{{@key}}/from-admin#notes" target="_blank">{{@key}}</a>
+                </h4>
+
+                <div class="table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Timestamp</th>
+                        <th>Note</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each this}}
+                        <tr>
+                          <td>{{status}}</td>
+                          <td>{{momentFormat (moment @key "x") "YYYY-MM-DD HH:mm:ss"}}</td>
+                          <td><pre style="margin:0;">{{{note}}}</pre></td>
+                          <td style="text-align: right;">
+                            <a href="/admin/delete-note?site={{@../../key}}&email={{@root.data.userAuth.email}}&id={{@../key}}&timestamp={{@key}}" class="mdc-button mdc-button--raised">
+                              <i class="mdc-button__icon fas fa-trash fa-fw"></i>
+                              <span class="mdc-button__label">Delete note</span>
+                            </a>
+                          </td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="text-right">
+                  <a href="/admin/delete-notes?site={{@../key}}&email={{@root.data.userAuth.email}}&id={{@key}}" class="mdc-button mdc-button--raised">
+                    <i class="mdc-button__icon fas fa-trash fa-fw"></i>
+                    <span class="mdc-button__label">Delete all notes for fund</span>
+                  </a>
+                </div>
+              {{/each}}
+            {{/if}}
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+{{else}}
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h1 class="mdc-typography--headline3">User not found: {{{@root.data.email}}}</h1>
+    </div>
+  </div>
+{{/if}}

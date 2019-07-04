@@ -1,0 +1,44 @@
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "funder_organisation.id": "001b000000SsxRDAAZ"
+          }
+        }
+      ],
+      "must_not": [
+        {
+          "term": {
+            "Id": "a0Rb000000GKy6NEAT"
+          }
+        }
+      ]
+    }
+  },
+  "aggs" : {
+    "funds": {
+      "terms": {
+        "field": "fund_status_slug",
+        "size": 10000,
+        "order": {
+          "_term": "desc"
+        }
+      },
+      "aggs": {
+        "funds": {
+          "top_hits": {
+            "size": 20,
+            "_source": [
+              "fund_status_slug",
+              "title",
+              "fund_url"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

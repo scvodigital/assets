@@ -29,9 +29,15 @@
         },
         "queryTemplates": [
           {
+            "name": "scvo_funds",
+            "index": "web-content-production",
+            "type": "fundingscotland-fund",
+            "template": ">context.metaData.handlebars.queries.funding_scvo-funds"
+          },
+          {
             "name": "recently_updated_funds",
             "index": "web-content-production",
-            "type": "funding-scotland-fund",
+            "type": "fundingscotland-fund",
             "template": ">context.metaData.handlebars.queries.funding_funding-latest"
           },
           {

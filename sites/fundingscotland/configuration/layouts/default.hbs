@@ -37,14 +37,14 @@
   <meta name="theme-color" content="#3c7524">
   <link rel="search" type="application/opensearchdescription+xml" title="{{@root.data.currentSite.title}}" href="{{~>asset_url url='opensearch.xml'~}}" />
 
-  <!-- <link rel="canonical" href="https://fundingscotland.com{{request.params.uri.pathname}}" /> -->
+  {{!-- <link rel="canonical" href="https://fundingscotland.com{{request.params.uri.pathname}}" /> --}}
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TJQ3FN');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TJQ3FN');</script>
+  <!-- End Google Tag Manager -->
   <script>
   //window.dataLayer = window.dataLayer || [];
   //function gtag(){dataLayer.push(arguments);}
@@ -59,17 +59,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   //  }
   //});
 
-  {{#ifAny request.params.query.debug (contains request.url.hostname ".local") ~}}
-  console.log('#### DEBUG MODE ON ####');
-  console.log('Request:', {{{regexReplace (regexReplace (stringify request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
-  console.log('Data:', {{{regexReplace (regexReplace (stringify data) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
-  {{#if errors.[0]}}
-    console.error('Task Errors:', {{{regexReplace (regexReplace (stringify errors) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
-  {{/if}}
-  {{/ifAny ~}}
   </script>
+  {{#ifAny @root.request.params.query.debug (contains request.url.hostname ".local") ~}}
+  <script type="text/javascript">
+  console.log('#### DEBUG MODE ON ####');
+  console.log('Request:', {{{regexReplace (regexReplace (stringify @root.request) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  console.log('Route:', {{{regexReplace (regexReplace (stringify @root.route) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  console.log('Context:', {{{regexReplace (regexReplace (stringify @root.context) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  console.log('Data:', {{{regexReplace (regexReplace (stringify @root.data) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  console.log('Menus:', {{{regexReplace (regexReplace (stringify @root.context.metaData.menus) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  {{#if errors.[0]}}
+    console.error('Task Errors:', {{{regexReplace (regexReplace (stringify @root.errors) "(<\/script)" "gi" '</scr\" + \"ipt') "(\r|\n)" "gi" ""}}});
+  {{/if}}
+  </script>
+  {{/ifAny ~}}
 
-  <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-9ralMzdK1QYsk4yBY680hmsb4/hJ98xK3w0TIaJ3ll4POWpWUYaA2bRjGGujGT8w" crossorigin="anonymous"> -->
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url='fontawesome-pro/css/all.min.css'~}}">
 
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">

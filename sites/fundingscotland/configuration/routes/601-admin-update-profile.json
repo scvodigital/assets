@@ -1,0 +1,62 @@
+{
+  "name": "admin_update_profile",
+  "pattern": "/admin/update-profile",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "updateOrganisation",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default @root.request.body.uid 'no-such-profile'}}/organisation",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{json value=(default @root.request.body.organisation 'None')}}}"
+      }
+    },
+    {
+      "name": "updatePostcode",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default @root.request.body.uid 'no-such-profile'}}/postcode",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{json value=(default @root.request.body.postcode 'None')}}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   <div class="mdc-form-field">
     <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
       <input type="checkbox" class="mdc-checkbox__native-control" id="{{id}}" name="{{name}}"
-          {{#if value}}value="{{value}}"{{/if}} {{#if checked}}checked{{/if}} />
+          {{#if value}}value="{{value}}"{{/if}} {{{attributes}}} {{#if checked}}checked{{/if}} />
       <div class="mdc-checkbox__background">
         <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
           <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
@@ -19,7 +19,7 @@
     {{#if leadingIcon}}
       <i class="mdc-text-field__icon {{leadingIcon}}"></i>
     {{/if}}
-    <input type="{{default type "text"}}" class="mdc-text-field__input" id="{{default id name}}" name="{{default name id}}" value="{{value}}">
+    <input type="{{default type "text"}}" class="mdc-text-field__input" id="{{default id name}}" name="{{default name id}}" value="{{value}}" {{{attributes}}}>
     <div class="mdc-notched-outline">
       <div class="mdc-notched-outline__leading"></div>
       <div class="mdc-notched-outline__notch">
@@ -30,8 +30,29 @@
   </div>
 {{/inline}}
 
+{{#*inline "switch"}}
+  <div class="mdc-switch" data-mdc-auto-init="MDCSwitch">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+      <div class="mdc-switch__thumb">
+        <input type="checkbox" id="{{default id name}}" name="{{default name id}}" class="mdc-switch__native-control" role="switch"
+            {{#if value}}value="{{value}}"{{/if}} {{{attributes}}} {{#if checked}}checked{{/if}}>
+      </div>
+    </div>
+  </div>
+  <label for="{{default id name}}" class="l-margin-full">{{label}}</label>
+{{/inline}}
+
 <style>
-  .admin-section {
+  .bottom-menu {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index:1000;
+  }
+
+  .admin-section .container-content {
     padding: 5rem 0;
   }
 
@@ -94,6 +115,7 @@
 </style>
 
 <div class="admin-section">
+  <a name="find-user"></a>
   <div class="container-content container-centred">
     <div class="mdc-card x-padding-full b-margin-full" style="background-color: #ffffff;">
       <h1 class="mdc-typography--headline4">
@@ -108,6 +130,7 @@
 
 {{#if data.userAuth.uid}}
   <div class="admin-section">
+		<a name="authentication-system-info"></a>
     <div class="container-content container-centred">
       <h2 class="mdc-typography--headline4">Authentication system info</h2>
       <ul class="admin-user-info">
@@ -132,9 +155,13 @@
   </div>
 
   <div class="admin-section">
+		<a name="profile"></a>
     <div class="container-content container-centred">
       <h2 class="mdc-typography--headline4">Profile</h2>
-      <form action="/admin/update-profile" method="POST">
+      <form action="/admin/update-profile" method="POST" data-ajax-form='{
+            "successMessage": "Profile updated",
+            "failureMessage": "Failed to update profile"
+          }'>
         <h3 class="mdc-typography--headline5">Basic information</h3>
         <div class="mdc-layout-grid t-margin-full">
           <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
@@ -142,9 +169,10 @@
               {{>textbox id="organisation" value=@root.data.userProfile.organisation label="Organisation"}}
             </div>
             <div class="mdc-layout-grid__cell">
-              {{>textbox id="postcode" value=@root.data.userProfile.organisation label="Postcode"}}
+              {{>textbox id="postcode" value=@root.data.userProfile.postcode label="Postcode"}}
             </div>
             <div class="mdc-layout-grid__cell">
+              <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
               <button type="submit" class="mdc-button mdc-button--raised">
                 <span class="mdc-button__label">Update profile</span>
               </button>
@@ -153,26 +181,42 @@
         </div>
       </form>
 
-      <h3 class="mdc-typography--headline5">Premium status</h3>
-      <form action="/admin/update-profile" method="POST">
-        <div class="mdc-layout-grid t-margin-full">
-          <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
-            <div class="mdc-layout-grid__cell">
-              {{>textbox id="premium-expiry" leadingIcon="fas fa-calendar" label="Premium expiry" type="date"
-                  value=(if @root.data.userProfile.default.isPremium (momentFormat (moment @root.data.userProfile.default.isPremium "x") "YYYY-MM-DD") else="")}}
-            </div>
-            <div class="mdc-layout-grid__cell">
-              <button type="submit" class="mdc-button mdc-button--raised">
-                <span class="mdc-button__label">Set premium status</span>
-              </button>
-            </div>
+      <div class="mdc-layout-grid t-margin-full">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+            <h3 class="mdc-typography--headline5">Premium status</h3>
+            <form action="/admin/update-premium-status" method="POST" data-ajax-form='{
+                  "successMessage": "Premium status updated",
+                  "failureMessage": "Failed to update premium status"
+                }'>
+              <div class="mdc-layout-grid t-margin-full">
+                <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                  <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    {{>textbox id="expiry" leadingIcon="fas fa-calendar" label="Premium expiry" type="date"
+                        value=(if @root.data.userProfile.default.isPremium (momentFormat (moment @root.data.userProfile.default.isPremium "x") "YYYY-MM-DD") else="")}}
+                  </div>
+                  <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+                    <input type="hidden" name="email" value="{{@root.data.userAuth.email}}">
+                    <button type="submit" class="mdc-button mdc-button--raised">
+                      <span class="mdc-button__label">Set premium status</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+            <h3 class="mdc-typography--headline5">Administrator</h3>
+            {{>switch id="admin" checked=@root.data.userProfile.isAdmin label="Is administrator"}}
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 
   <div class="admin-section">
+		<a name="subscriptions"></a>
     <div class="container-content container-centred">
       <h2 class="mdc-typography--headline4">Subscriptions</h2>
       {{#each (groupBy @root.data.userSubscriptions.subscriptions.[0] "campaign")}}
@@ -203,19 +247,24 @@
                 </li>
               </ul>
 
-              <form action="/admin/update-subscription" method="POST">
+              <form action="/admin/update-subscription" method="POST" data-ajax-form='{
+                  "successMessage": "Subscription updated",
+                  "failureMessage": "Failed to update subscription"
+                }'>
                 <h4 class="mdc-typography--headline6">Update subscription</h4>
                 <div class="mdc-layout-grid t-margin-full">
                   <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
                     <div class="mdc-layout-grid__cell">
-                      {{>textbox id=(concat campaign "-days") value=days label="Days"}}
+                      {{>textbox id=(concat campaign "-days") name="days" value=days label="Days" attributes='data-restricted="[1-7]" maxlength="7"'}}
                       <small><em>* Sunday = 1, Monday = 2, etc.</em></small>
                     </div>
                     <div class="mdc-layout-grid__cell">
-                      {{>checkbox id=(concat campaign "-active") name="active" label="Active" checked=active}}
+                      {{>checkbox id=(concat campaign "-active") name="active" label="Active" value="1" checked=active}}
                       <small><em>* This cannot be changed by users and acts as an override to surpress emails</em></small>
                     </div>
                     <div class="mdc-layout-grid__cell">
+                      <input type="hidden" name="campaign" value="{{campaign}}">
+                      <input type="hidden" name="email" value="{{email}}">
                       <button type="submit" class="mdc-button mdc-button--raised">
                         <span class="mdc-button__label">Update subscription</span>
                       </button>
@@ -269,6 +318,7 @@
   </div>
 
   <div class="admin-section">
+		<a name="email-logs"></a>
     <div class="container-content container-centred">
       <h2 class="mdc-typography--headline4">Email logs</h2>
 
@@ -314,8 +364,9 @@
   </div>
 
   <div class="admin-section">
+		<a name="site-specific-info"></a>
     <div class="container-content container-centred">
-      <h2 class="mdc-typography--headline4">Site specific information</h2>
+      <h2 class="mdc-typography--headline4">Site specific info</h2>
       {{#each @root.data.userProfile}}
         {{#if (getProperty @root.context.metaData.site-configurations @key)}}
           <h3 class="mdc-typography--headline5">{{{getProperty @root.context.metaData.site-configurations (concat @key ".title")}}}</h3>
@@ -394,6 +445,42 @@
         {{/if}}
       {{/each}}
     </div>
+  </div>
+  <div class="bottom-menu mdc-theme--primary-bg mdc-elevation--z5">
+    {{#> components_tab_bar
+          extraClasses="mdc-tab-bar__auto-width"
+          id="admin-tab-bar"}}
+      {{> components_tab
+          url="#find-user"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Find user"}}
+      {{> components_tab
+          url="#authentication-system-info"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Auth"}}
+      {{> components_tab
+          url="#profile"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Profile"}}
+      {{> components_tab
+          url="#subscriptions"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Subscriptions"}}
+      {{> components_tab
+          url="#email-logs"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Email logs"}}
+      {{> components_tab
+          url="#site-specific-info"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Sites"}}
+    {{/components_tab_bar}}
   </div>
 {{else}}
   <div class="admin-section">

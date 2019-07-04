@@ -1,0 +1,51 @@
+{
+  "name": "admin_update_subscription",
+  "pattern": "/admin/update-subscription",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "updateSubscription",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "UPDATE subscriptions SET days={{{mysqlEscape (default @root.request.body.days '')}}}, active={{#if @root.request.body.active}}1{{else}}0{{/if}} WHERE campaign={{{mysqlEscape @root.request.body.campaign}}} AND email={{{mysqlEscape @root.request.body.email}}}"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

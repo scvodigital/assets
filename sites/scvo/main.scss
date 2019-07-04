@@ -4409,6 +4409,8 @@ p:last-child {
 .l-margin { margin-left: $unit/2; }
 .r-margin { margin-right: $unit/2; }
 
+.b-margin-none { margin-bottom: 0 !important; }
+
 p.results-highlights em {
   font-weight: bolder;
   font-style: normal;

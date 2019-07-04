@@ -97,7 +97,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.vacancies_search-head-tags",
               "body": ">context.metaData.handlebars.templates.vacancies_map",
-              "foot": ">context.metaData.handlebars.templates.vacancies_map-foot",
+              "foot": ">context.metaData.handlebars.templates.vacancies_search-foot",
               "sidebar": ">context.metaData.handlebars.templates.vacancies_search-form"
             },
             "contentType": "text/html"

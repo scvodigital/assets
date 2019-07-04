@@ -381,11 +381,19 @@
                     <span class="mdc-list-item__text">
                       <a href="/fund/{{@key}}/from-admin" target="_blank">{{@key}}</a>
                     </span>
-                    <span class="mdc-list-item__meta">
-                      <a href="/admin/delete-hidden?site={{@../key}}&email={{@root.data.userAuth.email}}&id={{@key}}" class="mdc-icon-button mdc-theme--error-dark">
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </span>
+                    <form action="/admin/remove-hidden" method="POST" class="mdc-list-item__meta" data-ajax-form='{
+                          "successMessage": "Fund unhidden",
+                          "failureMessage": "Failed to unhide fund",
+                          "successCallback": "fundUnhidden"
+                        }'>
+                        <input type="hidden" name="site" value="{{@../key}}">
+                        <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+                        <input type="hidden" name="id" value="{{@key}}">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <i class="mdc-button__icon fas fa-eye fa-fw"></i>
+                        <span class="mdc-button__label">Unhide</span>
+                      </button>
+                    </form>
                   </li>
                 {{/each}}
               </ul>

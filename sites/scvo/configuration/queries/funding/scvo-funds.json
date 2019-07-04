@@ -39,7 +39,6 @@
               }
             ],
             "_source": [
-              "fund_status_slug",
               "title",
               "fund_url"
             ]

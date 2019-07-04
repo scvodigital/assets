@@ -40,7 +40,9 @@
       </div>
     </div>
   </div>
-  <label for="{{default id name}}" class="l-margin-full">{{label}}</label>
+  {{#if label}}
+    <label for="{{default id name}}" class="l-margin-full">{{label}}</label>
+  {{/if}}
 {{/inline}}
 
 <style>
@@ -281,7 +283,7 @@
                   <tr>
                     <th>Partition name</th>
                     <th>Parameters</th>
-                    <th>Active</th>
+                    <th style="text-align: center;">Active</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -291,20 +293,9 @@
                       <td>
                         <pre style="margin:0;">{{{safeStringify (querystring querystring)}}}</pre>
                       </td>
-                      <td style="text-align: center">
-                        {{#if partitionActive}}
-                          Yes<br />
-                          <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=false" class="mdc-button mdc-button--raised">
-                            <i class="mdc-button__icon fas fa-toggle-on fa-fw"></i>
-                            <span class="mdc-button__label">Turn off</span>
-                          </a>
-                        {{else}}
-                          No<br />
-                          <a href="/admin/update-partition?email={{email}}&campaign={{campaign}}&partition={{partition}}&active=true" class="mdc-button mdc-button--raised">
-                            <i class="mdc-button__icon fas fa-toggle-off fa-fw"></i>
-                            <span class="mdc-button__label">Turn on</span>
-                          </a>
-                        {{/if}}
+                      <td style="text-align: center; vertical-align: middle;">
+                        {{>switch id=(concat campaign "_" (slugify partition)) checked=partitionActive
+                            attributes=(concat 'data-campaign="' campaign '" data-email="' email '" data-partition="' partition '" data-partition-active')}}
                       </td>
                     </tr>
                   {{/each}}

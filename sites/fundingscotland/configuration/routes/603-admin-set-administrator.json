@@ -1,0 +1,51 @@
+{
+  "name": "admin_set_administrator",
+  "pattern": "/admin/set-administrator",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "updateProfile",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default @root.request.body.uid 'no-such-profile'}}/isAdmin",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#compare @root.request.body.admin 'true'}}true{{else}}null{{/compare}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

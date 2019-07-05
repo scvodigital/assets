@@ -1151,7 +1151,7 @@
               </td>
             </tr>
           <![endif]-->
-        {{#ifAny (compare campaign "!==" "fs-bulletin-default") (compare metaData "===" "premium")}}{{#if (any funds)}}{{#if campaignConfig.metaData.fundsText}}
+        {{#ifAny (compare campaign "!==" "fs-bulletin-default") (compare metaData ">" (dateMath "now"))}}{{#if (any funds)}}{{#if campaignConfig.metaData.fundsText}}
           <!--[if mso | IE]>
             <tr>
               <td

@@ -12,6 +12,7 @@
           {{#json}}
             {{{json key="from" value=campaignConfig.from}}},
             {{{json key="h:sender" value=campaignConfig.from}}},
+            {{{json key="h:reply-to" value=campaignConfig.replyTo}}},
             {{{json key="to" value=(default testEmail email)}}},
             {{{json key="o:tag" value=campaign}}},
             {{{json key="o:tracking" value=true}}},

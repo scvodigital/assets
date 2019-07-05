@@ -1,0 +1,92 @@
+{{#json}}
+  {{#json key="size" type="number"}}
+    {{#compare @root.route.name "posts"}}10{{else}}4{{/compare}}
+  {{/json}},
+  "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
+  {{#json key="_source" type="array"}}
+    "title",
+    "url",
+    "slug",
+    "publish_on",
+    "content",
+    "categories",
+    "description",
+    "image_feature",
+    "image_wide",
+    "featured_image",
+    "header_background"
+  {{/json}},
+  {{#json key="query"}}
+    {{#json key="function_score"}}
+      {{#json key="query"}}
+        {{#json key="bool"}}
+          {{#json key="must" type="array"}}
+            {{#json}}
+              {{#json key="exists"}}
+                {{{json key="field" value="title"}}}
+              {{/json}}
+            {{/json}}
+          {{/json}},
+          {{#json key="filter" type="array"}}
+            {{#json}}
+              {{#json key="terms"}}
+                {{#json key="_type" type="array"}}
+                  {{#compare @root.data.currentSite.name "!==" "default"}}
+                    "fs-{{@root.data.currentSite.name}}-post",
+                  {{/compare}}
+                  "fs-default-post", "tfn-news-post", "tfn-feature"
+                {{/json}}
+              {{/json}}
+            {{/json}},
+            {{#json}}
+              {{#json key="terms"}}
+                {{#json key="categories" type="array"}}
+                  "Site news", "Funding & Finance"
+                {{/json}}
+              {{/json}}
+            {{/json}}
+          {{/json}}
+        {{/json}}
+      {{/json}},
+      {{#json key="functions" type="array"}}
+        {{#json}}
+          {{#json key="filter" type="array"}}
+            {{#json}}
+              {{#json key="terms"}}
+                {{#json key="_type" type="array"}}
+                  {{#compare @root.data.currentSite.name "!==" "default"}}
+                    "fs-{{@root.data.currentSite.name}}-post",
+                  {{/compare}}
+                  "fs-default-post"
+                {{/json}}
+              {{/json}}
+            {{/json}}
+          {{/json}},
+          {{#json key="exp"}}
+            {{#json key="publish_on"}}
+              {{{json key="scale" value="1d"}}},
+              {{{json key="decay" value=0.5}}}
+            {{/json}}
+          {{/json}}
+        {{/json}},
+        {{#json}}
+          {{#json key="filter" type="array"}}
+            {{#json}}
+              {{#json key="terms"}}
+                {{#json key="_type" type="array"}}
+                  "tfn-news-post", "tfn-feature"
+                {{/json}}
+              {{/json}}
+            {{/json}}
+          {{/json}},
+          {{#json key="exp"}}
+            {{#json key="publish_on"}}
+              {{{json key="scale" value="1d"}}},
+              {{{json key="decay" value=0.1}}}
+            {{/json}}
+          {{/json}}
+        {{/json}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/json}}

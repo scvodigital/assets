@@ -2,17 +2,19 @@
   <div class="list b-padding-full t-margin b-margin-full">
     {{> search_info paging=@root.data.primaryResponse.pagination}}
 
-    <div class="mdc-layout-grid equal-height">
+    <div class="mdc-layout-grid equal-height t-margin-full">
       <div class="mdc-layout-grid__inner">
         {{#each @root.data.primaryResponse.hits.hits ~}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-card gist {{_type}}">
             {{#with _source ~}}
             {{#ifAny image_feature featured_image header_background ~}}
-            <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url(&quot;{{default (default (default image_wide image_feature) featured_image) header_background}}&quot;);"></div>
+            <div class="mdc-card__media mdc-card__media--16-9" style="background-image: url(&quot;{{default (default (default image_wide image_feature) featured_image.sizes.full.source_url) header_background}}&quot;);"></div>
             {{/ifAny ~}}
             <div class="demo-card__primary">
-              <h2 class="demo-card__title mdc-typography mdc-typography--headline6 h-padding-full">{{{title}}}</h2>
+              <h2 class="demo-card__title mdc-typography mdc-typography--headline6 h-padding-full">
+                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (regexReplace slug ".+?(?=_)_news_" "gi" "") "_" "/"}}{{/if}}">{{{title}}}</a>
+              </h2>
               <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2 h-padding-full">
                 <span class="far fa-calendar-edit" aria-hidden="true"></span>
                 {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}

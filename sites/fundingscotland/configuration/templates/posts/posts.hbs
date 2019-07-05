@@ -2,6 +2,13 @@
   <div class="list b-padding-full t-margin b-margin-full">
     {{> search_info paging=@root.data.primaryResponse.pagination}}
 
+    {{#if (contains @root.request.url.host "local:8080")}}
+    <div class="search-info mdc-elevation--z1">
+      <h3 onclick="$('#search-query').toggleClass('hidden');">Search Query (show/hide)</h3>
+      <pre id="search-query" class="hidden">{{{safeStringify @root.data.primaryResponse.request}}}</pre>
+    </div>
+    {{/if}}
+
     <div class="mdc-layout-grid equal-height t-margin-full">
       <div class="mdc-layout-grid__inner">
         {{#each @root.data.primaryResponse.hits.hits ~}}
@@ -18,14 +25,26 @@
               <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2 h-padding-full">
                 <span class="far fa-calendar-edit" aria-hidden="true"></span>
                 {{{momentFormat (moment publish_on "x") "Do MMMM YYYY"}}}
+                {{#if (contains @root.request.url.host "local:8080")}}
+                  <span class="fas fa-sort-numeric-down l-margin-full" aria-hidden="true"></span>
+                  {{../_score}}
+                  <span class="fas fa-tag l-margin-full" aria-hidden="true"></span>
+                  {{../_type}} ({{join categories ", "}})
+                {{/if}}
               </h3>
             </div>
             <div class="demo-card__secondary mdc-typography mdc-typography--body1 t-padding h-padding-full b-padding-full">
               {{{default (truncate (stripTags content) 280) description}}}
             </div>
-            <div class="mdc-card__actions">
+            <div class="mdc-card__actions {{#if (contains ../_type "fs-")}}mdc-theme--primary-bg{{/if}}">
               <div class="mdc-card__action-buttons">
-                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (regexReplace slug ".+?(?=_)_news_" "gi" "") "_" "/"}}{{/if}}" class="mdc-button mdc-card__action mdc-card__action--button">Read more{{#if (contains ../_type "tfn")}} on TFN&ensp;<span class="far fa-external-link" aria-hidden="true"></span>{{/if}}</a>
+                <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (regexReplace slug ".+?(?=_)_news_" "gi" "") "_" "/"}}{{/if}}"
+                    class="mdc-button mdc-card__action mdc-card__action--button {{#if (contains ../_type "fs-")}}mdc-theme--on-primary{{/if}}">
+                  Read more
+                  {{#if (contains ../_type "tfn")}}
+                    on TFN&ensp;<span class="far fa-external-link" aria-hidden="true"></span>
+                  {{/if}}
+                </a>
               </div>
             </div>
             {{/with ~}}

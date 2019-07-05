@@ -1,7 +1,7 @@
 {
   "name": "posts",
   "pattern": "/news",
-  "debug": false,
+  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",

@@ -21,11 +21,11 @@
         {{#ifAny (compare @key "===" "default") (compare @key @root.data.currentSite.name) ~}}
         {
           "bool": {
-            "must": [
+            "filter": [
               {
                 "term": {
                   "_type": {
-                    "value" : "fs-{{@key}}-post"
+                    "value": "fs-{{@key}}-post"
                   }
                 }
               },
@@ -41,11 +41,11 @@
         {{/each ~}}
         {
           "bool": {
-            "must": [
+            "filter": [
               {
                 "term": {
                   "_type": {
-                    "value" : "tfn-news-post"
+                    "value": "tfn-news-post"
                   }
                 }
               },
@@ -59,11 +59,11 @@
         },
         {
           "bool": {
-            "must": [
+            "filter": [
               {
                 "term": {
                   "_type": {
-                    "value" : "tfn-feature"
+                    "value": "tfn-feature"
                   }
                 }
               },
@@ -81,7 +81,7 @@
   "sort": [
     {
       "publish_on": {
-        "order" : "desc"
+        "order": "desc"
       }
     }
   ]

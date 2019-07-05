@@ -57,7 +57,7 @@
           <mj-raw>{{/if}}</mj-raw>
 
           <mj-raw>{{#each importantNews}}</mj-raw>
-            <mj-section padding="0px">
+            <mj-section padding="0px 0px 30px 0px">
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
                   <img src="https://storage.googleapis.com/fundingscotland/important.png" height="16" width="16" alt="[important]" title="Important news" style="vertical-align: middle;">
@@ -70,17 +70,15 @@
                   {{{truncate (stripTags _source.description) 500}}}
                 </mj-text>
 
-                <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
-                  <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
-                    Read full post
-                  </a>
-                </mj-text>
+                <mj-button font-size="14px" padding="5px 15px" font-family="sans-serif" font-weight="700" align="right" href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug '.+?(?=_)_news_' 'gi' '') '_' '/'}}?utm_source=alert&utm_medium=email" background-color="{{../colours.primary}}" color="{{../colours.primaryText}}">
+                  Read full post
+                </mj-button>
               </mj-column>
             </mj-section>
           <mj-raw>{{/each}}</mj-raw>
 
           <mj-raw>{{#each bulletinNews}}</mj-raw>
-            <mj-section padding="0px">
+            <mj-section padding="0px 0px 30px 0px">
               <mj-column padding="0px">
                 <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
                   <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
@@ -92,11 +90,9 @@
                   {{{truncate (stripTags _source.description) 500}}}
                 </mj-text>
 
-                <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif">
-                  <a href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug ".+?(?=_)_news_" "gi" "") "_" "/"}}?utm_source=alert&utm_medium=email"  color="{{../colours.primary}}" style="color:{{../colours.primary}};">
-                    Read full post
-                  </a>
-                </mj-text>
+                <mj-button font-size="14px" padding="5px 15px" font-family="sans-serif" font-weight="700" align="right" href="{{../campaignConfig.metaData.baseUrl}}/news/{{replace (regexReplace _source.slug '.+?(?=_)_news_' 'gi' '') '_' '/'}}?utm_source=alert&utm_medium=email" background-color="{{../colours.primary}}" color="{{../colours.primaryText}}">
+                  Read full post
+                </mj-button>
               </mj-column>
             </mj-section>
           <mj-raw>{{/each}}</mj-raw>
@@ -121,12 +117,12 @@
           </mj-column>
         </mj-section>
 
-        <mj-raw>{{#ifAny (compare campaign "!==" "fs-bulletin-default") (compare metaData "===" "premium")}}</mj-raw>
+        <mj-raw>{{#ifAny (compare campaign "!==" "fs-bulletin-default") (compare metaData ">" (dateMath "now"))}}</mj-raw>
           <mj-raw>{{#if (any funds)}}</mj-raw>
             <mj-raw>{{#if campaignConfig.metaData.fundsText}}</mj-raw>
               <mj-section padding="0px">
                 <mj-column padding="0px">
-                  <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
+                  <mj-text font-size="14px" padding="5px 15px 30px 15px" font-family="sans-serif" line-height="18px">
                     {{{campaignConfig.metaData.fundsText}}}
                   </mj-text>
                 </mj-column>
@@ -134,7 +130,7 @@
             <mj-raw>{{/if}}</mj-raw>
 
             <mj-raw>{{#each funds}}</mj-raw>
-              <mj-section padding="0px">
+              <mj-section padding="0px 0px 30px 0px">
                 <mj-column padding="0px">
                   <mj-text font-size="20px" padding="0px 15px 10px 15px" font-family="sans-serif">
                     <a href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
@@ -193,11 +189,9 @@
                     </mj-text>
                   <mj-raw>{{/if}}</mj-raw>
 
-                  <mj-text font-size="14px" padding="5px 15px 20px 15px" align="right" font-family="sans-serif" line-height="18px">
-                    <a href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" color="{{../colours.primary}}" style="color:{{../colours.primary}};">
-                      Find out more &gt;
-                    </a>
-                  </mj-text>
+                  <mj-button font-size="14px" padding="5px 15px" font-family="sans-serif" font-weight="700" align="right" href="{{../campaignConfig.metaData.baseUrl}}/fund/{{_source.Id}}/{{_source.slug}}?utm_source=alert&utm_medium=email" background-color="{{../colours.primary}}" color="{{../colours.primaryText}}">
+                    Find out more &gt;
+                  </mj-button>
                 </mj-column>
               </mj-section>
             <mj-raw>{{/each}}</mj-raw>

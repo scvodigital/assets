@@ -36,10 +36,10 @@
             <div class="demo-card__secondary mdc-typography mdc-typography--body1 t-padding h-padding-full b-padding-full">
               {{{default (truncate (stripTags content) 280) description}}}
             </div>
-            <div class="mdc-card__actions {{#if (contains ../_type "fs-")}}mdc-theme--primary-bg{{/if}}">
+            <div class="mdc-card__actions">
               <div class="mdc-card__action-buttons">
                 <a href="{{#if url}}{{url}}?utm_source=Widget&amp;utm_medium=Widget&amp;utm_campaign=Widget-Traffic{{else}}/news/{{replace (regexReplace slug ".+?(?=_)_news_" "gi" "") "_" "/"}}{{/if}}"
-                    class="mdc-button mdc-card__action mdc-card__action--button {{#if (contains ../_type "fs-")}}mdc-theme--on-primary{{/if}}">
+                    class="mdc-button mdc-card__action mdc-card__action--button">
                   Read more
                   {{#if (contains ../_type "tfn")}}
                     on TFN&ensp;<span class="far fa-external-link" aria-hidden="true"></span>

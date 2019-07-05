@@ -5,7 +5,6 @@
   "defaultStatusCode": 500,
   "tasks": [
     "context.metaData.commonTasks.currentSite",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

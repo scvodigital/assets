@@ -1,3 +1,6 @@
 {{#each @root.data.primaryResponse.hits.hits ~}}
 {{{_source.rendered.rss}}}
 {{/each ~}}
+{{#each @root.data.supplimentaryResponses.posts.hits.hits ~}}
+{{{_source.rendered.rss}}}
+{{/each ~}}

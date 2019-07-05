@@ -282,8 +282,33 @@ a {
   color: #fff;
 }
 
+.mdc-button .mdc-list-item__graphic {
+  line-height: 1.5rem;
+}
 .mdc-button--raised .mdc-list-item__graphic {
   color: #fff;
+}
+
+.mdc-list-item,
+.mdc-list--avatar-list .mdc-list-item,
+.mdc-list--two-line .mdc-list-item {
+  height: auto;
+  min-height: 72px;
+}
+.mdc-list-item {
+  min-height: 28px;
+}
+.mdc-list--avatar-list .mdc-list-item {
+  min-height: 56px;
+}
+.mdc-menu__items .mdc-list-item {
+  min-height: 38px;
+}
+.mdc-list-item__secondary-text {
+  white-space: initial;
+}
+.mdc-list-item__secondary-text::before {
+  display: none;
 }
 
 .mdc-button--raised {

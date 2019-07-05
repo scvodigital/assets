@@ -909,6 +909,7 @@ primary-dark: #263238
   @include theme-colours('digital-charter');
 }
 .search-result.funding-scotland-fund,
+.search-result.fundingscotland-fund,
 .services.funding-scotland {
   @include theme-colours('funding-scotland');
 }
@@ -3565,6 +3566,14 @@ table.membership-fees {
   color: #555;
   padding: $unit/3 $unit/2;
   box-sizing: border-box;
+  .rss {
+    color: #f26522;
+    font-size: 145%;
+    line-height: 1;
+  }
+  .rss:hover {
+    color: #bb440b;
+  }
 }
 body.post.author main {
   .search-info {
@@ -4399,6 +4408,8 @@ p:last-child {
 .b-margin { margin-bottom: $unit/2; }
 .l-margin { margin-left: $unit/2; }
 .r-margin { margin-right: $unit/2; }
+
+.b-margin-none { margin-bottom: 0 !important; }
 
 p.results-highlights em {
   font-weight: bolder;

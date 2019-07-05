@@ -9,21 +9,21 @@
       "must": [
         {
           "range": {
-            "lastImportantActivity": {
+            "date_last_important_activity": {
               "gte": "{{firstItem (split (atob request.params.range) '-')}}",
               "lte": "{{lastItem (split (atob request.params.range) '-')}}"
             }
           }
         },
         {
-          "terms": {
-            "fundStatus": [ "Open" ]
+          "term": {
+            "fund_status_slug": "open"
           }
         }
       ]
     }
   },
   "sort": {
-    "lastImportantActivity": "desc"
+    "date_last_important_activity": "desc"
   }
 }

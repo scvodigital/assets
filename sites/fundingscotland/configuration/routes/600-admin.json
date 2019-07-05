@@ -1,0 +1,94 @@
+{
+  "name": "admin",
+  "pattern": "/admin",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    "context.metaData.commonTasks.menus",
+    {
+      "name": "email",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "{{default request.params.query.email data.auth.email}}"
+      }
+    },
+    {
+      "name": "userAuth",
+      "taskModule": "firebaseGetUser",
+      "config": {
+        "appName": "fundingscotland",
+        "userIdentifier": ">data.email"
+      }
+    },
+    {
+      "name": "userProfile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.userAuth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "userSubscriptions",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "CALL _getSubscriptions({{{mysqlEscape @root.data.email}}}, NULL, NULL)",
+          "logs": "SELECT * FROM logs WHERE email={{{mysqlEscape @root.data.email}}} AND campaign LIKE 'fs-%'"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.admin_head-tags",
+              "body": ">context.metaData.handlebars.templates.admin_index",
+              "foot": ">context.metaData.handlebars.templates.admin_foot"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

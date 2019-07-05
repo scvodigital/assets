@@ -1,0 +1,40 @@
+<script>
+  $('#admin').on('change', function(evt) {
+    $.ajax({
+      url: '/admin/set-administrator',
+      type: 'POST',
+      data: {
+        admin: $(evt.currentTarget).prop('checked') ? 'true' : 'false',
+        uid: {{{safeStringify @root.data.userAuth.uid}}}
+      },
+      dataType: 'json',
+      success: function(data, status, xhr) {
+        fundingscotland.componentsInitialiser.snackbar.show({ message: 'Updated admin status' });
+      },
+      error: function(xhr, status, err) {
+        fundingscotland.componentsInitialiser.snackbar.show({ message: 'Error updating admin status: ' + err });
+      }
+    });
+  });
+
+  $('[data-partition-active]').on('change', function(evt) {
+    var $o = $(evt.currentTarget);
+    $.ajax({
+      url: '/admin/update-partition',
+      type: 'POST',
+      data: {
+        campaign: $o.data('campaign'),
+        email: $o.data('email'),
+        partition: $o.data('partition'),
+        active: $(evt.currentTarget).prop('checked') ? 1 : 0
+      },
+      dataType: 'json',
+      success: function(data, status, xhr) {
+        fundingscotland.componentsInitialiser.snackbar.show({ message: 'Updated partition' });
+      },
+      error: function(xhr, status, err) {
+        fundingscotland.componentsInitialiser.snackbar.show({ message: 'Error updating partition: ' + err });
+      }
+    });
+  });
+</script>

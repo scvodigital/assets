@@ -16,16 +16,7 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
-    {
-      "name": "profile",
-      "taskModule": "firebaseRtbGet",
-      "renderer": "handlebars",
-      "config": {
-        "appName": "fundingscotland",
-        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
-        "defaultData": {}
-      }
-    },
+    "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

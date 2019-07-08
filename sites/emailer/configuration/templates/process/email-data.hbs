@@ -19,6 +19,7 @@
             {{#if @root.request.params.query.dontSend}}
               {{{json key="o:testmode" value=true}}},
             {{/if}}
+            {{{json key="o:real-to" value=email}}},
             {{{json key="tag" value=campaign}}},
             {{{json key="if" value=campaign}}},
             {{{json key="connectionName" value=campaignConfig.mailgunConnection}}},

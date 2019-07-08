@@ -296,6 +296,27 @@
                   </div>
                 </div>
               </form>
+
+              <h4 class="mdc-typography--headline6">Test email</h4>
+              <p>
+                This form will generate and render a version of this user's subscription and optionally send it to your own email ({{@root.data.auth.email}})
+              </p>
+              <div class="mdc-layout-grid t-margin-full">
+                <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                  <div class="mdc-layout-grid__cell">
+                    {{>textbox id=(concat campaign "-test-last-sent") type="date" label="Date last sent" value=(momentFormat (moment lastSent null) "YYYY-MM-DD")}}
+                  </div>
+                  <div class="mdc-layout-grid__cell">
+                    {{>checkbox id=(concat campaign "-test-dont-send") label="Don't actually send" value="true" checked=true}}
+                  </div>
+                  <div class="mdc-layout-grid__cell">
+                    <input type="hidden" id="{{campaign}}-test-email" value="{{email}}">
+                    <button type="button" class="mdc-button mdc-button--raised" data-send-test="{{campaign}}">
+                      <span class="mdc-button__label">Send test email</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             {{/with}}
 
             <h4 class="mdc-typography--headline6">Subscription partitions</h4>

@@ -1,6 +1,6 @@
 {
   "name": "@scvo/assets",
-  "version": "0.0.1121",
+  "version": "0.0.1122",
   "description": "Assets for SCVO's web properties (JS, CSS, images, dependencies, etc)",
   "main": "index.js",
   "scripts": {

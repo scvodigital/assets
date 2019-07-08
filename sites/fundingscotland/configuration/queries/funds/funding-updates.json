@@ -8,6 +8,7 @@
     "fund_status",
     "fund_status_slug",
     "news",
+    "date_news_last_updated",
     "description",
     "date_reopens",
     "next_deadline",

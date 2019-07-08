@@ -37,4 +37,21 @@
       }
     });
   });
+
+  $('[data-send-test]').on('click', function(evt) {
+    var campaign = $(evt.currentTarget).data('send-test');
+    var email = $('#' + campaign + '-test-email').val();
+    var lastSent = $('#' + campaign + '-test-last-sent').val();
+    var dontSend = $('#' + campaign + '-test-dont-send').val();
+    var url = 'https://emailer.local:8080/send-test/' + campaign + '/' + email + '?';
+
+    var params = [
+      'override=' + encodeURIComponent({{{safeStringify @root.data.auth.email}}})
+    ];
+    if (lastSent) { params.push('lastsent=' + encodeURIComponent(lastSent)); }
+    if (dontSend) { params.push('dontSend=' + encodeURIComponent(dontSend)); }
+
+    var win = window.open(url + params.join('&'), '_blank');
+    win.focus();
+  });
 </script>

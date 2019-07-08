@@ -43,7 +43,7 @@
     var email = $('#' + campaign + '-test-email').val();
     var lastSent = $('#' + campaign + '-test-last-sent').val();
     var dontSend = $('#' + campaign + '-test-dont-send').val();
-    var url = 'https://emailer.local:8080/send-test/' + campaign + '/' + email + '?';
+    var url = 'https://emailer.scvo.net/send-test/' + campaign + '/' + email + '?';
 
     var params = [
       'override=' + encodeURIComponent({{{safeStringify @root.data.auth.email}}})

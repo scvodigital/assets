@@ -3,63 +3,20 @@
   "pattern": "/funding/updates/:range",
   "tasks": [
     {
-      "name": "primaryResponse",
-      "taskModule": "elasticsearch",
+      "name": "url",
+      "taskModule": "render",
+      "renderer": "handlebars",
       "config": {
-        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
-        "elasticsearchConfig": {
-          "apiVersion": "5.6"
-        },
-        "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fundingscotland-fund",
-          "template": ">context.metaData.handlebars.queries.funding_funding-updates",
-          "noResultsRoute": "four_oh_four"
-        }
-      },
-      "renderer": "handlebars"
-    },
-    {
-      "name": "supplimentaryResponses",
-      "taskModule": "elasticsearch",
-      "config": {
-        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
-        "elasticsearchConfig": {
-          "apiVersion": "5.6"
-        },
-        "queryTemplates": [
-          {
-            "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
-            "template": ">context.metaData.handlebars.queries.pages_splash"
-          }
-        ]
-      },
-      "renderer": "handlebars"
+        "output": "data",
+        "template": "https://fundingscotland.com/funding/updates/{{request.params.range}}"
+      }
     },
     {
       "name": "destination",
-      "taskModule": "renderLayout",
-      "renderer": "handlebars",
+      "taskModule": "redirect",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
-        "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.funding_funding-updates-head-tags",
-              "body": ">context.metaData.handlebars.templates.funding_funding-updates",
-              "foot": ""
-            },
-            "contentType": "text/html"
-          }
-        }
+        "location": ">data.url",
+        "statusCode": 302
       }
     }
   ]

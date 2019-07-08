@@ -164,8 +164,8 @@
             ];
             function showEmail(index) {
               email = emails[index];
-              previewFrame.src = 'data:text/html;charset=utf-8,' + escape(email.contents);
-              jsonFrame.src = 'data:application/json;charset=utf-8,' + escape(email.json);
+              previewFrame.src = 'data:text/html;charset=utf-32,' + escape(email.contents);
+              jsonFrame.src = 'data:application/json;charset=utf-32,' + escape(email.json);
               for (const email of emailDetails) {
                 email.style.display = 'none';
               }

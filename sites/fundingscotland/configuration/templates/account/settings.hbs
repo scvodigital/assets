@@ -1,29 +1,38 @@
 <div id="detailed-results-container" class="container-content content-settings settings fundingscotland-settings">
-  {{#ifAny @root.data.profile.isPremium (compare @root.data.currentSite.name "!==" "default") ~}}
   <section class="settings-section settings-email fundingscotland-settings-email b-padding-full">
     <h1 class="mdc-typography--headline3">
       {{@root.data.currentSite.title}} settings
     </h1>
-    {{#>premium_content}}
-    {{#compare @root.data.currentSite.name "default" ~}}
-    <h2 class="mdc-typography--headline5 b-margin-full">
-      Premium
-    </h2>
+
     <p>
-      Your premium account upgrade is active till the {{momentFormat (moment @root.data.profile.default.isPremium 'x') 'Do \o\f MMMM, YYYY'}}.
+      All emails will be sent to {{@root.data.auth.email}}
     </p>
-    {{/compare ~}}
+
+    {{#>premium_content}}
+      {{#compare @root.data.currentSite.name "default" ~}}
+        <h2 class="mdc-typography--headline5 b-margin-full">
+          Premium
+        </h2>
+        <p>
+          Your premium account upgrade is active till the {{momentFormat (moment @root.data.profile.isPremium 'x') 'Do \o\f MMMM, YYYY'}}.
+        </p>
+      {{/compare ~}}
     {{/premium_content}}
 
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        {{#>premium_content}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
           <h2 class="mdc-typography--headline5 b-margin-full">
             Weekly bulletin
           </h2>
           <p>
-            In the weekly bulletin you will receive funding news and updates, and information on any recently opened or updated funds.
+            {{#>premium_content}}
+              In the weekly bulletin you will receive funding news and updates, and information on any recently opened or updated funds.
+            {{/premium_content}}
+            {{#>premium_content_alt}}
+              In the weekly bulletin you will receive funding news and updates. With a <a href="/premium">premium account</a> you will also
+              receive information on any recently opened or updated funds
+            {{/premium_content_alt}}
           </p>
           {{#if @root.data.bulletin.items.[0].[0].active}}
             <a href="/bulletin?subscribe=false" class="mdc-button mdc-button--raised mdc-button--fullwidth">
@@ -37,38 +46,38 @@
             </a>
           {{/if}}
         </div>
-        {{/premium_content}}
 
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
-          <h2 class="mdc-typography--headline5 b-margin-full">
-            Unsubscribe from everything
-          </h2>
-          <p>
-            You can unsubscribe from all saved search alerts, saved fund alerts, and weekly bulletins
-            by clicking on the button below. You can resubscribe to any of these at any time
-          </p>
-          {{#ifAny
-            (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
-            @root.data.shortlist.items.[0].[0].active
-            @root.data.bulletin.items.[0].[0].active
-          }}
-            <a href="/stop-all-emails" class="mdc-button mdc-button--raised mdc-button--fullwidth">
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              Stop all emails
-            </a>
-          {{else}}
-            <a href="#" class="mdc-button mdc-button--raised mdc-button--fullwidth disabled" disabled>
-              <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
-              You currently have no subscriptions
-            </a>
-          {{/ifAny}}
-        </div>
+        {{#>premium_content}}
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-12-phone">
+            <h2 class="mdc-typography--headline5 b-margin-full">
+              Unsubscribe from everything
+            </h2>
+            <p>
+              You can unsubscribe from all saved search alerts, saved fund alerts, and weekly bulletins
+              by clicking on the button below. You can resubscribe to any of these at any time
+            </p>
+            {{#ifAny
+              (compare (length (filter @root.data.searches.items.[0] "partitionActive" "===" 1)) ">" 0)
+              @root.data.shortlist.items.[0].[0].active
+              @root.data.bulletin.items.[0].[0].active
+            }}
+              <a href="/stop-all-emails" class="mdc-button mdc-button--raised mdc-button--fullwidth">
+                <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+                Stop all emails
+              </a>
+            {{else}}
+              <a href="#" class="mdc-button mdc-button--raised mdc-button--fullwidth disabled" disabled>
+                <span class="far fa-envelope mdc-list-item__graphic" aria-hidden="true"></span>
+                You currently have no subscriptions
+              </a>
+            {{/ifAny}}
+          </div>
+        {{/premium_content}}
       </div>
     </div>
   </section>
 
   <hr />
-  {{/ifAny ~}}
 
   <section class="settings-section settings-email fundingscotland-settings-email">
     <h1 class="mdc-typography--headline4">

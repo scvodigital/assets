@@ -54,4 +54,32 @@
     var win = window.open(url + params.join('&'), '_blank');
     win.focus();
   });
+
+  function fundUnhidden(responseJson) {
+    var response = JSON.parse(responseJson);
+    var $title = $('#' + response.site + '-hidden-funds-title');
+    var $list = $('#' + response.site + '-hidden-funds');
+    var $fund = $('#' + response.site + '-hidden-fund-' + response.id);
+    $fund.fadeOut(500, function() {
+      $fund.remove();
+      if ($list.children().length === 0) {
+        $title.fadeOut(500, function() { $title.remove(); });
+        $list.fadeOut(500, function() { $list.remove(); });
+      }
+    });
+  }
+
+  function noteDeleted(responseJson) {
+    var response = JSON.parse(responseJson);
+    var $title = $('#' + response.site + '-' + response.id + '-notes-title');
+    var $table = $('#' + response.site + '-' + response.id + '-notes-table');
+    var $note = $('#' + response.site + '-' + response.id + '-notes-' + response.note);
+    $note.fadeOut(500, function() {
+      $note.remove();
+      if ($table.find('tbody').children().length === 0) {
+        $title.fadeOut(500, function() { $title.remove(); });
+        $table.fadeOut(500, function() { $table.remove(); });
+      }
+    });
+  }
 </script>

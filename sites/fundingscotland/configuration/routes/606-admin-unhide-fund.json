@@ -1,0 +1,51 @@
+{
+  "name": "admin_unhide_fund",
+  "pattern": "/admin/unhide-fund",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "unhideFund",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default @root.request.body.uid 'no-such-profile'}}/{{@root.request.body.site}}/hidden/{{@root.request.body.id}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "null"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}},{{/if}} \"id\": {{{safeStringify @root.request.body.id}}}, \"site\": {{{safeStringify @root.request.body.site}}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

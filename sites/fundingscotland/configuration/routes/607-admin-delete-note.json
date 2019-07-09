@@ -1,0 +1,51 @@
+{
+  "name": "admin_delete_note",
+  "pattern": "/admin/delete-note",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "missing": ["data.profile.isAdmin"] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "deleteNote",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default @root.request.body.uid 'no-such-profile'}}/{{@root.request.body.site}}/notes/{{@root.request.body.id}}/{{@root.request.body.note}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "null"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ \"errors\": {{{safeStringify (default @root.errors null)}}}, \"id\": {{{safeStringify @root.request.body.id}}}, \"site\": {{{safeStringify @root.request.body.site}}}, \"note\": {{{safeStringify @root.request.body.note}}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

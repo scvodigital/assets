@@ -1,0 +1,22 @@
+<div class="container-fluid container-content content-page">
+  <h1>Sample email data</h1>
+
+
+<h2>User: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.second_name}} {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}</h2>
+
+Emails to send with hours:
+
+
+{{#each (distinct (pluck @root.data.tasksInfo "volunteer_manager_email")) ~}}
+  <h2>Hours to be validated at email: {{this}}</h2>
+  {{#each @root.data.tasksInfo}}
+    {{#compare this.volunteer_manager_email "===" ../this}}
+      <h3>Task: {{task_name}}, Manager: {{volunteer_manager_name}}</h3>
+      {{#each this.hoursList}}
+        <p>Hours: {{hours}} - Logged: {{createdDate}}</p>
+      {{/each}}
+    {{/compare}}
+  {{/each}}
+{{/each}}
+
+</div>

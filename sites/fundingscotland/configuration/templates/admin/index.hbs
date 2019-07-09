@@ -417,21 +417,21 @@
             </ul>
 
             {{#if hidden}}
-              <h4 class="mdc-typography--headline6">Hidden funds</h4>
-              <ul class="mdc-list">
+              <h4 class="mdc-typography--headline6" id="{{@key}}-hidden-funds-title">Hidden funds</h4>
+              <ul class="mdc-list" id="{{@key}}-hidden-funds">
                 {{#each hidden}}
-                  <li class="mdc-list-item">
+                  <li class="mdc-list-item" id="{{@../key}}-hidden-fund-{{@key}}">
                     <span class="mdc-list-item__text">
                       <a href="/fund/{{@key}}/from-admin" target="_blank">{{@key}}</a>
                     </span>
-                    <form action="/admin/remove-hidden" method="POST" class="mdc-list-item__meta" data-ajax-form='{
+                    <form action="/admin/unhide-fund" method="POST" class="mdc-list-item__meta" data-ajax-form='{
                           "successMessage": "Fund unhidden",
                           "failureMessage": "Failed to unhide fund",
                           "successCallback": "fundUnhidden"
                         }'>
-                        <input type="hidden" name="site" value="{{@../key}}">
-                        <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
-                        <input type="hidden" name="id" value="{{@key}}">
+                      <input type="hidden" name="site" value="{{@../key}}">
+                      <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+                      <input type="hidden" name="id" value="{{@key}}">
                       <button type="submit" class="mdc-button mdc-button--raised">
                         <i class="mdc-button__icon fas fa-eye fa-fw"></i>
                         <span class="mdc-button__label">Unhide</span>
@@ -444,11 +444,11 @@
 
             {{#if notes}}
               {{#each notes}}
-                <h4 class="mdc-typography--headline6">
+                <h4 class="mdc-typography--headline6" id="{{@../key}}-{{@key}}-notes-title">
                   Notes for fund <a href="/fund/{{@key}}/from-admin#notes" target="_blank">{{@key}}</a>
                 </h4>
 
-                <div class="table">
+                <div class="table" id="{{@../key}}-{{@key}}-notes-table">
                   <table>
                     <thead>
                       <tr>
@@ -460,26 +460,30 @@
                     </thead>
                     <tbody>
                       {{#each this}}
-                        <tr>
+                        <tr id="{{@../../key}}-{{@../key}}-notes-{{@key}}">
                           <td>{{status}}</td>
                           <td>{{momentFormat (moment @key "x") "YYYY-MM-DD HH:mm:ss"}}</td>
                           <td><pre style="margin:0;">{{{note}}}</pre></td>
                           <td style="text-align: right;">
-                            <a href="/admin/delete-note?site={{@../../key}}&email={{@root.data.userAuth.email}}&id={{@../key}}&timestamp={{@key}}" class="mdc-button mdc-button--raised">
-                              <i class="mdc-button__icon fas fa-trash fa-fw"></i>
-                              <span class="mdc-button__label">Delete note</span>
-                            </a>
+                            <form action="/admin/delete-note" method="POST" class="mdc-list-item__meta" data-ajax-form='{
+                                  "successMessage": "Note deleted",
+                                  "failureMessage": "Failed to delete note",
+                                  "successCallback": "noteDeleted"
+                                }'>
+                              <input type="hidden" name="site" value="{{@../../key}}">
+                              <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+                              <input type="hidden" name="id" value="{{@../key}}">
+                              <input type="hidden" name="note" value="{{@key}}">
+                              <button type="submit" class="mdc-button mdc-button--raised">
+                                <i class="mdc-button__icon fas fa-eye fa-fw"></i>
+                                <span class="mdc-button__label">Unhide</span>
+                              </button>
+                            </form>
                           </td>
                         </tr>
                       {{/each}}
                     </tbody>
                   </table>
-                </div>
-                <div class="text-right">
-                  <a href="/admin/delete-notes?site={{@../key}}&email={{@root.data.userAuth.email}}&id={{@key}}" class="mdc-button mdc-button--raised">
-                    <i class="mdc-button__icon fas fa-trash fa-fw"></i>
-                    <span class="mdc-button__label">Delete all notes for fund</span>
-                  </a>
                 </div>
               {{/each}}
             {{/if}}

@@ -1,7 +1,7 @@
 <div id="detailed-results-container" class="container-content content-notes">
 
   <div class="mdc-typography--headline7">
-    {{data.hoursInfo.total}} total hours given so far!
+    {{sumArray (pluck @root.data.tasksInfo "hours")}} total hours given so far!
   </div>
 
   <div class="mdc-typography--headline4">
@@ -22,7 +22,7 @@
         <form action="/submit-hours" method="POST">
           {{hours}} hours given so far.
           <input type="hidden" name="task_id" value="{{taskId}}">
-          <input type="number" name="hours">
+          <input type="number" step="any" min="0" name="hours">
           <button type="submit" class="mdc-button mdc-button--raised">Add hours</button>
         </form>
       </div>

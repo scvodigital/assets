@@ -1,0 +1,102 @@
+{
+  "name": "admin",
+  "pattern": "/admin",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "isAdmin",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": false
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "var": "data.isAdmin" },
+          false,
+          "home"
+        ]
+      }
+    },
+    {
+      "name": "email",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "data",
+        "template": "{{default request.params.query.email data.auth.email}}"
+      }
+    },
+    {
+      "name": "userAuth",
+      "taskModule": "firebaseGetUser",
+      "config": {
+        "appName": "goodmoves",
+        "userIdentifier": ">data.email"
+      }
+    },
+    {
+      "name": "userAdmin",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default data.userAuth.uid 'no-such-profile'}}",
+        "defaultData": false
+      }
+    },
+    {
+      "name": "userNotes",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/notes/{{default data.userAuth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "userSubscriptions",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "CALL _getSubscriptions({{{mysqlEscape @root.data.email}}}, NULL, NULL)",
+          "logs": "SELECT * FROM logs WHERE email={{{mysqlEscape @root.data.email}}} AND campaign LIKE 'goodmoves%'"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.admin_head-tags",
+              "body": ">context.metaData.handlebars.templates.admin_index",
+              "foot": ">context.metaData.handlebars.templates.admin_foot"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

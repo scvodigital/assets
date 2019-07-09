@@ -1,0 +1,443 @@
+{{#*inline "checkbox"}}
+  <div class="mdc-form-field">
+    <div class="mdc-checkbox" data-mdc-auto-init="MDCCheckbox">
+      <input type="checkbox" class="mdc-checkbox__native-control" id="{{id}}" name="{{name}}"
+          {{#if value}}value="{{value}}"{{/if}} {{{attributes}}} {{#if checked}}checked{{/if}} />
+      <div class="mdc-checkbox__background">
+        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+          <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+        </svg>
+        <div class="mdc-checkbox__mixedmark"></div>
+      </div>
+    </div>
+    <label for="{{id}}">{{label}}</label>
+  </div>
+{{/inline}}
+
+{{#*inline "textbox"}}
+  <div class="mdc-text-field mdc-text-field--outlined {{#if leadingIcon}}mdc-text-field--with-leading-icon{{/if}}" data-mdc-auto-init="MDCTextField">
+    {{#if leadingIcon}}
+      <i class="mdc-text-field__icon {{leadingIcon}}"></i>
+    {{/if}}
+    <input type="{{default type "text"}}" class="mdc-text-field__input" id="{{default id name}}" name="{{default name id}}" value="{{value}}" {{{attributes}}}>
+    <div class="mdc-notched-outline">
+      <div class="mdc-notched-outline__leading"></div>
+      <div class="mdc-notched-outline__notch">
+        <label for="{{default id name}}" class="mdc-floating-label">{{label}}</label>
+      </div>
+      <div class="mdc-notched-outline__trailing"></div>
+    </div>
+  </div>
+{{/inline}}
+
+{{#*inline "switch"}}
+  <div class="mdc-switch" data-mdc-auto-init="MDCSwitch">
+    <div class="mdc-switch__track"></div>
+    <div class="mdc-switch__thumb-underlay">
+      <div class="mdc-switch__thumb">
+        <input type="checkbox" id="{{default id name}}" name="{{default name id}}" class="mdc-switch__native-control" role="switch"
+            {{#if value}}value="{{value}}"{{/if}} {{{attributes}}} {{#if checked}}checked{{/if}}>
+      </div>
+    </div>
+  </div>
+  {{#if label}}
+    <label for="{{default id name}}" class="l-margin-full">{{label}}</label>
+  {{/if}}
+{{/inline}}
+
+{{#*inline "campaign"}}
+{{#if (contains name "bulletin") ~}}
+{{#if (getProperty @root.context.metaData.site-configurations (itemAt (arrayify (split name "-")) 2)) ~}}
+{{{getProperty @root.context.metaData.site-configurations (concat (itemAt (arrayify (split name "-")) 2) '.title')}}} bulletin
+{{else}}
+{{name}}
+{{/if ~}}
+{{else}}
+{{#if (getProperty @root.context.metaData.site-configurations (itemAt (arrayify (split name "-")) 3)) ~}}
+{{{getProperty @root.context.metaData.site-configurations (concat (itemAt (arrayify (split name "-")) 3) '.title')}}} {{itemAt (arrayify (split name "-")) 1}} {{itemAt (arrayify (split name "-")) 2}}
+{{else}}
+{{name}}
+{{/if ~}}
+{{/if ~}}
+{{/inline}}
+
+<style>
+  .container-content {
+      width: 100%;
+      padding-right: 1rem;
+      padding-bottom: 1px;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      position: relative;
+      max-width: 1200px;
+      align-items: flex-end;
+      z-index: 4;
+  }
+
+  .container-content.container-centred {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bottom-menu {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index:1000;
+  }
+
+  .admin-section .container-content {
+    padding: 5rem 0;
+  }
+
+  h2.mdc-typography--headline4 {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 1rem;
+  }
+
+  .mdc-text-field--outlined {
+    background-color: #ffffff !important;
+  }
+
+  .admin-section:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .admin-user-info {
+    list-style: none;
+    margin:0;
+    padding:0;
+  }
+
+  .admin-user-info li {
+    padding:0;
+    margin:0 15px 0 0;
+    display: inline-block;
+  }
+
+  .table {
+    max-height: 60vh;
+    border: 1px solid #cccccc;
+    overflow: auto;
+  }
+
+  .table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table table th {
+    border-bottom: 1px solid #cccccc;
+  }
+  .table table tr:nth-child(odd) {
+    background-color: #ededed;
+  }
+
+  .table table tr:nth-child(even), .table table thead tr {
+    background-color: #ffffff !important;
+  }
+
+  .table table th, .table table td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.5rem;
+  }
+
+  .border-padding {
+    margin: 1rem 0 1rem 1rem;
+    padding: 1rem 0 1rem 1rem;
+    border-left: 1px solid #cccccc;
+  }
+
+  .mdc-switch.mdc-switch--checked .mdc-switch__track {
+    background-color: #000 !important;
+  }
+
+  .mdc-switch.mdc-switch--checked .mdc-switch__thumb {
+    background-color: #448532 !important;
+    border-color: #448532 !important;
+  }
+</style>
+
+<div class="admin-section">
+  <a name="find-user"></a>
+  <div class="container-content container-centred">
+    <div class="mdc-card x-padding-full b-margin-full" style="background-color: #ffffff;">
+      <h1 class="mdc-typography--headline4">
+        Find user
+      </h1>
+      <form action="/admin" method="GET">
+        {{>textbox id="email" value=@root.data.email label="Find user by email" leadingIcon="fas fa-search" type="email"}}
+      </form>
+    </div>
+  </div>
+</div>
+
+{{#if data.userAuth.uid}}
+  <div class="admin-section">
+		<a name="authentication-system-info"></a>
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Authentication system info</h2>
+      <ul class="admin-user-info">
+        <li>
+          <strong>Email: </strong>
+          {{@root.data.userAuth.email}}
+        </li>
+        <li>
+          <strong>UID:</strong>
+          {{@root.data.userAuth.uid}}
+        </li>
+        <li>
+          <strong>Account created:</strong>
+          {{@root.data.userAuth.metadata.creationTime}}
+        </li>
+        <li>
+          <strong>Last sign-in:</strong>
+          {{@root.data.userAuth.metadata.lastSignInTime}}
+        </li>
+        <li>
+          <strong>Administrator</strong>
+          <span class="l-margin-full">
+            {{>switch id="admin" checked=@root.data.userAdmin}}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="admin-section">
+		<a name="subscriptions"></a>
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Subscriptions</h2>
+      {{#each (groupBy @root.data.userSubscriptions.subscriptions.[0] "campaign")}}
+        {{#if (regexMatch [0].campaign "^goodmoves-" "i")}}
+          <h3 class="mdc-typography--headline5">
+            {{>campaign name=[0].campaign}}
+          </h3>
+          <div class="border-padding">
+            {{#with [0]}}
+              <ul class="admin-user-info">
+                {{#if status ~}}
+                <li>
+                  <strong>Last status: </strong>
+                  {{default (replace status "-" " ") "N/A"}}
+                </li>
+                <li>
+                  <strong>Last sent: </strong>
+                  {{momentFormat (moment lastSent null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                {{/if ~}}
+                <li>
+                  <strong>Created: </strong>
+                  {{momentFormat (moment createdAt null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                <li>
+                  <strong>Last updated: </strong>
+                  {{momentFormat (moment updatedAt null) "YYYY-MM-DD HH:mm:ss"}}
+                </li>
+                {{#if metadata ~}}
+                <li>
+                  <strong>Metadata: </strong>
+                  {{safeStringify metaData}}
+                </li>
+                {{/if ~}}
+              </ul>
+
+              <form action="/admin/update-subscription" method="POST" data-ajax-form='{
+                  "successMessage": "Subscription updated",
+                  "failureMessage": "Failed to update subscription"
+                }'>
+                <h4 class="mdc-typography--headline6">Update subscription</h4>
+                <div class="mdc-layout-grid t-margin-full">
+                  <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                    <div class="mdc-layout-grid__cell">
+                      {{>textbox id=(concat campaign "-days") name="days" value=days label="Days" attributes='data-restricted="[1-7]" maxlength="7"'}}
+                      <small><em>* Sunday = 1, Monday = 2, etc.</em></small>
+                    </div>
+                    <div class="mdc-layout-grid__cell">
+                      {{>checkbox id=(concat campaign "-active") name="active" label="Active" value="1" checked=active}}
+                      <small><em>* This cannot be changed by users and acts as an override to surpress emails</em></small>
+                    </div>
+                    <div class="mdc-layout-grid__cell">
+                      <input type="hidden" name="campaign" value="{{campaign}}">
+                      <input type="hidden" name="email" value="{{email}}">
+                      <button type="submit" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">Update subscription</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <h4 class="mdc-typography--headline6">Test email</h4>
+              <p>
+                This form will generate and render a version of this user's subscription and optionally send it to your own email ({{@root.data.auth.email}})
+              </p>
+              <div class="mdc-layout-grid t-margin-full">
+                <div class="mdc-layout-grid__inner equal-height" style="align-items: center;">
+                  <div class="mdc-layout-grid__cell">
+                    {{>textbox id=(concat campaign "-test-last-sent") type="date" label="Date last sent" value=(momentFormat (moment lastSent null) "YYYY-MM-DD")}}
+                  </div>
+                  <div class="mdc-layout-grid__cell">
+                    {{>checkbox id=(concat campaign "-test-dont-send") label="Don't actually send" value="true" checked=true}}
+                  </div>
+                  <div class="mdc-layout-grid__cell">
+                    <input type="hidden" id="{{campaign}}-test-email" value="{{email}}">
+                    <button type="button" class="mdc-button mdc-button--raised" data-send-test="{{campaign}}">
+                      <span class="mdc-button__label">Send test email</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {{/with}}
+
+            <h4 class="mdc-typography--headline6">Subscription partitions</h4>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Partition name</th>
+                    <th>Parameters</th>
+                    <th style="text-align: center;">Active</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each this}}
+                    <tr>
+                      <td>{{partition}}</td>
+                      <td>
+                        <pre style="margin:0;">{{{safeStringify (querystring querystring)}}}</pre>
+                      </td>
+                      <td style="text-align: center; vertical-align: middle;">
+                        {{>switch id=(concat campaign "_" (slugify partition)) checked=partitionActive
+                            attributes=(concat 'data-campaign="' campaign '" data-email="' email '" data-partition="' partition '" data-partition-active')}}
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="admin-section">
+		<a name="email-logs"></a>
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Email logs</h2>
+
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th style="width:10%;">Timestamp</th>
+              <th style="width:10%;">Campaign</th>
+              <th style="width:10%;">Event</th>
+              <th>Other</th>
+              <th style="width:15%;">Message Id</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each @root.data.userSubscriptions.logs}}
+              <tr>
+                <td>
+                  {{#switch logLevel}}
+                    {{#case "warn"}}
+                      <i class="fas fa-comment-alt-exclamation mdc-theme--warning"></i>
+                    {{/case}}
+                    {{#case "error"}}
+                      <i class="fas fa-exclamation-triangle mdc-theme--error"></i>
+                    {{/case}}
+                    {{#switchDefault}}
+                      <i class="fas fa-info-circle mdc-theme--info"></i>
+                    {{/switchDefault}}
+                  {{/switch}}
+                </td>
+                <td>{{momentFormat (moment (concat timestamp "000") "x") "YYYY-MM-DD HH:mm:ss"}}</td>
+                <td>{{>campaign name=campaign}}</td>
+                <td>{{replace event "-" " "}}</td>
+                <td>{{other}}</td>
+                <td>{{messageId}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-section">
+		<a name="notes"></a>
+    <div class="container-content container-centred">
+      <h2 class="mdc-typography--headline4">Notes</h2>
+      {{#each @root.data.userNotes}}
+        <div id="note-{{@key}}">
+          <h3 class="mdc-typography--headline5">
+            Notes for job <a href="/vacancy/{{@key}}/from-admin-page">{{@key}}</a>
+            <form action="/admin/delete-note" method="POST" data-ajax-form='{
+              "successMessage": "Note deleted",
+              "failureMessage": "Failed to delete note",
+              "successCallback": "noteDeleted"
+            }' class="pull-right" style="">
+              <input type="hidden" name="uid" value="{{@root.data.userAuth.uid}}">
+              <input type="hidden" name="id" value="{{@key}}">
+              <button type="submit" class="mdc-button mdc-button--raised">
+                <i class="mdc-button__icon fas fa-trash fa-fw"></i>
+                <span class="mdc-button__label">Delete note</span>
+              </button>
+            </form>
+          </h3>
+          <div class="border-padding">
+            {{{markdown this}}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="bottom-menu mdc-theme--primary-bg mdc-elevation--z5">
+    {{#> components_tab_bar
+          extraClasses="mdc-tab-bar__auto-width"
+          id="admin-tab-bar"}}
+      {{> components_tab
+          url="#find-user"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Find user"}}
+      {{> components_tab
+          url="#authentication-system-info"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Auth"}}
+      {{> components_tab
+          url="#subscriptions"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Subscriptions"}}
+      {{> components_tab
+          url="#email-logs"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Email logs"}}
+      {{> components_tab
+          url="#notes"
+          labelClasses="mdc-theme--on-primary"
+          active=false
+          label="Notes"}}
+    {{/components_tab_bar}}
+  </div>
+{{else}}
+  <div class="admin-section">
+    <div class="container-content container-centred">
+      <h1 class="mdc-typography--headline3">User not found: {{{@root.data.email}}}</h1>
+    </div>
+  </div>
+{{/if}}

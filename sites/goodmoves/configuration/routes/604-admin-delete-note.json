@@ -1,0 +1,50 @@
+{
+  "name": "admin_delete_note",
+  "pattern": "/admin/delete-note",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "isAdmin",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": false
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "var": "data.isAdmin" },
+          false,
+          "home"
+        ]
+      }
+    },
+    {
+      "name": "deleteNote",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/notes/{{default @root.request.body.uid 'no-such-profile'}}/{{@root.request.body.id}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "null"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ \"errors\": {{{safeStringify (default @root.errors null)}}}, \"id\": {{{safeStringify @root.request.body.id}}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

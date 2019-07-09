@@ -1,15 +1,16 @@
 {
-  "name": "hours",
-  "pattern": "/hours",
+  "name": "sample-hours-check",
+  "pattern": "/sample-hours-check",
   "debug": true,
   "metaData": {
     "hideSearch": true,
-    "title": "Hours - Saltire Awards"
+    "title": "Tasks - Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
     "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.getTasksInfo",
     {
       "name": "destination",
@@ -27,7 +28,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_hours"
+              "body": ">context.metaData.handlebars.templates.pages_sample-hours-check"
             },
             "contentType": "text/html"
           }

@@ -1,0 +1,14 @@
+{
+  "name": "charter_redirect",
+  "pattern": "/the-charter",
+  "tasks": [
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/charter",
+        "statusCode": 301
+      }
+    }
+  ]
+}

@@ -224,6 +224,15 @@ primary-dark: #263238
   blockquote {
     border-left-color: map-get($themeSelected, 'primary') !important;
   }
+  .has-very-light-gray-background-color blockquote {
+    padding: $unit*(3/4) $unit;
+    border-left: none;
+    background-color: map-get($themeSelected, 'primary') !important;
+    color: white !important;
+    a {
+      color: white !important;
+    }
+  }
   .mdc-button,
   .mdc-button--raised:not(:disabled) {
     color: white;

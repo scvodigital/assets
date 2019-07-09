@@ -1,0 +1,50 @@
+{
+  "name": "admin_update_subscription",
+  "pattern": "/admin/update-subscription",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "isAdmin",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": false
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "var": "data.isAdmin" },
+          false,
+          "home"
+        ]
+      }
+    },
+    {
+      "name": "updateSubscription",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "UPDATE subscriptions SET days={{{mysqlEscape (default @root.request.body.days '')}}}, active={{#if @root.request.body.active}}1{{else}}0{{/if}} WHERE campaign={{{mysqlEscape @root.request.body.campaign}}} AND email={{{mysqlEscape @root.request.body.email}}}"
+        }
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

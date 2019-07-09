@@ -1,0 +1,50 @@
+{
+  "name": "admin_set_administrator",
+  "pattern": "/admin/set-administrator",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "isAdmin",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": false
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "var": "data.isAdmin" },
+          false,
+          "home"
+        ]
+      }
+    },
+    {
+      "name": "updateProfile",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "goodmoves",
+        "pathTemplate": "/administrators/{{default @root.request.body.uid 'no-such-profile'}}",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{#compare @root.request.body.admin 'true'}}true{{else}}null{{/compare}}"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{ {{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}}{{/if}} }",
+        "parseJson": true,
+        "output": "body"
+      }
+    }
+  ]
+}

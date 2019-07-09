@@ -1,0 +1,85 @@
+<script>
+  $('#admin').on('change', function(evt) {
+    $.ajax({
+      url: '/admin/set-administrator',
+      type: 'POST',
+      data: {
+        admin: $(evt.currentTarget).prop('checked') ? 'true' : 'false',
+        uid: {{{safeStringify @root.data.userAuth.uid}}}
+      },
+      dataType: 'json',
+      success: function(data, status, xhr) {
+        goodmoves.componentsInitialiser.snackbar.show({ message: 'Updated admin status' });
+      },
+      error: function(xhr, status, err) {
+        goodmoves.componentsInitialiser.snackbar.show({ message: 'Error updating admin status: ' + err });
+      }
+    });
+  });
+
+  $('[data-partition-active]').on('change', function(evt) {
+    var $o = $(evt.currentTarget);
+    $.ajax({
+      url: '/admin/update-partition',
+      type: 'POST',
+      data: {
+        campaign: $o.data('campaign'),
+        email: $o.data('email'),
+        partition: $o.data('partition'),
+        active: $(evt.currentTarget).prop('checked') ? 1 : 0
+      },
+      dataType: 'json',
+      success: function(data, status, xhr) {
+        goodmoves.componentsInitialiser.snackbar.show({ message: 'Updated partition' });
+      },
+      error: function(xhr, status, err) {
+        goodmoves.componentsInitialiser.snackbar.show({ message: 'Error updating partition: ' + err });
+      }
+    });
+  });
+
+  $('[data-send-test]').on('click', function(evt) {
+    var campaign = $(evt.currentTarget).data('send-test');
+    var email = $('#' + campaign + '-test-email').val();
+    var lastSent = $('#' + campaign + '-test-last-sent').val();
+    var dontSend = $('#' + campaign + '-test-dont-send').val();
+    var url = 'https://emailer.scvo.net/send-test/' + campaign + '/' + email + '?';
+
+    var params = [
+      'override=' + encodeURIComponent({{{safeStringify @root.data.auth.email}}})
+    ];
+    if (lastSent) { params.push('lastsent=' + encodeURIComponent(lastSent)); }
+    if (dontSend) { params.push('dontSend=' + encodeURIComponent(dontSend)); }
+
+    var win = window.open(url + params.join('&'), '_blank');
+    win.focus();
+  });
+
+  function noteDeleted(responseJson) {
+    var response = JSON.parse(responseJson);
+    var $note = $('#note-' + response.id);
+    $note.fadeOut(500, function() {
+      $note.remove();
+    });
+  }
+
+    $('a[href^="#"]')
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', function(event) {
+        event.preventDefault();
+        goodmoves.headroom.unpin();
+        var tolerance = goodmoves.headroom.tolerance.up;
+        var offset = goodmoves.headroom.offset;
+        goodmoves.headroom.tolerance.up = 99999999;
+        goodmoves.headroom.offset = 0;
+
+        $('html, body').animate({
+          scrollTop: $('[name="' + $(this).attr('href').substr(1) + '"]').offset().top
+        }, 1000, function() {
+          setTimeout(function() {
+            goodmoves.headroom.tolerance.up = tolerance;
+            goodmoves.headroom.offset = offset;
+          }, 200);
+        });
+      });
+</script>

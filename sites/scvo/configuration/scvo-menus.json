@@ -872,6 +872,11 @@
 						"route": "^/running-your-organisation/funding/carers-act-transformation-support-fund/guidance-on-completing-the-application-form$"
 					},
 					{
+						"label": "Hints & tips",
+						"path": "/running-your-organisation/funding/carers-act-transformation-support-fund/hints-tips",
+						"route": "^/running-your-organisation/funding/carers-act-transformation-support-fund/hints-tips$"
+					},
+					{
 						"label": "FAQs",
 						"path": "/running-your-organisation/funding/carers-act-transformation-support-fund/faqs",
 						"route": "^/running-your-organisation/funding/carers-act-transformation-support-fund/faqs$"

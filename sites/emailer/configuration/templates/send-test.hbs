@@ -44,6 +44,9 @@
         display: none;
       }
     </style>
+    <script>
+      console.log({{{safeStringify @root.data}}});
+    </script>
   </head>
   <body>
     <div class="pure-g">
@@ -64,7 +67,7 @@
                 <label for="email">Select an email</label>
                 <select id="email" onchange="showEmail(this.value);">
                   {{#each @root.data.send_emails}}
-                    <option value="{{@index}}">{{data.to}}</option>
+                    <option value="{{@index}}">{{data.o:real-to}}</option>
                   {{/each}}
                 </select>
               </div>
@@ -72,7 +75,7 @@
 
             {{#each @root.data.send_emails}}
               <div class="email-details" id="email-details-{{@index}}">
-                <h3>Email: {{data.to}}</h3>
+                <h3>Email: {{data.o:real-to}}</h3>
 
                 <table class="pure-table">
                   <thead>
@@ -93,6 +96,12 @@
                       <th>To</th>
                       <td>{{data.to}}</td>
                     </tr>
+                    {{#compare data.to "!==" data.o:real-to}}
+                      <tr>
+                        <th>Real to</th>
+                        <td>{{data.o:real-to}}</td>
+                      </tr>
+                    {{/compare}}
                     <tr class="pure-table-odd">
                       <th>Tag</th>
                       <td>{{data.tag}}</td>
@@ -149,14 +158,14 @@
                 {
                   details: document.getElementById('email-details-{{@index}}'),
                   contents: {{{safeStringify data.html}}},
-                  json: {{{safeStringify (safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.to))))}}}
+                  json: {{{safeStringify (safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.o:real-to))))}}}
                 }{{#unless @last}},{{/unless}}
               {{/each}}
             ];
             function showEmail(index) {
               email = emails[index];
-              previewFrame.src = 'data:text/html;charset=utf-8,' + escape(email.contents);
-              jsonFrame.src = 'data:application/json;charset=utf-8,' + escape(email.json);
+              previewFrame.src = 'data:text/html;charset=utf-32,' + escape(email.contents);
+              jsonFrame.src = 'data:application/json;charset=utf-32,' + escape(email.json);
               for (const email of emailDetails) {
                 email.style.display = 'none';
               }

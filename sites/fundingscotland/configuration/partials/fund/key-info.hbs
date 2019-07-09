@@ -85,6 +85,12 @@
         {{/if ~}}
       </span>
       {{/if ~}}
+      {{#ifAll award_size_max (compare @root.route.name "funding_updates") ~}}
+      <span class="key-info-bit r-margin-full">
+        <strong>Maximum award:</strong>
+        {{{currency_sign}}}{{addCommas award_size_max}}
+      </span>
+      {{/ifAll ~}}
       {{#if website ~}}
       <span class="key-info-bit r-margin-full">
         <strong>Website:</strong>
@@ -104,5 +110,11 @@
       </span>
       {{/if ~}}
     </div>
+    {{#ifAll news date_news_last_updated ~}}
+    <div class="fund-details mdc-typography--body1">
+      <strong>News - {{{momentFormat (moment date_news_last_updated 'x') 'Do MMM YYYY'}}}:</strong>
+      {{{news}}}
+    </div>
+    {{/ifAll ~}}
   </div>
 </div>

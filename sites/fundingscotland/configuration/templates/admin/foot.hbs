@@ -82,4 +82,13 @@
       }
     });
   }
+
+    $('a[href^="#"]')
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: $('[name="' + $(this).attr('href').substr(1) + '"]').offset().top
+        }, 1000);
+      });
 </script>

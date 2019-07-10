@@ -15,7 +15,7 @@
   ],
   "query": {
     "term": {
-      "slug": "{{@root.request.params.path}}"
+      "post_slug": "{{@root.request.params.path}}"
     }
   }
 }

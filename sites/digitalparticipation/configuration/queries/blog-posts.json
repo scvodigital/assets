@@ -9,7 +9,7 @@
     "author_name_full",
     "author_job_title",
     "author_organisation_name",
-    "slug",
+    "post_slug",
     "quotation.author",
     "quotation.text",
     "quotation.headshot",

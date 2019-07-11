@@ -14,11 +14,11 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUser/?id={{@root.data.auth.uid}}"
+        "template": "/SaltireHours/?user_id={{@root.data.auth.uid}}"
       }
     },
     {
-      "name": "accountInfo",
+      "name": "hoursInfo",
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
@@ -29,47 +29,24 @@
       }
     },
     {
-      "name": "checkStatus",
-      "taskModule": "reroute",
-      "config": {
-        "if":[{"==":[{"var": "data.accountInfo.external_id"}, null]},
-          null,
-          "redirect-home"
-        ]
-      }
-    },
-    {
-      "name": "accountInfo",
-      "taskModule": "salesforceApex",
+      "name": "setHours",
+      "taskModule": "firebaseRtbSet",
       "renderer": "handlebars",
       "config": {
-        "connection": "scvoAlexSandbox",
-        "output": "data",
-        "method": "GET",
-        "apexClassPath": ">data.apexUrl"
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/hours",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{stringify data.hoursInfo}}}"
       }
     },
     {
       "name": "destination",
-      "taskModule": "renderLayout",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
         "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_home"
-            },
-            "contentType": "text/html"
-          }
-        }
+        "template": "{{#json}}{{{json key=\"success\" value=true}}}{{/json}}",
+        "parseJson": true
       }
     }
   ]

@@ -1,15 +1,20 @@
-$mdc-theme-primary: #2FA3E8;
-$mdc-theme-primary-medium: #2FA3E8;
-$mdc-theme-primary-light: #2FA3E8;
-$mdc-theme-primary-dark: #2FA3E8;
+$mdc-theme-primary: #005EB8;
+$mdc-theme-primary-medium: #0072df;
+$mdc-theme-primary-light: #91c9ff;
+$mdc-theme-primary-dark: #0A3A62;
 
-$mdc-theme-complimentary: #c6dabf;
-$mdc-theme-complimentary-light: #ecf2e9;
-$mdc-theme-complimentary-dark: #d9e6d4;
+$mdc-theme-complimentary: #ccc;
+$mdc-theme-complimentary-light: #ccc;
+$mdc-theme-complimentary-dark: #ccc;
 
 $mdc-theme-secondary: #E0E0E0; // Gray 300
 $mdc-theme-secondary-light: #F5F5F5; // Gray 100
 $mdc-theme-secondary-dark: #212121; // Gray 900
+
+$mdc-theme-challenge: #33B0D7;
+$mdc-theme-approach: #BBCF5C;
+$mdc-theme-ascent: #ED884C;
+$mdc-theme-summit: #8E7BA9;
 
 $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #E1E3E4;
@@ -42,7 +47,7 @@ header {
   .container-fluid {
     .mdc-top-app-bar__upper,
     .mdc-top-app-bar__lower {
-      background-color: $mdc-theme-primary-medium;
+      background-color: $mdc-theme-primary;
     }
     .mdc-tab-bar {
       .mdc-tab {
@@ -51,6 +56,9 @@ header {
           color: $mdc-theme-primary;
         }
       }
+    }
+    .mdc-top-app-bar__section--logo {
+      padding-left: $unit;
     }
     #upper-tab-bar {
       .mdc-tab:hover .mdc-tab__text-label {
@@ -100,7 +108,8 @@ header {
 }
 
 .main-body {
-  margin-top: 100px;
+  margin-top: 0;
+  padding-top: 100px;
   background-color: white;
 }
 .top-bar-stuck {
@@ -111,6 +120,10 @@ header {
   max-width: 100%;
   width: 100%;
   margin: 0 auto; // padding: 0 1.5rem;
+}
+.container-content.content-page {
+  margin: 0;
+  padding: 0 $unit $unit*1.5;
 }
 
 

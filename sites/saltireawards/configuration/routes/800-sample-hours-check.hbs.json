@@ -3,7 +3,6 @@
   "pattern": "/sample-hours-check",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
     "title": "Tasks - Saltire Awards"
   },
   "tasks": [

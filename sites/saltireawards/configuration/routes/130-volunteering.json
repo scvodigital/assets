@@ -1,15 +1,15 @@
 {
-  "name": "account",
-  "pattern": "/account",
+  "name": "volunteering",
+  "pattern": "/volunteering",
   "debug": true,
   "metaData": {
-    "title": "Account - Saltire Awards"
+    "title": "Volunteering - Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
     "context.metaData.commonTasks.fullSignUpRequired",
-    "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.getTasksInfo",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -27,7 +27,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.account_account-details"
+              "body": ">context.metaData.handlebars.templates.pages_volunteering"
             },
             "contentType": "text/html"
           }

@@ -2,9 +2,6 @@
   "name": "parent-verify",
   "pattern": "/parent-verify",
   "debug": true,
-  "metaData": {
-    "hideSearch": true
-  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

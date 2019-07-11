@@ -2,9 +2,6 @@
   "name": "parent-verify-fail",
   "pattern": "parent-verify-fail",
   "debug": true,
-  "metaData": {
-    "hideSearch": true
-  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

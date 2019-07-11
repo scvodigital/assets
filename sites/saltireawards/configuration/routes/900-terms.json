@@ -1,15 +1,9 @@
 {
-  "name": "account",
-  "pattern": "/account",
-  "debug": true,
-  "metaData": {
-    "title": "Account - Saltire Awards"
-  },
+  "name": "page_terms",
+  "pattern": "/terms",
+  "debug": false,
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
-    "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -26,14 +20,12 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.account_account-details"
+              "body": ">context.metaData.handlebars.templates.pages_static_terms"
             },
             "contentType": "text/html"
           }
         }
       }
     }
-
   ]
 }

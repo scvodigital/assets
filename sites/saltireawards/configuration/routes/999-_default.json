@@ -1,11 +1,28 @@
 {
   "name": "_default",
   "pattern": "/*path",
+  "debug": true,
   "metaData": {
-    "title": "404: Page not found – Saltire Awards"
+    "title": "Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "saltireawards-page",
+          "template": ">context.metaData.handlebars.queries.pages_page"
+        }
+      },
+      "renderer": "handlebars"
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -22,7 +39,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.404"
+              "body": ">context.metaData.handlebars.templates.pages_page"
             },
             "contentType": "text/html"
           }

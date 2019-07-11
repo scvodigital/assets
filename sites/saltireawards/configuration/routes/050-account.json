@@ -3,7 +3,6 @@
   "pattern": "/account",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
     "title": "Account - Saltire Awards"
   },
   "tasks": [
@@ -27,6 +26,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "body": ">context.metaData.handlebars.templates.account_account-details"
             },
             "contentType": "text/html"

@@ -1,28 +1,85 @@
 {
-  "main": [
+  "main-not-signed-in": [
     {
-      "label": "Home",
-      "path": "/",
-      "route": "^/$"
+      "label": "About",
+      "icon": "info-circle",
+      "path": "/about",
+      "route": "^/about"
+    },
+    {
+      "label": "Get an award",
+      "icon": "medal",
+      "path": "/award",
+      "route": "^/award"
+    },
+    {
+      "label": "Support your volunteers",
+      "icon": "info-circle",
+      "path": "/support",
+      "route": "^/support"
+    },
+    {
+      "label": "Blog",
+      "icon": "newspaper",
+      "path": "/blog",
+      "route": "^/blog"
     }
   ],
   "user-not-signed-in": [
     {
-      "label": "Sign in",
+      "label": "My Saltire",
       "icon": "sign-in-alt",
       "path": "/sign-in",
       "route": "^/sign-in"
+    }
+  ],
+  "main-signed-in": [
+    {
+      "label": "About",
+      "icon": "info-circle",
+      "path": "/about",
+      "route": "^/about"
     },
     {
-      "label": "Sign up",
-      "icon": "list-alt",
-      "path": "/sign-up",
-      "route": "^/sign-up"
+      "label": "Blog",
+      "icon": "newspaper",
+      "path": "/blog",
+      "route": "^/blog"
     }
   ],
   "user-signed-in" : [
     {
-      "label": "My account",
+      "label": "Summary",
+      "icon": "home",
+      "path": "/",
+      "route": "^/$"
+    },
+    {
+      "label": "Volunteering",
+      "icon": "hands-helping",
+      "path": "/volunteering",
+      "route": "^/volunteering"
+    },
+    {
+      "label": "Hours",
+      "icon": "user-clock",
+      "path": "/hours",
+      "route": "^/hours|^/task"
+    },
+    {
+      "label": "Achievements",
+      "icon": "medal",
+      "path": "/achievements",
+      "route": "^/achievements"
+    },
+    {
+      "label": "Journal",
+      "icon": "user-edit",
+      "path": "/journal",
+      "route": "^/journal"
+    },
+    {
+      "label": "Settings",
       "icon": "cog",
       "path": "/account",
       "route": "^/account"
@@ -33,6 +90,13 @@
       "path": "/sign-out",
       "route": "^/sign-out"
     }
+  ],
+  "footer-info": [
+    {
+      "label": "About",
+      "icon": "info-circle",
+      "path": "/about",
+      "route": "^/about"
+    }
   ]
-
 }

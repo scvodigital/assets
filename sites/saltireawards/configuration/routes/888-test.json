@@ -3,7 +3,6 @@
   "pattern": "/test-page",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
     "title": "Account - Saltire Awards"
   },
   "tasks": [

@@ -1,0 +1,38 @@
+{
+  "name": "home_authenticated",
+  "pattern": "/home-authenticated",
+  "debug": true,
+  "metaData": {
+    "title": "Saltire Awards - recognising young volunteers in Scotland"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.fullSignUpRequired",
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_home-authenticated",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
+              "foot": ">context.metaData.handlebars.templates.pages_foot"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -134,6 +134,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var passwordConfirm = $passwordConfirm.val();
 
     fundingscotland.auth.createAccount(email, emailConfirm, password, passwordConfirm).then(function(user) {
+      dataLayer.push({
+        event: 'user-signed-up',
+        uid: user.uid,
+        site: window.currentSite
+      });
+
       var redirect = '/new-user';
       var parameters = [];
 
@@ -148,7 +154,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         redirect += '?' + parameters.join('&');
       }
 
-      window.location.href = redirect;
+      setTimeout(function() {
+        window.location.href = redirect;
+      }, 1000);
     }).catch(function(err) {
       $message.text(err.message || 'Something went wrong when creating your account').show();
       $loader.css('display', 'none');

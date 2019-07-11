@@ -58,7 +58,7 @@
   //    'dimension2': 'parent_document'
   //  }
   //});
-
+  window.currentSite = {{{safeStringify @root.data.currentSite.name}}};
   </script>
   {{#ifAny @root.request.params.query.debug (contains request.url.hostname ".local") ~}}
   <script type="text/javascript">

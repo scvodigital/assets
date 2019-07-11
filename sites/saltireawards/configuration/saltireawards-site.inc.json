@@ -16,6 +16,7 @@
     "emailSendSettings": "{:./email-send-settings.json}",
     "menus": "{:./saltireawards-menus.json}",
     "accountInfoValidation": "{:./account-info-validation.json}",
+    "taskInfoValidation": "{:./task-info-validation.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "commonTasks": {
       "authNotRequired": {

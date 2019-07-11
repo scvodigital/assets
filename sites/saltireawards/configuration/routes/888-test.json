@@ -1,34 +1,52 @@
 {
-  "name": "testpage",
-  "pattern": "/testpage",
+  "name": "test-page",
+  "pattern": "/test-page",
   "debug": true,
-  "acceptedVerbs": "GET,POST",
-  "defaultParams": {
-    "context": "results"
-  },
   "metaData": {
-    "emailType": "parent-verify"
+    "hideSearch": true,
+    "title": "Account - Saltire Awards"
   },
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.authRequired",
     {
-      "name": "PVCode",
+      "name": "apexUrl",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_pv-code"
+        "template": "/SaltireUser/?id={{@root.data.auth.uid}}"
       }
     },
     {
-      "name": "saveUserData",
-      "taskModule": "render",
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
+        "connection": "scvoAlexSandbox",
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_user-body",
-        "parseJson": true
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
+      }
+    },
+    {
+      "name": "checkStatus",
+      "taskModule": "reroute",
+      "config": {
+        "if":[{"==":[{"var": "data.accountInfo.external_id"}, null]},
+          null,
+          "redirect-home"
+        ]
+      }
+    },
+    {
+      "name": "accountInfo",
+      "taskModule": "salesforceApex",
+      "renderer": "handlebars",
+      "config": {
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "GET",
+        "apexClassPath": ">data.apexUrl"
       }
     },
     {
@@ -47,7 +65,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_test"
+              "body": ">context.metaData.handlebars.templates.pages_home"
             },
             "contentType": "text/html"
           }

@@ -32,15 +32,7 @@
       "name": "checkStatus",
       "taskModule": "reroute",
       "config": {
-        "if": [
-          {
-            "==": [
-              {
-                "var": "data.accountInfo"
-              },
-              "{}"
-            ]
-          },
+        "if":[{"==":[{"var": "data.accountInfo.external_id"}, null]},
           null,
           "redirect-home"
         ]

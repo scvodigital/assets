@@ -1,23 +1,72 @@
 <div class="container-fluid container-content content-page">
+  <div class="content-primary">
   <h2>Parent or guardian verification</h2>
   <p>Parent or guardian verification needed. An email has been sent to {{@root.data.accountInfo.parental_verification_email}} please
   ask the your parent or guardian to click the link in that email</p>
   <button onclick="resendEmail()">Resend Email</button>
+  <button onclick="revealForm()">Change Email Address</button>
+  </div>
+  <form id="user-details-form"  method="POST" action="submit-user-details">
+    Please enter the new email address below.
+    <input type="hidden" name="signup" value="true">
+    {{#each (getKeys @root.data.accountInfo)}}
+      {{#compare this "===" "parental_verification_email"}}
+      {{else}}
+      <input type="hidden" name="{{this}}" value="{{getProperty @root.data.accountInfo this}}">
+    {{/compare}}
+    {{/each}}
+    <div class="mdc-layout-grid">
+      <div id="parental_verification" class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+            <input type="email" id="parental_verification_email" name="parental_verification_email"
+              {{>form_validation_attributes @root.context.metaData.accountInfoValidation.parental_verification_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
+                   value = "{{@root.data.accountInfo.parental_verification_email}}">
+            <label class="mdc-floating-label" for="parental_verification_email">
+              Your Parent or Guardian's email address
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit">submit</button>
+  </form>
 </div>
 
 <script>
-  function resendEmail(){
-    $.ajax({
-      url: '/parent-email-send',
-      type: 'POST',
-    }).done(function( data ) {
-      $message.text('Parental email re-sent').show();
-    }).fail(function( err){
-      $message.text(err.message || 'There was a problem adding your details').show();
-      $loader.css('display', 'none');
-      return;
-    });
-  }
+  document.addEventListener("DOMContentLoaded", function(event) {
 
+    var $form = $('#user-details-form');
+
+    $form.on('submit', function(evt) {
+      var formdata = $form.serialize();
+      evt.preventDefault();
+      $.ajax({
+        url: '/submit-user-details',
+        type: 'POST',
+        data: formdata, // serializes the form's elements.
+      }).done(function (data) {
+        window.location.href = '/parental-verification-required';
+      }).fail(function (err) {
+        $message.text(err.message || 'There was a problem adding your details').show();
+        $loader.css('display', 'none');
+        return;
+      });
+    })
+
+    function resendEmail() {
+      $.ajax({
+        url: '/parent-email-send',
+        type: 'POST',
+      }).done(function (data) {
+        $message.text('Parental email re-sent').show();
+      }).fail(function (err) {
+        $message.text(err.message || 'There was a problem adding your details').show();
+        $loader.css('display', 'none');
+        return;
+      });
+    }
+  })
 
 </script>

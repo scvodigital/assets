@@ -1,14 +1,8 @@
 {
-  "name": "sign-up-details",
-  "pattern": "/sign-up-details",
-  "debug": true,
-  "metaData": {
-    "title": "Sign up - Saltire Awards"
-  },
+  "name": "five_hundred",
+  "pattern": "/500",
+  "debug": false,
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.redirectIfPVNeeded",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -25,14 +19,13 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.account_sign-up-details"
+              "body": ">context.metaData.handlebars.templates.errors_500",
+              "foot": ""
             },
             "contentType": "text/html"
           }
         }
       }
     }
-
   ]
 }

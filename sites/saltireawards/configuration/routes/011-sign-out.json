@@ -3,7 +3,6 @@
   "pattern": "/sign-out",
   "debug": true,
   "metaData": {
-    "hideSearch": true,
     "title": "Sign out - Saltire Awards"
   },
   "tasks": [

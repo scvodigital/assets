@@ -112,19 +112,21 @@
             </section>
           {{!-- </div>
           <div class="mdc-top-app-bar__row mdc-top-app-bar__lower hide-sm hide-md mdc-theme--primary-dark-bg"> --}}
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
-              {{#> components_tab_bar
-                   extraClasses="mdc-tab-bar__auto-width"
-                   id="main-tab-bar"}}
-                {{> components_tab
-                    url="/"
-                    labelClasses="mdc-theme--on-primary"
-                    active=(regexMatch @root.request.url.pathname "^/" "gi")
-                    label="Home"}}
-              {{/components_tab_bar}}
-            </section>
+            {{!-- <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__main hide-md hide-sm">
+            </section> --}}
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end mdc-top-app-bar__user hide-md hide-sm">
               {{#if @root.data.auth ~}}
+              {{#> components_tab_bar
+                extraClasses="mdc-tab-bar__auto-width"
+                id="main-tab-bar"}}
+                {{#each @root.context.metaData.menus.main-signed-in ~}}
+                  {{>components_tab
+                      url=(stripTrailingSlash path)
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname route "gi")
+                      label=label}}
+                {{/each}}
+                {{/components_tab_bar}}
                 {{#>components_anchored_menu
                     buttonClasses="mdc-theme--on-primary"
                     imageUrl=(default @root.data.auth.photoURL false)
@@ -145,10 +147,22 @@
                 {{#>components_tab_bar
                     extraClasses="mdc-tab-bar__auto-width"
                     id="user-not-signed-in-tab-bar"}}
-                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
+                  {{> components_tab
+                      url="/"
+                      labelClasses="mdc-theme--on-primary"
+                      active=(regexMatch @root.request.url.pathname "^/$" "gi")
+                      label="Home"}}
+                  {{#each @root.context.metaData.menus.main-not-signed-in ~}}
                     {{>components_tab
                         url=(stripTrailingSlash path)
                         labelClasses="mdc-theme--on-primary"
+                        active=(regexMatch @root.request.url.pathname route "gi")
+                        label=label}}
+                  {{/each}}
+                  {{#each @root.context.metaData.menus.user-not-signed-in ~}}
+                    {{>components_tab
+                        url=(stripTrailingSlash path)
+                        labelClasses="my-saltire"
                         active=(regexMatch @root.request.url.pathname route "gi")
                         label=label}}
                   {{/each}}
@@ -168,9 +182,20 @@
               Home
             </a>
 
-            <div role="separator" class="mdc-list-divider"></div>
-
             {{#if @root.data.auth ~}}
+            {{#each @root.context.metaData.menus.main-signed-in ~}}
+            {{#compare path "===" "/" ~}}
+            {{else}}
+            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+              {{#if icon ~}}
+              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+              {{/if ~}}
+              {{{label}}}
+            </a>
+            {{/compare ~}}
+            {{/each ~}}
+            <div role="separator" class="mdc-list-divider"></div>
             <a class="mdc-list-item mdc-list-item__user" href="#">
               <span class="mdc-list-item__graphic" aria-hidden="true">
                 <img src="{{@root.data.auth.photoURL}}" />
@@ -190,6 +215,15 @@
             {{/compare ~}}
             {{/each ~}}
             {{else}}
+            {{#each @root.context.metaData.menus.main-not-signed-in ~}}
+            <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
+               href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
+              {{#if icon ~}}
+              <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
+              {{/if ~}}
+              {{{label}}}
+            </a>
+            {{/each ~}}
             {{#each @root.context.metaData.menus.user-not-signed-in ~}}
             <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}"
                href="{{stripTrailingSlash path}}" {{#if (regexMatch @root.request.url.pathname route "gi")}}aria-selected="true"{{else}}aria-hidden="true"{{/if}}>
@@ -241,21 +275,25 @@
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone help">
                   <h3>Information</h3>
                   <ul class="mdc-list">
-                    {{!--#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-information") ~}}
+                    {{#each @root.context.metaData.menus.footer-info ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="{{stripTrailingSlash path}}">{{{label}}}</a>
                     </li>
-                    {{/each ~--}}
+                    {{/each ~}}
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone info">
                   <h3>Help</h3>
                   <ul class="mdc-list">
-                    {{!--#each (filter @root.data.menus.hits.hits "_source.which_menus" "testIn" "footer-help") ~}}
                     <li class="mdc-list-item">
-                      <a href="{{default _source.menu_url (concat "/" _source.slug)}}">{{{default _source.menu_label _source.title}}}</a>
+                      <a href="/terms">Terms &amp; conditions</a>
                     </li>
-                    {{/each ~--}}
+                    <li class="mdc-list-item">
+                      <a href="/privacy">Privacy</a>
+                    </li>
+                    <li class="mdc-list-item">
+                      <a href="/cookies">Cookies</a>
+                    </li>
                   </ul>
                 </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">

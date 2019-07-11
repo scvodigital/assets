@@ -2,9 +2,6 @@
   "name": "parental-verification-required",
   "pattern": "/parental-verification-required",
   "debug": true,
-  "metaData": {
-    "hideSearch": true
-  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {

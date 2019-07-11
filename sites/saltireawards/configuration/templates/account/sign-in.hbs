@@ -5,7 +5,7 @@
         {{#if @root.request.params.query.reauth}}
           Reauthenticate
         {{else}}
-          Sign in
+          Welcome back! Please sign in
         {{/if}}
       </div>
       {{#if @root.request.params.query.reauth}}
@@ -52,10 +52,13 @@
           Forgot your password? <a href="/reset-password">Reset password</a>
         </div>
         <div class="mdc-typography--body1 v-margin-full">
-          Don't have an account? <a href="/sign-up">Sign up</a>
-        </div>
-        <div class="mdc-typography--body1 v-margin-full">
           Read our <a href="/privacy" target="_blank">privacy notice</a>
+        </div>
+        <h2 class="mdc-typography--headline6">
+          Not registered?
+        </h2>
+        <div class="mdc-typography--body1 v-margin-full">
+          <a href="/sign-up" class="mdc-button mdc-button--raised">Sign up for a free account</a>
         </div>
       </div>
       <div class="card-loader" id="sign-in-loader">

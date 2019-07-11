@@ -83,7 +83,7 @@ export class FundingScotland {
         const redirect = $el.data('hide-fund-redirect');
         const name = $el.data('hide-fund-name');
 
-         $('#hide-fund-dialog-id').val(id);
+        $('#hide-fund-dialog-id').val(id);
         $('#hide-fund-dialog-redirect').val(redirect);
         $('#hide-fund-dialog-name').text(name);
 
@@ -95,48 +95,12 @@ export class FundingScotland {
     if (this.$saveSearchDialog.length > 0) {
       this.saveSearchDialog = new mdc.dialog.MDCDialog(this.$saveSearchDialog[0]);
       $('.save-search-dialog-button').on('click', (evt) => {
-        /* OLD CODE FOR SUGGESTING A NAME
-        const search = location.search.substring(1);
-        const query = querystring.parse(search);
-        const selected = {};
-        for (const [selectedField, selectedTerm] of Object.entries(query)) {
-          const selectedTerms = Array.isArray(selectedTerm) ? selectedTerm : [selectedTerm];
-          if (!terms[selectedField]) continue;
-          const field = terms[selectedField];
-          selected[field.label] = [];
-          for (const [termGroupName, termGroup] of Object.entries(field.termGroups)) {
-            const inGroup = [];
-            for (const [term, termItem] of Object.entries(termGroup.terms)) {
-              if (selectedTerms.indexOf(term) > -1) {
-                inGroup.push(termItem.label);
-              }
-            }
-            if (inGroup.length === Object.keys(termGroup.terms).length) {
-              selected[field.label].push(termGroup.label);
-            } else {
-              selected[field.label].push(...inGroup);
-            }
-          }
-        }
-        const nameParts = [];
-        if (query.keywords) {
-          nameParts.push('Keywords: ' + query.keywords);
-        }
-        for (const [field, terms] of Object.entries(selected)) {
-          if (terms.length > 2) {
-            nameParts.push(field + ': ' + terms.slice(0, 2).join(', ') + ' (+' + (terms.length - 2) + ')');
-          } else {
-            nameParts.push(field + ': ' + terms.join(', '))
-          }
-        }
-        const name = nameParts.join(' - ');
-        $('#saved-search-name').val(name.substr(0, 254));
-        */
         this.saveSearchDialog.open();
       });
     }
     this.helpBoxes();
 
+    ga('set', 'dimension1', window.currentSite);
     $('[data-fund-id]').each((i, o) => {
       const data = $(o).data();
       const event = {

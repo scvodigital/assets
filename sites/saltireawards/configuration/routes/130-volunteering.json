@@ -6,10 +6,7 @@
     "title": "Volunteering - Saltire Awards"
   },
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
-    "context.metaData.commonTasks.getTasksInfo",
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -27,7 +24,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.pages_volunteering"
+              "body": ">context.metaData.handlebars.templates.volunteering_search"
             },
             "contentType": "text/html"
           }

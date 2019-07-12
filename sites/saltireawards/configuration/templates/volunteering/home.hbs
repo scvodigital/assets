@@ -1,0 +1,164 @@
+<div class="container-fluid home-banner volunteering-banner">
+  <div class="banner-search overlay" style="background-image: url('https://storage.googleapis.com/volunteerscotland-search/vs-search-homepage-image.jpg');">
+    <div class="content page-content">
+      <div class="search-content">
+        <form id="search-view" class="search-form" action="https://search.volunteerscotland.net/search" method="GET">
+          <input type="hidden" name="lat" value="{{@root.request.params.query.lat}}" id="location-lat" />
+          <input type="hidden" name="lng" value="{{@root.request.params.query.lng}}" id="location-lng" />
+          <input type="hidden" name="la" value="{{@root.request.params.query.la}}" id="location-la" />
+          <input type="hidden" name="sort" value="{{@root.request.params.query.sort}}" id="default-sort" />
+          <input type="hidden" name="utm_source" value="Goodmoves" id="default-utm_source" />
+          <h2 class="mdc-typography--headline6">
+            <span class="mdc-typography--headline4">Search</span> for a volunteering opportunity
+          </h2>
+          <div class="mdc-layout-grid b-padding">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+                  <span class="far fa-map-marker-alt mdc-text-field__icon geo-lookup" tabindex="0" title="Find my location"></span>
+                  <input type="text" id="where-opportunities" name="location" class="mdc-text-field__input" value="{{@root.request.params.query.location}}" placeholder="" data-lpignore="true" data-location-search='{
+                    "latSelector": "[name=\"lat\"]",
+                    "lngSelector": "[name=\"lng\"]",
+                    "laSelector": "[name=\"la\"]",
+                    "locationServicesSelector": ".geo-lookup"
+                  }'>
+                  <label for="where-opportunities" class="mdc-floating-label mdc-floating-label--float-above">
+                    Location
+                  </label>
+                  <div class="mdc-line-ripple"></div>
+                </div>
+                <!-- <div class="after-textfield-action geo-lookup">Find me</div> -->
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone filter-distance">
+                <div class="mdc-layout-grid">
+                  <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                      <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+                        <span class="mdc-select__dropdown-icon"></span>
+                        <select class="mdc-select__native-control" id="distance" name="distance">
+                          {{#each (split "5,10,15,20,25,30,35,40,45,50" ",")}}
+                            <option value="{{this}}" {{#compare (default @root.request.params.query.distance "10") "===" this}}selected{{/compare}}>{{this}} miles</option>
+                          {{/each}}
+                        </select>
+                        <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
+                          Within
+                        </label>
+                        <div class="mdc-line-ripple"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
+                <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+                  <input type="text" id="what-opportunities" name="keywords" class="mdc-text-field__input" placeholder="" />
+                  <label for="what-opportunities" class="mdc-floating-label">
+                    Keywords
+                  </label>
+                  <div class="mdc-line-ripple"></div>
+                </div>
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
+                <button type="submit" id="search-opportunities" class="mdc-button mdc-button--raised mdc-button--large mdc-button--arrow mdc-text-field--box mdc-button--search mdc-ripple-surface mdc-ripple-surface--primary" data-mdc-auto-init="MDCRipple">
+                  Search
+                  <span class="far fa-search" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                <div id="search-terms" class="mdc-chip-set"></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {{!-- <div class="home-browse h-padding">
+    <h3 class="mdc-drawer__content-heading cursor-pointer h-padding-full" data-collapse-target="#home-browse-collapse" role="button" aria-pressed="false" aria-label="Show browse section" tabindex="0">
+      <span class="mdc-button mdc-button--raised">
+        Browse
+        <span class="mdc-icon-toggle">
+          <span class="far fa-chevron-down" aria-hidden="true"></span>
+        </span>
+      </span>
+      <span class="mdc-typography--body2">
+        By theme, activity, or area
+      </span>
+    </h3>
+    <div id="home-browse-collapse" style="display: none;">
+      {{> browse_volunteering eventContext="category-browser-home"}}
+    </div>
+  </div> --}}
+
+  {{#compare @root.data.search_data.home_latest.hits.total ">" 0}}
+  <div class="mdc-layout-grid l-margin-full l-padding">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="container-content content-page">
+          <div class="full">
+            <h2 class="mdc-typography--headline6">
+              More than a million of us across Scotland volunteer
+            </h2>
+            <p class="mdc-typography--body1">
+              And with good reason. Volunteering is one of the most rewarding things you can do. There are thousands of volunteer roles available right now. And as many places and spaces to give your time. Just want to help out? Looking to learn new skills? Keen to meet other people? Fired up to make a difference? Volunteering can help you do it. Whether you have a little or lots of time to give there should be something there for you.
+            </p>
+            <p class="mdc-typography--body1">
+              This search facility is provided by <a href="https://search.volunteerscotland.net">Volunteer Scotland</a> in partnership with <a href="https://scvo.org">SCVO</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-typography--headline6 t-margin-full t-padding">
+          Latest opportunities &ensp;
+          <span class="mdc-typography--body1">
+            <a href="https://search.volunteerscotland.net/search?sort=newest&page=2">Find more</a>
+          </span>
+        </div>
+        <div class="home-content-primary">
+          {{#>components_horizontal_card_scroller
+            outerClasses="home-latest"
+            scrollLeftIconClasses="fal fa-fw fa-angle-left"
+            scrollRightIconClasses="fal fa-fw fa-angle-right"
+            itemClasses="latest-primary-content"
+            items=(map @root.data.search_data.home_latest.hits.hits (getProp "_source"))
+            itemsPartial="volunteering_mini"
+            moreUrl="https://search.volunteerscotland.net/search?sort=newest&page=2"
+            moreText="Find more opportunities"}}
+          {{/components_horizontal_card_scroller}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/compare}}
+
+  {{!-- {{#compare @root.data.search_data.home_top.hits.total ">" 0}}
+  <div class="mdc-layout-grid home-heading">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-typography--headline5">
+          Top opportunities &ensp;
+          <span class="mdc-typography--body1">
+            <a href="https://search.volunteerscotland.net/search?sort=relevance&page=2">Find more</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-content-primary">
+    {{#>components_horizontal_card_scroller
+      outerClasses="home-top"
+      scrollLeftIconClasses="fal fa-fw fa-angle-left"
+      scrollRightIconClasses="fal fa-fw fa-angle-right"
+      itemClasses="top-primary-content"
+      items=(map @root.data.search_data.home_top.hits.hits (getProp "_source"))
+      itemsPartial="volunteering_mini"
+      moreUrl="https://search.volunteerscotland.net/search?sort=relevance&page=2"
+      moreText="Find more opportunities"}}
+    {{/components_horizontal_card_scroller}}
+  </div>
+  {{/compare}} --}}
+</div>

@@ -1,0 +1,86 @@
+{
+  "bool": {
+    "should": [
+      {
+        "bool": {
+          "must": [
+            {
+              "term": {
+                "_type": {
+                  "value" : "milo-volunteering-opportunity"
+                }
+              }
+            },
+            {{>queries_date_range field="date_last_modified" gt="now-12M"}}
+          ]
+        }
+      },
+      {
+        "bool": {
+          "must": [
+            {
+              "term": {
+                "_type": {
+                  "value" : "goodmoves-vacancy"
+                }
+              }
+            },
+            {
+              "bool": {
+                "filter": [
+                  {{>queries_vacancy_common_filters_open @root.request.params.query}}
+                ],
+                "should": [
+                  {
+                    "terms": {
+                      "roles_slugs": ["board-membership-trustee"]
+                    }
+                  },
+                  {
+                    "terms": {
+                      "role_status_slug": ["management-board"]
+                    }
+                  }
+                ],
+                "minimum_should_match": 1
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "minimum_should_match": 1
+  }
+},
+{{#if location ~}}
+{
+  "bool": {
+    "should": [
+      {{>queries_opportunity_search_filters_locations @root.request.params.query}}
+      {{>queries_opportunity_search_filters_areas @root.request.params.query}}
+      {{>queries_opportunity_search_filters_home @root.request.params.query}}
+      {{>queries_do_nothing}}
+    ],
+    "minimum_should_match": {{#if distance}}2{{else}}1{{/if}}
+  }
+},
+{{/if ~}}
+{{#if volunteersearch_types ~}}
+{{>queries_terms field="volunteersearch_type_slugs" terms=volunteersearch_types}},
+{{/if ~}}
+{{#if activities ~}}
+{{>queries_terms field="activities_slugs" terms=activities}},
+{{/if ~}}
+{{#if themes ~}}
+{{>queries_terms field="themes_slugs" terms=themes}},
+{{/if ~}}
+{{#if services ~}}
+{{>queries_terms field="volunteersearch_support_option_slugs" terms=services}},
+{{/if ~}}
+{{#if age_groups ~}}
+{{>queries_terms field="volunteersearch_age_group_slugs" terms=age_groups}},
+{{/if ~}}
+{{#if availability ~}}
+{{>queries_terms field="availability_slugs" terms=availability}},
+{{/if ~}}
+{{>queries_do_nothing}}

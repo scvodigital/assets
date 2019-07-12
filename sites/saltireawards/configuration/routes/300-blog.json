@@ -1,0 +1,49 @@
+{
+  "name": "blog",
+  "pattern": "/blog",
+  "debug": true,
+  "metaData": {
+    "title": "Blog – Saltire Awards"
+  },
+  "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "web-content-production",
+          "type": "saltireawards-post",
+          "template": ">context.metaData.handlebars.queries.blog_posts"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "body": ">context.metaData.handlebars.templates.blog_blog"
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

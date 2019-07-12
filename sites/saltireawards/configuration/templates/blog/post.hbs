@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="container-content post">
+    {{#each @root.data.primaryResponse.hits.hits ~}}
+    {{#with _source ~}}
+    <h1 class="mdc-typography--headline3">{{{title}}}</h1>
+    <div class="mdc-typography--body2 b-margin">
+      Posted {{momentFormat (moment publish_on "x") "Do MMM YYYY"}}
+    </div>
+    <div class="mdc-typography--body1">
+      {{{content}}}
+    </div>
+    {{/with ~}}
+    {{/each ~}}
+  </div>
+</div>

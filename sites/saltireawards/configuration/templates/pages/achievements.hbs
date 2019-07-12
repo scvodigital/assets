@@ -6,7 +6,7 @@
   <div class="mdc-layout-grid achievements">
     <div class="mdc-layout-grid__inner">
       {{#each (split "10,25,50,100,200,500" ",") ~}}
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
         {{#compare (sumArray (pluck @root.data.tasksInfo "hours")) ">=" this ~}}
         <img src="{{~>asset_url url=(concat 'images/badges/' this '.png') ~}}" class="responsive-img" />
         <div class="mdc-typography--body1 description">

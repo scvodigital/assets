@@ -1,6 +1,8 @@
-<div class="container-fluid">
-  <div class="container-content">
-    <h1 class="mdc-typography--headline3">Blog</h1>
+<div class="container-content content-page container-centred">
+  <div class="b-padding-full b-margin-full">
+    <h1 class="mdc-typography--headline4">
+      Blog
+    </h1>
     {{#each @root.data.primaryResponse.hits.hits ~}}
     {{#with _source ~}}
     <div class="mdc-card mdc-elevation--z3 x-padding-full t-margin-full">
@@ -16,7 +18,6 @@
     </div>
     {{/with ~}}
     {{/each ~}}
-
     {{> pagination firstLastNavigation=true paging=@root.data.primaryResponse.pagination}}
   </div>
 </div>

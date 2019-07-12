@@ -1,22 +1,39 @@
 <div class="container-fluid container-content content-page">
-  <h1>Sample email data</h1>
+  <h1>Sample emails data to be sent out to verify user: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}}  </h1>
 
 
-<h2>User: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.second_name}} {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}</h2>
 
-Emails to send with hours:
+  <h2>User: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}} {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}</h2>
 
 
-{{#each (distinct (pluck @root.data.tasksInfo "volunteer_manager_email")) ~}}
-  <h2>Hours to be validated at email: {{this}}</h2>
-  {{#each @root.data.tasksInfo}}
-    {{#compare this.volunteer_manager_email "===" ../this}}
-      <h3>Task: {{task_name}}, Manager: {{volunteer_manager_name}}</h3>
-      {{#each this.unverifiedHoursList}}
-        <p>Hours: {{hours}} - Logged: {{createdDate}}</p>
-      {{/each}}
-    {{/compare}}
+
+  {{#each (distinct (pluck @root.data.tasksInfo "volunteer_manager_email")) ~}}
+    <section class="mdc-card__media email-template h-padding-full">
+      <p>Dear Sir or Madam,</p>
+      <p>{{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}}
+        {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}
+        is applying for a Saltire Award for volunteering with you. Please confirm that the following
+        volunteering hours are accurate by clicking the link below.
+      </p>
+
+      <ul>
+        {{#each @root.data.tasksInfo}}
+          {{#compare this.volunteer_manager_email "===" ../this}}
+          <li><strong>{{task_name}}</strong> for <strong>{{organisation_name}}</strong>, Manager: {{volunteer_manager_name}} - {{volunteer_manager_title}}
+              <ul>
+                {{#each this.unverifiedHoursList}}
+                  <li>Hours: {{hours}} - Logged on: {{momentFormat (moment createdDate "YYYY-MM-DD") "MMMM Do YYYY"}}</li>
+                {{/each}}
+              </ul>
+            </li>
+          {{/compare}}
+        {{/each}}
+
+      </ul>
+
+      <p>Please click <a>here</a> to confirm these hours are correct.</p>
+        <p>Please or reply to this email to make any corrections.</p>
+    </section>
   {{/each}}
-{{/each}}
 
 </div>

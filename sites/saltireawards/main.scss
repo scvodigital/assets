@@ -273,6 +273,10 @@ header {
   }
 }
 
+.email-template {
+  border: 1px solid black;
+  margin: 0.5*$unit;
+}
 
 // Footer ======================================================================
 footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {

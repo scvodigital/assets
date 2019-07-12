@@ -5,6 +5,6 @@
   "organisation_charity_number" : {"maxlength": 12, "pattern": "SC[0-9]{6}"},
   "volunteer_manager_name" : {"required": true, "maxlength": 255},
   "volunteer_manager_title" : {"required": true, "maxlength": 255},
-  "volunteer_manager_phone" : {"required": true, "maxlength": 12},
+  "volunteer_manager_phone" : {"required": true, "maxlength": 14},
   "volunteer_manager_email" : {"required": true, "type":"email", "maxlength": 255}
 }

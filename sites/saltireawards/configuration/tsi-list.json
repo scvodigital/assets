@@ -1,0 +1,188 @@
+{
+  "aberdeen": {
+    "title": "Aberdeen",
+    "website": "http://www.volunteeraberdeen.org.uk",
+    "email": "volunteer@acvo.org.uk",
+    "phone": "01224 686076"
+  },
+  "aberdeenshire": {
+    "title": "Aberdeenshire",
+    "website": "http://www.avashire.org.uk",
+    "email": "enquiries@avashire.org.uk",
+    "phone": "03718 110 008"
+  },
+  "angus": {
+    "title": "Angus",
+    "website": "http://www.voluntaryactionangus.org.uk",
+    "email": "info@voluntaryactionangus.org.uk",
+    "phone": "01307 466113"
+  },
+  "argyll-bute": {
+    "title": "Argyll &amp; Bute",
+    "website": "http://www.argylltsi.org.uk",
+    "phone": "01369 700100"
+  },
+  "clackmannanshire": {
+    "title": "Clackmannanshire",
+    "website": "http://ctsi.org.uk",
+    "email": "admin@ctsi.org.uk",
+    "phone": "01259 213840"
+  },
+  "dumfries-galloway": {
+    "title": "Dumfries &amp; Galloway",
+    "website": "http://www.tsdg.org.uk",
+    "email": "info@tsdg.org.uk",
+    "phone": "0300 303 8558"
+  },
+  "dundee": {
+    "title": "Dundee",
+    "website": "http://www.volunteerdundee.org.uk",
+    "email": "saltireawards@volunteerdundee.org.uk",
+    "phone": "01382 305705"
+  },
+  "east-ayrshire": {
+    "title": "East Ayrshire",
+    "email": "volunteer@eav.org.uk",
+    "phone": "01563 544765"
+  },
+  "east-dunbartonshire": {
+    "title": "East Dunbartonshire",
+    "website": "http://www.edva.org",
+    "email": "info@edva.org",
+    "phone": "0141 578 6680"
+  },
+  "east-lothian": {
+    "title": "East Lothian",
+    "website": "http://www.strive.me.uk",
+    "email": "info@strive.me.uk",
+    "phone": "01875 615423"
+  },
+  "east-renfrewshire": {
+    "title": "East Renfrewshire",
+    "website": "http://www.va-er.org.uk",
+    "email": "saltireawards@va-er.org.uk",
+    "phone": "0141 876 9555"
+  },
+  "edinburgh": {
+    "title": "Edinburgh",
+    "website": "http://www.volunteeredinburgh.org.uk",
+    "email": "saltireadmin@volunteeredinburgh.org.uk",
+    "phone": "0131 225 0630"
+  },
+  "falkirk": {
+    "title": "Falkirk",
+    "website": "http://www.cvsfalkirk.org.uk",
+    "email": "info@cvsfalkirk.org.uk",
+    "phone": "01324 692000"
+  },
+  "fife": {
+    "title": "Fife",
+    "website": "http://www.fifevoluntaryaction.org.uk",
+    "email": "info@fifevoluntaryaction.org.uk",
+    "phone": "0800 389 6046"
+  },
+  "glasgow": {
+    "title": "Glasgow",
+    "website": "http://www.volunteerglasgow.org",
+    "email": "info@volunteerglasgow.org",
+    "phone": "0141 226 3431"
+  },
+  "highland": {
+    "title": "Highland",
+    "website": "http://www.highlandtsi.org.uk",
+    "email": "info@highlandtsi.org.uk"
+  },
+  "inverclyde": {
+    "title": "Inverclyde",
+    "website": "http://www.cvsinverclyde.org.uk",
+    "email": "admin@cvsinverclyde.org.uk",
+    "phone": "01475 711733"
+  },
+  "midlothian": {
+    "title": "Midlothian",
+    "website": "http://www.volunteermidlothian.org.uk",
+    "email": "info@volunteermidlothian.org.uk",
+    "phone": "0131 660 1216"
+  },
+  "moray": {
+    "title": "Moray",
+    "website": "http://www.tsimoray.org.uk",
+    "email": "info@tsimoray.org.uk",
+    "phone": "01343 541713"
+  },
+  "north-ayrshire": {
+    "title": "North Ayrshire",
+    "email": "info@theayrshirecommunitytrust.co.uk",
+    "phone": "01294 443044"
+  },
+  "north-lanarkshire": {
+    "title": "North Lanarkshire",
+    "website": "http://www.voluntaryactionnorthlanarkshire.org",
+    "email": "dutyofficer@vanl.co.uk",
+    "phone": "01698 358866"
+  },
+  "orkney": {
+    "title": "Orkney",
+    "website": "http://www.vaorkney.org.uk",
+    "email": "enquiries@vaorkney.org.uk",
+    "phone": "01856 872897"
+  },
+  "perth-kinross": {
+    "title": "Perth &amp; Kinross",
+    "website": "http://www.volunteerpk.org.uk",
+    "phone": "01738 567076"
+  },
+  "renfrewshire": {
+    "title": "Renfrewshire",
+    "website": "http://www.engagerenfrewshire.com",
+    "email": "info@engagerenfrewshire.com",
+    "phone": "0141 887 7707"
+  },
+  "scottish-borders": {
+    "title": "Scottish Borders",
+    "website": "http://www.vcborders.org.uk",
+    "email": "enquiries@vcborders.org.uk",
+    "phone": "01896 754312"
+  },
+  "shetland": {
+    "title": "Shetland",
+    "website": "http://www.va-shetland.org.uk",
+    "email": "neil.pearson@shetland.org",
+    "phone": "01595 743911"
+  },
+  "south-ayrshire": {
+    "title": "South Ayrshire",
+    "website": "http://www.saltireawardssouthayrshire.org",
+    "website2": "http://www.voluntaryactionsouthayrshire.org.uk",
+    "email": "saltire@vasa.scot",
+    "phone": "01292 432661"
+  },
+  "south-lanarkshire": {
+    "title": "South Lanarkshire",
+    "website": "http://www.vaslan.org.uk",
+    "email": "saltire@vaslan.org.uk",
+    "phone": "01698 300390"
+  },
+  "stirling": {
+    "title": "Stirling",
+    "website": "http://www.sventerprise.org.uk",
+    "email": "info@sventerprise.org.uk",
+    "phone": "01786 430000"
+  },
+  "west-dunbartonshire": {
+    "title": "West Dunbartonshire",
+    "website": "http://www.wdcvs.com",
+    "email": "info@wdcvs.com",
+    "phone": "0141 941 0886"
+  },
+  "west-lothian": {
+    "title": "West Lothian",
+    "website": "http://www.voluntarysectorgateway.org",
+    "email": "vsg@vsgwl.org",
+    "phone": "01506 650111"
+  },
+  "western-isles": {
+    "title": "Western Isles",
+    "website": "http://volunteercentrewi.org"
+  }
+}

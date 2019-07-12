@@ -51,6 +51,16 @@
               </span>
             </li>
             {{else}}
+            {{#compare job_number "===" "9919" ~}}
+            <li class="mdc-list-item">
+              <span class="mdc-list-item__graphic far fa-file fa-file-word" aria-hidden="true"></span>
+              <span class="mdc-list-item__text">
+                <a href="{{~>asset_url url='cjs/Admin%20Support%20Worker%20Application%20form%20090818_003.doc'~}}" target="_blank" download>
+                  <span class="title">Application Form</span>
+                </a>
+              </span>
+            </li>
+            {{else}}
             {{#compare job_number "===" "8495" ~}}
             <li class="mdc-list-item">
               <span class="mdc-list-item__graphic far fa-file fa-file-word" aria-hidden="true"></span>
@@ -105,6 +115,7 @@
                 </a>
               </span>
             </li>
+            {{/compare ~}}
             {{/compare ~}}
             {{/compare ~}}
             {{/compare ~}}

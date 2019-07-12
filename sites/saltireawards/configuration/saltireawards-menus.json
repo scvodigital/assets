@@ -9,8 +9,8 @@
     {
       "label": "Get an award",
       "icon": "medal",
-      "path": "/award",
-      "route": "^/award"
+      "path": "/awards",
+      "route": "^/awards"
     },
     {
       "label": "Support your volunteers",

@@ -16,7 +16,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input required id="task_name" name="task_name"
+            <input id="task_name" name="task_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
                    value = "{{@root.data.taskInfo.task_name}}"
@@ -58,7 +58,7 @@
                    class="mdc-text-field__input mdc-text-field--fullwidth"
                    value = "{{@root.data.taskInfo.organisation_charity_number}}">
             <label class="mdc-floating-label" for="organisation_charity_number">
-              Organisation Charity Number (if known)
+              Organisation Scottish Charity Number (optional, e.g. SC012345)
             </label>
           </div>
         </div>

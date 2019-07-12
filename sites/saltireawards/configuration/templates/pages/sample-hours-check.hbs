@@ -12,7 +12,7 @@ Emails to send with hours:
   {{#each @root.data.tasksInfo}}
     {{#compare this.volunteer_manager_email "===" ../this}}
       <h3>Task: {{task_name}}, Manager: {{volunteer_manager_name}}</h3>
-      {{#each this.hoursList}}
+      {{#each this.unverifiedHoursList}}
         <p>Hours: {{hours}} - Logged: {{createdDate}}</p>
       {{/each}}
     {{/compare}}

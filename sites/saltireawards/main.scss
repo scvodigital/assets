@@ -113,8 +113,25 @@ header {
   }
 }
 
+.container-fluid.container-content.container-home {
+  max-width: 1080px;
+  margin: 0 auto;
+  .my-saltire {
+    .my-saltire-item {
+      text-align: center;
+    }
+  }
+}
+
 .responsive-img {
   max-width: 100%;
+}
+.certificates {
+  .certificate {
+    .certificate-icon {
+      max-width: 100%;
+    }
+  }
 }
 .achievements {
   .responsive-img {

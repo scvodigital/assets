@@ -1,14 +1,11 @@
 {
-  "name": "_default",
-  "pattern": "/*path",
-  "debug": true,
-  "metaData": {
-    "title": "Saltire Awards"
-  },
+  "name": "four_oh_four",
+  "pattern": "/404",
+  "debug": false,
+  "defaultStatusCode": 404,
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
     {
-      "name": "primaryResponse",
+      "name": "not_found",
       "taskModule": "elasticsearch",
       "config": {
         "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
@@ -18,7 +15,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "saltireawards-page",
-          "template": ">context.metaData.handlebars.queries.pages_page"
+          "template": ">context.metaData.handlebars.queries.errors_404"
         }
       },
       "renderer": "handlebars"
@@ -39,7 +36,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_page"
+              "body": ">context.metaData.handlebars.templates.errors_404",
+              "foot": ""
             },
             "contentType": "text/html"
           }

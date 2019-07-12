@@ -10,7 +10,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUser/?id={{@root.request.params.query.id}}"
+        "template": "/SaltireUser/?user_id={{@root.request.params.query.id}}"
       }
     },
     {

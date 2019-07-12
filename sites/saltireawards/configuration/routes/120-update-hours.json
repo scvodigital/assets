@@ -1,10 +1,11 @@
 {
-  "name": "parent-email-send",
-  "pattern": "/parent-email-send",
+  "name": "update-hours",
+  "pattern": "/update-hours",
+  "method": "POST",
   "debug": true,
-  "acceptedVerbs": "POST",
-  "defaultParams": {
-    "context": "results"
+  "metaData": {
+    "hideSearch": true,
+    "title": "Account - Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -14,11 +15,11 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/SaltireUser/?user_id={{@root.data.auth.uid}}"
+        "template": "/SaltireHours/?user_id={{@root.request.body.user_id}}"
       }
     },
     {
-      "name": "accountInfo",
+      "name": "hoursInfo",
       "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
@@ -29,13 +30,14 @@
       }
     },
     {
-      "name": "sendEmail",
-      "taskModule": "mailgun",
+      "name": "setHours",
+      "taskModule": "firebaseRtbSet",
       "renderer": "handlebars",
       "config": {
-        "output": "data",
-        "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.account_verify-email"
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/hours",
+        "setOrUpdate": "set",
+        "dataTemplate": "{{{stringify data.hoursInfo}}}"
       }
     },
     {
@@ -44,7 +46,8 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"success\": true }"
+        "template": "{{#json}}{{{json key=\"success\" value=true}}}{{/json}}",
+        "parseJson": true
       }
     }
   ]

@@ -67,7 +67,7 @@
           "connection": "scvoAlexSandbox",
           "output": "data",
           "method": "GET",
-          "apexClassPath": "/SaltireUser/?id={{@root.data.auth.uid}}"
+          "apexClassPath": "/SaltireUser/?user_id={{@root.data.auth.uid}}"
         }
       },
       "getTasksInfo" : {
@@ -81,6 +81,17 @@
           "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}"
         }
       },
+      "getHours" : {
+        "name": "getHours",
+        "taskModule": "firebaseRtbGet",
+        "renderer": "handlebars",
+        "config": {
+          "appName": "saltireawards",
+          "pathTemplate": "/{{default data.auth.uid 'no-such-read-profile'}}/hours",
+          "defaultData": {}
+        }
+      },
+
       "redirectIfPVNeeded": {
         "name": "redirectIfPV",
         "taskModule": "reroute",

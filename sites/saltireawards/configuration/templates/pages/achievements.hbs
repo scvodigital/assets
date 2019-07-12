@@ -10,7 +10,7 @@
         {{#compare (sumArray (pluck @root.data.tasksInfo "hours")) ">=" this ~}}
         <img src="{{~>asset_url url=(concat 'images/badges/' this '.png') ~}}" class="responsive-img" />
         <div class="mdc-typography--body1 description">
-          Complete!
+          Complete! <a href="/sample-hours-check/">Click here to Claim</a>
         </div>
         {{else}}
         <img src="{{~>asset_url url=(concat 'images/badges/' this 'bw.png') ~}}" class="responsive-img" />

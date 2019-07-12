@@ -100,7 +100,6 @@ export class FundingScotland {
     }
     this.helpBoxes();
 
-    ga('set', 'dimension1', window.currentSite);
     $('[data-fund-id]').each((i, o) => {
       const data = $(o).data();
       const event = {

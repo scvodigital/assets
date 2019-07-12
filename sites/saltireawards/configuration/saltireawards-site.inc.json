@@ -17,6 +17,7 @@
     "menus": "{:./saltireawards-menus.json}",
     "accountInfoValidation": "{:./account-info-validation.json}",
     "taskInfoValidation": "{:./task-info-validation.json}",
+    "tsiList": "{:./tsi-list.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "commonTasks": {
       "authNotRequired": {

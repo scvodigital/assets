@@ -7,8 +7,6 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",

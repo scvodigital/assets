@@ -85,12 +85,6 @@
       "route": "^/achievements"
     },
     {
-      "label": "Journal",
-      "icon": "user-edit",
-      "path": "/journal",
-      "route": "^/journal"
-    },
-    {
       "label": "Settings",
       "icon": "cog",
       "path": "/account",

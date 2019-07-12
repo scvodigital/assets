@@ -326,6 +326,19 @@ footer.mdc-layout__footer {
       color: white;
     }
   }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .brand-logo {
+      display: inline-block;
+      margin-left: $unit*1.5;
+    }
+    .sg-logo img {
+      width: 160px;
+      margin-top: 6px;
+    }
+  }
 }
 
 :focus {

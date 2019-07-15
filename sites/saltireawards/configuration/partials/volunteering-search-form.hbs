@@ -16,8 +16,8 @@
                 <div class="mdc-select t-margin" data-mdc-auto-init="MDCSelect">
                   <span class="mdc-select__dropdown-icon"></span>
                   <select class="mdc-select__native-control" id="age" name="age">
-                    {{#each (split "12,13,14,15,16,17,18+" ",")}}
-                      <option value="{{this}}" {{#compare (default @root.request.params.query.age "18+") "===" this}}selected{{/compare}}>{{this}}</option>
+                    {{#each (split "12,13,14,15,16,17,18" ",")}}
+                      <option value="{{this}}" {{#compare (default @root.request.params.query.age "18") "===" this}}selected{{/compare}}>{{this}}{{#compare this "18"}}+{{/compare}}</option>
                     {{/each}}
                   </select>
                   <label class="mdc-floating-label mdc-select__label--float-above" for="age">

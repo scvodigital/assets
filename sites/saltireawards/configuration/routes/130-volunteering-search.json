@@ -41,7 +41,7 @@
           {
             "name": "detailed_results",
             "index": "web-content-production",
-            "type": "milo-volunteering-opportunity,goodmoves-vacancy",
+            "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_search-list"
           },
           {
@@ -49,12 +49,6 @@
             "index": "web-content-production",
             "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_home-latest"
-          },
-          {
-            "name": "home_top",
-            "index": "web-content-production",
-            "type": "goodmoves-vacancy",
-            "template": ">context.metaData.handlebars.queries.volunteering_home-top"
           }
         ]
       },

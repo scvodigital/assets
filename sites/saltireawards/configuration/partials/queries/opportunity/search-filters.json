@@ -1,55 +1,15 @@
 {
   "bool": {
-    "should": [
+    "must": [
       {
-        "bool": {
-          "must": [
-            {
-              "term": {
-                "_type": {
-                  "value" : "milo-volunteering-opportunity"
-                }
-              }
-            },
-            {{>queries_date_range field="date_last_modified" gt="now-12M"}}
-          ]
+        "term": {
+          "_type": {
+            "value" : "milo-volunteering-opportunity"
+          }
         }
       },
-      {
-        "bool": {
-          "must": [
-            {
-              "term": {
-                "_type": {
-                  "value" : "goodmoves-vacancy"
-                }
-              }
-            },
-            {
-              "bool": {
-                "filter": [
-                  {{>queries_vacancy_common_filters_open @root.request.params.query}}
-                ],
-                "should": [
-                  {
-                    "terms": {
-                      "roles_slugs": ["board-membership-trustee"]
-                    }
-                  },
-                  {
-                    "terms": {
-                      "role_status_slug": ["management-board"]
-                    }
-                  }
-                ],
-                "minimum_should_match": 1
-              }
-            }
-          ]
-        }
-      }
-    ],
-    "minimum_should_match": 1
+      {{>queries_date_range field="date_last_modified" gt="now-12M"}}
+    ]
   }
 },
 {{#if location ~}}

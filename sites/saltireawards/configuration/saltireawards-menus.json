@@ -23,6 +23,18 @@
       "icon": "newspaper",
       "path": "/blog",
       "route": "^/blog"
+    },
+    {
+      "label": "Volunteering",
+      "icon": "hands-helping",
+      "path": "/volunteering",
+      "route": "^/volunteering"
+    },
+    {
+      "label": "Contact us",
+      "icon": "envelope",
+      "path": "/contact",
+      "route": "^/contact"
     }
   ],
   "user-not-signed-in": [
@@ -45,6 +57,12 @@
       "icon": "newspaper",
       "path": "/blog",
       "route": "^/blog"
+    },
+    {
+      "label": "Contact us",
+      "icon": "envelope",
+      "path": "/contact",
+      "route": "^/contact"
     }
   ],
   "user-signed-in" : [
@@ -71,12 +89,6 @@
       "icon": "medal",
       "path": "/achievements",
       "route": "^/achievements"
-    },
-    {
-      "label": "Journal",
-      "icon": "user-edit",
-      "path": "/journal",
-      "route": "^/journal"
     },
     {
       "label": "Settings",

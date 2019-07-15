@@ -166,6 +166,26 @@ header {
   margin: 0;
   padding: 0 $unit $unit*1.5;
 }
+.header-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 33vh;
+  .header-image-overlay {
+    width: 100%;
+    background: linear-gradient(170deg, #fff 4.79%,rgba(255,255,255,0) 100.00%);
+    min-height: 33vh;
+  }
+  .container-content.content-page {
+    min-height: 33vh;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+  }
+}
 
 .sign-in-form,
 .reset-password-form {
@@ -238,7 +258,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.7;
+    opacity: 1;
   }
   .card-loader-inner {
     display: flex;
@@ -273,6 +293,10 @@ header {
   }
 }
 
+.email-template {
+  border: 1px solid black;
+  margin: 0.5*$unit;
+}
 
 // Footer ======================================================================
 footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
@@ -320,6 +344,19 @@ footer.mdc-layout__footer {
     p,
     a {
       color: white;
+    }
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .brand-logo {
+      display: inline-block;
+      margin-left: $unit*1.5;
+    }
+    .sg-logo img {
+      width: 160px;
+      margin-top: 6px;
     }
   }
 }

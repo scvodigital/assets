@@ -51,6 +51,12 @@
       "route": "^/training"
     },
     {
+      "label": "Volunteering",
+      "icon": "hands-helping",
+      "path": "/volunteering",
+      "route": "^/volunteering"
+    },
+    {
       "label": "",
       "icon": "hands-helping",
       "path": "/volunteering",

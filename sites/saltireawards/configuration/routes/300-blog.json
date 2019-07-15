@@ -18,7 +18,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "saltireawards-post",
-          "template": ">context.metaData.handlebars.queries.blog_posts"
+          "template": ">context.metaData.handlebars.queries.posts_list"
         }
       },
       "renderer": "handlebars"

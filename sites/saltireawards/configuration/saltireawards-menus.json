@@ -25,6 +25,12 @@
       "route": "^/blog"
     },
     {
+      "label": "Volunteering",
+      "icon": "hands-helping",
+      "path": "/volunteering",
+      "route": "^/volunteering"
+    },
+    {
       "label": "Contact us",
       "icon": "envelope",
       "path": "/contact",
@@ -83,12 +89,6 @@
       "icon": "medal",
       "path": "/achievements",
       "route": "^/achievements"
-    },
-    {
-      "label": "Journal",
-      "icon": "user-edit",
-      "path": "/journal",
-      "route": "^/journal"
     },
     {
       "label": "Settings",

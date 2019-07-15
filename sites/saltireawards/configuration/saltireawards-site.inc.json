@@ -92,7 +92,16 @@
           "defaultData": {}
         }
       },
-
+      "volunteeringTermsMaps": {
+        "name": "termsMaps",
+        "taskModule": "render",
+        "renderer": "handlebars",
+        "config": {
+          "template": ">context.metaData.handlebars.partials.volunteering_terms_maps",
+          "output": "data",
+          "parseJson": true
+        }
+      },
       "redirectIfPVNeeded": {
         "name": "redirectIfPV",
         "taskModule": "reroute",
@@ -113,7 +122,7 @@
         ]}
       }
     },
-
+    "volunteeringTerms": "{:./volunteering-terms.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

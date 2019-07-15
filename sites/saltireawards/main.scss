@@ -147,6 +147,9 @@ header {
     line-height: 1.5;
   }
 }
+.mdc-button--large {
+  width: 100%;
+}
 
 .main-body {
   margin-top: 0;
@@ -165,6 +168,26 @@ header {
 .container-content {
   margin: 0;
   padding: 0 $unit $unit*1.5;
+}
+.header-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 33vh;
+  .header-image-overlay {
+    width: 100%;
+    background: linear-gradient(170deg, #fff 4.79%,rgba(255,255,255,0) 100.00%);
+    min-height: 33vh;
+  }
+  .container-content.content-page {
+    min-height: 33vh;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .sign-in-form,

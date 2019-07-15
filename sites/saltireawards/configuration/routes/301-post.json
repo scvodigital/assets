@@ -15,7 +15,7 @@
         "queryTemplates": {
           "index": "web-content-production",
           "type": "saltireawards-post",
-          "template": ">context.metaData.handlebars.queries.blog_post",
+          "template": ">context.metaData.handlebars.queries.posts_post",
           "noResultsRoute": "four_oh_four"
         }
       },

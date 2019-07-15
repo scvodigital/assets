@@ -1,11 +1,7 @@
-<div class="container-fluid container-content content-page">
+<div class="container-content content-account">
   <h1>Sample emails data to be sent out to verify user: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}}  </h1>
 
-
-
   <h2>User: {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}} {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}</h2>
-
-
 
   {{#each (distinct (pluck @root.data.tasksInfo "volunteer_manager_email")) ~}}
     <section class="mdc-card__media email-template h-padding-full">
@@ -28,7 +24,6 @@
             </li>
           {{/compare}}
         {{/each}}
-
       </ul>
 
       <p>Please click <a>here</a> to confirm these hours are correct.</p>

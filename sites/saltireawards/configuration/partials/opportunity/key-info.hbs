@@ -33,8 +33,17 @@
     {{/if ~}}
     {{/ifAll ~}}
     {{/ifAny ~}}
+    {{#compare @root.route.name "===" "volunteering_opportunity" ~}}
+    {{#compare view "===" "full" ~}}
+    {{#if @root.request.url.search ~}}
+    {{#ifAny @root.request.params.query.page @root.request.params.query.keywords @root.request.params.query.location ~}}
+    <a href="/volunteering{{@root.request.url.search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
+    {{/ifAny ~}}
+    {{/if ~}}
+    {{/compare ~}}
+    {{/compare ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline6">
-      <a href="/volunteering/opportunity/{{Id}}/{{title_slug}}">
+      <a href="/volunteering/opportunity/{{Id}}/{{title_slug}}{{@root.request.url.search}}">
         <span class="hover-underline">{{{title}}}</span>
       </a>
     </h2>

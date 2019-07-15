@@ -1,5 +1,5 @@
-
-<div class="container-content">
+<div class="container-content {{#if @root.data.auth}}content-volunteering{{else}}content-page container-centred{{/if}}" instance_id="perm">
+  {{> volunteering_search_form}}
   {{#compare @root.data.primaryResponse.hits.total ">" 0 ~}}
   <div class="content-primary">
     {{#each @root.data.primaryResponse.hits.hits ~}}

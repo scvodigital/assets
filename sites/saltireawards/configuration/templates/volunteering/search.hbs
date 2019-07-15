@@ -1,7 +1,5 @@
 <div class="container-content {{#if @root.data.auth}}content-volunteering{{else}}content-page container-centred{{/if}}" instance_id="perm">
-  <h1 class="mdc-typography--headline4">
-    Volunteering
-  </h1>
+  {{> volunteering_search_form}}
   <div class="mdc-layout-grid head">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone pagination-desktop">

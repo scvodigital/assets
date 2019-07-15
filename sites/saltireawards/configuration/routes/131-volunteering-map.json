@@ -66,8 +66,7 @@
       },
       "renderer": "handlebars"
     },
-    "context.metaData.commonTasks.opportunitySupplimentary",
-    "context.metaData.commonTasks.termsMaps",
+    "context.metaData.commonTasks.volunteeringTermsMaps",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -112,7 +111,7 @@
               "head": ">context.metaData.handlebars.templates.volunteering_search-head-tags",
               "body": ">context.metaData.handlebars.templates.volunteering_map",
               "foot": ">context.metaData.handlebars.templates.volunteering_map-foot",
-              "sidebar": ">context.metaData.handlebars.templates.volunteering_search-form"
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
             },
             "contentType": "text/html"
           },

@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/json-tree-viewer@0.0.2/libs/jsonTree/jsonTree.css">
+    <script type="text/javascript" src="https://unpkg.com/json-tree-viewer@0.0.2/libs/jsonTree/jsonTree.js"></script>
     <style>
       html, body {
         margin: 0;
@@ -13,7 +15,8 @@
       .sidebar {
         background: rgb(61, 79, 93);
         color: #fff;
-        min-height: 100vh;
+        overflow: auto;
+        height: 100vh;
       }
       .sidebar .container {
         margin: 2em;
@@ -31,17 +34,52 @@
       table tbody {
         background: #fff;
       }
+      .table-wrap {
+        overflow-x: auto;
+      }
+      .pure-table td {
+        white-space: nowrap;
+      }
+      .search-query {
+        width: 100% !important;
+        height: 60px;
+        color: #000000;
+        font-family: monospace;
+      }
+      .search-url {
+        width: 100% !important;
+        color: #000000;
+        font-family: monospace;
+      }
       .email-frame {
         width: 100%;
         height: 100vh;
         border: none;
+      }
+      #view-json {
+        position: fixed;
+        top: 4rem;
+        left: 4rem;
+        bottom: 4rem;
+        right: 4rem;
         display: none;
+        padding: 0.5rem;
+        border: 1px solid #cccccc;
+        background-color: #fffffff0;
+        overflow: auto;
+      }
+      .jsontree_tree, .jsontree_child-nodes {
+        padding: 0;
+        list-style: none;
       }
       .json {
         width: 100%;
       }
       .email-details {
         display: none;
+      }
+      .pull-right {
+        float: right;
       }
     </style>
     <script>
@@ -53,16 +91,15 @@
       <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="container">
           <div class="header">
-            <h1 class="brand-title">Test emails</h1>
+              <button class="pure-button pull-right" onclick="viewJson(allData)">View all data</button>
+            <h1 class="brand-title">
+              Test emails
+            </h1>
             <h2 class="brand-tagline">{{{@root.data.send_emails.[0].data.tag}}}</h2>
           </div>
 
           {{#if (any @root.data.send_emails)}}
             <div class="pure-form pure-form-stacked">
-              <div class="pure-button-group" role="group" aria-label="...">
-                <button class="pure-button" id="toggle-preview" onclick="toggleOutput()">Preview</button>
-                <button class="pure-button" id="toggle-json" onclick="toggleOutput()">Search JSON</button>
-              </div>
               <div class="pure-control-group">
                 <label for="email">Select an email</label>
                 <select id="email" onchange="showEmail(this.value);">
@@ -77,64 +114,85 @@
               <div class="email-details" id="email-details-{{@index}}">
                 <h3>Email: {{data.o:real-to}}</h3>
 
-                <table class="pure-table">
-                  <thead>
-                    <tr>
-                      <th colspan="2">Request</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="pure-table-odd">
-                      <th>From</th>
-                      <td>{{data.from}}</td>
-                    </tr>
-                    <tr class="pure-table-odd">
-                      <th>Reply-To</th>
-                      <td>{{data.h:reply-to}}</td>
-                    </tr>
-                    <tr>
-                      <th>To</th>
-                      <td>{{data.to}}</td>
-                    </tr>
-                    {{#compare data.to "!==" data.o:real-to}}
+                <div class="table-wrap">
+                  <table class="pure-table">
+                    <thead>
                       <tr>
-                        <th>Real to</th>
-                        <td>{{data.o:real-to}}</td>
+                        <th colspan="2">Request</th>
                       </tr>
-                    {{/compare}}
-                    <tr class="pure-table-odd">
-                      <th>Tag</th>
-                      <td>{{data.tag}}</td>
-                    </tr>
-                    <tr>
-                      <th>Test mode</th>
-                      <td>{{default (getProperty data "o:testmode") "false"}}</td>
-                    </tr>
-                    <tr class="pure-table-odd">
-                      <th>Connection</th>
-                      <td>{{data.connectionName}}</td>
-                    </tr>
-                    <tr>
-                      <th>Subject</th>
-                      <td>{{data.subject}}</td>
-                    </tr>
-                  </tbody>
-                  <thead>
-                    <tr class="pure-table-odd">
-                      <th colspan="2">Response</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th>Id</th>
-                      <td>{{response.id}}</td>
-                    </tr>
-                    <tr class="pure-table-odd">
-                      <th>Message</th>
-                      <td>{{response.message}}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      <tr class="pure-table-odd">
+                        <th>From</th>
+                        <td>{{data.from}}</td>
+                      </tr>
+                      <tr class="pure-table-odd">
+                        <th>Reply-To</th>
+                        <td>{{data.h:reply-to}}</td>
+                      </tr>
+                      <tr>
+                        <th>To</th>
+                        <td>{{data.to}}</td>
+                      </tr>
+                      {{#compare data.to "!==" data.o:real-to}}
+                        <tr>
+                          <th>Real to</th>
+                          <td>{{data.o:real-to}}</td>
+                        </tr>
+                      {{/compare}}
+                      <tr class="pure-table-odd">
+                        <th>Tag</th>
+                        <td>{{data.tag}}</td>
+                      </tr>
+                      <tr>
+                        <th>Test mode</th>
+                        <td>{{default (getProperty data "o:testmode") "false"}}</td>
+                      </tr>
+                      <tr class="pure-table-odd">
+                        <th>Connection</th>
+                        <td>{{data.connectionName}}</td>
+                      </tr>
+                      <tr>
+                        <th>Subject</th>
+                        <td>{{data.subject}}</td>
+                      </tr>
+                    </tbody>
+                    <thead>
+                      <tr class="pure-table-odd">
+                        <th colspan="2">Response</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Id</th>
+                        <td>{{response.id}}</td>
+                      </tr>
+                      <tr class="pure-table-odd">
+                        <th>Message</th>
+                        <td>{{response.message}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="pure-form pure-form-stacked">
+                <button class="pure-button pull-right" onclick="viewJson(email.json)">View search JSON</button>
+                <h4>
+                  Search request
+                </h4>
+                <div class="pure-control-group">
+                  <fieldset class="pure-group">
+                    {{#withExtend this request=(firstItem (filter @root.data.generate_es_task.config.queryTemplates "name" "===" (concat data.tag "-" (slugify data.o:real-to))))}}
+                      <input type="text" id="search-url-{{@index}}" class="search-url pure-input-1-2" value="/{{request.index}}/{{request.type}}/_search">
+                    {{/withExtend}}
+                    <textarea id="search-query-{{@index}}" class="search-query pure-input-1-2">{{{safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.o:real-to) ".request"))}}}</textarea>
+                    <div class="pure-button-group" role="group" aria-label="...">
+                      <button class="pure-button" onclick="document.getElementById('search-url-{{@index}}').select();document.execCommand('copy');">Copy Url</button>
+                      <button class="pure-button" onclick="document.getElementById('search-query-{{@index}}').select();document.execCommand('copy');">Copy query</button>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
             {{/each}}
           {{else}}
@@ -145,47 +203,50 @@
       <div class="content pure-u-1 pure-u-md-3-4">
         {{#if (any @root.data.send_emails)}}
           <iframe src="about:blank" frameborder="0" id="email-preview" class="email-frame"></iframe>
-          <iframe src="about:blank" frameborder="0" id="email-json" class="email-frame"></iframe>
+          <div id="view-json">
+            <a href="javascript:closeViewJson()" class="pure-button pull-right">x</a>
+            <div id="view-json-tree"></div>
+          </div>
           <script>
             var previewFrame = document.getElementById('email-preview');
-            var jsonFrame = document.getElementById('email-json');
+            var viewJsonDiv = document.getElementById('view-json');
+            var viewJsonTree = document.getElementById('view-json-tree');
             var previewToggle = document.getElementById('toggle-preview');
             var jsonToggle = document.getElementById('toggle-json');
             var emailDetails = Array.from(document.querySelectorAll('.email-details'));
             var outputToggles = Array.from(document.querySelectorAll('.output-toggle'));
-            var emails = [
-              {{#each @root.data.send_emails}}
-                {
-                  details: document.getElementById('email-details-{{@index}}'),
-                  contents: {{{safeStringify data.html}}},
-                  json: {{{safeStringify (safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.o:real-to))))}}}
-                }{{#unless @last}},{{/unless}}
-              {{/each}}
-            ];
+            var email = null;
             function showEmail(index) {
               email = emails[index];
-              previewFrame.src = 'data:text/html;charset=utf-32,' + escape(email.contents);
-              jsonFrame.src = 'data:application/json;charset=utf-32,' + escape(email.json);
+              var html = email.contents;
+              html = html.replace('<html>', '<html><meta charset="ISO-8859-1">');
+              previewFrame.src = 'data:text/html;charset=iso-8859-1,' + escape(html);
               for (const email of emailDetails) {
                 email.style.display = 'none';
               }
               email.details.style.display = 'block';
             }
-            showEmail(0);
-            function toggleOutput() {
-              if (previewFrame.style.display === 'block') {
-                previewFrame.style.display = 'none';
-                jsonFrame.style.display = 'block';
-                previewToggle.classList.remove('pure-button-active');
-                jsonToggle.classList.add('pure-button-active');
-              } else {
-                jsonFrame.style.display = 'none';
-                previewFrame.style.display = 'block';
-                previewToggle.classList.add('pure-button-active');
-                jsonToggle.classList.remove('pure-button-active');
+            function viewJson(json) {
+              while (viewJsonTree.hasChildNodes()) {
+                viewJsonTree.removeChild(viewJsonTree.firstChild);
               }
+              var tree = jsonTree.create(json, viewJsonTree);
+              viewJsonDiv.style.display = 'block';
             }
-            toggleOutput();
+            function closeViewJson() {
+              viewJsonDiv.style.display = 'none';
+            }
+            var allData = {{{safeStringify @root.data}}};
+            var emails = [
+              {{#each @root.data.send_emails}}
+                {
+                  details: document.getElementById('email-details-{{@index}}'),
+                  contents: {{{safeStringify data.html}}},
+                  json: {{{safeStringify (getProperty @root.data.search_data (concat data.tag "-" (slugify data.o:real-to)))}}}
+                }{{#unless @last}},{{/unless}}
+              {{/each}}
+            ];
+            showEmail(0);
           </script>
         {{else}}
           <pre class="json">

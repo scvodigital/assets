@@ -12,7 +12,18 @@
       "config": {
         "connectionName": "notifications",
         "queryTemplates": {
-          "stop_all_emails": ">context.metaData.handlebars.queries.notifications_toggle-bulletin"
+          "toggle_bulletin": ">context.metaData.handlebars.queries.notifications_toggle-bulletin"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "bulletin_days",
+      "taskModule": "mysql",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "set_bulletin_days": ">context.metaData.handlebars.queries.notifications_set-bulletin-days"
         }
       },
       "renderer": "handlebars"

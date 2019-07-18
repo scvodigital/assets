@@ -1,3 +1,31 @@
+{{#*inline "select_answer"}}
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="option">{{{default label value}}}</div>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="mdc-form-field">
+        <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+          <span class="mdc-select__dropdown-icon"></span>
+          <select class="mdc-select__native-control" id="{{name}}" name="{{name}}">
+            <option name=""></option>
+            <option name="0">Not at all</option>
+            <option name="1">One</option>
+            <option name="2">Two</option>
+            <option name="3">Three</option>
+            <option name="4">Four</option>
+            <option name="5">Five</option>
+          </select>
+          <label class="mdc-floating-label mdc-floating-label--float-above" for="{{name}}">Select an option</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/inline}}
+
 {{#compare section "section-results" ~}}
   {{> checkup_results}}
 {{else}}
@@ -52,7 +80,7 @@
               {{/case ~}}
               {{#case "select-many" ~}}
               {{#if answer ~}}
-              <li class="answer">{{> components_checkbox label=answer id=(slugify answer) name="scores" value=(default score value)}}</li>
+              <li class="answer">{{> select_answer label=answer id=(slugify answer) name="scores" value=(default score value)}}</li>
               {{/if ~}}
               {{/case ~}}
               {{/switch ~}}

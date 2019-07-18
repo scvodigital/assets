@@ -1,9 +1,5 @@
 <div class="page">
-  {{#unless @root.request.params.query.section ~}}
-    {{> headers_splash}}
-  {{else}}
-    {{> headers_splash_checkup}}
-  {{/unless ~}}
+  {{> headers_splash_checkup}}
   <div class="container-fluid">
     {{#unless @root.request.params.query.section ~}}
       {{> breadcrumbs}}
@@ -20,7 +16,7 @@
     {{/unless ~}}
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone content page-content">
           {{#unless @root.request.params.query.section ~}}
             {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_full}}}
             <a href="{{@root.request.url.pathname}}?section=1" class="mdc-button mdc-button--raised">Start checkup</a>
@@ -28,10 +24,10 @@
             {{> checkup_section section=(concat "section-" @root.request.params.query.section)}}
           {{/unless ~}}
         </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone sidebar page-sidebar">
+        {{!-- <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone sidebar page-sidebar">
           {{> menus_running_governance}}
-        </div>
-        {{> related_posts}}
+        </div> --}}
+        {{!-- {{> related_posts}} --}}
       </div>
     </div>
   </div>

@@ -507,6 +507,10 @@ primary-dark: #263238
     transparent
     );
   }
+  .splash-overlay-full {
+    background-color: map-get($themeSelected, 'primary-overlay-start') !important;
+    background-image: none !important;
+  }
   @media screen and (max-width: 1140px) {
     .splash-overlay {
       background-image: linear-gradient(
@@ -4305,6 +4309,20 @@ p:last-child {
   h4:first-child {
     margin-top: 0 !important;
   }
+}
+
+.checkup .question-container {
+  position: relative;
+  // .question {
+  //   display: block;
+  //   margin-right: 185px;
+  // }
+  // .mdc-form-field {
+  //   position: absolute;
+  //   display: block;
+  //   right: 0;
+  //   top: 0;
+  // }
 }
 
 .p,

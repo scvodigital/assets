@@ -3075,21 +3075,33 @@ table.membership-fees {
   }
 }
 
-.answer-block {
-  margin: 0;
-  li.answer {
-    padding: 0;
-    .mdc-form-field {
-      align-items: flex-start;
-      // margin-left: -10px
-    }
-    .mdc-form-field > label {
-      line-height: 1.5rem;
-      margin: $unit/2 0;
-    }
+.checkup {
+  .question-group {
+    background: whitesmoke;
+    padding: $unit/2;
+    margin: $unit/2 0 $unit;
+    border-radius: $unit/10;
   }
-  li.answer::before {
-    display: none;
+  .answer-block {
+    margin: 0;
+    .mdc-select,
+    .mdc-layout-grid {
+      margin: 0 !important;
+    }
+    .answer {
+      padding: 0;
+      margin-bottom: $unit;
+      .mdc-form-field {
+        align-items: flex-start;
+      }
+      .mdc-form-field > label {
+        line-height: 1.5rem;
+        margin: $unit/2 0;
+      }
+    }
+    .answer:last-child {
+      margin-bottom: 0 !important;
+    }
   }
 }
 
@@ -4309,20 +4321,6 @@ p:last-child {
   h4:first-child {
     margin-top: 0 !important;
   }
-}
-
-.checkup .question-container {
-  position: relative;
-  // .question {
-  //   display: block;
-  //   margin-right: 185px;
-  // }
-  // .mdc-form-field {
-  //   position: absolute;
-  //   display: block;
-  //   right: 0;
-  //   top: 0;
-  // }
 }
 
 .p,

@@ -1,6 +1,6 @@
 {{#ifAll (any @root.data.notifications.subscriptions.[1]) @root.data.search_data}}
   {{#json}}
-    {{{json key="name" value="nothing_to_send"}}},
+    {{{json key="name" value="update_statuses"}}},
     {{{json key="taskModule" value="mysql"}}},
     {{{json key="renderer" value="handlebars"}}},
     {{#json key="config"}}
@@ -19,8 +19,14 @@
                 {{{mysqlEscape campaign}}},
                 {{{mysqlEscape email}}},
                 {{#ifAny campaignConfig.sendIfEmpty
-                    (ifAll (default campaignConfig.importantType null) (any (filter searchData "_type" "===" importantType)))
-                    (ifAll (if (default campaignConfig.importantType null) false else=true) (any searchData))}}
+                    (ifAll
+                      (default campaignConfig.importantType null)
+                      (any (filter searchData "_type" "===" campaignConfig.importantType))
+                    )
+                    (ifAll
+                      (if (default campaignConfig.importantType null) false else=true)
+                      (any searchData)
+                    )}}
                   {{{mysqlEscape 'sent-to-mailgun'}}}
                 {{~else~}}
                   {{{mysqlEscape 'nothing-to-send'}}}

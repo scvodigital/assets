@@ -26,7 +26,7 @@
 				"route": "^/about/accounts"
 			},
 			{
-				"label": "Our strategic plan 2019-22",
+				"label": "Strategy 2019-22",
 				"path": "/about/strategy",
 				"route": "^/about/strategy"
 			},

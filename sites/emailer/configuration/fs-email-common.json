@@ -9,7 +9,7 @@
         "comparator": "testIn"
       },
       {
-        "title": "Your latest funds",
+        "title": "Latest funds matching your preferences",
         "headerBlock": "New and recently opened funds matching saved searches you have opted to receive alerts for",
         "headerBlockNoItems": "No funds have opened since your previous alert",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]",
@@ -27,7 +27,7 @@
         "comparator": "testIn"
       },
       {
-        "title": "Your latest funds",
+        "title": "Updates to listed funds",
         "headerBlock": "Recent activity on funds you have listed and subscribed to updates for",
         "headerBlockNoItems": "There hasn't been any activity on your listed funds since the previous update",
         "expression": "$[_type='fundingscotland-fund'][[1..5]][]",

@@ -1,3 +1,3 @@
 {{~#withExtend this total=(length (filter searchData.hits.hits "_type" "===" "fundingscotland-fund"))~}}
-{{{campaignConfig.metaData.siteConfiguration.title}}}: {{{campaignConfig.metaData.title}}}{{#compare total ">" 0}} - {{total}} new {{inflect total "fund" "funds" false}}{{else}}- Latest news{{/compare}}
+{{{campaignConfig.metaData.siteConfiguration.title}}}: {{{campaignConfig.metaData.title}}} - {{#compare total ">" 0}} {{total}} new {{inflect total "fund" "funds" false}}{{else}}Latest news{{/compare}}
 {{~/withExtend~}}

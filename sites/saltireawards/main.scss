@@ -24,6 +24,8 @@ $unit: 1rem;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import "./lib/common-styles.scss";
+@import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.css);
+@import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css);
 
 body {
   background-color: $mdc-theme-footer-dark;

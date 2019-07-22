@@ -16,8 +16,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fs-default-post,fs-eastrenfrewshire-post,fs-fife-post,fs-northlanarkshire-post,fs-shetland-post,fs-southlanarkshire-post,fs-srn-post,fs-stirling-post",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-post-default,fs-post-eastrenfrewshire,fs-post-fife,fs-post-northlanarkshire,fs-post-shetland,fs-post-southlanarkshire,fs-post-srn,fs-post-stirling",
           "template": ">context.metaData.handlebars.queries.posts_post"
         }
       },

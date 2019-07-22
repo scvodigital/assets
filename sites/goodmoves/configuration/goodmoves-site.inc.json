@@ -136,49 +136,49 @@
           "queryTemplates": [
             {
               "name": "types",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types"
             },
             {
               "name": "types_regions",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types-regions-scotland"
             },
             {
               "name": "types_regions_belgium",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types-regions-belgium"
             },
             {
               "name": "types_regions_england",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types-regions-england"
             },
             {
               "name": "types_regions_northern_ireland",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types-regions-northern-ireland"
             },
             {
               "name": "types_regions_wales",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_types-regions-wales"
             },
             {
               "name": "banner",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-banner",
               "template": ">context.metaData.handlebars.queries.banners_banner"
             },
             {
               "name": "not_found",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.pages_not-found"
             }
@@ -197,7 +197,7 @@
           "queryTemplates": [
             {
               "name": "vacancies",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_organisations"
             }
@@ -216,7 +216,7 @@
           "queryTemplates": [
             {
               "name": "vacancies",
-              "index": "web-content-production",
+              "index": "{$../../elasticsearch-index.txt}",
               "type": "goodmoves-vacancy",
               "template": ">context.metaData.handlebars.queries.vacancies_organisations-currently-recruiting"
             }

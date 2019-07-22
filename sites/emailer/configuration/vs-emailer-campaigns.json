@@ -6,7 +6,7 @@
     "subjectPartial": "subjects_volunteerscotland_saved_searches",
     "bodyPartial": "bodies_volunteerscotland_saved_searches",
     "queryTemplate": ">context.metaData.handlebars.queries.volunteerscotland-saved-searches",
-    "elasticsearchIndex": "web-content-production",
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
     "elasticsearchType": "milo-volunteering-opportunity",
     "metaData": {}
   },
@@ -17,7 +17,7 @@
     "subjectPartial": "subjects_volunteerscotland_favourites",
     "bodyPartial": "bodies_volunteerscotland_favourites",
     "queryTemplate": ">context.metaData.handlebars.queries.volunteerscotland-favourites",
-    "elasticsearchIndex": "web-content-production",
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
     "elasticsearchType": "milo-volunteering-opportunity",
     "metaData": {}
   }

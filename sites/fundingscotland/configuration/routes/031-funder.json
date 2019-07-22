@@ -21,8 +21,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fundingscotland-organisation",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-organisation",
           "template": ">context.metaData.handlebars.queries.funders_funder"
         }
       },
@@ -39,26 +39,26 @@
         "queryTemplates": [
           {
             "name": "funds_open",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-fund",
             "template": ">context.metaData.handlebars.queries.funds_funder-funds-open"
           },
           {
             "name": "funds_closed",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-fund",
             "template": ">context.metaData.handlebars.queries.funds_funder-funds-closed"
           },
           {
             "name": "types",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-fund",
             "template": ">context.metaData.handlebars.queries.funds_types"
           },
           {
             "name": "not_found",
-            "index": "web-content-production",
-            "type": "fundingscotland-organisation",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-organisation",
             "template": ">context.metaData.handlebars.queries.pages_not-found"
           }
         ]

@@ -11,8 +11,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-page,scvo-cms-post,scvo-staff,scvo-member,cjs-vacancy,charter-signatory-digitalparticipation,charter-signatory-humanrights,charter-signatory-europe,goodmoves-vacancy,fundingscotland-fund,goodhq-organisation,goodhq-post,scvo-document-evidence,scvo-event,scvo-grant-charter,oscr-charity,tfn-news-post,tfn-blog-post,tfn-poll,tfn-event,tfn-list,tfn-feature",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-page,scvo-post,scvo-staff,scvo-member,cjs-vacancy,charter-signatory-digitalparticipation,charter-signatory-humanrights,goodmoves-vacancy,fs-fund,goodhq-organisation,goodhq-post,scvo-document-evidence,scvo-event,scvo-grant-charter,scvo-grant-ccrf,scvo-grant-cats,oscr-charity,tfn-legacy-post-news,tfn-legacy-post-blog,tfn-legacy-poll,tfn-legacy-event,tfn-legacy-list,tfn-legacy-feature",
           "template": ">context.metaData.handlebars.queries.search_search"
         }
       },
@@ -29,8 +29,8 @@
         "queryTemplates": [
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
           }
         ]

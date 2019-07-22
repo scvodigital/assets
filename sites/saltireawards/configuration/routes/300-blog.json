@@ -16,7 +16,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "saltireawards-post",
           "template": ">context.metaData.handlebars.queries.posts_list"
         }

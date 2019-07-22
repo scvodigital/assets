@@ -21,7 +21,7 @@
   {{#json key="query"}}
     {{#>queries_fund_common showHidden=true}}
       "ids": {
-        "type": "fundingscotland-fund",
+        "type": "fs-fund",
         "values": {{{stringify (getKeys @root.data.profile.hidden)}}}
       }
     {{/queries_fund_common}}

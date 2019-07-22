@@ -16,8 +16,8 @@
         "queryTemplates": [
           {
             "name": "resources_relevant",
-            "index": "web-content-production",
-            "type": "scvo-cms-resource",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-resource",
             "template": ">context.metaData.handlebars.queries.resources-relevant"
           }
         ]

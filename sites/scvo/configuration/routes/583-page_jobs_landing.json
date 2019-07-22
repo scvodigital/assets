@@ -11,8 +11,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-page",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-page",
           "template": ">context.metaData.handlebars.queries.pages_page",
           "noResultsRoute": "four_oh_four"
         }
@@ -30,32 +30,32 @@
         "queryTemplates": [
           {
             "name": "all_vacancies",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy,cjs-vacancy",
             "template": ">context.metaData.handlebars.queries.jobs_all-vacancies"
           },
           {
             "name": "goodmoves_latest",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.jobs_goodmoves-vacancy-list"
           },
           {
             "name": "cjs_latest",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "cjs-vacancy",
             "template": ">context.metaData.handlebars.queries.jobs_cjs-vacancy-list"
           },
           {
             "name": "related_training",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "scvo-event",
             "template": ">context.metaData.handlebars.queries.events_soon"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
           }
         ]

@@ -31,8 +31,8 @@
         },
         "queryTemplates": {
           "name": "saved",
-          "index": "web-content-production",
-          "type": "fundingscotland-fund",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-fund",
           "template": ">context.metaData.handlebars.queries.funds_list",
           "metaData": {
             "size": 1000

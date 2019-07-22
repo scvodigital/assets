@@ -15,8 +15,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-post",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-post",
           "template": ">context.metaData.handlebars.queries.posts_post",
           "noResultsRoute": "four_oh_four"
         }
@@ -34,38 +34,38 @@
         "queryTemplates": [
           {
             "name": "author_profile",
-            "index": "web-content-production",
-            "type": "scvo-cms-author",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-author",
             "template": ">context.metaData.handlebars.queries.posts_author-profile"
           },
           {
             "name": "staff_profile",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "scvo-staff",
             "template": ">context.metaData.handlebars.queries.posts_staff-profile"
           },
           {
             "name": "authors_posts",
-            "index": "web-content-production",
-            "type": "scvo-cms-post",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
             "template": ">context.metaData.handlebars.queries.posts_author-posts"
           },
           {
             "name": "category_posts",
-            "index": "web-content-production",
-            "type": "scvo-cms-post",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
             "template": ">context.metaData.handlebars.queries.posts_category-posts"
           },
           {
             "name": "tfn_related_posts",
-            "index": "web-content-production",
-            "type": "tfn-news-post,tfn-blog-post,tfn-feature",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "tfn-legacy-post-news,tfn-legacy-post-blog,tfn-legacy-feature",
             "template": ">context.metaData.handlebars.queries.posts_tfn-related"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
           }
         ]

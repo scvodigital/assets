@@ -32,9 +32,9 @@
               {{#json key="terms"}}
                 {{#json key="_type" type="array"}}
                   {{#compare @root.data.currentSite.name "!==" "default"}}
-                    "fs-{{@root.data.currentSite.name}}-post",
+                    "fs-post-{{@root.data.currentSite.name}}",
                   {{/compare}}
-                  "fs-default-post", "tfn-news-post", "tfn-feature"
+                  "fs-post-default", "tfn-legacy-post-news", "tfn-legacy-feature"
                 {{/json}}
               {{/json}}
             {{/json}},
@@ -55,9 +55,9 @@
               {{#json key="terms"}}
                 {{#json key="_type" type="array"}}
                   {{#compare @root.data.currentSite.name "!==" "default"}}
-                    "fs-{{@root.data.currentSite.name}}-post",
+                    "fs-post-{{@root.data.currentSite.name}}",
                   {{/compare}}
-                  "fs-default-post"
+                  "fs-post-default"
                 {{/json}}
               {{/json}}
             {{/json}}
@@ -74,7 +74,7 @@
             {{#json}}
               {{#json key="terms"}}
                 {{#json key="_type" type="array"}}
-                  "tfn-news-post", "tfn-feature"
+                  "tfn-legacy-post-news", "tfn-feature"
                 {{/json}}
               {{/json}}
             {{/json}}

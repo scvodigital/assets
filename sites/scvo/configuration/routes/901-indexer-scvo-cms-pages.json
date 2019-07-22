@@ -1,6 +1,6 @@
 {
-  "name": "indexer-scvo-cms-pages",
-  "pattern": "/indexer/scvo-cms-pages",
+  "name": "indexer-scvo-pages",
+  "pattern": "/indexer/scvo-pages",
   "acceptedVerbs": ["POST", "GET"],
   "tasks": [
     {

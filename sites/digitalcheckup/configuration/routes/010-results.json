@@ -14,7 +14,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "digitalcheckup-response,digitalcheckup-response-legacy",
           "template": ">context.metaData.handlebars.queries.data-averages"
         }
@@ -42,14 +42,14 @@
         "queryTemplates": [
           {
             "name": "resources_relevant",
-            "index": "web-content-production",
-            "type": "scvo-cms-resource",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-resource",
             "template": ">context.metaData.handlebars.queries.resources-relevant"
           },
           {
             "name": "resources_focus",
-            "index": "web-content-production",
-            "type": "scvo-cms-resource",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-resource",
             "template": ">context.metaData.handlebars.queries.resources-focus"
           }
         ]

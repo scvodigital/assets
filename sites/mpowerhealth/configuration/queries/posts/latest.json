@@ -25,7 +25,7 @@
               {
                 "term": {
                   "_type": {
-                    "value" : "mpower-{{@key}}-post"
+                    "value" : "mpower-post-{{@key}}"
                   }
                 }
               }
@@ -40,7 +40,7 @@
               {
                 "term": {
                   "_type": {
-                    "value" : "tfn-news-post"
+                    "value" : "tfn-legacy-post-news"
                   }
                 }
               },

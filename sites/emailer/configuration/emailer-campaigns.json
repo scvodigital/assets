@@ -7,7 +7,7 @@
     "subjectPartial": "subjects_goodmoves_saved_searches",
     "bodyPartial": "bodies_goodmoves_saved_searches",
     "queryTemplate": ">context.metaData.handlebars.queries.goodmoves-saved-searches",
-    "elasticsearchIndex": "web-content-production",
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
     "elasticsearchType": "goodmoves-vacancy",
     "metaData": {}
   },
@@ -19,14 +19,14 @@
     "subjectPartial": "subjects_goodmoves_shortlist",
     "bodyPartial": "bodies_goodmoves_shortlist",
     "queryTemplate": ">context.metaData.handlebars.queries.goodmoves-shortlist",
-    "elasticsearchIndex": "web-content-production",
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
     "elasticsearchType": "goodmoves-vacancy",
     "metaData": {}
   },
   "fs-saved-searches-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://fundingscotland.com",
@@ -43,12 +43,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://fundingscotland.com",
@@ -65,13 +65,13 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-default-post",
-    "importantType": "fs-default-post",
+    "elasticsearchType": "fs-fund,fs-post-default",
+    "importantType": "fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://fundingscotland.com",
@@ -88,12 +88,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-eastrenfrewshire-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
@@ -110,12 +110,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-eastrenfrewshire-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
@@ -132,12 +132,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-eastrenfrewshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-eastrenfrewshire-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
@@ -154,12 +154,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Fife Funding Search <fife.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-fife-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-fife-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://fifefundingsearch.com",
@@ -176,12 +176,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Fife Funding Search <fife.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-fife-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-fife-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://fifefundingsearch.com",
@@ -198,12 +198,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Fife Funding Search <fife.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-fife-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-fife-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://fifefundingsearch.com",
@@ -220,12 +220,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "North Lanarkshire Funding Search <northlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-northlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://northlanarkshire.fundingscotland.com",
@@ -242,12 +242,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "North Lanarkshire Funding Search <northlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-northlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://northlanarkshire.fundingscotland.com",
@@ -264,12 +264,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "North Lanarkshire Funding Search <northlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-northlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-northlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://northlanarkshire.fundingscotland.com",
@@ -286,12 +286,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Shetland Funding Search <shetland.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-shetland-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-shetland-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://shetland.fundingscotland.com",
@@ -308,12 +308,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Shetland Funding Search <shetland.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-shetland-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-shetland-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://shetland.fundingscotland.com",
@@ -330,12 +330,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Shetland Funding Search <shetland.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-shetland-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-shetland-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://shetland.fundingscotland.com",
@@ -352,12 +352,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "South Lanarkshire Funding Search <southlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-southlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://southlanarkshire.fundingscotland.com",
@@ -374,12 +374,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "South Lanarkshire Funding Search <southlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-southlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://southlanarkshire.fundingscotland.com",
@@ -396,12 +396,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "South Lanarkshire Funding Search <southlanarkshire.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-southlanarkshire-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-southlanarkshire-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://southlanarkshire.fundingscotland.com",
@@ -418,12 +418,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "SRN Funding Search <srn.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-srn-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-srn-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://srn.fundingscotland.com",
@@ -440,12 +440,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "SRN Funding Search <srn.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-srn-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-srn-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://srn.fundingscotland.com",
@@ -462,12 +462,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "SRN Funding Search <srn.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-srn-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-srn-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://srn.fundingscotland.com",
@@ -484,12 +484,12 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
     "replyTo": "Funding Stirling Search <stirling.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-stirling-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-stirling-post,fs-post-default",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://stirling.fundingscotland.com",
@@ -506,12 +506,12 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
     "replyTo": "Funding Stirling Search <stirling.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-stirling-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-stirling-post,fs-post-default",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://stirling.fundingscotland.com",
@@ -528,12 +528,12 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   },
   "fs-bulletin-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
     "replyTo": "Funding Stirling Search <stirling.fundingscotland@scvo.org.uk>",
-    "elasticsearchType": "fundingscotland-fund,fs-stirling-post,fs-default-post",
+    "elasticsearchType": "fs-fund,fs-stirling-post,fs-post-default",
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://stirling.fundingscotland.com",
@@ -550,6 +550,6 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "web-content-production"
+    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
   }
 }

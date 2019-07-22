@@ -19,8 +19,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fs-default-page",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-page-default",
           "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },

@@ -1,3 +1,4 @@
+{{#compare @root.data.supplimentaryResponses.types.hits.total ">" 0 ~}}
 <form action="/search" method="GET" class="search-form h-padding-full t-padding home-info">
   <div class="mdc-layout-grid b-padding">
     <div class="mdc-layout-grid__inner">
@@ -92,3 +93,8 @@
     </div>
   </div>
 </form>
+{{else}}
+<div class="search-form h-padding-full t-padding home-info">
+  <strong>Error:</strong> search service misconfiguration
+</div>
+{{/compare ~}}

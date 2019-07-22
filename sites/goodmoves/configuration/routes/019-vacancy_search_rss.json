@@ -19,7 +19,7 @@
         "queryTemplates": [
           {
             "name": "detailed_results",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.vacancies_search-rss"
           }

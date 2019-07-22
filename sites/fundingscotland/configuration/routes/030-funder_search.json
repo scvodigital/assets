@@ -29,8 +29,8 @@
         "queryTemplates": [
           {
             "name": "detailed_results",
-            "index": "web-content-production",
-            "type": "fundingscotland-organisation",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-organisation",
             "template": ">context.metaData.handlebars.queries.funders_search-list"
           }
         ]

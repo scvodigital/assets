@@ -12,7 +12,7 @@
       {{#each @root.data.notifications.subscriptions.[0]}}
       {
         "name": {{{stringify (regexReplace email "\." "gi" "_")}}},
-        "index": "web-content-production",
+        "index": "{$../../../elasticsearch-index.txt}",
         "type": "goodmoves-vacancy",
         "template": ">context.metaData.handlebars.queries.vacancies_search-all",
         "metaData": {{{stringify this}}}

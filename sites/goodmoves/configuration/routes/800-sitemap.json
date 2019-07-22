@@ -13,19 +13,19 @@
         "queryTemplates": [
           {
             "name": "types",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.vacancies_types"
           },
           {
             "name": "pages",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-page",
             "template": ">context.metaData.handlebars.queries.pages_sitemap"
           },
           {
             "name": "aggs",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.vacancies_sitemap"
           }

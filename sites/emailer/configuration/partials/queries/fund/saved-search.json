@@ -4,7 +4,7 @@
       {
         "term": {
           "_type": {
-            "value": "fundingscotland-fund" 
+            "value": "fs-fund"
           }
         }
       },

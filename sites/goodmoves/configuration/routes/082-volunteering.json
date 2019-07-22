@@ -25,13 +25,13 @@
         "queryTemplates": [
           {
             "name": "home_latest",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_home-latest"
           },
           {
             "name": "home_top",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.volunteering_home-top"
           }

@@ -11,7 +11,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "scvo-grant-cats",
           "template": ">context.metaData.handlebars.queries.grants_cats-data",
           "noResultsRoute": "four_oh_four"
@@ -30,7 +30,7 @@
         "queryTemplates": [
           {
             "name": "types",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "scvo-grant-cats",
             "template": ">context.metaData.handlebars.queries.grants_cats-aggs"
           }

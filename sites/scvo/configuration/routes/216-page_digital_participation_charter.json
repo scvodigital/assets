@@ -15,8 +15,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-page",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-page",
           "template": ">context.metaData.handlebars.queries.pages_page",
           "noResultsRoute": "four_oh_four"
         }
@@ -34,14 +34,14 @@
         "queryTemplates": [
           {
             "name": "related_posts",
-            "index": "web-content-production",
-            "type": "scvo-cms-post",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
             "template": ">context.metaData.handlebars.queries.pages_posts-related-random"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
           }
         ]

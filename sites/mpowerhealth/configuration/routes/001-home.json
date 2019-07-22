@@ -13,8 +13,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "mpower-default-page,mpower-ayrshirearran-page,mpower-dumfriesgalloway-page,mpower-westernisles-page,mpower-fermanagh-page,mpower-newrysoutharmagh-page,mpower-droghedacarrickmacross-page,mpower-finnvalley-page,mpower-southleitrim-page",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "mpower-page-default,mpower-page-ayrshirearran,mpower-page-dumfriesgalloway,mpower-page-westernisles,mpower-page-fermanagh,mpower-page-newrysoutharmagh,mpower-page-droghedacarrickmacross,mpower-page-finnvalley,mpower-page-southleitrim",
           "template": ">context.metaData.handlebars.queries.pages_home"
         }
       },

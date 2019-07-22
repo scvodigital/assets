@@ -29,7 +29,7 @@
           {{#json}}
             {{#json key="bool"}}
               {{#json key="filter" type="array"}}
-                {{>queries_terms field="_type" terms=(split (concat "fs-" siteConfig.name "-post,fs-default-post") ",")}},
+                {{>queries_terms field="_type" terms=(split (concat "fs-post-" siteConfig.name ",fs-post-default") ",")}},
                 {{#ifAny @root.request.params.query.lastsent templateMetaData.lastSent}}
                   {{>queries_date_range field="date_publish_on" gte=(momentFormat (moment (default @root.request.params.query.lastsent templateMetaData.lastSent) "") "x")}}
                 {{else}}

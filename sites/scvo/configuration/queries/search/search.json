@@ -142,7 +142,7 @@
               {
                 "term" : {
                   "_type" : {
-                    "value" : "scvo-cms-page",
+                    "value" : "scvo-page",
                     "boost" : 2.0
                   }
                 }
@@ -150,7 +150,7 @@
               {
                 "term" : {
                   "_type" : {
-                    "value" : "scvo-cms-post",
+                    "value" : "scvo-post",
                     "boost" : 6.0
                   }
                 }
@@ -172,7 +172,7 @@
           {
             "filter": {
               "term": {
-                "_type": "scvo-cms-post"
+                "_type": "scvo-post"
               }
             },
             "weight": 3,

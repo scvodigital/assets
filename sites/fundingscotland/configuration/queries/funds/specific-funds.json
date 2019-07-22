@@ -26,7 +26,7 @@
   {{#json key="query"}}
     {{#>queries_fund_common}}
       "ids": {
-        "type": "fundingscotland-fund",
+        "type": "fs-fund",
         "values": {{{stringify (split @root.request.params.query.ids ",")}}}
       }
     {{/queries_fund_common}}

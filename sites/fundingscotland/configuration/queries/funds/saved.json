@@ -20,7 +20,7 @@
   {{#json key="query"}}
     {{#>queries_fund_common}}
       "ids": {
-        "type": "fundingscotland-fund",
+        "type": "fs-fund",
         "values": {{{stringify (pluck @root.data.shortlist.items.[0] "value")}}}
       }
     {{/queries_fund_common}}

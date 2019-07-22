@@ -11,7 +11,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "scvo-staff",
           "template": ">context.metaData.handlebars.queries.staff_staff-search"
         }
@@ -29,14 +29,14 @@
         "queryTemplates": [
           {
             "name": "departments",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "scvo-staff",
             "template": ">context.metaData.handlebars.queries.staff_staff-aggs"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_gathering-splash"
           }
         ]

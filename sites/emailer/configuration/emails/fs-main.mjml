@@ -5,7 +5,7 @@
         colours=campaignConfig.metaData.siteConfiguration.colors
         importantNews=(filter searchData.hits.hits "_source.categories_slug" "testIn" "important-email-news")
         bulletinNews=(filter searchData.hits.hits "_source.categories_slug" "testIn" "bulletin-news")
-        funds=(filter searchData.hits.hits "_type" "===" "fundingscotland-fund")
+        funds=(filter searchData.hits.hits "_type" "===" "fs-fund")
       }}</mj-raw>
         <mj-section background-color="{{colours.primary}}" padding="0px">
           <mj-column padding="0px">

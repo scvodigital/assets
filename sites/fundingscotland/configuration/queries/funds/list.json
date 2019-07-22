@@ -20,7 +20,7 @@
   {{#json key="query"}}
     {{#>queries_fund_common}}
       "ids": {
-        "type": "fundingscotland-fund",
+        "type": "fs-fund",
         "values": {{{stringify (default (arrayify (getProperty (querystring @root.data.shortlistPartition.items.[0].[0].querystring) "id")) (split ""))}}}
       }
     {{/queries_fund_common}}

@@ -11,7 +11,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "scvo-document-general",
           "template": ">context.metaData.handlebars.queries.documents_evidence-library-document",
           "noResultsRoute": "four_oh_four"
@@ -30,14 +30,14 @@
         "queryTemplates": [
           {
             "name": "types",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "scvo-document-general",
             "template": ">context.metaData.handlebars.queries.documents_evidence-library-document-aggs"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_splash"
           }
         ]

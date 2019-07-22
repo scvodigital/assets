@@ -40,13 +40,13 @@
         "queryTemplates": [
           {
             "name": "detailed_results",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_search-list"
           },
           {
             "name": "home_latest",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.volunteering_home-latest"
           }

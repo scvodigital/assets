@@ -61,8 +61,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "fundingscotland-fund",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-fund",
           "template": ">context.metaData.handlebars.queries.account_shortlist"
         }
       },

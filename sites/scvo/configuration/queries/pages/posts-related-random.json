@@ -51,7 +51,7 @@
         {
           "filter": {
             "term": {
-              "_type": "scvo-cms-post"
+              "_type": "scvo-post"
             }
           },
           "weight": 3,

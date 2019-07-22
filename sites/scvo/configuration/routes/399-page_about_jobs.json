@@ -11,8 +11,8 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
-          "type": "scvo-cms-page",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-page",
           "template": ">context.metaData.handlebars.queries.pages_page",
           "noResultsRoute": "four_oh_four"
         }
@@ -30,14 +30,14 @@
         "queryTemplates": [
           {
             "name": "scvo_jobs",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy",
             "template": ">context.metaData.handlebars.queries.jobs_scvo-jobs"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.pages_gathering-splash"
           }
         ]

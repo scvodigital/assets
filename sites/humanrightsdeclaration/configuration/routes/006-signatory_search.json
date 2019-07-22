@@ -14,7 +14,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "charter-signatory-humanrights",
           "template": ">context.metaData.handlebars.queries.signatory-search"
         }
@@ -32,7 +32,7 @@
         "queryTemplates": [
           {
             "name": "total",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "charter-signatory-humanrights",
             "template": ">context.metaData.handlebars.queries.signatory-total"
           }

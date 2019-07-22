@@ -29,14 +29,14 @@
         "queryTemplates": [
           {
             "name": "open",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-fund",
             "template": ">context.metaData.handlebars.queries.funds_notes-open"
           },
           {
             "name": "closed",
-            "index": "web-content-production",
-            "type": "fundingscotland-fund",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "fs-fund",
             "template": ">context.metaData.handlebars.queries.funds_notes-closed"
           }
         ]

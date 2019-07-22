@@ -21,7 +21,7 @@
         {{#json key="filter" type="array"}}
           {{#json}}
             {{#json key="term"}}
-              {{{json key="_type" value=(concat "mpower-" @root.data.currentSite.name "-organisation")}}}
+              {{{json key="_type" value=(concat "mpower-organisation-" @root.data.currentSite.name)}}}
             {{/json}}
           {{/json}},
           {{#json}}

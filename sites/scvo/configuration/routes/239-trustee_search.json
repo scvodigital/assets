@@ -12,7 +12,7 @@
           "apiVersion": "5.6"
         },
         "queryTemplates": {
-          "index": "web-content-production",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "goodmoves-vacancy,milo-volunteering-opportunity",
           "template": ">context.metaData.handlebars.queries.trustees_trustee-search"
         }
@@ -30,20 +30,20 @@
         "queryTemplates": [
           {
             "name": "page",
-            "index": "web-content-production",
-            "type": "scvo-cms-page",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-page",
             "template": ">context.metaData.handlebars.queries.pages_page"
           },
           {
             "name": "types",
-            "index": "web-content-production",
+            "index": "{$../../../elasticsearch-index.txt}",
             "type": "goodmoves-vacancy,milo-volunteering-opportunity",
             "template": ">context.metaData.handlebars.queries.trustees_trustee-aggs"
           },
           {
             "name": "splash",
-            "index": "web-content-production",
-            "type": "scvo-cms-media",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
             "template": ">context.metaData.handlebars.queries.events_splash"
           }
         ]

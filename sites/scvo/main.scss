@@ -1126,6 +1126,9 @@ iframe {
 }
 figure {
   margin: $unit 0;
+  iframe {
+    max-width: 100%;
+  }
 }
 .mdc-layout-grid__inner {
   grid-gap: $unit;
@@ -4846,6 +4849,22 @@ footer {
   }
   .community-jobs-scotland .callout-image .container-fluid .caption {
     max-width: 100%;
+  }
+  .community-jobs-scotland {
+    .full .alignleft {
+      margin-right: 0;
+      width: 100%;
+      iframe {
+        width: 100%;
+      }
+    }
+    .full .alignright {
+      margin-left: 0;
+      width: 100%;
+      iframe {
+        width: 100%;
+      }
+    }
   }
   .splash-image {
     .container-fluid {

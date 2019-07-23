@@ -24,7 +24,7 @@
       "label": "Funding & Finance",
       "icon": "list",
       "path": "/funding-and-finance",
-      "route": "^/news"
+      "route": "^/funding-and-finance"
     },
     {
       "label": "Management",

@@ -1,8 +1,8 @@
 {
   "name": "new-user",
   "pattern": "/new-user",
-  "acceptedVerbs": "GET",
   "debug": false,
+  "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {

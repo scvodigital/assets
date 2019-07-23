@@ -19,56 +19,6 @@
       "route": "^/suppliers"
     }
   ],
-  "categories": [
-    {
-      "label": "Funding & Finance",
-      "icon": "list",
-      "path": "/funding-and-finance",
-      "route": "^/funding-and-finance"
-    },
-    {
-      "label": "Management",
-      "icon": "list",
-      "path": "/management",
-      "route": "^/management"
-    },
-    {
-      "label": "Environment & International",
-      "icon": "list",
-      "path": "/environment-and-international",
-      "route": "^/environment-and-international"
-    },
-    {
-      "label": "Regeneration & Housing",
-      "icon": "list",
-      "path": "/regeneration-and-housing",
-      "route": "^/regeneration-and-housing"
-    },
-    {
-      "label": "Families & Young People",
-      "icon": "list",
-      "path": "/families-and-young-people",
-      "route": "^/families-and-young-people"
-    },
-    {
-      "label": "Social Justice & Poverty",
-      "icon": "list",
-      "path": "/social-justice-and-poverty",
-      "route": "^/social-justice-and-poverty"
-    },
-    {
-      "label": "Health & Social Care",
-      "icon": "list",
-      "path": "/health-and-social-care",
-      "route": "^/health-and-social-care"
-    },
-    {
-      "label": "Culture & Leisure",
-      "icon": "list",
-      "path": "/culture-and-leisure",
-      "route": "^/culture-and-leisure"
-    }
-  ],
   "user-signed-in": [
     {
       "label": "Home",

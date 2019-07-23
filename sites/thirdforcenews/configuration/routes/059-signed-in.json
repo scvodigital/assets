@@ -1,8 +1,8 @@
 {
   "name": "signed-in",
   "pattern": "/signed-in",
-  "acceptedVerbs": "GET",
   "debug": false,
+  "acceptedVerbs": "GET",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {

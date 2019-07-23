@@ -2,9 +2,6 @@
   "name": "settings",
   "pattern": "/settings",
   "debug": false,
-  "defaultParams": {
-    "context": "results"
-  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.menus",

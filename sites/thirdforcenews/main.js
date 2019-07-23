@@ -64,9 +64,9 @@ export class ThirdForceNews {
     ci.options.message = "We use cookies to track anonymous usage statistics and do not collect any personal information that can be used to identify you. By continuing to visit this site you agree to our use of cookies.";
     ci.options.fontFamily = "'Open Sans',Helvetica,Arial,sans-serif";
     ci.options.bg = "#fff";
-    ci.options.link = "#448532";
+    ci.options.link = "#3b9db1";
     ci.options.divlink = "#fff";
-    ci.options.divlinkbg = "#448532";
+    ci.options.divlinkbg = "#3b9db1";
     ci.options.position = "bottom";
     ci.options.acceptOnScroll = "true";
     ci.options.moreinfo = "/cookies";

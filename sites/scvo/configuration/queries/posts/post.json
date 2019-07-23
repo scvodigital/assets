@@ -34,16 +34,9 @@
           }
         },
         {{/if ~}}
-        {{#if @root.request.params.slug}}
         {
-          "term": {
-            "post_slug": "post_{{@root.request.params.year}}_{{@root.request.params.month}}_{{@root.request.params.day}}_{{@root.request.params.slug}}"
-          }
-        },
-        {{/if ~}}
-        {
-          "term": {
-            "post_slug": "{{@root.request.params.path}}"
+          "wildcard": {
+            "post_slug": "*_{{@root.request.params.year}}_{{@root.request.params.month}}_{{@root.request.params.day}}_{{@root.request.params.slug}}"
           }
         }
       ],

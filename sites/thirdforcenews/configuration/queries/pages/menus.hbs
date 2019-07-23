@@ -1,0 +1,55 @@
+{{#json}}
+  {{{json key="size" value=100}}},
+  {{#json key="_source" type="array"}}
+    "slug",
+    "title",
+    "menu_order",
+    "menu_label",
+    "which_menus",
+    "menu_url",
+    "menu_icon"
+  {{/json}},
+  {{#json key="query"}}
+    {{#json key="bool"}}
+      {{#json key="filter" type="array"}}
+        {{#json}}
+          {{#json key="term"}}
+            {{{json key="_type" value="tfn-page"}}}
+          {{/json}}
+        {{/json}}
+      {{/json}},
+      {{#json key="must" type="array"}}
+        {{#json}}
+          {{#json key="term"}}
+            {{#json key="menu_item_visibility"}}
+              {{{json key="value" value=(if @root.data.auth.uid 'authenticated-users' else='unauthenticated-users')}}}
+            {{/json}}
+          {{/json}}
+        {{/json}},
+        {{#json}}
+          {{#json key="term"}}
+            {{#json key="menu_item_visibility"}}
+              {{#compare @root.data.currentSite.name '!==' 'default'}}
+                {{{json key="value" value="premium-users"}}}
+              {{else}}
+                {{#>premium_content}}
+                  {{{json key="value" value="premium-users"}}}
+                {{/premium_content}}
+                {{#>premium_content_alt}}
+                  {{{json key="value" value="not-premium-users"}}}
+                {{/premium_content_alt}}
+              {{/compare}}
+            {{/json}}
+          {{/json}}
+        {{/json}}
+      {{/json}}
+    {{/json}}
+  {{/json}},
+  {{#json key="sort" type="array"}}
+    {{#json}}
+      {{#json key="menu_order"}}
+        {{{json key="order" value="asc"}}}
+      {{/json}}
+    {{/json}}
+  {{/json}}
+{{/json}}

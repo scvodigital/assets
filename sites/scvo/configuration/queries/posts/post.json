@@ -26,21 +26,21 @@
   ],
   "query": {
     "bool": {
-      "should": [
+      "must": [
         {{#if @root.request.params.id ~}}
         {
           "term": {
             "wpid": {{@root.request.params.id}}
           }
-        },
-        {{/if ~}}
+        }
+        {{else}}
         {
           "wildcard": {
             "post_slug": "*_{{@root.request.params.year}}_{{@root.request.params.month}}_{{@root.request.params.day}}_{{@root.request.params.slug}}"
           }
         }
-      ],
-      "minimum_should_match": 1
+        {{/if ~}}
+      ]
     }
   }
 }

@@ -10,7 +10,10 @@
 
   </div>
 
-  <form id="user-details-form" action="/submit-user-details" method="POST">
+  <form id="user-details-form" action="/submit-user-details" method="POST" data-ajax-form='{
+      "successCallback": "completeCB",
+      "failureCallback": "completeCB"
+    }'>
 
     {{>account_details_form_fields}}
     <input type="hidden" name="signup" value="true">
@@ -30,4 +33,14 @@
     $('#detail-submit').prop('disabled', true);
   })
   });
+  function completeCB(response){
+    var jsonData = JSON.parse(response);
+    if (jsonData.id){
+      window.location.href = '/';
+    } else {
+      $('#detail-submit').prop('disabled', false);
+      saltireawards.componentsInitialiser.snackbar.show({message:"Failed to update profile, please check form fields filled in correctly"});
+    }
+  }
+
 </script>

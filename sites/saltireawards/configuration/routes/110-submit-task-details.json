@@ -25,10 +25,12 @@
     },
     {
       "name": "destination",
-      "taskModule": "redirect",
+      "taskModule": "render",
+      "renderer": "handlebars",
       "config": {
-        "location": "/hours",
-        "statusCode": 301
+        "output": "body",
+        "template": "{\"id\": {{{stringify @root.data.saveTaskData}}} }",
+        "parseJson": true
       }
     }
   ]

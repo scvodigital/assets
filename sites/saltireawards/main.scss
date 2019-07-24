@@ -39,7 +39,7 @@ body {
   background: $mdc-theme-primary-dark;
 }
 .mdc-theme--background {
-  background-color: $mdc-theme-secondary-light !important;
+  background-color: white !important;
 }
 .mdc-top-app-bar {
   background-color: #fff;
@@ -152,7 +152,6 @@ header {
 .mdc-button--large {
   width: 100%;
 }
-
 .main-body {
   margin-top: 0;
   padding-top: 100px;

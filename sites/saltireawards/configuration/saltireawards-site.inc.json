@@ -19,109 +19,6 @@
     "taskInfoValidation": "{:./task-info-validation.json}",
     "tsiList": "{:./tsi-list.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
-    "commonTasks": {
-      "authNotRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.sa_token",
-          "cookieName": "sa_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true,
-            "path": "/"
-          },
-          "appName": "saltireawards",
-          "notAuthenticatedRoute": ""
-        }
-      },
-      "authRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.sa_token",
-          "cookieName": "sa_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true,
-            "path": "/"
-          },
-          "appName": "saltireawards",
-          "notAuthenticatedRoute": "sign_in"
-        }
-      },
-      "getSignUpStatus": {
-        "name": "signUpStatus",
-        "taskModule": "firebaseRtbGet",
-        "renderer": "handlebars",
-        "config": {
-          "appName": "saltireawards",
-          "pathTemplate": "/{{default data.auth.uid 'no-such-read-profile'}}/signup-status",
-          "defaultData": ""
-        }
-      },
-      "getAccountInfo" :{
-        "name": "accountInfo",
-        "taskModule": "salesforceApex",
-        "renderer": "handlebars",
-        "config": {
-          "connection": "scvoAlexSandbox",
-          "output": "data",
-          "method": "GET",
-          "apexClassPath": "/SaltireUser/?user_id={{@root.data.auth.uid}}"
-        }
-      },
-      "getTasksInfo" : {
-        "name": "tasksInfo",
-        "taskModule": "salesforceApex",
-        "renderer": "handlebars",
-        "config": {
-          "connection": "scvoAlexSandbox",
-          "output": "data",
-          "method": "GET",
-          "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}"
-        }
-      },
-      "getHours" : {
-        "name": "getHours",
-        "taskModule": "firebaseRtbGet",
-        "renderer": "handlebars",
-        "config": {
-          "appName": "saltireawards",
-          "pathTemplate": "/{{default data.auth.uid 'no-such-read-profile'}}/hours",
-          "defaultData": {}
-        }
-      },
-      "volunteeringTermsMaps": {
-        "name": "termsMaps",
-        "taskModule": "render",
-        "renderer": "handlebars",
-        "config": {
-          "template": ">context.metaData.handlebars.partials.volunteering_terms_maps",
-          "output": "data",
-          "parseJson": true
-        }
-      },
-      "redirectIfPVNeeded": {
-        "name": "redirectIfPV",
-        "taskModule": "reroute",
-        "config":
-        { "if" : [{ "and" : [
-          {"==" : [ { "var" : "data.signUpStatus.status" }, "pv-needed"] }
-        ] }, "pv-needed", null
-        ]}
-      },
-      "fullSignUpRequired": {
-        "name": "signUpReroute",
-        "taskModule": "reroute",
-        "config":
-        { "if" : [{ "and" : [
-          {"!=" : [ { "var" : "data.auth.uid" }, null ]},
-          {"!=" : [ { "var" : "data.signUpStatus" }, null] }
-        ] }, {"var" : "data.signUpStatus.status"}, null
-        ]}
-      }
-    },
     "volunteeringTerms": "{:./volunteering-terms.json}",
     "handlebars": {
       "partials": {
@@ -136,6 +33,7 @@
       "queries": {
         "{$./queries/**/*.*}": ""
       }
-    }
+    },
+    "commonTasks": "{:./common-tasks.json}"
   }
 }

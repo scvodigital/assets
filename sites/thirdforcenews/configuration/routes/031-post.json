@@ -1,12 +1,13 @@
 {
   "name": "post",
+  "debug": true,
   "pattern": [
     "/news/*path",
     "/blog/*path",
     "/feature/*path"
   ],
-  "debug": false,
   "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

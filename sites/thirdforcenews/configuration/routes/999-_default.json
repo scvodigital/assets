@@ -1,10 +1,9 @@
 {
   "name": "_default",
-  "pattern": "/*path",
   "debug": true,
+  "pattern": "/*path",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

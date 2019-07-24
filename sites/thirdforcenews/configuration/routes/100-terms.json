@@ -1,10 +1,9 @@
 {
   "name": "page_terms",
-  "pattern": "/terms",
   "debug": false,
+  "pattern": "/terms",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -1,10 +1,9 @@
 {
   "name": "page_privacy",
-  "pattern": "/privacy",
   "debug": false,
+  "pattern": "/privacy",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

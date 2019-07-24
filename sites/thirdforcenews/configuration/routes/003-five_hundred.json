@@ -1,10 +1,9 @@
 {
   "name": "five_hundred",
-  "pattern": "/500",
   "debug": false,
+  "pattern": "/500",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

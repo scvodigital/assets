@@ -1,10 +1,9 @@
 {
   "name": "page_cookies",
-  "pattern": "/cookies",
   "debug": false,
+  "pattern": "/cookies",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

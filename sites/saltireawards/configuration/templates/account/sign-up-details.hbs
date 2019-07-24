@@ -10,13 +10,14 @@
 
   </div>
 
-  <form id="user-details-form" method="POST">
+  <form id="user-details-form" action="/submit-user-details" method="POST">
 
     {{>account_details_form_fields}}
     <input type="hidden" name="signup" value="true">
     {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" type="submit">
-      <span class="far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
+    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="doSpinner()" type="submit">
+      <span class="icon far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
+      <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
       Submit Details
     </button>
   </form>
@@ -25,68 +26,8 @@
 {{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
-    var $form = $('#user-details-form');
-
-    $form.on('submit', function(evt) {
-      evt.preventDefault();
-      var pvRequired;
-
-      var formdata = $form.serialize();
-
-      // Determine if this user needs U13 parental validation.
-      var dob = $form.find('input[name="date_of_birth"]').val();
-      var thirteenYearsAgo = new Date();
-      thirteenYearsAgo.setYear(thirteenYearsAgo.getYear() - 13);
-      if (dob > thirteenYearsAgo) pvRequired = true;
-
-
-      $.ajax({
-        url: '/submit-user-details',
-        type: 'POST',
-        data: formdata, // serializes the form's elements.
-      }).done(function( data ) {
-        window.location.href = '/';
-      }).fail(function( err){
-        $message.text(err.message || 'There was a problem adding your details').show();
-        $loader.css('display', 'none');
-        return;
-      });
-
-      // Add the fact that they have to the formdata. submit needs to know.
-
-      /* Okay. when we submit, the form will do several things
-      * - It'll submit the data
-      *then
-      *
-      *
-      * If it has yes to PV.
-      * - It'll make a (back end router) code and a url and add them to the SF Object
-      * - It'll save a MiloStatus of "PARENTAL VALIDATION REQUIRED" to the user (not an externalID any more
-      * - It'll send out an email to the parent with a code.
-      * - It'll redirect to P Verify - needed.
-      *
-      * - It'll save a MiloStatus of "ACTIVE" or , rather than an external ID based on this fact
-      *
-      * Else,
-      * = It'll leave code and url fields blank
-      * - It'll save a status of "FINE" to the user.
-      * - It'll redirect HOME.
-      *
-      * */
-
-      /*
-       * On login, if we get nothing for the MiloStatus we go to details.
-       * If we get PARENTAL VALIDATION REQUIRED we shunt to PV page with required (it offers an input field and an email).
-       */
-
-      /*
-       Finally, when a PV link comes in we:
-       - Get the Milo object by External (FireBase) Id.
-       - check the code matches the link.
-       - If so, we set our status as 'FINE' and go to PV page with done flag and first name.
-       - If not, we go to PV page with fail flag.
-       */
-
-    })
+  $('#user-details-form').on('submit', function(e){
+    $('#detail-submit').prop('disabled', true);
   })
+  });
 </script>

@@ -9,13 +9,16 @@
 
   <form id="user-details-form" action="/submit-user-details" method="POST" data-ajax-form='{
       "successMessage": "Profile information updated",
-      "failureMessage": "Failed to update profile"
+      "failureMessage": "Failed to update profile",
+      "successCallback": "noSpinner",
+      "failureCallback": "noSpinner"
     }'>
 
     {{>account_details_form_fields}}
 
     {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-    <button class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="preSubmit()">
+    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="spinner()">
+      <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
       Save
     </button>
   </form>
@@ -23,13 +26,12 @@
 
 {{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
 <script>
-  function preSubmit() {
-    var form = document.getElementById("user-details-form");
-    var isValid = form.checkValidity();
-    if (isValid) {
-      onSubmit();
-    }
-  }
-  function onSubmit() {
+  document.addEventListener("DOMContentLoaded", function(event) {
+    $('#user-details-form').on('submit', function(e){
+      $('#detail-submit').prop('disabled', true);
+    })
+  });
+  function noSpinner(){
+    $('#detail-submit').prop('disabled', false);
   }
 </script>

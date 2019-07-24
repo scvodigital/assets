@@ -289,6 +289,23 @@ header {
   }
 }
 
+.mdc-button .spinner {
+  display: none;
+}
+
+.mdc-button .icon {
+  display: inline-block;
+}
+
+.mdc-button:disabled .spinner {
+  display: inline-block;
+}
+
+.mdc-button:disabled .icon {
+  display: none;
+}
+
+
 .card-loader {
   .card-loader-background {
     background-color: white;

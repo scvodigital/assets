@@ -1,10 +1,9 @@
 {
   "name": "sign_in",
-  "pattern": "/sign-in",
   "debug": true,
+  "pattern": "/sign-in",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -1,10 +1,9 @@
 {
   "name": "sign_up",
-  "pattern": "/sign-up",
   "debug": false,
+  "pattern": "/sign-up",
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "destination",
       "taskModule": "renderLayout",

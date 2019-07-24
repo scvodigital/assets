@@ -1,5 +1,6 @@
 {
   "name": "category",
+  "debug": true,
   "pattern": [
     "/funding-and-finance",
     "/management",
@@ -10,8 +11,8 @@
     "/health-and-social-care",
     "/culture-and-leisure"
   ],
-  "debug": true,
   "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

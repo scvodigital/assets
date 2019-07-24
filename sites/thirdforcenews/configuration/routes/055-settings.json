@@ -1,10 +1,9 @@
 {
   "name": "settings",
-  "pattern": "/settings",
   "debug": false,
+  "pattern": "/settings",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.menus",
     {
       "name": "export_user_data",
       "taskModule": "render",

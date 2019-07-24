@@ -1,7 +1,7 @@
 {
   "name": "humans",
-  "pattern": "/humans.txt",
   "debug": false,
+  "pattern": "/humans.txt",
   "tasks": [
     {
       "name": "destination",

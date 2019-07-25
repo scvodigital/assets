@@ -1,7 +1,7 @@
 {
   "name": "five_hundred",
-  "pattern": "/500",
   "debug": false,
+  "pattern": "/500",
   "metaData": {
     "hideSearch": true
   },

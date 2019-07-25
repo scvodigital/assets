@@ -1,7 +1,7 @@
 {
   "name": "sign_up",
-  "pattern": "/sign-up",
   "debug": false,
+  "pattern": "/sign-up",
   "metaData": {
     "hideSearch": true
   },

@@ -21,7 +21,7 @@
       <li class="mdc-typography--body1">
         <span class="fa-li"><span class="far fa-map-marker-alt fa-fw" title="Geographical areas funded"></span></span>
         <span class="areas">
-        {{#each (sort (arrayify geographical_areas_funded)) ~}}
+        {{#each (arrayify geographical_areas_funded) ~}}
         {{#ifAny (compare @root.data.currentSite.name "default") (contains @root.data.currentSite.fixedFilters.geographical_areas_funded (lookup (arrayify ../geographical_areas_funded_slugs) @index)) ~}}
         <a href="/search?geographical_areas_funded={{lookup (arrayify ../geographical_areas_funded_slugs) @index}}" class="area"><span class="area-text">{{{this}}}</span></a>
         {{/ifAny ~}}

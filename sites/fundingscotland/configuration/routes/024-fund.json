@@ -1,7 +1,7 @@
 {
   "name": "fund",
-  "pattern": "/fund/:id(/:junk)",
   "debug": false,
+  "pattern": "/fund/:id(/:junk)",
   "defaultParams": {
     "context": "detail"
   },

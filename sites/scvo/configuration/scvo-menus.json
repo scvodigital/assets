@@ -359,6 +359,26 @@
 					"label": "Our Alumni",
 					"path": "/digital/evolution/senior-leaders/our-alumni",
 					"route": "^/digital/evolution/senior-leaders/our-alumni$"
+				},
+				{
+					"label": "Programme structure",
+					"path": "/digital/evolution/senior-leaders/programme-structure",
+					"route": "^/digital/evolution/senior-leaders/programme-structure$"
+				},
+				{
+					"label": "Eligibility and commitment",
+					"path": "/digital/evolution/senior-leaders/eligibility-and-commitment",
+					"route": "^/digital/evolution/senior-leaders/eligibility-and-commitment$"
+				},
+				{
+					"label": "Why apply?",
+					"path": "/digital/evolution/senior-leaders/why-apply",
+					"route": "^/digital/evolution/senior-leaders/why-apply$"
+				},
+				{
+					"label": "Application process",
+					"path": "/digital/evolution/senior-leaders/application-process",
+					"route": "^/digital/evolution/senior-leaders/application-process$"
 				}],
 				"label": "Senior Leaders",
 				"path": "/digital/evolution/senior-leaders",

@@ -7,45 +7,31 @@
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
-    {
-      "name": "apexUrl",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": "/SaltireHours/?user_id={{@root.data.auth.uid}}"
-      }
-    },
-    {
-      "name": "hoursInfo",
-      "taskModule": "salesforceApex",
-      "renderer": "handlebars",
-      "config": {
-        "connection": "scvoAlexSandbox",
-        "output": "data",
-        "method": "GET",
-        "apexClassPath": ">data.apexUrl"
-      }
-    },
-    {
-      "name": "setHours",
-      "taskModule": "firebaseRtbSet",
-      "renderer": "handlebars",
-      "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/hours",
-        "setOrUpdate": "set",
-        "dataTemplate": "{{{stringify data.hoursInfo}}}"
-      }
-    },
+    "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "destination",
-      "taskModule": "render",
+      "taskModule": "renderLayout",
       "renderer": "handlebars",
       "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
         "output": "body",
-        "template": "{{#json}}{{{json key=\"success\" value=true}}}{{/json}}",
-        "parseJson": true
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
+              "body": ">context.metaData.handlebars.templates.pages_test"
+            },
+            "contentType": "text/html"
+          }
+        }
       }
     }
   ]

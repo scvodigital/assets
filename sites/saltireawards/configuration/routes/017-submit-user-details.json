@@ -40,24 +40,6 @@
         "dataTemplate": "{{#json}}{{{json key=\"status\" value=(if @root.data.PVCode \"pv-needed\" else=\"\")}}}{{/json}}"
       }
     },
-    {
-      "name": "checkStatus",
-      "taskModule": "reroute",
-      "config": {
-        "if": [
-          {
-            "==": [
-              {
-                "var": "data.PVCode"
-              },
-              ""
-            ]
-          },
-          "redirect-home",
-          "parent-email-send"
-        ]
-      }
-    },
 
     {
       "name": "destination",
@@ -65,7 +47,8 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"id\": {{{stringify @root.data.saveUserData}}} }"
+        "template": "{\"id\": {{{stringify @root.data.saveUserData}}} }",
+        "parseJson": true
       }
     }
   ]

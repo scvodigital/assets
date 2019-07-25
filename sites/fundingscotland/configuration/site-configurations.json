@@ -25,7 +25,7 @@
     },
     "fixedFilters": {
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": false
   },
   "eastrenfrewshire": {
@@ -52,7 +52,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -94,7 +94,7 @@
       "error": "#de3027",
       "errorText": "#000000"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -136,7 +136,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -178,7 +178,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -220,7 +220,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -262,7 +262,7 @@
       "error": "#d32f2f",
       "errorText": "#ffffff"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [
@@ -352,7 +352,7 @@
       "error": "#d2d20e",
       "errorText": "#000000"
     },
-    "pageLimit": 5,
+    "pageLimit": 20,
     "enablePremiumFeatures": true,
     "fixedFilters": {
       "geographical_areas_funded": [

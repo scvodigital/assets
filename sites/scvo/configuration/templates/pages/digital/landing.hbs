@@ -37,7 +37,7 @@
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
           {{#compare @root.data.supplimentaryResponses.related_events.hits.total ">" 0 ~}}
-            {{#with @root.data.supplimentaryResponses.related_events.hits ~}}
+            {{#withExtend @root.data.supplimentaryResponses.related_events.hits limit=3 ~}}
               <div class="mdc-card events">
                 <section class="mdc-card__primary">
                   <h1 class="mdc-card__title mdc-card__title--large">
@@ -46,20 +46,31 @@
                 </section>
                 <section class="mdc-card__media"><a href="/digital/events">&nbsp;</a></section>
                 <section class="mdc-card__supporting-text">
-                  We have {{total}} upcoming event{{#compare total ">" 1}}s{{/compare~}}
-                  {{~#compare total 1}}:
-                    <a href="/digital/events/{{hits.[0]._source.slug}}">
-                      {{{hits.[0]._source.title}}}
-                    </a>
+                  Up coming events:
+
+                  {{#each hits}}
+                    {{~#compare @index "<" ../limit}}
+                      <div>
+                        <a href="/digital/events/{{_source.slug}}">
+                          {{{_source.title}}}
+                        </a>
+                      </div>
+                    {{/compare}}
+                  {{/each}}
+                  {{#compare total ">" limit}}
+                    <div>
+                      And {{subtract total limit}} more
+                    </div>
                   {{/compare}}
+
                 </section>
                 <section class="mdc-card__actions">
                   {{#compare total ">" 1 ~}}
-                  <a class="mdc-card__action" href="/digital/events">See more upcoming events</a>
+                  <a class="mdc-card__action" href="/digital/events">Find out about upcoming events</a>
                   {{/compare ~}}
                 </section>
               </div>
-            {{/with ~}}
+            {{/withExtend ~}}
           {{else}}
             <div class="mdc-card research">
               <section class="mdc-card__primary">
@@ -78,17 +89,17 @@
           {{/compare ~}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-card funding">
+          <div class="mdc-card senior-leaders">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">
-                <a href="/funding">Funding</a>
+                <a href="/digital/evolution/senior-leaders">Senior leaders programme</a>
               </h1>
             </section>
-            <section class="mdc-card__media"><a href="/funding">&nbsp;</a></section>
+            <section class="mdc-card__media"><a href="/digital/evolution/senior-leaders">&nbsp;</a></section>
             <section class="mdc-card__supporting-text">
-              See open funds and recent awards
+              SCVO are helping voluntary sector leaders grow their skills, confidence and understanding of digital opportunities – find out what it's all about!
             </section>
-            <section class="mdc-card__actions"><a class="mdc-card__action" href="/funding">Find out more</a></section>
+            <section class="mdc-card__actions"><a class="mdc-card__action" href="/digital/evolution/senior-leaders">Find out more</a></section>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">

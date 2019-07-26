@@ -1,6 +1,6 @@
 {
   "goodmoves-saved-searches": {
-    "mailgunConnection": "mg_goodmoves_com",
+    "mailgunConnection": "mg_goodmoves",
     "from": "Goodmoves <no-reply@goodmoves.com>",
     "replyTo": "Goodmoves <enquiries@goodmoves.org.uk>",
     "sendIfEmpty": false,
@@ -12,7 +12,7 @@
     "metaData": {}
   },
   "goodmoves-shortlist": {
-    "mailgunConnection": "mg_goodmoves_com",
+    "mailgunConnection": "mg_goodmoves",
     "from": "Goodmoves <no-reply@goodmoves.com>",
     "replyTo": "Goodmoves <enquiries@goodmoves.org.uk>",
     "sendIfEmpty": false,
@@ -38,7 +38,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -60,7 +60,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -83,7 +83,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -105,7 +105,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -127,7 +127,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -149,7 +149,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -171,7 +171,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -193,7 +193,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -215,7 +215,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -237,7 +237,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -259,7 +259,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -281,7 +281,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -303,7 +303,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -325,7 +325,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -347,7 +347,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -369,7 +369,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -391,7 +391,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -413,7 +413,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -435,7 +435,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -457,7 +457,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -479,7 +479,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
@@ -501,7 +501,7 @@
       "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
@@ -523,7 +523,7 @@
       "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
       "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
@@ -545,7 +545,7 @@
       "fundsText": "New and recently opened funds",
       "noFundsText": "No funds have opened since your previous alert"
     },
-    "mailgunConnection": "mg_fundingscotland_com",
+    "mailgunConnection": "mg_fundingscotland",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",

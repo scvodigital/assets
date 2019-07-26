@@ -1,6 +1,6 @@
 {
   "vs-saved-searches": {
-    "mailgunConnection": "mg_volunteerscotland_net",
+    "mailgunConnection": "mg_volunteerscotland",
     "from": "Volunteer Scotland <no-reply@volunteerscotland.net>",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_volunteerscotland_saved_searches",
@@ -11,7 +11,7 @@
     "metaData": {}
   },
   "vs-favourites": {
-    "mailgunConnection": "mg_volunteerscotland_net",
+    "mailgunConnection": "mg_volunteerscotland",
     "from": "Volunteer Scotland <no-reply@volunteerscotland.net>",
     "sendIfEmpty": false,
     "subjectPartial": "subjects_volunteerscotland_favourites",

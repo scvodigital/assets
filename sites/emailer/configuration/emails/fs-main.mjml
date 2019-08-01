@@ -213,9 +213,9 @@
             <mj-column padding="0px">
               <mj-text font-size="14px" padding="5px 15px" font-family="sans-serif" line-height="18px">
                 If you&apos;d like your bulletin to include a list of the latest new and recently opened funds,
-                and a heads up on funds opening soon, then consider registering for a Premium account.
+                and a heads up on funds opening soon, then consider registering for a premium account.
                 The service also includes a great range of tools to help you manage your funding information.
-                Our free Local sites also provide a Premium service and are worth trying if you work in one
+                Our free local sites also provide a premium service and are worth trying if you work in one
                 of the geographic areas covered.
               </mj-text>
             </mj-column>
@@ -223,7 +223,7 @@
           <mj-section padding="15px 0px 0px 0px">
             <mj-column padding="0px">
               <mj-button font-size="16px" padding="5px 15px" font-family="sans-serif" font-weight="700" href="https://fundingscotland.com/premium" background-color="{{colours.primary}}" color="{{colours.primaryText}}">
-                Upgrade to Premium
+                Upgrade to premium
               </mj-button>
             </mj-column>
             <mj-column padding="0px">

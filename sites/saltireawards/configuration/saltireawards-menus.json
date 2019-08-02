@@ -94,7 +94,7 @@
       "label": "Settings",
       "icon": "cog",
       "path": "/account",
-      "route": "^/account"
+      "route": "^/account|^/sign-up-details"
     },
     {
       "label": "Sign out",

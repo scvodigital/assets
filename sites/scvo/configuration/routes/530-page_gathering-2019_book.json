@@ -1,5 +1,5 @@
 {
-  "name": "page_gathering_book",
+  "name": "page_gathering_2019_book",
   "pattern": "/the-gathering-2019/book-to-attend",
   "tasks": [
     {
@@ -35,7 +35,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_gathering-book",
+              "body": ">context.metaData.handlebars.templates.pages_gathering-2019-book",
               "foot": ""
             },
             "contentType": "text/html"

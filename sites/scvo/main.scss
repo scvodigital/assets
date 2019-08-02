@@ -630,7 +630,8 @@ primary-dark: #263238
   }
   .the-gathering.featured-background-image,
   .the-gathering .full,
-  .the-gathering-2019 .full {
+  .the-gathering-2019 .full,
+  .the-gathering-2020 .full {
     .mdc-button {
       color: white;
       border-color: map-get($themeGathering, 'primary') !important;
@@ -932,6 +933,7 @@ primary-dark: #263238
 .projects-campaigns.twenty-years-delivering-change.equal-marriage,
 .projects-campaigns.twenty-years-delivering-change.equal-marriage .page-content,
 .the-gathering-2019,
+.the-gathering-2020,
 .the-gathering.featured-background-image,
 .the-gathering {
   @include theme-colours('gathering');
@@ -2558,6 +2560,7 @@ form#settled_status {
   }
 }
 body.scottish-charity-awards:not(.post) main,
+body.the-gathering-2020:not(.post) main,
 body.the-gathering-2019:not(.post) main,
 body.the-gathering:not(.post) main {
   .container-fluid,
@@ -2614,6 +2617,7 @@ body.scottish-charity-awards:not(.post) {
     background-position: bottom center;
   }
 }
+body.the-gathering-2020:not(.post) main,
 body.the-gathering-2019:not(.post) main {
   .splash-image {
     background-position: center 33%;
@@ -2822,6 +2826,7 @@ body.scottish-charity-awards:not(.post) main {
 .projects-campaigns.terrific-trustees.search .page-info,
 .post-sidebar .page-info,
 .page-sidebar .page-info,
+body.the-gathering-2020 main .page-info,
 body.the-gathering-2019 main .page-info,
 body.the-gathering main .page-info,
 body.i-love-charity main .page-info,
@@ -4557,6 +4562,7 @@ footer {
 }
 
 @media screen and (max-width: 1340px) {
+  body.the-gathering-2020 main,
   body.the-gathering-2019 main {
     .splash-image {
       .mdc-typography--body2 {
@@ -4594,6 +4600,7 @@ footer {
       }
     }
   }
+  body.the-gathering-2020 main #gathering-menu,
   body.the-gathering-2019 main #gathering-menu {
     .mdc-button {
       display: inline-block;
@@ -4658,6 +4665,7 @@ footer {
 }
 
 @media screen and (max-width: 991px) {
+  body.the-gathering-2020 main,
   body.the-gathering-2019 main {
     .splash-image {
       .mdc-typography--body2 {
@@ -4886,6 +4894,7 @@ footer {
   .events .related .photo-wee {
     max-width: 110px;
   }
+  body.the-gathering-2020 main #gathering-menu,
   body.the-gathering-2019 main #gathering-menu {
     margin-bottom: $unit/2;
     .mdc-button {

@@ -83,11 +83,39 @@
     var $pv_block = $('#parental_verification')
     var $pv_email = $('#parental_verification_email')
 
+    function dateMunge(aDate){
+      var dd = aDate.getDate();
+      var mm = aDate.getMonth()+1; //January is 0!
+      var yyyy = aDate.getFullYear();
+      if(dd<10){
+        dd='0'+dd
+      }
+      if(mm<10){
+        mm='0'+mm
+      }
+
+      dateVar = yyyy+'-'+mm+'-'+dd;
+      return dateVar;
+    }
+    var maxDate = new Date();
+    maxDate.setFullYear(maxDate.getFullYear() - 12);
+
+    var minDate = new Date();
+    minDate.setFullYear(minDate.getFullYear() - 25);
+
+
+    $dob.attr({
+      "max" : dateMunge(maxDate),        // substitute your own
+      "min" : dateMunge(minDate)          // values (or variables) here
+    });
+
+
     $dob.change(function(){
        var dob = $dob.val();
       var compareDate = new Date();
       var dobTS = Date.parse(dob);
       compareDate.setFullYear(compareDate.getFullYear() - 13);
+
       var cdTS = compareDate.getTime();
       if (dobTS > cdTS) {
         $pv_email.prop('required', true);

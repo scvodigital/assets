@@ -3,7 +3,7 @@
   <h2>Parent or guardian verification</h2>
   <p>Parent or guardian verification needed. An email has been sent to {{@root.data.accountInfo.parental_verification_email}} please
   ask the your parent or guardian to click the link in that email</p>
-  <button onclick="resendEmail()">Resend Email</button>
+  <button onclick="sendPVEmail(true)">Resend Email</button>
   <button onclick="revealForm()">Change Email Address</button>
   </div>
   <form id="user-details-form" style="display:none;"  method="POST" action="submit-user-details">
@@ -40,10 +40,9 @@
     x.style.display = "block";
   }
 
+
+
   document.addEventListener("DOMContentLoaded", function(event) {
-
-
-
     var $form = $('#user-details-form');
 
     $form.on('submit', function(evt) {
@@ -62,18 +61,6 @@
       });
     })
 
-    function resendEmail() {
-      $.ajax({
-        url: '/parent-email-send',
-        type: 'POST',
-      }).done(function (data) {
-        $message.text('Parental email re-sent').show();
-      }).fail(function (err) {
-        $message.text(err.message || 'There was a problem adding your details').show();
-        $loader.css('display', 'none');
-        return;
-      });
-    }
   })
 
 </script>

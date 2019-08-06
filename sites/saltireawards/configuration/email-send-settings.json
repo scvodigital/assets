@@ -1,6 +1,6 @@
 {
   "parent-verify": {
-    "mailgunConnection": "mg_scvo_sandbox",
+    "mailgunConnection": "mg_saltireawards",
     "from": "Saltire Awards <hello@saltireawards.org.uk>",
     "replyTo": "Saltire Awards <hello@saltireawards.org.uk>",
     "sendIfEmpty": false,

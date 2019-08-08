@@ -12,6 +12,17 @@
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.getTasksInfo",
     {
+      "name": "setVerifyHoursCode",
+      "taskModule": "firebaseRtbSet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/verify-hours/",
+        "setOrUpdate": "set",
+        "dataTemplate": ">context.metaData.handlebars.templates.tasks_fb-verify-hours-data"
+      }
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

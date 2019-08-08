@@ -26,8 +26,11 @@
         {{/each}}
       </ul>
 
-      <p>Please click <a>here</a> to confirm these hours are correct.</p>
+      <p>Please click <a href="https://saltireawards.local:8080/verify-hours/?e={{this}}&c={{@root.data.setVerifyHoursCode.data.code}}&u={{@root.data.auth.uid}}">here</a> to confirm these hours are correct.</p>
         <p>Please or reply to this email to make any corrections.</p>
+
+      https://saltireawards.local:8080/verify-hours/?e={{this}}&c={{@root.data.setVerifyHoursCode.data.code}}&u={{@root.data.auth.uid}}
+
     </section>
   {{/each}}
 

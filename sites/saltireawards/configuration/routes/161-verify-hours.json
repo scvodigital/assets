@@ -4,16 +4,7 @@
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
-    {
-      "name": "verifyHoursInfo",
-      "taskModule": "firebaseRtbGet",
-      "renderer": "handlebars",
-      "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/verify-hours/",
-        "defaultData": {}
-      }
-    },
+    "context.metaData.commonTasks.verifyHoursInfo",
     {
       "name": "codeVerified",
       "taskModule": "render",

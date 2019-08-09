@@ -10,6 +10,7 @@
     "context.metaData.commonTasks.getSignUpStatus",
     "context.metaData.commonTasks.fullSignUpRequired",
     "context.metaData.commonTasks.getTasksInfo",
+    "context.metaData.commonTasks.verifyHoursInfo",
     {
       "name": "destination",
       "taskModule": "renderLayout",

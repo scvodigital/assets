@@ -77,6 +77,27 @@
       "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}"
     }
   },
+  "verifyHoursInfo" :     {
+    "name": "verifyHoursInfo",
+    "taskModule": "firebaseRtbGet",
+    "renderer": "handlebars",
+    "config": {
+      "appName": "saltireawards",
+      "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/verify-hours/",
+      "defaultData": {}
+    }
+  },
+  "getTasksInfoUnverified" : {
+    "name": "tasksInfoUnverified",
+    "taskModule": "salesforceApex",
+    "renderer": "handlebars",
+    "config": {
+      "connection": "scvoAlexSandbox",
+      "output": "data",
+      "method": "GET",
+      "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}&verified=false"
+    }
+  },
   "getHours" : {
     "name": "getHours",
     "taskModule": "firebaseRtbGet",

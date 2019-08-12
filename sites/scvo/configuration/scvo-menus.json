@@ -645,9 +645,9 @@
 					"route": "^/projects-campaigns/i-love-charity/public-trust-report$"
 				},
 				{
-					"label": "Young people’s guide",
-					"path": "/projects-campaigns/i-love-charity/young-peoples-guide",
-					"route": "^/projects-campaigns/i-love-charity/young-peoples-guide$"
+					"label": "Guide to working in the sector",
+					"path": "/projects-campaigns/i-love-charity/guide-to-working-in-the-sector",
+					"route": "^/projects-campaigns/i-love-charity/guide-to-working-in-the-sector$"
 				},
 				{
 					"label": "Case studies",

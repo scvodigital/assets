@@ -842,6 +842,9 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
+.digital {
+  @include theme-colours('digital');
+}
 .events,
 .projects-campaigns.twenty-years-delivering-change.making-renting-right,
 .projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
@@ -940,9 +943,6 @@ primary-dark: #263238
 }
 .credit-union {
   @include theme-colours('credit-union');
-}
-.digital {
-  @include theme-colours('digital');
 }
 .tfn,
 .post-related-tfn,

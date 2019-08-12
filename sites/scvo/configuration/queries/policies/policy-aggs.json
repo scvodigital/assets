@@ -4,7 +4,7 @@
   "aggs": {
     "types": {
       "terms": {
-        "field": "library_classification",
+        "field": "policy_topics",
         "order": {
           "_term": "asc"
         },

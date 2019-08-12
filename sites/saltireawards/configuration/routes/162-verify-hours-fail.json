@@ -1,16 +1,9 @@
 {
-  "name": "achievements",
-  "pattern": "/achievements",
+  "name": "verify-hours-fail",
+  "pattern": "verify-hours-fail",
   "debug": true,
-  "metaData": {
-    "title": "Achievements - Saltire Awards"
-  },
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
-    "context.metaData.commonTasks.getTasksInfo",
-    "context.metaData.commonTasks.verifyHoursInfo",
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -27,8 +20,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.pages_achievements"
+              "body": ">context.metaData.handlebars.templates.pages_verify-hours-fail",
+              "foot": ""
             },
             "contentType": "text/html"
           }

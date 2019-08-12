@@ -36,6 +36,9 @@
   function completeCB(response){
     var jsonData = JSON.parse(response);
     if (jsonData.id){
+      if (jsonData.pv){
+        sendPVEmail();
+      }
       window.location.href = '/';
     } else {
       $('#detail-submit').prop('disabled', false);

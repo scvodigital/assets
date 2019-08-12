@@ -47,7 +47,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"id\": {{{stringify @root.data.saveUserData}}} }",
+        "template": "{\"id\": {{{stringify @root.data.saveUserData}}}, \"pv\": {{#if @root.data.PVCode}}true{{else}}false{{/if}}  }",
         "parseJson": true
       }
     }

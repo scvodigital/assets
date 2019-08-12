@@ -1,6 +1,6 @@
 {
-  "name": "sample-hours-check",
-  "pattern": "/sample-hours-check",
+  "name": "do-verify-hours",
+  "pattern": "/do-verify-hours",
   "debug": true,
   "metaData": {
     "title": "Tasks - Saltire Awards"
@@ -23,27 +23,21 @@
       }
     },
     {
-      "name": "destination",
-      "taskModule": "renderLayout",
+      "name": "sendEmail",
+      "taskModule": "mailgun",
       "renderer": "handlebars",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
-        "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_sample-hours-check",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
-            },
-            "contentType": "text/html"
-          }
-        }
+        "output": "data",
+        "parseJson": true,
+        "template": ">context.metaData.handlebars.templates.tasks_verify-hours-email"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "redirect",
+      "config": {
+        "location": "/achievements",
+        "statusCode": 301
       }
     }
 

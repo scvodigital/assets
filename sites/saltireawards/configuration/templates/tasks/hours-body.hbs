@@ -1,6 +1,5 @@
 {{#with @root.request.body}}
   {{#json}}
-    {{{json key='user_id' value=@root.data.auth.uid}}},
     {{{json key='task_id' value=task_id}}},
     {{{json key='hours' value=hours}}}
   {{/json}}

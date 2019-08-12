@@ -1,0 +1,14 @@
+{{!-- contains useful functions for account operations. E.g. send out PV email --}}
+
+<script>
+    function sendPVEmail(message) {
+      $.ajax({
+        url: '/parent-email-send',
+        type: 'POST',
+      }).done(function (data) {
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"Parental email re-sent"})};
+      }).fail(function (err) {
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"There was a problem re-sending your parental email"})};
+      });
+    }
+</script>

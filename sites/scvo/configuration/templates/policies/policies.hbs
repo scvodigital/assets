@@ -1,0 +1,43 @@
+<div class="page">
+  {{> headers_splash}}
+  <div class="container-fluid content page-content">
+    {{> breadcrumbs}}
+    <div class="mdc-layout-grid support support-policy v-margin">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+          {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_full}}}
+          {{#each @root.data.supplimentaryResponses.policies.aggregations.policies.buckets ~}}
+          {{#ifAny @root.request.params.query.q @root.request.params.topic ~}}
+          <h3 class="mdc-typography--headline4 b-margin-full">{{{key}}}</h3>
+          <div class="mdc-layout-grid equal-height">
+            <div class="mdc-layout-grid__inner">
+              {{#each top_policy_hits.hits.hits ~}}
+              {{#with _source ~}}
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+                <div class="mdc-card">
+                  <section class="mdc-card__primary">
+                    <h1 class="mdc-card__title mdc-card__title--large"><span class="fal fa-fw fa-comment-alt-lines fa-2x">&nbsp;</span>{{{title}}}</h1>
+                  </section>
+                  <section class="mdc-card__supporting-text">{{{statement}}}</section>
+                  <section class="mdc-card__actions">
+                    {{#if briefing}}<a class="mdc-card__action" href="{{briefing}}">Briefing</a>{{/if}}
+                    {{#if press_release}}<a class="mdc-card__action" href="{{press_release}}">Press release</a>{{/if}}
+                    {{#if additional}}<a class="mdc-card__action" href="{{additional}}" download>Download</a>{{/if}}
+                  </section>
+                </div>
+              </div>
+              {{/with ~}}
+              {{/each ~}}
+            </div>
+          </div>
+          {{else}}
+          <h3 class="mdc-typography--headline4">
+            <a href="{{@root.request.url.pathname}}/{{slugify (replace key '&amp;' '-')}}">{{{key}}}</a>
+          </h3>
+          {{/ifAny ~}}
+          {{/each ~}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

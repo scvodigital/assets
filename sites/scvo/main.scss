@@ -2624,10 +2624,10 @@ body.the-gathering-2019:not(.post) main {
     background-size: cover;
     padding-bottom: $unit;
     .mdc-typography--body2 {
-      position: absolute;
-      top: 70%;
-      width: 100%;
-      left: 0;
+      position: relative;
+      // top: 70%;
+      // width: 100%;
+      // left: 0;
       font-size: 120%;
       line-height: 1.5rem;
       color: white;

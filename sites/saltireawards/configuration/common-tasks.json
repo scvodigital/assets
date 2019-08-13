@@ -98,6 +98,33 @@
       "apexClassPath": "/SaltireTask/?user_id={{@root.data.auth.uid}}&verified=false"
     }
   },
+  "hoursCodeVerify" : {
+  "name": "codeVerified",
+  "taskModule": "render",
+  "renderer": "handlebars",
+  "config": {
+    "output": "data",
+    "template": ">context.metaData.handlebars.templates.tasks_hours-code-verify"
+    }
+  },
+  "handleHoursVerifyFail" :     {
+    "name": "handleVerifyFail",
+    "taskModule": "reroute",
+    "config": {
+      "if": [
+        {
+          "==": [
+            {
+              "var": "data.codeVerified"
+            },
+            "pass"
+          ]
+        },
+        null,
+        "verify-hours-code-fail"
+      ]
+    }
+  },
   "getHours" : {
     "name": "getHours",
     "taskModule": "firebaseRtbGet",

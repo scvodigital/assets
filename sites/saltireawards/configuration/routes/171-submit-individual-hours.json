@@ -1,0 +1,19 @@
+{
+  "name": "submit-individual-hours",
+  "pattern": "/verify-hours",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.verifyHoursInfo",
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "output": "body",
+        "template": "{\"id\": \"whatevs\"}",
+        "parseJson": true
+      }
+    }
+    ]
+}

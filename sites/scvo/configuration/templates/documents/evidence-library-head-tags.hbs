@@ -1,8 +1,8 @@
 {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
-<title>SCVO Evidence Library</title>
-<meta property="og:title" content="SCVO Evidence Library" data-dynamic="true">
-<link rel="alternate" type="application/rss+xml" title="SCVO – Posts about {{#each @root.data.primaryResponse.hits.hits.[0]._source.categories_slug}}{{#compare this "===" (lastItem (split @root.request.params.path '_'))}}{{{lookup @root.data.primaryResponse.hits.hits.[0]._source.categories @index}}}{{/compare}}{{/each}}" href="https://scvo.org{{@root.request.params.uri.pathname}}?_view=rss" />
+<title>Evidence Library – SCVO</title>
+<meta property="og:title" content="Evidence Library – SCVO" data-dynamic="true">
+<link rel="alternate" type="application/rss+xml" title="Posts about {{#each @root.data.primaryResponse.hits.hits.[0]._source.categories_slug}}{{#compare this "===" (lastItem (split @root.request.params.path '_'))}}{{{lookup @root.data.primaryResponse.hits.hits.[0]._source.categories @index}}}{{/compare}}{{/each}} – SCVO" href="https://scvo.org{{@root.request.params.uri.pathname}}?_view=rss" />
 {{else}}
-<title>SCVO – Scottish Council for Voluntary Organisations</title>
-<meta property="og:title" content="SCVO – Scottish Council for Voluntary Organisations" data-dynamic="true">
+<title>Scottish Council for Voluntary Organisations – SCVO</title>
+<meta property="og:title" content="Scottish Council for Voluntary Organisations – SCVO" data-dynamic="true">
 {{/if ~}}

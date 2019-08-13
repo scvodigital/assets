@@ -1,7 +1,16 @@
 <div class="page search">
   {{> headers_splash}}
   <div class="container-fluid content page-content">
-    {{> breadcrumbs}}
+    <ul class="breadcrumbs breadcrumbs-length-1" aria-hidden="true">
+      <li><a href="/">Home</a></li>
+      <li><a href="/policy-research">Policy &amp; research</a></li>
+      {{#unless @root.request.params.query.q ~}}
+      <li>Policies</li>
+      {{else}}
+      <li><a href="/policy-research/policies">Policies</a></li>
+      <li>Search results</li>
+      {{/unless ~}}
+    </ul>
 
     <h2>
       Search SCVO policies

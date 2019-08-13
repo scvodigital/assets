@@ -10,33 +10,8 @@
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.getTasksInfoUnverified",
     "context.metaData.commonTasks.verifyHoursInfo",
-    {
-      "name": "codeVerified",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.tasks_hours-code-verify"
-      }
-    },
-    {
-      "name": "handlePassFail",
-      "taskModule": "reroute",
-      "config": {
-        "if": [
-          {
-            "==": [
-              {
-                "var": "data.codeVerified"
-              },
-              "pass"
-            ]
-          },
-          null,
-          "verify-hours-fail"
-        ]
-      }
-    },
+    "context.metaData.commonTasks.hoursCodeVerify",
+    "context.metaData.commonTasks.handleHoursVerifyFail",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -53,7 +28,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_sample-hours-check",
+              "body": ">context.metaData.handlebars.templates.pages_query-hours",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar"
             },
             "contentType": "text/html"

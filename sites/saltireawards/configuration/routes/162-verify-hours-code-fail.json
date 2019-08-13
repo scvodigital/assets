@@ -1,6 +1,6 @@
 {
-  "name": "verify-hours-fail",
-  "pattern": "verify-hours-fail",
+  "name": "verify-hours-code-fail",
+  "pattern": "/verify-hours-code-fail",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

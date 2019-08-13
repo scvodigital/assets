@@ -6,11 +6,10 @@
     "title": "Tasks - Saltire Awards"
   },
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.getTasksInfoUnverified",
+    "context.metaData.commonTasks.verifyHoursInfo",
     {
       "name": "codeVerified",
       "taskModule": "render",

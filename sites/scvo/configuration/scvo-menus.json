@@ -597,16 +597,7 @@
 		"route": "^/the-gathering-2020$"
 	}],
 	"gathering-2019": [{
-		"children": [{
-				"label": "About",
-				"path": "/the-gathering-2019/about",
-				"route": "^/the-gathering-2019/about"
-			},
-			{
-				"label": "Sponsorship",
-				"path": "/the-gathering-2019/sponsorship",
-				"route": "^/the-gathering-2019/sponsorship"
-			},
+		"children": [
 			{
 				"label": "Exhibitors and event hosts",
 				"path": "/the-gathering-2019/exhibitors",
@@ -616,11 +607,6 @@
 				"label": "Resources",
 				"path": "/the-gathering-2019/resources",
 				"route": "^/the-gathering-2019/resources"
-			},
-			{
-				"label": "Contact",
-				"path": "/the-gathering-2019/contact-us",
-				"route": "^/the-gathering-2019/contact"
 			}
 		],
 		"label": "The Gathering 2019",

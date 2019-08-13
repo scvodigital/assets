@@ -1,7 +1,7 @@
 {{#if @root.data.primaryResponse.hits.hits.[0] ~}}
 {{#with @root.data.primaryResponse.hits.hits.[0]._source ~}}
-<title>SCVO – Funding update – {{momentFormat (moment (lastItem (split (atob ../request.params.range) "-")) "x") "Do MMMM YYYY"}}</title>
-<meta property="og:title" content="SCVO – Funding update – {{momentFormat (moment (lastItem (split (atob ../request.params.range) "-")) "x") "Do MMMM YYYY"}}" data-dynamic="true">
+<title>Funding update – {{momentFormat (moment (lastItem (split (atob ../request.params.range) "-")) "x") "Do MMMM YYYY"}} – SCVO</title>
+<meta property="og:title" content="Funding update – {{momentFormat (moment (lastItem (split (atob ../request.params.range) "-")) "x") "Do MMMM YYYY"}} – SCVO" data-dynamic="true">
 {{#ifAny og_image ../og_image ~}}
 <meta property="og:image" content="{{default og_image ../og_image}}" data-dynamic="true">
 {{/ifAny ~}}
@@ -12,6 +12,6 @@
 {{/if ~}}
 {{/with ~}}
 {{else}}
-<title>SCVO – Scottish Council for Voluntary Organisations</title>
-<meta property="og:title" content="SCVO – Scottish Council for Voluntary Organisations" data-dynamic="true">
+<title>Scottish Council for Voluntary Organisations – SCVO</title>
+<meta property="og:title" content="Scottish Council for Voluntary Organisations – SCVO" data-dynamic="true">
 {{/if ~}}

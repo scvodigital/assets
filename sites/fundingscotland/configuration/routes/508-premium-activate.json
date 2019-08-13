@@ -18,6 +18,17 @@
       }
     },
     {
+      "name": "updateSubscription",
+      "taskModule": "mysql",
+      "renderer": "handlebars",
+      "config": {
+        "connectionName": "notifications",
+        "queryTemplates": {
+          "subscriptions": "UPDATE subscriptions SET metaData={{{mysqlEscape (concat '' (dateMath 'now+1y'))}}} WHERE campaign='fs-bulletin-default' AND email={{{mysqlEscape @root.data.auth.email}}}"
+        }
+      }
+    },
+    {
       "name": "url",
       "taskModule": "render",
       "renderer": "handlebars",

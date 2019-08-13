@@ -1,7 +1,7 @@
 {{#if @root.data.supplimentaryResponses.author_profile.hits.hits.[0] ~}}
 {{#with @root.data.supplimentaryResponses.author_profile.hits.hits.[0]._source ~}}
-<title>SCVO – Posts by {{{name_full}}}</title>
-<meta property="og:title" content="SCVO – Posts by {{{name_full}}}" data-dynamic="true">
+<title>Posts by {{{name_full}}} – SCVO</title>
+<meta property="og:title" content="Posts by {{{name_full}}} – SCVO" data-dynamic="true">
 {{#ifAny og_image ../og_image ~}}
 <meta property="og:image" content="{{default og_image ../og_image}}" data-dynamic="true">
 {{/ifAny ~}}
@@ -16,6 +16,6 @@
 {{/if ~}}
 {{/with ~}}
 {{else}}
-<title>SCVO – Scottish Council for Voluntary Organisations</title>
-<meta property="og:title" content="SCVO – Scottish Council for Voluntary Organisations" data-dynamic="true">
+<title>Scottish Council for Voluntary Organisations – SCVO</title>
+<meta property="og:title" content="Scottish Council for Voluntary Organisations – SCVO" data-dynamic="true">
 {{/if ~}}

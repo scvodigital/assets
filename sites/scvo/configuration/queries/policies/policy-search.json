@@ -1,5 +1,9 @@
 {
+  {{#if @root.request.params.query.q ~}}
+  "size": 10000,
+  {{else}}
   "size": 0,
+  {{/if ~}}
   "query": {
     "bool": {
       "must": [
@@ -26,7 +30,7 @@
         {{/if}}
       ]
     }
-  },
+  }{{#unless @root.request.params.query.q ~}},
   "aggs": {
     "policies": {
       "terms": {
@@ -53,6 +57,7 @@
                 "additional",
                 "policy_topics",
                 "policy_topics_slugs",
+                "policy_topics_icons",
                 "updated"
               ]
             },
@@ -61,5 +66,5 @@
         }
       }
     }
-  }
+  }{{/unless ~}}
 }

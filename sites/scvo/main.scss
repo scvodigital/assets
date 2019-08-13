@@ -842,6 +842,9 @@ primary-dark: #263238
 
 @include theme-colours('default');
 
+.digital {
+  @include theme-colours('digital');
+}
 .events,
 .projects-campaigns.twenty-years-delivering-change.making-renting-right,
 .projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
@@ -940,9 +943,6 @@ primary-dark: #263238
 }
 .credit-union {
   @include theme-colours('credit-union');
-}
-.digital {
-  @include theme-colours('digital');
 }
 .tfn,
 .post-related-tfn,
@@ -2845,6 +2845,7 @@ body.i-love-charity main .page-info,
 .scvo-cms-page-24853 .page-info,
 .scvo-cms-page-30659 .page-info,
 .scvo-cms-page-31505 .page-info,
+.scvo-cms-page-32129 .page-info,
 .blogs .page-sidebar .page-info,
 .policy-research.briefings-consultation-responses .mdc-card__actions,
 .policy-research.research .mdc-card__actions,

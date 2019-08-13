@@ -1,6 +1,6 @@
 {
-  "name": "sample-hours-check",
-  "pattern": "/sample-hours-check",
+  "name": "query-hours",
+  "pattern": "/query-hours",
   "debug": true,
   "metaData": {
     "title": "Tasks - Saltire Awards"
@@ -12,14 +12,30 @@
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.getTasksInfoUnverified",
     {
-      "name": "setVerifyHoursCode",
-      "taskModule": "firebaseRtbSet",
+      "name": "codeVerified",
+      "taskModule": "render",
       "renderer": "handlebars",
       "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/verify-hours/",
-        "setOrUpdate": "set",
-        "dataTemplate": ">context.metaData.handlebars.templates.tasks_fb-verify-hours-data"
+        "output": "data",
+        "template": ">context.metaData.handlebars.templates.tasks_hours-code-verify"
+      }
+    },
+    {
+      "name": "handlePassFail",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "data.codeVerified"
+              },
+              "pass"
+            ]
+          },
+          null,
+          "verify-hours-fail"
+        ]
       }
     },
     {

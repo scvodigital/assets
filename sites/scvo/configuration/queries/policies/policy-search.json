@@ -58,7 +58,8 @@
                 "policy_topics",
                 "policy_topics_slugs",
                 "policy_topics_icons",
-                "updated"
+                "updated",
+                "slug"
               ]
             },
             "size": 10000

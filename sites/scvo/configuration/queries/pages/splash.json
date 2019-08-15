@@ -32,13 +32,15 @@
             }
           },
           "random_score": {},
-          "weight": 20
+          "weight": 10
         },
         {{/if ~}}
         {
           "filter": {
-            "term": {
-              "categories_id": 1
+            "terms": {
+              "categories_id": [
+                586,29,530,26,5,581
+              ]
             }
           },
           "random_score": {},

@@ -9,7 +9,8 @@
     "additional",
     "policy_topics",
     "policy_topics_slugs",
-    "updated"
+    "updated",
+    "slug"
   ],
   "query": {
     "bool": {

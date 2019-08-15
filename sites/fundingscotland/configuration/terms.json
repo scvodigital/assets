@@ -409,8 +409,8 @@
           },
           {
             "key": "third-sector-organisations",
-            "label": "Third sector organisations",
-            "textBag": "Third sector organisations, voluntary groups, charities, clubs"
+            "label": "Voluntary sector organisations",
+            "textBag": "Voluntary sector organisations, voluntary groups, charities, clubs"
           },
           {
             "key": "religious-and-belief-groups",

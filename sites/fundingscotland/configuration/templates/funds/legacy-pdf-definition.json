@@ -219,10 +219,10 @@
                 "bold": true
               }, {
                 "text": {
-                  "_if": "x._source['fund_telephone']", 
+                  "_if": "x._source['fund_telephone']",
                   "then": {
                     "_eval": "x._source['fund_telephone']"
-                  }, 
+                  },
                   "else": "No fund specific phone number"
                 },
                 "link": {
@@ -257,10 +257,10 @@
                 },
                 {
                   "text": {
-                    "_if": "x._source['fund_exclusion']", 
+                    "_if": "x._source['fund_exclusion']",
                     "then": {
                       "_eval": "x._source['fund_exclusion']"
-                    }, 
+                    },
                     "else": "No exclusions given"
                   }
                 }
@@ -380,13 +380,13 @@
               "text": "About Us\n",
               "fontSize": 14,
               "bold": true
-            }, 
+            },
             {
               "text": "Funding Scotland lists funders with a track record of supporting projects in Scotland. It includes grants, loans, prizes and other support. It is a valuable resource for charities, community groups, social enterprises and voluntary organisations of all shapes and sizes. It does not include funding opportunities for individuals or businesses.\n",
               "fontSize": 10
             },
             {
-              "text": "This website is owned and maintained by the Scottish Council for Voluntary Organisations the umbrella body for Scotland\"s third sector.\n",
+              "text": "This website is owned and maintained by the Scottish Council for Voluntary Organisations the umbrella body for Scotland\"s voluntary sector.\n",
               "fontSize": 10
             }
           ]
@@ -394,6 +394,6 @@
       ],
       "margin": [30, 240]
     }
-  
+
   ]
 }

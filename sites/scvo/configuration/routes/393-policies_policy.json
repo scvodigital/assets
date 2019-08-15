@@ -54,7 +54,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_policies",
+              "body": ">context.metaData.handlebars.templates.policies_policy",
               "foot": ""
             },
             "contentType": "text/html"

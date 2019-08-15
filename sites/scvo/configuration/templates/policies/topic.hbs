@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="container-fluid content page-content">
-    <ul class="breadcrumbs breadcrumbs-length-1" aria-hidden="true">
+    <ul class="breadcrumbs" aria-hidden="true">
       <li><a href="/">Home</a></li>
       <li><a href="/policy-research">Policy &amp; research</a></li>
       <li><a href="/policy-research/policies">Policies</a></li>
@@ -33,23 +33,11 @@
     <div class="mdc-layout-grid support support-policy b-margin t-margin-full">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-layout-grid equal-height">
+          <div class="mdc-layout-grid equal-height linked-cards">
             <div class="mdc-layout-grid__inner">
               {{#each @root.data.primaryResponse.hits.hits ~}}
               {{#with _source ~}}
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                <div class="mdc-card">
-                  <section class="mdc-card__primary">
-                    <h1 class="mdc-card__title mdc-card__title--large"><span class="fal fa-fw fa-comment-alt-lines fa-2x">&nbsp;</span>{{{title}}}</h1>
-                  </section>
-                  <section class="mdc-card__supporting-text">{{{statement}}}</section>
-                  <section class="mdc-card__actions">
-                    {{#if briefing}}<a class="mdc-card__action" href="{{briefing}}">Briefing</a>{{/if}}
-                    {{#if press_release}}<a class="mdc-card__action" href="{{press_release}}">Press release</a>{{/if}}
-                    {{#if additional}}<a class="mdc-card__action" href="{{additional}}" download>Download</a>{{/if}}
-                  </section>
-                </div>
-              </div>
+              {{> policies_card}}
               {{/with ~}}
               {{/each ~}}
             </div>

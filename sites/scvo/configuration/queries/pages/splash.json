@@ -34,6 +34,18 @@
           "random_score": {},
           "weight": 20
         },
+        {{else}}
+        {
+          "filter": {
+            "terms": {
+              "categories_id": [
+                586,29,530,26
+              ]
+            }
+          },
+          "random_score": {},
+          "weight": 10
+        },
         {{/if ~}}
         {
           "filter": {

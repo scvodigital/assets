@@ -1,0 +1,4 @@
+{{@root.context.metaData.bulletinCampaignName}}-{{@root.data.currentSite.name}}
+{{~#ifAll (compare @root.data.currentSite.name "default") @root.data.profile.isPremium ~}}
+  -premium
+{{~/ifAll~}}

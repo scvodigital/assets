@@ -153,5 +153,15 @@
       "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/{{data.currentSite.name}}",
       "defaultData": {}
     }
+  },
+  "bulletinName": {
+    "name": "bulletinName",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "template": ">context.metaData.handlebars.templates.bulletin-name",
+      "output": "data"
+    }
+
   }
 }

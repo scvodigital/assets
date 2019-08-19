@@ -12,6 +12,7 @@
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     {
       "name": "search_data",
       "taskModule": "elasticsearch",

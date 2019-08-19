@@ -9,6 +9,7 @@
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.shortlistData",
     {

@@ -1,6 +1,6 @@
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
-@import url('//fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,600,700');
+@import url('//fonts.googleapis.com/css?family=Lato:400,600,700');
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.css);
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css);
 
@@ -9,15 +9,15 @@ $nav-height: 38px;
 $mobile-nav-height: 58px;
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
-$base-font-family:                  "Open Sans", Helvetica, Arial, sans-serif;
+$base-font-family:                  "Lato", Helvetica, Arial, sans-serif;
 $base-font-weight:                  400;
 
-$heading-font-family:               "Montserrat", Helvetica, Arial, sans-serif;
+$heading-font-family:               "Lato", Helvetica, Arial, sans-serif;
 $heading-font-weight:               700;
 $heading-medium-font-weight:        600;
-$heading-light-font-weight:         500;
+$heading-light-font-weight:         400;
 
-$footer-font-family:                "Open Sans", Helvetica, Arial, sans-serif;
+$footer-font-family:                "Lato", Helvetica, Arial, sans-serif;
 $footer-font-weight:                400;
 
 $colours: (
@@ -499,13 +499,14 @@ primary-dark: #263238
   .mdc-theme--text-icon-on-primary-dark { }
 
   .splash-overlay {
-    background-image: linear-gradient(
-    80deg,
-    map-get($themeSelected, 'primary-overlay-start'),
-    map-get($themeSelected, 'primary-overlay-end') 47%,
-    transparent 47.08%,
-    transparent
-    );
+    // background-image: linear-gradient(
+    // 80deg,
+    // map-get($themeSelected, 'primary-overlay-start'),
+    // map-get($themeSelected, 'primary-overlay-end') 47%,
+    // transparent 47.08%,
+    // transparent
+    // );
+    background-color: map-get($themeSelected, 'primary-overlay-start');
   }
   .splash-overlay-full {
     background-color: map-get($themeSelected, 'primary-overlay-start') !important;
@@ -513,13 +514,14 @@ primary-dark: #263238
   }
   @media screen and (max-width: 1140px) {
     .splash-overlay {
-      background-image: linear-gradient(
-      80deg,
-      map-get($themeSelected, 'primary-overlay-start'),
-      map-get($themeSelected, 'primary-overlay-end') 52%,
-      transparent 52.08%,
-      transparent
-      );
+      // background-image: linear-gradient(
+      // 80deg,
+      // map-get($themeSelected, 'primary-overlay-start'),
+      // map-get($themeSelected, 'primary-overlay-end') 52%,
+      // transparent 52.08%,
+      // transparent
+      // );
+      background-color: map-get($themeSelected, 'primary-overlay-start');
     }
     .splash-image .header-caption {
       max-width: 40%;
@@ -527,13 +529,14 @@ primary-dark: #263238
   }
   @media screen and (max-width: 991px) {
     .splash-overlay {
-      background-image: linear-gradient(
-      80deg,
-      map-get($themeSelected, 'primary-overlay-start'),
-      map-get($themeSelected, 'primary-overlay-end') 57%,
-      transparent 57.08%,
-      transparent
-      );
+    //   background-image: linear-gradient(
+    //   80deg,
+    //   map-get($themeSelected, 'primary-overlay-start'),
+    //   map-get($themeSelected, 'primary-overlay-end') 57%,
+    //   transparent 57.08%,
+    //   transparent
+    //   );
+    background-color: map-get($themeSelected, 'primary-overlay-start');
     }
     .splash-image .header-caption {
       max-width: 36%;
@@ -541,13 +544,14 @@ primary-dark: #263238
   }
   @media screen and (max-width: 839px) {
     .splash-overlay {
-      background-image: linear-gradient(
-      80deg,
-      map-get($themeSelected, 'primary-overlay-start'),
-      map-get($themeSelected, 'primary-overlay-end') 67%,
-      transparent 67.08%,
-      transparent
-      );
+      // background-image: linear-gradient(
+      // 80deg,
+      // map-get($themeSelected, 'primary-overlay-start'),
+      // map-get($themeSelected, 'primary-overlay-end') 67%,
+      // transparent 67.08%,
+      // transparent
+      // );
+      background-color: map-get($themeSelected, 'primary-overlay-start');
     }
     .splash-image .header-caption {
       display: none;
@@ -555,11 +559,12 @@ primary-dark: #263238
   }
   @media screen and (max-width: 450px) {
     .splash-overlay {
-      background-image: linear-gradient(
-      80deg,
-      map-get($themeSelected, 'primary-overlay-start'),
-      map-get($themeSelected, 'primary-overlay-end')
-      );
+      // background-image: linear-gradient(
+      // 80deg,
+      // map-get($themeSelected, 'primary-overlay-start'),
+      // map-get($themeSelected, 'primary-overlay-end')
+      // );
+      background-color: map-get($themeSelected, 'primary-overlay-start');
     }
   }
   .home .cta-content.callout-image {
@@ -2411,7 +2416,7 @@ form#settled_status {
 .splash-image .splash-overlay .container-fluid {
   overflow: hidden;
   position: relative;
-  min-height: 27vh;
+  // min-height: 27vh;
 }
 .splash-overlay.splash-overlay-hidden {
   // background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
@@ -2579,14 +2584,14 @@ body.the-gathering:not(.post) main {
     }
   }
   .splash-image .splash-overlay .container-fluid {
-    min-height: 20vh;
+    // min-height: 20vh;
     .mdc-layout-grid {
       line-height: 0;
       margin: 0;
       width: 100%;
       text-align: center;
       img.header-text {
-        max-height: 30vh;
+        // max-height: 30vh;
       }
     }
   }
@@ -3017,7 +3022,7 @@ body.i-love-charity main .page-info,
 .mdc-card__subtitle {
   margin: 0;
   .post-info-item {
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 .mdc-card__title--large {

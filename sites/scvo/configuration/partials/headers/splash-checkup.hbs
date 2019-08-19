@@ -7,7 +7,7 @@
             <h1 class="header-text">
               <span class="header-text-banner">
                 {{#if @root.request.params.query.section ~}}
-                {{#with (getProperty @root.context.metaData.governanceCheckup (concat "section-" @root.request.params.query.section)) ~}}
+                {{#with (getProperty @root.route.metaData.governanceCheckup (concat "section-" @root.request.params.query.section)) ~}}
                 {{#if title ~}}
                 {{{title}}}
                 {{#if sub_title ~}}

@@ -4,6 +4,9 @@
     "index": "/running-your-organisation/governance/checkup",
     "section": "/running-your-organisation/governance/checkup/*path"
   },
+  "metaData": {
+    "governanceCheckup": "{:../data/governance-checkup.json}"
+  },
   "tasks": [
     {
       "name": "primaryResponse",

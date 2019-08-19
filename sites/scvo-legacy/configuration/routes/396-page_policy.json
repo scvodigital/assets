@@ -1,0 +1,90 @@
+{
+  "name": "page_policy",
+  "pattern": "/policy-research",
+  "tasks": [
+    {
+      "name": "primaryResponse",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": {
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "scvo-page",
+          "template": ">context.metaData.handlebars.queries.pages_page",
+          "noResultsRoute": "four_oh_four"
+        }
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "supplimentaryResponses",
+      "taskModule": "elasticsearch",
+      "config": {
+        "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+        "elasticsearchConfig": {
+          "apiVersion": "5.6"
+        },
+        "queryTemplates": [
+          {
+            "name": "latest_briefings",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
+            "template": ">context.metaData.handlebars.queries.posts_briefings"
+          },
+          {
+            "name": "latest_consultation_responses",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
+            "template": ">context.metaData.handlebars.queries.posts_consultation-responses"
+          },
+          {
+            "name": "latest_research",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-post",
+            "template": ">context.metaData.handlebars.queries.posts_reports"
+          },
+          {
+            "name": "events_total",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-event",
+            "template": ">context.metaData.handlebars.queries.events_policy-total"
+          },
+          {
+            "name": "splash",
+            "index": "{$../../../elasticsearch-index.txt}",
+            "type": "scvo-media",
+            "template": ">context.metaData.handlebars.queries.pages_splash"
+          }
+        ]
+      },
+      "renderer": "handlebars"
+    },
+    {
+      "name": "destination",
+      "taskModule": "renderLayout",
+      "renderer": "handlebars",
+      "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
+        "output": "body",
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_policy-landing",
+              "foot": ""
+            },
+            "contentType": "text/html"
+          }
+        }
+      }
+    }
+  ]
+}

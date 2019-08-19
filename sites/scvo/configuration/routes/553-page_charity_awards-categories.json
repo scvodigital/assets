@@ -2,7 +2,7 @@
   "name": "categories_charity_awards",
   "pattern": "/scottish-charity-awards/finalists-2019(/*category)",
   "metaData": {
-    "awards-info": "{:../awards-info.json}"
+    "awards-info": "{:../data/awards-info.json}"
   },
   "tasks": [
     {

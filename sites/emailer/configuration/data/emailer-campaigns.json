@@ -7,7 +7,7 @@
     "subjectPartial": "subjects_goodmoves_saved_searches",
     "bodyPartial": "bodies_goodmoves_saved_searches",
     "queryTemplate": ">context.metaData.handlebars.queries.goodmoves-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}",
     "elasticsearchType": "goodmoves-vacancy",
     "metaData": {}
   },
@@ -19,7 +19,7 @@
     "subjectPartial": "subjects_goodmoves_shortlist",
     "bodyPartial": "bodies_goodmoves_shortlist",
     "queryTemplate": ">context.metaData.handlebars.queries.goodmoves-shortlist",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}",
     "elasticsearchType": "goodmoves-vacancy",
     "metaData": {}
   },
@@ -43,7 +43,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
@@ -65,7 +65,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
@@ -88,7 +88,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
@@ -110,7 +110,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
@@ -132,7 +132,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
@@ -154,7 +154,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
@@ -176,7 +176,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
@@ -198,7 +198,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-fife": {
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
@@ -220,7 +220,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -242,7 +242,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -264,7 +264,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-northlanarkshire": {
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -286,7 +286,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
@@ -308,7 +308,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
@@ -330,7 +330,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-shetland": {
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
@@ -352,7 +352,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -374,7 +374,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -396,7 +396,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-southlanarkshire": {
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
@@ -418,7 +418,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
@@ -440,7 +440,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
@@ -462,7 +462,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-srn": {
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
@@ -484,7 +484,7 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-searches-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
@@ -506,7 +506,7 @@
     "subjectPartial": "subjects_fs_saved_searches",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-saved-funds-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
@@ -528,7 +528,7 @@
     "subjectPartial": "subjects_fs_saved_funds",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
   "fs-bulletin-stirling": {
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
@@ -550,6 +550,6 @@
     "subjectPartial": "subjects_fs_bulletin",
     "bodyPartial": "bodies_fs_main",
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
-    "elasticsearchIndex": "{$../../elasticsearch-index.txt}"
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   }
 }

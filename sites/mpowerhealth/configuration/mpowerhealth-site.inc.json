@@ -38,10 +38,10 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/mpowerhealth/",
     "title": "mPower Health",
-    "menus": "{:./mpowerhealth-menus.json}",
+    "menus": "{:./data/menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
-    "domain-map": "{:./domain-map.json}",
-    "site-configurations": "{:./site-configurations.json}",
+    "domain-map": "{:./data/domain-map.json}",
+    "site-configurations": "{:./data/site-configurations.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
@@ -56,6 +56,6 @@
         "{$./queries/**/*.*}": ""
       }
     },
-    "commonTasks": "{:./common-tasks.json}"
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

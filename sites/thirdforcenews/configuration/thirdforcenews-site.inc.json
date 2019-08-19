@@ -12,8 +12,8 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/thirdforcenews/",
     "title": "Third Force News",
-    "menus": "{:./thirdforcenews-menus.json}",
-    "categories": "{:./categories.json}",
+    "menus": "{:./data/menus.json}",
+    "categories": "{:./data/categories.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "handlebars": {
       "partials": {
@@ -29,6 +29,6 @@
         "{$./queries/**/*.*}": ""
       }
     },
-    "commonTasks": "{:./common-tasks.json}"
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

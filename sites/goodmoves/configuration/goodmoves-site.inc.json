@@ -19,8 +19,8 @@
     "title": "Goodmoves - charity and voluntary sector recruitment",
     "emailCampaignName": "goodmoves-saved-searches",
     "shortlistCampaignName": "goodmoves-shortlist",
-    "volunteeringTerms": "{:./volunteering-terms.json}",
-    "menus": "{:./goodmoves-menus.json}",
+    "volunteeringTerms": "{:./data/volunteering-terms.json}",
+    "menus": "{:./data/menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "termTypeLabels": {
       "working_patterns": {

@@ -58,12 +58,12 @@
     "name": "menus",
     "taskModule": "elasticsearch",
     "config": {
-      "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
       "elasticsearchConfig": {
         "apiVersion": "5.6"
       },
       "queryTemplates": {
-        "index": "{$../../elasticsearch-index.txt}",
+        "index": "{$../../../elasticsearch-index.txt}",
         "type": "fs-page-default,fs-page-eastrenfrewshire,fs-page-fife,fs-page-northlanarkshire,fs-page-shetland,fs-page-southlanarkshire,fs-page-srn,fs-page-stirling",
         "template": ">context.metaData.handlebars.queries.pages_menus"
       }
@@ -74,19 +74,19 @@
     "name": "supplimentaryResponses",
     "taskModule": "elasticsearch",
     "config": {
-      "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
       "elasticsearchConfig": {
         "apiVersion": "5.6"
       },
       "queryTemplates": [{
           "name": "types",
-          "index": "{$../../elasticsearch-index.txt}",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "fs-fund",
           "template": ">context.metaData.handlebars.queries.funds_types"
         },
         {
           "name": "not_found",
-          "index": "{$../../elasticsearch-index.txt}",
+          "index": "{$../../../elasticsearch-index.txt}",
           "type": "fs-fund",
           "template": ">context.metaData.handlebars.queries.pages_not-found"
         }
@@ -98,13 +98,13 @@
     "name": "fundersWithFunds",
     "taskModule": "elasticsearch",
     "config": {
-      "connectionStringTemplate": "{$../../elasticsearch-url.txt}",
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
       "elasticsearchConfig": {
         "apiVersion": "5.6"
       },
       "queryTemplates": [{
         "name": "funds",
-        "index": "{$../../elasticsearch-index.txt}",
+        "index": "{$../../../elasticsearch-index.txt}",
         "type": "fs-fund",
         "template": ">context.metaData.handlebars.queries.funds_funders"
       }]

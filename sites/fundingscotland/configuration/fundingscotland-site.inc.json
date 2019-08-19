@@ -34,14 +34,14 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/fundingscotland/",
     "title": "Funding Scotland",
-    "menus": "{:./fundingscotland-menus.json}",
+    "menus": "{:./data/menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "emailCampaignName": "fs-saved-searches",
     "shortlistCampaignName": "fs-saved-funds",
     "bulletinCampaignName": "fs-bulletin",
-    "terms": "{:./terms.json}",
-    "domain-map": "{:./domain-map.json}",
-    "site-configurations": "{:./site-configurations.json}",
+    "terms": "{:./data/terms.json}",
+    "domain-map": "{:./data/domain-map.json}",
+    "site-configurations": "{:./data/site-configurations.json}",
     "openingSoonDate": "now+3M/d",
     "globalNoteStatuses": [
       "Application in progress",
@@ -99,6 +99,6 @@
         "{$./queries/**/*.*}": ""
       }
     },
-    "commonTasks": "{:./common-tasks.json}"
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

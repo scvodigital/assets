@@ -6,6 +6,7 @@
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     {
       "name": "togglePremium",
       "taskModule": "firebaseRtbSet",
@@ -24,7 +25,7 @@
       "config": {
         "connectionName": "notifications",
         "queryTemplates": {
-          "subscriptions": "UPDATE subscriptions SET metaData={{{mysqlEscape (concat '' (dateMath 'now+1y'))}}} WHERE campaign='fs-bulletin-default' AND email={{{mysqlEscape @root.data.auth.email}}}"
+          "subscriptions": "CALL _renameSubscription({{{mysqlEscape @root.data.auth.email}}}, 'fs-bulletin-default', 'fs-bulletin-default-premium');"
         }
       }
     },

@@ -74,7 +74,7 @@
     "metaData": {
       "title": "Funding updates and news",
       "baseUrl": "https://fundingscotland.com",
-      "siteConfiguration": "{:../../../fundingscotland/configuration/site-configurations.json@default}",
+      "siteConfiguration": "{:../../../fundingscotland/configuration/data/site-configurations.json@default}",
       "newsTitle": "Latest news",
       "newsText": "",
       "noNewsText": "",

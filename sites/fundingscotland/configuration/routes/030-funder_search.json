@@ -17,6 +17,7 @@
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.fundersWithFunds",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     "context.metaData.commonTasks.menus",
     {
       "name": "search_data",

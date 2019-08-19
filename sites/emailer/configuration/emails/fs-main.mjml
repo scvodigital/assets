@@ -117,7 +117,7 @@
           </mj-column>
         </mj-section>
 
-        <mj-raw>{{#ifAny (compare campaign "!==" "fs-bulletin-default") (compare metaData ">" (dateMath "now"))}}</mj-raw>
+        <mj-raw>{{#compare campaign "!==" "fs-bulletin-default"}}</mj-raw>
           <mj-raw>{{#if (any funds)}}</mj-raw>
             <mj-raw>{{#if campaignConfig.metaData.fundsText}}</mj-raw>
               <mj-section padding="0px">
@@ -232,7 +232,7 @@
               </mj-button>
             </mj-column>
           </mj-section>
-        <mj-raw>{{/ifAny}}</mj-raw>
+        <mj-raw>{{/compare}}</mj-raw>
 
         <mj-section padding="30px">
           <mj-column padding="0px"></mj-column>

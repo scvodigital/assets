@@ -1,8 +1,8 @@
 {
   "domains": [
+    "scvo.local",
     "127.0.0.1",
     "localhost",
-    "scvo.local",
     "test.scvo.org"
   ],
   "routes": [

@@ -98,7 +98,7 @@
         <span class="fa-li"><span class="far fa-info-circle fa-fw" title="Registered charity"></span></span>
         <span class="key-info-bit r-margin-full">
           <strong>Registered charity:</strong>
-          <a href="{{>charity_link funder_organisation}}" target="_blank">{{funder_organisation.charity_number}}</a>
+          <a href="{{>charity_link funder_organisation}}" target="_blank">{{trim funder_organisation.charity_number}}</a>
         </span>
       </li>
       {{/if ~}}

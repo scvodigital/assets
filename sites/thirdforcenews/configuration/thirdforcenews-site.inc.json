@@ -10,7 +10,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/thirdforcenews/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/thirdforcenews/",
     "title": "Third Force News",
     "menus": "{:./thirdforcenews-menus.json}",
     "categories": "{:./categories.json}",

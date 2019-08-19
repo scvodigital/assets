@@ -10,7 +10,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/humanrightsdeclaration/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/humanrightsdeclaration/",
     "menus": "{:./humanrightsdeclaration-menus.json}",
     "handlebars": {
       "partials": {

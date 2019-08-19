@@ -9,7 +9,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/sdgadvocate/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/sdgadvocate/",
     "title": "SDG Advocate Programme",
     "menus": "{:./sdgadvocate-menus.json}",
     "accountInfoValidation": "{:./account-info-validation.json}",

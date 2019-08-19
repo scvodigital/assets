@@ -14,6 +14,14 @@
       </div>
       <div class="key-info-extra">
         <ul class="fa-ul last">
+          {{#if @root.data.supplimentaryResponses.funds_open.hits.hits.[0]._source.funder_organisation.address ~}}
+            <li class="mdc-typography--body1">
+              <span class="fa-li"><span class="far fa-building fa-fw" title="Address"></span></span>
+              <span class="key-info-bit r-margin-full">
+                {{replace @root.data.supplimentaryResponses.funds_open.hits.hits.[0]._source.funder_organisation.address ", , " ", "}}
+              </span>
+            </li>
+          {{/if ~}}
           {{#if website ~}}
           {{#compare website "!==" null ~}}
           {{#compare website "!==" "http://" ~}}
@@ -53,6 +61,18 @@
           </li>
           {{/compare ~}}
           {{/compare ~}}
+          {{/if ~}}
+          {{#if charity_number ~}}
+          {{#if (contains charity_number "not") ~}}
+          {{else}}
+          <li class="mdc-typography--body1">
+            <span class="fa-li"><span class="far fa-info-circle fa-fw" title="Registered charity"></span></span>
+            <span class="key-info-bit r-margin-full">
+              <strong>Registered charity:</strong>
+              <a href="{{>charity_link this}}" target="_blank">{{trim charity_number}}</a>
+            </span>
+          </li>
+          {{/if ~}}
           {{/if ~}}
         </ul>
       </div>

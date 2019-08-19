@@ -1,0 +1,175 @@
+{
+  "authNotRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.gm_token",
+      "cookieName": "gm_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true,
+        "path": "/"
+      },
+      "appName": "goodmoves",
+      "noTokenRoute": "",
+      "notAuthenticatedRoute": ""
+    }
+  },
+  "authRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.gm_token",
+      "cookieName": "gm_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true,
+        "path": "/"
+      },
+      "appName": "goodmoves",
+      "noTokenRoute": "sign_in",
+      "notAuthenticatedRoute": "sign_in"
+    }
+  },
+  "termsMaps": {
+    "name": "termsMaps",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "template": ">context.metaData.handlebars.partials.terms_maps",
+      "output": "data",
+      "parseJson": true
+    }
+  },
+  "supplimentaryResponses": {
+    "name": "supplimentaryResponses",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": [
+        {
+          "name": "types",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types"
+        },
+        {
+          "name": "types_regions",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types-regions-scotland"
+        },
+        {
+          "name": "types_regions_belgium",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types-regions-belgium"
+        },
+        {
+          "name": "types_regions_england",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types-regions-england"
+        },
+        {
+          "name": "types_regions_northern_ireland",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types-regions-northern-ireland"
+        },
+        {
+          "name": "types_regions_wales",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_types-regions-wales"
+        },
+        {
+          "name": "banner",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-banner",
+          "template": ">context.metaData.handlebars.queries.banners_banner"
+        },
+        {
+          "name": "not_found",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.pages_not-found"
+        }
+      ]
+    },
+    "renderer": "handlebars"
+  },
+  "organisationsWithVacancies": {
+    "name": "organisationsWithVacancies",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": [
+        {
+          "name": "vacancies",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_organisations"
+        }
+      ]
+    },
+    "renderer": "handlebars"
+  },
+  "organisationsWithOpenVacancies": {
+    "name": "organisationsWithVacancies",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": [
+        {
+          "name": "vacancies",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "goodmoves-vacancy",
+          "template": ">context.metaData.handlebars.queries.vacancies_organisations-currently-recruiting"
+        }
+      ]
+    },
+    "renderer": "handlebars"
+  },
+  "searchesData": {
+    "name": "searches",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-saved-searches"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "shortlistData": {
+    "name": "shortlist",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-shortlist"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "notesData": {
+    "name": "notes",
+    "taskModule": "firebaseRtbGet",
+    "renderer": "handlebars",
+    "config": {
+      "appName": "goodmoves",
+      "pathTemplate": "/notes/{{default data.auth.uid 'no-such-profile'}}",
+      "defaultData": " "
+    }
+  }
+}

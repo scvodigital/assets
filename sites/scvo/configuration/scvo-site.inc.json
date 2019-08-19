@@ -13,7 +13,6 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo/",
     "title": "SCVO",
     "menus": "{:./data/menus.json}",
-    "commonTasks": "{:./data/common-tasks.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
@@ -27,6 +26,7 @@
       "queries": {
         "{$./queries/**/*.*}": ""
       }
-    }
+    },
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

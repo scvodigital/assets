@@ -11,8 +11,8 @@
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/emailer/",
     "title": "SCVO Emailer",
     "menus": {},
-    "campaignConfig": "{:./emailer-campaigns.json}",
-    "vsCampaignConfig": "{:./vs-emailer-campaigns.json}",
+    "campaignConfig": "{:./data/emailer-campaigns.json}",
+    "vsCampaignConfig": "{:./data/vs-emailer-campaigns.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "firebaseDefaultDomain": {
       "name": "scvo",
@@ -25,38 +25,6 @@
         "projectId": "scvo-net",
         "storageBucket": "scvo-net.appspot.com",
         "messagingSenderId": "782194712584"
-      }
-    },
-    "commonTasks": {
-      "authNotRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.emailer_token",
-          "cookieName": "emailer_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true
-          },
-          "appName": "scvo",
-          "noTokenRoute": "",
-          "notAuthenticatedRoute": ""
-        }
-      },
-      "authRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.emailer_token",
-          "cookieName": "emailer_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true
-          },
-          "appName": "scvo",
-          "noTokenRoute": "home",
-          "notAuthenticatedRoute": "home"
-        }
       }
     },
     "handlebars": {
@@ -72,6 +40,7 @@
       "queries": {
         "{$./queries/**/*.*}": ""
       }
-    }
+    },
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

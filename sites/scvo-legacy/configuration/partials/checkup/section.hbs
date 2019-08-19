@@ -1,0 +1,104 @@
+{{#*inline "select_answer"}}
+<div class="mdc-layout-grid">
+  <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="option">{{{default label value}}}</div>
+    </div>
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
+      <div class="mdc-form-field">
+        <div class="mdc-select" data-mdc-auto-init="MDCSelect">
+          <span class="mdc-select__dropdown-icon"></span>
+          <select class="mdc-select__native-control" id="{{name}}" name="{{name}}" required>
+            <option name=""></option>
+            <option name="0">Not at all</option>
+            <option name="1">One</option>
+            <option name="2">Two</option>
+            <option name="3">Not so sure we're doing all of this</option>
+            <option name="4">Four</option>
+            <option name="5">Completely</option>
+          </select>
+          <label class="mdc-floating-label mdc-floating-label--float-above" for="{{name}}">Select an option</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/inline}}
+
+{{#compare section "section-results" ~}}
+  {{> checkup_results}}
+{{else}}
+  {{#with (getProperty @root.context.metaData.governanceCheckup section) ~}}
+  {{#if progress ~}}
+  {{> checkup_progress progress=progress}}
+  {{/if ~}}
+  <form action="{{@root.request.url.pathname}}?section={{next_section}}" method="post" class="checkup-section b-padding-full" id="checkup-{{../section}}">
+    {{> checkup_scores section=@root.request.body.score-section}}
+    <input type="hidden" name="score-section" value="{{../section}}" />
+    <div class="checkup-section-header b-padding-full v-margin-full">
+      {{#if heading ~}}
+      <h2 class="mdc-typography--headline6"><strong>{{{heading}}}</strong></h2>
+      {{/if ~}}
+      {{#if description ~}}
+      <div class="mdc-typography--headline6">{{{description}}}</div>
+      {{/if ~}}
+    </div>
+    <div class="checkup-section-body">
+      <div class="mdc-layout-grid">
+        <div class="mdc-layout-grid__inner">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone hide-sm">
+            <strong>We do this by&hellip;</strong>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone hide-sm">
+            <strong>We show this by&hellip;</strong>
+          </div>
+        </div>
+        {{#each questions ~}}
+        <div class="mdc-layout-grid__inner question-group mdc-elevation--z1">
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-3-tablet mdc-layout-grid__cell--span-4-phone">
+            <div class="question-block">
+              <div class="question">
+                {{#if title ~}}
+                <div class="mdc-typography--body1 question-title"><strong>{{{title}}}</strong></div>
+                {{/if ~}}
+                {{#if description ~}}
+                <div class="mdc-typography--body1 question-description">{{{description}}}</div>
+                {{/if ~}}
+              </div>
+            </div>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
+            {{#ifAny (compare type "select-one") (compare type "select-many") ~}}
+            <div class="answer-block">
+              {{#each options ~}}
+              {{#switch ../type ~}}
+              {{#case "select-one" ~}}
+              {{#if answer ~}}
+              <div class="answer">
+                {{> components_radio_button label=answer id=(slugify answer) name=(if (compare ../../section "===" "section-6") ../value else=(concat "scores-" ../value)) value=(default score value) required="true"}}
+              </div>
+              {{/if ~}}
+              {{/case ~}}
+              {{#case "select-many" ~}}
+              {{#if answer ~}}
+              <div class="answer">
+                {{> select_answer label=answer id=(slugify answer) name="scores" value=(default score value)}}
+              </div>
+              {{/if ~}}
+              {{/case ~}}
+              {{/switch ~}}
+              {{/each ~}}
+            </div>
+            {{/ifAny ~}}
+          </div>
+        </div>
+        {{/each ~}}
+      </div>
+      <div class="cta b-padding-full">
+        <button type="submit" class="mdc-button mdc-button--raised">Next section</button>
+      </div>
+    </div>
+  </form>
+  {{/with ~}}
+{{/compare ~}}

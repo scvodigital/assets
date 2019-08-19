@@ -15,7 +15,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/goodmoves/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/goodmoves/",
     "title": "Goodmoves - charity and voluntary sector recruitment",
     "emailCampaignName": "goodmoves-saved-searches",
     "shortlistCampaignName": "goodmoves-shortlist",

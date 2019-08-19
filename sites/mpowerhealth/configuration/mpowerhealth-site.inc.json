@@ -36,7 +36,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/mpowerhealth/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/mpowerhealth/",
     "title": "mPower Health",
     "menus": "{:./mpowerhealth-menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",

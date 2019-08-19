@@ -10,7 +10,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/scvo/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo/",
     "title": "SCVO",
     "menus": "{:./scvo-menus.json}",
     "governanceCheckup": "{:./governance-checkup.json}",

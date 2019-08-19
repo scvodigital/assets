@@ -8,7 +8,7 @@
   ],
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
-    "assetsBase": "https://storage.googleapis.com/scvo-assets/production/digitalcheckup/",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalcheckup/",
     "title": "Digital Checkup",
     "menus": "{:./digitalcheckup-menus.json}",
     "checkup": "{:./checkup.json}",

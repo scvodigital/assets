@@ -29,7 +29,7 @@
 {{#compare section "section-results" ~}}
   {{> checkup_results}}
 {{else}}
-  {{#with (getProperty @root.context.metaData.governanceCheckup section) ~}}
+  {{#with (getProperty @root.route.metaData.governanceCheckup section) ~}}
   {{#if progress ~}}
   {{> checkup_progress progress=progress}}
   {{/if ~}}

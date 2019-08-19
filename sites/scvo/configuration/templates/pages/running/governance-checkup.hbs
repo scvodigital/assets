@@ -9,7 +9,7 @@
         <li><a href="/running-your-organisation">Running your organisation</a></li>
         <li><a href="/running-your-organisation/governance">Good Governance</a></li>
         <li><a href="/running-your-organisation/governance/checkup">Checkup</a></li>
-        {{#with (getProperty @root.context.metaData.governanceCheckup (concat "section-" @root.request.params.query.section)) ~}}
+        {{#with (getProperty @root.route.metaData.governanceCheckup (concat "section-" @root.request.params.query.section)) ~}}
         <li>{{{name}}}</li>
         {{/with ~}}
       </ul>

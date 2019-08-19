@@ -12,42 +12,8 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo/",
     "title": "SCVO",
-    "menus": "{:./scvo-menus.json}",
-    "governanceCheckup": "{:./governance-checkup.json}",
-    "commonTasks": {
-      "authNotRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.cjs_token",
-          "cookieName": "cjs_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true,
-            "path": "/"
-          },
-          "appName": "cjs",
-          "noTokenRoute": "",
-          "notAuthenticatedRoute": ""
-        }
-      },
-      "authRequired": {
-        "name": "auth",
-        "taskModule": "firebaseAuth",
-        "config": {
-          "tokenPath": "request.cookies.cjs_token",
-          "cookieName": "cjs_cookie",
-          "cookieOptions": {
-            "maxAge": 1209600000,
-            "secure": true,
-            "path": "/"
-          },
-          "appName": "cjs",
-          "noTokenRoute": "cjs_sign_in",
-          "notAuthenticatedRoute": "cjs_sign_in"
-        }
-      }
-    },
+    "menus": "{:./data/menus.json}",
+    "commonTasks": "{:./data/common-tasks.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

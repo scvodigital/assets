@@ -218,23 +218,23 @@ height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 var data = [
   [//Average scores
     {
-      axis:"{{{@root.context.metaData.governanceCheckup.section-1.name}}}",
+      axis:"{{{@root.route.metaData.governanceCheckup.section-1.name}}}",
       value:{{@root.request.body.section-1-score}}/100
     },
     {
-      axis:"{{{@root.context.metaData.governanceCheckup.section-2.name}}}",
+      axis:"{{{@root.route.metaData.governanceCheckup.section-2.name}}}",
       value:{{@root.request.body.section-2-score}}/100
     },
     {
-      axis:"{{{@root.context.metaData.governanceCheckup.section-3.name}}}",
+      axis:"{{{@root.route.metaData.governanceCheckup.section-3.name}}}",
       value:{{@root.request.body.section-3-score}}/100
     },
     {
-      axis:"{{{@root.context.metaData.governanceCheckup.section-4.name}}}",
+      axis:"{{{@root.route.metaData.governanceCheckup.section-4.name}}}",
       value:{{@root.request.body.section-4-score}}/100
     },
     {
-      axis:"{{{@root.context.metaData.governanceCheckup.section-5.name}}}",
+      axis:"{{{@root.route.metaData.governanceCheckup.section-5.name}}}",
       value:{{@root.request.body.section-5-score}}/100
     }
   ]

@@ -67,6 +67,28 @@
     "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
     "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
+  "fs-bulletin-default-premium": {
+    "from": "Funding Scotland <no-reply@fundingscotland.com>",
+    "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
+    "elasticsearchType": "fs-fund,fs-post-default",
+    "metaData": {
+      "title": "Funding updates and news",
+      "baseUrl": "https://fundingscotland.com",
+      "siteConfiguration": "{:../../../fundingscotland/configuration/site-configurations.json@default}",
+      "newsTitle": "Latest news",
+      "newsText": "",
+      "noNewsText": "",
+      "fundsTitle": "Latest funds",
+      "fundsText": "New and recently opened funds",
+      "noFundsText": "No funds have opened since your previous alert"
+    },
+    "mailgunConnection": "mg_fundingscotland",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_bulletin",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
+  },
   "fs-bulletin-default": {
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",

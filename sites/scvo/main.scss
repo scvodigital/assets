@@ -1,6 +1,6 @@
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
-@import url('//fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,600,700');
+@import url('//fonts.googleapis.com/css?family=Lato:400,600,700');
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.css);
 @import url(../../node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css);
 
@@ -9,15 +9,15 @@ $nav-height: 38px;
 $mobile-nav-height: 58px;
 $toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
-$base-font-family:                  "Open Sans", Helvetica, Arial, sans-serif;
+$base-font-family:                  "Lato", Helvetica, Arial, sans-serif;
 $base-font-weight:                  400;
 
-$heading-font-family:               "Montserrat", Helvetica, Arial, sans-serif;
+$heading-font-family:               "Lato", Helvetica, Arial, sans-serif;
 $heading-font-weight:               700;
 $heading-medium-font-weight:        600;
-$heading-light-font-weight:         500;
+$heading-light-font-weight:         400;
 
-$footer-font-family:                "Open Sans", Helvetica, Arial, sans-serif;
+$footer-font-family:                "Lato", Helvetica, Arial, sans-serif;
 $footer-font-weight:                400;
 
 $colours: (
@@ -3022,7 +3022,7 @@ body.i-love-charity main .page-info,
 .mdc-card__subtitle {
   margin: 0;
   .post-info-item {
-    font-weight: 500;
+    font-weight: 400;
   }
 }
 .mdc-card__title--large {

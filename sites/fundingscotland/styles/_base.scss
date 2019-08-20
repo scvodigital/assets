@@ -95,6 +95,12 @@ header {
         display: block;
         margin-left: $unit*1.25;
         white-space: normal;
+        .mdc-typography--caption {
+          text-align: right;
+          opacity: 0.6;
+          line-height: 1;
+          margin-top: -.3rem;
+        }
       }
       .mdc-top-app-bar__title:hover {
         text-decoration: none;
@@ -1044,19 +1050,19 @@ footer.mdc-layout__footer {
 }
 .chip-filters > span:first-child::before {
   font-family: "Font Awesome 5 Pro";
-  font-weight: 900;
+  font-weight: 400;
   color: #444;
 }
 .chip-filters:empty {
   display: none;
 }
 
-#activities-filters > span:first-child::before { content: "\f4ce"; }
+#activities-filters > span:first-child::before { content: "\f757"; }
 #beneficiaries-filters > span:first-child::before { content: "\f0c0"; }
 #type_of_funding-filters > span:first-child::before { content: "\f19c"; }
 #type_of_cost-filters > span:first-child::before { content: "\f53c"; }
 #miscellaneous-filters > span:first-child::before { content: "\f0b0"; }
-#geographical_areas_funded-filters > span:first-child::before { content: "\f5a0"; }
+#geographical_areas_funded-filters > span:first-child::before { content: "\f3c5"; }
 #source_of_fund-filters > span:first-child::before { content: "\f4c4"; }
 
 .search-result-article__notes .faded-overflow {

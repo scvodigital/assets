@@ -454,24 +454,24 @@ primary-dark: #263238
     background-color: map-get($themeSelected, 'primary-light') !important;
   }
   .mdc-theme--primary-dark-bg.toolbar-nav {
-    background-color: map-get($themeSelected, 'primary-dark') !important;
+    // background-color: map-get($themeSelected, 'primary-dark') !important;
   }
   .home .mdc-theme--primary-dark-bg.toolbar-nav {
-    background-color: map-get($themeFooter, 'primary-light') !important;
-    #main-tab-bar {
-      .mdc-tab .mdc-tab--label{
-        color: map-get($themeFooter, 'primary') !important;
-      }
-      .mdc-tab:hover .mdc-tab--label {
-        border-bottom-color: map-get($themeFooter, 'primary') !important;
-      }
-    }
+    // background-color: map-get($themeFooter, 'primary-light') !important;
+    // #main-tab-bar {
+    //   .mdc-tab .mdc-tab--label{
+    //     color: map-get($themeFooter, 'primary') !important;
+    //   }
+    //   .mdc-tab:hover .mdc-tab--label {
+    //     border-bottom-color: map-get($themeFooter, 'primary') !important;
+    //   }
+    // }
   }
   .pagination li:hover,
   .pagination li.current-page:hover,
   .post-info .post-info-tags .inline-list li a:hover,
   .mdc-theme--primary-dark-bg {
-    background-color: map-get($themeSelected, 'primary-dark') !important;
+    // background-color: map-get($themeSelected, 'primary-dark') !important;
   }
   .mdc-theme--secondary-bg {
     background-color: map-get($themeSelected, 'secondary');
@@ -506,10 +506,10 @@ primary-dark: #263238
     // transparent 47.08%,
     // transparent
     // );
-    background-color: map-get($themeSelected, 'primary-overlay-start');
+    // background-color: map-get($themeSelected, 'primary-overlay-start');
   }
   .splash-overlay-full {
-    background-color: map-get($themeSelected, 'primary-overlay-start') !important;
+    // background-color: map-get($themeSelected, 'primary-overlay-start') !important;
     background-image: none !important;
   }
   @media screen and (max-width: 1140px) {
@@ -521,7 +521,7 @@ primary-dark: #263238
       // transparent 52.08%,
       // transparent
       // );
-      background-color: map-get($themeSelected, 'primary-overlay-start');
+      // background-color: map-get($themeSelected, 'primary-overlay-start');
     }
     .splash-image .header-caption {
       max-width: 40%;
@@ -536,11 +536,11 @@ primary-dark: #263238
     //   transparent 57.08%,
     //   transparent
     //   );
-    background-color: map-get($themeSelected, 'primary-overlay-start');
+    // background-color: map-get($themeSelected, 'primary-overlay-start');
     }
-    .splash-image .header-caption {
-      max-width: 36%;
-    }
+    // .splash-image .header-caption {
+    //   max-width: 36%;
+    // }
   }
   @media screen and (max-width: 839px) {
     .splash-overlay {
@@ -551,7 +551,7 @@ primary-dark: #263238
       // transparent 67.08%,
       // transparent
       // );
-      background-color: map-get($themeSelected, 'primary-overlay-start');
+      // background-color: map-get($themeSelected, 'primary-overlay-start');
     }
     .splash-image .header-caption {
       display: none;
@@ -564,7 +564,7 @@ primary-dark: #263238
       // map-get($themeSelected, 'primary-overlay-start'),
       // map-get($themeSelected, 'primary-overlay-end')
       // );
-      background-color: map-get($themeSelected, 'primary-overlay-start');
+      // background-color: map-get($themeSelected, 'primary-overlay-start');
     }
   }
   .home .cta-content.callout-image {
@@ -788,7 +788,7 @@ primary-dark: #263238
   }
 
   header.mdc-toolbar {
-    background-color: map-get($themeFooter, 'primary');
+    background-color: map-get($themePosts, 'primary');
   }
   footer {
     color: map-get($themeFooter, 'primary');
@@ -2422,6 +2422,9 @@ form#settled_status {
   // background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
   background-image: none;
 }
+.home h1.header-text {
+  color: white;
+}
 .splash-image {
   background-size: 60%;
   background-position: 100% center;
@@ -2436,8 +2439,8 @@ form#settled_status {
     margin: 0 auto;
     .mdc-layout-grid {
       word-break: break-word;
-      width: 44%;
-      margin: $unit*3.5 0 $unit*3;
+      // width: 44%;
+      margin: $unit*1.5 0 $unit/2;
     }
   }
   img.header-text {
@@ -2447,7 +2450,7 @@ form#settled_status {
   }
   h1.header-text {
     margin: 0 !important;
-    color: #fff;
+    // color: #fff;
     font-weight: $heading-font-weight;
     font-size: 2.9rem;
     line-height: 3rem;

@@ -4,7 +4,7 @@
       <div class="mdc-card__info--content-secondary-title mdc-typography--headline3">
         {{{title}}}
       </div>
-      {{>funder_funder_info}}
+      {{>funder_charity_number}}
       <div class="detailed-info">
         {{#if description ~}}
         <div class="mdc-typography--body1 v-margin">
@@ -61,18 +61,6 @@
           </li>
           {{/compare ~}}
           {{/compare ~}}
-          {{/if ~}}
-          {{#if charity_number ~}}
-          {{#if (contains charity_number "not") ~}}
-          {{else}}
-          <li class="mdc-typography--body1">
-            <span class="fa-li"><span class="far fa-info-circle fa-fw" title="Registered charity"></span></span>
-            <span class="key-info-bit r-margin-full">
-              <strong>Registered charity:</strong>
-              <a href="{{>charity_link this}}" target="_blank">{{trim charity_number}}</a>
-            </span>
-          </li>
-          {{/if ~}}
           {{/if ~}}
         </ul>
       </div>

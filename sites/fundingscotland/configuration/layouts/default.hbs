@@ -107,6 +107,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start mdc-top-app-bar__section--name">
               <a href="/" class="mdc-top-app-bar__title">
                 {{@root.data.currentSite.title}}
+                {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
+                {{#>premium_content}}
+                <span class="mdc-typography--caption">
+                  Premium
+                </span>
+                {{/premium_content}}
+                {{/ifAll ~}}
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">

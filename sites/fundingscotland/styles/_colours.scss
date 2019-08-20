@@ -31,9 +31,9 @@ $colours: (
 @each $name, $colour in $colours {
   .mdc-theme--#{$name} { color: $colour !important; }
   .mdc-theme--#{$name}-bg { background-color: $colour !important; }
-  .mdc-theme--on-#{$name} { 
+  .mdc-theme--on-#{$name} {
     @if mdc-theme-contrast-tone($colour) == 'light' {
-      color: #ffffff !important; 
+      color: #ffffff !important;
     } @else {
       color: #000000 !important;
     }

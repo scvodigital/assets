@@ -1075,11 +1075,6 @@
 					"route": "^/running-your-organisation/governance/developing-board"
 				},
 				{
-					"label": "Safeguarding",
-					"path": "/running-your-organisation/governance/safeguarding",
-					"route": "^/running-your-organisation/governance/safeguarding"
-				},
-				{
 					"label": "Jargon buster",
 					"path": "/running-your-organisation/governance/jargon-buster",
 					"route": "^/running-your-organisation/governance/jargon-buster"

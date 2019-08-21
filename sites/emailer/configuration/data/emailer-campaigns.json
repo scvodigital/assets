@@ -27,6 +27,7 @@
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://fundingscotland.com",
@@ -49,6 +50,7 @@
     "from": "Funding Scotland <no-reply@fundingscotland.com>",
     "replyTo": "Funding Scotland <fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://fundingscotland.com",
@@ -116,6 +118,7 @@
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-eastrenfrewshire-post,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
@@ -138,6 +141,7 @@
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-eastrenfrewshire,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://eastrenfrewshire.fundingscotland.com",
@@ -182,6 +186,7 @@
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Fife Funding Search <fife.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-fife,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://fifefundingsearch.com",
@@ -204,6 +209,7 @@
     "from": "Fife Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Fife Funding Search <fife.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-fife,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://fifefundingsearch.com",
@@ -248,6 +254,7 @@
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "North Lanarkshire Funding Search <northlanarkshire.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-northlanarkshire,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://northlanarkshire.fundingscotland.com",
@@ -270,6 +277,7 @@
     "from": "North Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "North Lanarkshire Funding Search <northlanarkshire.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-northlanarkshire,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://northlanarkshire.fundingscotland.com",
@@ -314,6 +322,7 @@
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Shetland Funding Search <shetland.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-shetland,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://shetland.fundingscotland.com",
@@ -336,6 +345,7 @@
     "from": "Shetland Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "Shetland Funding Search <shetland.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-shetland,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://shetland.fundingscotland.com",
@@ -380,6 +390,7 @@
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "South Lanarkshire Funding Search <southlanarkshire.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-southlanarkshire,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://southlanarkshire.fundingscotland.com",
@@ -402,6 +413,7 @@
     "from": "South Lanarkshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "South Lanarkshire Funding Search <southlanarkshire.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-southlanarkshire,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://southlanarkshire.fundingscotland.com",
@@ -446,6 +458,7 @@
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "SRN Funding Search <srn.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-srn,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://srn.fundingscotland.com",
@@ -468,6 +481,7 @@
     "from": "SRN Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "SRN Funding Search <srn.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-srn,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://srn.fundingscotland.com",
@@ -512,6 +526,7 @@
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
     "replyTo": "Funding Stirling Search <stirling.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-stirling,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved search alert",
       "baseUrl": "https://stirling.fundingscotland.com",
@@ -534,6 +549,7 @@
     "from": "Funding Stirling Search <no-reply@fundingscotland.com>",
     "replyTo": "Funding Stirling Search <stirling.fundingscotland@scvo.org.uk>",
     "elasticsearchType": "fs-fund,fs-post-stirling,fs-post-default",
+    "importantType": "fs-fund",
     "metaData": {
       "title": "Saved funds alert",
       "baseUrl": "https://stirling.fundingscotland.com",

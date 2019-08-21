@@ -486,6 +486,12 @@ a:hover {
   .key-info-bit {
     position: relative;
   }
+  .contact .detailed-info .organisation-type {
+    margin-bottom: $unit/2;
+    small {
+      font-size: 100%;
+    }
+  }
   .mdc-card--full-content {
     // .key-info-extra {
     //   .mdc-chip {

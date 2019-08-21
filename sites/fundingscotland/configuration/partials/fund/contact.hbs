@@ -33,8 +33,8 @@
       </ul>
       {{/ifAny}}
       <h4 class="mdc-typography--headline7">Funder Details</h4>
+      {{> funder_charity_number charity_number=funder_organisation.charity_number}}
       <ul class="fa-ul first">
-
       {{#if funder_organisation.address ~}}
         <li class="mdc-typography--body1">
           <span class="fa-li"><span class="far fa-building fa-fw" title="Address"></span></span>
@@ -91,7 +91,7 @@
         </span>
       </li>
       {{/if ~}}
-      {{#if funder_organisation.charity_number ~}}
+      {{!-- {{#if funder_organisation.charity_number ~}}
       {{#if (contains funder_organisation.charity_number "not") ~}}
       {{else}}
       <li class="mdc-typography--body1">
@@ -102,7 +102,7 @@
         </span>
       </li>
       {{/if ~}}
-      {{/if ~}}
+      {{/if ~}} --}}
       </ul>
 
     <div class="mdc-typography--body1 report t-margin">

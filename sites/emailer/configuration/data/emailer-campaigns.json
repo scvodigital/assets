@@ -114,6 +114,74 @@
     "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
     "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
   },
+  "fs-saved-searches-eastayrshire": {
+    "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
+    "replyTo": "East Renfrewshire Funding Search <eastayrshire.fundingscotland@scvo.org.uk>",
+    "elasticsearchType": "fs-fund,fs-eastayrshire-post,fs-post-default",
+    "importantType": "fs-fund",
+    "metaData": {
+      "title": "Saved search alert",
+      "baseUrl": "https://eastayrshire.fundingscotland.com",
+      "siteConfiguration": "{:../../../fundingscotland/configuration/data/site-configurations.json@eastayrshire}",
+      "newsTitle": "Latest news",
+      "newsText": "",
+      "noNewsText": "",
+      "fundsTitle": "Your latest funds",
+      "fundsText": "New and recently opened funds matching saved searches you have opted to receive alerts for",
+      "noFundsText": "No funds have opened since your previous alert"
+    },
+    "mailgunConnection": "mg_fundingscotland",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_saved_searches",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-searches",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
+  },
+  "fs-saved-funds-eastayrshire": {
+    "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
+    "replyTo": "East Renfrewshire Funding Search <eastayrshire.fundingscotland@scvo.org.uk>",
+    "elasticsearchType": "fs-fund,fs-post-eastayrshire,fs-post-default",
+    "importantType": "fs-fund",
+    "metaData": {
+      "title": "Saved funds alert",
+      "baseUrl": "https://eastayrshire.fundingscotland.com",
+      "siteConfiguration": "{:../../../fundingscotland/configuration/data/site-configurations.json@eastayrshire}",
+      "newsTitle": "Latest news",
+      "newsText": "",
+      "noNewsText": "",
+      "fundsTitle": "Your latest funds",
+      "fundsText": "Recent activity on funds you have listed and subscribed to updates for",
+      "noFundsText": "There hasn't been any activity on your listed funds since the previous update"
+    },
+    "mailgunConnection": "mg_fundingscotland",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_saved_funds",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-saved-funds",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
+  },
+  "fs-bulletin-eastayrshire": {
+    "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
+    "replyTo": "East Renfrewshire Funding Search <eastayrshire.fundingscotland@scvo.org.uk>",
+    "elasticsearchType": "fs-fund,fs-post-eastayrshire,fs-post-default",
+    "metaData": {
+      "title": "Funding updates and news",
+      "baseUrl": "https://eastayrshire.fundingscotland.com",
+      "siteConfiguration": "{:../../../fundingscotland/configuration/data/site-configurations.json@eastayrshire}",
+      "newsTitle": "Latest news",
+      "newsText": "",
+      "noNewsText": "",
+      "fundsTitle": "Latest funds",
+      "fundsText": "New and recently opened funds",
+      "noFundsText": "No funds have opened since your previous alert"
+    },
+    "mailgunConnection": "mg_fundingscotland",
+    "sendIfEmpty": false,
+    "subjectPartial": "subjects_fs_bulletin",
+    "bodyPartial": "bodies_fs_main",
+    "queryTemplate": ">context.metaData.handlebars.queries.fs-bulletin",
+    "elasticsearchIndex": "{$../../../elasticsearch-index.txt}"
+  },
   "fs-saved-searches-eastrenfrewshire": {
     "from": "East Renfrewshire Funding Search <no-reply@fundingscotland.com>",
     "replyTo": "East Renfrewshire Funding Search <eastren.fundingscotland@scvo.org.uk>",

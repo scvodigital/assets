@@ -28,6 +28,48 @@
     "pageLimit": 20,
     "enablePremiumFeatures": false
   },
+  "eastayrshire": {
+    "name": "eastayrshire",
+    "title": "East Ayrshire Funding Search",
+    "organisationName": "East Ayrshire Council",
+    "organisationContact": "eastayrshire.fundingscotland@scvo.org.uk",
+    "headingText": "Funding in East Ayrshire",
+    "url": "https://eastayrshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastayrshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastayrshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ea-cm-crop.jpg",
+    "colors": {
+      "primary": "#005398",
+      "primaryText": "#ffffff",
+      "secondary": "#DCE5ED",
+      "secondaryText": "#073E6A",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-ayrshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-ayrshire"
+      ]
+    }
+  },
   "eastrenfrewshire": {
     "name": "eastrenfrewshire",
     "title": "East Renfrewshire Funding Search",

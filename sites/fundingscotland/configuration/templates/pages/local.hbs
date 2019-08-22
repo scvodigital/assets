@@ -5,13 +5,7 @@
         {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
       </h1>
       {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
-      <ul>
-        {{#each @root.context.metaData.site-configurations ~}}
-        {{#ifAll (compare @key "!==" "default") (compare @key "!==" "eastayrshire") ~}}
-        <li><a href="{{url}}">{{title}}</a></li>
-        {{/ifAll ~}}
-        {{/each ~}}
-      </ul>
+      {{> list_local_sites}}
     {{/compare ~}}
   </div>
 </div>

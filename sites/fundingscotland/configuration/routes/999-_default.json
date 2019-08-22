@@ -21,7 +21,7 @@
         },
         "queryTemplates": {
           "index": "{$../../../elasticsearch-index.txt}",
-          "type": "fs-page-default,fs-page-eastayrshire,fs-page-eastrenfrewshire,fs-page-fife,fs-page-northlanarkshire,fs-page-shetland,fs-page-southlanarkshire,fs-page-srn,fs-page-stirling",
+          "type": "fs-page-default,fs-page-srn,fs-page-aberdeen,fs-page-aberdeenshire,fs-page-angus,fs-page-argyll-bute,fs-page-clackmannanshire,fs-page-dumfries-galloway,fs-page-dundee,fs-page-eastayrshire,fs-page-eastdunbartonshire,fs-page-eastlothian,fs-page-eastrenfrewshire,fs-page-edinburgh,fs-page-falkirk,fs-page-fife,fs-page-glasgow,fs-page-highland,fs-page-inverclyde,fs-page-midlothian,fs-page-moray,fs-page-na-h-eileanan-siar,fs-page-northayrshire,fs-page-northlanarkshire,fs-page-orkney,fs-page-perth-kinross,fs-page-renfrewshire,fs-page-scottish-borders,fs-page-shetland,fs-page-southayrshire,fs-page-southlanarkshire,fs-page-stirling,fs-page-westdunbartonshire,fs-page-westlothian",
           "template": ">context.metaData.handlebars.queries.pages_page"
         }
       },

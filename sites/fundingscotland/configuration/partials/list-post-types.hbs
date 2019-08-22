@@ -1,0 +1,5 @@
+{{~#each @root.context.metaData.site-configurations ~}}
+{{~#if live ~}}
+fs-post-{{@key}}{{#unless @last}},{{/unless}}
+{{~/if ~}}
+{{~/each ~}}

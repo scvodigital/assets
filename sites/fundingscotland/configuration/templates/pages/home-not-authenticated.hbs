@@ -5,7 +5,7 @@
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}8{{else}}4{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone h-padding-full home-info">
         <h1 class="mdc-typography--headline4">
-          {{@root.data.currentSite.headingText}}
+          Funding {{@root.data.currentSite.fundingArea}}
         </h1>
         {{#compare @root.data.currentSite.name "default" ~}}
         <p>
@@ -13,7 +13,7 @@
         </p>
         {{else}}
         <p>
-          {{@root.data.currentSite.organisationName}} has teamed up with SCVO's Funding Scotland to provide an advanced online funding search for your charity, community group or social enterprise. From small grants to funding for big capital projects, we can help you track down the funding you need to make a difference in your community.
+          <a href="{{@root.data.currentSite.organisationWebsite}}">{{@root.data.currentSite.organisationName}}</a> has teamed up with SCVO's <a href="https://fundingscotland.com">Funding Scotland</a> to provide an advanced online funding search for your charity, community group or social enterprise. From small grants to funding for big capital projects, we can help you track down the funding you need to make a difference in your community.
         </p>
         {{/compare ~}}
 
@@ -31,13 +31,7 @@
               <p>
                 We've teamed up with a number of other organisations to provide premium features for funding searches in specific local areas:
               </p>
-              <ul>
-                {{#each @root.context.metaData.site-configurations ~}}
-                {{#ifAll (compare @key "!==" "default") (compare @key "!==" "eastayrshire") ~}}
-                <li><a href="{{url}}">{{title}}</a></li>
-                {{/ifAll ~}}
-                {{/each ~}}
-              </ul>
+              {{> list_local_sites}}
             </div>
             {{/compare ~}}
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{#compare @root.data.currentSite.name "default" ~}}6{{else}}12{{/compare}}-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">

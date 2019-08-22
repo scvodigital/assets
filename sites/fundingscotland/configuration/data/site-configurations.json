@@ -10,9 +10,9 @@
     "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-default-email.png",
     "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
     "colors": {
-      "primary": "#537F2C",
+      "primary": "#1F3E6F",
       "primaryText": "#ffffff",
-      "secondary": "#F49039",
+      "secondary": "#C5C9E0",
       "secondaryText": "#000000",
       "info": "#4779af",
       "infoText": "#000000",

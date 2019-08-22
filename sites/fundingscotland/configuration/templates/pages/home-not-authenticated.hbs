@@ -33,9 +33,9 @@
               </p>
               <ul>
                 {{#each @root.context.metaData.site-configurations ~}}
-                {{#compare @key "!==" "default" ~}}
+                {{#ifAll (compare @key "!==" "default") (compare @key "!==" "eastayrshire") ~}}
                 <li><a href="{{url}}">{{title}}</a></li>
-                {{/compare ~}}
+                {{/ifAll ~}}
                 {{/each ~}}
               </ul>
             </div>

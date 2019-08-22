@@ -21,7 +21,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": "/search{{{request.url.search}}}"
+        "template": "/search{{> query_search}}"
       }
     },
     {

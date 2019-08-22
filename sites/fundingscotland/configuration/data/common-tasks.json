@@ -64,7 +64,7 @@
       },
       "queryTemplates": {
         "index": "{$../../../elasticsearch-index.txt}",
-        "type": "fs-page-default,fs-page-eastrenfrewshire,fs-page-fife,fs-page-northlanarkshire,fs-page-shetland,fs-page-southlanarkshire,fs-page-srn,fs-page-stirling",
+        "type": "fs-page-default,fs-page-eastayrshire,fs-page-eastrenfrewshire,fs-page-fife,fs-page-northlanarkshire,fs-page-shetland,fs-page-southlanarkshire,fs-page-srn,fs-page-stirling",
         "template": ">context.metaData.handlebars.queries.pages_menus"
       }
     },

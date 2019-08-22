@@ -55,7 +55,7 @@
   {{#unless savedSearch}}
   <aside id="save-search-dialog" class="mdc-dialog" role="alertdialog" aria-labelledby="save-search-dialog-label" aria-describedby="save-search-dialog-description">
     <div class="mdc-dialog__container">
-      <form action="/save-search{{{@root.request.url.search}}}" method="GET" class="mdc-dialog__surface">
+      <form action="/save-search{{> query_search}}" method="GET" class="mdc-dialog__surface">
         <header class="mdc-dialog__header">
           <h2 id="save-search-dialog-label" class="mdc-dialog__title">Give your search a name</h2>
         </header>

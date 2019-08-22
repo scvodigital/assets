@@ -3,22 +3,22 @@
   <div class="mdc-card__info--content-primary">
     {{#if organisation.has_logo ~}}
     <div class="mdc-card__media mdc-card__media--content-secondary pull-right">
-      <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{@root.request.url.search}}">
+      <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{> query_search}}">
         <img src="{{organisation.logo_url}}" alt="{{organisation.name}}" />
       </a>
     </div>
     {{/if ~}}
     {{#compare @root.route.name "===" "vacancy" ~}}
     {{#compare view "===" "full" ~}}
-    {{#if @root.request.url.search ~}}
+    {{#unless (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) "") ~}}
     {{#ifAny @root.request.params.query.page @root.request.params.query.keywords @root.request.params.query.location @root.request.params.query.salary_min @root.request.params.query.salary_max @root.request.params.query.working_patterns @root.request.params.query.regions @root.request.params.query.roles @root.request.params.query.sectors @root.request.params.query.home_based @root.request.params.query.various_locations ~}}
-    <a href="/search{{@root.request.url.search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
+    <a href="/search{{> query_search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
     {{/ifAny ~}}
-    {{/if ~}}
+    {{/unless ~}}
     {{/compare ~}}
     {{/compare ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline5">
-      <a href="/vacancy/{{Id}}/{{title_slug}}{{@root.request.url.search}}">
+      <a href="/vacancy/{{Id}}/{{title_slug}}{{> query_search}}">
         {{#if top_job}}<span class="top-content">Top job!</span>{{/if}}
         <span class="hover-underline">{{title}}</span>
       </a>
@@ -26,7 +26,7 @@
     <ul class="fa-ul organisation">
       <li class="mdc-card__info--content-primary-secondary mdc-typography--body1">
         <span class="fa-li"><span class="far fa-building fa-fw" title="Organisation"></span></span>
-        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{@root.request.url.search}}">{{organisation.name}}</a>
+        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{> query_search}}">{{organisation.name}}</a>
       </li>
     </ul>
     <!-- <div class="mdc-layout-grid hide-md hide-lg">

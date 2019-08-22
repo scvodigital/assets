@@ -6,7 +6,7 @@
         {{{title}}}
       </div>
       <div class="mdc-card__info--content-primary-funder mdc-typography--body1">
-        <a href="/funder/{{funder.slug}}{{@root.request.url.search}}">{{funder.name}}</a>
+        <a href="/funder/{{funder.slug}}{{> query_search}}">{{funder.name}}</a>
       </div>
     </div>
   </div>

@@ -28,7 +28,7 @@
         {{{replace (getProperty @root.data.termsMaps.districts.slugsMap (concat @root.request.params.district ".wards." @root.request.params.ward ".term")) "/" " &amp; "}}},
       {{/if}}
       {{getProperty @root.data.termsMaps.districts.slugsMap (concat @root.request.params.district ".term")}}
-      <a href="/search{{{@root.request.url.search}}}">All areas</a>
+      <a href="/search{{> query_search}}">All areas</a>
     </h6>
   {{/compare}}
 </div>
@@ -36,9 +36,9 @@
   <div class="mdc-drawer__content">
     {{#compare @root.route.name "!==" "jobs_in" ~}}
     <div class="h-padding-full">
-      {{#>components_tab_bar}}
-        {{>components_tab url=(concat "/search" @root.request.url.search) iconClasses="far fa-list fa-fw" label="List" active=(compare @root.request.url.pathname "===" "/search")}}
-        {{>components_tab url=(concat "/map" @root.request.url.search) iconClasses="far fa-map-marker-alt fa-fw" label="Map" active=(compare @root.request.url.pathname "===" "/map")}}
+      {{#> components_tab_bar}}
+        {{> components_tab url=(concat "/search" (if (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) "") "" else="?") (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null)) iconClasses="far fa-list fa-fw" label="List" active=(compare @root.request.url.pathname "===" "/search")}}
+        {{> components_tab url=(concat "/map" (if (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) "") "" else="?") (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null)) iconClasses="far fa-map-marker-alt fa-fw" label="Map" active=(compare @root.request.url.pathname "===" "/map")}}
       {{/components_tab_bar}}
     </div>
     {{/compare ~}}

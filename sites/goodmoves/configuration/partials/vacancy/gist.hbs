@@ -6,7 +6,7 @@
         {{title}}
       </div>
       <div class="mdc-card__info--content-primary-organisation mdc-typography--body1">
-        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{@root.request.url.search}}">{{organisation.name}}</a>
+        <a href="/organisation/{{organisation.id}}/{{organisation.name_slug}}{{> query_search}}">{{organisation.name}}</a>
       </div>
       <div class="mdc-card__info--content-primary-details mdc-typography--caption">
         <span class="far fa-calendar-alt fa-fw" title="Closing date"></span>

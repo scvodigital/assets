@@ -23,7 +23,7 @@
         {{#ifAll @root.data.auth (compare @root.route.name "fund_search") ~}}
         {{#>premium_content}}
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 text-right">
-            <a href="{{@root.request.params.uri.pathname}}?pdf=true&{{{querystringify @root.request.params.query}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
+            <a href="{{@root.request.params.uri.pathname}}?pdf=true&{{{querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null}}}" class="mdc-button" data-mdc-auto-init="MDCRipple">
               <span class="fas fa-tree-alt fa-rotate-90 fa-fw r-margin"></span>
               Download results as PDF
             </a>

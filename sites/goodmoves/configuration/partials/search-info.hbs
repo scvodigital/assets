@@ -5,7 +5,7 @@
   <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
   {{/compare ~}}
   {{#compare @root.request.params.path "===" "search" ~}}
-  <a href="/map{{@root.request.url.search}}" class="pull-right">
+  <a href="/map{{> query_search}}" class="pull-right">
     <span class="far fa-map-marker-alt fa-fw mdc-list-item__graphic" title="Map"></span>
     <span class="underline">Show {{inflect paging.totalResults "job" "jobs"}} on map</a>
   </a>

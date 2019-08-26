@@ -19,16 +19,6 @@
             {{#json}}
               {{#json key="bool"}}
                 {{#json key="filter" type="array"}}
-                  {{>queries_term field="fund_status_slug" term="currently-closed"}}
-                {{/json}},
-                {{#json key="must" type="array"}}
-                  {{>queries_date_range field="date_reopens" gte="now/d" lte=@root.context.metaData.openingSoonDate}}
-                {{/json}}
-              {{/json}}
-            {{/json}},
-            {{#json}}
-              {{#json key="bool"}}
-                {{#json key="filter" type="array"}}
                   {{>queries_date_range field="date_reopens" gte="now+3M-3d/d" lte="now+3M+3d/d"}},
                   {{>queries_term field="fund_status" term="Currently Closed"}}
                 {{/json}}

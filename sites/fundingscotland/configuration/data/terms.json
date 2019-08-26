@@ -812,11 +812,6 @@
             "textBag": "available non not charities charity"
           },
           {
-            "key": "show-opening-soon-funds",
-            "label": "Include funds opening soon",
-            "textBag": "funds opening soon"
-          },
-          {
             "key": "show-closed-funds",
             "label": "Include closed funds",
             "textBag": "currently closed funds"

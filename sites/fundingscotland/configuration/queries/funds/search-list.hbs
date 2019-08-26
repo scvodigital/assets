@@ -90,7 +90,7 @@
           {{#unless (contains @root.request.params.query.miscellaneous "hide-open-funds") ~}}
             {{>queries_term field="fund_status_slug" term="open"}},
           {{/unless ~}}
-          {{#if (contains @root.request.params.query.miscellaneous "show-opening-soon-funds")}}
+          {{!-- {{#if (contains @root.request.params.query.miscellaneous "show-opening-soon-funds")}} --}}
             {{#json}}
               {{#json key="bool"}}
                 {{#json key="filter" type="array"}}
@@ -101,7 +101,7 @@
                 {{/json}}
               {{/json}}
             {{/json}},
-          {{/if}}
+          {{!-- {{/if}} --}}
           {{#if (contains @root.request.params.query.miscellaneous "show-closed-funds")}}
             {{#json}}
               {{#json key="bool"}}

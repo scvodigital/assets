@@ -67,7 +67,7 @@
   <link type="text/css" rel="stylesheet" href="{{~>asset_url url=(concat 'sub-sites/' @root.data.currentSite.name '/main-VERSION.css')~}}">
 </head>
 <body class="mdc-theme--footer-dark-bg">
-  <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJQ3FN"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -114,6 +114,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </span>
                 {{/premium_content}}
                 {{/ifAll ~}}
+                {{#unless @root.data.currentSite.live ~}}
+                <span class="mdc-typography--caption">
+                  Test site
+                </span>
+                {{/unless ~}}
               </a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
@@ -354,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone about">
                   <h3>About</h3>
                   <p class="b-margin">
-                    <strong>{{@root.data.currentSite.title}}</strong> lists funders with a track record of supporting projects in Scotland and is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>{{#compare @root.data.currentSite.name "!==" "default"}} as part of <a href="https://fundingscotland.com">Funding Scotland</a>{{/compare}}. <a href="/about">Find out more</a>
+                    <strong>{{@root.data.currentSite.title}}</strong> lists funders with a track record of supporting projects {{#compare @root.data.currentSite.name "default"}}in Scotland{{else}}{{@root.data.currentSite.fundingArea}}{{/compare}} and is run by the <a href="https://scvo.org">Scottish Council for Voluntary Organisations</a>{{#compare @root.data.currentSite.name "!==" "default"}} in partnership with <a href="{{@root.data.currentSite.organisationWebsite}}">{{@root.data.currentSite.organisationName}}</a> as part of <a href="https://fundingscotland.com">Funding Scotland</a>{{/compare}}. <a href="/about">Find out more</a>
                   </p>
                   {{#ifAll @root.data.auth (compare @root.data.currentSite.name "===" "default") ~}}
                   {{#>premium_content}}

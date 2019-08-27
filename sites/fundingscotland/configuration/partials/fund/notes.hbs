@@ -1,18 +1,18 @@
 {{#if (getProperty @root.data.profile.notes Id) ~}}
-  <div class="search-result-article__notes">
-    <h4 class="mdc-typography--headline7">
-      Your notes&ensp;
-      <a href="{{>fund_url search=true anchor="notes"}}" class="mdc-typography--body2">Edit</a>
-    </h4>
-    <div class="mdc-typography--body1">
-      {{#if limit ~}}
-          <div style="max-height: {{limit}};" class="faded-overflow">
-            {{>fund_notes_rendered id=Id}}
-          </div>
-          <a href="{{>fund_url search=true anchor="notes"}}">Read more</a>
-      {{else}}
+<div class="search-result-article__notes">
+  <h4 class="mdc-typography--headline7">
+    Your notes&ensp;
+    <a href="{{>fund_url search=true anchor="notes"}}" class="mdc-typography--body2">Edit</a>
+  </h4>
+  <div class="mdc-typography--body1">
+    {{#unless showFullNotes ~}}
+      <div class="faded-overflow" style="height:{{limit}};">
         {{>fund_notes_rendered id=Id}}
-      {{/if ~}}
-    </div>
+        <a href="{{>fund_url search=true anchor="notes"}}">Read more</a>
+      </div>
+    {{else}}
+      {{>fund_notes_rendered id=Id}}
+    {{/unless ~}}
   </div>
+</div>
 {{/if ~}}

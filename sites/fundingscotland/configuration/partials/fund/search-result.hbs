@@ -3,9 +3,9 @@
   <hr class="mdc-list-divider" />
   {{#ifAll (getProperty @root.data.profile.notes Id) (compare hideNotes "!==" true) ~}}
     {{> fund_description limit="3rem" description=description}}
-    {{> fund_notes limit=(if showFullNotes false else="3rem")}}
+    {{> fund_notes limit="7rem"}}
   {{else}}
-    {{> fund_description limit="6rem" description=description}}
+    {{> fund_description limit="4rem" description=description}}
   {{/ifAll ~}}
   {{> fund_actions slug=slug Id=Id title=title actions=actions}}
 </div>

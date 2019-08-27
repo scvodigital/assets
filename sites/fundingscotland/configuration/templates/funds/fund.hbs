@@ -21,6 +21,8 @@
               {{#if @root.data.auth ~}}
                 {{#>premium_content}}
                   {{#withExtend this notes=(sortBy (keyValue (getProperty @root.data.profile.notes Id)) "key" "desc")}}
+                    {{>fund_notes_rendered id=Id}}
+                    <hr />
                     <form action="/save-notes" method="POST">
                       <div class="clearfix x-margin">
                         <textarea class="mdc-text-field__input" data-simple-mde='{
@@ -74,14 +76,11 @@
                             </div>
                           </div>
                         </div>
-                        <div class="mdc-typography--caption">
+                        <div class="mdc-typography--caption b-margin-full">
                           Any notes you write here are private on your account and are not shared with {{funder_organisation.name}}. Read our <a href="/privacy" target="_blank">privacy notice</a>.
                         </div>
                       </div>
                     </form>
-
-                    <hr>
-                    {{>fund_notes_rendered id=Id}}
                   {{/withExtend}}
                 {{/premium_content}}
                 {{#>premium_content_alt}}

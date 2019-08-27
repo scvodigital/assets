@@ -3092,11 +3092,11 @@ form.inline-form {
 .faded-overflow {
   overflow: hidden;
   position: relative;
-  min-height: 2rem;
+  // min-height: 2rem;
   &:before {
     display: block;
-    margin-top: -$unit*1.5;
-    height: $unit*1.5;
+    margin-top: -$unit*2.5;
+    height: $unit*2.5;
     width: 100%;
     content: "";
     position: absolute;
@@ -3127,6 +3127,14 @@ form.inline-form {
 .mdc-button--warning:disabled {
   opacity: 0.5;
   filter: grayscale(100%);
+}
+.mdc-button--raised:disabled {
+  .fal,
+  .far,
+  .fas,
+  .mdc-list-item__graphic {
+    color: rgba(0, 0, 0, 0.37);
+  }
 }
 
 .advanced-checkbox-list {

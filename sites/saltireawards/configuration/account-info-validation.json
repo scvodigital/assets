@@ -4,5 +4,5 @@
   "date_of_birth" : {"required": true, "type" : "date"},
   "postcode" : {"required": true, "maxlength": 8},
   "school_college_name" : {"maxlength": 64},
-  "parental_verification_email" : {"type":"email", "maxlength":128}
+  "verification_email" : {"type":"email", "maxlength":128}
 }

@@ -12,9 +12,11 @@
           Find funding for your charity, community group or social enterprise using our free online search engine. From small grants to funding for big capital projects, we can help you track down the funding you need to make a difference in your community.
         </p>
         {{else}}
+        {{#if @root.data.currentSite.live ~}}
         <p>
           <a href="{{@root.data.currentSite.organisationWebsite}}">{{@root.data.currentSite.organisationName}}</a> has teamed up with SCVO's <a href="https://fundingscotland.com">Funding Scotland</a> to provide an advanced online funding search for your charity, community group or social enterprise. From small grants to funding for big capital projects, we can help you track down the funding you need to make a difference in your community.
         </p>
+        {{/if ~}}
         {{/compare ~}}
 
         <div class="mdc-layout-grid">

@@ -6,6 +6,7 @@
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     {
       "name": "togglePremium",
       "taskModule": "firebaseRtbSet",

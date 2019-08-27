@@ -6,6 +6,8 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     {
       "name": "notifications",
       "taskModule": "mysql",

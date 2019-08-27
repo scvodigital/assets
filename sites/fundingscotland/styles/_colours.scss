@@ -1,0 +1,46 @@
+$colours: (
+  primary: $mdc-theme-primary,
+  primary-light: $mdc-theme-primary-light,
+  primary-dark: $mdc-theme-primary-dark,
+  complimentary: $mdc-theme-complimentary,
+  complimentary-light: $mdc-theme-complimentary-light,
+  complimentary-dark: $mdc-theme-complimentary-dark,
+  secondary: $mdc-theme-secondary,
+  secondary-light: $mdc-theme-secondary-light,
+  secondary-dark: $mdc-theme-secondary-dark,
+  footer: $mdc-theme-footer,
+  footer-light: $mdc-theme-footer-light,
+  footer-dark: $mdc-theme-footer-dark,
+  success: $mdc-theme-success,
+  success-light: $mdc-theme-success-light,
+  success-dark: $mdc-theme-success-dark,
+  info: $mdc-theme-info,
+  info-light: $mdc-theme-info-light,
+  info-dark: $mdc-theme-info-dark,
+  warning: $mdc-theme-warning,
+  warning-light: $mdc-theme-warning-light,
+  warning-dark: $mdc-theme-warning-dark,
+  error: $mdc-theme-error,
+  error-light: $mdc-theme-error-light,
+  error-dark: $mdc-theme-error-dark,
+  tfn: $mdc-theme-tfn,
+  tfn-light: $mdc-theme-tfn-light,
+  tfn-dark: $mdc-theme-tfn-dark
+);
+
+@each $name, $colour in $colours {
+  .mdc-theme--#{$name} { color: $colour !important; }
+  .mdc-theme--#{$name}-bg { background-color: $colour !important; }
+  .mdc-theme--on-#{$name} {
+    @if mdc-theme-contrast-tone($colour) == 'light' {
+      color: #ffffff !important;
+    } @else {
+      color: #000000 !important;
+    }
+  }
+  .mdc-theme--#{$name}-border { border-color: $colour !important; }
+  .mdc-theme--#{$name}-border-top { border-top-color: $colour !important; }
+  .mdc-theme--#{$name}-border-right { border-right-color: $colour !important; }
+  .mdc-theme--#{$name}-border-bottom { border-bottom-color: $colour !important; }
+  .mdc-theme--#{$name}-border-left { border-left-color: $colour !important; }
+}

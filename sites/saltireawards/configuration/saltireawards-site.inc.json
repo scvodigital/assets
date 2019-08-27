@@ -13,13 +13,13 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/saltireawards/",
     "title": "Saltire Awards",
-    "emailSendSettings": "{:./email-send-settings.json}",
-    "menus": "{:./saltireawards-menus.json}",
-    "accountInfoValidation": "{:./account-info-validation.json}",
-    "taskInfoValidation": "{:./task-info-validation.json}",
-    "tsiList": "{:./tsi-list.json}",
+    "emailSendSettings": "{:./data/email-send-settings.json}",
+    "menus": "{:./data/menus.json}",
+    "accountInfoValidation": "{:./data/account-info-validation.json}",
+    "taskInfoValidation": "{:./data/task-info-validation.json}",
+    "tsiList": "{:./data/tsi-list.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
-    "volunteeringTerms": "{:./volunteering-terms.json}",
+    "volunteeringTerms": "{:./data/volunteering-terms.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
@@ -34,6 +34,6 @@
         "{$./queries/**/*.*}": ""
       }
     },
-    "commonTasks": "{:./common-tasks.json}"
+    "commonTasks": "{:./data/common-tasks.json}"
   }
 }

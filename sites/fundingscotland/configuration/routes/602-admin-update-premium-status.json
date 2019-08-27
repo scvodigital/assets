@@ -54,7 +54,7 @@
       "config": {
         "connectionName": "notifications",
         "queryTemplates": {
-          "subscriptions": "UPDATE subscriptions SET metaData={{{mysqlEscape (concat '' @root.data.premiumStatus)}}} WHERE campaign='fs-bulletin-default' AND email={{{mysqlEscape @root.request.body.email}}}"
+          "subscriptions": "{{#if @root.request.body.expiry}}CALL _renameSubscription({{{mysqlEscape @root.request.body.email}}}, 'fs-bulletin-default', 'fs-bulletin-default-premium');{{else}}CALL _renameSubscription({{{mysqlEscape @root.request.body.email}}}, 'fs-bulletin-default-premium', 'fs-bulletin-default');{{/if}}"
         }
       }
     },

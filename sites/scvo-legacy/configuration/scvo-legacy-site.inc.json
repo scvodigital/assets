@@ -1,0 +1,72 @@
+{
+  "domains": [
+    "scvo-legacy.local",
+    "scvo.org.uk",
+    "scvo.org",
+    "scvo.net",
+    "www.scvo.org",
+    "www.scvo.net",
+    "www.scvo.org.uk",
+    "amp.scvo.org",
+    "cms.scvo.org",
+    "scvo-frontend-dot-scvo-net.appspot.com"
+  ],
+  "routes": [
+    "{:./routes/*.json}"
+  ],
+  "metaData": {
+    "assetsVersion": "{:../../../package.json@version}",
+    "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scvo-legacy/",
+    "title": "SCVO",
+    "menus": "{:./scvo-menus.json}",
+    "governanceCheckup": "{:./governance-checkup.json}",
+    "commonTasks": {
+      "authNotRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.cjs_token",
+          "cookieName": "cjs_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "cjs",
+          "noTokenRoute": "",
+          "notAuthenticatedRoute": ""
+        }
+      },
+      "authRequired": {
+        "name": "auth",
+        "taskModule": "firebaseAuth",
+        "config": {
+          "tokenPath": "request.cookies.cjs_token",
+          "cookieName": "cjs_cookie",
+          "cookieOptions": {
+            "maxAge": 1209600000,
+            "secure": true,
+            "path": "/"
+          },
+          "appName": "cjs",
+          "noTokenRoute": "cjs_sign_in",
+          "notAuthenticatedRoute": "cjs_sign_in"
+        }
+      }
+    },
+    "handlebars": {
+      "partials": {
+        "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"
+      },
+      "templates": {
+        "{$./templates/**/*.*}": ""
+      },
+      "layouts": {
+        "{$./layouts/**/*.*}": ""
+      },
+      "queries": {
+        "{$./queries/**/*.*}": ""
+      }
+    }
+  }
+}

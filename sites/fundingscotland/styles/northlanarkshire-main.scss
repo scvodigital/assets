@@ -1,0 +1,47 @@
+$mdc-theme-primary: #BD0029;
+$mdc-theme-primary-light: #fcf4f6;
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
+
+$mdc-theme-secondary: #4E4E4E;
+$mdc-theme-secondary-light: lighten($mdc-theme-secondary, 55%);
+$mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
+
+$mdc-theme-background: #ffffff;
+$mdc-theme-background-light: #ffffff;
+$mdc-theme-background-dark: #bbbbbb;
+
+$mdc-theme-surface: #F5F5F5;
+$mdc-theme-surface-light: #fafafa;
+$mdc-theme-surface-dark: #4a4a4a;
+
+$mdc-theme-complimentary: #689F39;
+$mdc-theme-complimentary-light: #82AB58;
+$mdc-theme-complimentary-dark: #223c1d;
+
+$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer-light: #E1E3E4;
+$mdc-theme-footer-dark: #263238; // Blue Gray 900
+
+$mdc-theme-success: #4caf50;
+$mdc-theme-success-light: lighten($mdc-theme-success, 55%);
+$mdc-theme-success-dark: darken($mdc-theme-success, 15%);
+
+$mdc-theme-info: #2871A9;
+$mdc-theme-info-light: #E5F4FA;
+$mdc-theme-info-dark: #36577A;
+
+$mdc-theme-warning: #8b6d11;
+$mdc-theme-warning-light: lighten($mdc-theme-warning, 55%);
+$mdc-theme-warning-dark: darken($mdc-theme-warning, 15%);
+
+$mdc-theme-error: #A9201E;
+$mdc-theme-error-light: lighten($mdc-theme-error, 55%);
+$mdc-theme-error-dark: darken($mdc-theme-error, 15%);
+
+$mdc-theme-tfn: #3b9db1;
+$mdc-theme-tfn-light: lighten($mdc-theme-tfn, 15%);
+$mdc-theme-tfn-dark: darken($mdc-theme-tfn, 15%);
+
+$unit: 1rem;
+
+@import "./sites/fundingscotland/styles/_base.scss";

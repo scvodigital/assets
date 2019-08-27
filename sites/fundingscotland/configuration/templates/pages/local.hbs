@@ -5,13 +5,7 @@
         {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
       </h1>
       {{{@root.data.primaryResponse.hits.hits.[0]._source.content}}}
-      <ul>
-        {{#each @root.context.metaData.site-configurations ~}}
-        {{#compare @key "!==" "default" ~}}
-        <li><a href="{{url}}">{{title}}</a></li>
-        {{/compare ~}}
-        {{/each ~}}
-      </ul>
+      {{> list_local_sites}}
     {{/compare ~}}
   </div>
 </div>

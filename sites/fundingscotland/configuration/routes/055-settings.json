@@ -1,7 +1,7 @@
 {
   "name": "settings",
   "pattern": "/settings",
-  "debug": false,
+  "debug": true,
   "metaData": {
     "hideSearch": true,
     "sidebarButton": {
@@ -17,6 +17,7 @@
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
+    "context.metaData.commonTasks.bulletinName",
     "context.metaData.commonTasks.menus",
     "context.metaData.commonTasks.searchesData",
     "context.metaData.commonTasks.shortlistData",

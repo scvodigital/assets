@@ -11,7 +11,7 @@
   "metaData": {
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/scotlandforeurope/",
-    "menus": "{:./scotlandforeurope-menus.json}",
+    "menus": "{:./data/menus.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

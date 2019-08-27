@@ -1,0 +1,167 @@
+{
+  "currentSite": {
+    "name": "currentSite",
+    "taskModule": "render",
+    "renderer": "jsone",
+    "config": {
+      "template": {
+        "_let": {
+          "hostname": {
+            "_eval": "jsone.stringReplace(request.url.hostname, '.', '_')"
+          }
+        },
+        "in": {
+          "_let": {
+            "path": "${context.metaData['domain-map'][hostname]}"
+          },
+          "in": {
+            "_eval": "context.metaData['site-configurations'][path]"
+          }
+        }
+      },
+      "output": "data"
+    }
+  },
+  "authNotRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.fs_token",
+      "cookieName": "fs_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true,
+        "path": "/"
+      },
+      "appName": "fundingscotland",
+      "noTokenRoute": "",
+      "notAuthenticatedRoute": ""
+    }
+  },
+  "authRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.fs_token",
+      "cookieName": "fs_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true,
+        "path": "/"
+      },
+      "appName": "fundingscotland",
+      "noTokenRoute": "sign_in",
+      "notAuthenticatedRoute": "sign_in"
+    }
+  },
+  "menus": {
+    "name": "menus",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": {
+        "index": "{$../../../elasticsearch-index.txt}",
+        "type": "fs-page-default,fs-page-eastayrshire,fs-page-eastrenfrewshire,fs-page-fife,fs-page-northlanarkshire,fs-page-shetland,fs-page-southlanarkshire,fs-page-srn,fs-page-stirling",
+        "template": ">context.metaData.handlebars.queries.pages_menus"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "supplimentaryResponses": {
+    "name": "supplimentaryResponses",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": [{
+          "name": "types",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-fund",
+          "template": ">context.metaData.handlebars.queries.funds_types"
+        },
+        {
+          "name": "not_found",
+          "index": "{$../../../elasticsearch-index.txt}",
+          "type": "fs-fund",
+          "template": ">context.metaData.handlebars.queries.pages_not-found"
+        }
+      ]
+    },
+    "renderer": "handlebars"
+  },
+  "fundersWithFunds": {
+    "name": "fundersWithFunds",
+    "taskModule": "elasticsearch",
+    "config": {
+      "connectionStringTemplate": "{$../../../elasticsearch-url.txt}",
+      "elasticsearchConfig": {
+        "apiVersion": "5.6"
+      },
+      "queryTemplates": [{
+        "name": "funds",
+        "index": "{$../../../elasticsearch-index.txt}",
+        "type": "fs-fund",
+        "template": ">context.metaData.handlebars.queries.funds_funders"
+      }]
+    },
+    "renderer": "handlebars"
+  },
+  "searchesData": {
+    "name": "searches",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-saved-searches"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "shortlistData": {
+    "name": "shortlist",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-shortlist"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "bulletinData": {
+    "name": "bulletin",
+    "taskModule": "mysql",
+    "config": {
+      "connectionName": "notifications",
+      "queryTemplates": {
+        "items": ">context.metaData.handlebars.queries.notifications_get-bulletin"
+      }
+    },
+    "renderer": "handlebars"
+  },
+  "profileData": {
+    "name": "profile",
+    "taskModule": "firebaseRtbGet",
+    "renderer": "handlebars",
+    "config": {
+      "appName": "fundingscotland",
+      "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}/{{data.currentSite.name}}",
+      "defaultData": {}
+    }
+  },
+  "bulletinName": {
+    "name": "bulletinName",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "template": ">context.metaData.handlebars.templates.bulletin-name",
+      "output": "data"
+    }
+
+  }
+}

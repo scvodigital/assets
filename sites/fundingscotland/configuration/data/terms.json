@@ -1,0 +1,828 @@
+[
+  {
+    "key": "activities",
+    "label": "Activities",
+    "icon": "far fa-person-sign",
+    "termGroups": [
+      {
+        "key": "advice-and-justice",
+        "label": "Advice & justice",
+        "terms": [
+          {
+            "key": "advising-and-informing",
+            "label": "Advice & information",
+            "textBag": "Advice information, help"
+          },
+          {
+            "key": "advocacy",
+            "label": "Advocacy",
+            "textBag": "Advocacy, assistance"
+          },
+          {
+            "key": "befriending-and-mentoring",
+            "label": "Befriending & mentoring",
+            "textBag": "Befriending mentoring, advisor, guide, councillor"
+          },
+          {
+            "key": "financial-advice-and-support",
+            "label": "Financial advice & support",
+            "textBag": "Financial advice support, finance, money"
+          },
+          {
+            "key": "campaigning",
+            "label": "Campaigning",
+            "textBag": "Campaigning, campaign, lobby, champion, canvass"
+          },
+          {
+            "key": "justice-equality-and-law",
+            "label": "Justice, equality & law",
+            "textBag": "justice equality law, ethics, fairness"
+          }
+        ]
+      },
+      {
+        "key": "arts-culture-and-recreation",
+        "label": "Arts, Culture & Recreation",
+        "terms": [
+          {
+            "key": "arts-and-culture",
+            "label": "Arts & culture",
+            "textBag": "Arts culture, Music, drama, visual arts, dance, literature, opera, choir, craft, writing, poetry, painting, theatre"
+          },
+          {
+            "key": "heritage-and-building-preservation",
+            "label": "Heritage & building preservation",
+            "textBag": "Heritage building preservation, preservation, tradition, culture, castle"
+          },
+          {
+            "key": "sport-and-physical-activity",
+            "label": "Sport & physical activity",
+            "textBag": "Sport physical activity, football, rugby, tennis, racket, cricket, golf, sailing, skiing, rowing, bowls, badminton, running, walking, cycling"
+          },
+          {
+            "key": "recreation-and-social-activities",
+            "label": "Recreation & social activities",
+            "textBag": "Recreation social activities, groups, clubs, entertainment, hobby"
+          },
+          {
+            "key": "religious-activities",
+            "label": "Religious activities",
+            "textBag": "Religious activities"
+          }
+        ]
+      },
+      {
+        "key": "community-support-and-development",
+        "label": "Community Support & Development",
+        "terms": [
+          {
+            "key": "citizenship-and-community-involvement",
+            "label": "Citizenship & community involvement",
+            "textBag": "Citizenship community involvement, people, neighbourhood"
+          },
+          {
+            "key": "community-development-and-regeneration",
+            "label": "Community development & regeneration",
+            "textBag": "Community development regeneration, economy"
+          },
+          {
+            "key": "community-facilities",
+            "label": "Community facilities",
+            "textBag": "Community facilities, village hall, community centre"
+          },
+          {
+            "key": "community-safety",
+            "label": "Community safety",
+            "textBag": "Community safety, crime, anti-social behaviour, disorder, offending"
+          },
+          {
+            "key": "transport",
+            "label": "Transport",
+            "textBag": "Transport, bus, mini bus, car, bike, walk, train, travel"
+          },
+          {
+            "key": "disaster-and-emergency-services",
+            "label": "Disaster & emergency services",
+            "textBag": "Disaster emergency services"
+          },
+          {
+            "key": "organisation-capacity-building",
+            "label": "Organisational development & capacity building",
+            "textBag": "Organisational development capacity building, skills, knowledge, tools, learning"
+          }
+        ]
+      },
+      {
+        "key": "education-training-and-research",
+        "label": "Education, training & research",
+        "terms": [
+          {
+            "key": "education-and-training",
+            "label": "Education & training",
+            "textBag": "Education training"
+          },
+          {
+            "key": "employability-services",
+            "label": "Employability services",
+            "textBag": "Employability services, jobs, work, training"
+          },
+          {
+            "key": "research",
+            "label": "Research",
+            "textBag": "Research, investigation, exploration"
+          },
+          {
+            "key": "science-and-technology",
+            "label": "Science & technology",
+            "textBag": "Science & technology"
+          }
+        ]
+      },
+      {
+        "key": "environment-and-animals",
+        "label": "Environment & animals",
+        "terms": [
+          {
+            "key": "animal-welfare",
+            "label": "Animal welfare",
+            "textBag": "Animal welfare, Wildlife, dogs, cats, horses, rabbits, pets"
+          },
+          {
+            "key": "environment",
+            "label": "Environment",
+            "textBag": "Environment, habitat, nature, wildlife, countryside, biosphere, ecosystem, landscape, woods, oceans, rivers, conservation"
+          },
+          {
+            "key": "energy",
+            "label": "Energy",
+            "textBag": "Energy, power, renewables, wind, solar, heat, biomass, insulation"
+          }
+        ]
+      },
+      {
+        "key": "health-and-social-care",
+        "label": "Health & social care",
+        "terms": [
+          {
+            "key": "health-care-and-wellbeing",
+            "label": "Health care & wellbeing",
+            "textBag": "Health care wellbeing, hospital, nurse, help"
+          },
+          {
+            "key": "health-education-and-promotion",
+            "label": "Health education & promotion",
+            "textBag": "Health education promotion, dental, nutrition"
+          },
+          {
+            "key": "heritage-and-building-preservation",
+            "label": "Heritage & building preservation",
+            "textBag": "Heritage building preservation, architecture, historic, church, castle"
+          },
+          {
+            "key": "mental-health-care",
+            "label": "Mental health care",
+            "textBag": "Mental health care"
+          },
+          {
+            "key": "social-care-and-welfare",
+            "label": "Social care & welfare",
+            "textBag": "Social care welfare, support, help"
+          },
+          {
+            "key": "respite-and-holidays",
+            "label": "Respite & holidays",
+            "textBag": "Respite holidays, care, carer breaks"
+          },
+          {
+            "key": "housing-and-shelter",
+            "label": "Housing & shelter",
+            "textBag": "Housing shelter, homeless accomodation home"
+          }
+        ]
+      },
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "general-charitable-activities",
+            "label": "General charitable activities",
+            "textBag": "General charitable activities"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "beneficiaries",
+    "label": "Beneficiaries",
+    "icon": "far fa-users",
+    "termGroups": [
+      {
+        "key": "age",
+        "label": "Age",
+        "terms": [
+          {
+            "key": "children",
+            "label": "Children",
+            "textBag": "Children, Kids, Bairns, Weans"
+          },
+          {
+            "key": "older-people",
+            "label": "Older people",
+            "textBag": "Older people, Elderly, pensioners, senior citizens"
+          },
+          {
+            "key": "young-people",
+            "label": "Young people",
+            "textBag": "Young people, kids, youngsters"
+          }
+        ]
+      },
+      {
+        "key": "gender-and-relationships",
+        "label": "Gender & relationships",
+        "terms": [
+          {
+            "key": "lgbtqi-people",
+            "label": "LGBTQI people",
+            "textBag": "LGBTQI lgbt, Lesbian, Gay, Bisexual, Transgender, Queer, Intersex, people"
+          },
+          {
+            "key": "men",
+            "label": "Men",
+            "textBag": "Men, Males, Blokes, Guys, Man"
+          },
+          {
+            "key": "carers",
+            "label": "Carers",
+            "textBag": "Carers, Caregivers, Guardians"
+          },
+          {
+            "key": "families",
+            "label": "Families",
+            "textBag": "Families, Guardians"
+          },
+          {
+            "key": "women-and-girls",
+            "label": "Women & girls",
+            "textBag": "Women, Girls, Ladies, Woman"
+          }
+        ]
+      },
+      {
+        "key": "people-affected-by-ill-healthdisability",
+        "label": "People affected by ill-health/disability",
+        "terms": [
+          {
+            "key": "ill-health",
+            "label": "Ill-health",
+            "textBag": "Ill-health, Sick, Ill, Unwell"
+          },
+          {
+            "key": "disabilities",
+            "label": "Disabilities",
+            "textBag": "Disabilities, Disabled"
+          },
+          {
+            "key": "learning-disabilities",
+            "label": "Learning disabilities",
+            "textBag": "Learning disabilities, Cognitive, Dyslexia, Nonverbal, Non-verbal, Asperger, Autistic, Dyscalculia, Dysgraphia, Language Processing"
+          },
+          {
+            "key": "physical-disabilities",
+            "label": "Physical disabilities",
+            "textBag": "Physical disabilities"
+          },
+          {
+            "key": "sensory-impairments",
+            "label": "Sensory impairments",
+            "textBag": "Sensory impairments, Deaf, Blind, Visual, Mute, Impared"
+          },
+          {
+            "key": "mental-health-conditions",
+            "label": "Mental health conditions",
+            "textBag": "Mental health conditions, Bipolar, Obsessive Compulsive Disorder, Depression, Schizophrenia, Borderline, Anxiety, Suicide, Eating Disorders, Dissociative, PTSD, Schizoaffective, Panic Attacks, ADHD, Attention Deficit Hyperactivity Disorder,"
+          }
+        ]
+      },
+      {
+        "key": "economicallysocially-disadvantaged-people",
+        "label": "Economically/socially disadvantaged people",
+        "terms": [
+          {
+            "key": "people-in-poverty",
+            "label": "People in poverty",
+            "textBag": "People in poverty, Poor, Financial hardship"
+          },
+          {
+            "key": "economicallysocially-disadvantaged",
+            "label": "Economically/socially disadvantaged",
+            "textBag": "Economically/socially disadvantaged"
+          },
+          {
+            "key": "socially-isolated-people",
+            "label": "Socially isolated people",
+            "textBag": "Socially isolated people, Lonely"
+          },
+          {
+            "key": "care-experienced-people",
+            "label": "Care experienced people",
+            "textBag": "Care experienced people"
+          },
+          {
+            "key": "homeless-or-badly-housed",
+            "label": "Homeless or badly housed",
+            "textBag": "Homeless or badly housed, Shelter"
+          },
+          {
+            "key": "unemployed",
+            "label": "Unemployed",
+            "textBag": "Unemployed, Jobless, Work, Workless, Unwaged, Unoccupied, Redundant, Sacked, Dole, Welfare"
+          },
+          {
+            "key": "addicts-and-misusers",
+            "label": "Addicts & Misusers",
+            "textBag": "Addicts Misusers, Drugs, Alcoholic"
+          },
+          {
+            "key": "victims-of-crime-and-abuse",
+            "label": "Victims of crime & abuse",
+            "textBag": "Victims of crime abuse, Rape, Violence"
+          },
+          {
+            "key": "veterans-and-armed-forces-personnel",
+            "label": "Veterans & armed forces personnel",
+            "textBag": "Veterans armed forces personnel, Army, Navy, Naval, Airforce, Soldier, Sailor"
+          },
+          {
+            "key": "offenders-and-ex-offenders",
+            "label": "Offenders & ex-offenders",
+            "textBag": "Offenders ex-offenders, prisoner, criminal"
+          },
+          {
+            "key": "refugees-and-asylum-seekers",
+            "label": "Refugees & asylum seekers",
+            "textBag": "Refugees asylum seekers, Immigrants"
+          },
+          {
+            "key": "black-and-ethnic-minorities",
+            "label": "Black & Ethnic Minorities",
+            "textBag": "Black Ethnic Minorities, Asian, Pakistani, Indian, Chinese, Caribbean, African, Bangladeshi, Arab, Gypsy, Traveller"
+          }
+        ]
+      },
+      {
+        "key": "geographic-groups",
+        "label": "Geographic Groups",
+        "terms": [
+          {
+            "key": "rural-communities",
+            "label": "Rural communities",
+            "textBag": "Rural communities, Countryside"
+          },
+          {
+            "key": "urban-communities",
+            "label": "Urban communities",
+            "textBag": "Urban communities, City, Cities, Towns"
+          },
+          {
+            "key": "local-communities",
+            "label": "Local communities",
+            "textBag": "Local communities"
+          },
+          {
+            "key": "general-public",
+            "label": "General public",
+            "textBag": "General public"
+          }
+        ]
+      },
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "volunteers",
+            "label": "Volunteers",
+            "textBag": "Volunteers"
+          },
+          {
+            "key": "third-sector-organisations",
+            "label": "Voluntary sector organisations",
+            "textBag": "Voluntary sector organisations, voluntary groups, charities, clubs"
+          },
+          {
+            "key": "religious-and-belief-groups",
+            "label": "Religious & Belief Groups",
+            "textBag": "Religious Belief Groups, church, faith"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "geographical_areas_funded",
+    "label": "Geographical areas funded",
+    "icon": "far fa-map-marked-alt",
+    "termGroups": [
+      {
+        "key": "national",
+        "label": "National",
+        "terms": [
+          {
+            "key": "scotland",
+            "label": "Scotland",
+            "textBag": "Scotland"
+          },
+          {
+            "key": "uk",
+            "label": "UK",
+            "textBag": "UK"
+          }
+        ]
+      },
+      {
+        "key": "international",
+        "label": "International",
+        "terms": [
+          {
+            "key": "european-union",
+            "label": "European Union",
+            "textBag": "European Union"
+          },
+          {
+            "key": "overseas",
+            "label": "Worldwide",
+            "textBag": "Overseas World"
+          }
+        ]
+      },
+      {
+        "key": "ayrshire-arran",
+        "label": "Ayrshire & Arran",
+        "terms": [
+          {
+            "key": "east-ayrshire",
+            "label": "East Ayrshire",
+            "textBag": "East Ayrshire"
+          },
+          {
+            "key": "north-ayrshire",
+            "label": "North Ayrshire",
+            "textBag": "North Ayrshire"
+          },
+          {
+            "key": "south-ayrshire",
+            "label": "South Ayrshire",
+            "textBag": "South Ayrshire"
+          }
+        ]
+      },
+      {
+        "key": "central-scotland",
+        "label": "Central Scotland",
+        "terms": [
+          {
+            "key": "clackmannanshire",
+            "label": "Clackmannanshire",
+            "textBag": "Clackmannanshire"
+          },
+          {
+            "key": "falkirk",
+            "label": "Falkirk",
+            "textBag": "Falkirk"
+          },
+          {
+            "key": "fife",
+            "label": "Fife",
+            "textBag": "Fife"
+          },
+          {
+            "key": "stirling",
+            "label": "Stirling",
+            "textBag": "Stirling"
+          }
+        ]
+      },
+      {
+        "key": "edinburgh-lothians",
+        "label": "Edinburgh & Lothians",
+        "terms": [
+          {
+            "key": "east-lothian",
+            "label": "East Lothian",
+            "textBag": "East Lothian"
+          },
+          {
+            "key": "edinburgh",
+            "label": "Edinburgh",
+            "textBag": "Edinburgh"
+          },
+          {
+            "key": "midlothian",
+            "label": "Midlothian",
+            "textBag": "Midlothian"
+          },
+          {
+            "key": "west-lothian",
+            "label": "West Lothian",
+            "textBag": "West Lothian"
+          }
+        ]
+      },
+      {
+        "key": "glasgow-clyde",
+        "label": "Glasgow & Clyde",
+        "terms": [
+          {
+            "key": "east-dunbartonshire",
+            "label": "East Dunbartonshire",
+            "textBag": "East Dunbartonshire"
+          },
+          {
+            "key": "east-renfrewshire",
+            "label": "East Renfrewshire",
+            "textBag": "East Renfrewshire"
+          },
+          {
+            "key": "glasgow",
+            "label": "Glasgow",
+            "textBag": "Glasgow"
+          },
+          {
+            "key": "inverclyde",
+            "label": "Inverclyde",
+            "textBag": "Inverclyde"
+          },
+          {
+            "key": "north-lanarkshire",
+            "label": "North Lanarkshire",
+            "textBag": "North Lanarkshire"
+          },
+          {
+            "key": "renfrewshire",
+            "label": "Renfrewshire",
+            "textBag": "Renfrewshire"
+          },
+          {
+            "key": "south-lanarkshire",
+            "label": "South Lanarkshire",
+            "textBag": "South Lanarkshire"
+          },
+          {
+            "key": "west-dunbartonshire",
+            "label": "West Dunbartonshire",
+            "textBag": "West Dunbartonshire"
+          }
+        ]
+      },
+      {
+        "key": "grampian",
+        "label": "Grampian",
+        "terms": [
+          {
+            "key": "aberdeen",
+            "label": "Aberdeen",
+            "textBag": "Aberdeen"
+          },
+          {
+            "key": "aberdeenshire",
+            "label": "Aberdeenshire",
+            "textBag": "Aberdeenshire"
+          }
+        ]
+      },
+      {
+        "key": "highlands-islands",
+        "label": "Highlands & Islands",
+        "terms": [
+          {
+            "key": "argyll-bute",
+            "label": "Argyll & Bute",
+            "textBag": "Argyll Bute"
+          },
+          {
+            "key": "highland",
+            "label": "Highland",
+            "textBag": "Highland Inverness"
+          },
+          {
+            "key": "moray",
+            "label": "Moray",
+            "textBag": "Moray"
+          },
+          {
+            "key": "na-h-eileanan-siar",
+            "label": "Na h-Eileanan Siar",
+            "textBag": "Na h-Eileanan Siar Western Isles"
+          },
+          {
+            "key": "orkney",
+            "label": "Orkney",
+            "textBag": "Orkney"
+          },
+          {
+            "key": "shetland",
+            "label": "Shetland",
+            "textBag": "Shetland"
+          }
+        ]
+      },
+      {
+        "key": "south-scotland",
+        "label": "South Scotland",
+        "terms": [
+          {
+            "key": "dumfries-galloway",
+            "label": "Dumfries & Galloway",
+            "textBag": "Dumfries Galloway"
+          },
+          {
+            "key": "scottish-borders",
+            "label": "Scottish Borders",
+            "textBag": "Scottish Borders"
+          }
+        ]
+      },
+      {
+        "key": "tayside",
+        "label": "Tayside",
+        "terms": [
+          {
+            "key": "angus",
+            "label": "Angus",
+            "textBag": "Angus"
+          },
+          {
+            "key": "dundee",
+            "label": "Dundee",
+            "textBag": "Dundee"
+          },
+          {
+            "key": "perth-kinross",
+            "label": "Perth & Kinross",
+            "textBag": "Perth Kinross"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "type_of_cost",
+    "label": "Type of cost",
+    "icon": "far fa-money-check",
+    "termGroups": [
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "capital",
+            "label": "Capital",
+            "textBag": "Capital"
+          },
+          {
+            "key": "core-costs",
+            "label": "Core costs",
+            "textBag": "Core costs"
+          },
+          {
+            "key": "revenue",
+            "label": "Revenue",
+            "textBag": "Revenue"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "type_of_funding",
+    "label": "Type of funding",
+    "icon": "far fa-university",
+    "termGroups": [
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "corporate-sponsorship",
+            "label": "Corporate sponsorship",
+            "textBag": "Corporate sponsorship"
+          },
+          {
+            "key": "equipment",
+            "label": "Equipment",
+            "textBag": "Equipment"
+          },
+          {
+            "key": "grant",
+            "label": "Grant",
+            "textBag": "Grant"
+          },
+          {
+            "key": "loan",
+            "label": "Loan",
+            "textBag": "Loan"
+          },
+          {
+            "key": "other-resources",
+            "label": "Other resources",
+            "textBag": "Other resources"
+          },
+          {
+            "key": "prize-award",
+            "label": "Prize/award",
+            "textBag": "Prize award"
+          },
+          {
+            "key": "staff-time",
+            "label": "Staff time",
+            "textBag": "Staff time"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "source_of_fund",
+    "label": "Source of fund",
+    "icon": "far fa-hands-helping",
+    "termGroups": [
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "community-benefit",
+            "label": "Community Benefit",
+            "textBag": "Community Benefit"
+          },
+          {
+            "key": "european",
+            "label": "European",
+            "textBag": "European"
+          },
+          {
+            "key": "lottery",
+            "label": "Lottery",
+            "textBag": "Lottery"
+          },
+          {
+            "key": "private-for-profit-organisation",
+            "label": "Private/for Profit Organisation",
+            "textBag": "Private for Profit Organisation"
+          },
+          {
+            "key": "statutory",
+            "label": "Statutory",
+            "textBag": "Statutory"
+          },
+          {
+            "key": "trust-foundation",
+            "label": "Trust/Foundation",
+            "textBag": "Trust Foundation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "miscellaneous",
+    "label": "Other filters",
+    "icon": "far fa-filter",
+    "termGroups": [
+      {
+        "key": "other",
+        "label": "Other",
+        "terms": [
+          {
+            "key": "funds-individuals",
+            "label": "Also funds individuals",
+            "textBag": "also funds individuals"
+          },
+          {
+            "key": "for-charities-only",
+            "label": "For charities only",
+            "textBag": "charities charity only"
+          },
+          {
+            "key": "available-to-non-charities",
+            "label": "Available to non-charities",
+            "textBag": "available non not charities charity"
+          },
+          {
+            "key": "show-closed-funds",
+            "label": "Include closed funds",
+            "textBag": "currently closed funds"
+          },
+          {
+            "key": "hide-open-funds",
+            "label": "Hide open funds",
+            "textBag": "funds open"
+          }
+        ]
+      }
+    ]
+  }
+]

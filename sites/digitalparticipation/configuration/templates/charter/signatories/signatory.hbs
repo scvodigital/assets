@@ -5,11 +5,11 @@
       <p>
         <strong>
           <span class="fas fa-chevron-circle-left" aria-hidden="true"></span>
-          {{#if @root.request.url.search ~}}
-          <a href="/charter/signatories{{@root.request.url.search}}">Back to search results</a>
+          {{#unless (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) "") ~}}
+          <a href="/charter/signatories{{> query_search}}">Back to search results</a>
           {{else}}
           <a href="/charter/signatories">All signatories</a>
-          {{/if ~}}
+          {{/unless ~}}
         </strong>
       </p>
     </div>

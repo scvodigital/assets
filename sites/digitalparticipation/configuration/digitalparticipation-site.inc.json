@@ -11,9 +11,9 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalparticipation/",
     "title": "Scotland's Digital Participation Charter",
-    "menus": "{:./digitalparticipation-menus.json}",
+    "menus": "{:./data/menus.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
-    "pledges": "{:./pledges.json}",
+    "pledges": "{:./data/pledges.json}",
     "handlebars": {
       "partials": {
         "{$./partials/**/*.*}": "includeRelativePath=false&regexExpression=(-)&regexOptions=gi&regexReplace=_"

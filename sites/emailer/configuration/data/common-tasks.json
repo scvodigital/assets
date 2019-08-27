@@ -1,0 +1,32 @@
+{
+  "authNotRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.emailer_token",
+      "cookieName": "emailer_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true
+      },
+      "appName": "scvo",
+      "noTokenRoute": "",
+      "notAuthenticatedRoute": ""
+    }
+  },
+  "authRequired": {
+    "name": "auth",
+    "taskModule": "firebaseAuth",
+    "config": {
+      "tokenPath": "request.cookies.emailer_token",
+      "cookieName": "emailer_cookie",
+      "cookieOptions": {
+        "maxAge": 1209600000,
+        "secure": true
+      },
+      "appName": "scvo",
+      "noTokenRoute": "home",
+      "notAuthenticatedRoute": "home"
+    }
+  }
+}

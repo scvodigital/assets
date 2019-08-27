@@ -1,0 +1,7 @@
+<ul>
+  {{#each @root.context.metaData.site-configurations ~}}
+  {{#ifAll (compare @key "!==" "default") live ~}}
+  <li><a href="{{url}}">{{title}}</a></li>
+  {{/ifAll ~}}
+  {{/each ~}}
+</ul>

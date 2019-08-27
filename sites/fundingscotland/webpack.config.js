@@ -51,7 +51,7 @@ function getConfig(site, library) {
       aggregateTimeout: 300
     },
     entry: [
-      ...globby.sync('./sites/' + site + '/scss/*-main.scss'),
+      ...globby.sync('./sites/' + site + '/styles/*-main.scss'),
       './sites/' + site + '/main.js',
     ],
     output: {

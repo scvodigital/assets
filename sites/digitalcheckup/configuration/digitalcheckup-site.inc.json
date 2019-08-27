@@ -10,9 +10,9 @@
     "assetsVersion": "{:../../../package.json@version}",
     "assetsBase": "https://storage.googleapis.com/scvo-assets/test/digitalcheckup/",
     "title": "Digital Checkup",
-    "menus": "{:./digitalcheckup-menus.json}",
-    "checkup": "{:./checkup.json}",
-    "areas": "{:./areas.json}",
+    "menus": "{:./data/menus.json}",
+    "checkup": "{:./data/checkup.json}",
+    "areas": "{:./data/areas.json}",
     "elasticsearchUrl": "{$../../elasticsearch-url.txt}",
     "handlebars": {
       "partials": {

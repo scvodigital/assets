@@ -20,6 +20,7 @@
     "type_of_funding",
     "funder_organisation.has_logo",
     "funder_organisation.logo_url",
+    "funder_organisation.address",
     "funder_organisation.website",
     "funder_organisation.profile",
     "funder_organisation_website_url"

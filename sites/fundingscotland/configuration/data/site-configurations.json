@@ -1,0 +1,1533 @@
+{
+  "default": {
+    "name": "default",
+    "live": true,
+    "title": "Funding Scotland",
+    "organisationName": "SCVO",
+    "organisationContact": "fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://scvo.org",
+    "fundingArea": "at your fingertips",
+    "url": "https://fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/scvo-inverse.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-default-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fundingscotland-legacy.png",
+    "colors": {
+      "primary": "#537F2C",
+      "primaryText": "#ffffff",
+      "secondary": "#f2f7ef",
+      "secondaryText": "#000000",
+      "info": "#4779af",
+      "infoText": "#000000",
+      "success": "#4caf50",
+      "successText": "#000000",
+      "warning": "#8b6d11",
+      "warningText": "#ffffff",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "fixedFilters": {
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": false
+  },
+  "aberdeen": {
+    "name": "aberdeen",
+    "live": false,
+    "title": "Aberdeen Funding Search",
+    "organisationName": "Aberdeen City Council",
+    "organisationContact": "aberdeen.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.aberdeencity.gov.uk",
+    "fundingArea": "in Aberdeen",
+    "url": "https://aberdeen.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/aberdeen.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-aberdeen-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#452946",
+      "primaryText": "#ffffff",
+      "secondary": "#E11962",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "aberdeen",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "aberdeen"
+      ]
+    }
+  },
+  "aberdeenshire": {
+    "name": "aberdeenshire",
+    "live": false,
+    "title": "Aberdeenshire Funding Search",
+    "organisationName": "Aberdeenshire Council",
+    "organisationContact": "aberdeenshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.aberdeenshire.gov.uk",
+    "fundingArea": "in Aberdeenshire",
+    "url": "https://aberdeenshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/aberdeenshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-aberdeenshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#004A8D",
+      "primaryText": "#ffffff",
+      "secondary": "#F5F5F5",
+      "secondaryText": "#0E4582",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "aberdeenshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "aberdeenshire"
+      ]
+    }
+  },
+  "angus": {
+    "name": "angus",
+    "live": false,
+    "title": "Angus Funding Search",
+    "organisationName": "Angus Council",
+    "organisationContact": "angus.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.angus.gov.uk",
+    "fundingArea": "in Angus",
+    "url": "https://angus.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/angus.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-angus-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#008772",
+      "primaryText": "#ffffff",
+      "secondary": "#0026A1",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "angus",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "angus"
+      ]
+    }
+  },
+  "argyllbute": {
+    "name": "argyllbute",
+    "live": false,
+    "title": "Argyll & Bute Funding Search",
+    "organisationName": "Argyll & Bute Council",
+    "organisationContact": "argyllbute.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.argyll-bute.gov.uk",
+    "fundingArea": "in Argyll & Bute",
+    "url": "https://argyll-bute.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/argyllbute.jpg",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-argyllbute-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#0056A0",
+      "primaryText": "#ffffff",
+      "secondary": "#0D6535",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "argyllbute",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "argyll-bute"
+      ]
+    }
+  },
+  "clackmannanshire": {
+    "name": "clackmannanshire",
+    "live": false,
+    "title": "Clacks Funding Search",
+    "organisationName": "Clackmannanshire Council",
+    "organisationContact": "clackmannanshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.clackmannanshire.gov.uk",
+    "fundingArea": "in the wee county",
+    "url": "https://clackmannanshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/clacks.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-clackmannanshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#306797",
+      "primaryText": "#ffffff",
+      "secondary": "#C9DAE8",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "clackmannanshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "clackmannanshire"
+      ]
+    }
+  },
+  "dumfriesgalloway": {
+    "name": "dumfriesgalloway",
+    "live": false,
+    "title": "Dumfries & Galloway Funding Search",
+    "organisationName": "Dumfries & Galloway Council",
+    "organisationContact": "dumfriesgalloway.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.dumgal.gov.uk",
+    "fundingArea": "in Dumfries & Galloway",
+    "url": "https://dumfries-galloway.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/dumfriesgalloway.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-dumfriesgalloway-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#5D275E",
+      "primaryText": "#ffffff",
+      "secondary": "#007A37",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "dumfries-galloway",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "dumfries-galloway"
+      ]
+    }
+  },
+  "dundee": {
+    "name": "dundee",
+    "live": false,
+    "title": "Dundee Funding Search",
+    "organisationName": "Dundee City Council",
+    "organisationContact": "dundee.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.dundee.gov.uk",
+    "fundingArea": "in Dundee",
+    "url": "https://dundee.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/dundee.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-dundee-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#437640",
+      "primaryText": "#ffffff",
+      "secondary": "#0067AB",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "dundee",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "dundee"
+      ]
+    }
+  },
+  "eastayrshire": {
+    "name": "eastayrshire",
+    "live": false,
+    "title": "East Ayrshire Funding Search",
+    "organisationName": "East Ayrshire Council",
+    "organisationContact": "eastayrshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.east-ayrshire.gov.uk",
+    "fundingArea": "in East Ayrshire",
+    "url": "https://eastayrshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastayrshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastayrshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ea-cm-crop.jpg",
+    "colors": {
+      "primary": "#005398",
+      "primaryText": "#ffffff",
+      "secondary": "#DCE5ED",
+      "secondaryText": "#073E6A",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-ayrshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-ayrshire"
+      ]
+    }
+  },
+  "eastdunbartonshire": {
+    "name": "eastdunbartonshire",
+    "live": false,
+    "title": "East Dunbartonshire Funding Search",
+    "organisationName": "East Dunbartonshire Council",
+    "organisationContact": "eastdunbartonshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.eastdunbarton.gov.uk",
+    "fundingArea": "in East Dunbartonshire",
+    "url": "https://eastdunbartonshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastdunbarton.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastdunbartonshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#D40027",
+      "primaryText": "#ffffff",
+      "secondary": "#808080",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-dunbartonshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-dunbartonshire"
+      ]
+    }
+  },
+  "eastlothian": {
+    "name": "eastlothian",
+    "live": false,
+    "title": "East Lothian Funding Search",
+    "organisationName": "East Lothian Council",
+    "organisationContact": "eastlothian.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.eastlothian.gov.uk",
+    "fundingArea": "in East Lothian",
+    "url": "https://eastlothian.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastlothian.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastlothian-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#005390",
+      "primaryText": "#ffffff",
+      "secondary": "#FCBA3B",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-lothian",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-lothian"
+      ]
+    }
+  },
+  "eastrenfrewshire": {
+    "name": "eastrenfrewshire",
+    "live": true,
+    "title": "East Renfrewshire Funding Search",
+    "organisationName": "East Renfrewshire Council",
+    "organisationContact": "eastren.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.eastrenfrewshire.gov.uk",
+    "fundingArea": "in East Renfrewshire",
+    "url": "https://eastrenfrewshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/eastren.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-eastrenfrewshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#006DC3",
+      "primaryText": "#ffffff",
+      "secondary": "#5ED245",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "east-renfrewshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "east-renfrewshire"
+      ]
+    }
+  },
+  "edinburgh": {
+    "name": "edinburgh",
+    "live": false,
+    "title": "Edinburgh Funding Search",
+    "organisationName": "City of Edinburgh Council",
+    "organisationContact": "edinburgh.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.edinburgh.gov.uk",
+    "fundingArea": "in Edinburgh",
+    "url": "https://edinburgh.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/edinburgh.svg",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-edinburgh-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/edinburgh-us-crop.jpg",
+    "colors": {
+      "primary": "#6D3364",
+      "primaryText": "#ffffff",
+      "secondary": "#5C2B54",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "edinburgh",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "edinburgh"
+      ]
+    }
+  },
+  "falkirk": {
+    "name": "falkirk",
+    "live": false,
+    "title": "Falkirk Funding Search",
+    "organisationName": "Falkirk Council",
+    "organisationContact": "falkirk.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.falkirk.gov.uk",
+    "fundingArea": "in Falkirk",
+    "url": "https://falkirk.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/falkirk.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-falkirk-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#005298",
+      "primaryText": "#ffffff",
+      "secondary": "#F4603A",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "falkirk",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "falkirk"
+      ]
+    }
+  },
+  "fife": {
+    "name": "fife",
+    "live": true,
+    "title": "Fife Funding Search",
+    "organisationName": "Fife Council",
+    "organisationContact": "fife.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.fifedirect.org.uk",
+    "fundingArea": "in Fife",
+    "url": "https://fife.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/fife.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-fife-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/fife-cm-crop.jpg",
+    "colors": {
+      "primary": "#01526D",
+      "primaryText": "#ffffff",
+      "secondary": "#D93024",
+      "secondaryText": "#ffffff",
+      "info": "#663399",
+      "infoText": "#ffffff",
+      "success": "#009966",
+      "successText": "#000000",
+      "warning": "#f35958",
+      "warningText": "#000000",
+      "error": "#de3027",
+      "errorText": "#000000"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "fife",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "fife"
+      ]
+    }
+  },
+  "glasgow": {
+    "name": "glasgow",
+    "live": false,
+    "title": "Glasgow Funding Search",
+    "organisationName": "Glasgow City Council",
+    "organisationContact": "glasgow.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.glasgow.gov.uk",
+    "fundingArea": "in Glasgow",
+    "url": "https://glasgow.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/glasgow.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-glasgow-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#006A60",
+      "primaryText": "#ffffff",
+      "secondary": "#FFC13F",
+      "secondaryText": "#006A60",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "glasgow",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "glasgow"
+      ]
+    }
+  },
+  "highland": {
+    "name": "highland",
+    "live": false,
+    "title": "Highland Funding Search",
+    "organisationName": "Highland Council",
+    "organisationContact": "highland.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.highland.gov.uk",
+    "fundingArea": "in the Scottish Highlands",
+    "url": "https://highland.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/highland.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-highland-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/highland-ws-crop.jpg",
+    "colors": {
+      "primary": "#48267F",
+      "primaryText": "#ffffff",
+      "secondary": "#007D36",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "highland",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "highland"
+      ]
+    }
+  },
+  "inverclyde": {
+    "name": "inverclyde",
+    "live": false,
+    "title": "Inverclyde Funding Search",
+    "organisationName": "Inverclyde Council",
+    "organisationContact": "inverclyde.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.inverclyde.gov.uk",
+    "fundingArea": "in Inverclyde",
+    "url": "https://inverclyde.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/inverclyde.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-inverclyde-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#52B2BF",
+      "primaryText": "#ffffff",
+      "secondary": "#87b76b",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "inverclyde",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "inverclyde"
+      ]
+    }
+  },
+  "midlothian": {
+    "name": "midlothian",
+    "live": false,
+    "title": "Midlothian Funding Search",
+    "organisationName": "Midlothian Council",
+    "organisationContact": "midlothian.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.midlothian.gov.uk",
+    "fundingArea": "in Midlothian",
+    "url": "https://midlothian.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/midlothian.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-midlothian-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#117E2F",
+      "primaryText": "#ffffff",
+      "secondary": "#7E736B",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "midlothian",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "midlothian"
+      ]
+    }
+  },
+  "moray": {
+    "name": "moray",
+    "live": false,
+    "title": "Moray Funding Search",
+    "organisationName": "Moray Council",
+    "organisationContact": "moray.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.moray.gov.uk",
+    "fundingArea": "in Moray",
+    "url": "https://moray.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/moray.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-moray-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#007BBA",
+      "primaryText": "#ffffff",
+      "secondary": "#BF1D90",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "moray",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "moray"
+      ]
+    }
+  },
+  "westernisles": {
+    "name": "westernisles",
+    "live": false,
+    "title": "Na h-Eileanan Siar Funding Search",
+    "organisationName": "Comhairle nan Eilean Siar",
+    "organisationContact": "westernisles.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "http://www.cne-siar.gov.uk",
+    "fundingArea": "on the Western Isles",
+    "url": "https://na-h-eileanan-siar.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/comhairle-nan_eilean_siar.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-westernisles-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#306797",
+      "primaryText": "#ffffff",
+      "secondary": "#4e864e",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "na-h-eileanan-siar",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "na-h-eileanan-siar"
+      ]
+    }
+  },
+  "northayrshire": {
+    "name": "northayrshire",
+    "live": false,
+    "title": "North Ayrshire Funding Search",
+    "organisationName": "North Ayrshire Council",
+    "organisationContact": "northayrshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.north-ayrshire.gov.uk",
+    "fundingArea": "in North Ayrshire",
+    "url": "https://northayrshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/northayrshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-northayrshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#0071AC",
+      "primaryText": "#ffffff",
+      "secondary": "#51722B",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "north-ayrshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "north-ayrshire"
+      ]
+    }
+  },
+  "northlanarkshire": {
+    "name": "northlanarkshire",
+    "live": true,
+    "title": "North Lanarkshire Funding Search",
+    "organisationName": "North Lanarkshire Council",
+    "organisationContact": "northlanarkshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.northlanarkshire.gov.uk",
+    "fundingArea": "in North Lanarkshire",
+    "url": "https://northlanarkshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/northlanarkshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-northlanarkshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/northlanarkshire-unsplash-crop.jpg",
+    "colors": {
+      "primary": "#BD0029",
+      "primaryText": "#ffffff",
+      "secondary": "#4E4E4E",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "north-lanarkshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "north-lanarkshire"
+      ]
+    }
+  },
+  "orkney": {
+    "name": "orkney",
+    "live": false,
+    "title": "Orkney Funding Search",
+    "organisationName": "Orkney Islands Council",
+    "organisationContact": "orkney.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.orkney.gov.uk",
+    "fundingArea": "on the Orkney Islands",
+    "url": "https://orkney.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/orkney.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-orkney-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#000000",
+      "primaryText": "#ffffff",
+      "secondary": "#8b0000",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "orkney",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "orkney"
+      ]
+    }
+  },
+  "perthkinross": {
+    "name": "perthkinross",
+    "live": false,
+    "title": "Perth & Kinross Funding Search",
+    "organisationName": "Perth & Kinross Council",
+    "organisationContact": "perthkinross.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.pkc.gov.uk",
+    "fundingArea": "in Perth & Kinross",
+    "url": "https://perth-kinross.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/perthkinross.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-perthkinross-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#0D8296",
+      "primaryText": "#ffffff",
+      "secondary": "#4B5362",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "perth-kinross",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "perth-kinross"
+      ]
+    }
+  },
+  "renfrewshire": {
+    "name": "renfrewshire",
+    "live": false,
+    "title": "Renfrewshire Funding Search",
+    "organisationName": "Renfrewshire Council",
+    "organisationContact": "renfrewshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.renfrewshire.gov.uk",
+    "fundingArea": "in Renfrewshire",
+    "url": "https://renfrewshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/renfrewshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-renfrewshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#660096",
+      "primaryText": "#ffffff",
+      "secondary": "#00848E",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "renfrewshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "renfrewshire"
+      ]
+    }
+  },
+  "scottishborders": {
+    "name": "scottishborders",
+    "live": false,
+    "title": "Scottish Borders Funding Search",
+    "organisationName": "Scottish Borders Council",
+    "organisationContact": "scottishborders.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.scotborders.gov.uk",
+    "fundingArea": "in the Borders",
+    "url": "https://scottish-borders.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/scottishborders.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-scottishborders-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#711A45",
+      "primaryText": "#ffffff",
+      "secondary": "#146CCC",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "scottish-borders",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "scottish-borders"
+      ]
+    }
+  },
+  "shetland": {
+    "name": "shetland",
+    "live": true,
+    "title": "Shetland Funding Search",
+    "organisationName": "Shetland Islands Council",
+    "organisationContact": "shetland.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.shetland.gov.uk",
+    "fundingArea": "on the Shetland Islands",
+    "url": "https://shetland.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/shetland.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-shetland-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/shetland-cm-crop.jpg",
+    "colors": {
+      "primary": "#064B89",
+      "primaryText": "#ffffff",
+      "secondary": "#D5A300",
+      "secondaryText": "#000000",
+      "info": "#4779af",
+      "infoText": "#000000",
+      "success": "#4e8b11",
+      "successText": "#000000",
+      "warning": "#ff6600",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "shetland",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "shetland"
+      ]
+    }
+  },
+  "southayrshire": {
+    "name": "southayrshire",
+    "live": false,
+    "title": "South Ayrshire Funding Search",
+    "organisationName": "South Ayrshire Council",
+    "organisationContact": "southayrshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.south-ayrshire.gov.uk",
+    "fundingArea": "in South Ayrshire",
+    "url": "https://southayrshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/southayrshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-southayrshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#005699",
+      "primaryText": "#ffffff",
+      "secondary": "#FFED8B",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "south-ayrshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "south-ayrshire"
+      ]
+    }
+  },
+  "southlanarkshire": {
+    "name": "southlanarkshire",
+    "live": true,
+    "title": "South Lanarkshire Funding Search",
+    "organisationName": "South Lanarkshire Council",
+    "organisationContact": "southlanarkshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.southlanarkshire.gov.uk",
+    "fundingArea": "in South Lanarkshire",
+    "url": "https://southlanarkshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/southlanarkshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-southlanarkshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/southlanarkshire-orig-crop.jpg",
+    "colors": {
+      "primary": "#244781",
+      "primaryText": "#ffffff",
+      "secondary": "#EDAD35",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "south-lanarkshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "south-lanarkshire"
+      ]
+    }
+  },
+  "stirling": {
+    "name": "stirling",
+    "live": true,
+    "title": "Funding Stirling",
+    "organisationName": "Stirling Council",
+    "organisationContact": "stirling.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.stirling.gov.uk",
+    "fundingArea": "in Stirling",
+    "url": "https://stirling.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/stirling.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-stirling-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/stirling-cm-crop.jpg",
+    "colors": {
+      "primary": "#8F2984",
+      "primaryText": "#ffffff",
+      "secondary": "#007361",
+      "secondaryText": "#000000",
+      "info": "#f2dede",
+      "infoText": "#000000",
+      "success": "#e51072",
+      "successText": "#000000",
+      "warning": "#661a6a",
+      "warningText": "#ffffff",
+      "error": "#d2d20e",
+      "errorText": "#000000"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "stirling",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "stirling"
+      ]
+    }
+  },
+  "westdunbartonshire": {
+    "name": "westdunbartonshire",
+    "live": false,
+    "title": "West Dunbartonshire Funding Search",
+    "organisationName": "West Dunbartonshire Council",
+    "organisationContact": "westdunbartonshire.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.west-dunbarton.gov.uk",
+    "fundingArea": "in West Dunbartonshire",
+    "url": "https://westdunbartonshire.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/westdunbartonshire.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-westdunbartonshire-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#1A3D79",
+      "primaryText": "#ffffff",
+      "secondary": "#007060",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "west-dunbartonshire",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "west-dunbartonshire"
+      ]
+    }
+  },
+  "westlothian": {
+    "name": "westlothian",
+    "live": false,
+    "title": "West Lothian Funding Search",
+    "organisationName": "West Lothian Council",
+    "organisationContact": "westlothian.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.westlothian.gov.uk",
+    "fundingArea": "in West Lothian",
+    "url": "https://westlothian.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/westlothian.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-westlothian-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/ca-cm-crop.jpg",
+    "colors": {
+      "primary": "#006F54",
+      "primaryText": "#ffffff",
+      "secondary": "#707070",
+      "secondaryText": "#ffffff",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "west-lothian",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "west-lothian"
+      ]
+    }
+  },
+  "srn": {
+    "name": "srn",
+    "live": true,
+    "title": "SRN Funding Search",
+    "organisationName": "Scottish Rural Network (SRN)",
+    "organisationContact": "srn.fundingscotland@scvo.org.uk",
+    "organisationWebsite": "https://www.ruralnetwork.scot",
+    "fundingArea": "in rural Scotland",
+    "url": "https://srn.fundingscotland.com",
+    "logo": "https://storage.googleapis.com/fundingscotland/logos/srn.png",
+    "emailLogo": "https://storage.googleapis.com/fundingscotland/email/fs-srn-email.png",
+    "headerImage": "https://storage.googleapis.com/fundingscotland/headers/srn-cm-crop.jpg",
+    "colors": {
+      "primary": "#007aad",
+      "primaryText": "#ffffff",
+      "secondary": "#5ab756",
+      "secondaryText": "#000000",
+      "info": "#4a9ae5",
+      "infoText": "#000000",
+      "success": "#5ab756",
+      "successText": "#000000",
+      "warning": "#cca13e",
+      "warningText": "#000000",
+      "error": "#d32f2f",
+      "errorText": "#ffffff"
+    },
+    "pageLimit": 20,
+    "enablePremiumFeatures": true,
+    "fixedFilters": {
+      "geographical_areas_funded": [
+        "south-lanarkshire",
+        "stirling",
+        "perth-kinross",
+        "renfrewshire",
+        "falkirk",
+        "scottish-borders",
+        "shetland",
+        "south-ayrshire",
+        "west-dunbartonshire",
+        "west-lothian",
+        "fife",
+        "highland",
+        "inverclyde",
+        "midlothian",
+        "moray",
+        "na-h-eileanan-siar",
+        "north-ayrshire",
+        "north-lanarkshire",
+        "orkney",
+        "east-renfrewshire",
+        "aberdeenshire",
+        "angus",
+        "argyll-bute",
+        "clackmannanshire",
+        "dumfries-galloway",
+        "east-ayrshire",
+        "east-dunbartonshire",
+        "east-lothian",
+        "scotland",
+        "uk",
+        "europe",
+        "european-union",
+        "overseas"
+      ]
+    },
+    "defaultSiteAdTerms": {
+      "geographical_areas_funded": [
+        "perth-kinross",
+        "renfrewshire",
+        "falkirk",
+        "scottish-borders",
+        "south-ayrshire",
+        "west-dunbartonshire",
+        "west-lothian",
+        "highland",
+        "inverclyde",
+        "midlothian",
+        "moray",
+        "na-h-eileanan-siar",
+        "north-ayrshire",
+        "orkney",
+        "aberdeenshire",
+        "angus",
+        "argyll-bute",
+        "clackmannanshire",
+        "dumfries-galloway",
+        "east-ayrshire",
+        "east-dunbartonshire",
+        "east-lothian"
+      ]
+    }
+  }
+}

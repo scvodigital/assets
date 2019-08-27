@@ -14,16 +14,14 @@
     </div>
   </div>
   <hr class="mdc-list-divider" />
-  <div class="search-result-article__snippet mdc-typography--body1">
-    <div style="max-height: 4rem;" class="faded-overflow">
-      {{#if description ~}}
-      {{{description}}}
-      {{else}}
-      {{#if course_overview ~}}
-      {{{course_overview}}}
-      {{/if ~}}
-      {{/if ~}}
-    </div>
+  <div class="search-result-article__snippet mdc-typography--body1 faded-overflow" style="height:4rem;">
+    {{#if description ~}}
+    {{{description}}}
+    {{else}}
+    {{#if course_overview ~}}
+    {{{course_overview}}}
+    {{/if ~}}
+    {{/if ~}}
   </div>
   <div class="mdc-card__actions">
     <div class="mdc-card__action-buttons demo-card__action-buttons--text-only mdc-card__actions--full-bleed">

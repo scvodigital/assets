@@ -960,6 +960,17 @@ footer.mdc-layout__footer {
   .currently-recruiting .content-secondary-logo {
     padding: 0 $unit/2 1px;
   }
+  .volunteering-banner {
+    .mdc-layout-grid.l-margin-full {
+      margin-left: 0;
+    }
+    .mdc-layout-grid.l-padding {
+      padding-left: 0;
+    }
+    .t-margin-full {
+      margin-top: 0;
+    }
+  }
 }
 
 .search-result-article__notes .faded-overflow {

@@ -175,8 +175,8 @@ header {
       padding-right: $unit;
       line-height: 1;
       .test-logo {
-        filter: grayscale(1)blur(3px);
-        opacity: .5;
+        filter: blur(2px);
+        opacity: .75;
       }
       img {
         max-width: 275px;

@@ -1,6 +1,6 @@
 {
-  "name": "parent-verify",
-  "pattern": "/parent-verify",
+  "name": "verify",
+  "pattern": "/verify",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

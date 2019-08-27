@@ -150,8 +150,8 @@
     "taskModule": "reroute",
     "config":
     { "if" : [{ "and" : [
-      {"==" : [ { "var" : "data.signUpStatus.status" }, "pv-needed"] }
-    ] }, "pv-needed", null
+      {"==" : [ { "var" : "data.signUpStatus.status" }, "verify-needed"] }
+    ] }, "verify-needed", null
     ]}
   },
   "fullSignUpRequired": {

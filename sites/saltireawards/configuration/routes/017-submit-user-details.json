@@ -14,7 +14,7 @@
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_pv-code"
+        "template": ">context.metaData.handlebars.templates.account_verify-code"
       }
     },
     {
@@ -37,7 +37,7 @@
         "appName": "saltireawards",
         "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
         "setOrUpdate": "set",
-        "dataTemplate": "{{#json}}{{{json key=\"status\" value=(if @root.data.PVCode \"pv-needed\" else=\"\")}}}{{/json}}"
+        "dataTemplate": "{{#json}}{{{json key=\"status\" value=(if @root.data.PVCode \"verify-needed\" else=\"\")}}}{{/json}}"
       }
     },
 

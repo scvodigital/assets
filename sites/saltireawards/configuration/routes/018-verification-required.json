@@ -1,6 +1,6 @@
 {
-  "name": "parental-verification-required",
-  "pattern": "/parental-verification-required",
+  "name": "verification-required",
+  "pattern": "/verification-required",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -40,7 +40,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_parental-verification-required",
+              "body": ">context.metaData.handlebars.templates.pages_verification-required",
               "foot": ">context.metaData.handlebars.templates.account_footer"
             },
             "contentType": "text/html"

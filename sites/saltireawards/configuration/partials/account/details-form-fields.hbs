@@ -80,8 +80,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     var $dob = $('#date_of_birth');
-    var $pv_block = $('#verification')
-    var $pv_email = $('#verification_email')
+    var $v_block = $('#verification')
+    var $v_email = $('#verification_email')
 
     function dateMunge(aDate){
       var dd = aDate.getDate();
@@ -118,11 +118,11 @@
 
       var cdTS = compareDate.getTime();
       if (dobTS > cdTS) {
-        $pv_email.prop('required', true);
-        $pv_block.show();
+        $v_email.prop('required', true);
+        $v_block.show();
       } else {
-        $pv_email.prop('required', false);
-        $pv_block.hide();
+        $v_email.prop('required', false);
+        $v_block.hide();
 
       }
     })

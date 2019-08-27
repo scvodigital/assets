@@ -3092,11 +3092,11 @@ form.inline-form {
 .faded-overflow {
   overflow: hidden;
   position: relative;
-  min-height: 2rem;
+  // min-height: 2rem;
   &:before {
     display: block;
-    margin-top: -$unit*1.5;
-    height: $unit*1.5;
+    margin-top: -$unit*2.5;
+    height: $unit*2.5;
     width: 100%;
     content: "";
     position: absolute;

@@ -2,10 +2,10 @@
   {{> vacancy_key_info view="search-result"}}
   <hr class="mdc-list-divider" />
   {{#compare (trim (getProperty @root.data.notes Id)) "!==" "" ~}}
-    {{> vacancy_description limit="3rem" description=description}}
-    {{> vacancy_notes limit="3rem"}}
+    {{> vacancy_description description=description}}
+    {{> vacancy_notes}}
   {{else}}
-    {{> vacancy_description limit="6rem" description=description}}
+    {{> vacancy_description description=description}}
   {{/compare ~}}
   {{> vacancy_actions slug=slug Id=Id home_based=home_based various_locations=various_locations distance=distance}}
 </div>

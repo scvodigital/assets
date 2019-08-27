@@ -1,14 +1,14 @@
-<div class="mdc-card list" data-fund-id="{{Id}}" data-fund-context="{{default context "other"}}">
+<div class="mdc-card list" style="max-height:{{#if @root.data.auth}}20{{else}}15{{/if}}rem;" data-fund-id="{{Id}}" data-fund-context="{{default context "other"}}">
   {{> fund_key_info}}
   <hr class="mdc-list-divider" />
   {{#compare (trim (getProperty @root.data.profile.notes Id)) "!==" "" ~}}
-    {{> fund_description limit="3rem" description=description}}
-    {{> fund_notes limit="3rem"}}
+    {{> fund_description description=description}}
+    {{> fund_notes}}
   {{else}}
     {{#if @root.data.auth ~}}
-      {{> fund_description limit="10.5rem" description=description}}
+      {{> fund_description  description=description}}
     {{else}}
-      {{> fund_description limit="5rem" description=(truncate description "130")}}
+      {{> fund_description description=(truncate description "280")}}
     {{/if}}
   {{/compare ~}}
   {{> fund_actions slug=slug Id=Id title=title actions=actions}}

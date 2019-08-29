@@ -33,6 +33,7 @@
     "geo.longitude",
     "venue_alt",
     "rendered.scvo_full",
+    "rendered.scvo_trainers",
     "rendered.scvo_speakers"
   ],
   "query": {

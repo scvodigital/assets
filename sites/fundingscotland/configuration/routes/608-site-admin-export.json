@@ -55,7 +55,7 @@
       "config": {
         "template": ">context.metaData.handlebars.templates.site-admin_export",
         "output": "body",
-        "filename": "{{@root.data.currentSite.name}}_user-export_{{momentFormat (moment) 'YYYY-MM-DD-HH-mm-ss'}}.csv",
+        "filename": "{{@root.data.currentSite.name}}_user-export_{{momentFormat (moment (dateMath 'now') 'x') 'YYYY-MM-DD-HH-mm-ss'}}.csv",
         "contentType": "text/csv"
       }
     }

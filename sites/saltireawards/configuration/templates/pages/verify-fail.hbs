@@ -1,4 +1,5 @@
+
 <div class="container-content content-account">
-  <h2>Parent or guardian verification</h2>
-  <p>Parent or guardian verification has failed. Please contact us at [SUPPORT EMAIL] for more assistance</p>
+  <h2>{{#compare data.accountInfo "==" "Volunteer"}}Parent or guardian{{else}}Group Administrator{{/compare}} verification</h2>
+  <p>{{#compare data.accountInfo "==" "Volunteer"}}Parent or guardian{{else}}Group Administrator{{/compare}} verification has failed. Please contact us at [SUPPORT EMAIL] for more assistance</p>
 </div>

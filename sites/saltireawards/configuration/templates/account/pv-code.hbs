@@ -1,1 +1,0 @@
-{{#if @root.request.body.signup}}{{#compare (dateMath 'now-13y') "<" (moment @root.request.body.date_of_birth "YYYY-MM-DD")}}{{random 0 100000000}}{{/compare}}{{/if}}

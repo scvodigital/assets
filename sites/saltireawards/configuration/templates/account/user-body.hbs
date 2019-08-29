@@ -2,10 +2,13 @@
 {{#json}}
   {{#json key='users' type='array'}}
     {{#json}}
-      {{#if @root.data.PVCode}}
-        {{{json key='verification_code' value=@root.data.PVCode}}},
+      {{#if @root.data.codeRequired}}
+        {{{json key='verification_code' value=(random 0 100000000)}}},
         {{{json key='verification_email' value=verification_email}}},
         {{#json key='verification_url' type="text"}}https://test.saltireawards.org.uk/parent-verify/?code={{@root.data.PVCode}}&id={{external_id}}{{/json}},
+        {{#json key='verification_needed' type="boolean"}}true{{/json}},
+      {{else}}
+        {{#json key='verification_needed' type="boolean"}}false{{/json}},
       {{/if}}
       {{{json key='first_name' value=first_name}}},
       {{{json key='last_name' value=last_name}}},

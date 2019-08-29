@@ -149,19 +149,27 @@
     "name": "redirectIfPV",
     "taskModule": "reroute",
     "config":
-    { "if" : [{ "and" : [
-      {"==" : [ { "var" : "data.signUpStatus.status" }, "verify-needed"] }
-    ] }, "verify-needed", null
-    ]}
+    {
+      "if" : [{"var" : "data.accountInfo.verification_needed"},
+        "verify-needed",
+        null
+      ]
+    }
   },
   "fullSignUpRequired": {
     "name": "signUpReroute",
     "taskModule": "reroute",
     "config":
-    { "if" : [{ "and" : [
-      {"!=" : [ { "var" : "data.auth.uid" }, null ]},
-      {"!=" : [ { "var" : "data.signUpStatus" }, null] }
-    ] }, {"var" : "data.signUpStatus.status"}, null
-    ]}
+    {
+      "if": [{"missing": "data.accountInfo.external_id"},
+        "sd-needed",
+        {
+          "if" : [{"var" : "data.accountInfo.verification_needed"},
+            "verify-needed",
+            null
+          ]
+        }
+      ]
+    }
   }
 }

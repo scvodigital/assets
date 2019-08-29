@@ -175,7 +175,7 @@ header {
       padding-right: $unit;
       line-height: 1;
       .test-logo {
-        filter: blur(2px);
+        filter: blur($unit/2);
         opacity: .75;
       }
       img {

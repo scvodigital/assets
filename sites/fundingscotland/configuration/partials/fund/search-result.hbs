@@ -1,11 +1,11 @@
-<div class="mdc-card search-result" style="max-height:15rem;" data-fund-id="{{Id}}" data-fund-context="search-result">
+<div class="mdc-card search-result" data-fund-id="{{Id}}" data-fund-context="search-result">
   {{> fund_key_info}}
   <hr class="mdc-list-divider" />
   {{#ifAll (getProperty @root.data.profile.notes Id) (compare hideNotes "!==" true) ~}}
-    {{> fund_description description=description}}
-    {{> fund_notes}}
+    {{> fund_description limit="3rem" description=description}}
+    {{> fund_notes limit="7rem"}}
   {{else}}
-    {{> fund_description description=description}}
+    {{> fund_description limit="4rem" description=description}}
   {{/ifAll ~}}
   {{> fund_actions slug=slug Id=Id title=title actions=actions}}
 </div>

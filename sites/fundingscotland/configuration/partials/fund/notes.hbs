@@ -4,10 +4,12 @@
     Your notes&ensp;
     <a href="{{>fund_url search=true anchor="notes"}}" class="mdc-typography--body2">Edit</a>
   </h4>
-  <div class="mdc-typography--body1 faded-overflow">
+  <div class="mdc-typography--body1">
     {{#unless showFullNotes ~}}
-      {{>fund_notes_rendered id=Id}}
-      <a href="{{>fund_url search=true anchor="notes"}}">Read more</a>
+      <div class="faded-overflow" style="height:{{limit}};">
+        {{>fund_notes_rendered id=Id}}
+        <a href="{{>fund_url search=true anchor="notes"}}">Read more</a>
+      </div>
     {{else}}
       {{>fund_notes_rendered id=Id}}
     {{/unless ~}}

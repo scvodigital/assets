@@ -1,0 +1,12 @@
+"User Id","Last Accessed","Organisation","Postcode"
+{{#each
+  (sortBy
+    (filter
+      (keyValue @root.data.profiles)
+      (concat "value." @root.data.currentSite.name)
+      "exists")
+    (concat "value." @root.data.currentSite.name ".accessed") "desc") ~}}
+{{~#with (getProperty value @root.data.currentSite.name)~}}
+{{{json value=../key}}},{{{json value=(momentFormat (moment accessed "x") "Do MMM YYYY HH:mm:ss")}}},{{{json value=(replace (default ../value.organisation "None") '"' "'")}}},{{{json value=(replace (default ../value.postcode "None") '"' "'")}}}
+{{/with~}}
+{{~/each~}}

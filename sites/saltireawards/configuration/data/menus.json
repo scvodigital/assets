@@ -103,6 +103,32 @@
       "route": "^/sign-out"
     }
   ],
+  "admin-signed-in" : [
+    {
+      "label": "Admin Home",
+      "icon": "home",
+      "path": "/",
+      "route": "^/$"
+    },
+    {
+      "label": "My groups",
+      "icon": "user-clock",
+      "path": "/hours",
+      "route": "^/hours|^/task"
+    },
+    {
+      "label": "My account",
+      "icon": "cog",
+      "path": "/account",
+      "route": "^/account|^/sign-up-details"
+    },
+    {
+      "label": "Sign out",
+      "icon": "sign-out-alt",
+      "path": "/sign-out",
+      "route": "^/sign-out"
+    }
+  ],
   "footer-info": [
     {
       "label": "About",

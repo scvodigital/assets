@@ -37,9 +37,10 @@
   function completeCB(response){
     var jsonData = JSON.parse(response);
     if (jsonData.id){
-      if (jsonData.pv){
-        sendPVEmail();
+      if (jsonData.verify){
+        sendVerifyEmail();
       }
+
       window.location.href = '/';
     } else {
       $('#detail-submit').prop('disabled', false);

@@ -37,13 +37,13 @@
     {{#compare view "===" "full" ~}}
     {{#unless (compare (querystringify @root.request.params.query utm_source=null utm_campaign=null utm_medium=null) "") ~}}
     {{#ifAny @root.request.params.query.page @root.request.params.query.keywords @root.request.params.query.location ~}}
-    <a href="/volunteering{{> query_search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
+    <a href="/search{{> query_search}}" class="back-to-results"><span class="far fa-chevron-circle-left" aria-hidden="true"></span> <span class="underline">Back to search results</span></a>
     {{/ifAny ~}}
     {{/unless ~}}
     {{/compare ~}}
     {{/compare ~}}
     <h2 class="mdc-card__info--content-primary-title mdc-typography--headline6">
-      <a href="/volunteering/opportunity/{{Id}}/{{title_slug}}{{> query_search}}">
+      <a href="/search/opportunity/{{Id}}/{{title_slug}}{{> query_search}}">
         <span class="hover-underline">{{{title}}}</span>
       </a>
     </h2>

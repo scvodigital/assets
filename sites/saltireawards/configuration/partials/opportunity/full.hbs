@@ -24,7 +24,7 @@
             <li class="mdc-card__info--content-primary-work-type reference mdc-typography--body1">
               <span class="fa-li"><span class="far fa-briefcase fa-fw" title="Activites"></span></span>
               {{#each activities}}
-              <a href="/volunteering?activities={{urlencode (slugify (replace this "/" "-"))}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
+              <a href="/search?activities={{urlencode (slugify (replace this "/" "-"))}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
               {{/each}}
             </li>
             {{/compare ~}}
@@ -32,7 +32,7 @@
             <li class="mdc-card__info--content-primary-client-group mdc-typography--body1">
               <span class="fa-li"><span class="far fa-users fa-fw" title="Themes"></span></span>
               {{#each themes ~}}
-              <a href="/volunteering?themes={{urlencode (slugify (replace this "/" "-"))}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
+              <a href="/search?themes={{urlencode (slugify (replace this "/" "-"))}}">{{{this}}}</a>{{#unless @last}}, {{/unless}}
               {{/each ~}}
             </li>
             {{/compare ~}}

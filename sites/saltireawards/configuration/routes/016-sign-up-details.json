@@ -11,6 +11,16 @@
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.redirectIfPVNeeded",
     {
+      "name": "adminCandidate",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/administrator-candidates/{{default data.auth.uid 'no-such-profile'}}/isCandidate",
+        "defaultData": false
+      }
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",
@@ -26,7 +36,6 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "body": ">context.metaData.handlebars.templates.account_sign-up-details",
               "foot": ">context.metaData.handlebars.templates.account_footer"
             },

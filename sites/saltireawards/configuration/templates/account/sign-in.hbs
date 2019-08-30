@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $loader.css('display', 'flex');
     evt.preventDefault();
     saltireawards.auth.signInEmailPassword(email, password).then(function(user) {
-      window.location.href = '/check-account-status/';
+      window.location.href = '/';
     }).catch(function(err) {
       $message.html(err.message+' <a href="/reset-password">Reset password</a>').show();
       $loader.css('display', 'none');

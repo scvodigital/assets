@@ -27,7 +27,7 @@
       $loader.show();
       saltireawards.auth.signInProvider(providerName).then(function(user) {
         console.log('Registered user:', user);
-        window.location.href = '/check-account-status/';
+        window.location.href = '/';
       }).catch(function(err) {
         console.error(err);
         $message.text(err.message).show();

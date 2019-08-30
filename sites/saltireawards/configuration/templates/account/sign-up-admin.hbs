@@ -2,7 +2,7 @@
   <div class="mdc-card mdc-elevation--z0">
     <div class="mdc-card__info--content-primary">
       <div class="mdc-card__info--content-primary-title mdc-typography--headline4 x-padding">
-        Sign up
+        Group Administrator Sign up.
       </div>
     </div>
     <div class="l-margin-full r-margin-full">
@@ -12,11 +12,6 @@
     </div>
     <div class="mdc-card__info x-padding-full">
       <div class="mdc-typography--body1" id="form-section-email">
-        {{> account_sign_in_social loaderSelector="#sign-up-loader" messageSelector="#sign-up-message"}}
-
-        <div class="middle-line-text">
-          <span>or</span>
-        </div>
         <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
           <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
           <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
@@ -75,38 +70,51 @@
 </form>
 
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) {
-  var $form = $('#sign-up-form');
-  var $message = $('#sign-up-message');
-  var $emailForm = $('#email-password-form');
-  var $email = $('#sign-up-email');
-  var $emailConfirm = $('#sign-up-email-confirm');
-  var $password = $('#sign-up-password');
-  var $passwordConfirm = $('#sign-up-password-confirm');
-  var $register = $('#sign-up-submit');
-  var $loader = $('#sign-up-loader');
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var $form = $('#sign-up-form');
+    var $message = $('#sign-up-message');
+    var $emailForm = $('#email-password-form');
+    var $email = $('#sign-up-email');
+    var $emailConfirm = $('#sign-up-email-confirm');
+    var $password = $('#sign-up-password');
+    var $passwordConfirm = $('#sign-up-password-confirm');
+    var $register = $('#sign-up-submit');
+    var $loader = $('#sign-up-loader');
 
-  function hasSubscriptions() {
-    return ($("input[name^='list']:checked")).length > 0;
-  }
+    function hasSubscriptions() {
+      return ($("input[name^='list']:checked")).length > 0;
+    }
 
-  $form.on('submit', function(evt) {
-    $loader.css('display', 'flex');
-    evt.preventDefault();
-    var email = $email.val();
-    var emailConfirm = $emailConfirm.val();
-    var password = $password.val();
-    var passwordConfirm = $passwordConfirm.val();
-    saltireawards.auth.createAccount(email, emailConfirm, password, passwordConfirm)
-    .then(function(user) {
-      window.location.href = '/';
-    })
-    .catch(function(err) {
-      $message.text(err.message || 'There was a problem creating your account').show();
-      $loader.css('display', 'none');
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-      return;
+    $form.on('submit', function(evt) {
+      $loader.css('display', 'flex');
+      evt.preventDefault();
+      var email = $email.val();
+      var emailConfirm = $emailConfirm.val();
+      var password = $password.val();
+      var passwordConfirm = $passwordConfirm.val();
+      saltireawards.auth.createAccount(email, emailConfirm, password, passwordConfirm)
+        .then(function(user) {
+          window.location.href = '/set-temp-admin/';
+        })
+        .catch(function(err) {
+          $message.text(err.message || 'There was a problem creating your account').show();
+          $loader.css('display', 'none');
+          document.body.scrollTop = document.documentElement.scrollTop = 0;
+          return;
+        });
+
     });
-  });
-})
+
+    function setAdminTempToken(message) {
+      $.ajax({
+        url: '/set-temp-admin',
+        type: 'POST',
+      }).done(function (data) {
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"Admin email re-sent"})};
+      }).fail(function (err) {
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"There was a problem re-sending your admin email"})};
+      });
+    }
+
+  })
 </script>

@@ -1,3 +1,4 @@
+<div class="sign-up-form">
 <div id="detailed-results-container" class="container-content content-notes">
   <h2 class="mdc-typography--headline4">Add your details</h2>
 
@@ -15,17 +16,17 @@
       "failureCallback": "completeCB"
     }'>
 
-    {{>account_details_form_fields}}
+    {{>account_details_form_fields admin=data.adminCandidate}}
     <input type="hidden" name="signup" value="true">
     {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" onclick="doSpinner()" type="submit">
+    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" type="submit">
       <span class="icon far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
       <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
       Submit Details
     </button>
   </form>
 </div>
-
+</div>
 {{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {

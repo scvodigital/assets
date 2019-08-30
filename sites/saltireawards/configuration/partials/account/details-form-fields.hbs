@@ -29,10 +29,16 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input id="date_of_birth" name="date_of_birth"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
+        {{#if admin}}
+          <input id="date_of_birth_checked" name="date_of_birth"
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth_checked}}
                class="mdc-text-field__input mdc-text-field--fullwidth"
                value = "{{@root.data.accountInfo.date_of_birth}}">
+        {{else}}
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
+          class="mdc-text-field__input mdc-text-field--fullwidth"
+          value = "{{@root.data.accountInfo.date_of_birth}}">
+        {{/if}}
         <label class="mdc-floating-label" for="date_of_birth">
           Date of birth
         </label>
@@ -44,7 +50,7 @@
           {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}} class="mdc-text-field__input mdc-text-field--fullwidth"
                value = "{{@root.data.accountInfo.postcode}}">
         <label class="mdc-floating-label" for="postcode">
-          Home Postcode
+          {{#if admin}}Your work postcode{{else}}Home Postcode{{/if}}
         </label>
       </div>
     </div>
@@ -62,7 +68,7 @@
       </div>
     </div>
   </div>
-  <div id="verification" class="mdc-layout-grid__inner" style="display: none">
+    <div id="verification" class="mdc-layout-grid__inner" style="display: none">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
         <input type="email" id="verification_email" name="verification_email"
@@ -80,25 +86,38 @@
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
         <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-          <input id="school_college_name" name="school_college_name"
-            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.school_college_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                 value = "{{@root.data.accountInfo.school_college_name}}">
-          <label class="mdc-floating-label" for="school_college_name">
-            Role description
+          <input id="title" name="title"
+            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.title}} class="mdc-text-field__input mdc-text-field--fullwidth"
+                 value = "{{@root.data.accountInfo.title}}">
+          <label class="mdc-floating-label" for="title">
+            Role title
           </label>
         </div>
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
         <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-          <select type="email" id="verification_email" name="verification_email">
-            {{!-- This will likely read from a JSON file --}}
-            <option value="anuttgens@gmail.com">Alex's TSI</option>
-          </select>
-
-          <label class="mdc-floating-label" for="verification_email">
-            Your Local TSI (This organisation will validate your account).
+          <input id="phone" name="phone"
+            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.phone}} class="mdc-text-field__input mdc-text-field--fullwidth"
+                 value = "{{@root.data.accountInfo.phone}}">
+          <label class="mdc-floating-label" for="phone">
+            Role phone
           </label>
         </div>
+      </div>
+
+    </div>
+    <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone b-margin-full">
+      <div class="mdc-typography--body">
+        Your Local TSI (This field to be replaced with one derived from postcode).
+      </div>
+
+          <select class="mdc-select__native-control" type="email" id="verification_email" name="verification_email">
+            {{!-- This will likely read from a JSON file --}}
+            <option value="anuttgens@gmail.com">A Test TSI</option>
+            <option value="anuttgens@gmail.com">A Different Test TSI</option>
+          </select>
+
       </div>
 
     </div>
@@ -111,6 +130,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
+    var $dobc = $('#date_of_birth_checked');
     var $dob = $('#date_of_birth');
     var $v_block = $('#verification')
     var $v_email = $('#verification_email')
@@ -137,13 +157,16 @@
 
 
     $dob.attr({
-      "max" : dateMunge(maxDate),        // substitute your own
-      "min" : dateMunge(minDate)          // values (or variables) here
+      "min" : dateMunge(minDate)
     });
 
+    $dobc.attr({
+      "max" : dateMunge(maxDate),
+      "min" : dateMunge(minDate)
+    });
 
-    $dob.change(function(){
-       var dob = $dob.val();
+    $dobc.change(function(){
+       var dob = $dobc.val();
       var compareDate = new Date();
       var dobTS = Date.parse(dob);
       compareDate.setFullYear(compareDate.getFullYear() - 13);

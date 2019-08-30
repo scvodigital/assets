@@ -1,9 +1,9 @@
 {
   "name": "volunteering_search",
-  "pattern": "/volunteering",
+  "pattern": "/search",
   "debug": true,
   "metaData": {
-    "title": "Volunteering - Saltire Awards"
+    "title": "Volunteering opportunity search - Saltire Awards"
   },
   "defaultParams": {
     "context": "results"

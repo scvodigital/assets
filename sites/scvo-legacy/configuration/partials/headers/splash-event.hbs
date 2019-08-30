@@ -18,9 +18,13 @@
               {{{momentFormat (moment date_start "x") "Do MMMM YYYY"}}}{{#if city ~}}, {{/if ~}}
               {{else}}
               {{#if date_end ~}}
-              {{{momentFormat (moment date_start "x") "Do"}}} –
+              {{{momentFormat (moment date_start "x") "Do"}}}
+              {{#compare (momentFormat (moment date_start "x") "MM") "!==" (momentFormat (moment date_end "x") "MM") ~}}
+              {{{momentFormat (moment date_start "x") "MMMM"}}}
+              {{/compare}}
+              –
               {{{momentFormat (moment date_end "x") "Do"}}}
-              {{{momentFormat (moment date_start "x") "MMMM YYYY"}}}{{#if city ~}}, {{/if ~}}
+              {{{momentFormat (moment date_end "x") "MMMM YYYY"}}}{{#if city ~}}, {{/if ~}}
               {{else}}
               {{{momentFormat (moment date_start "x") "Do MMMM YYYY"}}}{{#if city ~}}, {{/if ~}}
               {{/if}}

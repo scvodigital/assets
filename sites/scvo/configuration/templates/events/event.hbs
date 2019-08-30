@@ -8,7 +8,7 @@
       <li>{{{title}}}</li>
     </ul>
 
-    {{!-- <div class="full scvo-event scvo-event-{{Id}}{{#if (contains other_information "brand-")}} scvo-event-{{other_information}}{{/if}} mdc-layout-grid">
+    <div class="full scvo-event scvo-event-{{Id}}{{#if (contains other_information "brand-")}} scvo-event-{{other_information}}{{/if}} mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone content event-content">
           <dl class="inline-dl">
@@ -52,12 +52,12 @@
                   </div>
                   <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
                     {{#if contact_email ~}}
-                    <span class="far fa-envelope fa-fw"></span> <a href="mailto:{{contact_email}}">{{{striptags contact_name}}}</a>
+                    <span class="far fa-envelope fa-fw"></span> <a href="mailto:{{contact_email}}">{{{trim (striptags contact_name)}}}</a>
                     {{else}}
                     {{{striptags contact_name}}}
                     {{/if ~}}
                     {{#if contact_phone ~}}<br />
-                    <span class="fas fa-phone fa-fw"></span> {{contact_phone}}{{/if ~}}
+                    <span class="fas fa-phone fa-flip-horizontal fa-fw"></span> {{contact_phone}}{{/if ~}}
                   </div>
                 </div>
                 {{/if ~}}
@@ -218,9 +218,9 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 
-    {{{rendered.scvo_full}}}
+    {{!-- {{{rendered.scvo_full}}} --}}
     {{{rendered.scvo_speakers}}}
     {{/with ~}}
     {{> same_events}}

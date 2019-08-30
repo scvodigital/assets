@@ -206,6 +206,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       {{{label}}}
                     </a>
                   {{/each ~}}
+                  {{#if @root.data.profile.isAdmin}}
+                    <a class="mdc-list-item" href="/site-admin/export" role="menuitem">
+                      <span class="far fa-file-export mdc-list-item__graphic" aria-hidden="true"></span>
+                      Export user data
+                    </a>
+                  {{/if}}
                 {{/components_anchored_menu}}
               {{/if ~}}
             </section>
@@ -324,7 +330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       {{/if ~}}
                     </li>
                     <li>
-                      <span class="fa-li"><span class="fas fa-phone"></span></span>
+                      <span class="fa-li"><span class="fas fa-phone fa-flip-horizontal"></span></span>
                       <a href="tel:+448001690022">0800 169 0022</a>
                     </li>
                     <li>

@@ -3,7 +3,7 @@
   "pattern": "/hours",
   "debug": true,
   "metaData": {
-    "title": "Hours - Saltire Awards"
+    "title": "My volunteering - Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

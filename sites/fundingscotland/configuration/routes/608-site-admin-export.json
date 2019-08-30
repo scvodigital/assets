@@ -1,0 +1,63 @@
+{
+  "name": "site_admin_export",
+  "pattern": "/site-admin/export",
+  "debug": true,
+  "tasks": [
+    "context.metaData.commonTasks.currentSite",
+    "context.metaData.commonTasks.authRequired",
+    {
+      "name": "profile",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users/{{default data.auth.uid 'no-such-profile'}}",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "isAdmin",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": "{{#ifAny @root.data.profile.isAdmin (getProperty @root.data.profile (concat @root.data.currentSite.name '.isAdmin'))}}true{{/ifAny}}",
+        "output": "data"
+      }
+    },
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if": [
+          { "!==": [
+            { "var": "data.isAdmin" },
+            "true"
+          ] },
+          "home_authenticated",
+          false
+        ]
+      }
+    },
+    {
+      "name": "profiles",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "fundingscotland",
+        "pathTemplate": "/users",
+        "defaultData": {}
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.site-admin_export",
+        "output": "body",
+        "filename": "{{@root.data.currentSite.name}}_user-export_{{momentFormat (moment (dateMath 'now') 'x') 'YYYY-MM-DD-HH-mm-ss'}}.csv",
+        "contentType": "text/csv"
+      }
+    }
+  ]
+}

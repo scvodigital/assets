@@ -1,24 +1,14 @@
 {{!-- contains useful functions for account operations. E.g. send out PV email --}}
 
 <script>
-    function sendPVEmail(message) {
+    function sendVerifyEmail(message) {
       $.ajax({
-        url: '/parent-email-send',
+        url: '/verify-email-send',
         type: 'POST',
       }).done(function (data) {
-        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"Parental email re-sent"})};
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"Verify email re-sent"})};
       }).fail(function (err) {
-        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"There was a problem re-sending your parental email"})};
-      });
-    }
-    function sendAdminVEmail(message) {
-      $.ajax({
-        url: '/admin-email-send',
-        type: 'POST',
-      }).done(function (data) {
-        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"Admin email re-sent"})};
-      }).fail(function (err) {
-        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"There was a problem re-sending your admin email"})};
+        if (message){saltireawards.componentsInitialiser.snackbar.show({message:"There was a problem re-sending your verify email"})};
       });
     }
 </script>

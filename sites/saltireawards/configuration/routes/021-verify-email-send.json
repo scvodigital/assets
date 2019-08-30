@@ -1,6 +1,6 @@
 {
-  "name": "parent-email-send",
-  "pattern": "/parent-email-send",
+  "name": "verify-email-send",
+  "pattern": "/verify-email-send",
   "debug": true,
   "acceptedVerbs": "POST",
   "defaultParams": {

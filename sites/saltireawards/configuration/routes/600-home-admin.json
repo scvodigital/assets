@@ -1,6 +1,6 @@
 {
-  "name": "home_authenticated",
-  "pattern": "/home-authenticated",
+  "name": "home_admin",
+  "pattern": "/home_admin",
   "debug": true,
   "metaData": {
     "title": "Saltire Awards - recognising young volunteers in Scotland"
@@ -11,17 +11,6 @@
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.fullSignUpRequired",
     "context.metaData.commonTasks.getAreaInfo",
-    {
-      "name": "reroute",
-      "taskModule": "reroute",
-      "config": {
-        "if":[
-          {"==":[{"var": "data.accountInfo.user_type"}, "Group Admin"]},
-          "home_admin",
-          null
-        ]
-      }
-    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -38,8 +27,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_home-authenticated",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
+              "body": ">context.metaData.handlebars.templates.pages_home-admin",
+              "sidebar": ">context.metaData.handlebars.templates.admin_sidebar",
               "foot": ">context.metaData.handlebars.templates.pages_foot"
             },
             "contentType": "text/html"

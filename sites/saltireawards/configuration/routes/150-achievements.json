@@ -3,7 +3,7 @@
   "pattern": "/achievements",
   "debug": true,
   "metaData": {
-    "title": "Achievements - Saltire Awards"
+    "title": "My achievements - Saltire Awards"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

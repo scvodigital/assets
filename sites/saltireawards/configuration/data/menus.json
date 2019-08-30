@@ -25,10 +25,10 @@
       "route": "^/blog"
     },
     {
-      "label": "Volunteering",
+      "label": "Find opportunities",
       "icon": "hands-helping",
-      "path": "/volunteering",
-      "route": "^/volunteering"
+      "path": "/search",
+      "route": "^/search"
     },
     {
       "label": "Contact us",
@@ -67,31 +67,31 @@
   ],
   "user-signed-in" : [
     {
-      "label": "Summary",
+      "label": "Home",
       "icon": "home",
       "path": "/",
       "route": "^/$"
     },
     {
-      "label": "Volunteering",
+      "label": "Find opportunities",
       "icon": "hands-helping",
-      "path": "/volunteering",
-      "route": "^/volunteering"
+      "path": "/search",
+      "route": "^/search"
     },
     {
-      "label": "Hours",
+      "label": "My volunteering",
       "icon": "user-clock",
       "path": "/hours",
       "route": "^/hours|^/task"
     },
     {
-      "label": "Achievements",
+      "label": "My achievements",
       "icon": "medal",
       "path": "/achievements",
       "route": "^/achievements"
     },
     {
-      "label": "Settings",
+      "label": "My account",
       "icon": "cog",
       "path": "/account",
       "route": "^/account|^/sign-up-details"

@@ -1,9 +1,9 @@
 {
   "name": "volunteering_map",
-  "pattern": "/volunteering/map",
+  "pattern": "/search/map",
   "debug": true,
   "metaData": {
-    "title": "Volunteering - Saltire Awards"
+    "title": "Volunteering opportunity search - Saltire Awards"
   },
   "defaultParams": {
     "context": "results"

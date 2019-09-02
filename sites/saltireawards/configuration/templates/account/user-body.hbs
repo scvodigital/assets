@@ -1,19 +1,25 @@
-{{#with @root.request.body}}
+{{#withExtend @root.request.body code=(random 0 100000000)}}
 {{#json}}
   {{#json key='users' type='array'}}
     {{#json}}
-      {{#if @root.data.PVCode}}
-        {{{json key='parental_verification_code' value=@root.data.PVCode}}},
-        {{{json key='parental_verification_email' value=parental_verification_email}}},
-        {{#json key='parental_verification_url' type="text"}}https://test.saltireawards.org.uk/parent-verify/?code={{@root.data.PVCode}}&id={{external_id}}{{/json}},
+      {{#if @root.data.codeRequired}}
+        {{{json key='verification_code' value=code}}},
+        {{{json key='verification_email' value=verification_email}}},
+        {{#json key='verification_url' type="text"}}https://test.saltireawards.org.uk/user-validate/?code={{code}}&id={{external_id}}{{/json}},
+        {{#json key='verification_needed' type="boolean"}}true{{/json}},
+      {{else}}
+        {{#json key='verification_needed' type="boolean"}}false{{/json}},
       {{/if}}
       {{{json key='first_name' value=first_name}}},
       {{{json key='last_name' value=last_name}}},
       {{{json key='postcode' value=postcode}}},
       {{{json key='external_id' value=external_id}}},
       {{{json key='date_of_birth' value=date_of_birth}}},
-      {{{json key='school_college_name' value=school_college_name}}}
+      {{{json key='school_college_name' value=school_college_name}}},
+      {{{json key='phone' value=phone}}},
+      {{{json key='title' value=title}}},
+      {{{json key='user_type' value=(if admin "Group Admin" else="Volunteer")}}}
     {{/json}},
   {{/json}}
 {{/json}}
-{{/with}}
+{{/withExtend}}

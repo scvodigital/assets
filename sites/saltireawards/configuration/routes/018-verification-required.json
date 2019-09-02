@@ -1,11 +1,7 @@
 {
-  "name": "parent-email-send",
-  "pattern": "/parent-email-send",
+  "name": "verification-required",
+  "pattern": "/verification-required",
   "debug": true,
-  "acceptedVerbs": "POST",
-  "defaultParams": {
-    "context": "results"
-  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {
@@ -29,23 +25,29 @@
       }
     },
     {
-      "name": "sendEmail",
-      "taskModule": "mailgun",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "parseJson": true,
-        "template": ">context.metaData.handlebars.templates.account_verify-email"
-      }
-    },
-    {
       "name": "destination",
-      "taskModule": "render",
+      "taskModule": "renderLayout",
       "renderer": "handlebars",
       "config": {
+        "logic": {
+          "if": [
+            "default"
+          ]
+        },
         "output": "body",
-        "template": "{\"success\": true }"
+        "layouts": {
+          "default": {
+            "layout": ">context.metaData.handlebars.layouts.default",
+            "parts": {
+              "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_verification-required",
+              "foot": ">context.metaData.handlebars.templates.account_footer"
+            },
+            "contentType": "text/html"
+          }
+        }
       }
     }
+
   ]
 }

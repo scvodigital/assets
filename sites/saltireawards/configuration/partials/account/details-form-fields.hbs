@@ -5,7 +5,7 @@
         <input required id="first_name" name="first_name"
                {{>form_validation_attributes @root.context.metaData.accountInfoValidation.first_name}}
                class="mdc-text-field__input mdc-text-field--fullwidth"
-              value = "{{@root.data.accountInfo.first_name}}"
+              value="{{@root.data.accountInfo.first_name}}"
         >
         {{!-- value="{{@root.data.user_details.first_name}}"> --}}
         <label class="mdc-floating-label" for="first_name">
@@ -18,7 +18,7 @@
         <input required id="last_name" name="last_name"
           {{>form_validation_attributes @root.context.metaData.accountInfoValidation.last_name}}
                class="mdc-text-field__input mdc-text-field--fullwidth"
-               value = "{{@root.data.accountInfo.last_name}}">
+               value="{{@root.data.accountInfo.last_name}}">
 
         <label class="mdc-floating-label" for="last_name">
           Last name
@@ -29,10 +29,17 @@
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input id="date_of_birth" name="date_of_birth"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
+        {{#if admin}}
+          <input id="date_of_birth" name="date_of_birth"
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth_checked}}
                class="mdc-text-field__input mdc-text-field--fullwidth"
-               value = "{{@root.data.accountInfo.date_of_birth}}">
+               value="{{@root.data.accountInfo.date_of_birth}}">
+        {{else}}
+          <input id="date_of_birth_checked" name="date_of_birth"
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
+          class="mdc-text-field__input mdc-text-field--fullwidth"
+          value="{{@root.data.accountInfo.date_of_birth}}">
+        {{/if}}
         <label class="mdc-floating-label" for="date_of_birth">
           Date of birth
         </label>
@@ -42,46 +49,90 @@
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
         <input id="postcode" name="postcode"
           {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value = "{{@root.data.accountInfo.postcode}}">
+               value="{{@root.data.accountInfo.postcode}}">
         <label class="mdc-floating-label" for="postcode">
-          Home Postcode
+          {{#if admin}}Your work postcode{{else}}Home Postcode{{/if}}
         </label>
       </div>
     </div>
   </div>
+  {{#unless admin}}
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
         <input id="school_college_name" name="school_college_name"
           {{>form_validation_attributes @root.context.metaData.accountInfoValidation.school_college_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value = "{{@root.data.accountInfo.school_college_name}}">
+               value="{{@root.data.accountInfo.school_college_name}}">
         <label class="mdc-floating-label" for="school_college_name">
           School / College name
         </label>
       </div>
     </div>
   </div>
-  <div id="parental_verification" class="mdc-layout-grid__inner" style="display: none">
+    <div id="verification" class="mdc-layout-grid__inner" style="display: none">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
       <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input type="email" id="parental_verification_email" name="parental_verification_email"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.parental_verification_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value = "{{@root.data.accountInfo.parental_verification_email}}">
-        <label class="mdc-floating-label" for="parental_verification_email">
+        <input type="email" id="verification_email" name="verification_email"
+          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.verification_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
+               value="{{@root.data.accountInfo.verification_email}}">
+        <label class="mdc-floating-label" for="verification_email">
           Your Parent or Guardian's email address
         </label>
       </div>
     </div>
   </div>
+  {{else}}
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+          <input id="title" name="title"
+            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.title}} class="mdc-text-field__input mdc-text-field--fullwidth"
+                 value="{{@root.data.accountInfo.title}}">
+          <label class="mdc-floating-label" for="title">
+            Role title
+          </label>
+        </div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+          <input id="phone" name="phone"
+            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.phone}} class="mdc-text-field__input mdc-text-field--fullwidth"
+                 value="{{@root.data.accountInfo.phone}}">
+          <label class="mdc-floating-label" for="phone">
+            Role phone
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone b-margin-full">
+      <div class="mdc-typography--body">
+        Your Local TSI (This field to be replaced with one derived from postcode).
+      </div>
+
+          <select class="mdc-select__native-control" type="email" id="verification_email" name="verification_email">
+            {{!-- This will likely read from a JSON file --}}
+            <option value="anuttgens@gmail.com">A Test TSI</option>
+            <option value="anuttgens@gmail.com">A Different Test TSI</option>
+          </select>
+
+      </div>
+
+    </div>
+    <input type="hidden" name="admin" value="true">
+
+  {{/unless}}
 </div>
 
 <input type="hidden" name="external_id" value="{{data.auth.uid}}">
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
+    var $dobc = $('#date_of_birth_checked');
     var $dob = $('#date_of_birth');
-    var $pv_block = $('#parental_verification')
-    var $pv_email = $('#parental_verification_email')
+    var $v_block = $('#verification')
+    var $v_email = $('#verification_email')
 
     function dateMunge(aDate){
       var dd = aDate.getDate();
@@ -105,24 +156,27 @@
 
 
     $dob.attr({
-      "max" : dateMunge(maxDate),        // substitute your own
-      "min" : dateMunge(minDate)          // values (or variables) here
+      "max" : dateMunge(maxDate)
     });
 
+    $dobc.attr({
+      "max" : dateMunge(maxDate),
+      "min" : dateMunge(minDate)
+    });
 
-    $dob.change(function(){
-       var dob = $dob.val();
+    $dobc.change(function(){
+       var dob = $dobc.val();
       var compareDate = new Date();
       var dobTS = Date.parse(dob);
       compareDate.setFullYear(compareDate.getFullYear() - 13);
 
       var cdTS = compareDate.getTime();
       if (dobTS > cdTS) {
-        $pv_email.prop('required', true);
-        $pv_block.show();
+        $v_email.prop('required', true);
+        $v_block.show();
       } else {
-        $pv_email.prop('required', false);
-        $pv_block.hide();
+        $v_email.prop('required', false);
+        $v_block.hide();
 
       }
     })

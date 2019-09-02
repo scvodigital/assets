@@ -9,12 +9,12 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {
-      "name": "PVCode",
+      "name": "codeRequired",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "data",
-        "template": ">context.metaData.handlebars.templates.account_pv-code"
+        "template": ">context.metaData.handlebars.templates.account_verify-code-required"
       }
     },
     {
@@ -30,24 +30,12 @@
       }
     },
     {
-      "name": "setSignUpStatus",
-      "taskModule": "firebaseRtbSet",
-      "renderer": "handlebars",
-      "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default data.auth.uid 'no-such-write-profile'}}/signup-status",
-        "setOrUpdate": "set",
-        "dataTemplate": "{{#json}}{{{json key=\"status\" value=(if @root.data.PVCode \"pv-needed\" else=\"\")}}}{{/json}}"
-      }
-    },
-
-    {
       "name": "destination",
       "taskModule": "render",
       "renderer": "handlebars",
       "config": {
         "output": "body",
-        "template": "{\"id\": {{{stringify @root.data.saveUserData}}}, \"pv\": {{#if @root.data.PVCode}}true{{else}}false{{/if}}  }",
+        "template": "{\"id\": {{{stringify @root.data.saveUserData}}}, \"verify\": {{#if @root.data.codeRequired}}true{{else}}false{{/if}}  }",
         "parseJson": true
       }
     }

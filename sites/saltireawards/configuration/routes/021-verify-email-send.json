@@ -1,7 +1,11 @@
 {
-  "name": "parental-verification-required",
-  "pattern": "/parental-verification-required",
+  "name": "verify-email-send",
+  "pattern": "/verify-email-send",
   "debug": true,
+  "acceptedVerbs": "POST",
+  "defaultParams": {
+    "context": "results"
+  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     {
@@ -25,29 +29,23 @@
       }
     },
     {
-      "name": "destination",
-      "taskModule": "renderLayout",
+      "name": "sendEmail",
+      "taskModule": "mailgun",
       "renderer": "handlebars",
       "config": {
-        "logic": {
-          "if": [
-            "default"
-          ]
-        },
+        "output": "data",
+        "parseJson": true,
+        "template": ">context.metaData.handlebars.templates.account_verify-email"
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "handlebars",
+      "config": {
         "output": "body",
-        "layouts": {
-          "default": {
-            "layout": ">context.metaData.handlebars.layouts.default",
-            "parts": {
-              "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_parental-verification-required",
-              "foot": ">context.metaData.handlebars.templates.account_footer"
-            },
-            "contentType": "text/html"
-          }
-        }
+        "template": "{\"success\": true }"
       }
     }
-
   ]
 }

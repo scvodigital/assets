@@ -23,7 +23,7 @@
               {{#each @root.data.tasksInfoUnverified}}
               {{#compare unverifiedHoursList.length ">=" 1}}
               {{#compare this.volunteer_manager_email "===" ../this}}
-              <li><strong>{{task_name}}</strong> for <strong>{{organisation_name}}</strong>, Manager: {{volunteer_manager_name}} - {{volunteer_manager_title}}
+              <li><strong>{{task_name}}</strong> for <strong>{{organisation_name}}</strong>, Manager: {{volunteer_manager_first_name}} {{volunteer_manager_last_name}} - {{volunteer_manager_title}}
                 <ul>
                   {{#each this.unverifiedHoursList}}
                   <li>Hours: {{hours}} - Logged on: {{momentFormat (moment createdDate "YYYY-MM-DD") "MMMM Do YYYY"}}</li>

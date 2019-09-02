@@ -8,9 +8,20 @@
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
     "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.fullSignUpRequired",
     "context.metaData.commonTasks.getAreaInfo",
+    {
+      "name": "reroute",
+      "taskModule": "reroute",
+      "config": {
+        "if":[
+          {"==":[{"var": "data.accountInfo.user_type"}, "Group Admin"]},
+          "home_admin",
+          null
+        ]
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",

@@ -1,23 +1,24 @@
 <div class="container-fluid container-content">
   <h1 class="mdc-typography--headline4">
-    Home
+    Admin Home
   </h1>
 
   <h2 class="mdc-typography--headline6">
     Actions
   </h2>
   <p class="mdc-typography--body1">
-    <a href="/hours">My volunteering - submit hours</a><br />
-    <a href="/search">Find a volunteering opportunity</a>
+    <a href="/hours">Create and View your Volunteering Groups</a><br />
+    <a href="/nothereyet">Certificates</a><br />
+
   </p>
   <h2 class="mdc-typography--headline6">
     Support & Information
   </h2>
   <p class="mdc-typography--body1">
     {{#if @root.data.accountInfo.postcode ~}}
-    {{> local_contact_info}}
+      {{> local_contact_info}}
     {{else}}
-    If you enter a postcode on your <a href="/settings">profile</a> you'll see local contact information here.  Please see the <a href="/contact">contact us</a> page for all areas.
+      If you enter a postcode on your <a href="/settings">profile</a> you'll see local contact information here.  Please see the <a href="/contact">contact us</a> page for all areas.
     {{/if ~}}
   </p>
 </div>

@@ -68,7 +68,11 @@
                     <strong>Cost</strong>
                   </div>
                   <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone">
+                    {{#compare costs "0"}}
+                    Free
+                    {{else}}
                     {{{costs}}}
+                    {{/compare ~}}
                   </div>
                 </div>
                 {{else}}
@@ -147,12 +151,14 @@
             </dd>
             {{/if ~}}
             {{#if entry_requirements ~}}
+            {{#compare (trim aimed_at) "!==" (trim entry_requirements) ~}}
             <dt>
               Entry requirements
             </dt>
             <dd>
               {{{entry_requirements}}}
             </dd>
+            {{/compare ~}}
             {{/if ~}}
             {{#if other_information ~}}
             <dt>
@@ -193,10 +199,10 @@
               {{#if event_venue.postcode ~}}
               {{#if event_venue.name ~}}{{event_venue.name}}<br />{{/if ~}}
               {{#if event_venue.organisation_name ~}}{{event_venue.organisation_name}}<br />{{/if ~}}
-              {{#if event_venue.address_1 ~}}{{event_venue.address_1}}<br />{{/if ~}}
-              {{#if event_venue.address_2 ~}}{{event_venue.address_2}}<br />{{/if ~}}
-              {{#if rendered.city ~}}{{#compare rendered.city "!==" event_venue.address_2 ~}}{{rendered.city}}<br />{{/compare ~}}{{/if ~}}
-              {{#if event_venue.postcode ~}}{{event_venue.postcode}}{{/if ~}}
+              {{#compare event_venue.address_1 "!==" "N/A" ~}}{{event_venue.address_1}}<br />{{/compare ~}}
+              {{#compare event_venue.address_2 "!==" "N/A" ~}}{{event_venue.address_2}}<br />{{/compare ~}}
+              {{#if rendered.city ~}}{{#compare rendered.city "!==" event_venue.address_2 ~}}{{#compare rendered.city "!==" "N/A" ~}}{{rendered.city}}<br />{{/compare ~}}{{/compare ~}}{{/if ~}}
+              {{#if event_venue.postcode ~}}{{#compare event_venue.postcode "!==" "N/A" ~}}{{event_venue.postcode}}{{/compare ~}}{{/if ~}}
               {{#if event_venue.accessible ~}}
               <br /><span class="fab fa-accessible-icon" aria-hidden="true"></span> Wheelchair accessible
               {{/if ~}}

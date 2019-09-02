@@ -150,7 +150,7 @@
                     <mj-raw>{{#compare _source.fund_status "Open"}}</mj-raw>
                       Open
                     <mj-raw>{{else}}</mj-raw>
-                      Currently closed, re-opens in 3 months
+                      Currently closed, re-opens in 1 month
                     <mj-raw>{{/compare}}</mj-raw>
                   </mj-text>
 

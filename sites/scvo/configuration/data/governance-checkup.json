@@ -1,4 +1,30 @@
 {
+  "section-start": {
+    "name": "Start",
+    "title": "Start",
+    "heading": "Start",
+    "description": "",
+    "icon": "confirm",
+    "progress": 0,
+    "questions": [
+      {
+        "title": "Organisation type",
+        "value": "organisation_type",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Charity",
+            "score": "charity"
+          },
+          {
+            "answer": "Company",
+            "score": "company"
+          }
+        ]
+      }
+    ],
+    "next_section": "1"
+  },
   "section-1": {
     "name": "Organisational purpose",
     "title": "Organisational purpose",

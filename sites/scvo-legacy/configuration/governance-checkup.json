@@ -1,4 +1,30 @@
 {
+  "section-start": {
+    "name": "Start",
+    "title": "Start",
+    "heading": "Start",
+    "description": "",
+    "icon": "confirm",
+    "progress": 0,
+    "questions": [
+      {
+        "title": "Organisation type",
+        "value": "organisation_type",
+        "type": "select-one",
+        "options": [
+          {
+            "answer": "Charity",
+            "score": "charity"
+          },
+          {
+            "answer": "Company",
+            "score": "company"
+          }
+        ]
+      }
+    ],
+    "next_section": "1"
+  },
   "section-1": {
     "name": "Organisational purpose",
     "title": "Organisational purpose",
@@ -13,15 +39,23 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring that all trustees have read and understand our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a>, can commit to our organisation's purpose, and can articulate this clearly",
+            "answer": "All trustees have a copy of our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a>",
             "score": 1
           },
           {
-            "answer": "Identifying and mapping our activities against our organisational purpose and the needs of our beneficiaries to ensure they are consistent",
+            "answer": "All trustees have read and understand our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a>",
             "score": 1
           },
           {
-            "answer": "Developing and agreeing a written statement outlining our organisation's <a href=\"http://www.diycommitteeguide.org/resource/vision-mission-and-values\" target=\"_blank\">mission (what it aims to do), values, and objectives</a>",
+            "answer": "All trustees can commit to our organisation's purpose and articulate this clearly",
+            "score": 1
+          },
+          {
+            "answer": "We have identified and mapped our activities against our organisational purpose and the needs of our beneficiaries, and they are consistent",
+            "score": 1
+          },
+          {
+            "answer": "We have developed and agreed a written statement outlining our organisation's <a href=\"http://www.diycommitteeguide.org/resource/vision-mission-and-values\" target=\"_blank\">mission (what it aims to do), values, and objectives</a>",
             "score": 1
           }
         ]
@@ -32,15 +66,19 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring that all trustees have a copy of our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a>, understand it and refer to it as necessary",
+            "answer": "Our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a> is available for reference at board meetings",
             "score": 1
           },
           {
-            "answer": "Ensuring our governing document is available for reference at board meetings and contain details of the minimum number of trustees required and a realistic quorum figure",
+            "answer": "Our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a> contains details of the minimum number of trustees required",
             "score": 1
           },
           {
-            "answer": "Regularly reviewing our governing document to make sure it is fit for purpose",
+            "answer": "Our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a> contains a realistic quorum figure",
+            "score": 1
+          },
+          {
+            "answer": "Our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a> is reviewed annually to make sure it is fit for purpose",
             "score": 1
           }
         ]
@@ -51,7 +89,11 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring that consistent minutes of meetings are kept that record attendance, order of business, decisions and actions, and are approved in line with the rules set out in our governing document",
+            "answer": "We keep consistent <a href=\"/running-your-organisation/governance/meetings\" target=\"_blank\">minutes of meetings</a> that record attendance, order of business, decisions and actions",
+            "score": 1
+          },
+          {
+            "answer": "Our <a href=\"/running-your-organisation/governance/meetings\" target=\"_blank\">minutes of meetings</a> are approved in line with the rules set out in our <a href=\"/setting-up-a-charity/write-your-constitution\" target=\"_blank\">governing document</a>",
             "score": 1
           }
         ]
@@ -62,11 +104,11 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Compiling an asset and resource register which is regularly reviewed",
+            "answer": "We have compiled an <a href=\"https://www.humentum.org/free-resources/guide/fixed-assets-register-example\" target=\"_blank\">asset and resource register</a> which is regularly reviewed",
             "score": 1
           },
           {
-            "answer": "Ensuring our board receives regular information regarding our organisation's activities, assets and resources, and progress against targets",
+            "answer": "Our board receives regular information on our organisation's activities, assets and resources, and progress against targets",
             "score": 1
           }
         ]
@@ -77,11 +119,15 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Producing an annual report with details of our accounts and activities every year which is widely available and easy to access on our website",
+            "answer": "We produce an annual report with details of our accounts and activities every year",
             "score": 1
           },
           {
-            "answer": "Having a communications strategy which details how best to communicate with all of our stakeholders about how we are governed, and our values, work and achievements in delivering our organisational purpose",
+            "answer": "Our annual report is widely available and easy to access on our website",
+            "score": 1
+          },
+          {
+            "answer": "We have a <a href=\"https://knowhow.ncvo.org.uk/campaigns/communications/communications-strategy\" target=\"_blank\">communications strategy</a> which details how best to communicate with all of our stakeholders about how we're governed, and our values, work and achievements in delivering our organisational purpose",
             "score": 1
           }
         ]
@@ -98,12 +144,16 @@
     "progress": 34,
     "questions": [
       {
-        "title": "Identifying and embedding the vision and values of our organisation, making sure these underpin all our decisions and activities",
+        "title": "Identifying and embedding the vision and values of our organisation, and making sure these underpin all our decisions and activities",
         "value": "q1",
         "type": "select-many",
         "options": [
           {
-            "answer": "Developing and agreeing a written statement outlining our mission (what we aim to do), values and objectives ensuring that these underpin all of our work, activities and culture, and all board decisions",
+            "answer": "We have developed and agreed a written statement outlining our <a href=\"https://www.diycommitteeguide.org/resource/vision-mission-and-values\" target=\"_blank\">mission (what we aim to do), values and objectives</a>",
+            "score": 1
+          },
+          {
+            "answer": "Our <a href=\"https://www.diycommitteeguide.org/resource/vision-mission-and-values\" target=\"_blank\">mission, values and objectives</a> underpin all of our work, activities and culture and all board decisions",
             "score": 1
           }
         ]
@@ -114,23 +164,29 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring our trustees have written role descriptions and a clear understanding of their legal responsibilities and powers",
+            "answer": "Our trustees have written <a href=\"/running-your-organisation/governance/roles-responsibilities\" target=\"_blank\">role descriptions</a>",
             "score": 1
           },
           {
-            "answer": "If a charity, ensuring our trustees understand their duties and responsibilities under the Charities and Trustee Investment Act (Scotland) 2005",
+            "answer": "We ensure our trustees understand their <a href=\"https://www.oscr.org.uk/guidance-and-forms/guidance-and-good-practice-for-charity-trustees/\" target=\"_blank\">duties and responsibilities</a> under the Charities and Trustee Investment Act (Scotland) 2005",
+            "organisation_type": "charity",
             "score": 1
           },
           {
-            "answer": "If a company, ensuring our directors understand their duties and responsibilities under the Companies Act 2006",
+            "answer": "We ensure our directors understand their <a href=\"https://www.gov.uk/running-a-limited-company\" target=\"_blank\">duties and responsibilities</a> under the Companies Act 2006",
+            "organisation_type": "company",
             "score": 1
           },
           {
-            "answer": "Ensuring all our trustees value collective decision making and understand they are all part of the leadership team and are all equally accountable for decisions made and their outcomes. This is reinforced through induction, regular training and performance review",
+            "answer": "All trustees value collective decision making and understand they're all part of the leadership team and equally accountable for decisions made and their outcomes",
             "score": 1
           },
           {
-            "answer": "Ensuring our trustees all understand and are familiar with The Scottish Governance Code for the Third Sector",
+            "answer": "The importance of collective decision making is reinforced through induction, regular training and performance review",
+            "score": 1
+          },
+          {
+            "answer": "All trustees understand and are familiar with <a href=\"https://governancecode.scot\" target=\"_blank\">The Scottish Governance Code for the Third Sector</a>",
             "score": 1
           }
         ]
@@ -141,15 +197,23 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Demonstrating that our trustees are committed to leading and creating impact through engagement with stakeholders and being open and transparent in our governance.",
+            "answer": "All trustees are committed to <a href=\"https://www.thinknpc.org/resource-hub/above-and-beyond-in-trusteeship/\" target=\"_blank\">leading and creating impact</a> through engagement with stakeholders",
             "score": 1
           },
           {
-            "answer": "Designing a code of conduct that our trustees sign up and adhere to. This should outline expected standards of behaviour eg attendance at meetings, the importance of maintaining the confidentiality of board meetings, and what happens if they are not met. It should be reviewed regularly to ensure it meets developing ethical standards expected by stakeholders and society",
+            "answer": "All trustees are committed to <a href=\"https://www.thinknpc.org/resource-hub/above-and-beyond-in-trusteeship/\" target=\"_blank\">leading and creating impact</a> by being open and transparent in our governance",
             "score": 1
           },
           {
-            "answer": "Ensuring our trustees declare all interests in other organisations and businesses that could conflict with their role, and are aware of conflicts of interest caused by personal relationships. This register of interests should include a note of hospitality and gifts, and be updated annually to meet developing ethical standards expected by stakeholders and society.",
+            "answer": "We have a <a href=\"/running-your-organisation/governance/meetings\" target=\"_blank\">code of conduct</a> that our trustees have signed up to and adhere to",
+            "score": 1
+          },
+          {
+            "answer": "We have a register of interests where trustees declare all interests in other organisations and businesses that could conflict with their role",
+            "score": 1
+          },
+          {
+            "answer": "Trustees are aware of conflicts of interest caused by personal relationships",
             "score": 1
           }
         ]
@@ -160,15 +224,27 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Having an Equal Opportunities policy and action plan to promote equality and diversity on the board and throughout our organisation.",
+            "answer": "We have an Equal Opportunities policy and action plan to promote equality and <a href=\"https://www.thinknpc.org/resource-hub/diversity-in-governance-the-what-why-and-how\" target=\"_blank\">diversity on the board</a> and throughout our organisation",
             "score": 1
           },
           {
-            "answer": "Ensuring our board, staff and volunteers take part in diversity training and understand their responsibilities in this area",
+            "answer": "Our board is prepared to ask difficult questions and challenge itself to enable it to make better decisions",
             "score": 1
           },
           {
-            "answer": "Ensuring our services and information are accessible to all",
+            "answer": "Our board take part in diversity training and understand their responsibilities in this area",
+            "score": 1
+          },
+          {
+            "answer": "Our staff and volunteers take part in diversity training and understand their responsibilities in this area",
+            "score": 1
+          },
+          {
+            "answer": "Our volunteers take part in diversity training and understand their responsibilities in this area",
+            "score": 1
+          },
+          {
+            "answer": "Our services and information are accessible to all",
             "score": 1
           }
         ]
@@ -179,7 +255,15 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Having a communications strategy which details how best to communicate with all of our stakeholders about how we are governed, and our values, work and achievements in delivering our organisational purpose. This should include an accessible list of trustees and clear information about members' role in the governance of our organisation eg AGMs, if applicable",
+            "answer": "We have a <a href=\"https://knowhow.ncvo.org.uk/campaigns/communications/communications-strategy\" target=\"_blank\">communications strategy</a> which details how best to communicate with all of our stakeholders about how we're governed, and our values, work and achievements in delivering our organisational purpose",
+            "score": 1
+          },
+          {
+            "answer": "We have an accessible list of trustees",
+            "score": 1
+          },
+          {
+            "answer": "We have clear information about members' role in the governance of our organisation (if applicable)",
             "score": 1
           }
         ]
@@ -190,11 +274,11 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring our board receives regular information regarding the organisation's activities, assets and resources, and progress against targets",
+            "answer": "Our board receives regular information on our organisation's activities, assets and resources, and progress against targets",
             "score": 1
           },
           {
-            "answer": "Evaluating the impact of our organisation",
+            "answer": "We <a href=\"http://www.evaluationsupportscotland.org.uk\" target=\"_blank\">evaluate</a> the <a href=\"http://www.evaluationsupportscotland.org.uk/our-work-partners/inspiring-impact-scotland/inspiring-impact-resources/\" target=\"_blank\">impact</a> of our organisation",
             "score": 1
           }
         ]
@@ -205,15 +289,27 @@
         "type": "select-many",
         "options": [
           {
-            "answer": "Ensuring our board focusses on strategy, performance and assurance, rather than operational matters",
+            "answer": "Our board focusses on <a href=\"https://knowhow.ncvo.org.uk/tools-resources/board-basics/tools-and-guidance/strategic-planning\" target=\"_blank\">strategy</a>, performance and assurance, rather than operational matters",
             "score": 1
           },
           {
-            "answer": "Developing a scheme of delegation consistent with our governing document, to help provide clarity around who has authority to make different decisions. This should be regularly reviewed and available to all trustees, staff and volunteers, so everyone is clear about their roles and responsibilities, and legal liabilities",
+            "answer": "We have a <a href=\"https://knowhow.ncvo.org.uk/governance/governance-structure-and-roles/delegation-to-committees-and-staff\" target=\"_blank\">scheme of delegation</a> consistent with our governing document, to provide clarity around who has authority to make different decisions",
             "score": 1
           },
           {
-            "answer": "Providing clear role descriptions for trustees and volunteers, terms of reference for any sub-committees, and job descriptions for staff",
+            "answer": "We have clear <a href=\"/running-your-organisation/governance/roles-responsibilities\" target=\"_blank\">role descriptions for trustees</a>",
+            "score": 1
+          },
+          {
+            "answer": "We have clear <a href=\"/running-your-organisation/staff-volunteers/volunteers\" target=\"_blank\">role descriptions for volunteers</a>",
+            "score": 1
+          },
+          {
+            "answer": "We have terms of reference for any sub-committees",
+            "score": 1
+          },
+          {
+            "answer": "We have job descriptions for <a href=\"/running-your-organisation/staff-volunteers/staff\" target=\"_blank\">staff</a> (where applicable)",
             "score": 1
           }
         ]

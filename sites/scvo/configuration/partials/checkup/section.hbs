@@ -77,13 +77,13 @@
               {{#case "select-one" ~}}
               {{#if answer ~}}
               <div class="answer">
-                {{> components_radio_button label=answer id=(slugify answer) name=(if (compare ../../section "===" "section-6") ../value else=(concat "scores-" ../value)) value=(default score value) required="true"}}
+                {{> components_radio_button label=answer id=(slugify answer) name=(if (compare ../../section "===" "section-start") ../value else=(concat "scores-" ../value)) value=(default score value) required="true"}}
               </div>
               {{/if ~}}
               {{/case ~}}
               {{#case "select-many" ~}}
               {{#if answer ~}}
-              {{#ifAny (compare organisation_type undefined) (compare organisation_type ../../../respondent_organisation_type) ~}}
+              {{#ifAny (compare organisation_type undefined) (compare organisation_type @root.request.body.organisation_type) ~}}
               <div class="answer">
                 {{> components_checkbox label=answer id=(slugify answer) name="scores" value=(default score value)}}</li>
               </div>

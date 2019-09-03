@@ -2,7 +2,7 @@
   "section-start": {
     "name": "Start",
     "title": "Start",
-    "heading": "",
+    "heading": "Start",
     "description": "",
     "icon": "confirm",
     "progress": 0,
@@ -14,11 +14,11 @@
         "options": [
           {
             "answer": "Charity",
-            "score": 1
+            "score": "charity"
           },
           {
             "answer": "Company",
-            "score": 1
+            "score": "company"
           }
         ]
       }

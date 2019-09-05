@@ -1,7 +1,7 @@
 <div class="container-content content-account">
   <div class="content-primary">
-  <h2>Parent or guardian verification</h2>
-  <p>Parent or guardian verification needed. An email has been sent to {{@root.data.accountInfo.verification_email}} please
+  <h2>{{#compare data.accountInfo.user_type "===" "Volunteer"}}Parent or guardian{{else}}Group Administrator{{/compare}} verification</h2>
+  <p>{{#compare data.accountInfo.user_type "===" "Volunteer"}}Parent or guardian{{else}}Group Administrator{{/compare}} verification needed. An email has been sent to {{@root.data.accountInfo.verification_email}} please
   ask the your parent or guardian to click the link in that email</p>
   <button onclick="sendVerifyEmail(true)">Resend Email</button>
   <button onclick="revealForm()">Change Email Address</button>

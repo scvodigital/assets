@@ -5,18 +5,15 @@
   </h3>
   <nav class="mdc-list">
     {{#each @root.context.metaData.menus.user-signed-in ~}}
-    {{#compare label "!==" "Search" ~}}
     {{#compare label "!==" "Sign out" ~}}
-      {{#if (contains user-types @root.data.accountInfo.user_type)}}
-
+    {{#if (contains user-types @root.data.accountInfo.user_type) ~}}
     <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
       {{#if icon ~}}
       <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
       {{/if ~}}
       {{{label}}}
     </a>
-      {{/if}}
-    {{/compare ~}}
+    {{/if ~}}
     {{/compare ~}}
     {{/each ~}}
   </nav>

@@ -25,6 +25,17 @@
       }
     },
     {
+      "name": "redirectIfGot",
+      "taskModule": "reroute",
+      "config":
+      {
+        "if" : [{"var" : "data.accountInfo.verification_needed"},
+          null,
+          "redirect-home"
+        ]
+      }
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

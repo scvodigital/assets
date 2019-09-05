@@ -135,6 +135,15 @@
       "defaultData": {}
     }
   },
+  "isAdmin" : {
+    "name": "isAdmin",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "template": "{{compare data.accountInfo.user_type '===' 'Group Admin'}}",
+      "output": "data"
+    }
+  },
   "volunteeringTermsMaps": {
     "name": "termsMaps",
     "taskModule": "render",

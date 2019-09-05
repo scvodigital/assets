@@ -7,7 +7,8 @@
     Task details
   </h2>
 
-  <form id="task-details-form" action="/submit-task-details" method="POST" data-ajax-form='{
+  {{#withExtend this admin=(compare @root.data.accountInfo.user_type '===' 'Group Admin')}}
+    <form id="task-details-form" action="/submit-task-details" method="POST" data-ajax-form='{
       "successCallback": "completeCB",
       "failureCallback": "completeCB"
     }'>
@@ -15,14 +16,18 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input id="task_name" name="task_name"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_name}}
+            <input id="organisation_name" name="organisation_name"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.task_name}}"
+                   value = "{{@root.data.taskInfo.organisation_name}}"
             >
             {{!-- value="{{@root.data.user_details.name}}"> --}}
-            <label class="mdc-floating-label" for="task_name">
-              Task name, or brief description
+            <label class="mdc-floating-label" for="organisation_name">
+                {{#unless admin}}
+                Organisation you volunteer for
+                {{else}}
+                Organisation your volunteers are volunteering for.
+                {{/unless}}
             </label>
           </div>
         </div>
@@ -42,16 +47,6 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input id="organisation_name" name="organisation_name"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.organisation_name}}">
-            <label class="mdc-floating-label" for="organisation_name">
-              Organisation you volunteer for
-            </label>
-          </div>
-        </div>
-        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input autocomplete="off" id="organisation_charity_number" name="organisation_charity_number"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_charity_number}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
@@ -62,6 +57,24 @@
           </div>
         </div>
       </div>
+
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-typography--headline6">
+            Task Description (Optional)
+          </div>
+        </div>
+      </div>
+        <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+            <textarea  rows="1" cols="40" id="task_description" name="task_description"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} class="mdc-text-field__input"
+                       value = "{{@root.data.taskInfo.task_description}}"></textarea>
+          </div>
+        </div>
+        </div>
+
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-typography--headline6">
@@ -76,7 +89,12 @@
             <input required id="volunteer_manager_first_name" name="volunteer_manager_first_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_first_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{#unless admin}}
                    value = "{{@root.data.taskInfo.volunteer_manager_first_name}}"
+              {{else}}
+                   value = "{{default @root.data.taskInfo.volunteer_manager_first_name @root.data.accountInfo.first_name}}"
+              {{/unless}}
+
             >
             <label class="mdc-floating-label" for="name">
               First Name
@@ -88,7 +106,11 @@
             <input required id="volunteer_manager_last_name" name="volunteer_manager_last_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_last_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{#unless admin}}
                    value = "{{@root.data.taskInfo.volunteer_manager_last_name}}"
+              {{else}}
+                   value = "{{default @root.data.taskInfo.volunteer_manager_last_name @root.data.accountInfo.last_name}}"
+              {{/unless}}
             >
             <label class="mdc-floating-label" for="name">
               Surname
@@ -103,7 +125,14 @@
             <input required id="volunteer_manager_title" name="volunteer_manager_title"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}}
+                   class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{#unless admin}}
                    value = "{{@root.data.taskInfo.volunteer_manager_title}}"
+              {{else}}
+                   value = "{{default @root.data.taskInfo.volunteer_manager_title @root.data.accountInfo.title}}"
+              {{/unless}}
+
             >
             <label class="mdc-floating-label" for="name">
               Job title
@@ -115,8 +144,13 @@
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input id="volunteer_manager_email" name="volunteer_manager_email"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.volunteer_manager_email}}">
-            <label class="mdc-floating-label" for="volunteer_manager_email">
+              {{#unless admin}}
+                   value = "{{@root.data.taskInfo.volunteer_manager_email}}"
+              {{else}}
+                   value = "{{default @root.data.taskInfo.volunteer_manager_email @root.data.accountInfo.email}}"
+              {{/unless}}
+              >
+              <label class="mdc-floating-label" for="volunteer_manager_email">
               E-Mail address
             </label>
           </div>
@@ -127,7 +161,12 @@
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input id="volunteer_manager_phone" name="volunteer_manager_phone"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_phone}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.volunteer_manager_phone}}">
+              {{#unless admin}}
+                   value = "{{@root.data.taskInfo.volunteer_manager_phone}}"
+              {{else}}
+                   value = "{{default @root.data.taskInfo.volunteer_manager_phone @root.data.accountInfo.phone}}"
+              {{/unless}}
+              >
             <label class="mdc-floating-label" for="volunteer_manager_phone">
               Phone number (Optional)
             </label>
@@ -160,6 +199,7 @@
       Submit Details
     </button>
   </form>
+  {{/withExtend}}
 </div>
 
 <script>

@@ -595,6 +595,9 @@ main {
   .description {
     position: relative;
     margin-bottom: 0;
+    .align-bottom {
+      padding-bottom: 1rem;
+    }
     // .align-bottom {
     //     position: absolute;
     //     bottom: 0.5rem;
@@ -602,7 +605,7 @@ main {
     // }
     img {
       margin: 0 auto;
-      margin-bottom: -($unit);
+      margin-bottom: -($unit/2);
       // padding: 1.5rem 8rem 0;
       // margin-bottom: -6px;
     }
@@ -1019,6 +1022,7 @@ hr {
       float: right;
       letter-spacing: -0.05rem;
       padding: 0 1rem 0 .75rem;
+      line-height: 3rem;
       cursor: default;
     }
   }
@@ -1550,7 +1554,7 @@ footer {
         font-size: 1.25rem;
       }
       img {
-        padding: 0 1rem 0;
+        // padding: 0 1rem 0;
         margin-bottom: -7px;
       }
       .mdc-button {

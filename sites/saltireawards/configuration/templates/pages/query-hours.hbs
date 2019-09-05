@@ -14,12 +14,12 @@
       <ul>
 
         {{#each @root.data.tasksInfoUnverified}}
-          {{#compare unverifiedHoursList.length ">=" 1}}
+          {{#compare unverified_hours_list.length ">=" 1}}
           {{#compare this.volunteer_manager_email "===" ../this}}
 
-          <li><strong>{{task_name}}</strong> for <strong>{{organisation_name}}</strong>, Manager: {{volunteer_manager_first_name}} {{volunteer_manager_last_name}} - {{volunteer_manager_title}}
+          <li><strong>Volunteering </strong> with <strong>{{organisation_name}}</strong>: {{#if task_description}}Tasks: {{task_description}}{{/if}}, Manager: {{volunteer_manager_first_name}} {{volunteer_manager_last_name}} - {{volunteer_manager_title}}
             <ul>
-            <li>{{#each this.unverifiedHoursList}}
+            <li>{{#each this.unverified_hours_list}}
                   {{hours}} Hours: Logged on {{momentFormat (moment createdDate "YYYY-MM-DD") "MMMM Do YYYY"}}</li>
                 {{/each}}
             </li>

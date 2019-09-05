@@ -1,3 +1,4 @@
+{{#json}}
 {{#json key='hours_input' type='array'}}
   {{#eachJoin (regexSplit @root.request.body.volunteers '\r?\n') ","}}
     {{#json}}
@@ -7,7 +8,7 @@
       {{{json key='claim_first_name' value=(firstItem (split this " "))}}},
       {{{json key='claim_last_name' value=(lastItem (split this " "))}}},
       {{{json key='claim_code' value=(hash (concat " " (random 0 1000000000000)) 'md5')}}},
-      {{{json key='hours' value=hours}}}
     {{/json}}
   {{/eachJoin}}
+{{/json}}
 {{/json}}

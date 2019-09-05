@@ -70,63 +70,68 @@
       "label": "Home",
       "icon": "home",
       "path": "/",
-      "route": "^/$"
+      "route": "^/$",
+      "user-types": [
+        "Group Admin",
+        "Volunteer"
+      ]
     },
     {
       "label": "Find opportunities",
       "icon": "hands-helping",
       "path": "/search",
-      "route": "^/search"
+      "route": "^/search",
+      "user-types": [
+        "Volunteer"
+      ]
     },
     {
       "label": "My volunteering",
       "icon": "user-clock",
       "path": "/hours",
-      "route": "^/hours|^/task"
+      "route": "^/hours|^/task",
+      "user-types": [
+        "Volunteer"
+      ]
+    },
+    {
+      "label": "Volunteering Groups",
+      "icon": "user-clock",
+      "path": "/hours",
+      "route": "^/hours|^/task",
+      "user-types": [
+        "Group Admin"
+      ]
     },
     {
       "label": "My achievements",
       "icon": "medal",
       "path": "/achievements",
-      "route": "^/achievements"
+      "route": "^/achievements",
+      "user-types": [
+        "Volunteer"
+      ]
+
     },
     {
       "label": "My account",
       "icon": "cog",
       "path": "/account",
-      "route": "^/account|^/sign-up-details"
+      "route": "^/account|^/sign-up-details",
+      "user-types": [
+        "Group Admin",
+        "Volunteer"
+      ]
     },
     {
       "label": "Sign out",
       "icon": "sign-out-alt",
       "path": "/sign-out",
-      "route": "^/sign-out"
-    }
-  ],
-  "admin-signed-in" : [
-    {
-      "label": "Admin Home",
-      "icon": "home",
-      "path": "/",
-      "route": "^/$"
-    },
-    {
-      "label": "My groups",
-      "icon": "user-clock",
-      "path": "/hours",
-      "route": "^/hours|^/task"
-    },
-    {
-      "label": "My account",
-      "icon": "cog",
-      "path": "/account",
-      "route": "^/account|^/sign-up-details"
-    },
-    {
-      "label": "Sign out",
-      "icon": "sign-out-alt",
-      "path": "/sign-out",
-      "route": "^/sign-out"
+      "route": "^/sign-out",
+      "user-types": [
+        "Group Admin",
+        "Volunteer"
+      ]
     }
   ],
   "footer-info": [

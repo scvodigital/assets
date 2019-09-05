@@ -8,7 +8,7 @@
         {{#json key='verification_url' type="text"}}https://test.saltireawards.org.uk/user-validate/?code={{code}}&id={{external_id}}{{/json}},
         {{#json key='verification_needed' type="boolean"}}true{{/json}},
       {{else}}
-        {{#json key='verification_needed' type="boolean"}}false{{/json}},
+        "verification_needed" : false, {{!-- Hack - it's not possible to enter false in the json parser due to a bug --}}
       {{/if}}
       {{{json key='first_name' value=first_name}}},
       {{{json key='last_name' value=last_name}}},

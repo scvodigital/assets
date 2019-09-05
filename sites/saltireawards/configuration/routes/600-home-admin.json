@@ -28,7 +28,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.pages_home-admin",
-              "sidebar": ">context.metaData.handlebars.templates.admin_sidebar",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "foot": ">context.metaData.handlebars.templates.pages_foot"
             },
             "contentType": "text/html"

@@ -1,9 +1,10 @@
 {{#if @root.data.auth ~}}
 <div class="mdc-drawer__content b-margin">
   <h3 class="mdc-typography--headline6 h-padding-full t-margin-full">
-    My Saltire
     {{#compare @root.data.accountInfo.user_type "Group Admin" ~}}
-    groups
+    Group administrator
+    {{else}}
+    My Saltire
     {{/compare ~}}
   </h3>
   <nav class="mdc-list">

@@ -3,7 +3,7 @@
   "pattern": "/blog",
   "debug": true,
   "metaData": {
-    "title": "Blog – Saltire Awards"
+    "title": "Blog"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

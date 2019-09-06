@@ -3,7 +3,7 @@
   "pattern": "/do-verify-hours",
   "debug": true,
   "metaData": {
-    "title": "Tasks - Saltire Awards"
+    "title": "Tasks"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

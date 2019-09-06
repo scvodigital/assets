@@ -3,7 +3,8 @@
   "pattern": "/hours",
   "debug": true,
   "metaData": {
-    "title": "My volunteering - Saltire Awards"
+    "title": "My volunteering",
+    "adminTitle": "Volunteering groups"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

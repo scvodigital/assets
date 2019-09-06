@@ -2,9 +2,6 @@
   "name": "home_admin",
   "pattern": "/home_admin",
   "debug": true,
-  "metaData": {
-    "title": "Saltire Awards - recognising young volunteers in Scotland"
-  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",

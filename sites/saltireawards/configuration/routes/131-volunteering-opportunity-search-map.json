@@ -3,7 +3,7 @@
   "pattern": "/search/map",
   "debug": true,
   "metaData": {
-    "title": "Volunteering opportunity search - Saltire Awards"
+    "title": "Volunteering opportunity search"
   },
   "defaultParams": {
     "context": "results"

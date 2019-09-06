@@ -1,17 +1,17 @@
 <div id="detailed-results-container" class="container-content content-hours">
 
   <h1 class="mdc-typography--headline4">
-    {{#if @root.data.isAdmin}}
+    {{#if @root.data.isAdmin ~}}
       {{@root.route.metaData.adminTitle}}
     {{else}}
       {{@root.route.metaData.title}}
-    {{/if}}
+    {{/if ~}}
   </h1>
-  {{#unless @root.data.isAdmin}}
+  {{#unless @root.data.isAdmin ~}}
     <div class="mdc-typography--headline7 b-margin-full">
-      {{sumArray (pluck @root.data.tasksInfo "hours")}} total hours given so far!
+      {{sumArray (pluck @root.data.tasksInfo "hours")}} total hours added
     </div>
-  {{/unless}}
+  {{/unless ~}}
 
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
@@ -26,9 +26,8 @@
 
             <strong>Volunteering</strong> with <strong>{{organisation_name}}</strong>
 
-
             <form action="/submit-hours" method="POST">
-              {{hours}} hours given so far.
+              {{hours}} hours added so far
               <input type="hidden" name="task_id" value="{{taskId}}">
               <input type="number" step="any" min="0" name="hours">
               <button type="submit" class="mdc-button mdc-button--raised">Add hours</button>
@@ -77,7 +76,7 @@
               <button id="detail-submit" type="submit" class="mdc-button mdc-button--raised b-margin-full" id="group-hours-submit" >
                 <span class="icon far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
                 <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
-                Submit Details
+                Submit details
               </button>
             </div>
           </div>
@@ -85,10 +84,10 @@
         </form>
         <div class="mdc-layout-grid__inner">
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-            Volunteer Name
+            Volunteer name
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-            Hours on Task
+            Hours on task
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
             Code
@@ -98,7 +97,7 @@
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
           </div>
           <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-            <a href="www.google.com">Print All Certificates</a>
+            <a href="#">Print all certificates</a>
           </div>
 
         </div>
@@ -116,13 +115,13 @@
           {{substr claim_code 0 10}}
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="www.google.com">Edit</a>
+          <a href="#">Edit</a>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="www.google.com">Remove</a>
+          <a href="#">Remove</a>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-          <a href="www.google.com">Print Certificate</a>
+          <a href="#">Print Certificate</a>
         </div>
 
       </div>
@@ -137,7 +136,7 @@
 
   {{!--
   --}}
-  {{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
+  {{!-- <script src="https://#/recaptcha/api.js" async defer></script> --}}
   <script>
     function preSubmit() {
       var form = document.getElementById("user-details-form");

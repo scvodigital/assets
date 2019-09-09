@@ -8,7 +8,7 @@
           {{#compare @root.data.supplimentaryResponses.posts.hits.total ">" 0 ~}}
           <ul class="supplimentary-list">
             {{#each @root.data.supplimentaryResponses.posts.hits.hits ~}}
-            {{{_source.rendered.scvo_list}}}
+            {{> post_list _source}}
             {{/each ~}}
           </ul>
           {{> pagination paging=@root.data.supplimentaryResponses.posts.pagination}}

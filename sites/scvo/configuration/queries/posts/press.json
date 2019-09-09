@@ -2,7 +2,19 @@
   "size": 10,
   "from": {{multiply (subtract (default @root.request.params.query.page 1) 1) 10}},
   "_source": [
-    "rendered.scvo_list",
+    "title",
+    "publish_on",
+    "path",
+    "description_truncated",
+    "is_press_release",
+    "author_slug",
+    "author_name_full",
+    "staff_profile",
+    "og_image",
+    "categories",
+    "categories_slug",
+    "post_tags",
+    "post_tags_slug",
     "rendered.rss"
   ],
   "query": {

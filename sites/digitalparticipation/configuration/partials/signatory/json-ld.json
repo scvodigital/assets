@@ -1,0 +1,33 @@
+<script type="application/ld+json" data-dynamic="true">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "headline": "{{title}}",
+  "description": "{{default description 'Commitment not yet provided'}}",
+  {{#if date_signed ~}}
+  "datePublished": "{{momentFormat (moment date_signed 'x') 'YYYY-MM-DDTHH:mm:ssZ'}}",
+  {{else}}
+  "datePublished": "{{momentFormat (moment now 'x') 'YYYY-MM-DDTHH:mm:ssZ'}}",
+  {{/if ~}}
+  "dateModified": "{{date_last_modified}}",
+  {{#if logos.0.uploadUrl ~}}
+  "image": "{{logos.0.uploadUrl}}",
+  {{/if ~}}
+  "author": {
+    "@type": "Person",
+    "name": "{{title}}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://digitalparticipation.scot/charter/signatory/{{slug}}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scottish Council for Voluntary Organisations",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/logos/scvo-logo.jpg"
+    }
+  }
+}
+</script>

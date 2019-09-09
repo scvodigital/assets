@@ -16,13 +16,19 @@
     {{/compare}}
     {{/each}}
     <div class="mdc-layout-grid">
-      <div id="verification" class="mdc-layout-grid__inner" >
+      <div id="verification" class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+          <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
             <input type="email" id="verification_email" name="verification_email" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.verification_email}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.verification_email}}>
-            <label class="mdc-floating-label" for="verification_email">
-              Your parent or guardian's email address
-            </label>
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="verification_email" class="mdc-floating-label">
+                  Your parent or guardian's email address
+                </label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,131 +1,138 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input required id="first_name" name="first_name"
-               {{>form_validation_attributes @root.context.metaData.accountInfoValidation.first_name}}
-               class="mdc-text-field__input mdc-text-field--fullwidth"
-              value="{{@root.data.accountInfo.first_name}}"
-        >
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+        <input required id="first_name" name="first_name" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.first_name}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.first_name}}>
         {{!-- value="{{@root.data.user_details.first_name}}"> --}}
-        <label class="mdc-floating-label" for="first_name">
-          First name
-        </label>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="first_name" class="mdc-floating-label">First name</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input required id="last_name" name="last_name"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.last_name}}
-               class="mdc-text-field__input mdc-text-field--fullwidth"
-               value="{{@root.data.accountInfo.last_name}}">
-
-        <label class="mdc-floating-label" for="last_name">
-          Last name
-        </label>
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+        <input required id="last_name" name="last_name" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.last_name}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.last_name}}>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="last_name" class="mdc-floating-label">Last name</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
   </div>
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
         {{#if admin}}
-          <input id="date_of_birth" name="date_of_birth"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth_checked}}
-               class="mdc-text-field__input mdc-text-field--fullwidth"
-               value="{{@root.data.accountInfo.date_of_birth}}">
+          <input id="date_of_birth" name="date_of_birth" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.date_of_birth}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth_checked}}>
         {{else}}
-          <input id="date_of_birth_checked" name="date_of_birth"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}
-          class="mdc-text-field__input mdc-text-field--fullwidth"
-          value="{{@root.data.accountInfo.date_of_birth}}">
+          <input id="date_of_birth_checked" name="date_of_birth" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.date_of_birth}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.date_of_birth}}>
         {{/if}}
-        <label class="mdc-floating-label" for="date_of_birth">
-          Date of birth
-        </label>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="date_of_birth" class="mdc-floating-label">Date of birth</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input id="postcode" name="postcode"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value="{{@root.data.accountInfo.postcode}}">
-        <label class="mdc-floating-label" for="postcode">
-          {{#if admin}}Your work postcode{{else}}Home Postcode{{/if}}
-        </label>
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+        <input id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="postcode" class="mdc-floating-label">{{#if admin}}Your work postcode{{else}}Home Postcode{{/if}}</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
   </div>
-  {{#unless admin}}
+  {{#unless admin ~}}
   <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input id="school_college_name" name="school_college_name"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.school_college_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value="{{@root.data.accountInfo.school_college_name}}">
-        <label class="mdc-floating-label" for="school_college_name">
-          School / College name
-        </label>
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+        <input id="school_college_name" name="school_college_name" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.school_college_name}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.school_college_name}}>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="school_college_name" class="mdc-floating-label">School/college name</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
   </div>
     <div id="verification" class="mdc-layout-grid__inner" style="display: none">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-        <input type="email" id="verification_email" name="verification_email"
-          {{>form_validation_attributes @root.context.metaData.accountInfoValidation.verification_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
-               value="{{@root.data.accountInfo.verification_email}}">
-        <label class="mdc-floating-label" for="verification_email">
-          Your Parent or Guardian's email address
-        </label>
+      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+        <input type="email" id="verification_email" name="verification_email" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.verification_email}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.verification_email}}>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="verification_email" class="mdc-floating-label">Your parent or guardian's email address</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
       </div>
     </div>
   </div>
   {{else}}
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-          <input id="title" name="title"
-            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.title}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                 value="{{@root.data.accountInfo.title}}">
-          <label class="mdc-floating-label" for="title">
-            Role title
-          </label>
+        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+          <input id="title" name="title" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.title}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.title}}>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="title" class="mdc-floating-label">Job title</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-          <input id="phone" name="phone"
-            {{>form_validation_attributes @root.context.metaData.accountInfoValidation.phone}} class="mdc-text-field__input mdc-text-field--fullwidth"
-                 value="{{@root.data.accountInfo.phone}}">
-          <label class="mdc-floating-label" for="phone">
-            Role phone
-          </label>
+        <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+          <input id="phone" name="phone" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.phone}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.phone}}>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="phone" class="mdc-floating-label">Phone number</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
       </div>
-
     </div>
-    <div class="mdc-layout-grid__inner">
+    {{!-- <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone b-margin-full">
       <div class="mdc-typography--body">
         Your Local TSI (This field to be replaced with one derived from postcode).
       </div>
 
           <select class="mdc-select__native-control" type="email" id="verification_email" name="verification_email">
-            {{!-- This will likely read from a JSON file --}}
+            {{!-- This will likely read from a JSON file - -}}
             <option value="anuttgens@gmail.com">A Test TSI</option>
             <option value="anuttgens@gmail.com">A Different Test TSI</option>
           </select>
 
       </div>
 
-    </div>
-    <input type="hidden" name="admin" value="true">
-
-  {{/unless}}
+    </div> --}}
+    <input type="hidden" name="verification_email" value="anuttgens@gmail.com" />
+    <input type="hidden" name="admin" value="true" />
+  {{/unless ~}}
 </div>
 
-<input type="hidden" name="external_id" value="{{data.auth.uid}}">
+<input type="hidden" name="external_id" value="{{data.auth.uid}}" />
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {

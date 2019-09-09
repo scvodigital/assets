@@ -15,7 +15,7 @@
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
       <div class="b-margin-full mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <a href="/task" class="mdc-button mdc-button--raised">Add new group</a>
+        <a href="/task" class="mdc-button mdc-button--raised">Add new {{#if @root.data.isAdmin}}group{{else}}task{{/if}}</a>
       </div>
     </div>
     {{#each @root.data.tasksInfo}}

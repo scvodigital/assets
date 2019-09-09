@@ -2,7 +2,7 @@
   "size": 4,
   "_source": [
     "title",
-    "rendered.scvo_search_result"
+    "slug"
   ],
   "query": {
     {{#if data.primaryResponse.hits.hits.[0] ~}}

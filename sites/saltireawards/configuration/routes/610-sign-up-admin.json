@@ -3,7 +3,7 @@
   "pattern": "/sign-up-admin",
   "debug": true,
   "metaData": {
-    "title": "Group Administrator Sign up - Saltire Awards"
+    "title": "Group administrator sign up"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

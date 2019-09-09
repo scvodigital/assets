@@ -2,9 +2,6 @@
   "name": "test-page",
   "pattern": "/test-page",
   "debug": true,
-  "metaData": {
-    "title": "Account - Saltire Awards"
-  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     {

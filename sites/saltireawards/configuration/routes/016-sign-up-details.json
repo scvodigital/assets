@@ -3,7 +3,7 @@
   "pattern": "/sign-up-details",
   "debug": true,
   "metaData": {
-    "title": "Sign up - Saltire Awards"
+    "title": "Sign up"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -37,6 +37,7 @@
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
               "body": ">context.metaData.handlebars.templates.account_sign-up-details",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "foot": ">context.metaData.handlebars.templates.account_footer"
             },
             "contentType": "text/html"

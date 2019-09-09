@@ -2,8 +2,12 @@
   "name": "page_terms",
   "pattern": "/terms",
   "debug": false,
+  "metaData": {
+    "title": "Terms & conditions"
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "destination",
       "taskModule": "renderLayout",

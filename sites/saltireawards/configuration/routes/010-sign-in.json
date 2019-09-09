@@ -3,7 +3,7 @@
   "pattern": "/sign-in",
   "debug": true,
   "metaData": {
-    "title": "Sign in - Saltire Awards"
+    "title": "Sign in"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

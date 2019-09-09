@@ -95,7 +95,7 @@
       ]
     },
     {
-      "label": "Volunteering Groups",
+      "label": "Volunteering groups",
       "icon": "user-clock",
       "path": "/hours",
       "route": "^/hours|^/task",

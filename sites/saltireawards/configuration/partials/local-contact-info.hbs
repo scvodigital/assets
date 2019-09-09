@@ -1,6 +1,6 @@
 {{#if @root.data.areaInfo.hits.hits.0._source.district ~}}
 {{#with (getProperty @root.context.metaData.tsiList (slugify @root.data.areaInfo.hits.hits.0._source.district)) ~}}
-Your Saltire contact is <strong>{{title}}</strong>.<br />
+Your {{#compare @root.data.accountInfo.user_type "Group Admin"}}TSI{{else}}Saltire{{/compare}} contact is <strong>{{title}}</strong>.<br />
 {{#if phone}}Phone: {{phone}}<br />{{/if}}
 {{#if email}}Email: <a href="mailto:{{email}}">{{email}}</a><br />{{/if}}
 {{#if twitter}}Twitter: <a href="{{fixUrl twitter}}">{{twitter}}</a><br />{{/if}}

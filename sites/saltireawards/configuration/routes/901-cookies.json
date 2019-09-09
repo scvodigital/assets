@@ -2,8 +2,12 @@
   "name": "page_cookies",
   "pattern": "/cookies",
   "debug": false,
+  "metaData": {
+    "title": "Cookie policy"
+  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "destination",
       "taskModule": "renderLayout",

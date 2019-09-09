@@ -7,7 +7,7 @@
     Task details
   </h2>
 
-  {{#withExtend this admin=(compare @root.data.accountInfo.user_type '===' 'Group Admin')}}
+  {{#withExtend this admin=(compare @root.data.accountInfo.user_type 'Group Admin') ~}}
     <form id="task-details-form" action="/submit-task-details" method="POST" data-ajax-form='{
       "successCallback": "completeCB",
       "failureCallback": "completeCB"
@@ -19,15 +19,14 @@
             <input id="organisation_name" name="organisation_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.organisation_name}}"
-            >
+                   value="{{@root.data.taskInfo.organisation_name}}">
             {{!-- value="{{@root.data.user_details.name}}"> --}}
             <label class="mdc-floating-label" for="organisation_name">
-                {{#unless admin}}
-                Organisation you volunteer for
+                {{#if admin ~}}
+                Organisation your group has volunteered with
                 {{else}}
-                Organisation your volunteers are volunteering for.
-                {{/unless}}
+                Organisation you volunteer for
+                {{/if ~}}
             </label>
           </div>
         </div>
@@ -36,8 +35,7 @@
             <input required id="location" name="location"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.location}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.location}}">
-
+                   value="{{@root.data.taskInfo.location}}">
             <label class="mdc-floating-label" for="location">
               Location
             </label>
@@ -50,7 +48,7 @@
             <input autocomplete="off" id="organisation_charity_number" name="organisation_charity_number"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_charity_number}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value = "{{@root.data.taskInfo.organisation_charity_number}}">
+                   value="{{@root.data.taskInfo.organisation_charity_number}}">
             <label class="mdc-floating-label" for="organisation_charity_number">
               Organisation Scottish Charity Number (optional, e.g. SC012345)
             </label>
@@ -61,7 +59,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-typography--headline6">
-            Task Description (Optional)
+            Volunteering description (optional)
           </div>
         </div>
       </div>
@@ -70,7 +68,7 @@
           <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <textarea  rows="1" cols="40" id="task_description" name="task_description"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} class="mdc-text-field__input"
-                       value = "{{@root.data.taskInfo.task_description}}"></textarea>
+              value="{{@root.data.taskInfo.task_description}}"></textarea>
           </div>
         </div>
         </div>
@@ -78,7 +76,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-typography--headline6">
-            Details of the person who manages this Volunteering Task
+            Details of the person who manages this volunteering task
           </div>
         </div>
       </div>
@@ -89,15 +87,14 @@
             <input required id="volunteer_manager_first_name" name="volunteer_manager_first_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_first_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{#unless admin}}
-                   value = "{{@root.data.taskInfo.volunteer_manager_first_name}}"
+              {{#if admin ~}}
+              value="{{default @root.data.taskInfo.volunteer_manager_first_name @root.data.accountInfo.first_name}}"
               {{else}}
-                   value = "{{default @root.data.taskInfo.volunteer_manager_first_name @root.data.accountInfo.first_name}}"
-              {{/unless}}
-
+              value="{{@root.data.taskInfo.volunteer_manager_first_name}}"
+              {{/if ~}}
             >
             <label class="mdc-floating-label" for="name">
-              First Name
+              First name
             </label>
           </div>
         </div>
@@ -106,14 +103,14 @@
             <input required id="volunteer_manager_last_name" name="volunteer_manager_last_name"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_last_name}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{#unless admin}}
-                   value = "{{@root.data.taskInfo.volunteer_manager_last_name}}"
+              {{#if admin ~}}
+              value="{{default @root.data.taskInfo.volunteer_manager_last_name @root.data.accountInfo.last_name}}"
               {{else}}
-                   value = "{{default @root.data.taskInfo.volunteer_manager_last_name @root.data.accountInfo.last_name}}"
-              {{/unless}}
+              value="{{@root.data.taskInfo.volunteer_manager_last_name}}"
+              {{/if ~}}
             >
             <label class="mdc-floating-label" for="name">
-              Surname
+              Last name
             </label>
           </div>
         </div>
@@ -127,12 +124,11 @@
                    class="mdc-text-field__input mdc-text-field--fullwidth"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}}
                    class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{#unless admin}}
-                   value = "{{@root.data.taskInfo.volunteer_manager_title}}"
+              {{#if admin ~}}
+              value="{{default @root.data.taskInfo.volunteer_manager_title @root.data.accountInfo.title}}"
               {{else}}
-                   value = "{{default @root.data.taskInfo.volunteer_manager_title @root.data.accountInfo.title}}"
-              {{/unless}}
-
+              value="{{@root.data.taskInfo.volunteer_manager_title}}"
+              {{/if ~}}
             >
             <label class="mdc-floating-label" for="name">
               Job title
@@ -144,14 +140,14 @@
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input id="volunteer_manager_email" name="volunteer_manager_email"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_email}} class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{#unless admin}}
-                   value = "{{@root.data.taskInfo.volunteer_manager_email}}"
+              {{#if admin ~}}
+              value="{{default @root.data.taskInfo.volunteer_manager_email @root.data.accountInfo.email}}"
               {{else}}
-                   value = "{{default @root.data.taskInfo.volunteer_manager_email @root.data.accountInfo.email}}"
-              {{/unless}}
+              value="{{@root.data.taskInfo.volunteer_manager_email}}"
+              {{/if ~}}
               >
               <label class="mdc-floating-label" for="volunteer_manager_email">
-              E-Mail address
+              Email address
             </label>
           </div>
         </div>
@@ -161,14 +157,14 @@
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input id="volunteer_manager_phone" name="volunteer_manager_phone"
               {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_phone}} class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{#unless admin}}
-                   value = "{{@root.data.taskInfo.volunteer_manager_phone}}"
+              {{#if admin ~}}
+              value="{{default @root.data.taskInfo.volunteer_manager_phone @root.data.accountInfo.phone}}"
               {{else}}
-                   value = "{{default @root.data.taskInfo.volunteer_manager_phone @root.data.accountInfo.phone}}"
-              {{/unless}}
+              value="{{@root.data.taskInfo.volunteer_manager_phone}}"
+              {{/if ~}}
               >
             <label class="mdc-floating-label" for="volunteer_manager_phone">
-              Phone number (Optional)
+              Phone number (optional)
             </label>
           </div>
         </div>
@@ -180,7 +176,7 @@
             <span class="mdc-select__dropdown-icon"></span>
             <select class="mdc-select__native-control" id="sort" name="un_sustainable_development_goals">
               <option value="" selected></option>
-              <option value="Good Health and Well-being">Good Health and Well-being</option>
+              <option value="Good Health and Well-being">Good health and wellbeing</option>
               <option value="Reducing Inequality">Reducing inequality</option>
             </select>
             <label class="mdc-floating-label mdc-select__label--float-above" for="sort">
@@ -196,10 +192,10 @@
     <button id="detail-submit" type="submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" >
       <span class="icon far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
       <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
-      Submit Details
+      Submit details
     </button>
   </form>
-  {{/withExtend}}
+  {{/withExtend ~}}
 </div>
 
 <script>

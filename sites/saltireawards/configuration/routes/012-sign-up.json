@@ -3,7 +3,7 @@
   "pattern": "/sign-up",
   "debug": true,
   "metaData": {
-    "title": "Sign up - Saltire Awards"
+    "title": "Sign up"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

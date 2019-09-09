@@ -11,11 +11,6 @@
 <meta property="og:summary" content="{{stripTags (regexReplace (default og_summary (default ../og_summary (default description ../description))) '\r|\n' 'gi' '')}}" data-dynamic="true">
 <meta name="description" content="{{stripTags (regexReplace (default description (default ../description (default og_summary ../og_summary))) '\r|\n' 'gi' '')}}" data-dynamic="true">
 {{/ifAny ~}}
-{{#if rendered.json_ld ~}}
-<script type="application/ld+json" data-dynamic="true">
-{{{rendered.json_ld}}}
-</script>
-{{/if ~}}
 {{/with ~}}
 {{else}}
 <title>{{route.metaData.title}}</title>

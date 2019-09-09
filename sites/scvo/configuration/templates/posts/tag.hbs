@@ -30,7 +30,7 @@
           {{> search_info paging=@root.data.primaryResponse.pagination}}
           <ul class="supplimentary-list">
             {{#each @root.data.primaryResponse.hits.hits ~}}
-            {{{_source.rendered.scvo_list}}}
+            {{> post_list _source}}
             {{/each ~}}
           </ul>
           {{> pagination paging=@root.data.primaryResponse.pagination}}

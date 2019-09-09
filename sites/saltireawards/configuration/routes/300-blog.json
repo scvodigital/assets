@@ -3,10 +3,11 @@
   "pattern": "/blog",
   "debug": true,
   "metaData": {
-    "title": "Blog – Saltire Awards"
+    "title": "Blog"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

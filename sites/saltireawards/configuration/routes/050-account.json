@@ -3,7 +3,7 @@
   "pattern": "/account",
   "debug": true,
   "metaData": {
-    "title": "My account - Saltire Awards"
+    "title": "My account"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",

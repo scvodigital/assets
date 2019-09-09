@@ -3,9 +3,9 @@
 
   <div class="mdc-typography--headline6 b-margin-full">
     {{#unless @root.request.params.query.redirect}}
-      Thank you for signing up to the Saltire Awards! Please add your details below
+      Thank you for signing up to the Saltire Awards as a group administrator. Please add your details below
     {{else}}
-      In order to use this site you need to complete your user details, please complete these below.
+      In order to use this site as an administrator you need to complete your user details, please complete these below.
     {{/unless}}
 
   </div>
@@ -42,7 +42,7 @@
       window.location.href = '/';
     } else {
       $('#detail-submit').prop('disabled', false);
-      saltireawards.componentsInitialiser.snackbar.show({message:"Failed to update profile, please check form fields filled in correctly"});
+      saltireawards.componentsInitialiser.snackbar.show({message:"Failed to update profile, please check all form fields have been filled in correctly"});
     }
   }
 

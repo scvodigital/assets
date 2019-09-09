@@ -6,9 +6,7 @@
   {{#each (distinct (pluck @root.data.tasksInfoUnverified "volunteer_manager_email")) ~}}
     <section class="mdc-card__media email-template h-padding-full">
       <p>
-        Modify hours for {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}}
-        {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}. If
-      the hours listed did not occur at all, please set the value to zero, and mention this in the Reason text box.</p>
+        Modify hours for {{@root.data.accountInfo.first_name}} {{@root.data.accountInfo.last_name}} {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}}. If the hours listed did not occur at all, please set the value to zero, and mention this in the 'reason' text box.</p>
       </p>
 
       <ul>
@@ -25,8 +23,8 @@
             </ul>
             </li>
           <form id="hours-modify-form" action="/modify-hours" method="POST" data-ajax-form='{
-      "successCallback": "completeCB",
-      "failureCallback": "completeCB"
+            "successCallback": "completeCB",
+            "failureCallback": "completeCB"
           }'>
             <input type="hidden" name="task_id" value="{{taskId}}">
 
@@ -44,25 +42,20 @@
               </div>
               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
                 <button class="mdc-button mdc-button--raised">Verify Hours</button>
-
               </div>
-
             </div>
           </div>
           </form>
           {{/compare}}
           {{/compare}}
-          <br/>
+          <br />
         {{/each}}
       </ul>
     </section>
   {{/each}}
-
 </div>
-
 <script>
-
-  function completeCB(response, whatever){
+  function completeCB(response, whatever) {
     var jsonData = JSON.parse(response);
     if (jsonData.id){
       console.log("yay!");
@@ -72,5 +65,4 @@
       saltireawards.componentsInitialiser.snackbar.show({message:"Failed create task."});
     }
   }
-
 </script>

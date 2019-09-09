@@ -16,11 +16,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input id="organisation_name" name="organisation_name"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_name}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value="{{@root.data.taskInfo.organisation_name}}">
-            {{!-- value="{{@root.data.user_details.name}}"> --}}
+            <input id="organisation_name" name="organisation_name"  class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.taskInfo.organisation_name}}" {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_name}}>
             <label class="mdc-floating-label" for="organisation_name">
                 {{#if admin ~}}
                 Organisation your group has volunteered with
@@ -32,10 +28,7 @@
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input required id="location" name="location"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.location}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value="{{@root.data.taskInfo.location}}">
+            <input required id="location" name="location" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.taskInfo.location}}" {{>form_validation_attributes @root.context.metaData.taskInfoValidation.location}}>
             <label class="mdc-floating-label" for="location">
               Location
             </label>
@@ -45,10 +38,7 @@
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <input autocomplete="off" id="organisation_charity_number" name="organisation_charity_number"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_charity_number}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
-                   value="{{@root.data.taskInfo.organisation_charity_number}}">
+            <input autocomplete="off" id="organisation_charity_number" name="organisation_charity_number" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.taskInfo.organisation_charity_number}}" {{>form_validation_attributes @root.context.metaData.taskInfoValidation.organisation_charity_number}}>
             <label class="mdc-floating-label" for="organisation_charity_number">
               Organisation Scottish Charity Number (optional, e.g. SC012345)
             </label>
@@ -66,9 +56,7 @@
         <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <textarea  rows="1" cols="40" id="task_description" name="task_description"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} class="mdc-text-field__input"
-              value="{{@root.data.taskInfo.task_description}}"></textarea>
+            <textarea  rows="1" cols="40" id="task_description" name="task_description" class="mdc-text-field__input" value="{{@root.data.taskInfo.task_description}}" {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} ></textarea>
           </div>
         </div>
         </div>
@@ -85,8 +73,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input required id="volunteer_manager_first_name" name="volunteer_manager_first_name"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_first_name}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_first_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
               {{#if admin ~}}
               value="{{default @root.data.taskInfo.volunteer_manager_first_name @root.data.accountInfo.first_name}}"
               {{else}}
@@ -101,8 +88,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input required id="volunteer_manager_last_name" name="volunteer_manager_last_name"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_last_name}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_last_name}} class="mdc-text-field__input mdc-text-field--fullwidth"
               {{#if admin ~}}
               value="{{default @root.data.taskInfo.volunteer_manager_last_name @root.data.accountInfo.last_name}}"
               {{else}}
@@ -120,10 +106,7 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
           <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
             <input required id="volunteer_manager_title" name="volunteer_manager_title"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
-              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}}
-                   class="mdc-text-field__input mdc-text-field--fullwidth"
+              {{>form_validation_attributes @root.context.metaData.taskInfoValidation.volunteer_manager_title}} class="mdc-text-field__input mdc-text-field--fullwidth"
               {{#if admin ~}}
               value="{{default @root.data.taskInfo.volunteer_manager_title @root.data.accountInfo.title}}"
               {{else}}

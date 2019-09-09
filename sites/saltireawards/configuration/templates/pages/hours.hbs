@@ -52,22 +52,30 @@
       <div class="mdc-layout-grid__inner">
         <input type="hidden" name="task_id" value="{{taskId}}">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-text-field mdc-text-field--box" data-mdc-auto-init="MDCTextField">
+          <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
             <input required id="hours" type="number" name="hours"
             {{>form_validation_attributes @root.context.metaData.taskInfoValidation.hours}}
             class="mdc-text-field__input mdc-text-field--fullwidth">
-            <label class="mdc-floating-label" for="location">
-              Hours
-            </label>
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="hours" class="mdc-floating-label">Hours</label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--box" data-mdc-auto-init="MDCTextField">
-            <p class="mdc-floating-label" for="task_description">
-              List of volunteer names, one per line
-            </p>
-            <textarea  rows="4" cols="40" id="volunteers" name="volunteers"
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+            <textarea rows="4" cols="40" id="volunteers" name="volunteers"
             {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} class="mdc-text-field__input" value="{{@root.data.taskInfo.task_description}}"></textarea>
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="task_description" class="mdc-floating-label">List of volunteer names, one per line</label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
           </div>
         </div>
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">

@@ -1,15 +1,14 @@
 $mdc-theme-primary: #CD3F42;
-$mdc-theme-primary-medium: #0072df;
-$mdc-theme-primary-light: #91c9ff;
-$mdc-theme-primary-dark: #0A3A62;
+$mdc-theme-primary-light: lighten($mdc-theme-primary, 55%);
+$mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-complimentary: #ccc;
-$mdc-theme-complimentary-light: #ccc;
-$mdc-theme-complimentary-dark: #ccc;
+$mdc-theme-complimentary: #E1E3E4;
+$mdc-theme-complimentary-light: lighten($mdc-theme-complimentary, 55%);
+$mdc-theme-complimentary-dark: darken($mdc-theme-complimentary, 15%);
 
-$mdc-theme-secondary: #E0E0E0; // Gray 300
-$mdc-theme-secondary-light: #F5F5F5; // Gray 100
-$mdc-theme-secondary-dark: #212121; // Gray 900
+$mdc-theme-secondary: #37474F;
+$mdc-theme-secondary-light: lighten($mdc-theme-secondary, 55%);
+$mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
 
 $mdc-theme-footer: #37474F; // Blue Gray 800
 $mdc-theme-footer-light: #E1E3E4;
@@ -1135,7 +1134,8 @@ a {
   font-weight: $heading-medium-font-weight;
   text-decoration: none;
   text-decoration-skip: ink;
-  border-bottom: 2px solid transparent;
+  border-bottom: $unit/5 solid transparent;
+  padding-bottom: $unit/10;
 }
 a:hover {
   // text-decoration: underline;
@@ -1144,6 +1144,7 @@ a:hover {
 .mdc-toolbar__title a,
 .mdc-card__media a,
 a.pagination-page,
+a.brand-logo,
 a.mdc-button,
 a.thumbnail {
   border-bottom-width: 0;
@@ -1151,6 +1152,7 @@ a.thumbnail {
 .mdc-toolbar__title a:hover,
 .mdc-card__media a:hover,
 a.pagination-page:hover,
+a.brand-logo:hover,
 a.mdc-button:hover,
 a.thumbnail:hover {
   border-bottom-color: transparent;
@@ -1283,15 +1285,18 @@ a[href^="https://"].mdc-button::after {
 .sign-in-form {
   position: relative;
   margin: 3vh auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   max-width: 500px;
-  .mdc-card,
-  .mdc-button,
+  // .mdc-card,
+  // .mdc-button,
+  // .mdc-text-field {
+  //   width: 100%;
+  //   display: block;
+  // }
   .mdc-text-field {
-    width: 100%;
-    display: block;
+    margin-bottom: $unit/2;
   }
 }
 .card-loader {
@@ -1890,13 +1895,13 @@ form#settled_status {
   }
 }
 #settled_status_guide .guide_text {
-  color: white;
-  font-size: 1.2rem;
-  padding: $unit*0.6 $unit $unit*0.8;
+  // color: white;
+  // font-size: 1.2rem;
+  // padding: $unit*0.6 $unit $unit*0.8;
   margin-top: $unit/2;
   border-radius: $unit/5;
   a {
-    color: white;
+    // color: white;
   }
 }
 #settled_status_guide .guide_text,
@@ -2477,6 +2482,7 @@ form#settled_status {
   color: white;
 }
 .splash-image {
+  margin-top: $unit;
   background-size: 60%;
   background-position: 100% center;
   background-repeat: no-repeat;
@@ -3065,6 +3071,7 @@ body.i-love-charity main .page-info,
   display: inline-table;
   line-height: 1.96rem;
   outline: none;
+  text-transform: none;
   transition: background-color 0.1s linear;
 }
 .mdc-button.mdc-button--raised.pull-right {
@@ -3864,7 +3871,7 @@ body.post.author main {
   overflow: hidden;
   width: 100%;
   border-radius: $unit*2;
-  background-color: #E2E4E5;
+  background-color: $mdc-theme-primary;
   border: none;
   border-top-width: $unit/5;
   border-right-width: $unit/4;
@@ -4560,10 +4567,16 @@ footer {
   .footer-main {
     padding: 0;
     margin-bottom: $unit;
+    .membership {
+      margin-top: -($unit*1.5);
+      .mdc-button {
+        margin: 0;
+      }
+    }
   }
   h3 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-transform: normal;
     margin: $unit 0 $unit/2;
     font-family: $footer-font-family;
     font-weight: 700;
@@ -5987,6 +6000,68 @@ ul.hearts {
   .charity-awards-image {
     img {
       max-width: 100%;
+    }
+  }
+}
+
+// Footer ======================================================================
+footer.mdc-layout__footer.mdc-theme--footer-bg.mdc-theme--on-footer {
+  background-color: $mdc-theme-footer-light !important;
+  color: $mdc-theme-footer !important;
+}
+
+footer.mdc-layout__footer {
+  border-top: none;
+  background-color: $mdc-theme-footer;
+  box-shadow: none;
+  h3 {
+    color: white;
+    font-weight: $heading-font-weight;
+    border-bottom: none;
+    margin: $unit 0 0;
+    text-transform: normal;
+  }
+  .about a,
+  a {
+    color: white;
+  }
+  .about a:hover,
+  a:hover {
+    color: white;
+  }
+  .mdc-layout-grid {
+    p {
+      color: white;
+    }
+  }
+  .fa-ul {
+    .fa-li {
+      .fas,
+      .fal,
+      .far,
+      .fab {
+        color: white;
+      }
+    }
+  }
+  .footer-copyright {
+    background-color: $mdc-theme-footer-light;
+    p,
+    a {
+      color: $mdc-theme-footer-dark;
+    }
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .brand-logo {
+      display: inline-block;
+      margin-left: $unit*1.5;
+    }
+    .sg-logo img {
+      width: 160px;
+      margin-top: 4px;
     }
   }
 }

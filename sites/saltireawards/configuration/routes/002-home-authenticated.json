@@ -2,23 +2,17 @@
   "name": "home_authenticated",
   "pattern": "/home-authenticated",
   "debug": true,
+  "metaData": {
+    "title": "Home",
+    "adminTitle": "Group administrator"
+  },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
     "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.isAdmin",
     "context.metaData.commonTasks.getAreaInfo",
-    {
-      "name": "reroute",
-      "taskModule": "reroute",
-      "config": {
-        "if":[
-          {"==":[{"var": "data.accountInfo.user_type"}, "Group Admin"]},
-          "home_admin",
-          null
-        ]
-      }
-    },
     {
       "name": "destination",
       "taskModule": "renderLayout",

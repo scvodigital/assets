@@ -1,12 +1,14 @@
 <div class="event event-search">
-  {{> headers_splash headerTextOverride="Training opportunities" typeOverride="page"}}
-  <div class="container-fluid page-content">
+  <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
       <li><a href="/jobs/community-jobs-scotland">Community Jobs Scotland</a></li>
       <li>Training opportunities</li>
     </ul>
+  </div>
+  {{> headers_splash headerTextOverride="Training opportunities" typeOverride="page"}}
+  <div class="container-fluid page-content">
     <h2>CJS training - courses available</h2>
     <form action="/jobs/community-jobs-scotland/training-opportunities" method="GET" [searchroute]="'event_cjs_search'" data-auto-search="true">
       <div class="mdc-layout-grid">

@@ -2010,7 +2010,7 @@ form#settled_status {
   }
   .mdc-toolbar__section.toolbar-menu {
     background-color: $mdc-theme-footer-dark;
-    padding: 0 $unit;
+    padding: 0 $unit/2;
   }
   .mdc-toolbar__section.toolbar-menu,
   .toolbar-user,
@@ -2153,7 +2153,7 @@ form#settled_status {
           opacity: 0 !important;
         }
         .mdc-tab:first-child {
-          padding-left: 0;
+          // padding-left: 0;
         }
         .mdc-tab::after {
           display: none;
@@ -2161,6 +2161,7 @@ form#settled_status {
       }
       .mdc-tab.mdc-tab--active {
         opacity: 1;
+        background-color: $mdc-theme-primary;
       }
       // #main-tab-bar {
       //   .mdc-tab:hover .mdc-tab--label {
@@ -3086,6 +3087,10 @@ body.i-love-charity main .page-info,
   margin: 0;
   padding: 0 0 $unit/2;
   font-weight: $heading-medium-font-weight !important;
+  a {
+    color: white;
+    padding: $unit/2;
+  }
 }
 h1.mdc-typography--title {
   font-size: 2rem;

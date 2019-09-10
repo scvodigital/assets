@@ -1143,6 +1143,7 @@ a:hover {
 }
 .mdc-toolbar__title a,
 .mdc-card__media a,
+.post-info-tags a,
 a.pagination-page,
 a.brand-logo,
 a.mdc-button,
@@ -1151,6 +1152,7 @@ a.thumbnail {
 }
 .mdc-toolbar__title a:hover,
 .mdc-card__media a:hover,
+.post-info-tags a:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
 a.mdc-button:hover,
@@ -2478,13 +2480,13 @@ form#settled_status {
   // background-image: linear-gradient(80deg, #fff, #fff 47%, transparent 47.08%, transparent);
   background-image: none;
 }
-.home h1.header-text {
-  color: white;
-}
+// .home h1.header-text {
+//   color: white;
+// }
 .splash-image {
   margin-top: $unit;
-  background-size: 60%;
-  background-position: 100% center;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   .container-fluid {
     display: flex;
@@ -2573,44 +2575,48 @@ form#settled_status {
 .scvo-grant-cyber .mdc-card__primary {
   padding-bottom: 0 !important;
 }
-.home {
-  .splash-image.hello .splash-overlay .container-fluid {
-    min-height: auto;
-  }
-  .splash-image.hello {
-    padding-top: 30vh;
-    background-size: cover;
-    background-position: center center;
-    .splash-overlay {
-      background-image: none;
-      background-color: rgba(0, 0, 0, 0.5);
+// .home {
+//   .splash-image.hello .splash-overlay .container-fluid {
+//     min-height: auto;
+//   }
+//   .splash-image.hello {
+//     padding-top: 30vh;
+//     background-size: cover;
+//     background-position: center center;
+//     .splash-overlay {
+//       background-image: none;
+//       background-color: rgba(0, 0, 0, 0.5);
+//     }
+//     .container-fluid {
+//       overflow: visible;
+//       .mdc-layout-grid {
+//         padding: $unit*1.5 0;
+//         margin: 0;
+//         width: 100%;
+//         h1.header-text {
+//           font-size: 3.8rem;
+//           line-height: 4rem;
+//           letter-spacing: -0.1rem;
+//           // .normal {
+//           //   letter-spacing: -0.4rem;
+//           //   font-weight: $heading-light-font-weight;
+//           // }
+//         }
+//       }
+//     }
+//   }
+// }
+.credit-union .splash-image {
+  background-size: cover;
+  background-position: center;
+  .splash-overlay .container-fluid {
+    min-height: $unit*10;
+    .mdc-layout-grid {
+      margin: $unit*3 0;
     }
-    .container-fluid {
-      overflow: visible;
-      .mdc-layout-grid {
-        padding: $unit*1.5 0;
-        margin: 0;
-        width: 100%;
-        h1.header-text {
-          font-size: 3.8rem;
-          line-height: 4rem;
-          letter-spacing: -0.1rem;
-          // .normal {
-          //   letter-spacing: -0.4rem;
-          //   font-weight: $heading-light-font-weight;
-          // }
-        }
-      }
+    img.header-text {
+      max-height: $unit*6;
     }
-  }
-}
-.credit-union .splash-image .splash-overlay .container-fluid {
-  min-height: $unit*10;
-  .mdc-layout-grid {
-    margin: $unit*3 0;
-  }
-  img.header-text {
-    max-height: $unit*6;
   }
 }
 .credit-union {
@@ -4235,6 +4241,7 @@ ul.breadcrumbs {
           padding: 0.05rem 0.4rem 0.1rem;
           border-radius: $unit;
           color: #fff;
+          background-color: $mdc-theme-primary;
         }
         a:hover {
           text-decoration: none;

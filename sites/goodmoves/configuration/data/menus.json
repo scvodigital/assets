@@ -39,7 +39,7 @@
   ],
   "upper": [
     {
-      "label": "Recruitment",
+      "label": "Recruiting?",
       "icon": "clipboard-list",
       "path": "/recruitment",
       "route": "^/recruitment"

@@ -1,6 +1,6 @@
 {
   "size": 6,
-  "_source": ["place", "display", "point"],
+  "_source": ["place", "display", "point", "district", "county"],
   "query": {
     "bool": {
       "filter": [
@@ -12,7 +12,7 @@
               {{else}}
                 "os_place", "outcode"
               {{/compare}}
-            ] 
+            ]
           }
         }
       ],

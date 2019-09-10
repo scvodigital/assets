@@ -44,12 +44,31 @@
       </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+      {{!-- <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
         <input id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
         <div class="mdc-notched-outline">
           <div class="mdc-notched-outline__leading"></div>
           <div class="mdc-notched-outline__notch">
-            <label for="postcode" class="mdc-floating-label">{{#if admin}}Your work postcode{{else}}Home Postcode{{/if}}</label>
+            <label for="postcode" class="mdc-floating-label">{{#if admin}}Your work postcode{{else}}Home postcode{{/if}}</label>
+          </div>
+          <div class="mdc-notched-outline__trailing"></div>
+        </div>
+      </div> --}}
+      <input type="hidden" name="postcode" id="postcode" value="{{@root.data.accountInfo.postcode}}" />
+      <input type="hidden" name="la" id="location-la" value="{{@root.data.accountInfo.la}}" />
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <span class="far fa-map-marker-alt mdc-text-field__icon geo-lookup" tabindex="0" title="Find my location"></span>
+        <input type="text" id="location" name="location" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.location}}" placeholder="" data-lpignore="true" data-location-search='{
+          "laSelector": "[name=\"la\"]",
+          "locationServicesSelector": ".geo-lookup"
+        }'
+        {{>form_validation_attributes @root.context.metaData.accountInfoValidation.location}}>
+        <div class="mdc-notched-outline">
+          <div class="mdc-notched-outline__leading"></div>
+          <div class="mdc-notched-outline__notch">
+            <label for="location" class="mdc-floating-label">
+              {{#if admin}}Work location{{else}}Home location{{/if}}
+            </label>
           </div>
           <div class="mdc-notched-outline__trailing"></div>
         </div>

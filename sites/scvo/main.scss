@@ -2225,7 +2225,7 @@ form#settled_status {
       padding-right: 0;
     }
     .mdc-toolbar__section.toolbar-search {
-      margin-top: $unit;
+      margin-top: $unit/2;
       .mdc-textfield input {
         width: 21.5rem;
       }
@@ -3559,7 +3559,7 @@ table.membership-fees.wp-block-table {
   }
 }
 .mdc-toolbar__row.site-header {
-  padding-top: $unit;
+  padding: $unit 0 $unit/2;
 }
 #search-tab-bar {
   box-sizing: border-box;

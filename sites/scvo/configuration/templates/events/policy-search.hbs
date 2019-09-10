@@ -1,11 +1,13 @@
 <div class="event event-search">
-  {{> headers_splash headerTextOverride="Policy events" typeOverride="page"}}
-  <div class="container-fluid page-content">
+  <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
       <li><a href="/policy-research">Policy &amp; research</a></li>
       <li>Events</li>
     </ul>
+  </div>
+  {{> headers_splash headerTextOverride="Policy events" typeOverride="page"}}
+  <div class="container-fluid page-content">
     {{#compare @root.data.primaryResponse.hits.total ">" 0}}
     <h2>Find policy events</h2>
     <div class="mdc-layout-grid">

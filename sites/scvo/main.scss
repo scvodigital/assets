@@ -1,3 +1,20 @@
+$mdc-theme-primary: #CD3F42;
+$mdc-theme-primary-medium: #0072df;
+$mdc-theme-primary-light: #91c9ff;
+$mdc-theme-primary-dark: #0A3A62;
+
+$mdc-theme-complimentary: #ccc;
+$mdc-theme-complimentary-light: #ccc;
+$mdc-theme-complimentary-dark: #ccc;
+
+$mdc-theme-secondary: #E0E0E0; // Gray 300
+$mdc-theme-secondary-light: #F5F5F5; // Gray 100
+$mdc-theme-secondary-dark: #212121; // Gray 900
+
+$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer-light: #E1E3E4;
+$mdc-theme-footer-dark: #263238; // Blue Gray 900
+
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
 @import url('//fonts.googleapis.com/css?family=Lato:400,600,700');
@@ -20,985 +37,985 @@ $heading-light-font-weight:         400;
 $footer-font-family:                "Lato", Helvetica, Arial, sans-serif;
 $footer-font-weight:                400;
 
-$colours: (
-default: (
-primary: #C2185b,
-primary-overlay-start: #C2185b,
-primary-overlay-end: #C2185b,
-primary-light: #C2185b,
-primary-dark: #711142,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-jobs: (
-primary: #49459D,
-primary-overlay-start: #49459D,
-primary-overlay-end: #49459D,
-primary-light: #49459D,
-primary-dark: #2D2E7A,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-cjs: (
-primary: #0081BB,
-primary-overlay-light: rgba(0, 129, 187, 0.80),
-primary-overlay-start: #0081BB,
-primary-overlay-end: #0081BB,
-primary-light: #0081BB,
-primary-dark: #005a82,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-goodmoves: (
-primary: #448532,
-primary-overlay-start: #448532,
-primary-overlay-end: #448532,
-primary-light: #448532,
-primary-dark: #223c1d,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-funding: (
-primary: #448532,
-primary-overlay-start: #448532,
-primary-overlay-end: #448532,
-primary-light: #448532,
-primary-dark: #223c1d,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-projects: (
-primary: #ef4a1a,
-primary-overlay-start: #ef4a1a,
-primary-overlay-end: #ef4a1a,
-primary-light: #ef4a1a,
-primary-dark: #9D3120,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-posts: (
-primary: #1a8778,
-primary-overlay-start: #1a8778,
-primary-overlay-end: #1a8778,
-primary-light: #1a8778,
-primary-dark: #005146,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-goodhq: (
-primary: #4033E9,
-primary-overlay-start: #4033E9,
-primary-overlay-end: #4033E9,
-primary-light: #4033E9,
-primary-dark: #160AAD,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-digital-charter: (
-primary: #022347,
-primary-overlay-start: #022347,
-primary-overlay-end: #022347,
-primary-light: #022347,
-primary-dark: #022347,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-tfn: (
-primary: #3b9db1,
-primary-overlay-start: #3b9db1,
-primary-overlay-end: #3b9db1,
-primary-light: #3b9db1,
-primary-dark: #3b9db1,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-funding-scotland: (
-primary: #537F2C,
-primary-overlay-start: #537F2C,
-primary-overlay-end: #537F2C,
-primary-light: #f2f7ef,
-primary-dark: #2e4618,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-credit-union: (
-primary: #1976D2,
-primary-overlay-start: #1976D2,
-primary-overlay-end: #1976D2,
-primary-light: #1976D2,
-primary-dark: #145ea8,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-digital: (
-primary: #1976D2,
-primary-overlay-start: #1976D2,
-primary-overlay-end: #1976D2,
-primary-light: #1976D2,
-primary-dark: #145EA8,
-secondary: #022347,
-secondary-light: #6dede5,
-secondary-dark: #A7C9F2
-),
-gathering: (
-primary: #673ab7,
-primary-overlay-start: #673ab7,
-primary-overlay-end: #673ab7,
-primary-light: #5731C9,
-primary-dark: #4527a0,
-secondary: #022347,
-secondary-light: #6dede5,
-secondary-dark: #A7C9F2
-),
-i-love-charity: (
-primary: #d50f3c,
-primary-overlay-start: #d50f3c,
-primary-overlay-end: #d50f3c,
-primary-light: #DA2D54,
-primary-dark: #9F0B2D,
-secondary: #022347,
-secondary-light: #6dede5,
-secondary-dark: #A7C9F2
-),
-twenty-years: (
-primary: #EE5427,
-primary-overlay-start: #EE5427,
-primary-overlay-end: #EE5427,
-primary-light: #F9B796,
-primary-dark: #BA350F,
-secondary: #022347,
-secondary-light: #6dede5,
-secondary-dark: #A7C9F2
-),
-services: (
-primary: #1976d2,
-primary-overlay-start: #1976d2,
-primary-overlay-end: #1976d2,
-primary-light: #1976d2,
-primary-dark: #193c6d,
-secondary: #FF8F00,
-secondary-light: #FFA000,
-secondary-dark: #FF6F00
-),
-footer: (
-primary: #37474F,
-primary-light: #E1E3E4,
-primary-dark: #263238
-)
-);
+// $colours: (
+// default: (
+// primary: #C2185b,
+// primary-overlay-start: #C2185b,
+// primary-overlay-end: #C2185b,
+// primary-light: #C2185b,
+// primary-dark: #711142,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// jobs: (
+// primary: #49459D,
+// primary-overlay-start: #49459D,
+// primary-overlay-end: #49459D,
+// primary-light: #49459D,
+// primary-dark: #2D2E7A,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// cjs: (
+// primary: #0081BB,
+// primary-overlay-light: rgba(0, 129, 187, 0.80),
+// primary-overlay-start: #0081BB,
+// primary-overlay-end: #0081BB,
+// primary-light: #0081BB,
+// primary-dark: #005a82,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// goodmoves: (
+// primary: #448532,
+// primary-overlay-start: #448532,
+// primary-overlay-end: #448532,
+// primary-light: #448532,
+// primary-dark: #223c1d,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// funding: (
+// primary: #448532,
+// primary-overlay-start: #448532,
+// primary-overlay-end: #448532,
+// primary-light: #448532,
+// primary-dark: #223c1d,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// projects: (
+// primary: #ef4a1a,
+// primary-overlay-start: #ef4a1a,
+// primary-overlay-end: #ef4a1a,
+// primary-light: #ef4a1a,
+// primary-dark: #9D3120,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// posts: (
+// primary: #1a8778,
+// primary-overlay-start: #1a8778,
+// primary-overlay-end: #1a8778,
+// primary-light: #1a8778,
+// primary-dark: #005146,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// goodhq: (
+// primary: #4033E9,
+// primary-overlay-start: #4033E9,
+// primary-overlay-end: #4033E9,
+// primary-light: #4033E9,
+// primary-dark: #160AAD,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// digital-charter: (
+// primary: #022347,
+// primary-overlay-start: #022347,
+// primary-overlay-end: #022347,
+// primary-light: #022347,
+// primary-dark: #022347,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// tfn: (
+// primary: #3b9db1,
+// primary-overlay-start: #3b9db1,
+// primary-overlay-end: #3b9db1,
+// primary-light: #3b9db1,
+// primary-dark: #3b9db1,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// funding-scotland: (
+// primary: #537F2C,
+// primary-overlay-start: #537F2C,
+// primary-overlay-end: #537F2C,
+// primary-light: #f2f7ef,
+// primary-dark: #2e4618,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// credit-union: (
+// primary: #1976D2,
+// primary-overlay-start: #1976D2,
+// primary-overlay-end: #1976D2,
+// primary-light: #1976D2,
+// primary-dark: #145ea8,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// digital: (
+// primary: #1976D2,
+// primary-overlay-start: #1976D2,
+// primary-overlay-end: #1976D2,
+// primary-light: #1976D2,
+// primary-dark: #145EA8,
+// secondary: #022347,
+// secondary-light: #6dede5,
+// secondary-dark: #A7C9F2
+// ),
+// gathering: (
+// primary: #673ab7,
+// primary-overlay-start: #673ab7,
+// primary-overlay-end: #673ab7,
+// primary-light: #5731C9,
+// primary-dark: #4527a0,
+// secondary: #022347,
+// secondary-light: #6dede5,
+// secondary-dark: #A7C9F2
+// ),
+// i-love-charity: (
+// primary: #d50f3c,
+// primary-overlay-start: #d50f3c,
+// primary-overlay-end: #d50f3c,
+// primary-light: #DA2D54,
+// primary-dark: #9F0B2D,
+// secondary: #022347,
+// secondary-light: #6dede5,
+// secondary-dark: #A7C9F2
+// ),
+// twenty-years: (
+// primary: #EE5427,
+// primary-overlay-start: #EE5427,
+// primary-overlay-end: #EE5427,
+// primary-light: #F9B796,
+// primary-dark: #BA350F,
+// secondary: #022347,
+// secondary-light: #6dede5,
+// secondary-dark: #A7C9F2
+// ),
+// services: (
+// primary: #1976d2,
+// primary-overlay-start: #1976d2,
+// primary-overlay-end: #1976d2,
+// primary-light: #1976d2,
+// primary-dark: #193c6d,
+// secondary: #FF8F00,
+// secondary-light: #FFA000,
+// secondary-dark: #FF6F00
+// ),
+// footer: (
+// primary: #37474F,
+// primary-light: #E1E3E4,
+// primary-dark: #263238
+// )
+// );
 
-@mixin theme-colours($themeName: 'default') {
-  $themeSelected: map-get($colours, $themeName);
-  $themeFooter: map-get($colours, 'footer');
-  $themeDefault: map-get($colours, 'default');
-  $themePosts: map-get($colours, 'posts');
-  $themeServices: map-get($colours, 'services');
-  $themeLoveCharity: map-get($colours, 'i-love-charity');
-  $themeDigital: map-get($colours, 'digital');
-  $themeJobs: map-get($colours, 'jobs');
-  $themeGoodmoves: map-get($colours, 'goodmoves');
-  $themeCJS: map-get($colours, 'cjs');
-  $themeGathering: map-get($colours, 'gathering');
-  $themeFunding: map-get($colours, 'funding');
-  $themeProjects: map-get($colours, 'projects');
+// @mixin theme-colours($themeName: 'default') {
+//   $themeSelected: map-get($colours, $themeName);
+//   $themeFooter: map-get($colours, 'footer');
+//   $themeDefault: map-get($colours, 'default');
+//   $themePosts: map-get($colours, 'posts');
+//   $themeServices: map-get($colours, 'services');
+//   $themeLoveCharity: map-get($colours, 'i-love-charity');
+//   $themeDigital: map-get($colours, 'digital');
+//   $themeJobs: map-get($colours, 'jobs');
+//   $themeGoodmoves: map-get($colours, 'goodmoves');
+//   $themeCJS: map-get($colours, 'cjs');
+//   $themeGathering: map-get($colours, 'gathering');
+//   $themeFunding: map-get($colours, 'funding');
+//   $themeProjects: map-get($colours, 'projects');
+//
+//   a,
+//   #share-menu-button,
+//   .mdc-simple-menu .mdc-list-item,
+//   .social .fa-fw,
+//   .mdc-theme--primary {
+//     color: map-get($themeSelected, 'primary');
+//   }
+//   blockquote {
+//     border-left-color: map-get($themeSelected, 'primary') !important;
+//   }
+//   .has-very-light-gray-background-color blockquote {
+//     padding: $unit*(3/4) $unit;
+//     border-left: none;
+//     background-color: map-get($themeSelected, 'primary') !important;
+//     color: white !important;
+//     a {
+//       color: white !important;
+//     }
+//   }
+//   .mdc-button,
+//   .mdc-button--raised:not(:disabled) {
+//     color: white;
+//     border-color: map-get($themeSelected, 'primary');
+//     background-color: map-get($themeSelected, 'primary');
+//   }
+//   .mdc-button:hover,
+//   .mdc-button--raised.mdc-button--active:not(:disabled),
+//   .mdc-button--raised:not(:disabled):hover {
+//     color: white;
+//     border-color: map-get($themeSelected, 'primary-dark');
+//     background-color: map-get($themeSelected, 'primary-dark');
+//   }
+//   .mdc-button:hover {
+//     background-color: map-get($themeSelected, 'primary-dark') !important;
+//   }
+//   .menu-sidebar {
+//     .mdc-button,
+//     .mdc-button--raised:not(:disabled) {
+//       color: map-get($themeSelected, 'primary');
+//       border-color: rgba(0, 0, 0, 0.1);
+//       background-color: rgba(0, 0, 0, 0.1);
+//     }
+//     .mdc-button:hover,
+//     .mdc-button--raised.mdc-button--active:not(:disabled),
+//     .mdc-button--raised:not(:disabled):hover {
+//       color: white;
+//       border-color: map-get($themeSelected, 'primary-dark');
+//       background-color: map-get($themeSelected, 'primary');
+//     }
+//   }
+//   .support-digital {
+//     .mdc-button--raised {
+//       color: white;
+//       border-color: map-get($themeSelected, 'primary-dark');
+//       background-color: map-get($themeSelected, 'primary-dark');
+//     }
+//     .mdc-button--raised:hover {
+//       color: white;
+//       border-color: darken(map-get($themeSelected, 'primary-dark'), 10%);
+//       background-color: darken(map-get($themeSelected, 'primary-dark'), 10%) !important;
+//     }
+//   }
+//   .splash-image {
+//     .mdc-button {
+//       border-color: white !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themeSelected, 'primary-dark') !important;
+//       color: map-get($themeSelected, 'primary') !important;
+//     }
+//   }
+//   .featured-background-image {
+//     .mdc-button {
+//       border-color: map-get($themeDefault, 'primary') !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       background-color: map-get($themeDefault, 'primary') !important;
+//     }
+//   }
+//   .cta-content.case-studies {
+//     background-color: map-get($themeLoveCharity, 'primary') !important;
+//     .mdc-card {
+//       background-color: white;
+//     }
+//   }
+//   .i-love-charity.featured-background-image {
+//     .mdc-button {
+//       border-color: map-get($themeLoveCharity, 'primary') !important;
+//       background-color: map-get($themeLoveCharity, 'primary') !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       border-color: map-get($themeLoveCharity, 'primary-dark') !important;
+//       background-color: map-get($themeLoveCharity, 'primary-dark') !important;
+//     }
+//   }
+//   .i-love-charity.case-studies .case-study .mdc-card__primary {
+//     background-color: map-get($themeLoveCharity, 'primary') !important;
+//     color: white !important;
+//   }
+//   .i-love-charity .splash-image {
+//     border-bottom: $unit/5 solid map-get($themeLoveCharity, 'primary');
+//   }
+//   .digital-participation.callout {
+//     background-image: linear-gradient(
+//     180deg,
+//     map-get($themeDigital, 'secondary-light') 5%,
+//     map-get($themeDigital, 'secondary-dark') 95%
+//     );
+//     p,
+//     h2,
+//     h3,
+//     .mdc-card__supporting-text {
+//       color: map-get($themeDigital, 'secondary');
+//     }
+//     .mdc-button {
+//       color: map-get($themeDigital, 'secondary') !important;
+//       border-color: map-get($themeDigital, 'secondary') !important;
+//       background-color: transparent !important;
+//     }
+//     .mdc-button:hover {
+//       color: white !important;
+//       background-color: map-get($themeDigital, 'secondary') !important;
+//     }
+//   }
+//   .digital-evolution.callout {
+//     background-color: map-get($themeDigital, 'primary') !important;
+//     p,
+//     h2,
+//     h3,
+//     .mdc-card__supporting-text {
+//       color: white;
+//     }
+//     .mdc-button {
+//       color: white !important;
+//       border-color: white !important;
+//       background-color: transparent !important;
+//     }
+//     .mdc-button:hover {
+//       color: map-get($themeDigital, 'primary-dark') !important;
+//       background-color: white !important;
+//     }
+//   }
+//   .post-info .post-info-categories .inline-list li a {
+//     color: map-get($themeSelected, 'primary') !important;
+//   }
+//   .post-info .post-info-categories .inline-list li a:hover {
+//     color: map-get($themeSelected, 'primary-dark') !important;
+//   }
+//   .support.funding .mdc-card__primary,
+//   .support.support-organisation .mdc-card__primary,
+//   .post-info .post-info-tags .inline-list li a,
+//   .pagination li.current-page,
+//   .progress-bar .progress-label,
+//   .mdc-theme--primary-bg {
+//     background-color: map-get($themeSelected, 'primary') !important;
+//   }
+//   .support.funding .mdc-card__primary {
+//     background-color: map-get($themeFunding, 'primary') !important;
+//   }
+//   .running-your-organisation .support.support-organisation .mdc-card__primary {
+//     background-color: map-get($themeDefault, 'primary') !important;
+//   }
+//   .support .cjs-brand .mdc-card__media,
+//   .jobs.community-jobs-scotland .support.support-organisation .mdc-card__primary {
+//     background-color: map-get($themeCJS, 'primary') !important;
+//   }
+//   .jobs.community-jobs-scotland #search-tab-bar {
+//     background-color: whitesmoke !important;
+//     color: white !important;
+//   }
+//   .support.support-policy .mdc-card__primary {
+//     background-color: map-get($themePosts, 'primary') !important;
+//   }
+//   .section-events .mdc-card__primary,
+//   .section-events .mdc-card__media,
+//   .section-campaigns .mdc-card__primary,
+//   .section-campaigns .mdc-card__media,
+//   .section-projects .mdc-card__primary,
+//   .section-projects .mdc-card__media,
+//   .support.support-organisation .mdc-card__media {
+//     background-color: map-get($themeProjects, 'primary');
+//   }
+//   .project-digital .mdc-card__media {
+//     background-color: map-get($themeDigital, 'primary');
+//   }
+//   body {
+//     background-color: map-get($themeFooter, 'primary-dark');
+//   }
+//   footer h3 {
+//     border-color: map-get($themeFooter, 'primary-light');
+//   }
+//   .leading-quotation {
+//     background: map-get($themeSelected, 'primary-dark');
+//     color: white;
+//     blockquote {
+//       border: none;
+//       color: white;
+//     }
+//   }
+//
+//   .mdc-theme--primary-light {
+//     color: map-get($themeSelected, 'primary-light');
+//   }
+//   a:hover,
+//   #share-menu-button:hover,
+//   .mdc-theme--primary-dark {
+//     color: map-get($themeSelected, 'primary-dark');
+//   }
+//   .mdc-theme--secondary {
+//     color: map-get($themeSelected, 'secondary');
+//   }
+//   .mdc-theme--secondary-light {
+//     color: map-get($themeSelected, 'secondary-light');
+//   }
+//   .mdc-theme--secondary-dark {
+//     color: map-get($themeSelected, 'secondary-dark');
+//   }
+//   .mdc-theme--background,
+//   .mdc-theme--site-bg {
+//     background-color: map-get($themeFooter, 'primary-dark');
+//   }
+//   .container-content {
+//     background-color: #fff;
+//   }
+//   .mdc-simple-menu .mdc-list-item:after,
+//   .mdc-simple-menu .mdc-list-item:before,
+//   .mdc-theme--primary-overlay-start-bg {
+//     background-color: map-get($themeSelected, 'primary-overlay-start');
+//   }
+//   .splash-image .header-caption {
+//     background-color: rgba(0,0,0,0.7);
+//   }
+//   .mdc-theme--primary-light-bg {
+//     background-color: map-get($themeSelected, 'primary-light') !important;
+//   }
+//   .mdc-theme--primary-dark-bg.toolbar-nav {
+//     // background-color: map-get($themeSelected, 'primary-dark') !important;
+//   }
+//   .home .mdc-theme--primary-dark-bg.toolbar-nav {
+//     // background-color: map-get($themeFooter, 'primary-light') !important;
+//     // #main-tab-bar {
+//     //   .mdc-tab .mdc-tab--label{
+//     //     color: map-get($themeFooter, 'primary') !important;
+//     //   }
+//     //   .mdc-tab:hover .mdc-tab--label {
+//     //     border-bottom-color: map-get($themeFooter, 'primary') !important;
+//     //   }
+//     // }
+//   }
+//   .pagination li:hover,
+//   .pagination li.current-page:hover,
+//   .post-info .post-info-tags .inline-list li a:hover,
+//   .mdc-theme--primary-dark-bg {
+//     // background-color: map-get($themeSelected, 'primary-dark') !important;
+//   }
+//   .mdc-theme--secondary-bg {
+//     background-color: map-get($themeSelected, 'secondary');
+//   }
+//   .mdc-theme--secondary-light-bg {
+//     background-color: map-get($themeSelected, 'secondary-light');
+//   }
+//   .mdc-theme--secondary-dark-bg {
+//     background-color: map-get($themeSelected, 'secondary-dark');
+//   }
+//   .mdc-theme--text-primary-on-primary { }
+//   .mdc-theme--text-primary-on-primary-light { }
+//   .mdc-theme--text-primary-on-primary-dark { }
+//   .mdc-theme--text-secondary-on-primary { }
+//   .mdc-theme--text-secondary-on-primary-light { }
+//   .mdc-theme--text-secondary-on-primary-dark { }
+//   .mdc-theme--text-hint-on-primary { }
+//   .mdc-theme--text-hint-on-primary-light { }
+//   .mdc-theme--text-hint-on-primary-dark { }
+//   .mdc-theme--text-disabled-on-primary { }
+//   .mdc-theme--text-disabled-on-primary-light { }
+//   .mdc-theme--text-disabled-on-primary-dark { }
+//   .mdc-theme--text-icon-on-primary { }
+//   .mdc-theme--text-icon-on-primary-light { }
+//   .mdc-theme--text-icon-on-primary-dark { }
+//
+//   .splash-overlay {
+//     // background-image: linear-gradient(
+//     // 80deg,
+//     // map-get($themeSelected, 'primary-overlay-start'),
+//     // map-get($themeSelected, 'primary-overlay-end') 47%,
+//     // transparent 47.08%,
+//     // transparent
+//     // );
+//     // background-color: map-get($themeSelected, 'primary-overlay-start');
+//   }
+//   .splash-overlay-full {
+//     // background-color: map-get($themeSelected, 'primary-overlay-start') !important;
+//     background-image: none !important;
+//   }
+//   @media screen and (max-width: 1140px) {
+//     .splash-overlay {
+//       // background-image: linear-gradient(
+//       // 80deg,
+//       // map-get($themeSelected, 'primary-overlay-start'),
+//       // map-get($themeSelected, 'primary-overlay-end') 52%,
+//       // transparent 52.08%,
+//       // transparent
+//       // );
+//       // background-color: map-get($themeSelected, 'primary-overlay-start');
+//     }
+//     .splash-image .header-caption {
+//       max-width: 40%;
+//     }
+//   }
+//   @media screen and (max-width: 991px) {
+//     .splash-overlay {
+//     //   background-image: linear-gradient(
+//     //   80deg,
+//     //   map-get($themeSelected, 'primary-overlay-start'),
+//     //   map-get($themeSelected, 'primary-overlay-end') 57%,
+//     //   transparent 57.08%,
+//     //   transparent
+//     //   );
+//     // background-color: map-get($themeSelected, 'primary-overlay-start');
+//     }
+//     // .splash-image .header-caption {
+//     //   max-width: 36%;
+//     // }
+//   }
+//   @media screen and (max-width: 839px) {
+//     .splash-overlay {
+//       // background-image: linear-gradient(
+//       // 80deg,
+//       // map-get($themeSelected, 'primary-overlay-start'),
+//       // map-get($themeSelected, 'primary-overlay-end') 67%,
+//       // transparent 67.08%,
+//       // transparent
+//       // );
+//       // background-color: map-get($themeSelected, 'primary-overlay-start');
+//     }
+//     .splash-image .header-caption {
+//       display: none;
+//     }
+//   }
+//   @media screen and (max-width: 450px) {
+//     .splash-overlay {
+//       // background-image: linear-gradient(
+//       // 80deg,
+//       // map-get($themeSelected, 'primary-overlay-start'),
+//       // map-get($themeSelected, 'primary-overlay-end')
+//       // );
+//       // background-color: map-get($themeSelected, 'primary-overlay-start');
+//     }
+//   }
+//   .home .cta-content.callout-image {
+//     background-color: map-get($themePosts, 'primary-dark');
+//     // background-color: linear-gradient(
+//     // map-get($themePosts, 'primary-overlay-start'),
+//     // map-get($themePosts, 'primary-overlay-start')
+//     // ),
+//     // url('https://storage.googleapis.com/scvo-cms/23595/THEGATHERING-22.02.17_0475.jpg');
+//     a:hover .fa-fw {
+//       background-color: white !important;
+//       color: map-get($themePosts, 'primary') !important;
+//     }
+//   }
+//   .digital .basic-digital-skills.callout {
+//     background-color: map-get($themeDigital, 'primary');
+//     color: white;
+//     a:hover .fa-fw {
+//       background-color: white !important;
+//       color: map-get($themeDigital, 'primary-dark') !important;
+//     }
+//   }
+//   .digital .callout-image {
+//     background-image: linear-gradient(
+//     map-get($themeDefault, 'primary-overlay-start'),
+//     map-get($themeDefault, 'primary-overlay-start')
+//     ),
+//     url('https://storage.googleapis.com/scvo-cms/23602/THEGATHERING-23.02.17_0303.jpg');
+//     .mdc-button {
+//       border-color: white !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themeDefault, 'primary-dark') !important;
+//       color: map-get($themeDefault, 'primary') !important;
+//     }
+//     a:hover .fa-fw {
+//       background-color: white !important;
+//       color: map-get($themeJobs, 'primary') !important;
+//     }
+//   }
+//   .jobs.community-jobs-scotland .leaflet-container a,
+//   .leaflet-popup-content .map-content-cjs-vacancy a,
+//   .vacancy_icon .marker-icon,
+//   .vacancy_icon .marker-icon-cjs-vacancy,
+//   .vacancy_icon .map-marker-overlay,
+//   .vacancy_icon .map-marker-overlay-cjs-vacancy {
+//     color: map-get($themeCJS, 'primary');
+//   }
+//   .jobs .leaflet-container a,
+//   .leaflet-popup-content .map-content-goodmoves-vacancy a,
+//   .vacancy_icon .marker-icon-goodmoves-vacancy,
+//   .vacancy_icon .map-marker-overlay-goodmoves-vacancy {
+//     color: map-get($themeGoodmoves, 'primary');
+//   }
+//   .community-jobs-scotland .callout-image .caption {
+//     background-color: map-get($themeCJS, 'primary-overlay-light');
+//     .caption-inner {
+//       background-color: map-get($themeCJS, 'primary-overlay-end');
+//     }
+//   }
+//   .swiper-container .swiper-pagination-bullet {
+//     background-color: white;
+//   }
+//   .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+//     background-color: map-get($themeServices, 'primary') !important;
+//   }
+//   .the-gathering.featured-background-image,
+//   .the-gathering .full,
+//   .the-gathering-2019 .full,
+//   .the-gathering-2020 .full {
+//     .mdc-button {
+//       color: white;
+//       border-color: map-get($themeGathering, 'primary') !important;
+//       background-color: map-get($themeGathering, 'primary') !important;
+//     }
+//     .mdc-button:hover {
+//       color: white !important;
+//       background-color: map-get($themeGathering, 'primary-dark') !important;
+//     }
+//   }
+//   .the-gathering .callout-image.gathering-1 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0775.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-2 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0010.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-3 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0390.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-4 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0348.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-5 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0028.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-6 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0207.jpg');
+//   }
+//   .the-gathering .callout-image.gathering-7 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0253.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-1 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24169/ENABLE-Scotland-Cracking-Campaign-2_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-2 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24173/Street-Soccer-Scotland-Charity-of-the-Year_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-3 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24167/Drake-Music-Scotland-Demonstrating-Digital-Winners_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-4 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24165/Celine-Sinclair-The-Yard-Leading-Light_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-5 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24166/dates-n-mates-C-change-Scotland-Pioneering-Project_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-6 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24168/Dunaverty-Hall-Committee-Celebrating-Communities_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-7 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24170/Gordons-Fightback-MND-Scotland-Peoples-Choice-Award_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-8 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24171/James-Campbell-Bobath-Scotland-Terrific-Trustee-1_crop.jpg');
+//   }
+//   .scottish-charity-awards .callout-image.charity-awards-9 {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/24172/Laura-Young-Teapot-Trust-Charity-Champion_crop.jpg');
+//   }
+//   .community-jobs-scotland .callout-image.saltire {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/saltire.jpg');
+//   }
+//   .community-jobs-scotland .callout-image.jobs {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/cjs-vacancys.png');
+//   }
+//   .community-jobs-scotland .callout-image.benefit {
+//     background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/newcjsbanner.jpg');
+//   }
+//   #settled_status_guide {
+//     background-color: map-get($themeDefault, 'primary-dark') !important;
+//   }
+//   .policy-research .callout-image {
+//     background-image: linear-gradient(
+//     map-get($themePosts, 'primary-overlay-start'),
+//     map-get($themePosts, 'primary-overlay-start')
+//     ),
+//     url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
+//     color: white;
+//     .mdc-button {
+//       border-color: white !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themePosts, 'primary-dark') !important;
+//       color: map-get($themePosts, 'primary') !important;
+//     }
+//   }
+//   .projects-campaigns.i-love-charity .callout-image {
+//     background-image: linear-gradient(
+//     map-get($themeLoveCharity, 'primary-overlay-start'),
+//     map-get($themeLoveCharity, 'primary-overlay-start')
+//     ),
+//     url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
+//     color: white;
+//   }
+//   .footer-image {
+//     a {
+//       color: white !important;
+//     }
+//     .mdc-button {
+//       background-color: transparent !important;
+//       border-color: white !important;
+//       color: white !important;
+//     }
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themeDefault, 'primary-dark') !important;
+//       color: map-get($themeDefault, 'primary') !important;
+//     }
+//   }
+//   .setting-up-a-charity .footer-image {
+//     background-color: map-get($themeDefault, 'primary');
+//   }
+//   .running-your-organisation .footer-image {
+//     background-color: map-get($themeDefault, 'primary');
+//     // background-image: linear-gradient(
+//     // map-get($themeDefault, 'primary-overlay-start'),
+//     // map-get($themeDefault, 'primary-overlay-start')
+//     // ),
+//     // url('https://storage.googleapis.com/scvo-cms/23601/THEGATHERING-23.02.17_0302.jpg');
+//   }
+//   .footer-image.join-our-hub {
+//     background-color: map-get($themeServices, 'primary');
+//     // background-image: linear-gradient(
+//     // map-get($themeServices, 'primary-overlay-start'),
+//     // map-get($themeServices, 'primary-overlay-start')
+//     // ),
+//     // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg');
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themeServices, 'primary-dark') !important;
+//       color: map-get($themeServices, 'primary') !important;
+//     }
+//   }
+//   .running-a-charity .footer-image.join-our-hub,
+//   .setting-up-a-charity .footer-image.join-our-hub,
+//   .running-your-organisation .footer-image.join-our-hub {
+//     background-color: map-get($themePosts, 'primary');
+//     // background-image: linear-gradient(
+//     // map-get($themePosts, 'primary-overlay-start'),
+//     // map-get($themePosts, 'primary-overlay-start')
+//     // ),
+//     // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg') !important;
+//     .mdc-button:hover {
+//       background-color: white !important;
+//       border-color: map-get($themePosts, 'primary-dark') !important;
+//       color: map-get($themePosts, 'primary') !important;
+//     }
+//   }
+//
+//   // header.mdc-toolbar {
+//   //   background-color: map-get($themePosts, 'primary');
+//   // }
+//   footer {
+//     color: map-get($themeFooter, 'primary');
+//     border-top: none;
+//     background-color: map-get($themeFooter, 'primary-light');
+//     // box-shadow: $toolbar-shadow-reverse;
+//     p,
+//     a,
+//     a:hover,
+//     .about a,
+//     .about a:hover {
+//       color: map-get($themeFooter, 'primary');
+//     }
+//     .footer-copyright {
+//       background-color: map-get($themeFooter, 'primary-dark');
+//       p,
+//       a,
+//       a:hover {
+//         color: white;
+//       }
+//     }
+//   }
+//
+//   .mdc-tab--active {
+//     .mdc-tab__text-label {
+//       color: map-get($themeSelected, 'primary');
+//     }
+//     .mdc-tab-indicator > .mdc-tab-indicator__content--underline {
+//       background-color: map-get($themeSelected, 'primary');
+//     }
+//   }
+//
+//   .mdc-tab {
+//     .mdc-tab__ripple::before, .mdc-tab__ripple::after {
+//       background-color: map-get($themeSelected, 'primary');
+//     }
+//   }
+//
+//   body.post table,
+//   .wp-block-table {
+//     border: 1px solid map-get($themeSelected, 'primary');
+//     border-collapse: collapse;
+//     &.full-width {
+//       width: 100%;
+//     }
+//     th {
+//       padding: $unit/2;
+//       font-weight: bold;
+//     }
+//     td {
+//       padding: $unit/2;
+//       border: 1px solid #000000;
+//     }
+//   }
+// }
 
-  a,
-  #share-menu-button,
-  .mdc-simple-menu .mdc-list-item,
-  .social .fa-fw,
-  .mdc-theme--primary {
-    color: map-get($themeSelected, 'primary');
-  }
-  blockquote {
-    border-left-color: map-get($themeSelected, 'primary') !important;
-  }
-  .has-very-light-gray-background-color blockquote {
-    padding: $unit*(3/4) $unit;
-    border-left: none;
-    background-color: map-get($themeSelected, 'primary') !important;
-    color: white !important;
-    a {
-      color: white !important;
-    }
-  }
-  .mdc-button,
-  .mdc-button--raised:not(:disabled) {
-    color: white;
-    border-color: map-get($themeSelected, 'primary');
-    background-color: map-get($themeSelected, 'primary');
-  }
-  .mdc-button:hover,
-  .mdc-button--raised.mdc-button--active:not(:disabled),
-  .mdc-button--raised:not(:disabled):hover {
-    color: white;
-    border-color: map-get($themeSelected, 'primary-dark');
-    background-color: map-get($themeSelected, 'primary-dark');
-  }
-  .mdc-button:hover {
-    background-color: map-get($themeSelected, 'primary-dark') !important;
-  }
-  .menu-sidebar {
-    .mdc-button,
-    .mdc-button--raised:not(:disabled) {
-      color: map-get($themeSelected, 'primary');
-      border-color: rgba(0, 0, 0, 0.1);
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-    .mdc-button:hover,
-    .mdc-button--raised.mdc-button--active:not(:disabled),
-    .mdc-button--raised:not(:disabled):hover {
-      color: white;
-      border-color: map-get($themeSelected, 'primary-dark');
-      background-color: map-get($themeSelected, 'primary');
-    }
-  }
-  .support-digital {
-    .mdc-button--raised {
-      color: white;
-      border-color: map-get($themeSelected, 'primary-dark');
-      background-color: map-get($themeSelected, 'primary-dark');
-    }
-    .mdc-button--raised:hover {
-      color: white;
-      border-color: darken(map-get($themeSelected, 'primary-dark'), 10%);
-      background-color: darken(map-get($themeSelected, 'primary-dark'), 10%) !important;
-    }
-  }
-  .splash-image {
-    .mdc-button {
-      border-color: white !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themeSelected, 'primary-dark') !important;
-      color: map-get($themeSelected, 'primary') !important;
-    }
-  }
-  .featured-background-image {
-    .mdc-button {
-      border-color: map-get($themeDefault, 'primary') !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      background-color: map-get($themeDefault, 'primary') !important;
-    }
-  }
-  .cta-content.case-studies {
-    background-color: map-get($themeLoveCharity, 'primary') !important;
-    .mdc-card {
-      background-color: white;
-    }
-  }
-  .i-love-charity.featured-background-image {
-    .mdc-button {
-      border-color: map-get($themeLoveCharity, 'primary') !important;
-      background-color: map-get($themeLoveCharity, 'primary') !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      border-color: map-get($themeLoveCharity, 'primary-dark') !important;
-      background-color: map-get($themeLoveCharity, 'primary-dark') !important;
-    }
-  }
-  .i-love-charity.case-studies .case-study .mdc-card__primary {
-    background-color: map-get($themeLoveCharity, 'primary') !important;
-    color: white !important;
-  }
-  .i-love-charity .splash-image {
-    border-bottom: $unit/5 solid map-get($themeLoveCharity, 'primary');
-  }
-  .digital-participation.callout {
-    background-image: linear-gradient(
-    180deg,
-    map-get($themeDigital, 'secondary-light') 5%,
-    map-get($themeDigital, 'secondary-dark') 95%
-    );
-    p,
-    h2,
-    h3,
-    .mdc-card__supporting-text {
-      color: map-get($themeDigital, 'secondary');
-    }
-    .mdc-button {
-      color: map-get($themeDigital, 'secondary') !important;
-      border-color: map-get($themeDigital, 'secondary') !important;
-      background-color: transparent !important;
-    }
-    .mdc-button:hover {
-      color: white !important;
-      background-color: map-get($themeDigital, 'secondary') !important;
-    }
-  }
-  .digital-evolution.callout {
-    background-color: map-get($themeDigital, 'primary') !important;
-    p,
-    h2,
-    h3,
-    .mdc-card__supporting-text {
-      color: white;
-    }
-    .mdc-button {
-      color: white !important;
-      border-color: white !important;
-      background-color: transparent !important;
-    }
-    .mdc-button:hover {
-      color: map-get($themeDigital, 'primary-dark') !important;
-      background-color: white !important;
-    }
-  }
-  .post-info .post-info-categories .inline-list li a {
-    color: map-get($themeSelected, 'primary') !important;
-  }
-  .post-info .post-info-categories .inline-list li a:hover {
-    color: map-get($themeSelected, 'primary-dark') !important;
-  }
-  .support.funding .mdc-card__primary,
-  .support.support-organisation .mdc-card__primary,
-  .post-info .post-info-tags .inline-list li a,
-  .pagination li.current-page,
-  .progress-bar .progress-label,
-  .mdc-theme--primary-bg {
-    background-color: map-get($themeSelected, 'primary') !important;
-  }
-  .support.funding .mdc-card__primary {
-    background-color: map-get($themeFunding, 'primary') !important;
-  }
-  .running-your-organisation .support.support-organisation .mdc-card__primary {
-    background-color: map-get($themeDefault, 'primary') !important;
-  }
-  .support .cjs-brand .mdc-card__media,
-  .jobs.community-jobs-scotland .support.support-organisation .mdc-card__primary {
-    background-color: map-get($themeCJS, 'primary') !important;
-  }
-  .jobs.community-jobs-scotland #search-tab-bar {
-    background-color: whitesmoke !important;
-    color: white !important;
-  }
-  .support.support-policy .mdc-card__primary {
-    background-color: map-get($themePosts, 'primary') !important;
-  }
-  .section-events .mdc-card__primary,
-  .section-events .mdc-card__media,
-  .section-campaigns .mdc-card__primary,
-  .section-campaigns .mdc-card__media,
-  .section-projects .mdc-card__primary,
-  .section-projects .mdc-card__media,
-  .support.support-organisation .mdc-card__media {
-    background-color: map-get($themeProjects, 'primary');
-  }
-  .project-digital .mdc-card__media {
-    background-color: map-get($themeDigital, 'primary');
-  }
-  body {
-    background-color: map-get($themeFooter, 'primary-dark');
-  }
-  footer h3 {
-    border-color: map-get($themeFooter, 'primary-light');
-  }
-  .leading-quotation {
-    background: map-get($themeSelected, 'primary-dark');
-    color: white;
-    blockquote {
-      border: none;
-      color: white;
-    }
-  }
-
-  .mdc-theme--primary-light {
-    color: map-get($themeSelected, 'primary-light');
-  }
-  a:hover,
-  #share-menu-button:hover,
-  .mdc-theme--primary-dark {
-    color: map-get($themeSelected, 'primary-dark');
-  }
-  .mdc-theme--secondary {
-    color: map-get($themeSelected, 'secondary');
-  }
-  .mdc-theme--secondary-light {
-    color: map-get($themeSelected, 'secondary-light');
-  }
-  .mdc-theme--secondary-dark {
-    color: map-get($themeSelected, 'secondary-dark');
-  }
-  .mdc-theme--background,
-  .mdc-theme--site-bg {
-    background-color: map-get($themeFooter, 'primary-dark');
-  }
-  .container-content {
-    background-color: #fff;
-  }
-  .mdc-simple-menu .mdc-list-item:after,
-  .mdc-simple-menu .mdc-list-item:before,
-  .mdc-theme--primary-overlay-start-bg {
-    background-color: map-get($themeSelected, 'primary-overlay-start');
-  }
-  .splash-image .header-caption {
-    background-color: rgba(0,0,0,0.7);
-  }
-  .mdc-theme--primary-light-bg {
-    background-color: map-get($themeSelected, 'primary-light') !important;
-  }
-  .mdc-theme--primary-dark-bg.toolbar-nav {
-    // background-color: map-get($themeSelected, 'primary-dark') !important;
-  }
-  .home .mdc-theme--primary-dark-bg.toolbar-nav {
-    // background-color: map-get($themeFooter, 'primary-light') !important;
-    // #main-tab-bar {
-    //   .mdc-tab .mdc-tab--label{
-    //     color: map-get($themeFooter, 'primary') !important;
-    //   }
-    //   .mdc-tab:hover .mdc-tab--label {
-    //     border-bottom-color: map-get($themeFooter, 'primary') !important;
-    //   }
-    // }
-  }
-  .pagination li:hover,
-  .pagination li.current-page:hover,
-  .post-info .post-info-tags .inline-list li a:hover,
-  .mdc-theme--primary-dark-bg {
-    // background-color: map-get($themeSelected, 'primary-dark') !important;
-  }
-  .mdc-theme--secondary-bg {
-    background-color: map-get($themeSelected, 'secondary');
-  }
-  .mdc-theme--secondary-light-bg {
-    background-color: map-get($themeSelected, 'secondary-light');
-  }
-  .mdc-theme--secondary-dark-bg {
-    background-color: map-get($themeSelected, 'secondary-dark');
-  }
-  .mdc-theme--text-primary-on-primary { }
-  .mdc-theme--text-primary-on-primary-light { }
-  .mdc-theme--text-primary-on-primary-dark { }
-  .mdc-theme--text-secondary-on-primary { }
-  .mdc-theme--text-secondary-on-primary-light { }
-  .mdc-theme--text-secondary-on-primary-dark { }
-  .mdc-theme--text-hint-on-primary { }
-  .mdc-theme--text-hint-on-primary-light { }
-  .mdc-theme--text-hint-on-primary-dark { }
-  .mdc-theme--text-disabled-on-primary { }
-  .mdc-theme--text-disabled-on-primary-light { }
-  .mdc-theme--text-disabled-on-primary-dark { }
-  .mdc-theme--text-icon-on-primary { }
-  .mdc-theme--text-icon-on-primary-light { }
-  .mdc-theme--text-icon-on-primary-dark { }
-
-  .splash-overlay {
-    // background-image: linear-gradient(
-    // 80deg,
-    // map-get($themeSelected, 'primary-overlay-start'),
-    // map-get($themeSelected, 'primary-overlay-end') 47%,
-    // transparent 47.08%,
-    // transparent
-    // );
-    // background-color: map-get($themeSelected, 'primary-overlay-start');
-  }
-  .splash-overlay-full {
-    // background-color: map-get($themeSelected, 'primary-overlay-start') !important;
-    background-image: none !important;
-  }
-  @media screen and (max-width: 1140px) {
-    .splash-overlay {
-      // background-image: linear-gradient(
-      // 80deg,
-      // map-get($themeSelected, 'primary-overlay-start'),
-      // map-get($themeSelected, 'primary-overlay-end') 52%,
-      // transparent 52.08%,
-      // transparent
-      // );
-      // background-color: map-get($themeSelected, 'primary-overlay-start');
-    }
-    .splash-image .header-caption {
-      max-width: 40%;
-    }
-  }
-  @media screen and (max-width: 991px) {
-    .splash-overlay {
-    //   background-image: linear-gradient(
-    //   80deg,
-    //   map-get($themeSelected, 'primary-overlay-start'),
-    //   map-get($themeSelected, 'primary-overlay-end') 57%,
-    //   transparent 57.08%,
-    //   transparent
-    //   );
-    // background-color: map-get($themeSelected, 'primary-overlay-start');
-    }
-    // .splash-image .header-caption {
-    //   max-width: 36%;
-    // }
-  }
-  @media screen and (max-width: 839px) {
-    .splash-overlay {
-      // background-image: linear-gradient(
-      // 80deg,
-      // map-get($themeSelected, 'primary-overlay-start'),
-      // map-get($themeSelected, 'primary-overlay-end') 67%,
-      // transparent 67.08%,
-      // transparent
-      // );
-      // background-color: map-get($themeSelected, 'primary-overlay-start');
-    }
-    .splash-image .header-caption {
-      display: none;
-    }
-  }
-  @media screen and (max-width: 450px) {
-    .splash-overlay {
-      // background-image: linear-gradient(
-      // 80deg,
-      // map-get($themeSelected, 'primary-overlay-start'),
-      // map-get($themeSelected, 'primary-overlay-end')
-      // );
-      // background-color: map-get($themeSelected, 'primary-overlay-start');
-    }
-  }
-  .home .cta-content.callout-image {
-    background-color: map-get($themePosts, 'primary-dark');
-    // background-color: linear-gradient(
-    // map-get($themePosts, 'primary-overlay-start'),
-    // map-get($themePosts, 'primary-overlay-start')
-    // ),
-    // url('https://storage.googleapis.com/scvo-cms/23595/THEGATHERING-22.02.17_0475.jpg');
-    a:hover .fa-fw {
-      background-color: white !important;
-      color: map-get($themePosts, 'primary') !important;
-    }
-  }
-  .digital .basic-digital-skills.callout {
-    background-color: map-get($themeDigital, 'primary');
-    color: white;
-    a:hover .fa-fw {
-      background-color: white !important;
-      color: map-get($themeDigital, 'primary-dark') !important;
-    }
-  }
-  .digital .callout-image {
-    background-image: linear-gradient(
-    map-get($themeDefault, 'primary-overlay-start'),
-    map-get($themeDefault, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/23602/THEGATHERING-23.02.17_0303.jpg');
-    .mdc-button {
-      border-color: white !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themeDefault, 'primary-dark') !important;
-      color: map-get($themeDefault, 'primary') !important;
-    }
-    a:hover .fa-fw {
-      background-color: white !important;
-      color: map-get($themeJobs, 'primary') !important;
-    }
-  }
-  .jobs.community-jobs-scotland .leaflet-container a,
-  .leaflet-popup-content .map-content-cjs-vacancy a,
-  .vacancy_icon .marker-icon,
-  .vacancy_icon .marker-icon-cjs-vacancy,
-  .vacancy_icon .map-marker-overlay,
-  .vacancy_icon .map-marker-overlay-cjs-vacancy {
-    color: map-get($themeCJS, 'primary');
-  }
-  .jobs .leaflet-container a,
-  .leaflet-popup-content .map-content-goodmoves-vacancy a,
-  .vacancy_icon .marker-icon-goodmoves-vacancy,
-  .vacancy_icon .map-marker-overlay-goodmoves-vacancy {
-    color: map-get($themeGoodmoves, 'primary');
-  }
-  .community-jobs-scotland .callout-image .caption {
-    background-color: map-get($themeCJS, 'primary-overlay-light');
-    .caption-inner {
-      background-color: map-get($themeCJS, 'primary-overlay-end');
-    }
-  }
-  .swiper-container .swiper-pagination-bullet {
-    background-color: white;
-  }
-  .swiper-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: map-get($themeServices, 'primary') !important;
-  }
-  .the-gathering.featured-background-image,
-  .the-gathering .full,
-  .the-gathering-2019 .full,
-  .the-gathering-2020 .full {
-    .mdc-button {
-      color: white;
-      border-color: map-get($themeGathering, 'primary') !important;
-      background-color: map-get($themeGathering, 'primary') !important;
-    }
-    .mdc-button:hover {
-      color: white !important;
-      background-color: map-get($themeGathering, 'primary-dark') !important;
-    }
-  }
-  .the-gathering .callout-image.gathering-1 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0775.jpg');
-  }
-  .the-gathering .callout-image.gathering-2 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0010.jpg');
-  }
-  .the-gathering .callout-image.gathering-3 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0390.jpg');
-  }
-  .the-gathering .callout-image.gathering-4 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-22.02.17_0348.jpg');
-  }
-  .the-gathering .callout-image.gathering-5 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0028.jpg');
-  }
-  .the-gathering .callout-image.gathering-6 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0207.jpg');
-  }
-  .the-gathering .callout-image.gathering-7 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/THEGATHERING-23.02.17_0253.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-1 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24169/ENABLE-Scotland-Cracking-Campaign-2_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-2 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24173/Street-Soccer-Scotland-Charity-of-the-Year_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-3 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24167/Drake-Music-Scotland-Demonstrating-Digital-Winners_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-4 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24165/Celine-Sinclair-The-Yard-Leading-Light_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-5 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24166/dates-n-mates-C-change-Scotland-Pioneering-Project_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-6 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24168/Dunaverty-Hall-Committee-Celebrating-Communities_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-7 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24170/Gordons-Fightback-MND-Scotland-Peoples-Choice-Award_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-8 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24171/James-Campbell-Bobath-Scotland-Terrific-Trustee-1_crop.jpg');
-  }
-  .scottish-charity-awards .callout-image.charity-awards-9 {
-    background-image: url('https://storage.googleapis.com/scvo-cms/24172/Laura-Young-Teapot-Trust-Charity-Champion_crop.jpg');
-  }
-  .community-jobs-scotland .callout-image.saltire {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/saltire.jpg');
-  }
-  .community-jobs-scotland .callout-image.jobs {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/cjs-vacancys.png');
-  }
-  .community-jobs-scotland .callout-image.benefit {
-    background-image: url('https://storage.googleapis.com/scvo-cms/scvo-cms-content/images/headers/newcjsbanner.jpg');
-  }
-  #settled_status_guide {
-    background-color: map-get($themeDefault, 'primary-dark') !important;
-  }
-  .policy-research .callout-image {
-    background-image: linear-gradient(
-    map-get($themePosts, 'primary-overlay-start'),
-    map-get($themePosts, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
-    color: white;
-    .mdc-button {
-      border-color: white !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themePosts, 'primary-dark') !important;
-      color: map-get($themePosts, 'primary') !important;
-    }
-  }
-  .projects-campaigns.i-love-charity .callout-image {
-    background-image: linear-gradient(
-    map-get($themeLoveCharity, 'primary-overlay-start'),
-    map-get($themeLoveCharity, 'primary-overlay-start')
-    ),
-    url('https://storage.googleapis.com/scvo-cms/23594/THEGATHERING-22.02.17_0028.jpg');
-    color: white;
-  }
-  .footer-image {
-    a {
-      color: white !important;
-    }
-    .mdc-button {
-      background-color: transparent !important;
-      border-color: white !important;
-      color: white !important;
-    }
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themeDefault, 'primary-dark') !important;
-      color: map-get($themeDefault, 'primary') !important;
-    }
-  }
-  .setting-up-a-charity .footer-image {
-    background-color: map-get($themeDefault, 'primary');
-  }
-  .running-your-organisation .footer-image {
-    background-color: map-get($themeDefault, 'primary');
-    // background-image: linear-gradient(
-    // map-get($themeDefault, 'primary-overlay-start'),
-    // map-get($themeDefault, 'primary-overlay-start')
-    // ),
-    // url('https://storage.googleapis.com/scvo-cms/23601/THEGATHERING-23.02.17_0302.jpg');
-  }
-  .footer-image.join-our-hub {
-    background-color: map-get($themeServices, 'primary');
-    // background-image: linear-gradient(
-    // map-get($themeServices, 'primary-overlay-start'),
-    // map-get($themeServices, 'primary-overlay-start')
-    // ),
-    // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg');
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themeServices, 'primary-dark') !important;
-      color: map-get($themeServices, 'primary') !important;
-    }
-  }
-  .running-a-charity .footer-image.join-our-hub,
-  .setting-up-a-charity .footer-image.join-our-hub,
-  .running-your-organisation .footer-image.join-our-hub {
-    background-color: map-get($themePosts, 'primary');
-    // background-image: linear-gradient(
-    // map-get($themePosts, 'primary-overlay-start'),
-    // map-get($themePosts, 'primary-overlay-start')
-    // ),
-    // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2018/01/edward-new-940x470.jpg') !important;
-    .mdc-button:hover {
-      background-color: white !important;
-      border-color: map-get($themePosts, 'primary-dark') !important;
-      color: map-get($themePosts, 'primary') !important;
-    }
-  }
-
-  header.mdc-toolbar {
-    background-color: map-get($themePosts, 'primary');
-  }
-  footer {
-    color: map-get($themeFooter, 'primary');
-    border-top: none;
-    background-color: map-get($themeFooter, 'primary-light');
-    // box-shadow: $toolbar-shadow-reverse;
-    p,
-    a,
-    a:hover,
-    .about a,
-    .about a:hover {
-      color: map-get($themeFooter, 'primary');
-    }
-    .footer-copyright {
-      background-color: map-get($themeFooter, 'primary-dark');
-      p,
-      a,
-      a:hover {
-        color: white;
-      }
-    }
-  }
-
-  .mdc-tab--active {
-    .mdc-tab__text-label {
-      color: map-get($themeSelected, 'primary');
-    }
-    .mdc-tab-indicator > .mdc-tab-indicator__content--underline {
-      background-color: map-get($themeSelected, 'primary');
-    }
-  }
-
-  .mdc-tab {
-    .mdc-tab__ripple::before, .mdc-tab__ripple::after {
-      background-color: map-get($themeSelected, 'primary');
-    }
-  }
-
-  body.post table,
-  .wp-block-table {
-    border: 1px solid map-get($themeSelected, 'primary');
-    border-collapse: collapse;
-    &.full-width {
-      width: 100%;
-    }
-    th {
-      padding: $unit/2;
-      font-weight: bold;
-    }
-    td {
-      padding: $unit/2;
-      border: 1px solid #000000;
-    }
-  }
-}
-
-@include theme-colours('default');
-
-.digital {
-  @include theme-colours('digital');
-}
-.events,
-.projects-campaigns.twenty-years-delivering-change.making-renting-right,
-.projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
-.projects-campaigns.twenty-years-delivering-change.affordable-homes,
-.projects-campaigns.twenty-years-delivering-change.affordable-homes .page-content,
-.search-result.scvo-cms-post,
-.related-posts,
-.post,
-.p,
-.blogs,
-.press-media,
-.policy-research {
-  @include theme-colours('posts');
-}
-.projects-campaigns.twenty-years-delivering-change.saving-marine-life,
-.projects-campaigns.twenty-years-delivering-change.saving-marine-life .page-content,
-.projects-campaigns.twenty-years-delivering-change.climate-change,
-.projects-campaigns.twenty-years-delivering-change.climate-change .page-content,
-.projects-campaigns.twenty-years-delivering-change.right-to-roam,
-.projects-campaigns.twenty-years-delivering-change.right-to-roam .page-content,
-.projects-campaigns.twenty-years-delivering-change.community-right-to-buy,
-.projects-campaigns.twenty-years-delivering-change.community-right-to-buy .page-content,
-.funding-updates,
-.funding {
-  @include theme-colours('funding');
-}
-.about,
-.search-result.scvo-staff,
-.projects-campaigns.twenty-years-delivering-change.smoke-free-public-places,
-.projects-campaigns.twenty-years-delivering-change.smoke-free-public-places .page-content,
-.projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing,
-.projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing .page-content,
-.projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases,
-.projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases .page-content,
-.projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out,
-.projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out .page-content,
-.projects-campaigns.twenty-years-delivering-change.continue-to-care,
-.projects-campaigns.twenty-years-delivering-change.continue-to-care .page-content,
-.projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people,
-.projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people .page-content,
-.running-a-charity,
-.setting-up-a-charity,
-.running-your-organisation {
-  @include theme-colours('default');
-}
-.jobs {
-  @include theme-colours('jobs');
-}
-.search-result.cjs-vacancy,
-.jobs.community-jobs-scotland {
-  @include theme-colours('cjs');
-}
-.goodmoves,
-.search-result.goodmoves-vacancy,
-.services.goodmoves {
-  @include theme-colours('goodmoves');
-}
-.scottish-charity-awards .book-your-place,
-.project,
-.campaign,
-.open-government,
-.projects-campaigns {
-  @include theme-colours('projects');
-}
-.i-love-charity.featured-background-image,
-.i-love-charity {
-  @include theme-colours('i-love-charity');
-}
-.twenty-years-delivering-change,
-.twenty-years-delivering-change .page-content {
-  @include theme-colours('twenty-years');
-}
-.goodhq,
-.search-result.goodhq-organisation,
-.search-result.goodhq-post {
-  @include theme-colours('goodhq');
-}
-.search-result.digital-charter-signatory {
-  @include theme-colours('digital-charter');
-}
-.search-result.funding-scotland-fund,
-.search-result.fundingscotland-fund,
-.services.funding-scotland {
-  @include theme-colours('funding-scotland');
-}
-.events.a1vb0000007fc04aaa-the-gathering,
-.projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund,
-.projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund .page-content,
-.projects-campaigns.twenty-years-delivering-change.equal-marriage,
-.projects-campaigns.twenty-years-delivering-change.equal-marriage .page-content,
-.the-gathering-2019,
-.the-gathering-2020,
-.the-gathering.featured-background-image,
-.the-gathering {
-  @include theme-colours('gathering');
-}
-.credit-union {
-  @include theme-colours('credit-union');
-}
-.tfn,
-.post-related-tfn,
-.post-related-tfn h3 a,
-.gist.tfn-post,
-.search-result.tfn-post,
-.search-result.tfn-event,
-.search-result.tfn-poll,
-.search-result.tfn-feature,
-.search-result.tfn-list {
-  @include theme-colours('tfn');
-}
-.services,
-.projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes,
-.projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes .page-content,
-.projects-campaigns.twenty-years-delivering-change.free-school-meals,
-.projects-campaigns.twenty-years-delivering-change.free-school-meals .page-content,
-.projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation,
-.projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation .page-content,
-.projects-campaigns.twenty-years-delivering-change.social-security,
-.projects-campaigns.twenty-years-delivering-change.social-security .page-content,
-.search-result.scvo-cms-page,
-.search-result.scvo-event,
-.gist.scvo-event,
-.gist.scvo-cms-post,
-.list.scvo-cms-post,
-.breadcrumbs,
-.page-content .breadcrumbs,
-.page-content,
-.grant-content,
-.page-related,
-.page-sidebar .static-sidebar,
-.page-sidebar.static-sidebar,
-.post-sidebar .static-sidebar,
-.post-sidebar.static-sidebar,
-.policy-research.events .event-content,
-.policy-research.events .event-sidebar,
-.posts.blogs .post-sidebar,
-.posts.press .post-sidebar,
-.post-content,
-.library-content,
-.library-sidebar,
-.home .cta-content,
-.home .search,
-.home .featured-content,
-.home .latest-content,
-.home .gist.scvo-cms-post,
-.home .gist.goodmoves-vacancy,
-.home .gist.tfn-post {
-  @include theme-colours('services');
-}
+// @include theme-colours('default');
+//
+// .digital {
+//   @include theme-colours('digital');
+// }
+// .events,
+// .projects-campaigns.twenty-years-delivering-change.making-renting-right,
+// .projects-campaigns.twenty-years-delivering-change.making-renting-right .page-content,
+// .projects-campaigns.twenty-years-delivering-change.affordable-homes,
+// .projects-campaigns.twenty-years-delivering-change.affordable-homes .page-content,
+// .search-result.scvo-cms-post,
+// .related-posts,
+// .post,
+// .p,
+// .blogs,
+// .press-media,
+// .policy-research {
+//   @include theme-colours('posts');
+// }
+// .projects-campaigns.twenty-years-delivering-change.saving-marine-life,
+// .projects-campaigns.twenty-years-delivering-change.saving-marine-life .page-content,
+// .projects-campaigns.twenty-years-delivering-change.climate-change,
+// .projects-campaigns.twenty-years-delivering-change.climate-change .page-content,
+// .projects-campaigns.twenty-years-delivering-change.right-to-roam,
+// .projects-campaigns.twenty-years-delivering-change.right-to-roam .page-content,
+// .projects-campaigns.twenty-years-delivering-change.community-right-to-buy,
+// .projects-campaigns.twenty-years-delivering-change.community-right-to-buy .page-content,
+// .funding-updates,
+// .funding {
+//   @include theme-colours('funding');
+// }
+// .about,
+// .search-result.scvo-staff,
+// .projects-campaigns.twenty-years-delivering-change.smoke-free-public-places,
+// .projects-campaigns.twenty-years-delivering-change.smoke-free-public-places .page-content,
+// .projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing,
+// .projects-campaigns.twenty-years-delivering-change.minimum-alcohol-pricing .page-content,
+// .projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases,
+// .projects-campaigns.twenty-years-delivering-change.justice-for-victims-of-asbestos-related-diseases .page-content,
+// .projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out,
+// .projects-campaigns.twenty-years-delivering-change.organ-donation-opt-out .page-content,
+// .projects-campaigns.twenty-years-delivering-change.continue-to-care,
+// .projects-campaigns.twenty-years-delivering-change.continue-to-care .page-content,
+// .projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people,
+// .projects-campaigns.twenty-years-delivering-change.free-personal-care-for-older-people .page-content,
+// .running-a-charity,
+// .setting-up-a-charity,
+// .running-your-organisation {
+//   @include theme-colours('default');
+// }
+// .jobs {
+//   @include theme-colours('jobs');
+// }
+// .search-result.cjs-vacancy,
+// .jobs.community-jobs-scotland {
+//   @include theme-colours('cjs');
+// }
+// .goodmoves,
+// .search-result.goodmoves-vacancy,
+// .services.goodmoves {
+//   @include theme-colours('goodmoves');
+// }
+// .scottish-charity-awards .book-your-place,
+// .project,
+// .campaign,
+// .open-government,
+// .projects-campaigns {
+//   @include theme-colours('projects');
+// }
+// .i-love-charity.featured-background-image,
+// .i-love-charity {
+//   @include theme-colours('i-love-charity');
+// }
+// .twenty-years-delivering-change,
+// .twenty-years-delivering-change .page-content {
+//   @include theme-colours('twenty-years');
+// }
+// .goodhq,
+// .search-result.goodhq-organisation,
+// .search-result.goodhq-post {
+//   @include theme-colours('goodhq');
+// }
+// .search-result.digital-charter-signatory {
+//   @include theme-colours('digital-charter');
+// }
+// .search-result.funding-scotland-fund,
+// .search-result.fundingscotland-fund,
+// .services.funding-scotland {
+//   @include theme-colours('funding-scotland');
+// }
+// .events.a1vb0000007fc04aaa-the-gathering,
+// .projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund,
+// .projects-campaigns.twenty-years-delivering-change.scottish-welfare-fund .page-content,
+// .projects-campaigns.twenty-years-delivering-change.equal-marriage,
+// .projects-campaigns.twenty-years-delivering-change.equal-marriage .page-content,
+// .the-gathering-2019,
+// .the-gathering-2020,
+// .the-gathering.featured-background-image,
+// .the-gathering {
+//   @include theme-colours('gathering');
+// }
+// .credit-union {
+//   @include theme-colours('credit-union');
+// }
+// .tfn,
+// .post-related-tfn,
+// .post-related-tfn h3 a,
+// .gist.tfn-post,
+// .search-result.tfn-post,
+// .search-result.tfn-event,
+// .search-result.tfn-poll,
+// .search-result.tfn-feature,
+// .search-result.tfn-list {
+//   @include theme-colours('tfn');
+// }
+// .services,
+// .projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes,
+// .projects-campaigns.twenty-years-delivering-change.debt-arrangement-schemes .page-content,
+// .projects-campaigns.twenty-years-delivering-change.free-school-meals,
+// .projects-campaigns.twenty-years-delivering-change.free-school-meals .page-content,
+// .projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation,
+// .projects-campaigns.twenty-years-delivering-change.human-trafficking-and-exploitation .page-content,
+// .projects-campaigns.twenty-years-delivering-change.social-security,
+// .projects-campaigns.twenty-years-delivering-change.social-security .page-content,
+// .search-result.scvo-cms-page,
+// .search-result.scvo-event,
+// .gist.scvo-event,
+// .gist.scvo-cms-post,
+// .list.scvo-cms-post,
+// .breadcrumbs,
+// .page-content .breadcrumbs,
+// .page-content,
+// .grant-content,
+// .page-related,
+// .page-sidebar .static-sidebar,
+// .page-sidebar.static-sidebar,
+// .post-sidebar .static-sidebar,
+// .post-sidebar.static-sidebar,
+// .policy-research.events .event-content,
+// .policy-research.events .event-sidebar,
+// .posts.blogs .post-sidebar,
+// .posts.press .post-sidebar,
+// .post-content,
+// .library-content,
+// .library-sidebar,
+// .home .cta-content,
+// .home .search,
+// .home .featured-content,
+// .home .latest-content,
+// .home .gist.scvo-cms-post,
+// .home .gist.goodmoves-vacancy,
+// .home .gist.tfn-post {
+//   @include theme-colours('services');
+// }
 
 html {
   overflow-y: scroll;
@@ -1032,9 +1049,9 @@ input:focus::-moz-placeholder {
 input:focus:-ms-input-placeholder {
   color:transparent;
 }
-.cookieinfo {
-  box-shadow: $toolbar-shadow-reverse;
-}
+// .cookieinfo {
+//   box-shadow: $toolbar-shadow-reverse;
+// }
 .brand-logo,
 .mdc-tab,
 #menu_button {
@@ -1118,9 +1135,25 @@ a {
   font-weight: $heading-medium-font-weight;
   text-decoration: none;
   text-decoration-skip: ink;
+  border-bottom: 2px solid transparent;
 }
 a:hover {
-  text-decoration: underline;
+  // text-decoration: underline;
+  border-bottom-color: $mdc-theme-primary;
+}
+.mdc-toolbar__title a,
+.mdc-card__media a,
+a.pagination-page,
+a.mdc-button,
+a.thumbnail {
+  border-bottom-width: 0;
+}
+.mdc-toolbar__title a:hover,
+.mdc-card__media a:hover,
+a.pagination-page:hover,
+a.mdc-button:hover,
+a.thumbnail:hover {
+  border-bottom-color: transparent;
 }
 iframe {
   border: none;
@@ -1345,7 +1378,7 @@ section.search {
     background-color: white;
     border: none;
     border-radius: 0 0 2px 2px;
-    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    // box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
     h3 {
       font-size: 0.8rem;
       opacity: 0.6666;
@@ -1391,7 +1424,7 @@ section.search {
 .mdc-card-search {
   .search_form {
     .mdc-textfield__input {
-      border-color: rgba(0, 0, 0, 0.42);
+      // border-color: rgba(0, 0, 0, 0.42);
       border-width: 1px;
     }
     .search-button-large {
@@ -1541,7 +1574,7 @@ section.search {
   .cta-content.callout-image {
     padding: $unit 0 $unit*3.25;
     h2, h3, a, .fa, .fal, .fab, .fas, .far {
-      color: white;
+      // color: white;
     }
     h2 {
       font-size: 1.8rem;
@@ -1555,7 +1588,7 @@ section.search {
         margin: 0;
         .fal {
           transition: 0.3s;
-          border: $unit/8 solid white;
+          // border: $unit/8 solid white;
           border-radius: 50%;
           padding: $unit*1.75;
           // box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
@@ -1567,9 +1600,9 @@ section.search {
         }
         a:hover {
           text-decoration: none;
-          .underline {
-            text-decoration: underline;
-          }
+          // .underline {
+          //   text-decoration: underline;
+          // }
         }
         a .underline {
           display: block;
@@ -1672,7 +1705,7 @@ section.search {
     }
     a {
       color: white;
-      text-decoration: underline;
+      // text-decoration: underline;
     }
     .mdc-layout-grid__cell {
       padding: $unit*1.5 0 $unit/2;
@@ -1690,12 +1723,12 @@ section.search {
     .tfn-feature,
     .tfn-news-post,
     .tfn-blog-post {
-      padding-right: $unit;
-      border-right: 1px solid rgba(0,0,0,.2);
+      // padding-right: $unit;
+      // border-right: 1px solid rgba(0,0,0,.2);
     }
     .no-border h2 a,
     .no-border .scvo-cms-post {
-      border: none;
+      // border: none;
     }
   }
 }
@@ -1833,6 +1866,17 @@ section.search {
     background-color: #fff;
   }
 }
+.mdc-card {
+  box-shadow: none !important;
+  .mdc-card__primary,
+  .mdc-card__supporting-text,
+  .mdc-card__actions {
+    padding: 0;
+  }
+}
+.mdc-button--raised {
+  box-shadow: none !important;
+}
 
 form#settled_status {
   label {
@@ -1948,10 +1992,11 @@ form#settled_status {
   }
 }
 
-.mdc-toolbar.mdc-toolbar--fixed {
-  padding-top: 0;
-}
+// .mdc-toolbar.mdc-toolbar--fixed {
+//   padding-top: 0;
+// }
 .mdc-toolbar {
+  background-color: transparent;
   .container-fluid {
     display: flex;
   }
@@ -1960,8 +2005,12 @@ form#settled_status {
   .mdc-toolbar__row,
   .mdc-form-field,
   .mdc-toolbar__section {
-    height: 100px;
+    // height: 100px;
     padding: 0;
+  }
+  .mdc-toolbar__section.toolbar-menu {
+    background-color: $mdc-theme-footer-dark;
+    padding: 0 $unit;
   }
   .mdc-toolbar__section.toolbar-menu,
   .toolbar-user,
@@ -2027,10 +2076,10 @@ form#settled_status {
         .mdc-textfield__input:focus,
         .mdc-textfield__input:hover {
           font-size: 16px;
-          color: rgba(255,255,255,.87);
-          border-width: $unit/8;
+          // color: rgba(255,255,255,.87);
+          border-width: 1px;
           border-style: solid;
-          border-color: rgba(255,255,255,.75);
+          border-color: $mdc-theme-primary;
           padding: 0  $unit*2 0 $unit/2;
           margin: 0;
           line-height: $nav-height - 3px;
@@ -2039,18 +2088,18 @@ form#settled_status {
           border-radius: 35px !important;
           box-sizing: border-box;
         }
-        ::-webkit-input-placeholder {
-          color: rgba(255, 255, 255, 0.6);
-        }
-        ::-moz-placeholder {
-          color: rgba(255, 255, 255, 0.6);
-        }
-        :-ms-input-placeholder {
-          color: rgba(255, 255, 255, 0.6);
-        }
-        :-moz-placeholder {
-          color: rgba(255, 255, 255, 0.6);
-        }
+        // ::-webkit-input-placeholder {
+        //   color: rgba(255, 255, 255, 0.6);
+        // }
+        // ::-moz-placeholder {
+        //   color: rgba(255, 255, 255, 0.6);
+        // }
+        // :-ms-input-placeholder {
+        //   color: rgba(255, 255, 255, 0.6);
+        // }
+        // :-moz-placeholder {
+        //   color: rgba(255, 255, 255, 0.6);
+        // }
       }
       .mdc-toolbar__icon {
         height: $unit*2;
@@ -2066,11 +2115,12 @@ form#settled_status {
       .search_form {
         position: relative;
         .mdc-toolbar__search {
+          color: $mdc-theme-primary;
           background-color: transparent;
           position: absolute;
           padding: 0;
           right: $unit/10;
-          bottom: $unit*2;
+          bottom: 0;
         }
       }
       .mdc-tab-bar {
@@ -2112,36 +2162,36 @@ form#settled_status {
       .mdc-tab.mdc-tab--active {
         opacity: 1;
       }
-      #main-tab-bar {
-        .mdc-tab:hover .mdc-tab--label {
-          border-bottom-color: rgba(255,255,255,0.6);
-        }
-        .mdc-tab.mdc-tab--active .mdc-tab--label {
-          border-bottom-color: rgba(255,255,255,0.9);
-        }
-      }
-      #upper-tab-bar {
-        margin-right: $unit;
-        margin-top: $unit*1.9;
-        text-align: right;
-        .mdc-tab {
-          min-width: auto;
-          font-weight: $heading-medium-font-weight;
-        }
-        .mdc-tab:hover .mdc-tab--label {
-          border-bottom-color: rgba(255,255,255,0.6);
-        }
-        .mdc-tab.mdc-tab--active .mdc-tab--label {
-          border-bottom-color: rgba(255,255,255,0.9);
-        }
-      }
+      // #main-tab-bar {
+      //   .mdc-tab:hover .mdc-tab--label {
+      //     border-bottom-color: rgba(255,255,255,0.6);
+      //   }
+      //   .mdc-tab.mdc-tab--active .mdc-tab--label {
+      //     border-bottom-color: rgba(255,255,255,0.9);
+      //   }
+      // }
+      // #upper-tab-bar {
+      //   margin-right: $unit;
+      //   margin-top: $unit*1.9;
+      //   text-align: right;
+      //   .mdc-tab {
+      //     min-width: auto;
+      //     font-weight: $heading-medium-font-weight;
+      //   }
+      //   .mdc-tab:hover .mdc-tab--label {
+      //     border-bottom-color: rgba(255,255,255,0.6);
+      //   }
+      //   .mdc-tab.mdc-tab--active .mdc-tab--label {
+      //     border-bottom-color: rgba(255,255,255,0.9);
+      //   }
+      // }
     }
-    a.mdc-toolbar__icon:hover {
-      color: white !important;
-    }
+    // a.mdc-toolbar__icon:hover {
+    //   color: white !important;
+    // }
     .mdc-toolbar__icon--menu {
       background: transparent;
-      color: white;
+      // color: white;
       border: none;
       box-shadow: none;
       -webkit-box-shadow: none;
@@ -2167,9 +2217,9 @@ form#settled_status {
       padding-right: 0;
     }
     .mdc-toolbar__section.toolbar-search {
-      vertical-align: middle;
+      margin-top: $unit;
       .mdc-textfield input {
-        max-width: 14rem;
+        width: 21.5rem;
       }
       .fa-search {
         font-size: 1.3rem;
@@ -2182,10 +2232,10 @@ form#settled_status {
     }
   }
 }
-.mdc-toolbar-fixed-adjust {
-  padding: 100px+$nav-height 0 0;
-  margin: 0;
-}
+// .mdc-toolbar-fixed-adjust {
+//   padding: 100px+$nav-height 0 0;
+//   margin: 0;
+// }
 .mdc-drawer--temporary {
   display: none;
   .mdc-drawer--temporary__header,
@@ -2335,7 +2385,7 @@ form#settled_status {
   // ),
   // url('https://storage.googleapis.com/scvo-cms/wp-content/uploads/2017/10/Drake-Music-06.jpg');
   text-align: center;
-  color: white;
+  // color: white;
   padding: $unit 0 $unit*2.5;
   h2 {
     font-weight: $heading-font-weight;
@@ -2347,7 +2397,7 @@ form#settled_status {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  color: white;
+  // color: white;
   padding: $unit 0 $unit*1.5;
   margin: $unit 0;
   li {
@@ -2367,13 +2417,13 @@ form#settled_status {
   .mdc-card__supporting-text,
   .mdc-card__supporting-text a,
   .mdc-card__title {
-    color: white;
+    // color: white;
   }
   .mdc-button {
-    border-width: $unit/8;
-    border-style: solid;
+    // border-width: $unit/8;
+    // border-style: solid;
     background: transparent;
-    color: white;
+    // color: white;
   }
 }
 .digital .basic-digital-skills.callout {
@@ -2481,8 +2531,8 @@ form#settled_status {
   }
   .mdc-button {
     text-transform: none;
-    border-width: $unit/8;
-    border-style: solid;
+    // border-width: $unit/8;
+    // border-style: solid;
   }
   .header-caption {
     position: absolute;
@@ -2933,7 +2983,7 @@ body.i-love-charity main .page-info,
   .cta-content.callout {
     padding: $unit 0 $unit*3.25;
     h2, h3, a, .fa, .fal, .fab, .fas, .far {
-      color: white;
+      // color: white;
     }
     h2 {
       font-size: 1.8rem;
@@ -2946,7 +2996,7 @@ body.i-love-charity main .page-info,
       h3 {
         margin: 0;
         .fal {
-          border: $unit/8 solid white;
+          // border: $unit/8 solid white;
           border-radius: 50%;
           padding: $unit*1.75;
           // box-shadow: 1px 2px 5rem rgba(255,255,255,0.15);
@@ -2957,9 +3007,9 @@ body.i-love-charity main .page-info,
         }
         a:hover {
           text-decoration: none;
-          .underline {
-            text-decoration: underline;
-          }
+          // .underline {
+          //   text-decoration: underline;
+          // }
         }
         a .underline {
           display: block;
@@ -3029,6 +3079,7 @@ body.i-love-charity main .page-info,
   }
 }
 .mdc-card__title--large {
+  background-color: $mdc-theme-primary;
   font-size: 1.2rem;
   letter-spacing: normal;
   line-height: 1.7rem;
@@ -3388,7 +3439,7 @@ table.membership-fees.wp-block-table {
   }
 }
 .mdc-card__actions {
-  padding: $unit/2 $unit $unit;
+  // padding: $unit/2 $unit $unit;
   .mdc-card__action {
     font-weight: $heading-font-weight;
   }
@@ -3398,10 +3449,10 @@ table.membership-fees.wp-block-table {
     margin: 0;
     padding: 0 $unit/2 $unit/2;
     li .mdc-card__action {
-      line-height: 1.96rem;
+      // line-height: 1.96rem;
       width: 100%;
       margin-bottom: $unit/2;
-      display: block;
+      display: inline;
     }
     li:last-child .mdc-card__action {
       margin-bottom: 0;
@@ -3432,7 +3483,7 @@ table.membership-fees.wp-block-table {
 }
 .photo-full {
   border-radius: 2px;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  // box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
   margin: 0 auto $unit;
   display: block;
 }
@@ -3479,6 +3530,18 @@ table.membership-fees.wp-block-table {
   form .sidebar h3 {
     margin-top: $unit;
   }
+}
+.mdc-toolbar__row.scvo-tab-bar {
+  background-color: $mdc-theme-footer-light;
+  .container-fluid .mdc-tab-bar .mdc-tab {
+    color: $mdc-theme-footer-dark !important;
+  }
+  .brand-logo img {
+    height: 36px;
+  }
+}
+.mdc-toolbar__row.site-header {
+  padding-top: $unit;
 }
 #search-tab-bar {
   box-sizing: border-box;
@@ -3616,8 +3679,8 @@ table.membership-fees.wp-block-table {
 
 .search-info {
   margin-bottom: $unit;
-  background: #fafafa;
-  color: #555;
+  background: $mdc-theme-footer-light;
+  color: #333;
   padding: $unit/3 $unit/2;
   box-sizing: border-box;
   .rss {
@@ -3627,6 +3690,7 @@ table.membership-fees.wp-block-table {
   }
   .rss:hover {
     color: #bb440b;
+    border-bottom-color: transparent;
   }
 }
 body.post.author main {
@@ -3856,8 +3920,8 @@ body.post.author main {
     }
   }
   .mdc-button {
-    border-width: $unit/8;
-    border-style: solid;
+    // border-width: $unit/8;
+    // border-style: solid;
     text-transform: none;
   }
   .scvo-cms-page-20114 .mdc-button {
@@ -3922,8 +3986,8 @@ body.post.author main {
 .menu-sidebar {
   margin-top: $unit;
   margin-bottom: $unit*2;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-  -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  // box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  // -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
   .mdc-button {
     box-shadow: none !important;
     padding: 8px $unit;
@@ -3995,7 +4059,7 @@ body.post.author main {
     .mdc-list-item:hover {
       text-decoration: none;
       .mdc-list-item__text {
-        text-decoration: underline;
+        // text-decoration: underline;
       }
       .mdc-list-item__meta {
         text-decoration: none;
@@ -4033,10 +4097,10 @@ hr {
 }
 
 ul.breadcrumbs {
-  margin: 0 0 $unit/2;
-  padding: $unit/2 0 $unit;
+  margin: 0;
+  padding: $unit/2 0 0;
   list-style: none;
-  border-bottom: 1px solid rgba(0,0,0,.2);
+  // border-bottom: 1px solid rgba(0,0,0,.2);
   font-size: 0;
   li {
     display: inline-block;
@@ -4134,9 +4198,9 @@ ul.breadcrumbs {
     a:hover {
       text-decoration: none;
     }
-    a:hover .underline {
-      text-decoration: underline;
-    }
+    // a:hover .underline {
+    //   text-decoration: underline;
+    // }
   }
   #share-menu-button {
     font-weight: $heading-medium-font-weight;
@@ -4144,7 +4208,7 @@ ul.breadcrumbs {
   #share-menu-button:hover {
     cursor: pointer;
     .underline {
-      text-decoration: underline;
+      // text-decoration: underline;
     }
   }
   .post-info-share,
@@ -4170,7 +4234,7 @@ ul.breadcrumbs {
     li:not(:last-child) {
       margin-right: 0;
       a:hover {
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
     li:after {
@@ -4510,9 +4574,9 @@ footer {
       font-size: 1rem;
       font-weight: $heading-medium-font-weight;
     }
-    a:hover {
-      text-decoration: underline !important;
-    }
+    // a:hover {
+    //   text-decoration: underline !important;
+    // }
   }
   .brand-logo {
     display: block;
@@ -4542,9 +4606,9 @@ footer {
     li a {
       text-decoration: none;
     }
-    li a:hover {
-      text-decoration: underline;
-    }
+    // li a:hover {
+    //   text-decoration: underline;
+    // }
   }
   .contact {
     .fa-ul {
@@ -4629,12 +4693,12 @@ footer {
     height: 64px;
     width: 64px;
   }
-  .mdc-toolbar.mdc-toolbar--fixed {
-    padding-top: 0;
-  }
-  .mdc-toolbar-fixed-adjust {
-    padding-top: 130px;
-  }
+  // .mdc-toolbar.mdc-toolbar--fixed {
+  //   padding-top: 0;
+  // }
+  // .mdc-toolbar-fixed-adjust {
+  //   padding-top: 130px;
+  // }
   .mdc-toolbar .mdc-toolbar__row .container-fluid .mdc-tab-bar .mdc-tab {
     padding: 0 $unit/2;
   }
@@ -4721,7 +4785,7 @@ footer {
       h2 a,
       .scvo-cms-post,
       .tfn-news-post {
-        border-right: none;
+        // border-right: none;
         padding-right: 0;
       }
     }
@@ -4765,9 +4829,9 @@ footer {
       }
     }
   }
-  .mdc-toolbar.mdc-toolbar--fixed {
-    padding-top: 0;
-  }
+  // .mdc-toolbar.mdc-toolbar--fixed {
+  //   padding-top: 0;
+  // }
   .mdc-toolbar .mdc-toolbar__row .container-fluid .mdc-toolbar__icon {
     height: $mobile-nav-height;
   }
@@ -4785,9 +4849,9 @@ footer {
       max-height: $unit*2.5;
     }
   }
-  .mdc-toolbar-fixed-adjust {
-    padding-top: $mobile-nav-height;
-  }
+  // .mdc-toolbar-fixed-adjust {
+  //   padding-top: $mobile-nav-height;
+  // }
   .pagination-distance-9,
   .pagination-distance-8,
   .pagination-distance-7,
@@ -5657,9 +5721,9 @@ button.swiper-pagination-bullet {
 
 
 @media print {
-  .mdc-toolbar-fixed-adjust {
-    padding: 0;
-  }
+  // .mdc-toolbar-fixed-adjust {
+  //   padding: 0;
+  // }
   .apply-button,
   .print-button,
   .sidebar,

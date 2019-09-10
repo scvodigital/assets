@@ -1,6 +1,5 @@
 <div class="cjs-vacancy">
-  {{> headers_splash}}
-  <div class="container-fluid page-content">
+  <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
@@ -10,6 +9,9 @@
       <li><a href="/jobs/community-jobs-scotland/vacancies/{{@root.request.params.phase}}/{{@root.data.primaryResponse.hits.hits.[0]._id}}/{{@root.data.primaryResponse.hits.hits.[0]._source.title_slug}}">{{@root.data.primaryResponse.hits.hits.[0]._source.title}}</a></li>
       <li>Apply</li>
     </ul>
+  </div>
+  {{> headers_splash}}
+  <div class="container-fluid page-content">
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-5-tablet mdc-layout-grid__cell--span-4-phone content page-content v-margin">

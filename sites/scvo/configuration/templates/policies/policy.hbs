@@ -1,4 +1,14 @@
 <div class="page">
+  <div class="container-fluid">
+    <ul class="breadcrumbs" aria-hidden="true">
+      <li><a href="/">Home</a></li>
+      <li><a href="/policy-research">Policy &amp; research</a></li>
+      <li><a href="/policy-research/policies">Policies</a></li>
+      <li>
+        {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
+      </li>
+    </ul>
+  </div>
   <div class="splash-image splash-image-{{@root.data.primaryResponse.hits.hits.[0]._type}}-category" style="{{> headers_splash_image}}">
     <div class="splash-overlay">
       <div class="container-fluid">
@@ -14,14 +24,6 @@
     </div>
   </div>
   <div class="container-fluid content page-content">
-    <ul class="breadcrumbs" aria-hidden="true">
-      <li><a href="/">Home</a></li>
-      <li><a href="/policy-research">Policy &amp; research</a></li>
-      <li><a href="/policy-research/policies">Policies</a></li>
-      <li>
-        {{{@root.data.primaryResponse.hits.hits.[0]._source.title}}}
-      </li>
-    </ul>
     <div class="mdc-layout-grid t-margin-full">
       <div class="mdc-layout-grid__inner">
         {{#each @root.data.primaryResponse.hits.hits ~}}

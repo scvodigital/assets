@@ -688,6 +688,16 @@
 			"label": "Policy &#038; research",
 			"path": "/policy-research",
 			"route": "^/policy-research"
+		},
+		{
+			"label": "About",
+			"path": "/about",
+			"route": "^/about"
+		},
+		{
+			"label": "Press",
+			"path": "/press-media",
+			"route": "^/press-media"
 		}
 	],
 	"main-upper": [{

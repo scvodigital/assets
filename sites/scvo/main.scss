@@ -1,18 +1,18 @@
-$mdc-theme-primary: #CD3F42;
+$mdc-theme-primary: #A42533;
 $mdc-theme-primary-light: lighten($mdc-theme-primary, 55%);
 $mdc-theme-primary-dark: darken($mdc-theme-primary, 15%);
 
-$mdc-theme-complimentary: #E1E3E4;
+$mdc-theme-complimentary: #B33542;
 $mdc-theme-complimentary-light: lighten($mdc-theme-complimentary, 55%);
 $mdc-theme-complimentary-dark: darken($mdc-theme-complimentary, 15%);
 
-$mdc-theme-secondary: #37474F;
+$mdc-theme-secondary: #29333D;
 $mdc-theme-secondary-light: lighten($mdc-theme-secondary, 55%);
 $mdc-theme-secondary-dark: darken($mdc-theme-secondary, 15%);
 
-$mdc-theme-footer: #37474F; // Blue Gray 800
-$mdc-theme-footer-light: #E1E3E4;
-$mdc-theme-footer-dark: #263238; // Blue Gray 900
+$mdc-theme-footer: #384654;
+$mdc-theme-footer-light: #EAECEE;
+$mdc-theme-footer-dark: #29333D;
 
 @import "./node_modules/material-components-web/material-components-web.scss";
 @import url('//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
@@ -23,7 +23,6 @@ $mdc-theme-footer-dark: #263238; // Blue Gray 900
 $unit: 1rem;
 $nav-height: 38px;
 $mobile-nav-height: 58px;
-$toolbar-shadow-reverse: 0px -3px 5px -1px rgba(0, 0, 0, 0.2), 0px -5px 8px 0px rgba(0, 0, 0, 0.14), 0px -1px 14px 0px rgba(0, 0, 0, 0.12);
 
 $base-font-family:                  "Lato", Helvetica, Arial, sans-serif;
 $base-font-weight:                  400;
@@ -1135,7 +1134,7 @@ a {
   text-decoration: none;
   text-decoration-skip: ink;
   border-bottom: $unit/5 solid transparent;
-  padding-bottom: $unit/10;
+  padding-bottom: $unit/20;
 }
 a:hover {
   // text-decoration: underline;
@@ -1207,6 +1206,14 @@ figure {
 .mdc-button:not(.mdc-ripple-upgraded):focus:before,
 .mdc-button:not(.mdc-ripple-upgraded):hover:before {
   opacity: 0.1;
+}
+.mdc-button--raised.mdc-button--active:not(:disabled),
+.mdc-button--raised:not(:disabled):hover,
+.mdc-button--unelevated:not(:disabled):hover {
+  background-color: $mdc-theme-primary-dark;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 .pull-right {
   float: right;
@@ -4028,10 +4035,10 @@ body.post.author main {
     padding-left: $unit*3;
   }
   .mdc-button:first-child {
-    border-radius: 2px 2px 0 0;
+    border-radius: 0;
   }
   .mdc-button:last-child {
-    border-radius: 0 0 2px 2px;
+    border-radius: 0;
   }
   .mdc-button:not(.mdc-ripple-upgraded):active:after,
   .mdc-button:not(.mdc-ripple-upgraded):focus:before,

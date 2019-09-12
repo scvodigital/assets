@@ -2,11 +2,9 @@
   "name": "_default",
   "pattern": "/*path",
   "debug": true,
-  "metaData": {
-    "title": "Saltire Awards"
-  },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

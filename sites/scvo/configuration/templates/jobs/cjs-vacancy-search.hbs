@@ -18,8 +18,7 @@
 {{/inline}}
 
 <div class="cjs-vacancy-search">
-  {{> headers_splash headerTextOverride="CJS vacancies" typeOverride="page"}}
-  <div class="container-fluid page-content">
+  <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
@@ -27,6 +26,9 @@
       <li><a href="/jobs/community-jobs-scotland/vacancies">Vacancies</a></li>
       <li>16–29 year olds {{#compare @root.request.params.phase "===" "p52"}}(part-time){{/compare}}</li>
     </ul>
+  </div>
+  {{> headers_splash headerTextOverride="CJS vacancies" typeOverride="page"}}
+  <div class="container-fluid page-content">
     {{#compare @root.data.supplimentaryResponses.types.hits.total ">" 0 ~}}
     <div class="mdc-layout-grid full">
       <div class="mdc-layout-grid__inner">
@@ -79,7 +81,7 @@
 
                 {{> pagination paging=@root.data.primaryResponse.pagination}}
               {{else}}
-                <div class="search-info mdc-elevation--z3">
+                <div class="search-info">
                   {{#if @root.request.params.query.q ~}}
                     No vacancies could be found for your search, please try different keywords.
                   {{else}}

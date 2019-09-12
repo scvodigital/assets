@@ -1,6 +1,5 @@
 <div class="cjs-vacancy">
-  {{> headers_splash headerTextOverride="CJS vacancies" typeOverride="page"}}
-  <div class="container-fluid page-content">
+  <div class="container-fluid">
     <ul class="breadcrumbs">
       <li><a href="/">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
@@ -8,6 +7,9 @@
       <li><a href="/jobs/community-jobs-scotland/vacancies">Vacancies</a></li>
       <li>Sign in</li>
     </ul>
+  </div>
+  {{> headers_splash headerTextOverride="CJS vacancies" typeOverride="page"}}
+  <div class="container-fluid page-content">
     {{#if @root.data.auth ~}}
     <script>
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -16,7 +18,7 @@
     </script>
     {{else}}
     <form id="sign-in-form" method="POST" class="sign-in-form">
-      <div class="mdc-card mdc-elevation--z0">
+      <div class="mdc-card">
         <div class="mdc-card__info--vacancy">
           <div class="mdc-card__info--vacancy-title mdc-typography--headline4 x-padding">
             Sign in
@@ -27,22 +29,27 @@
         </div>
         <div class="mdc-card__info x-padding-full">
           <div class="mdc-typography--body1" id="form-section-email">
-            <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
               <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
-              <input type="text" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth">
-              <label class="mdc-floating-label" for="sign-in-email">
-                Email
-              </label>
-              <div class="mdc-line-ripple"></div>
+              <input type="email" id="sign-in-email" class="mdc-text-field__input mdc-text-field--fullwidth" />
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="sign-in-email" class="mdc-floating-label">Email</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
             </div>
-
-            <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+            <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
               <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
-              <input type="password" id="sign-in-password" class="mdc-text-field__input mdc-text-field--fullwidth">
-              <label class="mdc-floating-label" for="sign-in-password">
-                Password
-              </label>
-              <div class="mdc-line-ripple"></div>
+              <input type="password" id="sign-in-password" class="mdc-text-field__input mdc-text-field--fullwidth" />
+              <div class="mdc-notched-outline">
+                <div class="mdc-notched-outline__leading"></div>
+                <div class="mdc-notched-outline__notch">
+                  <label for="sign-in-password" class="mdc-floating-label">Password</label>
+                </div>
+                <div class="mdc-notched-outline__trailing"></div>
+              </div>
             </div>
           </div>
           <div id="form-section-sign-in-buttons">

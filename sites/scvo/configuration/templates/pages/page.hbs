@@ -1,7 +1,9 @@
 <div class="page">
-  {{> headers_splash}}
   <div class="container-fluid">
     {{> breadcrumbs}}
+  </div>
+  {{> headers_splash}}
+  <div class="container-fluid">
     {{> leading_quotation sourcePage=@root.data.primaryResponse.hits.hits.[0]._source}}
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">

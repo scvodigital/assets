@@ -227,11 +227,11 @@
                                             {{#if @root.data.accountInfo.school_college_name}}from {{@root.data.accountInfo.school_college_name}}{{/if}} is applying for a Saltire Award for volunteering with you. Please confirm that the following volunteering hours are accurate by clicking the link below. </p>
                                           <ul>
                                             {{#each @root.data.tasksInfoUnverified}}
-                                              {{#compare unverifiedHoursList.length ">=" 1}}
+                                              {{#compare unverified_hours_list.length ">=" 1}}
                                                 {{#compare this.volunteer_manager_email "===" ../this}}
-                                                  <li><strong>{{task_name}}</strong> for <strong>{{organisation_name}}</strong>, Manager: {{volunteer_manager_name}} - {{volunteer_manager_title}}
+                                                  <li><strong>Volunteering </strong> with <strong>{{organisation_name}}</strong>: {{#if task_description}}Tasks: {{task_description}}{{/if}}, Manager: {{volunteer_manager_first_name}} {{volunteer_manager_last_name}} - {{volunteer_manager_title}}
                                                     <ul>
-                                                      {{#each this.unverifiedHoursList}}
+                                                      {{#each this.unverified_hours_list}}
                                                         <li>Hours: {{hours}} - Logged on: {{momentFormat (moment createdDate "YYYY-MM-DD") "MMMM Do YYYY"}}</li>
                                                       {{/each}}
                                                     </ul>

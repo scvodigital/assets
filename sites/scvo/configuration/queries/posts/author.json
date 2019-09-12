@@ -4,11 +4,20 @@
   "_source": [
     "author",
     "author_sfid",
-    "author_name_full",
-    "categories",
     "categories_id",
+    "title",
+    "publish_on",
+    "path",
+    "description_truncated",
+    "is_press_release",
+    "author_slug",
+    "author_name_full",
+    "staff_profile",
+    "og_image",
+    "categories",
     "categories_slug",
-    "rendered.scvo_list"
+    "post_tags",
+    "post_tags_slug"
   ],
   "query": {
     "bool": {

@@ -1,6 +1,6 @@
 {
-  "name": "parent-verify",
-  "pattern": "/parent-verify",
+  "name": "user-validate",
+  "pattern": "/user-validate",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
@@ -52,14 +52,15 @@
       }
     },
     {
-      "name": "setSignUpStatus",
-      "taskModule": "firebaseRtbSet",
+      "name": "validateUser",
+      "taskModule": "salesforceApex",
       "renderer": "handlebars",
       "config": {
-        "appName": "saltireawards",
-        "pathTemplate": "/{{default @root.request.params.query.id 'no-such-write-profile'}}/signup-status",
-        "setOrUpdate": "set",
-        "dataTemplate": "{}"
+        "connection": "scvoAlexSandbox",
+        "output": "data",
+        "method": "POST",
+        "body": ">context.metaData.handlebars.templates.account_user-validate-body",
+        "apexClassPath": "/SaltireUserValidate/"
       }
     },
     {
@@ -78,7 +79,7 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_parent-verify-pass",
+              "body": ">context.metaData.handlebars.templates.pages_verify-pass",
               "foot": ""
             },
             "contentType": "text/html"

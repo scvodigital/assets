@@ -122,12 +122,14 @@
                     buttonLabel=@root.data.auth.email
                     arrowClasses="far fa-fw fa-angle-down"}}
                   {{#each @root.context.metaData.menus.user-signed-in ~}}
+                  {{#if (contains user-types @root.data.accountInfo.user_type) ~}}
                     <a class="mdc-list-item {{#if (regexMatch @root.request.url.pathname route "gi")}} mdc-list-item--activated{{/if}}" href="{{stripTrailingSlash path}}" role="menuitem">
                       {{#if icon ~}}
                       <span class="far fa-{{icon}} mdc-list-item__graphic" aria-hidden="true"></span>
                       {{/if ~}}
                       {{{label}}}
                     </a>
+                  {{/if ~}}
                   {{/each ~}}
                 {{/components_anchored_menu}}
               {{else}}
@@ -250,7 +252,7 @@
                       <a href="mailto:info@saltireawards.org.uk">info@saltireawards.org.uk</a>
                     </li>
                     <li>
-                      <span class="fa-li"><span class="fas fa-phone"></span></span>
+                      <span class="fa-li"><span class="fas fa-phone fa-flip-horizontal"></span></span>
                       <a href="tel:+448001690022">0800 169 0022</a>
                     </li>
                     <li>
@@ -282,7 +284,7 @@
                       <a href="/terms">Terms &amp; conditions</a>
                     </li>
                     <li class="mdc-list-item">
-                      <a href="/cookies">Cookies</a>
+                      <a href="/cookies">Cookie policy</a>
                     </li>
                   </ul>
                 </div>
@@ -320,7 +322,7 @@
         </div>
       </footer>
     </div>
-    <div class="mdc-snackbar mdc-elevation--z10" aria-live="assertive" aria-atomic="true" aria-hidden="true" id="app-snackbar">
+    <div class="mdc-snackbar" aria-live="assertive" aria-atomic="true" aria-hidden="true" id="app-snackbar">
       <div class="mdc-snackbar__text"></div>
       <div class="mdc-snackbar__action-wrapper">
         <button type="button" class="mdc-snackbar__action-button"></button>

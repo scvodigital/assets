@@ -1,41 +1,142 @@
 <div id="detailed-results-container" class="container-content content-hours">
-
   <h1 class="mdc-typography--headline4">
-    Your Tasks
+    {{#if @root.data.isAdmin ~}}
+    {{@root.route.metaData.adminTitle}}
+    {{else}}
+    {{@root.route.metaData.title}}
+    {{/if ~}}
   </h1>
-
+  {{#unless @root.data.isAdmin ~}}
   <div class="mdc-typography--headline7 b-margin-full">
-    {{sumArray (pluck @root.data.tasksInfo "hours")}} total hours given so far!
+    {{sumArray (pluck @root.data.tasksInfo "hours")}} total hours added
   </div>
+  {{/unless ~}}
 
   <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
       <div class="b-margin-full mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <a href="/task" class="mdc-button mdc-button--raised">Add new task</a>
+        <a href="/task" class="mdc-button mdc-button--raised">Add new {{#if @root.data.isAdmin}}group{{else}}task{{/if}}</a>
       </div>
     </div>
-      {{#each @root.data.tasksInfo}}
+    {{#each @root.data.tasksInfo}}
+    {{#unless @root.data.isAdmin}}
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <strong>{{task_name}}</strong> with <strong>{{organisation_name}}</strong>
-
+        <h2 class="mdc-typography--headline6">
+          Volunteering with {{organisation_name}}
+        </h2>
         <form action="/submit-hours" method="POST">
-          {{hours}} hours given so far.
+          {{hours}} hours added so far
           <input type="hidden" name="task_id" value="{{taskId}}">
           <input type="number" step="any" min="0" name="hours">
           <button type="submit" class="mdc-button mdc-button--raised">Add hours</button>
         </form>
       </div>
     </div>
+    {{else}}
+
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <h2 class="mdc-typography--headline6">
+          Volunteering with {{organisation_name}}
+        </h2>
+      </div>
+      {{#if task_description ~}}
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <strong>Description:</strong> {{task_description}}
+      </div>
+      {{/if ~}}
+    </div>
+
+    <form action="/submit-group-hours" method="POST">
+      <div class="mdc-layout-grid__inner">
+        <input type="hidden" name="task_id" value="{{taskId}}">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+            <input required id="hours" type="number" name="hours"
+            {{>form_validation_attributes @root.context.metaData.taskInfoValidation.hours}}
+            class="mdc-text-field__input mdc-text-field--fullwidth">
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="hours" class="mdc-floating-label">Hours</label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+          <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
+            <textarea rows="4" cols="40" id="volunteers" name="volunteers"
+            {{>form_validation_attributes @root.context.metaData.taskInfoValidation.task_description}} class="mdc-text-field__input" value="{{@root.data.taskInfo.task_description}}"></textarea>
+            <div class="mdc-notched-outline">
+              <div class="mdc-notched-outline__leading"></div>
+              <div class="mdc-notched-outline__notch">
+                <label for="task_description" class="mdc-floating-label">List of volunteer names, one per line</label>
+              </div>
+              <div class="mdc-notched-outline__trailing"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+          <button id="detail-submit" type="submit" class="mdc-button mdc-button--raised b-margin-full" id="group-hours-submit" >
+            <span class="icon far fa-hand-paper mdc-list-item__graphic" aria-hidden="true"></span>
+            <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
+            Submit details
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <strong>Volunteer name</strong>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <strong>Hours</strong>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <strong>Claim code</strong>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <a href="#" class="mdc-button">Download all</a>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+      </div>
+    </div>
+
+    {{#each hours_list ~}}
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        {{claim_first_name}} {{claim_last_name}}
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        {{hours}}
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <span class="claim-code">{{substr claim_code 0 10}}</span>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <a href="#" class="mdc-button">Download</a>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <a href="#" class="mdc-button">Edit</a>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
+        <a href="#" class="mdc-button">Remove</a>
+      </div>
+    </div>
+    {{/each ~}}
+    {{/unless}}
     {{/each}}
-  {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-</div>
-
-
-{{!--
---}}
-{{!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
-<script>
+    {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
+  </div>
+  {{!--
+  --}}
+  {{!-- <script src="https://#/recaptcha/api.js" async defer></script> --}}
+  <script>
   function preSubmit() {
     var form = document.getElementById("user-details-form");
     var isValid = form.checkValidity();
@@ -46,4 +147,4 @@
   }
   function onSubmit() {
   }
-</script>
+  </script>

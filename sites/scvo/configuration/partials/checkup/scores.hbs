@@ -4,6 +4,9 @@
   {{/each ~}}
 {{else}}
   {{#if @root.request.body ~}}
+    {{#if @root.request.body.scores-organisation_type ~}}
+      <input type="hidden" name="organisation_type" value="{{@root.request.body.scores-organisation_type}}" />
+    {{/if ~}}
     {{#if @root.request.body.section-1-score ~}}
       <input type="hidden" name="section-1-score" value="{{@root.request.body.section-1-score}}" />
     {{/if ~}}
@@ -50,7 +53,7 @@
     {{else}}
       <input type="hidden" name="{{section}}-score" value="0" />
     {{/ifAny ~}}
-    {{#compare section "section-6" ~}}
+    {{!-- {{#compare section "section-6" ~}}
       <input type="hidden" name="income_band" value="{{@root.request.body.scores-income_band}}" />
       <input type="hidden" name="topic" value="{{@root.request.body.scores-topic}}" />
     {{else}}
@@ -60,7 +63,7 @@
       {{#if @root.request.body.topic ~}}
         <input type="hidden" name="topic" value="{{@root.request.body.topic}}" />
       {{/if ~}}
-    {{/compare ~}}
+    {{/compare ~}} --}}
   {{else}}
     <input type="hidden" name="{{section}}-score" value="0" />
   {{/if ~}}

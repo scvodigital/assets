@@ -1,18 +1,19 @@
 {
   "name": "volunteering_opportunity",
   "pattern": {
-    "slug": "/volunteering/opportunity/:id(/:junk)",
+    "slug": "/search/opportunity/:id(/:junk)",
     "id": "/opp/:id"
   },
   "debug": true,
   "metaData": {
-    "title": "Volunteering - Saltire Awards"
+    "title": "Volunteering opportunity"
   },
   "defaultParams": {
     "context": "detail"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "primaryResponse",
       "taskModule": "elasticsearch",

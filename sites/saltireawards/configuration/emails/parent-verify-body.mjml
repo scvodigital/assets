@@ -19,7 +19,7 @@
 
             <p>As {{first_name}} is under 12, we require their parent or guardian to give permission to use the Saltire Awards website. You can indicate that you give permission, by clicking on the link below</p>
 
-            <a href="{{parental_verification_url}}" color="#42842A" style="color:#42842A;font-weight:bold;">I give permission for {{first_name}} {{last_name}} to use the Saltire Awards Website</a>
+            <a href="{{verification_url}}" color="#42842A" style="color:#42842A;font-weight:bold;">I give permission for {{first_name}} {{last_name}} to use the Saltire Awards Website</a>
 
             <p>You can find out more about the Saltire Awards by clicking <a href="http://www.saltireawards.org.uk/about">here</a>.</p>
 

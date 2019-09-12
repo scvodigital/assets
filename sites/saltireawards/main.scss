@@ -122,6 +122,9 @@ header {
     }
   }
 }
+.search-form {
+  padding-top: 0;
+}
 
 .responsive-img {
   max-width: 100%;
@@ -170,6 +173,7 @@ header {
   margin: 0;
   padding: 0 $unit $unit*1.5;
 }
+
 .header-image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -190,6 +194,26 @@ header {
     text-align: center;
   }
 }
+.container-content.content-hours {
+  .claim-code {
+    color: #333;
+    background-color: #eee;
+    padding: $unit/5 $unit/4 0;
+    margin-bottom: $unit/4;
+    font-size: 95%;
+    display: inline-block;
+    font-family: 'Consolas', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+// .mdc-text-field--textarea:not(.mdc-text-field--disabled) {
+//   background-color: whitesmoke !important;
+// }
 
 .sign-in-form,
 .reset-password-form {

@@ -3,12 +3,23 @@
   "pattern": "/sign-up-details",
   "debug": true,
   "metaData": {
-    "title": "Sign up - Saltire Awards"
+    "title": "Sign up"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.redirectIfPVNeeded",
+    {
+      "name": "adminCandidate",
+      "taskModule": "firebaseRtbGet",
+      "renderer": "handlebars",
+      "config": {
+        "appName": "saltireawards",
+        "pathTemplate": "/administrator-candidates/{{default data.auth.uid 'no-such-profile'}}/isCandidate",
+        "defaultData": false
+      }
+    },
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -25,8 +36,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "body": ">context.metaData.handlebars.templates.account_sign-up-details",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "foot": ">context.metaData.handlebars.templates.account_footer"
             },
             "contentType": "text/html"

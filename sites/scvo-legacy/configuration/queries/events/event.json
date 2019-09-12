@@ -12,6 +12,7 @@
     "date_start",
     "date_end",
     "trainer",
+    "trainers",
     "contact_name",
     "contact_email",
     "contact_phone",
@@ -32,7 +33,6 @@
     "geo.latitude",
     "geo.longitude",
     "venue_alt",
-    "rendered.scvo_full",
     "rendered.scvo_speakers"
   ],
   "query": {

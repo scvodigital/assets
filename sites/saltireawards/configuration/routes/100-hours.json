@@ -3,12 +3,15 @@
   "pattern": "/hours",
   "debug": true,
   "metaData": {
-    "title": "Hours - Saltire Awards"
+    "title": "My volunteering",
+    "adminTitle": "Volunteering groups"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.getAccountInfo",
     "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.isAdmin",
     "context.metaData.commonTasks.getTasksInfo",
     {
       "name": "destination",

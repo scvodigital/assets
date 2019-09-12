@@ -1,11 +1,7 @@
 {
   "size": 12,
   "from": {{multiply (subtract (default request.params.query.page 1) 1) 12}},
-  "_source": [
-    "slug",
-    "title",
-    "rendered.charter_search_result"
-  ],
+  "_source": false,
   "query": {
     "bool": {
       "filter": [

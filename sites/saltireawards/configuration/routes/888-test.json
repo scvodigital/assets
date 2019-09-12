@@ -2,14 +2,8 @@
   "name": "test-page",
   "pattern": "/test-page",
   "debug": true,
-  "metaData": {
-    "title": "Account - Saltire Awards"
-  },
   "tasks": [
-    "context.metaData.commonTasks.authRequired",
-    "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
-    "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.authNotRequired",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -26,8 +20,9 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
+              "body": ">context.metaData.handlebars.templates.pages_test",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "body": ">context.metaData.handlebars.templates.pages_test"
+              "foot": ">context.metaData.handlebars.templates.pages_foot"
             },
             "contentType": "text/html"
           }

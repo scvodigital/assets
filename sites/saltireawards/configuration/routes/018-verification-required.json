@@ -1,6 +1,6 @@
 {
-  "name": "parental-verification-required",
-  "pattern": "/parental-verification-required",
+  "name": "verification-required",
+  "pattern": "/verification-required",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authRequired",
@@ -25,6 +25,17 @@
       }
     },
     {
+      "name": "redirectIfGot",
+      "taskModule": "reroute",
+      "config":
+      {
+        "if" : [{"var" : "data.accountInfo.verification_needed"},
+          null,
+          "redirect-home"
+        ]
+      }
+    },
+    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",
@@ -40,7 +51,8 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_parental-verification-required",
+              "body": ">context.metaData.handlebars.templates.pages_verification-required",
+              "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
               "foot": ">context.metaData.handlebars.templates.account_footer"
             },
             "contentType": "text/html"

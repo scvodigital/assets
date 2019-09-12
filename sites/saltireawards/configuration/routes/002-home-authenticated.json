@@ -3,13 +3,15 @@
   "pattern": "/home-authenticated",
   "debug": true,
   "metaData": {
-    "title": "Saltire Awards - recognising young volunteers in Scotland"
+    "title": "Home",
+    "adminTitle": "Group administrator"
   },
   "tasks": [
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
-    "context.metaData.commonTasks.fullSignUpRequired",
     "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.isAdmin",
     "context.metaData.commonTasks.getAreaInfo",
     {
       "name": "destination",

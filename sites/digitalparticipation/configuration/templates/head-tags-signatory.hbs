@@ -7,8 +7,8 @@
 <title>{{route.metaData.title}}</title>
 <meta property="og:title" content="{{route.metaData.title}}" data-dynamic="true">
 {{/if ~}}
-{{#if files.0.uploadUrl ~}}
-<meta property="og:image" content="{{files.0.uploadUrl}}" data-dynamic="true">
+{{#if logos.0.uploadUrl ~}}
+<meta property="og:image" content="{{logos.0.uploadUrl}}" data-dynamic="true">
 <meta property="og:image:width" content="128" data-dynamic="true">
 <meta property="og:image:height" content="128" data-dynamic="true">
 {{/if ~}}
@@ -16,11 +16,7 @@
 <meta property="og:summary" content="{{stripTags (regexReplace (default og_summary (default ../og_summary (default description ../description))) '\r|\n' 'gi' '')}}" data-dynamic="true">
 <meta name="description" content="{{stripTags (regexReplace (default description (default ../description (default og_summary ../og_summary))) '\r|\n' 'gi' '')}}" data-dynamic="true">
 {{/ifAny ~}}
-{{#if rendered.json_ld ~}}
-<script type="application/ld+json" data-dynamic="true">
-{{{rendered.json_ld}}}
-</script>
-{{/if ~}}
+{{> signatory_json_ld}}
 {{/with ~}}
 {{else}}
 <title>{{route.metaData.title}}</title>

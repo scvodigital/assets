@@ -1,15 +1,16 @@
 {
   "name": "volunteering_map",
-  "pattern": "/volunteering/map",
+  "pattern": "/search/map",
   "debug": true,
   "metaData": {
-    "title": "Volunteering - Saltire Awards"
+    "title": "Volunteering opportunity search"
   },
   "defaultParams": {
     "context": "results"
   },
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
     {
       "name": "location_data",
       "taskModule": "elasticsearch",

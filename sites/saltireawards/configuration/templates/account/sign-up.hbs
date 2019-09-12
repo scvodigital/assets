@@ -17,61 +17,72 @@
         <div class="middle-line-text">
           <span>or</span>
         </div>
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
           <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
           <input type="email" id="sign-up-email" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-email">
-            Email
-          </label>
-          <div class="mdc-line-ripple"></div>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="sign-up-email" class="mdc-floating-label">Email</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
           <span class="far fa-at mdc-text-field__icon" tabindex="-1"></span>
           <input type="email" id="sign-up-email-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-email-confirm">
-            Confirm email
-          </label>
-          <div class="mdc-line-ripple"></div>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="sign-up-email-confirm" class="mdc-floating-label">Confirm email</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
 
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
           <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
           <input type="password" id="sign-up-password" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-password">
-            Password
-          </label>
-          <div class="mdc-line-ripple"></div>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="sign-up-password" class="mdc-floating-label">Password</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
-        <div class="mdc-text-field mdc-text-field--box mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
+        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
           <span class="far fa-key mdc-text-field__icon" tabindex="-1"></span>
           <input type="password" id="sign-up-password-confirm" class="mdc-text-field__input mdc-text-field--fullwidth" data-lpignore="true" autocomplete="off" />
-          <label class="mdc-floating-label" for="sign-up-password-confirm">
-            Confirm password
-          </label>
-          <div class="mdc-line-ripple"></div>
+          <div class="mdc-notched-outline">
+            <div class="mdc-notched-outline__leading"></div>
+            <div class="mdc-notched-outline__notch">
+              <label for="sign-up-password-confirm" class="mdc-floating-label">Confirm password</label>
+            </div>
+            <div class="mdc-notched-outline__trailing"></div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div id="form-section-sign-up-buttons">
-      <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">
-        Sign up
-      </button>
-      <div class="mdc-typography--body1 v-margin-full">
-        Read our <a href="/privacy" target="_blank">privacy notice</a>
+      <div id="form-section-sign-up-buttons">
+        <button class="mdc-button mdc-button--raised" type="submit" id="sign-up-submit">
+          Sign up
+        </button>
+        <div class="mdc-typography--body1 v-margin-full">
+          Read our <a href="/privacy" target="_blank">privacy notice</a>
+        </div>
+        <div class="mdc-typography--body1 v-margin-full">
+          Already have an account? <a href="/sign-in">Sign in</a>
+        </div>
       </div>
-      <div class="mdc-typography--body1 v-margin-full">
-        Already have an account? <a href="/sign-in">Sign in</a>
-      </div>
-    </div>
-    <div class="card-loader" id="sign-up-loader">
-      <div class="card-loader-background"></div>
-      <div class="card-loader-inner">
-        <span class="far fa-2x fa-spinner-third fa-spin"></span>
+      <div class="card-loader" id="sign-up-loader">
+        <div class="card-loader-background"></div>
+        <div class="card-loader-inner">
+          <span class="far fa-2x fa-spinner-third fa-spin"></span>
+        </div>
       </div>
     </div>
   </div>
-  <input type="hidden" name="redirect" id="redirect" value="home"/>
+  <input type="hidden" name="redirect" id="redirect" value="home" />
 </form>
 
 <script type="text/javascript">
@@ -99,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var passwordConfirm = $passwordConfirm.val();
     saltireawards.auth.createAccount(email, emailConfirm, password, passwordConfirm)
     .then(function(user) {
-      window.location.href = '/check-account-status/';
+      window.location.href = '/';
     })
     .catch(function(err) {
       $message.text(err.message || 'There was a problem creating your account').show();

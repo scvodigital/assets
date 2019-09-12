@@ -22,8 +22,7 @@
     "organisation.name_slug",
     "organisation.name",
     "organisation.has_logo",
-    "organisation.logo_url",
-    "rendered.goodmoves_rss"
+    "organisation.logo_url"
   ],
   "query": {
     "bool": {

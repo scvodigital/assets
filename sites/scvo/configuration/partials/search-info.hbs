@@ -1,5 +1,5 @@
 {{#if paging.totalResults ~}}
-<div class="search-info mdc-elevation--z3">
+<div class="search-info">
   <strong>Total results:</strong> {{addCommas paging.totalResults}} |
   <strong>Current page:</strong> {{addCommas paging.currentPage}} of {{addCommas paging.totalPages}}
   {{#ifAny (compare @root.route.name "evidence_library_document_search") (compare @root.route.name "post_tag") (compare @root.route.name "post_category") (compare @root.route.name "page_blogs") (compare @root.route.name "page_press") ~}}
@@ -10,7 +10,7 @@
 </div>
 {{else}}
 {{#ifAny phase @root.request.params.query.region @root.request.params.query.sector @root.request.params.query.location @root.request.params.query.job_number @root.request.params.query.q ~}}
-<div class="search-info mdc-elevation--z1">
+<div class="search-info">
   No results, please try a different search query
 </div>
 {{/ifAny ~}}

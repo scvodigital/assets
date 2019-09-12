@@ -1,10 +1,11 @@
 {
   "name": "delete_search",
   "pattern": "/delete-search",
-  "debug": false,
+  "debug": true,
   "acceptedVerbs": "POST",
   "tasks": [
     "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.currentSite",
     {
       "name": "notifications",
       "taskModule": "mysql",

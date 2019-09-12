@@ -1130,6 +1130,7 @@ footer h3,
   box-sizing: border-box;
 }
 a {
+  color: $mdc-theme-primary;
   font-weight: $heading-medium-font-weight;
   text-decoration: none;
   text-decoration-skip: ink;
@@ -1145,7 +1146,6 @@ a:hover {
 .post-info-tags a,
 a.pagination-page,
 a.brand-logo,
-a.mdc-button,
 a.thumbnail {
   border-bottom-width: 0;
 }
@@ -1154,7 +1154,6 @@ a.thumbnail {
 .post-info-tags a:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
-a.mdc-button:hover,
 a.thumbnail:hover {
   border-bottom-color: transparent;
 }
@@ -1196,6 +1195,20 @@ figure {
 .mdc-textfield__input:focus,
 .mdc-textfield__input:hover {
   background: transparent;
+}
+.mdc-button {
+  border: $unit/5 solid $mdc-theme-primary;
+}
+.mdc-button:hover {
+  color: white;
+  background-color: $mdc-theme-primary;
+  -webkit-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+.mdc-button.mdc-button--raised {
+  border: none;
+  color: white;
 }
 .mdc-button a:hover,
 .mdc-button:hover,
@@ -1305,7 +1318,7 @@ a[href^="https://"].mdc-button::after {
   //   display: block;
   // }
   .mdc-text-field {
-    margin-bottom: $unit/2;
+    margin-bottom: $unit;
   }
 }
 .card-loader {
@@ -2495,6 +2508,9 @@ form#settled_status {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  // .splash-overlay {
+  //   background-color: rgba(255,255,255,0.7);
+  // }
   .container-fluid {
     display: flex;
     justify-content: flex-end;
@@ -3099,7 +3115,7 @@ body.i-love-charity main .page-info,
     font-weight: 400;
   }
 }
-.mdc-card__title--large {
+.mdc-card__primary .mdc-card__title--large {
   background-color: $mdc-theme-primary;
   font-size: 1.2rem;
   letter-spacing: normal;
@@ -4276,7 +4292,7 @@ ul.breadcrumbs {
 }
 
 blockquote {
-  border-left: $unit/5 solid white;
+  border-left: $unit/5 solid $mdc-theme-secondary-light;
   margin: 0 0 $unit;
   padding: 0 0.75rem;
   font-size: 1.1rem;
@@ -6042,6 +6058,7 @@ footer.mdc-layout__footer {
   .about a:hover,
   a:hover {
     color: white;
+    border-bottom-color: white;
   }
   .mdc-layout-grid {
     p {
@@ -6063,6 +6080,9 @@ footer.mdc-layout__footer {
     p,
     a {
       color: $mdc-theme-footer-dark;
+    }
+    a:hover {
+      border-bottom-color: $mdc-theme-footer-dark;
     }
   }
   .logos {

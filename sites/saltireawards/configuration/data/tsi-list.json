@@ -304,12 +304,34 @@
     "twitter": "https://twitter.com/VSGWL",
     "phone": "01506650111"
   },
-  "western-isles": {
-    "area": "Western Isles",
+  "na-h-eileanan-siar": {
+    "area": "Na h-Eileanan Siar",
     "title": "Volunteer Centre Western Isles",
     "logo": "https://volunteercentrewi.org/wp-content/themes/vwi/img/vwi_logo.png",
     "website": "http://volunteercentrewi.org",
     "twitter": "https://twitter.com/VolunteeringWI/",
-    "facebook": "https://www.facebook.com/Volunteer-Centre-Western-Isles-Stornoway-109240205826891/"
+    "facebook": "https://www.facebook.com/Volunteer-Centre-Western-Isles-Stornoway-109240205826891/",
+    "local_contacts": {
+      "^HS(1|2)": {
+        "title": "Volunteer Centre Western Isles - Lewis",
+        "email": "lewis@volunteercentrewi.org",
+        "phone": "01851700366"
+      },
+      "^HS(3|4|5)": {
+        "title": "Volunteer Centre Western Isles - Harris",
+        "email": "harris@volunteercentrewi.org",
+        "phone": "01851700366"
+      },
+      "^HS(6|7|8)": {
+        "title": "Volunteer Centre Western Isles - Uist",
+        "email": "uist@volunteercentrewi.org",
+        "phone": "01851700366"
+      },
+      "^HS9": {
+        "title": "Volunteer Centre Western Isles - Barra",
+        "email": "barra@volunteercentrewi.org",
+        "phone": "01851700366"
+      }
+    }
   }
 }

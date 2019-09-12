@@ -15,7 +15,7 @@
     {{> account_details_form_fields admin=(compare @root.data.accountInfo.user_type '===' 'Group Admin')}}
 
     {{!-- This will probably have a captcha in it, hence the separation, and weird submit format --}}
-    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit" >
+    <button id="detail-submit" class="mdc-button mdc-button--raised b-margin-full" id="register-interest-submit">
       <span class="spinner fas fa-spin fa-spinner mdc-list-item__graphic" aria-hidden="true"></span>
       Save
     </button>
@@ -30,6 +30,10 @@
     })
   });
   function completeCB(response){
+    $('#postcode').parent().parent()[0].MDCTextField.foundation_.setValid(true); //Don't ask
+    setTimeout(function() {
+      $('#detail-submit').focus();
+    }, 100)
     $('#detail-submit').prop('disabled', false);
     var jsonData = JSON.parse(response);
     if (jsonData.id){

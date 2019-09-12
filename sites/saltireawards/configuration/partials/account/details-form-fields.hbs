@@ -60,8 +60,7 @@
         <input type="text" id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" placeholder="" data-lpignore="true" data-location-search='{
           "laSelector": "[name=\"la\"]",
           "locationServicesSelector": ".postcode-lookup"
-        }'
-        {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
+        }' {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
         <div class="mdc-notched-outline">
           <div class="mdc-notched-outline__leading"></div>
           <div class="mdc-notched-outline__notch">

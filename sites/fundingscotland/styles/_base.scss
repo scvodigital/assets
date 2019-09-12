@@ -45,6 +45,21 @@ figure {
 
 header {
   .container-fluid {
+    .scvo-tab-bar {
+      background-color: $mdc-theme-footer-light;
+      .mdc-tab-bar .mdc-tab:first-child {
+        padding-left: $unit;
+      }
+      .mdc-tab-bar .mdc-tab {
+        display: inline-block;
+        .mdc-tab--label {
+          color: $mdc-theme-footer-dark;
+        }
+      }
+      .brand-logo img {
+        height: 36px;
+      }
+    }
     .mdc-top-app-bar__upper {
       background-color: $mdc-theme-footer;
       .mdc-top-app-bar__section {

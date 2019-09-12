@@ -9,11 +9,6 @@
 <meta property="og:summary" content="{{default og_summary (default ../og_summary (default description ../description))}}" data-dynamic="true">
 <meta name="description" content="{{default description (default ../description (default og_summary ../og_summary))}}" data-dynamic="true">
 {{/ifAny ~}}
-{{#if rendered.json_ld ~}}
-<script type="application/ld+json" data-dynamic="true">
-{{{rendered.json_ld}}}
-</script>
-{{/if ~}}
 {{/with ~}}
 {{else}}
 <title>Scottish Council for Voluntary Organisations – SCVO</title>

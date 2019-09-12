@@ -1,0 +1,10 @@
+{{#json key="attributes" type="object"}}
+  {{#if attrs.className}}{{{json key="className" value=attrs.className}}},{{/if}}
+  {{#if attrs.align}}{{{json key="align" value=attrs.align}}},{{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:<h)([0-9]+)") 0) 1)}}
+    {{{json key="level" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) '(?:<h.*?id=")(.*?)(?:")') 0) 1)}}
+    {{{json key="anchor" value=(get this "@input")}}},
+  {{/if}}
+{{/json}},

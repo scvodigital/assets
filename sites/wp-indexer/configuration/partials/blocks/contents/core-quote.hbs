@@ -1,0 +1,6 @@
+{{#json key="contents" type="object"}}
+  {{#match innerHTML "(?:<blockquote[\s\S]*?>)([\s\S]*?)((?:<cite[\s\S]*?>)([\s\S]*?)(?:<\/cite>))?(?:<\/blockquote>)"}}
+    {{#if match.[1]}}{{{json key="quote" value=(get this "@input")}}},{{/if}}
+    {{#if match.[3]}}{{{json key="citation" value=(get this "@input")}}},{{/if}}
+  {{/match}}
+{{/json}},

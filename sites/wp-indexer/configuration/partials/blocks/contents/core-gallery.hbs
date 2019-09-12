@@ -1,0 +1,21 @@
+{{#json key="contents" type="array"}}
+  {{#match innerHTML "(?:<li.*?>)(.*?)(?:<\/li>)"}}
+    {{#json}}
+      {{#if (itemAt (itemAt (match match.[1] '(?:src=")(.*?)(?:")') 0) 1)}}
+        {{{json key="src" value=(get this "@input")}}},
+      {{/if}}
+      {{#if (itemAt (itemAt (match match.[1] '(?:href=")(.*?)(?:".*?><img)') 0) 1)}}
+        {{{json key="href" value=(get this "@input")}}},
+      {{/if}}
+      {{#if (itemAt (itemAt (match match.[1] '(?:alt=")(.*?)(?:")') 0) 1)}}
+        {{{json key="alt" value=(get this "@input")}}},
+      {{/if}}
+      {{#if (itemAt (itemAt (match match.[1] '(?:data-id=")(.*?)(?:")') 0) 1)}}
+        {{{json key="id" value=(get this "@input")}}},
+      {{/if}}
+      {{#if (itemAt (itemAt (match match.[1] '(?:<figcaption.*?>)(.*?)(?:<\/figcaption)') 0) 1)}}
+        {{{json key="caption" value=(get this "@input")}}},
+      {{/if}}
+    {{/json}},
+  {{/match}}
+{{/json}}

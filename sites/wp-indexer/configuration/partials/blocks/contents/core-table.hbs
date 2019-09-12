@@ -1,0 +1,3 @@
+{{#json key="contents" type="string"~}}
+  {{{itemAt (itemAt (match (trim innerHTML) "^(?:<table[\s\S]*?>)([\s\S]*?)(?:</table>)$") 0) 1}}}
+{{~/json}}

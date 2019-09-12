@@ -1,0 +1,27 @@
+{
+  "name": "index",
+  "pattern": "/index",
+  "acceptedVerbs": ["POST", "GET"],
+  "debug": true,
+  "tasks": [
+    {
+      "name": "test1",
+      "taskModule": "render",
+      "renderer": "bristles",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.last-published-post",
+        "output": "data",
+        "parseJson": true
+      }
+    },
+    {
+      "name": "destination",
+      "taskModule": "render",
+      "renderer": "bristles",
+      "config": {
+        "template": ">context.metaData.handlebars.templates.webhook-post",
+        "output": "body"
+      }
+    }
+  ]
+}

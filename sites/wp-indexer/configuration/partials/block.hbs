@@ -1,0 +1,31 @@
+{{parse (slugify blockName) context=this path="blockName"}}
+{{#json}}
+  {{{json key="blockName" value=blockName}}},
+
+  {{!-- check to see if we have an attributes override for block type --}}
+  {{#if (get @root.context.metaData.handlebars.partials (concat "blocks_attributes_" blockName))}}
+    {{> (concat "blocks_attributes_" blockName) this}}
+  {{else}}
+    {{#any attrs}}
+      {{{json key="attributes" value=attrs}}},
+    {{/any}}
+  {{/if}}
+
+  {{!-- we don't want to store `contents` if there are innerBlocks --}}
+  {{#any innerBlocks}}
+    {{#json key="innerBlocks" type="array"}}
+      {{#each innerBlocks}}
+        {{#if blockName}}
+          {{>block this}},
+        {{/if}}
+      {{/each}}
+    {{/json}}
+  {{else}}
+    {{!-- check to see if we have a contents override for block type --}}
+    {{#if (get @root.context.metaData.handlebars.partials (concat "blocks_contents_" blockName))}}
+      {{> (concat "blocks_contents_"  blockName) this}}
+    {{else}}
+      {{{json key="contents" value=innerHTML}}}
+    {{/if}}
+  {{/any}}
+{{/json}}

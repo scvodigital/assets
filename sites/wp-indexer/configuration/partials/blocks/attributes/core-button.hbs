@@ -1,0 +1,9 @@
+{{#json key="attributes" type="object"}}
+  {{#if attrs.className}}{{{json key="className" value=attrs.className}}},{{/if}}
+  {{#if attrs.align}}{{{json key="align" value=attrs.align}}},{{/if}}
+  {{#if attrs.backgroundColor}}{{{json key="backgroundColour" value=attrs.backgroundColor}}},{{/if}}
+  {{#if attrs.textColor}}{{{json key="textColour" value=attrs.textColor}}},{{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:href=\")(.*?)(?:\")") 0) 1)}}
+    {{{json key="href" value=(get this "@input")}}},
+  {{/if}}
+{{/json}},

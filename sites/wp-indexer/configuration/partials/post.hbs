@@ -1,0 +1,16 @@
+{{parse (coalesce metadata.blocks.[0] "{}") path="blocks" context=this type="json"}}
+{{#json}}
+  {{{json key="Id" value=(concat site "-post-" id)}}},
+  {{{json key="author" value=(concat site "-author-" author)}}},
+  {{{json key="title" value=title}}},
+  {{#json key="textbag" type="string"~}}
+    {{{trim (regexReplace (regexReplace content "(<!--[\s\S]*?-->)|(<\/?[\s\S]*?>)" "igm" " ") "([\s\n]{2,})" "igm" " ")}}}
+  {{~/json}},
+  {{#json key="blocks" type="array"}}
+    {{#each blocks}}
+      {{#if blockName}}
+        {{>block this}},
+      {{/if}}
+    {{/each}}
+  {{/json}}
+{{/json}}

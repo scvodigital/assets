@@ -1,0 +1,6 @@
+{{#json key="attributes" type="object"}}
+  {{#if attrs.className}}{{{json key="className" value=attrs.className}}},{{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:height:)([0-9]+)(?:px)") 0) 1)}}
+    {{{json key="height" value=(parse (get this "@input") type="number")}}},
+  {{/if}}
+{{/json}},

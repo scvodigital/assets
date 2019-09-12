@@ -1,0 +1,23 @@
+{{#json key="attributes" type="object"}}
+  {{#if attrs.className}}{{{json key="className" value=attrs.className}}},{{/if}}
+  {{#if attrs.id}}{{{json key="id" value=attrs.id}}},{{/if}}
+  {{#if attrs.align}}{{{json key="align" value=attrs.align}}},{{/if}}
+  {{#if attrs.width}}{{{json key="width" value=attrs.width}}},{{/if}}
+  {{#if attrs.height}}{{{json key="height" value=attrs.height}}},{{/if}}
+  {{{json key="src" value=(itemAt (itemAt (match (trim innerHTML) "(?:src=\")(.*?)(?:\")") 0) 1)}}},
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:<figcaption.*?>)(.*?)(?:</figcaption>)") 0) 1)}}
+    {{{json key="caption" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:alt=\")(.*?)(?:\")") 0) 1)}}
+    {{{json key="alt" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:rel=\")(.*?)(?:\")") 0) 1)}}
+    {{{json key="rel" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:href=\")(.*?)(?:\")") 0) 1)}}
+    {{{json key="link" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match (trim innerHTML) "(?:<a[^>]*?class=\")(.*?)(?:\")") 0) 1)}}
+    {{{json key="linkClass" value=(get this "@input")}}},
+  {{/if}}
+{{/json}},

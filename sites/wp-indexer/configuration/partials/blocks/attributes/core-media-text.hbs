@@ -1,0 +1,17 @@
+{{#json key="attributes" type="object"}}
+  {{#if attrs.className}}{{{json key="className" value=attrs.className}}},{{/if}}
+  {{#if attrs.align}}{{{json key="align" value=attrs.align}}},{{/if}}
+  {{#if attrs.mediaId}}{{{json key="mediaId" value=attrs.mediaId}}},{{/if}}
+  {{#if attrs.mediaType}}{{{json key="mediaType" value=attrs.mediaType}}},{{/if}}
+  {{#if attrs.isStackedOnMobile}}{{{json key="isStackedOnMobile" value=attrs.isStackedOnMobile}}},{{/if}}
+  {{#if attrs.backgroundColor}}{{{json key="backgroundColour" value=attrs.backgroundColor}}},{{/if}}
+
+  {{{json key="mediaPosition" value=(eq attrs.mediaPosition "right" ifTrue="right" ifFalse="left")}}},
+
+  {{#if (itemAt (itemAt (match innerHTML '(?:src=")(.*?)(?:")') 0) 1)}}
+    {{{json key="src" value=(get this "@input")}}},
+  {{/if}}
+  {{#if (itemAt (itemAt (match innerHTML '(?:alt=")(.*?)(?:")') 0) 1)}}
+    {{{json key="alt" value=(get this "@input")}}},
+  {{/if}}
+{{/json}},

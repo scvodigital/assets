@@ -55,19 +55,19 @@
         </div>
       </div> --}}
       <input type="hidden" name="postcode" id="postcode" value="{{@root.data.accountInfo.postcode}}" />
-      <input type="hidden" name="la" id="location-la" value="{{@root.data.accountInfo.la}}" />
-      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField">
-        <span class="far fa-map-marker-alt mdc-text-field__icon geo-lookup" tabindex="0" title="Find my location"></span>
-        <input type="text" id="location" name="location" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.location}}" placeholder="" data-lpignore="true" data-location-search='{
+      <input type="hidden" name="la" id="postcode-la" value="{{@root.data.accountInfo.la}}" />
+      <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField" style="z-index:100;">
+        <span class="far fa-map-marker-alt mdc-text-field__icon postcode-lookup" tabindex="0" title="Find my location"></span>
+        <input type="text" id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" placeholder="" data-lpignore="true" data-location-search='{
           "laSelector": "[name=\"la\"]",
-          "locationServicesSelector": ".geo-lookup"
+          "locationServicesSelector": ".postcode-lookup"
         }'
-        {{>form_validation_attributes @root.context.metaData.accountInfoValidation.location}}>
+        {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
         <div class="mdc-notched-outline">
           <div class="mdc-notched-outline__leading"></div>
           <div class="mdc-notched-outline__notch">
-            <label for="location" class="mdc-floating-label">
-              {{#if admin}}Work location{{else}}Home location{{/if}}
+            <label for="postcode" class="mdc-floating-label">
+              {{#if admin}}Work postcode{{else}}Home postcode{{/if}}
             </label>
           </div>
           <div class="mdc-notched-outline__trailing"></div>

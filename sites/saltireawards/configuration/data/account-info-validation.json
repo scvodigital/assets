@@ -4,7 +4,6 @@
   "date_of_birth": {"required": true, "type": "date"},
   "date_of_birth_checked": {"required": true, "type": "date"},
   "postcode": {"required": true, "maxlength": 8},
-  "location": {"required": true, "maxlength": 255},
   "school_college_name": {"maxlength": 64},
   "verification_email": {"type": "email", "maxlength": 128},
   "phone": {"type": "number", "maxlength": 15},

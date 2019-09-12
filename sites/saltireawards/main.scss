@@ -214,6 +214,14 @@ header {
 // .mdc-text-field--textarea:not(.mdc-text-field--disabled) {
 //   background-color: whitesmoke !important;
 // }
+.mdc-typography--headline4,
+.mdc-typography--headline5,
+.mdc-typography--headline6,
+.mdc-form-field,
+.mdc-select,
+.mdc-text-field {
+  margin-bottom: $unit;
+}
 
 .sign-in-form,
 .reset-password-form {

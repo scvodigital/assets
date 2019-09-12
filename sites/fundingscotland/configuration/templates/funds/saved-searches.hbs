@@ -6,66 +6,93 @@
   {{#>premium_content}}
     {{#compare (length @root.data.searches.items.[0]) ">" 0 ~}}
       <ul class="mdc-list mdc-list--two-line mdc-list--avatar-list mdc-elevation--z3">
+        <li class="mdc-list-item mdc-list-item--header">
+          <span class="mdc-list-item__graphic far hide-sm" aria-hidden="true"></span>
+          <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone saved-search">
+                <span class="mdc-list-item__text">
+                  <strong>Search</strong>
+                </span>
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-2-phone align-centre">
+                <span class="mdc-list-item__text">
+                  <strong>Email</strong>
+                </span>
+              </div>
+              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-2-phone align-centre">
+                <span class="mdc-list-item__text">
+                  <strong>Delete</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
         {{#each @root.data.searches.items.[0] ~}}
           <li class="mdc-list-item mdc-ripple-upgraded">
             <span class="mdc-list-item__graphic far fa-search fa-2x hide-sm" aria-hidden="true"></span>
-
-            <span class="mdc-list-item__text">
-              <span class="mdc-list-item__primary-text">
-                <a href="/search?{{{this.querystring}}}">{{{partition}}}</a>
-              </span>
-              <span class="mdc-list-item__secondary-text" title="
-                  {{~#each (entries (querystring this.querystring))~}}
-                    {{getProperty (filter @root.context.metaData.terms "key" "==" this.[0]) "0.label"}}:
-                    {{~#each (arrayify this.[1])~}}
-                      {{~>get_term_label field=../[0] term=this}}{{#unless @last}}, {{/unless~}}
-                    {{~/each~}}
-                    {{~#unless @last}} | {{/unless~}}
-                  {{~/each}}">
-                {{#withExtend this termLimit=2}}
-                  {{#each (entries (querystring this.querystring))}}
-                    {{#compare this.[0] "keywords"}}
-                      <strong>Keywords: </strong> {{this.[1]}}
-                    {{else}}
-                      <strong>{{getProperty (filter @root.context.metaData.terms "key" "==" this.[0]) "0.label"}}: </strong>
-                      {{#each (arrayify this.[1])}}
-                        {{#if (compare @index "<" ../../termLimit)}}
-                          {{>get_term_label field=../[0] term=this}}{{#unless @last}},{{/unless}}
-                        {{/if}}
-                      {{/each}}
-                      {{#if (compare (length (arrayify this.[1])) ">" ../termLimit)}}
-                        (+{{subtract (length (arrayify this.[1])) ../termLimit}} more)
-                      {{/if}}
-                      {{#unless @last}}-{{/unless}}
-                    {{/compare}}
-                  {{/each}}
-                {{/withExtend}}
-              </span>
-            </span>
-
-            <span class="mdc-list-item__meta">
-              <div class="mdc-chip-set">
-                {{#> ajax_chip
-                  onUrl=(concat "/toggle-subscription?name=" (urlencode partition))
-                  offUrl=(concat "/toggle-subscription?name=" (urlencode partition))
-                  onText="Emails"
-                  offText="Emails"
-                  iconClasses="far fa-envelope"
-                  on=partitionActive
-                }}
-                {
-                  "extraAttributes": "data-saved-search-name=\"{{../partition}}\"",
-                  "onClasses": {
-                    "[data-saved-search-name=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
-                  },
-                  "offClasses": {
-                    "[data-saved-search-name=\"{{../partition}}\"]": ""
-                  }
-                }
-                {{/ajax_chip}}
-                {{!--{{> delete_search name=partition}}--}}
+            <div class="mdc-layout-grid">
+              <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone saved-search">
+                  <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">
+                      <a href="/search?{{{this.querystring}}}">{{{partition}}}</a>
+                    </span>
+                    <span class="mdc-list-item__secondary-text" title="
+                        {{~#each (entries (querystring this.querystring))~}}
+                          {{getProperty (filter @root.context.metaData.terms "key" "==" this.[0]) "0.label"}}:
+                          {{~#each (arrayify this.[1])~}}
+                            {{~>get_term_label field=../[0] term=this}}{{#unless @last}}, {{/unless~}}
+                          {{~/each~}}
+                          {{~#unless @last}} | {{/unless~}}
+                        {{~/each}}">
+                      {{#withExtend this termLimit=2}}
+                        {{#each (entries (querystring this.querystring))}}
+                          {{#compare this.[0] "keywords"}}
+                            <strong>Keywords: </strong> {{this.[1]}}
+                          {{else}}
+                            <strong>{{getProperty (filter @root.context.metaData.terms "key" "==" this.[0]) "0.label"}}: </strong>
+                            {{#each (arrayify this.[1])}}
+                              {{#if (compare @index "<" ../../termLimit)}}
+                                {{>get_term_label field=../[0] term=this}}{{#unless @last}},{{/unless}}
+                              {{/if}}
+                            {{/each}}
+                            {{#if (compare (length (arrayify this.[1])) ">" ../termLimit)}}
+                              (+{{subtract (length (arrayify this.[1])) ../termLimit}} more)
+                            {{/if}}
+                            {{#unless @last}}-{{/unless}}
+                          {{/compare}}
+                        {{/each}}
+                      {{/withExtend}}
+                    </div>
+                  </span>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-2-phone align-centre">
+                  <div class="mdc-chip-set mdc-chip-set--filter">
+                    {{#> ajax_chip
+                      onUrl=(concat "/toggle-subscription?name=" (urlencode partition))
+                      offUrl=(concat "/toggle-subscription?name=" (urlencode partition))
+                      onText="Email alerts"
+                      offText="Email alerts"
+                      iconClasses="far fa-envelope"
+                      on=partitionActive
+                    }}
+                    {
+                      "extraAttributes": "data-saved-search-name=\"{{../partition}}\"",
+                      "onClasses": {
+                        "[data-saved-search-name=\"{{../partition}}\"] .mdc-chip__icon": "mdc-chip__icon--leading-hidden"
+                      },
+                      "offClasses": {
+                        "[data-saved-search-name=\"{{../partition}}\"]": ""
+                      }
+                    }
+                    {{/ajax_chip}}
+                  </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-2-phone align-centre">
+                  {{> delete_search name=partition}}
+                </div>
               </div>
-            </span>
+            </div>
           </li>
           {{#unless @last}}
             <li class="mdc-list-divider" role="separator"></li>

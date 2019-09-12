@@ -1,6 +1,6 @@
 {
   "name": "page_blogs",
-  "debug": true,
+  "debug": false,
   "pattern": "/blogs",
   "tasks": [
     {

@@ -59,6 +59,25 @@ header {
           color: $mdc-theme-primary;
         }
       }
+      .mdc-tab.mdc-tab--active {
+        background-color: transparent;
+        border-bottom: $unit/5 solid $mdc-theme-footer-dark;
+      }
+    }
+    .scvo-tab-bar {
+      background-color: $mdc-theme-footer-light;
+      .mdc-tab-bar .mdc-tab:first-child {
+        padding-left: $unit;
+      }
+      .mdc-tab-bar .mdc-tab {
+        display: inline-block;
+        .mdc-tab--label {
+          color: $mdc-theme-footer-dark;
+        }
+      }
+      .brand-logo img {
+        height: 36px;
+      }
     }
     #upper-tab-bar {
       .mdc-tab:hover .mdc-tab__text-label {

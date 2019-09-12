@@ -3574,8 +3574,14 @@ table.membership-fees.wp-block-table {
 }
 .mdc-toolbar__row.scvo-tab-bar {
   background-color: $mdc-theme-footer-light;
-  .container-fluid .mdc-tab-bar .mdc-tab {
-    color: $mdc-theme-footer-dark !important;
+  .container-fluid .mdc-tab-bar {
+    .mdc-tab {
+      color: $mdc-theme-footer-dark !important;
+    }
+    .mdc-tab.mdc-tab--active {
+      background-color: transparent;
+      border-bottom: $unit/5 solid $mdc-theme-footer-dark;
+    }
   }
   .brand-logo img {
     height: 36px;

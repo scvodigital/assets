@@ -1,6 +1,6 @@
 {
   "name": "page_press",
-  "debug": true,
+  "debug": false,
   "pattern": "/press-media",
   "tasks": [
     {

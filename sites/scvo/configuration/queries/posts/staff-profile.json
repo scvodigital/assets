@@ -4,6 +4,7 @@
     "og_image",
     "name_full",
     "job_title",
+    "organisation_name",
     "rendered.scvo_profile"
   ],
   "query": {

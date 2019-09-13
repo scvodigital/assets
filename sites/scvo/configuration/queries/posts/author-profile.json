@@ -5,7 +5,7 @@
     "og_image",
     "name_full",
     "job_title",
-    "organisation",
+    "organisation_name",
     "rendered.scvo_profile",
     "rendered.json_ld"
   ],

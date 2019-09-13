@@ -212,7 +212,16 @@
   "highland": {
     "area": "Highland",
     "contacts": {
-      "^PH(19|20|21|22|23|24|25|26).*": {
+      "^IV([6-9]|1[0-9]|2[0-3]).*": {
+        "title": "Ross-shire Voluntary Action",
+        "email": "rva@rossvolact.org.uk",
+        "phone": "01349862431",
+        "logo": "https://www.rossvolact.org.uk/uploads/3/8/5/3/38531437/rva-logo_1.jpg",
+        "website": "http://www.rossvolact.org.uk",
+        "twitter": "https://twitter.com/RossVolAct",
+        "facebook": "https://www.facebook.com/RossVolAct"
+      },
+      "^PH(19|2[0-6]).*": {
         "title": "Voluntary Action in Badenoch & Strathspey",
         "email": "enquiries@vabs.org.uk",
         "phone": "01479873445",
@@ -220,7 +229,7 @@
         "website": "http://www.vabs.org.uk",
         "facebook": "https://www.facebook.com/Voluntary-Action-in-Badenoch-and-Strathspey-650057668387502/"
       },
-      "^(?!PH(19|20|21|22|23|24|25|26)).*": {
+      "^(?!PH(19|2[0-6]))(?!IV([6-9]|1[0-9]|2[0-3])).*": {
         "title": "Highland Third Sector Interface",
         "email": "info@highlandtsi.org.uk",
         "phone": "01349864289",

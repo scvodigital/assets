@@ -1,6 +1,6 @@
 {
-  "name": "submit-individual-hours",
-  "pattern": "/verify-hours",
+  "name": "submit-hours-code",
+  "pattern": "/submit-hours-code",
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",

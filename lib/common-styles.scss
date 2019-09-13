@@ -1480,6 +1480,7 @@ hr {
   .mdc-list-item--activated:hover,
   .mdc-list-item--activated {
     font-weight: $heading-medium-font-weight;
+    color: $mdc-theme-primary;
   }
 }
 .mdc-drawer__content.mdc-list {
@@ -1986,15 +1987,19 @@ body.shortlist {
 }
 .mdc-tab--active,
 .mdc-menu .mdc-list-item.mdc-list-item--activated,
+.mdc-drawer .mdc-list-item--activated,
 .mdc-list-item--activated {
   font-weight: $heading-medium-font-weight !important;
+  color: $mdc-theme-primary;
   .mdc-tab__icon.fal,
   .mdc-list-item__graphic.fal {
     font-weight: 400;
+    color: $mdc-theme-primary;
   }
   .mdc-tab__icon.far,
   .mdc-list-item__graphic.far {
     font-weight: 900;
+    color: $mdc-theme-primary;
   }
 }
 

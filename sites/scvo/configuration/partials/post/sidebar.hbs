@@ -12,9 +12,11 @@
       {{{truncate description 140}}}
     </div>
   </section>
+  {{#ifAll categories post_tags ~}}
   <section class="mdc-card__actions">
     <div class="post-info">
       {{> post_info_categories}}
     </div>
   </section>
+  {{/ifAll ~}}
 </li>

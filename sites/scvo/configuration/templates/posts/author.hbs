@@ -9,9 +9,9 @@
           <h1 class="header-text">
             <span class="header-text-banner">
               {{#if @root.data.supplimentaryResponses.staff_profile.hits.hits.[0] ~}}
-              {{{@root.data.supplimentaryResponses.staff_profile.hits.hits.[0]._source.rendered.scvo_header}}}
+              {{> headers_author @root.data.supplimentaryResponses.staff_profile.hits.hits.[0]._source}}
               {{else}}
-              {{{@root.data.supplimentaryResponses.author_profile.hits.hits.[0]._source.rendered.scvo_header}}}
+              {{> headers_author @root.data.supplimentaryResponses.author_profile.hits.hits.[0]._source}}
               {{/if ~}}
             </span>
           </h1>

@@ -1,6 +1,8 @@
 {
   "size": 5,
   "_source": [
+    "Id",
+    "path",
     "categories_id",
     "title",
     "publish_on",

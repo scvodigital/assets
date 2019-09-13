@@ -48,7 +48,7 @@ body {
 a {
   color: $mdc-theme-primary;
 }
-a:not(.mdc-list-item):hover {
+a:not(.mdc-list-item):not(.mdc-button):hover {
   color: $mdc-theme-primary-dark;
 }
 

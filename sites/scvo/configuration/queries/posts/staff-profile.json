@@ -1,7 +1,9 @@
 {
   "size": 1,
   "_source": [
-    "rendered.scvo_header",
+    "og_image",
+    "name_full",
+    "job_title",
     "rendered.scvo_profile"
   ],
   "query": {

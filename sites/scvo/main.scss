@@ -1144,6 +1144,8 @@ a:hover {
 .mdc-toolbar__title a,
 .mdc-card__media a,
 .post-info-tags a,
+.scvo-staff .contact a,
+a.pagination-arrow,
 a.pagination-page,
 a.brand-logo,
 a.thumbnail {
@@ -1152,6 +1154,8 @@ a.thumbnail {
 .mdc-toolbar__title a:hover,
 .mdc-card__media a:hover,
 .post-info-tags a:hover,
+.scvo-staff .contact a:hover,
+a.pagination-arrow:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
 a.thumbnail:hover {
@@ -4356,6 +4360,35 @@ ul.supplimentary-list {
 .content .supplimentary-list {
   margin-top: $unit/2;
   margin-bottom: $unit;
+}
+
+// Pagination ==================================================================
+
+.pagination {
+  li {
+    a {
+      color: $mdc-theme-secondary-dark;
+    }
+    a.pagination-arrow {
+      color: $mdc-theme-secondary-dark;
+    }
+  }
+  li.disabled a.pagination-arrow {
+    color: $mdc-theme-secondary-dark;
+  }
+  li.current-page {
+    background-color: $mdc-theme-complimentary-dark;
+  }
+  li:hover,
+  li.current-page:hover {
+    background-color: $mdc-theme-primary-dark;
+    a {
+      color: white;
+    }
+  }
+  li.disabled:hover {
+    background-color: inherit !important;
+  }
 }
 
 b,

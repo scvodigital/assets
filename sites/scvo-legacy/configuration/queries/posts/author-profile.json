@@ -10,7 +10,7 @@
   "query": {
     {{#if @root.request.params.author_slug ~}}
     "term": {
-      "slug": "post_author_{{@root.request.params.author_slug}}"
+      "slug": "p_author_{{@root.request.params.author_slug}}"
     }
     {{else}}
     "match_none": {}

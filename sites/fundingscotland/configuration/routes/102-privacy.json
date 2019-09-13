@@ -6,8 +6,8 @@
     "hideSearch": true
   },
   "tasks": [
-    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.currentSite",
     "context.metaData.commonTasks.profileData",
     "context.metaData.commonTasks.bulletinName",
     "context.metaData.commonTasks.menus",

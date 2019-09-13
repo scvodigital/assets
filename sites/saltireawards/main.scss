@@ -7,18 +7,18 @@ $mdc-theme-complimentary: #ccc;
 $mdc-theme-complimentary-light: #ccc;
 $mdc-theme-complimentary-dark: #ccc;
 
-$mdc-theme-secondary: #E0E0E0; // Gray 300
-$mdc-theme-secondary-light: #F5F5F5; // Gray 100
-$mdc-theme-secondary-dark: #212121; // Gray 900
+$mdc-theme-secondary: #E0E0E0;
+$mdc-theme-secondary-light: #F5F5F5;
+$mdc-theme-secondary-dark: #212121;
 
 $mdc-theme-challenge: #33B0D7;
 $mdc-theme-approach: #BBCF5C;
 $mdc-theme-ascent: #ED884C;
 $mdc-theme-summit: #8E7BA9;
 
-$mdc-theme-footer: #37474F; // Blue Gray 800
+$mdc-theme-footer: #37474F;
 $mdc-theme-footer-light: #E1E3E4;
-$mdc-theme-footer-dark: #263238; // Blue Gray 900
+$mdc-theme-footer-dark: #263238;
 
 $unit: 1rem;
 
@@ -43,6 +43,13 @@ body {
 }
 .mdc-top-app-bar {
   background-color: #fff;
+}
+
+a {
+  color: $mdc-theme-primary;
+}
+a:not(.mdc-list-item):hover {
+  color: $mdc-theme-primary-dark;
 }
 
 header {
@@ -203,11 +210,6 @@ header {
     font-size: 95%;
     display: inline-block;
     font-family: 'Consolas', 'Monaco', 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
-    user-select: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
   }
 }
 

@@ -1202,9 +1202,9 @@ figure {
 .mdc-button:hover {
   color: white;
   background-color: $mdc-theme-primary;
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
+  // -webkit-transition: background-color 200ms linear;
+  // -ms-transition: background-color 200ms linear;
+  // transition: background-color 200ms linear;
 }
 .mdc-button.mdc-button--raised {
   border: none;
@@ -1224,9 +1224,9 @@ figure {
 .mdc-button--raised:not(:disabled):hover,
 .mdc-button--unelevated:not(:disabled):hover {
   background-color: $mdc-theme-primary-dark;
-  -webkit-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
+  // -webkit-transition: background-color 200ms linear;
+  // -ms-transition: background-color 200ms linear;
+  // transition: background-color 200ms linear;
 }
 .pull-right {
   float: right;
@@ -3101,7 +3101,7 @@ body.i-love-charity main .page-info,
   line-height: 1.96rem;
   outline: none;
   text-transform: none;
-  transition: background-color 0.1s linear;
+  // transition: background-color 0.1s linear;
 }
 .mdc-button.mdc-button--raised.pull-right {
   margin-top: $unit/2;
@@ -3574,8 +3574,14 @@ table.membership-fees.wp-block-table {
 }
 .mdc-toolbar__row.scvo-tab-bar {
   background-color: $mdc-theme-footer-light;
-  .container-fluid .mdc-tab-bar .mdc-tab {
-    color: $mdc-theme-footer-dark !important;
+  .container-fluid .mdc-tab-bar {
+    .mdc-tab {
+      color: $mdc-theme-footer-dark !important;
+    }
+    .mdc-tab.mdc-tab--active {
+      background-color: transparent;
+      border-bottom: $unit/5 solid $mdc-theme-footer-dark;
+    }
   }
   .brand-logo img {
     height: 36px;

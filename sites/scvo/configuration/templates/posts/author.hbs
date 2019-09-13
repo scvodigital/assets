@@ -44,8 +44,8 @@
           <div class="author-about static-sidebar">
             {{#if @root.data.supplimentaryResponses.staff_profile.hits.hits.[0]}}
             {{> sidebars_author @root.data.supplimentaryResponses.staff_profile.hits.hits.[0]._source}}
-            {{else}}
-            {{{@root.data.primaryResponse.hits.hits.[0]._source.rendered.scvo_profile}}}
+            {{!-- {{else}}
+            {{> sidebars_author @root.data.primaryResponse.hits.hits.[0]._source}} --}}
             {{/if}}
           </div>
         </div>

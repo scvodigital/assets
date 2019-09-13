@@ -1,7 +1,11 @@
 {
   "size": 4,
   "_source": [
-    "rendered.scvo_gist"
+    "Id",
+    "url",
+    "title",
+    "image_portrait_small",
+    "date_published"
   ],
   "query": {
     "bool": {

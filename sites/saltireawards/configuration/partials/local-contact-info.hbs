@@ -1,5 +1,5 @@
-{{#if @root.data.areaInfo.hits.hits.0._source.district ~}}
-{{#with (getProperty @root.context.metaData.tsiList (slugify @root.data.areaInfo.hits.hits.0._source.district)) ~}}
+{{#if @root.data.accountInfo.local_authority ~}}
+{{#with (getProperty @root.context.metaData.tsiList (slugify @root.data.accountInfo.local_authority)) ~}}
 Your {{#compare @root.data.accountInfo.user_type "Group Admin"}}TSI{{else}}Saltire{{/compare}} contact is
 {{#each contacts ~}}
 {{#if (regexMatch @root.data.accountInfo.postcode @key "gi") ~}}

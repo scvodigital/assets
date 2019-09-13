@@ -1,7 +1,18 @@
 {
   "size": 5,
   "_source": [
-    "rendered.scvo_sidebar"
+    "categories_id",
+    "title",
+    "publish_on",
+    "path",
+    "description",
+    "is_press_release",
+    "author_slug",
+    "author_name_full",
+    "categories",
+    "categories_slug",
+    "post_tags",
+    "post_tags_slug"
   ],
   "query": {
     "bool": {

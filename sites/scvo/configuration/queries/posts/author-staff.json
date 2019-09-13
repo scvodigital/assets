@@ -1,15 +1,25 @@
 {
   "size": 3,
   "_source": [
+    "Id",
+    "path",
     "author",
     "author_sfid",
     "author_slug",
+    "job_title",
+    "organisation",
+    "directorate",
+    "department",
     "slug",
     "author_name_full",
     "categories",
     "categories_id",
     "categories_slug",
-    "rendered.scvo_list"
+    "post_tags",
+    "post_tags_slug",
+    "title",
+    "publish_on",
+    "description_truncated"
   ],
   "query": {
     "bool": {

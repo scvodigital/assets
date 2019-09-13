@@ -1,7 +1,7 @@
 {
   "name": "page_contact",
   "pattern": "/contact",
-  "debug": false,
+  "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
     "context.metaData.commonTasks.getAccountInfo",

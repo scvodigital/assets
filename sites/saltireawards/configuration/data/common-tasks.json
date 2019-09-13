@@ -66,6 +66,15 @@
     },
     "renderer": "handlebars"
   },
+  "getTsiContact": {
+    "name": "tsiContact",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "output": "data",
+      "template": ">context.metaData.handlebars.templates.account_tsi-contact-email"
+    }
+  },
   "getTasksInfo" : {
     "name": "tasksInfo",
     "taskModule": "salesforceApex",

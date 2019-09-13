@@ -154,7 +154,14 @@
     "website": "http://www.highlandtsi.org.uk",
     "twitter": "https://twitter.com/HighlandTSI",
     "facebook": "https://www.facebook.com/HighlandTSI/",
-    "email": "info@highlandtsi.org.uk"
+    "email": "info@highlandtsi.org.uk",
+    "local_contacts": {
+      "^PH(19|20|21|22|23|24|25|26)": {
+        "title": "Voluntary Action in Badenoch & Strathspey",
+        "email": "enquiries@vabs.org.uk",
+        "phone": "01479873445"
+      }
+    }
   },
   "inverclyde": {
     "area": "Inverclyde",

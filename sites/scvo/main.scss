@@ -1025,6 +1025,7 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  background: $mdc-theme-footer-light;
 }
 .container-fluid {
   max-width: 1400px;
@@ -1128,6 +1129,7 @@ footer h3,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background: #fefefe;
 }
 a {
   color: $mdc-theme-primary;
@@ -1145,6 +1147,8 @@ a:hover {
 .mdc-card__media a,
 .post-info-tags a,
 .scvo-staff .contact a,
+.mdc-card__title--large a,
+a.wp-block-file__button,
 a.pagination-arrow,
 a.pagination-page,
 a.brand-logo,
@@ -1156,6 +1160,8 @@ a.thumbnail {
 .mdc-card__media a:hover,
 .post-info-tags a:hover,
 .scvo-staff .contact a:hover,
+.mdc-card__title--large a:hover,
+a.wp-block-file__button:hover,
 a.pagination-arrow:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
@@ -1670,6 +1676,8 @@ section.search {
     padding: 0 $unit/2;
     background: #555;
     color: white !important;
+    line-height: 1.4;
+    display: inline-block;
   }
   .wp-block-file__button:hover {
     font-weight: $heading-medium-font-weight;
@@ -3128,8 +3136,8 @@ body.i-love-charity main .page-info,
   background-color: $mdc-theme-primary;
   font-size: 1.2rem;
   letter-spacing: normal;
-  line-height: 1.7rem;
-  margin: 0;
+  line-height: 2rem;
+  margin: 0 0 $unit/2;
   padding: 0 0 $unit/2;
   font-weight: $heading-medium-font-weight !important;
   a {
@@ -3501,8 +3509,12 @@ table.membership-fees.wp-block-table {
     li .mdc-card__action {
       // line-height: 1.96rem;
       width: 100%;
-      margin-bottom: $unit/2;
+      // margin-bottom: $unit/2;
       display: inline;
+      line-height: 2rem;
+    }
+    li .mdc-card__action.mdc-button {
+      display: inline-block;
     }
     li:last-child .mdc-card__action {
       margin-bottom: 0;

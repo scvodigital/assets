@@ -121,21 +121,21 @@
                 <a class="mdc-tab{{#if (regexMatch ../request.url.pathname route "gi")}} mdc-tab--active{{/if}}" href="{{stripTrailingSlash path}}"><span class="mdc-tab--label">{{{label}}}</span></a>
                 {{/each ~}}
               </nav>
+              {{#if data.auth ~}}
+              {{#>components_anchored_menu
+                  buttonClasses="mdc-theme--on-primary"
+                  imageUrl=(default @root.data.auth.photoURL false)
+                  imageClasses="far fa-fw user-avatar"
+                  iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
+                  buttonLabel=@root.data.auth.email
+                  arrowClasses="far fa-fw fa-angle-down"}}
+                <a class="mdc-list-item " href="/jobs/community-jobs-scotland/vacancies/sign-out" role="menuitem">
+                  <span class="far fa-sign-out-alt mdc-list-item__graphic" aria-hidden="true"></span>
+                  Sign out
+                </a>
+              {{/components_anchored_menu}}
+              {{/if ~}}
             </section>
-            {{#if data.auth ~}}
-            {{#>components_anchored_menu
-                buttonClasses="mdc-theme--on-primary"
-                imageUrl=(default @root.data.auth.photoURL false)
-                imageClasses="far fa-fw user-avatar"
-                iconClasses=(if (if @root.data.auth.photoURL false else=true) "far fa-fw fa-user-circle" else=false)
-                buttonLabel=@root.data.auth.email
-                arrowClasses="far fa-fw fa-angle-down"}}
-              <a class="mdc-list-item " href="/jobs/community-jobs-scotland/vacancies/sign-out" role="menuitem">
-                <span class="far fa-sign-out-alt mdc-list-item__graphic" aria-hidden="true"></span>
-                Sign out
-              </a>
-            {{/components_anchored_menu}}
-            {{/if ~}}
           </div>
         </div>
       </header>

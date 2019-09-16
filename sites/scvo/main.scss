@@ -1143,29 +1143,31 @@ a:hover {
   // text-decoration: underline;
   border-bottom-color: $mdc-theme-primary;
 }
+.mdc-card__title--large a,
+.scvo-staff .contact a,
 .mdc-toolbar__title a,
 .mdc-card__media a,
 .post-info-tags a,
-.scvo-staff .contact a,
-.mdc-card__title--large a,
 .wp-block-image a,
 a.wp-block-file__button,
 a.pagination-arrow,
 a.pagination-page,
+a.mdc-list-item,
 a.brand-logo,
 a.noext,
 a.thumbnail {
   border-bottom-width: 0;
 }
+.mdc-card__title--large a:hover,
+.scvo-staff .contact a:hover,
 .mdc-toolbar__title a:hover,
 .mdc-card__media a:hover,
 .post-info-tags a:hover,
-.scvo-staff .contact a:hover,
-.mdc-card__title--large a:hover,
 .wp-block-image a:hover,
 a.wp-block-file__button:hover,
 a.pagination-arrow:hover,
 a.pagination-page:hover,
+a.mdc-list-item:hover,
 a.brand-logo:hover,
 a.noext:hover,
 a.thumbnail:hover {
@@ -2064,14 +2066,15 @@ form#settled_status {
     .mdc-button {
       text-transform: none;
       padding: 0;
-      background: transparent;
-      border-bottom: 2px solid transparent;
+      background: transparent !important;
+      border: none;
       border-radius: 0;
       height: $nav-height;
+      display: inline-flex;
     }
     .mdc-button:hover {
-      background: transparent !important;
-      border-bottom-color: rgba(255, 255, 255, 0.6);
+      // background: transparent !important;
+      // border-bottom-color: rgba(255, 255, 255, 0.6);
     }
     .mdc-button:hover::before,
     .mdc-button:hover::after,
@@ -2081,6 +2084,7 @@ form#settled_status {
     }
     .fa-fw {
       vertical-align: inherit;
+      margin-right: .25rem;
     }
     .mdc-menu-surface {
       top: $nav-height !important;

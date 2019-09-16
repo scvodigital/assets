@@ -1,13 +1,7 @@
-{{~#if @root.data.areaInfo.hits.hits.0._source.district ~}}
-{{~#with (getProperty @root.context.metaData.tsiList (slugify @root.data.areaInfo.hits.hits.0._source.district)) ~}}
-{{~#if local_contacts ~}}
-{{~#each local_contacts ~}}
+{{~#with (getProperty @root.context.metaData.tsiList (slugify @root.data.accountInfo.local_authority)) ~}}
+{{~#each contacts ~}}
 {{~#if (regexMatch @root.data.accountInfo.postcode @key "gi") ~}}
 {{email}}
 {{~/if ~}}
 {{~/each ~}}
-{{else}}
-{{email}}
-{{~/if ~}}
 {{~/with ~}}
-{{~/if ~}}

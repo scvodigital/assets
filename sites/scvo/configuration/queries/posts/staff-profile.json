@@ -1,8 +1,13 @@
 {
   "size": 1,
   "_source": [
-    "rendered.scvo_header",
-    "rendered.scvo_profile"
+    "Id",
+    "og_image",
+    "profile",
+    "about",
+    "name_full",
+    "job_title",
+    "organisation_name"
   ],
   "query": {
     "term": {

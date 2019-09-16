@@ -1,25 +1,23 @@
 {
   "size": 0,
-  "_source": [
-    "rendered.scvo_list"
-  ],
+  "_source": false,
   "query": {
     "bool": {
       "must": [
-        {{#if request.params.query.city ~}}
-        {{#compare request.params.query.city "!==" "all" ~}}
+        {{#if @root.request.params.query.city ~}}
+        {{#compare @root.request.params.query.city "!==" "all" ~}}
         {
           "term": {
-            "city_slug": "{{request.params.query.city}}"
+            "city_slug": "{{@root.request.params.query.city}}"
           }
         },
         {{/compare ~}}
         {{/if ~}}
-        {{#if request.params.query.department ~}}
-        {{#compare request.params.query.department "!==" "all" ~}}
+        {{#if @root.request.params.query.department ~}}
+        {{#compare @root.request.params.query.department "!==" "all" ~}}
         {
           "term": {
-            "department_slug": "{{request.params.query.department}}"
+            "department_slug": "{{@root.request.params.query.department}}"
           }
         },
         {{/compare ~}}
@@ -50,7 +48,14 @@
             },
             "_source": {
               "includes": [
-                "rendered.scvo_list"
+                "Id",
+                "name_full",
+                "job_title",
+                "city",
+                "work_phone",
+                "twitter",
+                "linkedin",
+                "email"
               ]
             }
           }

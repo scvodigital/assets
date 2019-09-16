@@ -1144,16 +1144,24 @@ a:hover {
 .mdc-toolbar__title a,
 .mdc-card__media a,
 .post-info-tags a,
+.scvo-staff .contact a,
+.mdc-card__title--large a,
+a.pagination-arrow,
 a.pagination-page,
 a.brand-logo,
+a.noext,
 a.thumbnail {
   border-bottom-width: 0;
 }
 .mdc-toolbar__title a:hover,
 .mdc-card__media a:hover,
 .post-info-tags a:hover,
+.scvo-staff .contact a:hover,
+.mdc-card__title--large a:hover,
+a.pagination-arrow:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
+a.noext:hover,
 a.thumbnail:hover {
   border-bottom-color: transparent;
 }
@@ -3097,11 +3105,14 @@ body.i-love-charity main .page-info,
   font-weight: $heading-medium-font-weight;
 }
 .mdc-button {
-  display: inline-table;
-  line-height: 1.96rem;
+  display: inline-block;
+  line-height: 32px;
   outline: none;
   text-transform: none;
   // transition: background-color 0.1s linear;
+}
+.mdc-button.mdc-button--raised {
+  line-height: 36px;
 }
 .mdc-button.mdc-button--raised.pull-right {
   margin-top: $unit/2;
@@ -3119,8 +3130,8 @@ body.i-love-charity main .page-info,
   background-color: $mdc-theme-primary;
   font-size: 1.2rem;
   letter-spacing: normal;
-  line-height: 1.7rem;
-  margin: 0;
+  line-height: 2rem;
+  margin: 0 0 $unit/2;
   padding: 0 0 $unit/2;
   font-weight: $heading-medium-font-weight !important;
   a {
@@ -3492,8 +3503,12 @@ table.membership-fees.wp-block-table {
     li .mdc-card__action {
       // line-height: 1.96rem;
       width: 100%;
-      margin-bottom: $unit/2;
+      // margin-bottom: $unit/2;
       display: inline;
+      line-height: 2rem;
+    }
+    li .mdc-card__action.mdc-button {
+      display: inline-block;
     }
     li:last-child .mdc-card__action {
       margin-bottom: 0;
@@ -4356,6 +4371,35 @@ ul.supplimentary-list {
 .content .supplimentary-list {
   margin-top: $unit/2;
   margin-bottom: $unit;
+}
+
+// Pagination ==================================================================
+
+.pagination {
+  li {
+    a {
+      color: $mdc-theme-secondary-dark;
+    }
+    a.pagination-arrow {
+      color: $mdc-theme-secondary-dark;
+    }
+  }
+  li.disabled a.pagination-arrow {
+    color: $mdc-theme-secondary-dark;
+  }
+  li.current-page {
+    background-color: $mdc-theme-complimentary-dark;
+  }
+  li:hover,
+  li.current-page:hover {
+    background-color: $mdc-theme-primary-dark;
+    a {
+      color: white;
+    }
+  }
+  li.disabled:hover {
+    background-color: inherit !important;
+  }
 }
 
 b,

@@ -15,7 +15,7 @@
         "queryTemplates": {
           "index": "geo_lookup",
           "type": "postcode",
-          "template": ">context.metaData.handlebars.queries.search-geo-lookup"
+          "template": ">context.metaData.handlebars.queries.search-postcode-lookup"
         }
       },
       "renderer": "handlebars"

@@ -28,7 +28,7 @@
             ]
           },
           null,
-          "verify-hours-fail"
+          "verify-hours-code-fail"
         ]
       }
     },
@@ -41,7 +41,7 @@
         "output": "data",
         "method": "POST",
         "body": ">context.metaData.handlebars.templates.tasks_apex-verify-hours-body",
-        "apexClassPath": "/SaltireVerifyHours/"
+        "apexClassPath": "/SaltireHoursVerify/"
       }
     },
     {

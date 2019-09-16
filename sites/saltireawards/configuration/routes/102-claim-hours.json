@@ -1,18 +1,17 @@
 {
-  "name": "test-page",
-  "pattern": "/test-page",
+  "name": "claim-hours",
+  "pattern": "/claim-hours",
   "debug": true,
+  "metaData": {
+    "title": "My volunteering",
+    "adminTitle": "Volunteering groups"
+  },
   "tasks": [
-    "context.metaData.commonTasks.authNotRequired",
-    {
-      "name": "claimHoursResult",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.tasks_hours-claim-body"
-      }
-    },
+    "context.metaData.commonTasks.authRequired",
+    "context.metaData.commonTasks.getSignUpStatus",
+    "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.fullSignUpRequired",
+    "context.metaData.commonTasks.isAdmin",
     {
       "name": "destination",
       "taskModule": "renderLayout",
@@ -29,14 +28,14 @@
             "layout": ">context.metaData.handlebars.layouts.default",
             "parts": {
               "head": ">context.metaData.handlebars.templates.pages_head-tags",
-              "body": ">context.metaData.handlebars.templates.pages_test",
               "sidebar": ">context.metaData.handlebars.templates.account_sidebar",
-              "foot": ">context.metaData.handlebars.templates.pages_foot"
+              "body": ">context.metaData.handlebars.templates.pages_claim-hours"
             },
             "contentType": "text/html"
           }
         }
       }
     }
+
   ]
 }

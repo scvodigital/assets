@@ -1025,6 +1025,7 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  background: $mdc-theme-footer-light;
 }
 .container-fluid {
   max-width: 1400px;
@@ -1128,6 +1129,7 @@ footer h3,
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background: #fefefe;
 }
 a {
   color: $mdc-theme-primary;
@@ -1146,6 +1148,7 @@ a:hover {
 .post-info-tags a,
 .scvo-staff .contact a,
 .mdc-card__title--large a,
+a.wp-block-file__button,
 a.pagination-arrow,
 a.pagination-page,
 a.brand-logo,
@@ -1158,6 +1161,7 @@ a.thumbnail {
 .post-info-tags a:hover,
 .scvo-staff .contact a:hover,
 .mdc-card__title--large a:hover,
+a.wp-block-file__button:hover,
 a.pagination-arrow:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
@@ -1672,6 +1676,8 @@ section.search {
     padding: 0 $unit/2;
     background: #555;
     color: white !important;
+    line-height: 1.4;
+    display: inline-block;
   }
   .wp-block-file__button:hover {
     font-weight: $heading-medium-font-weight;

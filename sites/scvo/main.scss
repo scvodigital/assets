@@ -1148,6 +1148,7 @@ a:hover {
 a.pagination-arrow,
 a.pagination-page,
 a.brand-logo,
+a.noext,
 a.thumbnail {
   border-bottom-width: 0;
 }
@@ -1158,6 +1159,7 @@ a.thumbnail {
 a.pagination-arrow:hover,
 a.pagination-page:hover,
 a.brand-logo:hover,
+a.noext:hover,
 a.thumbnail:hover {
   border-bottom-color: transparent;
 }
@@ -3101,11 +3103,14 @@ body.i-love-charity main .page-info,
   font-weight: $heading-medium-font-weight;
 }
 .mdc-button {
-  display: inline-table;
-  line-height: 1.96rem;
+  display: inline-block;
+  line-height: 32px;
   outline: none;
   text-transform: none;
   // transition: background-color 0.1s linear;
+}
+.mdc-button.mdc-button--raised {
+  line-height: 36px;
 }
 .mdc-button.mdc-button--raised.pull-right {
   margin-top: $unit/2;

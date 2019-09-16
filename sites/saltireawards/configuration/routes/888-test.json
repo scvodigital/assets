@@ -4,6 +4,9 @@
   "debug": true,
   "tasks": [
     "context.metaData.commonTasks.authNotRequired",
+    "context.metaData.commonTasks.getAccountInfo",
+
+    "context.metaData.commonTasks.adminRequired",
     {
       "name": "claimHoursResult",
       "taskModule": "render",

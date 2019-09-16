@@ -144,15 +144,6 @@
       "defaultData": {}
     }
   },
-  "isAdmin" : {
-    "name": "isAdmin",
-    "taskModule": "render",
-    "renderer": "handlebars",
-    "config": {
-      "template": "{{compare data.accountInfo.user_type '===' 'Group Admin'}}",
-      "output": "data"
-    }
-  },
   "volunteeringTermsMaps": {
     "name": "termsMaps",
     "taskModule": "render",
@@ -189,5 +180,36 @@
         }
       ]
     }
+  },
+  "isAdmin" : {
+    "name": "isAdmin",
+    "taskModule": "render",
+    "renderer": "handlebars",
+    "config": {
+      "template": "{{compare data.accountInfo.user_type '===' 'Group Admin'}}",
+      "output": "data"
+    }
+  },
+  "adminRequired": {
+    "name": "adminRequired",
+    "taskModule": "reroute",
+    "config":
+    {
+      "if": [{"missing": "data.accountInfo.external_id"},
+        "sd-needed",
+        {
+          "if": [{"var" : "data.accountInfo.verification_needed"},
+            "verify-needed",
+            {
+              "if":[{"!=":[{"var": "data.accountInfo.user_type"}, "Group Admin"]},
+                "redirect-home",
+                null
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
+
 }

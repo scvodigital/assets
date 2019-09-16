@@ -2,9 +2,19 @@
   "size": 1,
   "_source": [
     "Id",
+    "og_image",
+    "profile",
     "name_full",
-    "rendered.scvo_header",
-    "rendered.scvo_full"
+    "job_title",
+    "organisation",
+    "directorate",
+    "department",
+    "city",
+    "about",
+    "email",
+    "twitter",
+    "linkedin",
+    "work_phone"
   ],
   "query": {
     "bool": {
@@ -16,7 +26,7 @@
         },
         {
           "term": {
-            "slug": "{{request.params.slug}}"
+            "Id": "{{@root.request.params.id}}"
           }
         }
       ]

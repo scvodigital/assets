@@ -1,6 +1,6 @@
 {
   "name": "staff",
-  "pattern": "/about/staff-team/:slug",
+  "pattern": "/about/staff-team/:id(/:junk)",
   "tasks": [
     {
       "name": "primaryResponse",

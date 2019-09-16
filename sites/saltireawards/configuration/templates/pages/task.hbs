@@ -3,14 +3,16 @@
     Add a task
   </h1>
 
-  <h2 class="mdc-typography--headline6">
-    Task details
-  </h2>
 
   {{#withExtend this admin=(compare @root.data.accountInfo.user_type 'Group Admin') ~}}
+    <h2 class="mdc-typography--headline6">
+      Task details
+    </h2>
+
+
     <form id="task-details-form" action="/submit-task-details" method="POST" data-ajax-form='{
-      "successCallback": "completeCB",
-      "failureCallback": "completeCB"
+      "successCallback": "completeTaskWrite",
+      "failureCallback": "completeTaskWrite"
     }'>
     <div class="mdc-layout-grid">
       <div class="mdc-layout-grid__inner">
@@ -227,24 +229,32 @@
       Submit details
     </button>
   </form>
+
+
   {{/withExtend ~}}
+
+
+
 </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     $('#task-details-form').on('submit', function(e){
-      $('#detail-submit').prop('disabled', true);
+      $('#task-details-form').find('.submit-button').prop('disabled', true);
     })
+
   });
-  function completeCB(response){
+  function completeTaskWrite(response){
     var jsonData = JSON.parse(response);
     if (jsonData.id){
       window.location.href = '/hours/';
     } else {
-      $('#detail-submit').prop('disabled', false);
+      $('.submit-button').prop('disabled', false);
       saltireawards.componentsInitialiser.snackbar.show({message:"Failed create task."});
     }
   }
+
+
 </script>
 {{!--
 --}}

@@ -212,7 +212,7 @@
   "highland": {
     "area": "Highland",
     "contacts": {
-      "^(IV2([4578])|KW(([89]|1[01])|13)|KW14\s?7([RSTY])).*$": {
+      "^(IV2([4578])|KW(([89]|1[01])|13)|KW14\\s?7([RSTY])).*$": {
         "title": "Voluntary Groups Sutherland",
         "email": "contact@vges.org.uk",
         "phone": "01408633001",

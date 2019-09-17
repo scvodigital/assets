@@ -4,3 +4,4 @@ Ahoy
 
 <p>{{@root.data.pdfObject}}</p>
 
+{{#if @root.errors}}\"errors\": {{{safeStringify @root.errors}}},{{/if}}

@@ -8,8 +8,8 @@
   </h2>
 
   <form id="user-details-form" action="/submit-user-details" method="POST" data-ajax-form='{
-      "successCallback": "completeCB",
-      "failureCallback": "completeCB"
+      "successCallback": "completeAccountCB",
+      "failureCallback": "completeAccountCB"
     }'>
 
     {{> account_details_form_fields admin=(compare @root.data.accountInfo.user_type '===' 'Group Admin')}}
@@ -29,18 +29,5 @@
       $('#detail-submit').prop('disabled', true);
     })
   });
-  function completeCB(response){
-    $('#postcode').parent().parent()[0].MDCTextField.foundation_.setValid(true); //Don't ask
-    setTimeout(function() {
-      $('#detail-submit').focus();
-    }, 100)
-    $('#detail-submit').prop('disabled', false);
-    var jsonData = JSON.parse(response);
-    if (jsonData.id){
-      saltireawards.componentsInitialiser.snackbar.show({message:"Profile information updated"});
-    } else {
-      saltireawards.componentsInitialiser.snackbar.show({message:"Failed to update profile, please check form fields filled in correctly"});
-    }
-  }
 
 </script>

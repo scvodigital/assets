@@ -8,15 +8,6 @@
 
     "context.metaData.commonTasks.adminRequired",
     {
-      "name": "claimHoursResult",
-      "taskModule": "render",
-      "renderer": "handlebars",
-      "config": {
-        "output": "data",
-        "template": ">context.metaData.handlebars.templates.tasks_hours-claim-body"
-      }
-    },
-    {
       "name": "destination",
       "taskModule": "renderLayout",
       "renderer": "handlebars",

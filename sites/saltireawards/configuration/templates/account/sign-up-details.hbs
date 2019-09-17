@@ -11,8 +11,8 @@
   </div>
 
   <form id="user-details-form" action="/submit-user-details" method="POST" data-ajax-form='{
-      "successCallback": "completeCB",
-      "failureCallback": "completeCB"
+      "successCallback": "completeAccountCB",
+      "failureCallback": "completeAccountCB"
     }'>
 
     {{>account_details_form_fields admin=data.adminCandidate}}
@@ -33,18 +33,5 @@
     $('#detail-submit').prop('disabled', true);
   })
   });
-  function completeCB(response){
-    var jsonData = JSON.parse(response);
-    if (jsonData.id){
-      if (jsonData.verify){
-        sendVerifyEmail();
-      }
-
-      window.location.href = '/';
-    } else {
-      $('#detail-submit').prop('disabled', false);
-      saltireawards.componentsInitialiser.snackbar.show({message:"Failed to update profile, please check all the form fields have been filled in correctly"});
-    }
-  }
 
 </script>

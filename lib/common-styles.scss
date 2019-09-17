@@ -705,7 +705,7 @@ footer h3,
 
 a {
   text-decoration: none;
-  text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
 }
 a:hover {
   text-decoration: underline;
@@ -1435,7 +1435,7 @@ a {
 .mdc-layout-grid.equal-height .mdc-layout-grid__cell {
   display: flex;
   .mdc-card {
-    justify-content: start;
+    justify-content: flex-start;
     .mdc-card__supporting-text {
       flex: 1 0 auto;
     }

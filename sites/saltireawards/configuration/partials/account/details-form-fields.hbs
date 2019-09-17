@@ -44,23 +44,15 @@
       </div>
     </div>
     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-      {{!-- <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">
-        <input id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
-        <div class="mdc-notched-outline">
-          <div class="mdc-notched-outline__leading"></div>
-          <div class="mdc-notched-outline__notch">
-            <label for="postcode" class="mdc-floating-label">{{#if admin}}Your work postcode{{else}}Home postcode{{/if}}</label>
-          </div>
-          <div class="mdc-notched-outline__trailing"></div>
-        </div>
-      </div> --}}
       <input type="hidden" name="local_authority" id="local_authority" value="{{@root.data.accountInfo.local_authority}}" />
-      <input type="hidden" name="tsi_area" id="tsi_area" value="{{@root.data.tsiArea}}" />
-      <input type="hidden" name="tsi_email" id="tsi_email" value="{{@root.data.tsiContact}}" />
+      <input type="hidden" name="tsi_area" id="tsi_area" value="{{@root.data.accountInfo.tsi_area}}" />
+      <input type="hidden" name="tsi_contact" id="tsi_contact" value="{{@root.data.accountInfo.tsi_contact}}" />
       <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField" style="z-index:100;">
         <span class="far fa-map-marker-alt mdc-text-field__icon postcode-lookup" tabindex="0" title="Find my location"></span>
         <input type="text" id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" placeholder="" data-lpignore="true" data-location-search='{
           "laSelector": "[name=\"local_authority\"]",
+          "tsiAreaSelector": "[name=\"tsi_area\"]",
+          "tsiContactSelector": "[name=\"tsi_contact\"]",
           "locationServicesSelector": ".postcode-lookup"
         }' {{>form_validation_attributes @root.context.metaData.accountInfoValidation.postcode}}>
         <div class="mdc-notched-outline">

@@ -36,7 +36,7 @@
             </h2>
             <form action="/submit-hours" method="POST">
               {{hours}} hours added so far
-              <input type="hidden" name="task_id" value="{{taskId}}">
+              <input type="hidden" name="task_id" value="{{task_id}}">
               <input type="number" step="any" min="0" name="hours">
               <button type="submit" class="mdc-button mdc-button--raised">Add hours</button>
             </form>
@@ -49,7 +49,7 @@
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-4-phone">
             <h2 class="mdc-typography--headline6">
               Volunteering with {{organisation_name}}
-              <span class="mdc-icon-toggle pull-right" data-collapse-target="#{{this.taskId}}-details">
+              <span class="mdc-icon-toggle pull-right" data-collapse-target="#{{this.task_id}}-details">
             <i class="far fa-chevron-up" aria-hidden="false"></i>
         </span>
             </h2>
@@ -57,7 +57,7 @@
         </div>
 
 
-      <div id="{{this.taskId}}-details">
+      <div id="{{this.task_id}}-details">
         {{#if task_description ~}}
           <div
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
@@ -67,7 +67,7 @@
 
         <form action="/submit-group-hours" method="POST">
           <div class="mdc-layout-grid__inner">
-            <input type="hidden" name="task_id" value="{{taskId}}">
+            <input type="hidden" name="task_id" value="{{task_id}}">
             <div
               class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-phone">
               <div class="mdc-text-field mdc-text-field--outlined" data-mdc-auto-init="MDCTextField">

@@ -238,7 +238,7 @@
         "website": "http://www.vabs.org.uk",
         "facebook": "https://www.facebook.com/Voluntary-Action-in-Badenoch-and-Strathspey-650057668387502/"
       },
-      "^(?!(PH(19|2[0-6]))|(IV(1\\s?3|[6-9]|1[01]|1[4-9]|2[03]))|((IV2([4578])|KW(([89]|1[01])|13)|KW14\\s?7([RSTY]))))).*": {
+      "^(?!(PH(19|2[0-6]))|(IV(1\\s?3|[6-9]|1[01]|1[4-9]|2[03]))|((IV2([4578])|KW(([89]|1[01])|13)|KW14\\s?7([RSTY])))).*$": {
         "title": "Highland Third Sector Interface",
         "email": "info@highlandtsi.org.uk",
         "phone": "01349864289",

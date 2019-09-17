@@ -1135,7 +1135,7 @@ a {
   color: $mdc-theme-primary;
   font-weight: $heading-medium-font-weight;
   text-decoration: none;
-  text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
   border-bottom: $unit/5 solid transparent;
   padding-bottom: $unit/20;
 }

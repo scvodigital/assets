@@ -212,7 +212,16 @@
   "highland": {
     "area": "Highland",
     "contacts": {
-      "^(IV2([4578])|KW(([89]|1[01])|13)|KW14\\s?7([RSTY])).*$": {
+      "^KW(1\\s[456]|1[24]).*$": {
+        "title": "Caithness Voluntary group",
+        "email": "volunteering@cvg.org.uk",
+        "phone": "01955603453",
+        "logo": "https://pbs.twimg.com/profile_images/833049137834815489/JwJVTyLn.jpg",
+        "website": "http://www.cvg.org.uk/",
+        "twitter": "https://twitter.com/caithnessvolgrp",
+        "facebook": "https://www.facebook.com/caithvolgroup"
+      },
+      "^(IV2([4578])|KW(([89]|1[01])|13)|KW14\\s7([RSTY])).*$": {
         "title": "Voluntary Groups Sutherland",
         "email": "contact@vges.org.uk",
         "phone": "01408633001",
@@ -221,7 +230,7 @@
         "twitter": "https://twitter.com/VoluntaryGroups",
         "facebook": "https://www.facebook.com/Voluntary.Groups.East.Sutherland"
       },
-      "^IV(1\\s?3|[6-9]|1[01]|1[4-9]|2[03]).*$": {
+      "^IV(1\\s3|[6-9]|1[01]|1[4-9]|2[03]).*$": {
         "title": "Ross-shire Voluntary Action",
         "email": "rva@rossvolact.org.uk",
         "phone": "01349862431",
@@ -238,7 +247,7 @@
         "website": "http://www.vabs.org.uk",
         "facebook": "https://www.facebook.com/Voluntary-Action-in-Badenoch-and-Strathspey-650057668387502/"
       },
-      "^(?!(PH(19|2[0-6]))|(IV(1\\s?3|[6-9]|1[01]|1[4-9]|2[03]))|((IV2([4578])|KW(([89]|1[01])|13)|KW14\\s?7([RSTY])))).*$": {
+      "^(?!(PH(19|2[0-6]))|(IV(1\\s3|[6-9]|1[01]|1[4-9]|2[03]))|((IV2([4578])|KW(([89]|1[01])|13)|KW14\\s7([RSTY])))|(KW(1\\s[456]|1[24]))).*$": {
         "title": "Highland Third Sector Interface",
         "email": "info@highlandtsi.org.uk",
         "phone": "01349864289",

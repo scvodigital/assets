@@ -1,6 +1,6 @@
 {
   "aberdeen": {
-    "area": "Aberdeen",
+    "local_authority": "Aberdeen",
     "contacts": {
       "^.*": {
         "title": "Aberdeen Council of Voluntary Organisations",
@@ -14,7 +14,7 @@
     }
   },
   "aberdeenshire": {
-    "area": "Aberdeenshire",
+    "local_authority": "Aberdeenshire",
     "contacts": {
       "^.*": {
         "title": "Aberdeenshire Voluntary Action",
@@ -28,7 +28,7 @@
     }
   },
   "angus": {
-    "area": "Angus",
+    "local_authority": "Angus",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action Angus",
@@ -42,7 +42,7 @@
     }
   },
   "argyll-bute": {
-    "area": "Argyll &amp; Bute",
+    "local_authority": "Argyll &amp; Bute",
     "contacts": {
       "^.*": {
         "title": "Argyll &amp; Bute TSI",
@@ -56,7 +56,7 @@
     }
   },
   "clackmannanshire": {
-    "area": "Clackmannanshire",
+    "local_authority": "Clackmannanshire",
     "contacts": {
       "^.*": {
         "title": "Clackmannanshire TSI",
@@ -70,7 +70,7 @@
     }
   },
   "dumfries-galloway": {
-    "area": "Dumfries &amp; Galloway",
+    "local_authority": "Dumfries &amp; Galloway",
     "contacts": {
       "^.*": {
         "title": "Third Sector Dumfries and Galloway",
@@ -84,7 +84,7 @@
     }
   },
   "dundee": {
-    "area": "Dundee",
+    "local_authority": "Dundee",
     "contacts": {
       "^.*": {
         "title": "Volunteer Dundee",
@@ -99,7 +99,7 @@
     }
   },
   "east-ayrshire": {
-    "area": "East Ayrshire",
+    "local_authority": "East Ayrshire",
     "contacts": {
       "^.*": {
         "title": "Volunteer Centre East Ayrshire",
@@ -111,7 +111,7 @@
     }
   },
   "east-dunbartonshire": {
-    "area": "East Dunbartonshire",
+    "local_authority": "East Dunbartonshire",
     "contacts": {
       "^.*": {
         "title": "East Dunbartonshire Voluntary Action",
@@ -125,7 +125,7 @@
     }
   },
   "east-lothian": {
-    "area": "East Lothian",
+    "local_authority": "East Lothian",
     "contacts": {
       "^.*": {
         "title": "STRiVE",
@@ -139,7 +139,7 @@
     }
   },
   "east-renfrewshire": {
-    "area": "East Renfrewshire",
+    "local_authority": "East Renfrewshire",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action East Renfrewshire",
@@ -153,7 +153,7 @@
     }
   },
   "edinburgh": {
-    "area": "Edinburgh",
+    "local_authority": "Edinburgh",
     "contacts": {
       "^.*": {
         "title": "Volunteer Edinburgh",
@@ -169,7 +169,7 @@
     }
   },
   "falkirk": {
-    "area": "Falkirk",
+    "local_authority": "Falkirk",
     "contacts": {
       "^.*": {
         "title": "CVS Falkirk",
@@ -182,7 +182,7 @@
     }
   },
   "fife": {
-    "area": "Fife",
+    "local_authority": "Fife",
     "contacts": {
       "^.*": {
         "title": "Fife Voluntary Action",
@@ -196,7 +196,7 @@
     }
   },
   "glasgow": {
-    "area": "Glasgow",
+    "local_authority": "Glasgow",
     "contacts": {
       "^.*": {
         "title": "Volunteer Glasgow",
@@ -210,9 +210,10 @@
     }
   },
   "highland": {
-    "area": "Highland",
+    "local_authority": "Highland",
     "contacts": {
       "^KW(1\\s[456]|1[24]).*$": {
+        "area": "Caithness",
         "title": "Caithness Voluntary group",
         "email": "volunteering@cvg.org.uk",
         "phone": "01955603453",
@@ -222,6 +223,7 @@
         "facebook": "https://www.facebook.com/caithvolgroup"
       },
       "^(IV2([4578])|KW(([89]|1[01])|13)|KW14\\s7([RSTY])).*$": {
+        "area": "Sutherland",
         "title": "Voluntary Groups Sutherland",
         "email": "contact@vges.org.uk",
         "phone": "01408633001",
@@ -231,6 +233,7 @@
         "facebook": "https://www.facebook.com/Voluntary.Groups.East.Sutherland"
       },
       "^IV(1\\s3|[6-9]|1[01]|1[4-9]|2[03]).*$": {
+        "area": "Ross-shire",
         "title": "Ross-shire Voluntary Action",
         "email": "rva@rossvolact.org.uk",
         "phone": "01349862431",
@@ -240,6 +243,7 @@
         "facebook": "https://www.facebook.com/RossVolAct"
       },
       "^PH(19|2[0-6]).*$": {
+        "area": "Badenoch & Strathspey",
         "title": "Voluntary Action in Badenoch & Strathspey",
         "email": "enquiries@vabs.org.uk",
         "phone": "01479873445",
@@ -259,7 +263,7 @@
     }
   },
   "inverclyde": {
-    "area": "Inverclyde",
+    "local_authority": "Inverclyde",
     "contacts": {
       "^.*": {
         "title": "CVS Inverclyde",
@@ -273,7 +277,7 @@
     }
   },
   "midlothian": {
-    "area": "Midlothian",
+    "local_authority": "Midlothian",
     "contacts": {
       "^.*": {
         "title": "Volunteer Midlothian",
@@ -287,7 +291,7 @@
     }
   },
   "moray": {
-    "area": "Moray",
+    "local_authority": "Moray",
     "contacts": {
       "^.*": {
         "title": "TSI Moray",
@@ -301,7 +305,7 @@
     }
   },
   "north-ayrshire": {
-    "area": "North Ayrshire",
+    "local_authority": "North Ayrshire",
     "contacts": {
       "^.*": {
         "title": "The Ayrshire Community Trust",
@@ -314,7 +318,7 @@
     }
   },
   "north-lanarkshire": {
-    "area": "North Lanarkshire",
+    "local_authority": "North Lanarkshire",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action North Lanarkshire",
@@ -328,7 +332,7 @@
     }
   },
   "orkney": {
-    "area": "Orkney",
+    "local_authority": "Orkney",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action Orkney",
@@ -342,7 +346,7 @@
     }
   },
   "perth-kinross": {
-    "area": "Perth &amp; Kinross",
+    "local_authority": "Perth &amp; Kinross",
     "contacts": {
       "^.*": {
         "title": "Perth and Kinross Association of Voluntary Service",
@@ -357,7 +361,7 @@
     }
   },
   "renfrewshire": {
-    "area": "Renfrewshire",
+    "local_authority": "Renfrewshire",
     "contacts": {
       "^.*": {
         "title": "Engage Renfrewshire",
@@ -371,7 +375,7 @@
     }
   },
   "scottish-borders": {
-    "area": "Scottish Borders",
+    "local_authority": "Scottish Borders",
     "contacts": {
       "^.*": {
         "title": "Volunteer Centre Borders",
@@ -385,7 +389,7 @@
     }
   },
   "shetland": {
-    "area": "Shetland",
+    "local_authority": "Shetland",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action Shetland",
@@ -400,7 +404,7 @@
     }
   },
   "south-ayrshire": {
-    "area": "South Ayrshire",
+    "local_authority": "South Ayrshire",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action South Ayrshire",
@@ -415,7 +419,7 @@
     }
   },
   "south-lanarkshire": {
-    "area": "South Lanarkshire",
+    "local_authority": "South Lanarkshire",
     "contacts": {
       "^.*": {
         "title": "Voluntary Action South Lanarkshire",
@@ -429,7 +433,7 @@
     }
   },
   "stirling": {
-    "area": "Stirling",
+    "local_authority": "Stirling",
     "contacts": {
       "^.*": {
         "title": "Stirlingshire Voluntary Enterprise",
@@ -443,7 +447,7 @@
     }
   },
   "west-dunbartonshire": {
-    "area": "West Dunbartonshire",
+    "local_authority": "West Dunbartonshire",
     "contacts": {
       "^.*": {
         "title": "West Dunbartonshire CVS",
@@ -457,7 +461,7 @@
     }
   },
   "west-lothian": {
-    "area": "West Lothian",
+    "local_authority": "West Lothian",
     "contacts": {
       "^.*": {
         "title": "Voluntary Sector Gateway West Lothian",
@@ -470,7 +474,7 @@
     }
   },
   "na-h-eileanan-siar": {
-    "area": "Na h-Eileanan Siar",
+    "local_authority": "Na h-Eileanan Siar",
     "contacts": {
       "^HS(1|2).*": {
         "title": "Volunteer Centre Western Isles - Lewis",

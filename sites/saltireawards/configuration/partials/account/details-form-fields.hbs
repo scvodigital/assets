@@ -55,6 +55,8 @@
         </div>
       </div> --}}
       <input type="hidden" name="local_authority" id="local_authority" value="{{@root.data.accountInfo.local_authority}}" />
+      <input type="hidden" name="tsi_area" id="tsi_area" value="{{@root.data.tsiArea}}" />
+      <input type="hidden" name="tsi_email" id="tsi_email" value="{{@root.data.tsiContact}}" />
       <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon" data-mdc-auto-init="MDCTextField" style="z-index:100;">
         <span class="far fa-map-marker-alt mdc-text-field__icon postcode-lookup" tabindex="0" title="Find my location"></span>
         <input type="text" id="postcode" name="postcode" class="mdc-text-field__input mdc-text-field--fullwidth" value="{{@root.data.accountInfo.postcode}}" placeholder="" data-lpignore="true" data-location-search='{

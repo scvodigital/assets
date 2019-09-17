@@ -1,8 +1,8 @@
 {{#if @root.data.accountInfo.local_authority ~}}
 {{#with (getProperty @root.context.metaData.tsiList (slugify @root.data.accountInfo.local_authority)) ~}}
-Your {{#compare @root.data.accountInfo.user_type "Group Admin"}}TSI{{else}}Saltire{{/compare}} contact is
 {{#each contacts ~}}
 {{#if (regexMatch @root.data.accountInfo.postcode @key "gi") ~}}
+Your {{#compare @root.data.accountInfo.user_type "Group Admin"}}{{#if area}}{{area}}{{else}}{{../local_authority}}{{/if}} TSI{{else}}Saltire{{/compare}} contact is
 <strong>{{title}}</strong>.<br />
 {{#if phone}}Phone: {{phone}}<br />{{/if}}
 {{#if email}}Email: <a href="mailto:{{email}}">{{email}}</a><br />{{/if}}

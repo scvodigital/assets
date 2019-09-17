@@ -9,6 +9,8 @@
     "context.metaData.commonTasks.authRequired",
     "context.metaData.commonTasks.getSignUpStatus",
     "context.metaData.commonTasks.getAccountInfo",
+    "context.metaData.commonTasks.getTsiContact",
+    "context.metaData.commonTasks.getTsiArea",
     "context.metaData.commonTasks.fullSignUpRequired",
     {
       "name": "destination",
